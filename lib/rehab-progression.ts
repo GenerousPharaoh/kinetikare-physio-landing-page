@@ -96,9 +96,9 @@ export const REHAB_SCOPE_NOTES: Record<string, string> = {
   'rotator-cuff-injuries':
     'These phases are for rotator cuff pain and tears managed without surgery. After a rotator cuff repair, your surgeon\'s and rehabilitation team\'s protocol takes precedence over this page: active lifting and resistance exercise are usually restricted for several weeks while the repair heals, even when they feel comfortable. Do not use these phases or their timing as a post-operative schedule.',
   'disc-herniation':
-    'These exercise examples are for disc problems in the lower back. A disc problem in the neck needs a different assessment and programme. Clumsy hands, arm or leg weakness that is getting worse, or a change in your walking or balance need a same-day medical assessment before any exercise.',
+    'These exercise examples are for disc problems in the lower back. A disc problem in the neck needs a different assessment and programme. New or worsening hand clumsiness, arm or leg weakness, or trouble walking or balancing needs a same-day medical assessment before any exercise. If these changes start suddenly, worsen rapidly, or make walking difficult, go to emergency now. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now.',
   'thoracic-outlet-syndrome':
-    'These phases are for neurogenic thoracic outlet syndrome, where the nerves are irritated. Sudden swelling or a bluish colour in the arm, or a pale, cold hand or weak pulse, point to a blood vessel problem: go to emergency now and do not use this programme. Weakness or visible wasting of the hand muscles that is significant or getting worse needs a medical opinion first, because it can change the order of treatment.',
+    'These phases are for neurogenic thoracic outlet syndrome, where the nerves are irritated. Sudden swelling or a bluish colour in the arm, or a pale, cold hand or weak pulse, point to a blood vessel problem: go to emergency now and do not use this programme. Weakness or visible wasting of the hand muscles that is significant or slowly getting worse needs a medical opinion first, because it can change the order of treatment. Weakness that gets worse rapidly needs emergency care now, and sudden unexplained weakness or numbness in an arm, even if it improves, can be a stroke: call 911 now.',
   'shoulder-instability':
     'These phases suit gradual-onset or multidirectional instability and the later stages of recovery. After an acute, first-time dislocation, get it reduced, imaged to exclude a fracture, and assessed before loading. After stabilisation surgery, follow your surgeon\'s protocol rather than this general guide.',
   'stress-fractures':
@@ -108,7 +108,7 @@ export const REHAB_SCOPE_NOTES: Record<string, string> = {
   'wrist-sprains':
     'These phases are for stable wrist sprains, once a fracture and significant ligament instability have been ruled out. A suspected scaphoid fracture, or a significant scapholunate or TFCC tear, needs its own protection plan from your doctor or hand surgeon first, and after ligament surgery your surgeon\'s protocol takes precedence. Keep movement exercises such as the dart thrower\'s arc within the range a clinician has set for your injury.',
   'turf-toe':
-    'These phases suit Grade I and II sprains of the big toe joint. A Grade III injury (a complete tear), a toe that is unstable or out of line, or a suspected fracture needs a medical and foot and ankle surgeon\'s assessment first, and usually a longer period of protection than this general guide shows.',
+    'These examples are for assessed Grade I and II big-toe sprains. The injury grade and any prescribed boot, cast or weight-bearing restrictions determine when movement and loading begin. A complete tear, an unstable or displaced toe, or suspected fracture needs medical assessment and may need specialist care. After surgery, follow the surgical team\'s plan.',
   'meniscus-tears':
     'These phases are for meniscus tears managed without surgery, and for the later stages after a partial meniscectomy once your surgeon has cleared you. After a meniscus repair, deep bending and loaded squatting are usually restricted for several weeks, so follow your surgeon\'s protocol rather than this general timeline.',
   'patella-fractures':
@@ -120,5 +120,5 @@ export const REHAB_SCOPE_NOTES: Record<string, string> = {
   'hip-bursitis':
     'This outline is mainly for pain over the outside of the hip that is not caused by infection, which often involves the gluteal tendons as well as a bursa. Pain at the front of the hip or in the groin, a new injury, or a hot, red or swollen hip, especially with a fever or feeling unwell, needs a separate assessment first.',
   'growth-plate-injuries':
-    'This progression is for overuse growth-plate irritation (apophysitis, such as Osgood-Schlatter or Sever\'s disease). A suspected acute growth-plate fracture or a slipped capital femoral epiphysis needs imaging and orthopaedic clearance before any loading, so have a new or significant injury assessed first.',
+    'This progression is for overuse growth-plate irritation (apophysitis, such as Osgood-Schlatter or Sever\'s disease). A suspected acute growth-plate fracture needs imaging and orthopaedic clearance before any loading, so have a new or significant injury assessed first. If a slipped growth plate at the hip (SCFE) is suspected, do not let the child walk on the leg, and seek emergency assessment today.',
 };

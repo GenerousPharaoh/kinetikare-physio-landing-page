@@ -195,7 +195,7 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
                   {phase.progressionCriteria && (
                     <div className="border-l-2 border-l-[#B08D57] pl-4">
                       <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-[#8A6F0A] mb-1">
-                        Ready to progress when
+                        Possible progression milestones
                       </p>
                       <p className="m-0 text-base text-slate-700 leading-relaxed max-w-[72ch]">
                         <GlossaryText text={phase.progressionCriteria} usedTerms={usedTerms} />

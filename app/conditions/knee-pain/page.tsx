@@ -220,8 +220,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Seek same-day medical assessment to rule out a joint infection or gout, or go to emergency if you feel unwell. Infection is possible even without a fever.',
   },
   {
-    sign: 'A child or teenager with a new limp and knee, thigh or hip pain',
-    action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) can show up as knee pain and needs urgent assessment.',
+    sign: 'A child or teenager with a new limp that has no clear explanation',
+    action: 'Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the thigh or knee.',
+  },
+  {
+    sign: 'A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell',
+    action: 'Go to emergency now.',
+  },
+  {
+    sign: 'A suspected slipped growth plate at the hip (slipped capital femoral epiphysis, or SCFE)',
+    action: 'Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk.',
   },
   {
     sign: 'Locked knee that cannot be straightened or bent fully',

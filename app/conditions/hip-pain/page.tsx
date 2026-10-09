@@ -194,8 +194,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Go to emergency to rule out hip or pelvic fracture, especially if over 65 or on bone-affecting medication.',
   },
   {
-    sign: 'A child or teenager with a new limp, or hip, groin, thigh or knee pain that limits walking',
-    action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) needs urgent assessment, and other childhood hip conditions need a doctor to check them too.',
+    sign: 'A child or teenager with a new limp that has no clear explanation',
+    action: 'Get a prompt medical assessment before starting exercises. Several childhood hip conditions need a doctor to check them, and hip problems can be felt in the thigh or knee.',
+  },
+  {
+    sign: 'A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell',
+    action: 'Go to emergency now.',
+  },
+  {
+    sign: 'A suspected slipped growth plate at the hip (slipped capital femoral epiphysis, or SCFE)',
+    action: 'Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk.',
   },
   {
     sign: 'New trouble passing urine, loss of bladder or bowel control, or numbness around the genitals, buttocks or inner thighs',
@@ -238,7 +246,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'When should I worry about hip pain?',
     answer:
-      'Most hip pain is mechanical, but some patterns need medical care first. Go to emergency if you cannot put weight on the leg after a fall, if you have new bladder or bowel changes or numbness around the genitals, or if a child or teenager has a new limp with hip, thigh or knee pain (keep them off the leg). Get medical assessment the same day for a fever or a hot, swollen hip, leg weakness that is getting worse, or groin pain in a runner that builds with each run (stop running and keep weight off the leg until it is checked). See your family doctor before physiotherapy for unexplained weight loss or pain that is severe and unrelieved by any position.',
+      'Most hip pain is mechanical, but some patterns need medical care first. Go to emergency if you cannot put weight on the leg after a fall, or if you have new bladder or bowel changes or numbness around the genitals. An unexplained new limp in a child or teenager needs prompt medical assessment before starting exercises. Take them to emergency now for sudden hip, thigh or knee pain, being unable to bear weight, a leg that looks deformed, or a fever with feeling unwell. If a slipped growth plate at the hip (SCFE) is suspected, do not let the child walk on the leg, and seek emergency assessment today; in a teenager it can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk. Get medical assessment the same day for a fever or a hot, swollen hip, leg weakness that is getting worse, or groin pain in a runner that builds with each run (stop running and keep weight off the leg until it is checked). See your family doctor before physiotherapy for unexplained weight loss or pain that is severe and unrelieved by any position.',
   },
   {
     question: 'What causes hip pain at night?',

@@ -155,8 +155,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Get same-day assessment at urgent care or emergency for a significant knee injury. The clinician examines the knee and, where appropriate, uses the Ottawa Knee Rules to decide whether an X-ray is needed for a fracture. Ligament or cartilage injuries need their own examination and sometimes later imaging.',
   },
   {
-    sign: 'A child or teenager with a new limp and knee, thigh or hip pain, or who is limping and unwell',
-    action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) can show up as knee pain, and a limping child who is unwell can have a bone or joint infection.',
+    sign: 'A child or teenager with a new limp that has no clear explanation',
+    action: 'Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the thigh or knee.',
+  },
+  {
+    sign: 'A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell',
+    action: 'Go to emergency now. A limping child who is unwell can have a bone or joint infection.',
+  },
+  {
+    sign: 'A suspected slipped growth plate at the hip (slipped capital femoral epiphysis, or SCFE)',
+    action: 'Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk.',
   },
   {
     sign: 'Night pain that is not related to position, with unexplained weight loss',
@@ -184,7 +192,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'My teenager has a painful bump right below their kneecap. Is that serious?',
     answer:
-      'A gradual, tender bump at the top of the shinbone can fit Osgood-Schlatter disease, an irritation of the growth area where the patellar tendon attaches. It is often managed with activity changes and knee strengthening: in a case series of 51 adolescents aged 10 to 14, Rathleff and colleagues (Orthopaedic Journal of Sports Medicine, 2020) reported 80 percent with a successful outcome at 12 weeks and 90 percent at one year with that approach. A sudden painful injury, being unable to straighten the knee, or difficulty bearing weight needs same-day medical assessment. A child who is limping and unwell, or who has a new limp with hip or thigh pain, needs to go to emergency.',
+      'A gradual, tender bump at the top of the shinbone can fit Osgood-Schlatter disease, an irritation of the growth area where the patellar tendon attaches. It is often managed with activity changes and knee strengthening: in a case series of 51 adolescents aged 10 to 14, Rathleff and colleagues (Orthopaedic Journal of Sports Medicine, 2020) reported 80 percent with a successful outcome at 12 weeks and 90 percent at one year with that approach. A sudden painful injury, being unable to straighten the knee, or difficulty bearing weight needs same-day medical assessment. An unexplained new limp in a child or teenager needs prompt medical assessment before starting exercises. Take them to emergency now for sudden hip, thigh or knee pain, being unable to bear weight, a leg that looks deformed, or a fever with feeling unwell. If a slipped growth plate at the hip (SCFE) is suspected, do not let the child walk on the leg, and seek emergency assessment today; in a teenager it can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk.',
   },
   {
     question: 'Does imaging help if the pain is right below the kneecap?',

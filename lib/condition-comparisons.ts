@@ -502,8 +502,16 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
         action: 'See your family doctor promptly.',
       },
       {
-        sign: 'In a child or teenager, a new limp with knee, thigh or hip pain',
-        action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) can show up as knee pain and needs urgent assessment.',
+        sign: 'A child or teenager with a new limp that has no clear explanation',
+        action: 'Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the thigh or knee.',
+      },
+      {
+        sign: 'A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell',
+        action: 'Go to emergency now.',
+      },
+      {
+        sign: 'A suspected slipped growth plate at the hip (slipped capital femoral epiphysis, or SCFE)',
+        action: 'Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk.',
       },
     ],
     relatedTreatmentIds: [
@@ -633,7 +641,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'Red-flag screening',
-        aForA: 'Saddle numbness or new bladder and bowel changes mean going to emergency now to check for cauda equina syndrome. Leg weakness that is getting worse needs same-day medical assessment. These are rare, but the screen is always part of the first visit.',
+        aForA: 'New numbness between the legs, new bladder or bowel changes, or severe or rapidly worsening weakness in both legs mean going to emergency now to check for cauda equina syndrome. Pain that suddenly starts down both legs needs contact with a medical clinician today, and a new foot drop or worsening weakness in one leg needs same-day medical assessment. These are rare, but the screen is always part of the first visit.',
         aForB: 'Red flags are uncommon from piriformis alone. Persistent deep buttock pain with night pain or systemic symptoms still warrants a broader screen.',
       },
     ],
@@ -679,12 +687,20 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       "Both can coexist, and a long-standing low back problem can sit alongside deep gluteal irritability. A person with a previous disc episode can later develop piriformis-dominant symptoms, and someone with long-standing piriformis pain can eventually pick up secondary low-back stiffness. That is why I screen the lumbar spine, SI joint, hip, and deep gluteal region on the first visit rather than assuming the label.",
     redFlags: [
       {
-        sign: 'Numbness in the groin, genitals, or inner thighs (the saddle area), or new difficulty controlling the bladder or bowel',
+        sign: 'New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs',
         action: 'Go to emergency now. These can be signs of cauda equina syndrome.',
       },
       {
-        sign: 'Leg weakness or foot drop that is getting worse, or symptoms in both legs',
+        sign: 'Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above',
+        action: 'Contact a medical clinician today for a same-day assessment.',
+      },
+      {
+        sign: 'A new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse',
         action: 'Same-day medical assessment.',
+      },
+      {
+        sign: 'Sudden unexplained weakness or numbness in an arm or leg, even if it improves',
+        action: 'Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment.',
       },
       {
         sign: 'Fever, unexplained weight loss, a history of cancer, or constant pain at night that does not ease with rest',
@@ -722,7 +738,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'Is sciatica dangerous?',
         answer:
-          "Most sciatica is not dangerous and settles with time and targeted rehab. Saddle numbness (numbness in the groin, genitals or inner thighs) or new loss of bladder or bowel control can be signs of cauda equina syndrome: go to emergency now rather than booking a physiotherapy visit. Leg weakness that is getting worse needs same-day medical assessment.",
+          "Most sciatica is not dangerous and settles with time and targeted rehab. Go to emergency now, rather than booking a physiotherapy visit, for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs. A new foot drop or worsening weakness in one leg needs same-day medical assessment. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now.",
       },
       {
         question: 'How long does each typically take to settle?',
@@ -870,8 +886,16 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
         action: 'Seek same-day medical care to rule out a joint infection, or go to emergency if you feel unwell. Infection is possible even without a fever.',
       },
       {
-        sign: 'In a child or teenager, a new limp with hip, groin, thigh, or knee pain',
-        action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) needs urgent assessment.',
+        sign: 'A child or teenager with a new limp that has no clear explanation',
+        action: 'Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the thigh or knee.',
+      },
+      {
+        sign: 'A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell',
+        action: 'Go to emergency now.',
+      },
+      {
+        sign: 'A suspected slipped growth plate at the hip (slipped capital femoral epiphysis, or SCFE)',
+        action: 'Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk.',
       },
       {
         sign: 'Unexplained weight loss, a history of cancer, or constant night pain',
@@ -1239,11 +1263,11 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
         action: 'Possible proximal hamstring avulsion. Get an urgent surgical opinion within days, through your family doctor, a sports medicine physician or emergency. Not every avulsion needs surgery, but if repair is chosen it is easier when done early.',
       },
       {
-        sign: 'Numbness in the groin, genitals, or inner thighs (the saddle area), or new difficulty controlling the bladder or bowel',
+        sign: 'New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs',
         action: 'Go to emergency now. These can be signs of cauda equina syndrome.',
       },
       {
-        sign: 'Leg weakness or foot drop that is getting worse',
+        sign: 'A new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse',
         action: 'Same-day medical assessment.',
       },
       {

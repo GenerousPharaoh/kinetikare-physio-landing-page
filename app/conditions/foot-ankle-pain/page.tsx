@@ -234,8 +234,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Go to emergency now. These point to fracture, dislocation, or a compromised blood or nerve supply that needs immediate care.',
   },
   {
-    sign: 'A foot or toe that suddenly turns cold, pale or blue, especially with severe pain, numbness or weakness, even without an injury',
-    action: 'Go to emergency now. This can mean the blood supply is blocked. If colour or feeling changes only during exercise and fully settles with rest, stop that activity and arrange a prompt medical assessment.',
+    sign: 'A foot that suddenly becomes unusually cold, pale or blue, or a toe with a new colour change that persists, especially with pain, numbness or weakness, even without an injury',
+    action: 'Go to emergency now. This can mean the blood supply is blocked.',
+  },
+  {
+    sign: 'A familiar, brief colour change in the toes triggered by cold, already diagnosed as Raynaud\'s',
+    action: 'Follow your existing care plan. New, persistent or unusually severe changes need medical assessment, and the emergency signs above still apply. Do not assume an unexplained change is Raynaud\'s.',
+  },
+  {
+    sign: 'Colour or feeling changes in the foot that come on only during exercise and fully settle with rest',
+    action: 'Stop that activity and arrange a prompt medical assessment.',
   },
   {
     sign: 'A sudden pop or a feeling of being kicked at the back of the ankle, with difficulty pushing off or rising onto the toes',
@@ -258,8 +266,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Contact your physician or foot care team within one working day. If redness is spreading or you feel unwell with a fever, go to emergency now. Reduced feeling means damage can progress without the usual pain warning.',
   },
   {
-    sign: 'Progressive numbness or weakness, a foot that catches or drops when walking, or symptoms spreading up the leg',
-    action: 'See your physician for nerve assessment, since the source may sit in the low back or at the knee rather than the foot. Sudden or rapidly worsening weakness needs urgent care the same day.',
+    sign: 'Sudden unexplained weakness or numbness in an arm or leg, even if it improves',
+    action: 'Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment.',
+  },
+  {
+    sign: 'A new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse',
+    action: 'Get a medical assessment the same day. The source may sit in the low back or at the knee rather than the foot.',
+  },
+  {
+    sign: 'Numbness that is slowly getting worse, or symptoms spreading up the leg',
+    action: 'See your physician for nerve assessment, since the source may sit in the low back or at the knee rather than the foot.',
   },
   {
     sign: 'Night pain that wakes you, unexplained weight loss, or new foot pain with a history of cancer',
@@ -277,7 +293,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need an X-ray for a rolled ankle?',
     answer:
-      'Many rolled ankles do not need one. The Ottawa Ankle Rules are the standard screening tool a clinician applies, and they ask two separate questions: could you take four steps straight after the injury and at the assessment, and is a specific point on the ankle or midfoot bones tender to press. Either one on its own is enough to consider an X-ray. When neither is present, a fracture is very unlikely and rehabilitation can start. I apply that screen at the first visit, and when it is positive I refer you to your family doctor or urgent care for an X-ray.',
+      'Many rolled ankles do not need an X-ray. A clinician uses the Ottawa Ankle Rules for the painful ankle or midfoot area. An X-ray may be needed if you could not take four steps both immediately after the injury and at assessment, or if one of the specific bony points is tender. Being able to walk does not cancel out that bony tenderness. The examination also checks for injuries these rules do not cover. If imaging is needed, I refer you to your family doctor or urgent care.',
   },
   {
     question: 'How long does plantar fasciitis take to settle?',

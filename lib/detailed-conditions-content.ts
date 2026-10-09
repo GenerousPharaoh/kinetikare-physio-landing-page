@@ -33,6 +33,7 @@ const standardMeasuringProgress = {
 
 export const detailedConditionsContent: Record<string, Partial<Condition>> = {
   'low-back-pain': {
+    summary: `Low back pain is pain between the bottom of the ribs and the buttocks. Most episodes are called non-specific because a particular disease or injured structure cannot be confidently identified as the cause. Pain often changes with movement or position, and stiffness can make everyday tasks uncomfortable.`,
     pathophysiology: `Most low back pain is called non-specific or mechanical. It comes from the joints, discs, muscles and ligaments of the lower back, and a scan rarely pins it to one structure. Discs and joints change with age in people with and without pain, so those changes on their own do not explain the pain.
 
 When pain lasts beyond about 3 months, the nervous system can become more sensitive, so movements that were once comfortable start to hurt. That is a change in sensitivity, not a sign of new damage. A smaller group develop nerve root irritation with leg pain (sciatica), and some have pain that behaves more like the facet or sacroiliac joints. Each of those has its own page.`,
@@ -152,12 +153,20 @@ What does matter is variety and capacity. Long stretches in any one position ten
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in the saddle area (between the legs or around the back passage), new trouble passing urine, new loss of bladder or bowel control, or sciatica in both legs",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
-        sign: "Leg weakness that is getting worse, or a foot that drops or slaps when you walk",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse",
         action: "Same-day medical assessment"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Back pain with a history of cancer, or unexplained weight loss",
@@ -274,7 +283,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
       },
       {
         question: "When should I be worried about back pain?",
-        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or sciatica in both legs. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse or a foot that drops or slaps when you walk. See your family doctor before starting physiotherapy for unexplained weight loss, severe unrelenting night pain, or a history of cancer, and get assessed the same day for fever with back pain."
+        answer: "Go to emergency now for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, or severe or rapidly worsening weakness in both legs. New loss of genital sensation or sexual function with back or leg pain also needs emergency assessment. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs. A new foot drop (the foot catches or slaps when you walk) or worsening weakness in one leg needs a same-day medical assessment. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now. See your family doctor before starting physiotherapy for unexplained weight loss, severe unrelenting night pain, or a history of cancer, and get assessed the same day for fever with back pain."
       }
     ],
 
@@ -323,6 +332,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
   },
 
   'neck-pain': {
+    summary: `Neck pain can involve an ache, stiffness or difficulty turning the head. It may spread toward the shoulder or occur with a headache, and long periods in one position can aggravate it. An assessment looks at your symptoms, movement and nerve function to help decide what care is appropriate.`,
     lastReviewed: '2026-04-16',
     pathophysiology: `Neck pain involves interactions between the joints, muscles and nerves of the neck. In long-standing neck pain, the deep neck muscles often show less endurance, and the larger muscles near the surface can work harder.
 
@@ -439,12 +449,16 @@ What tends to help is variety and capacity: changing position often, moving the 
         action: "Go to emergency now to rule out a fracture"
       },
       {
-        sign: "Clumsy or numb hands, trouble with buttons or handwriting, a change in your walking or balance, or new bladder problems",
-        action: "Same-day medical assessment. These can be signs of pressure on the spinal cord"
+        sign: "New or worsening hand clumsiness or numbness (such as trouble with buttons or handwriting), arm or leg weakness, trouble walking or balancing, or new bladder problems",
+        action: "Same-day medical assessment before any exercise. These can be signs of pressure on the spinal cord"
       },
       {
-        sign: "Arm weakness that is getting worse",
-        action: "Same-day medical assessment"
+        sign: "Any of those changes starting suddenly, getting worse rapidly, or making walking difficult",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Neck pain with fever, feeling very unwell, or a stiff neck that stops you bending your chin to your chest",
@@ -494,6 +508,7 @@ What tends to help is variety and capacity: changing position often, moving the 
   },
 
   'sciatica': {
+    summary: `Sciatica is pain travelling from the lower back or buttock down the leg, usually from irritation of a nerve root in the lower back. Numbness, tingling or weakness can accompany it. Sitting, bending or coughing may aggravate symptoms; for others, standing or walking does. The pattern depends on the underlying problem.`,
     pathophysiology: `Sciatica describes pain along the sciatic nerve path, usually from compression or irritation at the spine level. The nerve can be affected by disc material, bone spurs, or tight muscles along its path. Similar to general low back pain, sciatica often involves disc dysfunction, but with the added complexity of nerve root compression or irritation.
 
 When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates. In some cases, sciatica occurs alongside degenerative disc disease or spinal stenosis, so the assessment looks at all of them.`,
@@ -618,12 +633,20 @@ Something I often see hold people back is the instinct to rest flat and wait it 
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in the saddle area (between the legs or around the back passage), new trouble passing urine, new loss of bladder or bowel control, or sciatica in both legs",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
-        sign: "Leg weakness that is getting worse, or a foot that drops or slaps when you walk",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse",
         action: "Same-day medical assessment"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Leg pain with a history of cancer, unexplained weight loss, or constant pain at night",
@@ -672,7 +695,7 @@ Something I often see hold people back is the instinct to rest flat and wait it 
       },
       {
         question: "When should I worry about sciatica?",
-        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or sciatica in both legs. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse or a foot that drops or slaps when you walk. Severe, unrelenting night pain, unexplained weight loss or a history of cancer need a medical review before physiotherapy, and fever with back pain needs one the same day."
+        answer: "Go to emergency now for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, or severe or rapidly worsening weakness in both legs. New loss of genital sensation or sexual function with back or leg pain also needs emergency assessment. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs. A new foot drop (the foot catches or slaps when you walk) or worsening weakness in one leg needs a same-day medical assessment. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now. Severe, unrelenting night pain, unexplained weight loss or a history of cancer need a medical review before physiotherapy, and fever with back pain needs one the same day."
       },
       {
         question: "Does sciatica always come from a disc?",
@@ -744,6 +767,7 @@ Something I often see hold people back is the instinct to rest flat and wait it 
   },
 
   'rotator-cuff-injuries': {
+    summary: `The rotator cuff is a group of muscles and tendons that steady the shoulder and help lift and turn the arm. Problems include tendon pain and partial or full tears. Reaching overhead and lying on that side often hurt. This page also discusses recovery after surgical repair, which needs a separate rehabilitation plan.`,
     clinicalObservations: {
       body: `With the gradual, wear-related cuff problems I see most often, early progress is usually a good sign: being able to build pain-free force on an isometric hold within a visit or two, and night pain easing over a couple of weeks. When that happens, the tendon is likely to respond to loading, whatever the scan named. Painless weakness after a sudden fall, where the arm will not lift, is a different problem, and one I refer on quickly for an orthopaedic opinion.
 
@@ -1030,6 +1054,7 @@ Age plays a part, because tendons change over the decades and cuff changes are c
   },
 
   'tennis-elbow': {
+    summary: `Tennis elbow (lateral epicondylalgia) is pain on the outside of the elbow, where the tendons that lift the wrist attach to the bone. Most people who have it do not play tennis; symptoms are often linked to gripping, lifting and wrist use. Shaking hands, lifting a cup or turning a door handle can hurt.`,
     clinicalObservations: {
       body: `A pattern I see often is people expecting this to clear up in a couple of weeks, then getting frustrated when it does not. For most people it is the dominant arm, so full rest rarely happens, and the elbow can stay irritated enough that it does not settle on its own. Flare-ups are often about the total grip load across a day rather than one bad movement. When someone in Burlington tells me it felt fine at work but flared while washing dishes that night, that is often the whole day's load showing up, not that one task.
 
@@ -1305,7 +1330,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
           "Scapular setting and row variations with a light band, 3 sets of 10, addressing upstream shoulder support",
           "Workstation or tool adjustments: mouse switched to vertical or moved closer to the keyboard, chair and desk height checked, micro-breaks every 20 to 30 minutes during gripping tasks"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: isometric holds comfortable (around 3 out of 10 or less), no more than mild next-day soreness after sessions for a full week, and grip on everyday tasks such as carrying a coffee mug or opening a door no longer provoking sharp pain."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: isometric holds comfortable, no more than mild next-day soreness after sessions over several days in a row, and grip on everyday tasks such as carrying a coffee mug or opening a door no longer provoking sharp pain."
       },
       phase2: {
         title: "Phase 2: Progressive Loading of the Wrist Extensors (Weeks 3 to 8)",
@@ -1317,7 +1342,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
           "Progressive grip work using a grip trainer or towel squeezes across increasing wrist extension angles, 3 sets of 10",
           "Continued scapular and rotator cuff strengthening, 2 to 3 sets of 10 to 12, to reduce compensatory distal loading"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: pain-free grip strength closer to the unaffected side, no 24-hour flare from heavier sessions for at least 2 consecutive weeks, and the PRTEE questionnaire score clearly tracking downward from baseline."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: pain-free grip strength closer to the unaffected side, heavier sessions settling without a 24-hour flare over several weeks, and the PRTEE questionnaire score clearly tracking downward from baseline."
       },
       phase3: {
         title: "Phase 3: Return to Full Work, Sport, and Heavier Loading (Weeks 8 to 16+)",
@@ -1329,7 +1354,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
           "Ongoing Tyler protocol or heavy slow resistance wrist work 2 times per week as maintenance during return to sport",
           "Review of ergonomic set-up once symptoms are controlled, to confirm the load environment has actually changed"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: low pain (around 2 out of 10 or less) during full work or sport demands, grip strength close to the other side, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: low pain during full work or sport demands, grip strength close to the other side, and a sustained return to full duties without a 24-hour symptom flare."
       }
     },
     lastReviewed: '2026-04-16',
@@ -1337,6 +1362,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
   },
 
   'plantar-fasciitis': {
+    summary: `Plantar fasciitis, also called plantar fasciopathy, is pain where the thick band of tissue under the foot (the plantar fascia) attaches to the heel. It is usually sharpest with the first steps in the morning or after sitting and eases as you move. Heel spurs can show on X-rays, including in people without heel pain.`,
     pathophysiology: `Plantar fasciopathy (commonly called plantar fasciitis) is a degenerative condition affecting the plantar fascia origin at the heel bone, characterized by thickening and disorganized collagen structure rather than acute inflammation. The plantar fascia is a thick fibrous band that supports the foot's medial longitudinal arch and acts as a shock absorber during weight-bearing activities.
 
 The condition develops when cumulative mechanical stress on the fascia exceeds its adaptive capacity, leading to a failed healing response. This results in small tears, tissue degeneration, and thickening at the calcaneal insertion point. Despite the name "fasciitis," the pathology is primarily degenerative (fasciopathy) rather than inflammatory, similar to other chronic tendon conditions.
@@ -1564,7 +1590,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
       },
       {
         question: "Can I keep running with plantar fasciitis?",
-        answer: "Often yes, with adjustments. If pain during a run stays at or below about 4 out of 10, settles within 24 hours, and does not rise week over week, running can usually continue. Those limits are a clinical guide I adjust for each person, not proof that running is safe for every heel. Easing volume by around 30 percent, running on softer surfaces, and avoiding aggressive hill or speed work early on usually keeps things manageable. If the pain pattern does not meet those conditions, a brief pause with cross-training often gets the runner back to normal volume faster than pushing through."
+        answer: "Often yes, with adjustments, once the heel has been assessed. One way to monitor it: pain during a run stays mild, settles within 24 hours, and does not rise week over week. These are example monitoring limits, not proof that running is safe for every cause of pain. Reducing volume, running on softer surfaces, and avoiding hard hill or speed work early on can keep things manageable. If the pain does not stay within those limits, a short pause with cross-training often gets a runner back to normal volume faster than pushing through."
       }
     ],
 
@@ -1579,7 +1605,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
           "Seated heel raises for the soleus with the knee bent to roughly 90 degrees, 3 sets of 15",
           "Activity pacing: reduce prolonged standing blocks, rotate supportive footwear, introduce short walking breaks during long standing periods"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: morning first-step pain low (around 4 out of 10 or less) for about a week, tolerance of a 20 to 30 minute walk without escalating pain, and no next-day symptom rise after stretching and early loading sessions."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: morning first-step pain low and settling over several days, a longer walk tolerated without escalating pain, and no next-day symptom rise after stretching and early loading sessions."
       },
       phase2: {
         title: "Phase 2: High-Load Strength Training (Weeks 4 to 12)",
@@ -1591,7 +1617,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
           "Hip abductor and glute max strengthening to offload the lower chain, 3 sets of 10 to 12",
           "Supportive footwear during higher-load daily standing periods, with or without an over-the-counter orthosis"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: Foot Function Index improving meaningfully from baseline, loaded single-leg heel raises tolerated with low pain (around 3 out of 10 or less), and consistent tolerance of normal walking and standing demands without next-day flares."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: Foot Function Index improving meaningfully from baseline, loaded single-leg heel raises tolerated with low pain, and consistent tolerance of normal walking and standing demands without next-day flares."
       },
       phase3: {
         title: "Phase 3: Return to Running, Sport, and Prevention (Months 3 to 6+)",
@@ -1633,6 +1659,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
   // Due to length constraints, I'll add a few more key conditions and you can follow the pattern
 
   'whiplash': {
+    summary: `Whiplash describes a neck injury after a sudden jolt moves the head rapidly. Pain and stiffness may start immediately or develop over the following hours or days. Symptoms can include headache, reduced neck movement and pain into the shoulders or upper back.`,
     lastReviewed: '2026-04-16',
     pathophysiology: `Whiplash involves rapid acceleration-deceleration forces affecting neck structures. Multiple tissues can be injured including muscles, ligaments, joints, and discs. The initial inflammatory response is followed by muscle guarding and altered movement patterns.
 
@@ -1733,12 +1760,16 @@ Most whiplash is a sprain that settles. How sore the neck is in the first days i
         action: "Go to emergency now to check for a head injury"
       },
       {
-        sign: "Clumsy or numb hands, trouble with buttons or handwriting, a change in your walking or balance, or new bladder problems",
-        action: "Same-day medical assessment. These can be signs of pressure on the spinal cord"
+        sign: "New or worsening hand clumsiness or numbness (such as trouble with buttons or handwriting), arm or leg weakness, trouble walking or balancing, or new bladder problems",
+        action: "Same-day medical assessment before any exercise. These can be signs of pressure on the spinal cord"
       },
       {
-        sign: "Arm weakness or numbness that is getting worse",
-        action: "Same-day medical assessment"
+        sign: "Any of those changes starting suddenly, getting worse rapidly, or making walking difficult",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       }
     ],
 
@@ -1763,6 +1794,7 @@ Most whiplash is a sprain that settles. How sore the neck is in the first days i
   },
 
   'frozen-shoulder': {
+    summary: `Frozen shoulder (adhesive capsulitis) causes pain and restricted movement as the capsule around the shoulder joint tightens. Night pain is common, and turning the arm outward is often especially limited. Symptoms can change over months or years, without following neat stages. It is more common in people with diabetes.`,
     pathophysiology: `Frozen shoulder (adhesive capsulitis) involves thickening and tightening of the shoulder capsule. The normally loose capsule becomes inflamed then fibrotic, severely restricting movement. The condition typically progresses through freezing, frozen, and thawing phases.
 
 The exact trigger is often unknown but can follow injury, surgery, or periods of immobilization. Physiotherapy for frozen shoulder focuses on restoring range of motion through graded manual therapy and progressive loading, adapted to the stage of the condition. The intensity of treatment is matched to whether the capsule is in its painful, stiff, or recovering phase.`,
@@ -2014,6 +2046,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
   },
 
   'acl-injuries': {
+    summary: `The ACL (anterior cruciate ligament) helps steady the knee by resisting forward movement and twisting of the shinbone. A tear often follows a sudden pivot or awkward landing and can cause a pop, rapid swelling or giving way. Treatment may involve rehabilitation alone or surgery; the exercise phases here describe rehabilitation after reconstruction.`,
     pathophysiology: `The ACL (anterior cruciate ligament) is crucial for knee stability, preventing the tibia from sliding forward. Tears usually occur during cutting, pivoting, or landing movements. The ligament has poor blood supply, limiting natural healing capacity.
 
 After injury, the knee loses rotational stability, leading to episodes of giving way and potential damage to other structures like the meniscus and cartilage. ACL injuries significantly increase the long-term risk of developing knee osteoarthritis, even with successful surgical reconstruction. Concurrent injuries such as meniscus tears or MCL/LCL sprains are common and require comprehensive management alongside ACL rehabilitation.`,
@@ -2239,7 +2272,7 @@ The "position of no return" happens during cutting movements when your foot plan
           "Heavy slow resistance leg press, split squats, and Romanian deadlifts progressing toward limb symmetry index above 80 percent",
           "Step-downs and single-leg squats emphasizing trunk control and avoidance of knee valgus collapse",
           "Double-leg jump landings progressing to small hops in place once strength criteria are met (typically around month 3 to 4)",
-          "Return to straight-line running progression once quadriceps strength is at least 80 percent of the other side, the knee is pain-free and free of swelling, and single-leg hop in place is pain-free",
+          "Return to straight-line running progression once your surgical team has cleared it and proposed criteria are met, such as quadriceps strength above 80 percent of the other side (Aspetar 2023 guideline), full knee extension, a pain-free knee free of swelling, and pain-free single-leg hop in place",
           "Neuromuscular training including perturbation drills, balance board, and reactive stabilization tasks"
         ],
         progressionCriteria: "Quadriceps limb symmetry index approximately 90 percent on dynamometer, pain-free running at moderate pace, single-leg squat with good control, and no effusion response to loading."
@@ -2262,6 +2295,7 @@ The "position of no return" happens during cutting movements when your foot plan
   },
 
   'disc-herniation': {
+    summary: `Disc bulges and herniations are changes where part of a spinal disc pushes beyond its normal edge, in the lower back or neck. If this irritates a nearby nerve, it can cause pain, numbness or tingling down a leg or arm. Bulges also show up on scans of many people without pain.`,
     pathophysiology: `Disc herniation occurs when the inner gel-like nucleus pushes through tears in the outer annulus. This can compress nerve roots or the spinal cord. The herniated material also releases inflammatory substances that irritate nerves.
 
 Most herniations occur at L4-5 and L5-S1 levels in the lower back, or C5-6 and C6-7 in the neck.`,
@@ -2342,16 +2376,28 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in the saddle area (between the legs or around the back passage), new trouble passing urine, new loss of bladder or bowel control, or sciatica in both legs",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
-        sign: "Leg or arm weakness that is getting worse, or a foot that drops or slaps when you walk",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or weakness in one leg or arm that is getting worse",
         action: "Same-day medical assessment"
       },
       {
-        sign: "With a neck disc: clumsy or numb hands, trouble with buttons or handwriting, or a change in your walking or balance",
-        action: "Same-day medical assessment. These can be signs of pressure on the spinal cord"
+        sign: "With a neck disc: new or worsening hand clumsiness (such as trouble with buttons or handwriting), arm or leg weakness, or trouble walking or balancing",
+        action: "Same-day medical assessment before any exercise. These can be signs of pressure on the spinal cord"
+      },
+      {
+        sign: "With a neck disc: any of those changes starting suddenly, getting worse rapidly, or making walking difficult",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Back or neck pain with a history of cancer, unexplained weight loss, fever, or constant pain at night",
@@ -2402,7 +2448,7 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
       },
       {
         condition: "Cauda Equina Syndrome",
-        distinguishingFeatures: "Saddle numbness, urinary retention or incontinence, faecal incontinence, bilateral leg weakness, or rapidly progressive neurological deficit. Any of these flips the clinical picture from physiotherapy to an emergency department. I screen for this every visit in anyone with significant radicular symptoms."
+        distinguishingFeatures: "New saddle numbness, new trouble starting or feeling urine flow, urinary or faecal incontinence, new loss of genital sensation or sexual function, severe or rapidly worsening weakness in both legs, or rapidly progressive neurological deficit. Any of these flips the clinical picture from physiotherapy to an emergency department. I screen for this every visit in anyone with significant radicular symptoms."
       }
     ],
 
@@ -2476,7 +2522,7 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
       },
       {
         question: "When should I get urgent medical care?",
-        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or symptoms in both legs. These can be signs of cauda equina syndrome. With a neck disc, clumsy or numb hands or a change in walking or balance need a same-day medical assessment, as does leg or arm weakness that is getting worse or a foot that drops or slaps when you walk. Severe unrelenting night pain or unexplained weight loss should be reviewed by a doctor before physiotherapy, and fever with back pain the same day."
+        answer: "For back or leg pain, go to emergency now for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, or severe or rapidly worsening weakness in both legs. New loss of genital sensation or sexual function with back or leg pain also needs emergency assessment. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs. A new foot drop (the foot catches or slaps when you walk) or worsening weakness in one leg needs a same-day medical assessment. With a neck disc, new or worsening hand clumsiness, arm or leg weakness, or trouble walking or balancing needs a same-day medical assessment before exercise; if these changes start suddenly, worsen rapidly, or make walking difficult, go to emergency now. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now. Severe unrelenting night pain or unexplained weight loss should be reviewed by a doctor before physiotherapy, and fever with back pain the same day."
       }
     ],
 
@@ -2486,6 +2532,7 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
   },
 
   'knee-osteoarthritis': {
+    summary: `Knee osteoarthritis involves changes throughout the joint, including cartilage, underlying bone and the joint lining. It can cause activity-related pain, brief morning stiffness and swelling. Symptoms and X-ray findings do not always match, and diagnosis is often clinical. Care focuses on comfort, function and maintaining activities that matter to you.`,
     pathophysiology: `Osteoarthritis involves breakdown of cartilage, changes in underlying bone, and inflammation of the joint lining. It's not just wear and tear but an active process involving the whole joint. Quadriceps weakness is linked with a higher risk of developing knee osteoarthritis and with more pain and difficulty once it is present. Previous injuries such as ACL tears or meniscus tears significantly increase the risk of developing knee osteoarthritis, as these injuries often lead to altered biomechanics and joint instability. Like other degenerative conditions, knee osteoarthritis may coexist with patellofemoral pain syndrome, particularly when both involve similar movement pattern dysfunctions.`,
 
     biomechanics: `Knee osteoarthritis isn't simply "wear and tear". Age, previous injury, body weight, genetics and how the knee is loaded all play a part. Quadriceps weakness is linked with more pain and difficulty, and it can become a cycle: pain can make you less active, which can lead to more weakness. Pain can arise from several tissues in and around the joint, and how much it hurts does not map directly to how much cartilage has been lost. Strength training helps many people, without that proving weakness caused the arthritis.
@@ -2767,6 +2814,7 @@ Previous knee injuries, such as an ACL injury or a meniscus tear, raise the risk
   },
 
   'meniscus-tears': {
+    summary: `Each knee has two menisci: cartilage pads that help distribute load between the thigh bone and shinbone. Tears can follow a twist or develop gradually with age. They may cause pain, swelling or catching, but some cause no symptoms. A knee that truly locks needs medical assessment before rehabilitation.`,
     pathophysiology: `The meniscus is fibrocartilage that cushions and stabilizes the knee. Tears can be traumatic (usually in younger people) or degenerative (older adults). Degenerative tears are often part of early osteoarthritis.
 
 The outer third has blood supply and can heal, while the inner portion has poor healing capacity.`,
@@ -2996,6 +3044,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
   },
 
   'it-band-syndrome': {
+    summary: `IT band syndrome commonly causes pain on the outside of the knee during running or cycling. The iliotibial band is a thick strip of tissue along the outer thigh. Pain may start after a certain distance or worsen downhill, but assessment is needed to distinguish it from other causes of outer-knee pain.`,
     pathophysiology: `IT band syndrome involves irritation where the iliotibial band crosses the lateral knee. It's not friction but compression of sensitive fat pad beneath the band. Contributing factors include hip weakness, training errors, and biomechanical issues.`,
 
     biomechanics: `IT band syndrome is felt at the knee, but hip control may play a part. When the pelvis drops on one side during single-leg activities, the thigh angles inward (hip adduction), which can increase tension in the IT band and compress the sensitive tissue underneath it at the knee. Hip weakness and running differences seen in people with ITB pain do not prove they caused it, but they are things rehab can work on.
@@ -3226,6 +3275,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
   },
 
   'ankle-sprains': {
+    summary: `An ankle sprain is a stretch or tear of the ligaments that steady the ankle, most often on the outside when the foot rolls inward. It causes pain, swelling and bruising and can make walking hard at first. Some people are left with an ankle that keeps giving way, called chronic ankle instability, which this page also covers.`,
     pathophysiology: `Ankle sprains involve stretching or tearing of ligaments, usually the lateral ligaments (ATFL, CFL). This damages mechanoreceptors, affecting proprioception. The condition represents a complex injury that affects both structural integrity and neurological function.
 
 Lateral ankle sprains occur when the foot rolls inward (inversion), placing excessive stress on the outer ankle ligaments. The anterior talofibular ligament (ATFL) is typically injured first, followed by the calcaneofibular ligament (CFL) in more severe cases. The injury disrupts the mechanoreceptors within the ligament tissue, which normally provide critical position and movement feedback to the brain.
@@ -3401,7 +3451,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       },
       {
         question: "When can I return to sport after an ankle sprain?",
-        answer: "Return to sport is based on criteria rather than time alone, in line with the JOSPT CPG (Martin et al., 2021). Examples of the markers I use: pain-free hopping and cutting, single-leg balance and reach tests close to the other side, ankle strength close to the uninjured side, and completing progressive agility and sport-specific drills without apprehension. These are clinical guides I set for each person rather than validated cut-offs. Depending on grade, this is often 2 to 8 weeks for simple sprains and longer for grade 3 or high ankle sprains."
+        answer: "Return to sport is based on criteria rather than time alone, in line with the JOSPT CPG (Martin et al., 2021). Possible milestones, adapted to the person rather than treated as fixed cut-offs: pain-free hopping and cutting, single-leg balance and reach tests close to the other side, ankle strength close to the uninjured side, and completing progressive agility and sport-specific drills without apprehension. Depending on grade, this is often 2 to 8 weeks for simple sprains and longer for grade 3 or high ankle sprains."
       }
     ],
     differentialDiagnosis: [
@@ -3457,7 +3507,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
           "Star Excursion or Y-Balance reaches in anterior, posteromedial, and posterolateral directions to restore dynamic stability",
           "Bilateral then unilateral hopping in place, progressing to forward, lateral, and diagonal hops once pain-free"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: steady single-leg balance on a firm surface with eyes closed, single-leg heel raises close to the uninjured side, reach tests (such as the Y-Balance) close to the uninjured side, and pain-free hopping in place."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: steady single-leg balance on a firm surface with eyes closed, single-leg heel raises close to the uninjured side, reach tests (such as the Y-Balance) close to the uninjured side, and pain-free hopping in place."
       },
       phase3: {
         title: "Phase 3: Return to Sport and Cutting (Weeks 4 to 12+)",
@@ -3469,7 +3519,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
           "Fatigue-resistance training by placing balance and single-leg work at the end of a session to mimic late-game demands when reinjury rates rise",
           "Ongoing neuromuscular maintenance program 2 to 3 times per week, modelled on FIFA 11+ style injury prevention warm-ups"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: ankle strength in all directions close to the uninjured side (around 90 percent is a common clinical target), hop tests close to the other side, completion of reactive cutting and sport-specific drills without apprehension, and no ongoing feeling of the ankle giving way (a short questionnaire such as the Cumberland Ankle Instability Tool can help track this)."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: ankle strength in all directions close to the uninjured side, hop tests close to the other side, completion of reactive cutting and sport-specific drills without apprehension, and no ongoing feeling of the ankle giving way (a short questionnaire such as the Cumberland Ankle Instability Tool can help track this)."
       }
     },
     lastReviewed: '2026-04-16',
@@ -3477,6 +3527,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
   },
 
   'achilles-tendinopathy': {
+    summary: `Achilles tendinopathy, often called Achilles tendinitis, is pain and stiffness in the large tendon at the back of the ankle. It can affect the middle of the tendon or the point where it attaches to the heel, and the two are managed differently. It is often stiffest first thing in the morning and at the start of activity.`,
     clinicalObservations: {
       body: `Something I see often is someone treating this as a tight calf and working on it with stretching and foam rolling for months. With insertional cases especially, aggressive stretching can make things worse, because deep dorsiflexion compresses the tendon where it is most sensitive. Another common assumption is a calf strain that will not heal. A simple calf strain usually settles over a few weeks. A tendon that hurts most on the first steps in the morning, eases with a warm-up, then aches again that evening usually points to a tendon load problem rather than tightness.
 
@@ -3666,7 +3717,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       {
         question: "Should I stop running with Achilles tendinopathy?",
-        answer: "Often no. Complete rest can detrain the tendon, and symptoms often return when running resumes. The Silbernagel pain-monitoring model allows continued running provided pain stays at or below about 5 out of 10 during the run, settles within 24 hours, and does not creep up week over week. If all three hold, running can usually continue alongside the rehab. These limits are a guide used in one trial program, not a safety threshold, so I adjust them to how your tendon responds."
+        answer: "Often no. Complete rest can detrain the tendon, and symptoms often return when running resumes. The Silbernagel pain-monitoring model allows continued running provided pain stays at or below about 5 out of 10 during the run, settles within 24 hours, and does not creep up week over week. If all three hold, running can often continue alongside the rehab. These limits come from one trial program in people with Achilles tendinopathy. These are example monitoring limits, not proof that running is safe for every cause of pain."
       },
       {
         question: "Do eccentric heel drops still work, or is heavy slow resistance better?",
@@ -3705,7 +3756,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
           "Soleus-focused seated calf raise with the knee bent to roughly 90 degrees, 3 sets of 15",
           "Running volume reduced by 30 to 50 percent, with steepest uphill or speed work paused"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: morning stiffness settling quickly for about a week, isometric holds feeling comfortable (around 3 out of 10 or less), and no symptom rise 24 hours after loading sessions."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: morning stiffness settling quickly over several days, isometric holds feeling comfortable, and no symptom rise 24 hours after loading sessions."
       },
       phase2: {
         title: "Phase 2: Heavy Slow Resistance or Eccentric Loading (Weeks 4 to 12)",
@@ -3717,7 +3768,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
           "Insertional: floor-level or slightly elevated calf raises only, same tempo and sets, avoiding end-range dorsiflexion",
           "Running maintained or gradually rebuilt using the 24-hour symptom rule as the gatekeeper"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: full-range single-leg calf raises with low pain (around 3 out of 10 or less), a solid set of consecutive single-leg raises on the affected side, and two weeks of loading sessions tolerated without a 24-hour flare."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: full-range single-leg calf raises with low pain, a solid set of consecutive single-leg raises on the affected side, and loading sessions tolerated over several weeks without a 24-hour flare."
       },
       phase3: {
         title: "Phase 3: Energy Storage and Return to Sport (Months 3 to 6+)",
@@ -3729,7 +3780,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
           "Running volume rebuilt in small weekly steps, with hills and speed work reintroduced last",
           "Sport-specific demands such as cutting for soccer, repeated sprints, or jump-intensive training reintroduced in graded blocks"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: VISA-A score trending upward when used, single-leg hopping close to the unaffected side, and two consecutive weeks of full training or running volume without a 24-hour symptom flare."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: VISA-A score trending upward when used, single-leg hopping close to the unaffected side, and full training or running volume sustained over several weeks without a 24-hour symptom flare."
       }
     },
 
@@ -3756,6 +3807,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
   },
 
   'shin-splints': {
+    summary: `Shin splints, or medial tibial stress syndrome, is pain spread along the inner edge of the shin bone. It often follows an increase in running or jumping, and bone stress may contribute. Pain focused on one spot, pain at rest or a limp needs assessment for a possible bone stress injury.`,
     pathophysiology: `Medial tibial stress syndrome involves periosteal irritation and microtears where muscles attach to the tibia. It represents bone stress on a continuum that can progress to stress fracture without proper management.`,
 
     biomechanics: `Shin splints typically develop from a combination of training errors and biomechanical factors that overload the muscles and bone along your tibia. The classic scenario is too much, too soon: suddenly increasing your running mileage, intensity, or frequency without allowing your body to adapt. Your muscles, tendons, and bone all adapt to increased loads at different rates, with bone being the slowest to strengthen. When you progress faster than your bone can adapt, you get the painful periosteal irritation characteristic of shin splints.
@@ -3850,8 +3902,12 @@ Biomechanical factors significantly influence shin splint development. Overprona
         action: "See your family doctor, who can refer you for testing for exertional compartment syndrome"
       },
       {
-        sign: "A foot or toe that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        sign: "A foot that suddenly becomes unusually cold, pale, or blue, or a toe with a new colour change that persists, especially with pain, numbness, or weakness",
         action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "A familiar, brief colour change in the toes triggered by cold, already diagnosed as Raynaud's",
+        action: "Follow your existing care plan. New, persistent or unusually severe changes need medical assessment, and the emergency signs above still apply. Do not assume an unexplained change is Raynaud's"
       },
       {
         sign: "Colour or feeling changes in the foot that come on only during exercise and fully settle with rest",
@@ -3960,7 +4016,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
           "Cycling, pool running, elliptical, or rowing to maintain aerobic fitness at conversational intensity",
           "Hip abductor and glute max strengthening such as side planks and single-leg bridges, 3 sets of 10 to 12"
         ],
-        progressionCriteria: "Examples of the checks I use in clinic, set for each person rather than fixed cut-offs: the shin bone no longer tender to press, comfortable single-leg hopping, and double-leg calf raises tolerated without shin pain the next morning."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: the shin bone no longer tender to press, comfortable single-leg hopping, and double-leg calf raises tolerated without shin pain the next morning."
       },
       phase2: {
         title: "Phase 2: Progressive Loading and Return to Running (Weeks 3 to 8)",
@@ -3972,7 +4028,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
           "Walk-run intervals starting at 1 minute run and 2 minutes walk, progressing toward continuous running on soft surfaces",
           "If it suits your running pattern, a small step-rate change from your usual cadence or a softer-landing cue, practised in short blocks within easy runs"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a continuous easy run of around 20 to 30 minutes on a soft surface without shin pain during or the next day, a solid set of single-leg calf raises on the affected side, and two consecutive weeks of load progression without symptom rise."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: a continuous easy run on a soft surface without shin pain during or the next day, a solid set of single-leg calf raises on the affected side, and load progressing over several weeks without symptoms rising."
       },
       phase3: {
         title: "Phase 3: Full Training and Prevention (Weeks 8+)",
@@ -3993,6 +4049,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
   },
 
   'golfers-elbow': {
+    summary: `Golfer's elbow (medial epicondylalgia) is pain on the inner side of the elbow, where the tendons that bend the wrist and turn the forearm attach to the bone. It is often linked to repeated gripping, lifting or work tasks, and does not require playing golf. Gripping, carrying and opening jars often hurt.`,
     clinicalObservations: {
       body: `Something I see often is people looking for the single moment that caused this, one heavy lift or one bad day, when the bigger contributor is often something quiet and constant: the forearm turned in and gripping for hours, whether that is the phone held at the bottom edge, the steering wheel, the mouse, a dog leash wound tight, or a toddler carried on one hip. None of it feels like an injury, so it is easy to overlook. The inner elbow can be slower to settle than people expect, which is why the all-day, low-grade load matters.
 
@@ -4279,7 +4336,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
           "Grip squeezes with a soft ball at submaximal effort, 3 sets of 10, avoiding full wrist flexion under grip",
           "Scapular and rotator cuff setting with a light band, 3 sets of 10, to reduce distal compensation during reaching and lifting"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: isometric holds comfortable (around 3 out of 10 or less), no more than mild next-day soreness after sessions for a full week, and everyday gripping tasks such as carrying groceries or using a kettle no longer provoking sharp medial elbow pain."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: isometric holds comfortable, no more than mild next-day soreness after sessions over several days in a row, and everyday gripping tasks such as carrying groceries or using a kettle no longer provoking sharp medial elbow pain."
       },
       phase2: {
         title: "Phase 2: Progressive Flexor-Pronator Loading (Weeks 3 to 8)",
@@ -4291,7 +4348,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
           "Farmer and suitcase carries with moderate load, 3 rounds of 20 to 40 metres, to build grip endurance without extreme peak force",
           "Continued scapular and posterior chain work, 3 sets of 10 to 12, to reduce distal overload during lifting"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: pain-free grip closer to the unaffected side, heavy slow resistance sessions completed without a 24-hour flare for at least 2 consecutive weeks, and PREE score trending downward from baseline."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: pain-free grip closer to the unaffected side, heavy slow resistance sessions completed without a 24-hour flare over several weeks, and PREE score trending downward from baseline."
       },
       phase3: {
         title: "Phase 3: Return to Full Sport, Work, and Heavier Loading (Weeks 8 to 16+)",
@@ -4303,7 +4360,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
           "Occupational task rehearsal at realistic duration and load, with micro-breaks planned in",
           "Maintenance loading 1 to 2 times per week once back to full duties, to maintain tolerance for the tasks you return to"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: low pain (around 2 out of 10 or less) during full work or sport demands, grip strength close to the other side, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: low pain during full work or sport demands, grip strength close to the other side, and a sustained return to full duties without a 24-hour symptom flare."
       }
     },
     lastReviewed: '2026-04-16',
@@ -4311,6 +4368,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
   },
 
   'carpal-tunnel-syndrome': {
+    summary: `Carpal tunnel syndrome is pressure on the median nerve as it passes through a narrow tunnel at the front of the wrist. It usually causes numbness and tingling in the thumb, index, middle and part of the ring finger, often waking people at night, and can lead to a weaker grip and dropping things.`,
     patternMatcher: {
       clusterKey: 'elbow',
       markers: [
@@ -4520,12 +4578,20 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
         action: "See your family doctor promptly for nerve testing and a surgical opinion"
       },
       {
-        sign: "New or worsening clumsiness in the hands together with trouble walking, balance changes, or symptoms in both arms",
-        action: "See your family doctor urgently, within a day or two, and before any physiotherapy; this can mean pressure on the spinal cord in the neck. Go to emergency now if these symptoms come on suddenly or are getting worse quickly"
+        sign: "New or worsening hand clumsiness, arm or leg weakness, or trouble walking or balancing",
+        action: "Same-day medical assessment before any exercise; this can mean pressure on the spinal cord in the neck"
+      },
+      {
+        sign: "Any of those changes starting suddenly, getting worse rapidly, or making walking difficult",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Symptoms in the whole hand including the little finger, without trouble walking or balance changes",
-        action: "See your family doctor before starting physiotherapy; this pattern can come from the neck or another nerve rather than the wrist, and deserves an assessment of the neck and other nerves"
+        action: "This pattern needs an assessment of the neck and other nerves as well as the wrist. I check these, and can advise whether medical tests or a referral are needed"
       },
       {
         sign: "No improvement after 8-12 weeks of appropriate conservative treatment with good compliance",
@@ -4591,7 +4657,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       },
       {
         question: "Why are my symptoms in both hands?",
-        answer: "If both hands have become clumsy and your walking or balance has changed too, that needs an urgent medical assessment rather than physiotherapy first, because it can come from the neck. Otherwise, bilateral carpal tunnel syndrome is common, and can point to a systemic contribution rather than a purely mechanical one. Pregnancy, diabetes, hypothyroidism, and inflammatory arthritis all raise carpal tunnel pressure or compromise nerve resilience on both sides. When I see bilateral presentations, I check medical history more carefully and think about referring back to the family doctor for bloodwork if those have not been reviewed recently."
+        answer: "New or worsening hand clumsiness, arm or leg weakness, or trouble walking or balancing needs a same-day medical assessment before exercise, because it can come from pressure on the spinal cord in the neck. If these changes start suddenly, worsen rapidly, or make walking difficult, go to emergency now. Otherwise, bilateral carpal tunnel syndrome is common, and can point to a systemic contribution rather than a purely mechanical one. Pregnancy, diabetes, hypothyroidism, and inflammatory arthritis all raise carpal tunnel pressure or compromise nerve resilience on both sides. When I see bilateral presentations, I check medical history more carefully and think about referring back to the family doctor for bloodwork if those have not been reviewed recently."
       }
     ],
     exerciseProgression: {
@@ -4637,6 +4703,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
   },
 
   'de-quervains-tenosynovitis': {
+    summary: `De Quervain's tenosynovitis is pain on the thumb side of the wrist, where two thumb tendons pass through a narrow tunnel and their sheath becomes thickened and irritated. It often follows new, repeated thumb and wrist use, such as lifting a baby, and gripping or lifting with the thumb up tends to hurt.`,
     pathophysiology: `De Quervain's tenosynovitis is a stenosing tenosynovitis affecting the first dorsal compartment of the wrist, specifically involving the abductor pollicis longus (APL) and extensor pollicis brevis (EPB) tendons. These tendons pass through a fibro-osseous tunnel bordered by the radial styloid process and overlying extensor retinaculum. The condition represents inflammation and thickening of the tendon sheath (tenosynovium) that creates a progressive stenosis (narrowing) of the compartment, mechanically restricting tendon glide and causing friction-induced inflammation.
 
 The pathophysiological cascade begins with repetitive mechanical irritation from thumb movements combined with wrist deviation. This creates microtrauma to the tendon sheath lining, triggering an inflammatory response with synovial thickening, edema, and fibrous tissue deposition. As the sheath thickens, the space available for tendon excursion diminishes, creating a vicious cycle where normal movements cause progressively more friction and inflammation. Histologically, the sheath shows chronic inflammatory changes, fibrocartilaginous metaplasia, and myxoid degeneration rather than acute inflammation, explaining why anti-inflammatory medications have limited efficacy.
@@ -4928,6 +4995,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
 
 
   'hip-osteoarthritis': {
+    summary: `Hip osteoarthritis is a gradual change in the whole hip joint, including the cartilage and the bone beneath it. It usually starts as a deep ache in the groin or front of the thigh after walking, with morning stiffness that eases with movement. How much it hurts and how the X-ray looks can differ a lot.`,
     pathophysiology: `Hip osteoarthritis is an active process involving the whole joint, not simple "wear and tear", and it does not mean your active life is over. It involves breakdown of the articular cartilage (the smooth tissue covering the bone ends), changes in the bone underneath, osteophytes ("bone spurs", bony lumps that grow at the joint margins) and narrowing of the joint space. Low-grade inflammation, changes in how the joint is loaded and weakness of the surrounding muscles are all part of the picture. Pain is not directly proportional to X-ray changes: I regularly see patients with "severe" OA on imaging who have minimal pain and excellent function, and vice versa. Your experience of pain is real, but it is not solely dictated by what an X-ray shows. 
 
 The hip does not work in isolation. When it becomes stiff and painful from OA, the body makes compensations. The most common is increased movement and strain on the lumbar spine and sacroiliac (SI) joint, which is why so many people with hip OA also develop low back pain. A stiff hip also changes the way you walk, which alters the forces passing through the knee and ankle. Living with persistent pain is tiring and can lead to fear of movement and anxiety. Over time the nervous system can become more sensitive, turning up the volume on pain signals. Gentle, graded movement can help recalibrate the nervous system. Hip osteoarthritis may coexist with other hip conditions such as greater trochanteric pain syndrome or hip bursitis, and can develop secondary to previous conditions like femoroacetabular impingement (FAI) or hip labral tears.`,
@@ -5203,6 +5271,7 @@ Modern research (2024) emphasizes that discrepancies exist between external join
   },
 
   'femoroacetabular-impingement': {
+    summary: `Femoroacetabular impingement (FAI) syndrome involves hip symptoms associated with contact between the ball and socket during movement. Groin pain may occur with squatting, low seats or turning. Diagnosis considers symptoms, examination and imaging together, because the same bone shapes are common in people who have no pain.`,
     pathophysiology: `Femoroacetabular Impingement (FAI) syndrome involves abnormal contact between the femoral neck and acetabular rim during hip movement, specifically during deep hip flexion and internal rotation. The biggest misconception is that having a certain hip shape (a "cam" or "pincer" morphology on an X-ray) automatically means you will have pain. It does not: many elite athletes and pain-free individuals have these shapes. FAI syndrome means a specific hip shape plus symptoms plus clinical signs. The shape alone does not explain the pain; how the hip is loaded in its painful positions matters too.
 
 Two main types exist: CAM (extra bone on femoral head-neck junction creating a "bump" that makes contact with the socket during deep flexion) and PINCER (a socket that covers too much of the ball, so the rim meets the femoral neck earlier in the movement). Mixed types with both morphologies are common. The cam shape can make contact with the socket and labrum (cartilaginous ring around the socket) during deep hip flexion, leading to a pinching sensation and potential stress on the labrum.
@@ -5315,8 +5384,16 @@ Activity demands significantly influence symptom development. Athletes in sports
         action: "Possible stress fracture of the hip (femoral neck). Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal"
       },
       {
-        sign: "A child or teenager with a new limp and hip, groin, thigh or knee pain",
-        action: "Possible slipped growth plate at the hip (SCFE). Do not let them walk on the leg. Go to emergency today for an urgent assessment"
+        sign: "A child or teenager with a new limp that has no clear explanation",
+        action: "Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the thigh or knee"
+      },
+      {
+        sign: "A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "A suspected slipped growth plate at the hip (SCFE)",
+        action: "Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk"
       },
       {
         sign: "A hot, swollen or very painful hip, a fever or feeling unwell, or you cannot put weight on the leg",
@@ -5491,6 +5568,7 @@ Activity demands significantly influence symptom development. Athletes in sports
   },
 
   'greater-trochanteric-pain-syndrome': {
+    summary: `Greater trochanteric pain syndrome causes pain over the bony prominence on the outside of the hip. It often involves the gluteal tendons and sometimes nearby bursae, the small fluid-filled sacs. Lying on that side, climbing stairs or walking uphill may aggravate it. Assessment helps distinguish it from hip-joint or referred pain.`,
     pathophysiology: `Greater Trochanteric Pain Syndrome (GTPS), previously called "trochanteric bursitis," is primarily a gluteal tendinopathy affecting the gluteus medius and minimus tendons at their insertion on the greater trochanter. For years, this condition was called "trochanteric bursitis," and the presumed treatment was rest, ice, and anti-inflammatory injections. Research has shifted this understanding: the primary issue is frequently not an inflamed bursa but an irritated gluteus medius or minimus tendon (a gluteal tendinopathy). The bursa can become secondarily irritated, but it's rarely the main driver. That changes the treatment: a tendinopathy is managed by reducing compression and progressively strengthening the tendon, and rest on its own rarely settles it.
 
 The condition involves a load-capacity imbalance where compressive forces (from positions that bring the IT band across the trochanter) and tensile loads exceed the tendon's ability to adapt. Postures that bring your thigh across the midline of your body can cause the iliotibial (IT) band to compress the gluteal tendons against the hip bone, a key source of irritation in GTPS.
@@ -5792,6 +5870,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
   },
 
   'hip-labral-tears': {
+    summary: `The labrum is a ring of cartilage around the rim of the hip socket that helps seal and steady the joint. A tear can cause sharp, catching groin pain with twisting or deep bending, sometimes with clicking, and often occurs alongside hip impingement. Labral tears also show up on scans of many people with no hip pain.`,
     pathophysiology: `Hip labral tears involve damage to the acetabular labrum, a ring of fibrocartilage that runs along the rim of the hip socket (acetabulum), acting like a suction cup to enhance stability. The labrum provides a suction seal that maintains negative pressure within the joint, contributing significantly to hip stability. When torn, this can result in mechanical symptoms and altered joint biomechanics.
 
 Labral tears often occur alongside femoroacetabular impingement (FAI). X-rays can assess bone shape and joint-space changes, but they do not show the labrum; MRI may be considered when information about the labrum or other soft tissues would change treatment. When imaging would change the plan, I flag it to your family doctor or specialist and refer you. A cam-type FAI morphology can make contact with the socket and labrum during deep hip flexion, leading to a pinching sensation and potential stress on the labrum over time.
@@ -6044,6 +6123,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
   },
 
   'hip-bursitis': {
+    summary: `Hip bursitis is inflammation of a small fluid-filled sac that helps tissues move around the hip. Outer-hip pain labelled bursitis often also involves the gluteal tendons. Bursae at the front of the hip can cause a different pain pattern; this page's rehabilitation outline mainly concerns assessed, noninfectious outer-hip pain.`,
     pathophysiology: `Hip bursitis involves inflammation of the fluid-filled sacs (bursae) that cushion the hip joint. The most commonly affected bursae are the trochanteric bursa (lateral hip) and iliopsoas bursa (anterior hip). However, true isolated bursitis is actually less common than previously thought.
 
 What was traditionally called "trochanteric bursitis" is now understood to be primarily Greater Trochanteric Pain Syndrome (GTPS), a gluteal tendinopathy affecting the gluteus medius and minimus tendons. For years, lateral hip pain was attributed to an inflamed bursa, and the presumed treatment was rest, ice, and anti-inflammatory injections. Research has shown that the primary issue is frequently not an inflamed bursa, but a distressed gluteus medius or minimus tendon. The bursa can become secondarily irritated, but it's rarely the main driver.
@@ -6257,6 +6337,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
   },
 
   'proximal-hamstring-tendinopathy': {
+    summary: `Proximal hamstring tendinopathy causes pain near the tendons' attachment to the sitting bone, deep in the lower buttock. Hard seats, faster or uphill running, lunges and hamstring stretching may aggravate it. Symptoms often develop gradually; a sudden pop with bruising or difficulty walking needs assessment for a different injury.`,
     pathophysiology: `Proximal hamstring tendinopathy is centered around one specific, exquisitely tender spot: the ischial tuberosity, or the "sitting bone." The pain is a deep, localized ache right in the crease of the buttock where the hamstring muscles originate from a thick, shared tendon. The most common mistake people make is treating this like a simple hamstring muscle strain and aggressively stretching it, which often makes it worse. A tendinopathy at the hamstring's origin is sensitive to both compressive and tensile loads. Aggressive stretching places a high tensile load on the tendon, while sitting on it directly compresses it against the ischial tuberosity. Both actions can perpetuate the pain cycle. The condition is often linked to altered running mechanics, commonly an "over-striding" gait where the foot lands too far in front of the body's center of mass, putting massive braking and tensile load on the hamstring at foot strike.`,
 
     biomechanics: `The proximal hamstring tendon experiences two distinct types of mechanical stress that contribute to tendinopathy development: tensile loading during activities and compressive loading during sitting. Understanding both mechanisms is essential because they require different management strategies. The proximal hamstring tendons attach around the sitting bone (ischial tuberosity): the semitendinosus and biceps femoris long head share a combined tendon, and the semimembranosus attaches just beside it, so a lot of load passes through a small area.
@@ -6535,6 +6616,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
   },
 
   'piriformis-syndrome': {
+    summary: `Piriformis syndrome describes irritation of the sciatic nerve associated with the piriformis muscle deep in the buttock. It is one possible form of deep gluteal syndrome, a broader group of nerve problems in this area. Pain may worsen with sitting or travel down the leg, and can resemble symptoms from the back.`,
     clinicalObservations: {
       body: `Many people I see for this arrive thinking it is their back, because the pain runs down the leg, and some have had a spine MRI that did not explain it. One detail that makes me look more closely at the buttock is when the back itself feels fine but sitting through a meal, a drive or a movie is hard without shifting onto one side. When the chair is the main trigger rather than bending and lifting, the deep buttock moves up my list, though a disc that is sensitive to bending can behave the same way, so I still test for that before settling on a cause.
 
@@ -6636,12 +6718,20 @@ The relationship between pelvic positioning and piriformis length significantly 
 
     clinicalRedFlags: [
       {
-        sign: "New trouble passing urine, loss of bladder or bowel control, or numbness around the genitals, buttocks or inner thighs",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness around the genitals, back passage, buttocks or inner thighs, new loss of sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Possible cauda equina syndrome (pressure on the nerves at the base of the spine). Go to emergency now"
       },
       {
-        sign: "Leg weakness or numbness that is getting worse, or symptoms in both legs",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or weakness or numbness in one leg that is getting worse",
         action: "Possible significant nerve compression. Get medical assessment today"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Severe, constant pain that does not change with position",
@@ -6792,6 +6882,7 @@ The relationship between pelvic positioning and piriformis length significantly 
   },
 
   'groin-strains': {
+    summary: `A groin strain usually involves the inner-thigh adductor muscles or their tendons. It can happen during sprinting, kicking or changing direction, with pain when squeezing the legs together or pushing off. Longer-standing groin pain can have several causes, so assessment helps distinguish a strain from problems around the hip, tendons or groin canal.`,
     pathophysiology: `Groin strains involve injury to the adductor muscle group, which includes the adductor longus, magnus, brevis, gracilis, and pectineus. The adductor longus is most frequently injured (62-90% of cases), typically at the musculotendinous junction where muscle fibers transition to tendon.
 
 These injuries occur during high-velocity movements when the muscle undergoes eccentric contraction (lengthening under load). The mechanism typically involves forceful hip adduction against an abduction force, or sudden acceleration during sprinting. Sports like soccer, hockey, and football place athletes at highest risk due to the rapid direction changes, kicking motions, and explosive movements required.
@@ -6925,12 +7016,28 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
         action: "Possible stress fracture of the hip (femoral neck). Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal"
       },
       {
-        sign: "A child or teenager with a new limp and groin, hip, thigh or knee pain",
-        action: "Possible slipped growth plate at the hip (SCFE). Do not let them walk on the leg. Go to emergency today for an urgent assessment"
+        sign: "A child or teenager with a new limp that has no clear explanation",
+        action: "Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the groin, thigh or knee"
+      },
+      {
+        sign: "A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "A suspected slipped growth plate at the hip (SCFE)",
+        action: "Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk"
       },
       {
         sign: "Groin pain with fever, a hot or swollen hip, or you cannot put weight on the leg",
         action: "Possible infection or fracture. Get medical assessment today, or go to emergency if you feel unwell or cannot bear weight. Infection is possible even without a fever"
+      },
+      {
+        sign: "A groin lump with sudden severe pain, vomiting, or difficulty passing stool or wind",
+        action: "Go to emergency now. This can be a trapped (strangulated) hernia, which needs emergency assessment"
+      },
+      {
+        sign: "Sudden severe testicular pain",
+        action: "Go to emergency now. Do not treat it as a groin strain"
       },
       {
         sign: "Pain with coughing, sneezing, or bearing down, or a lump in the groin",
@@ -7010,7 +7117,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
           "Sport-specific intervals and small-sided drills before full training",
           "Continuation of Copenhagen adduction exercise twice weekly long term as prevention"
         ],
-        progressionCriteria: "Adductor strength adequate for your sport, tolerance of full sport-specific training with no meaningful next-day flare, and a maintenance plan including Copenhagen adduction twice weekly through the season."
+        progressionCriteria: "Strength testing and progressively harder running, cutting or kicking tasks show readiness for the demands of the person's sport, without meaningful symptoms during or after training. A sustainable maintenance plan is in place, with adductor exercises selected for the sport and the person's tolerance."
       }
     },
 
@@ -7051,6 +7158,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
   },
 
   'hamstring-strains': {
+    summary: `A hamstring strain injures muscle or tendon at the back of the thigh, often during sprinting or a rapid stretch. Pain is usually sudden and may come with bruising or weakness. A pop near the sitting bone with substantial bruising or difficulty walking needs prompt medical assessment: a tendon may have torn away from the bone.`,
     pathophysiology: `Hamstring strains occur during eccentric contraction when the muscle is lengthening under load. The biceps femoris is most commonly injured, typically at the musculotendinous junction.`,
 
     biomechanics: `The hamstring muscles face their greatest mechanical challenge during the terminal swing phase of sprinting, the brief 130 millisecond interval when your hamstring must perform the seemingly contradictory task of contracting forcefully while simultaneously lengthening. This phase represents the highest injury risk moment in the entire sprinting cycle. Biomechanical research identifies this window as when muscle strain most commonly exceeds tissue capacity.
@@ -7272,6 +7380,7 @@ Strength differences between legs may also matter. When one hamstring is clearly
   },
 
   'facet-joint-syndrome': {
+    summary: `The facet joints are small joints at the back of the spine that help guide movement. They are one possible source of local back pain, sometimes aggravated by arching backward or twisting. That pattern, an examination or arthritis on a scan cannot reliably establish that these joints are the source.`,
     pathophysiology: `Facet joints are small joints between vertebrae that guide and limit movement. They can become arthritic or inflamed, causing localized back pain. The joint capsule is richly innervated, making it a significant pain source.`,
 
     biomechanics: `The facet joints are small paired joints at the back of each spinal level. They share load with the disc in front of them and guide how the spine bends and twists. Arching backward and twisting load them more than standing in a neutral position, which is why leaning back, reaching overhead, or looking up while turning can bring on facet-type pain once the joints are sensitive.
@@ -7365,12 +7474,20 @@ Facet joints change with age, as discs do, and these changes become common on sc
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in the saddle area (between the legs or around the back passage), new trouble passing urine, new loss of bladder or bowel control, or sciatica in both legs",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
-        sign: "Leg weakness, numbness or pain below the knee that is getting worse",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or weakness, numbness or pain below the knee in one leg that is getting worse",
         action: "Same-day medical assessment"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Back pain with a history of cancer, unexplained weight loss, or constant pain at night that does not ease with position",
@@ -7506,6 +7623,7 @@ Facet joints change with age, as discs do, and these changes become common on sc
   },
 
   'thoracic-outlet-syndrome': {
+    summary: `Thoracic outlet syndrome involves compression of nerves or blood vessels between the neck and arm. Nerve symptoms can include pain, numbness or tingling during overhead activity or carrying. Blood vessel problems need different care: if the arm suddenly swells or the hand becomes pale and cold, go to emergency now.`,
     pathophysiology: `TOS involves compression of nerves or blood vessels between the neck and shoulder. This can occur at multiple sites including scalene muscles, first rib, or pectoralis minor.`,
 
     biomechanics: `The thoracic outlet is the narrow space between the neck, the collarbone and the first rib, where the nerves and blood vessels to the arm pass. Raising the arm overhead narrows part of this space, which is why overhead work, sleeping with the arms above the head, or carrying heavy bags on the shoulders can bring symptoms on.
@@ -7604,8 +7722,16 @@ How the shoulder blades sit and move, how much the neck and upper chest muscles 
         action: "Call 911"
       },
       {
-        sign: "Weakness or visible wasting of the hand muscles that is significant or getting worse",
+        sign: "Weakness or visible wasting of the hand muscles that is significant or slowly getting worse",
         action: "See your family doctor within a few days for nerve testing and a specialist opinion, rather than waiting out a long exercise trial first"
+      },
+      {
+        sign: "Arm or hand weakness that gets worse rapidly",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       }
     ],
 
@@ -7713,6 +7839,7 @@ How the shoulder blades sit and move, how much the neck and upper chest muscles 
   },
 
   'shoulder-impingement': {
+    summary: `Shoulder impingement, often called subacromial pain syndrome, describes pain commonly linked to the rotator cuff tendons and nearby bursa. Lifting the arm, reaching overhead and lying on that side often hurt. The name does not establish that bone is pinching a tendon, and symptoms overlap with other shoulder problems.`,
     clinicalObservations: {
       body: `People I see in Burlington for this often cannot point to one spot. They wave a hand over the outer arm, around where the deltoid sits, and describe it as vague and deep. Some assume it is a biceps or triceps problem, because that is where the ache lands when they reach overhead. What I pay attention to is the pattern: reaching up and tucking the arm behind the back are often the sore movements, and some of the range people think they have lost is guarding rather than a stiff joint. That distinction matters, because guarding often eases once loading starts sensibly.
 
@@ -8009,6 +8136,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
   },
 
   'ac-joint-injuries': {
+    summary: `The acromioclavicular (AC) joint sits at the top of the shoulder, where the collarbone meets the shoulder blade. A fall or blow can sprain its supporting ligaments or separate the joint, sometimes leaving a bump. Arthritis can also affect this joint, causing pain with overhead reaching or bringing the arm across the body.`,
     patternMatcher: {
       clusterKey: 'shoulder',
       markers: [
@@ -8079,7 +8207,7 @@ AC joint changes become common with age and may follow an injury. They are often
     ],
 
     prognosis: {
-      timeline: "Typical ranges: Grade I around 2-4 weeks, Grade II around 4-6 weeks, Grade III often 8-12 weeks, with actual return driven by strength and scapular control rather than the calendar",
+      timeline: "Depends on the grade of the injury and on what you are returning to. Light daily activity usually comes back well before heavy lifting, overhead sport or contact sport, and higher-grade injuries take longer. Return to each is guided by strength and shoulder blade control rather than the calendar",
       factors: [
         "Injury grade",
         "Activity demands",
@@ -8151,7 +8279,7 @@ AC joint changes become common with age and may follow an injury. They are often
       },
       {
         question: "How long until I can go back to work or sport?",
-        answer: "Grade I injuries typically settle enough for light activity in 2 to 3 weeks, full sport in 4 to 6 weeks. Grade II usually needs 4 to 6 weeks of protected loading with return to contact sport around 6 to 8 weeks. Grade III treated conservatively often takes 8 to 12 weeks to return to full contact, though professional and collegiate contact athletes frequently return faster. Timelines depend less on the grade on X-ray than on whether strength and scapular control have been restored, and whether your sport involves direct contact or heavy overhead load."
+        answer: "It depends on the grade and on what you are returning to. Light daily activity and desk work usually come back first. Heavy lifting at work, pressing in the gym, overhead sport and contact sport take longer, and higher-grade injuries take longer still. In two studies of college and military academy athletes, low-grade (Grade I and II) sprains cost an average of about 10 to 11 days of sport or training (Pallis et al., 2012; Dragoo et al., 2012). Higher-grade injuries took longer, and some of those athletes had surgery. These figures come from young athletes and may not match a manual job or a recreational player. Within each grade, the timeline depends on whether strength and shoulder blade control have been restored, and on whether your sport involves direct contact or heavy overhead load."
       },
       {
         question: "Will the bump ever go away?",
@@ -8204,8 +8332,8 @@ AC joint changes become common with age and may follow an injury. They are often
 
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Protect and Preserve (Weeks 0 to 3 for Grade I-II, 0 to 6 for Grade III)",
-        focus: "Unload the injured ligaments while keeping the shoulder girdle from deconditioning. Sling use is short-term, often 1 to 2 weeks for higher-grade injuries, then transitioned as pain allows. Beitzel et al. (ISAKOS consensus, Arthroscopy 2014) and current conservative protocols emphasise early scapular and cuff activation rather than prolonged immobilisation, which tends to stiffen the joint and delay recovery.",
+        title: "Phase 1: Protect and Preserve",
+        focus: "Unload the injured ligaments while keeping the shoulder girdle from deconditioning. Sling use is short-term, often 1 to 2 weeks for higher-grade injuries, then transitioned as pain allows. Beitzel et al. (ISAKOS consensus, Arthroscopy 2014) and current conservative protocols emphasise early scapular and cuff activation rather than prolonged immobilisation, which tends to stiffen the joint and delay recovery. How long each phase lasts depends on the grade of the injury and on what you are returning to.",
         examples: [
           "Elbow, wrist and hand range of motion drills to prevent distal stiffness while the sling is in use",
           "Scapular setting drills and gentle scapular retraction holds below shoulder height",
@@ -8216,7 +8344,7 @@ AC joint changes become common with age and may follow an injury. They are often
         progressionCriteria: "Pain at rest below 3/10, able to sleep with tolerable positioning, local tenderness reducing, and pain-free passive elevation to 90 degrees in Grade I-II or to 60 degrees in Grade III."
       },
       phase2: {
-        title: "Phase 2: Restore Scapular Control and Cuff Capacity (Weeks 3 to 8)",
+        title: "Phase 2: Restore Scapular Control and Cuff Capacity",
         focus: "Once the ligaments have started to consolidate, the joint tolerates progressive loading below and then into shoulder height. The Kibler et al. scapular summit consensus (Br J Sports Med 2013) frames this as restoring scapular position and motion before layering in heavier cuff and pressing work. Avoid early aggressive cross-body stretches and dips, which directly compress the healing AC joint.",
         examples: [
           "Prone Y, T, W and row progressions for the scapular stabilisers, progressed from isometric holds to slow dynamic reps",
@@ -8228,7 +8356,7 @@ AC joint changes become common with age and may follow an injury. They are often
         progressionCriteria: "Full active shoulder elevation without painful catching, external rotation strength approaching 70% of the unaffected side, and no sharp AC joint pain on cross-body adduction or horizontal pressing at light loads."
       },
       phase3: {
-        title: "Phase 3: Return to Pressing, Contact, and Overhead Sport (Weeks 8 to 16+)",
+        title: "Phase 3: Return to Pressing, Contact, and Overhead Sport",
         focus: "Rebuild the loads your sport or job actually demands. This is where lifters and overhead athletes get stuck, because the previous phase resolves pain but the joint has not been challenged under high load or contact. Criterion-based return-to-play guidance in the AC joint literature ties progression to strength symmetry, scapular control, and tolerance of direct loading rather than fixed weeks.",
         examples: [
           "Bench press progression: floor press and close-grip variations before full-range wide-grip",
@@ -8247,6 +8375,7 @@ AC joint changes become common with age and may follow an injury. They are often
   },
 
   'biceps-tendinopathy': {
+    summary: `Biceps tendinopathy is pain in the upper biceps tendon (the long head), which runs over the front of the shoulder and into the joint. It usually builds up gradually and hurts at the front of the shoulder when reaching overhead or lifting. It often occurs alongside rotator cuff problems.`,
     patternMatcher: {
       clusterKey: 'shoulder',
       markers: [
@@ -8475,7 +8604,7 @@ A jump in training load is a common trigger: more overhead sport, more swimming,
   },
 
   'mcl-lcl-sprains': {
-    summary: `The MCL (medial collateral ligament) runs down the inner side of the knee, and the LCL (lateral collateral ligament) runs down the outer side. Together they stop the knee bending sideways: the MCL resists the knee being pushed inward, and the LCL resists it being pushed outward.`,
+    summary: `The MCL (medial collateral ligament) supports the inner side of the knee; the LCL (lateral collateral ligament) supports the outer side. They resist sideways movement. A sprain can cause pain, swelling or instability. LCL injuries and injuries involving several ligaments may need a different plan from an isolated MCL sprain.`,
     pathophysiology: `The MCL (medial collateral ligament) runs down the inner side of the knee, and the LCL (lateral collateral ligament) runs down the outer side. Together they stop the knee bending sideways: the MCL resists the knee being pushed inward, and the LCL resists it being pushed outward.
 
 They are usually injured in different ways. The MCL is one of the most commonly injured parts of the knee (Phisitkul et al., Iowa Orthopaedic Journal, 2006). It is typically sprained by a blow to the outside of the knee or a twist with the foot planted that makes the knee buckle inward, which is common in hockey, soccer, football and skiing. The LCL is injured less often, usually by a force to the inner side of the knee, a hyperextension or a twist, and it is often hurt together with the structures at the back and outer corner of the knee (the posterolateral corner) or a cruciate ligament (Grawe et al., Journal of the American Academy of Orthopaedic Surgeons, 2018).
@@ -8709,7 +8838,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
   },
 
   'patellar-tendinopathy': {
-    summary: `Patellar tendinopathy, often called jumper's knee, is pain in the tendon just below the kneecap that comes from loading it more than it can currently handle. It is most common in sports with jumping and landing. Many people improve with a gradual tendon-loading programme rather than rest, often over three to six months or longer.`,
+    summary: `Patellar tendinopathy, often called jumper's knee, is pain in the tendon just below the kneecap. It usually builds up with jumping, landing or deep squatting, and the knee can feel stiff after rest. This page explains the common symptoms and how activity can be adjusted during rehabilitation.`,
     pathophysiology: `Patellar tendinopathy is a persistent tendon problem, most often where the patellar tendon attaches to the bottom of the kneecap (the inferior pole of the patella). It involves changes in the tendon's structure and in how pain is processed, and inflammation can be part of a more complex process. Symptoms do not reveal a precise tissue stage.
 
 The pathology begins with repetitive microtrauma from jumping and landing activities that overwhelm the tendon's capacity to repair. This creates microscopic failures within the tendon structure, leading to alterations at the cellular level that undermine its mechanical properties. The normal parallel arrangement of type I collagen fibers becomes disrupted, replaced by areas of mucoid degeneration and increased ground substance that weakens the tendon's tensile strength.
@@ -8949,7 +9078,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
       },
       {
         question: "Should I stop running or jumping if I have jumper's knee?",
-        answer: "Complete rest is rarely the answer. Tendons need load to remodel, and prolonged rest often weakens them further. The usual approach is modifying volume rather than stopping: reducing jumping and high-speed running by around 50% and adding heavy slow resistance work often allows continued sport participation. The 24-hour rule guides dosage. If pain during activity stays under 5/10 and settles within 24 hours, the load was acceptable."
+        answer: "Complete rest is rarely the answer. Tendons need load to remodel, and prolonged rest often weakens them further. The usual approach is modifying volume rather than stopping: reducing jumping and high-speed running by around 50% and adding heavy slow resistance work often allows continued sport participation. The 24-hour rule guides dosage. If pain during activity stays under 5/10 and settles within 24 hours, the load was acceptable. These are example monitoring limits, not proof that running is safe for every cause of pain."
       },
       {
         question: "Does rest alone help patellar tendinopathy?",
@@ -9020,6 +9149,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
 
   // Placeholder entries for conditions under development
   'knee-pain-patellofemoral': {
+    summary: `Patellofemoral pain is pain around or behind the kneecap. It often builds gradually and is aggravated by stairs, squats, running or sitting with the knees bent. Diagnosis usually comes from the symptom pattern and examination; the location alone does not rule out other causes of knee pain.`,
     pathophysiology: `Patellofemoral pain is pain around or behind the kneecap (patella), where it glides over the groove at the end of the thigh bone (femur). It is best understood as a load problem: the joint and the tissues around it have become sensitive, and activities that press the kneecap into its groove, such as stairs, squats and long periods of sitting with the knee bent, load it more than it can currently tolerate.
 
 Scans are usually normal or show changes that are also common in people without pain, which is why the diagnosis is made from the history and examination. The older idea that the kneecap is "tracking badly" and needs to be pulled back into line has not held up well; changes in how the kneecap moves are seen in some people, but they do not explain most cases.
@@ -9182,8 +9312,16 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
         action: "Possible kneecap dislocation or ligament injury. Get medical assessment today, even if the kneecap is back in place"
       },
       {
-        sign: "A child or teenager with a new limp and knee, thigh or hip pain",
-        action: "Possible slipped growth plate at the hip (SCFE), which can be felt as knee pain. Do not let them walk on the leg. Go to emergency today for an urgent assessment"
+        sign: "A child or teenager with a new limp that has no clear explanation",
+        action: "Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the thigh or knee"
+      },
+      {
+        sign: "A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "A suspected slipped growth plate at the hip (SCFE)",
+        action: "Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, even when they can still walk"
       },
       {
         sign: "Severe pain at rest or night pain",
@@ -9215,7 +9353,7 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
       },
       {
         question: "Can I keep running with patellofemoral pain?",
-        answer: "Often yes, with modifications. Reducing mileage, avoiding steep downhill running, and cueing a slightly quicker cadence (around 5 to 10% higher) can help. Heiderscheit and colleagues showed a 10% increase in step rate meaningfully reduces energy absorption at the knee. Bramah and colleagues (2019) reported that a 10 percent increase in step rate was associated with improved running kinematics and clinical outcomes in runners with patellofemoral pain at 3-month follow-up. The pain rule I use is that symptoms stay at or below 3/10 during the run and settle within 24 hours. Persistent flares mean the load resets."
+        answer: "Often yes, with modifications. Reducing mileage, avoiding steep downhill running, and cueing a slightly quicker cadence (around 5 to 10% higher) can help. Heiderscheit and colleagues showed a 10% increase in step rate meaningfully reduces energy absorption at the knee. Bramah and colleagues (2019) reported that a 10 percent increase in step rate was associated with improved running kinematics and clinical outcomes in runners with patellofemoral pain at 3-month follow-up. The pain rule I use is that symptoms stay at or below 3/10 during the run and settle within 24 hours. Persistent flares mean the load resets. These are example monitoring limits, not proof that running is safe for every cause of pain."
       },
       {
         question: "Is patellofemoral pain the same as runner's knee?",
@@ -9298,6 +9436,7 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
   },
 
   'degenerative-disc-disease': {
+    summary: `Degenerative disc disease is a label for changes in spinal discs, such as loss of water and height, that become more common with age. They also appear on scans of people without pain. A scan alone cannot establish the cause of symptoms, so it is considered alongside your history and examination.`,
     pathophysiology: `Degenerative disc disease represents the natural aging process of your intervertebral discs, though it can occur prematurely due to various factors. Your discs are composed of an outer fibrous ring (annulus fibrosus) and an inner gel-like core (nucleus pulposus) that normally acts as a shock absorber between vertebrae.
 
 As discs age, they lose water content and the nucleus pulposus becomes less gel-like, reducing the disc's ability to distribute loads evenly. This dehydration process leads to decreased disc height and can result in small tears in the annulus fibrosus. When the disc loses height, it alters the biomechanics of the entire spinal segment.
@@ -9418,12 +9557,20 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in the saddle area (between the legs or around the back passage), new trouble passing urine, new loss of bladder or bowel control, or sciatica in both legs",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
-        sign: "New or worsening leg weakness, or a foot that drops or slaps when you walk",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or new or worsening weakness in one leg",
         action: "Same-day medical assessment"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Fever or feeling generally unwell with back pain",
@@ -9546,7 +9693,7 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       },
       {
         question: "When should I worry about back pain with DDD?",
-        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or sciatica in both legs. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse, a foot that drops or slaps when you walk, or fever with back pain. Unexplained weight loss or severe, unrelenting night pain need a doctor's assessment before physiotherapy. None of these are typical DDD patterns."
+        answer: "Go to emergency now for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, or severe or rapidly worsening weakness in both legs. New loss of genital sensation or sexual function with back or leg pain also needs emergency assessment. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs. A new foot drop (the foot catches or slaps when you walk), worsening weakness in one leg, or fever with back pain needs a same-day medical assessment. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now. Unexplained weight loss or severe, unrelenting night pain need a doctor's assessment before physiotherapy. None of these are typical DDD patterns."
       }
     ],
     lastReviewed: '2026-04-16',
@@ -9554,6 +9701,7 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
   },
 
   'spinal-stenosis': {
+    summary: `Spinal stenosis is a narrowing of the spaces in the spine that the nerves pass through, usually from gradual age-related changes. In the lower back it often causes pain, numbness, heaviness or weakness in the legs when standing or walking, which eases with sitting or leaning forward, for example on a shopping cart.`,
     pathophysiology: `Spinal stenosis involves narrowing of the spaces within your spinal canal, creating compression of neural structures. This narrowing can occur in the central canal (central stenosis) where the spinal cord or cauda equina travels, or in the lateral recesses and foramina where individual nerve roots exit.
 
 The narrowing typically develops gradually through multiple mechanisms. Degenerative changes in the discs can cause bulging into the spinal canal, while arthritis of the facet joints leads to bone spur formation and joint enlargement. The ligamentum flavum, which runs along the back of the spinal canal, can thicken and buckle inward, further reducing available space.
@@ -9671,7 +9819,7 @@ Walking on an incline often feels easier than walking on flat ground because the
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in the saddle area (between the legs or around the back passage), new trouble passing urine, new loss of bladder or bowel control, or symptoms in both legs that come on quickly",
+        sign: "New trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
@@ -9679,16 +9827,28 @@ Walking on an incline often feels easier than walking on flat ground because the
         action: "Same-day medical assessment. It is not always serious, but it needs checking before physiotherapy"
       },
       {
-        sign: "Leg weakness that is getting worse quickly, or a foot that drops or slaps when you walk",
+        sign: "Pain that suddenly starts down both legs, or spreads from one leg to both, even without the signs above",
+        action: "Contact a medical clinician today for a same-day assessment. Long-standing symptoms in both legs that have already been assessed and are not changing are different"
+      },
+      {
+        sign: "A new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse",
         action: "Same-day medical assessment"
+      },
+      {
+        sign: "Sudden unexplained weakness or numbness in an arm or leg, even if it improves",
+        action: "Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment"
       },
       {
         sign: "Severe pain at rest or at night, a history of cancer, unexplained weight loss, or fever",
         action: "See your family doctor before starting physiotherapy, or the same day if you have a fever"
       },
       {
-        sign: "Falls, clumsy hands, or a change in balance that is not explained by leg pain",
-        action: "Same-day medical assessment. These can be signs of pressure on the spinal cord higher up"
+        sign: "New or worsening hand clumsiness, arm weakness, falls, or trouble walking or balancing that is not explained by leg pain",
+        action: "Same-day medical assessment before any exercise. These can be signs of pressure on the spinal cord higher up"
+      },
+      {
+        sign: "Any of those changes starting suddenly, getting worse rapidly, or making walking difficult beyond your usual leg symptoms",
+        action: "Go to emergency now"
       },
       {
         sign: "Back pain after a fall, or after a minor strain if you have osteoporosis or take long-term steroids",
@@ -9746,7 +9906,7 @@ Walking on an incline often feels easier than walking on flat ground because the
       },
       {
         question: "What symptoms mean I should see a doctor urgently?",
-        answer: "Go to emergency now if you cannot pass urine, lose control of your bladder or bowels, or have numbness between the legs or around the back passage. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse, a foot that drops or slaps when you walk, a new change in bladder function, or a sudden change in balance or clumsy hands. These need a doctor before physiotherapy."
+        answer: "Go to emergency now for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, or severe or rapidly worsening weakness in both legs. New loss of genital sensation or sexual function with back or leg pain also needs emergency assessment. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs; long-standing symptoms in both legs that have already been assessed and are not changing are different. A new foot drop (the foot catches or slaps when you walk), worsening weakness in one leg, or a new, unexplained change in bladder function such as urgency or needing to go more often needs a same-day medical assessment. New or worsening hand clumsiness, falls, or trouble walking or balancing that leg pain does not explain also needs a same-day medical assessment before exercise; if these changes start suddenly, worsen rapidly, or make walking difficult, go to emergency now. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now."
       }
     ],
 
@@ -9821,6 +9981,7 @@ Walking on an incline often feels easier than walking on flat ground because the
   },
 
   'postural-dysfunction': {
+    summary: `Postural dysfunction is a term sometimes used for neck, upper back or shoulder discomfort during activities such as desk work. Holding one position for a long time may aggravate symptoms, but posture alone does not explain pain. Assessment considers movement, workload, sleep and other factors that may be contributing.`,
     pathophysiology: `Some people develop neck or upper-back discomfort during long periods at a desk or on a phone. Posture alone does not explain who gets pain: workload, time spent in one position, sleep, stress and physical capacity can all matter. The assessment helps me find which movements and exercises are useful for you.
 
 You may see this described as "upper crossed syndrome", a pattern of tight chest and upper shoulder muscles with weaker deep neck and mid-back muscles. It can be a useful way to plan exercises, but the research linking posture to pain is weaker than the label suggests. Many people with a forward head or rounded shoulders have no pain, and many people with neck pain sit upright.`,
@@ -10045,6 +10206,7 @@ Stress, poor sleep and a sudden increase in screen time make that end-of-day sor
   },
 
   'shoulder-instability': {
+    summary: `Shoulder instability means the ball of the shoulder slips partly or fully out of its socket, or feels as if it might. It can follow a dislocation or develop gradually without a clear injury. This page covers these different patterns and rehabilitation after stabilisation surgery, which follows the surgical team's restrictions.`,
     pathophysiology: `Shoulder instability occurs when the structures that normally keep your shoulder joint stable are compromised, allowing excessive movement or displacement of the humeral head within the glenoid socket. Your shoulder joint sacrifices stability for mobility, making it inherently vulnerable to instability.
 
 The stability of your shoulder depends on both static restraints (joint capsule, ligaments, labrum, and bony architecture) and dynamic restraints (muscle activation patterns and proprioceptive feedback). When these systems fail, your shoulder may sublux (partially dislocate) or fully dislocate.
@@ -10291,6 +10453,7 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
   },
 
   'shoulder-bursitis': {
+    summary: `Shoulder bursitis is irritation of a small fluid-filled sac that helps the rotator cuff tendons glide under the bony roof of the shoulder. It often occurs alongside tendon problems. Symptoms can include an ache on the outer shoulder with reaching overhead or behind the back, or lying on that side.`,
     pathophysiology: `Shoulder bursitis, specifically subacromial bursitis, involves inflammation of the small fluid-filled sac (bursa) that sits between your rotator cuff tendons and the bony roof of your shoulder (acromion). This bursa normally allows smooth gliding of the rotator cuff tendons beneath the acromion during arm movement.
 
 The bursa usually becomes irritated together with the rotator cuff tendons beneath it, when the shoulder is asked to do more than it is ready for, such as a jump in overhead work or training. On a scan this shows as a thickened bursa, which is also common in shoulders without pain.
@@ -10554,6 +10717,7 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
   },
 
   'wrist-sprains': {
+    summary: `A wrist sprain is an injury to the ligaments that hold the small wrist bones together, often from a fall on an outstretched hand. It causes pain, swelling and a weaker grip, and some sprains leave the wrist feeling unstable. Pain at the base of the thumb after a fall should be assessed promptly, to rule out a scaphoid fracture.`,
     pathophysiology: `Wrist sprains involve damage to the ligaments that connect the bones of your wrist, most commonly affecting the scapholunate ligament complex or the triangular fibrocartilage complex (TFCC). These structures are crucial for maintaining proper carpal bone alignment and allowing coordinated wrist movement.
 
 The scapholunate interosseous ligament is particularly vulnerable to injury during falls on an outstretched hand or rotational movements under load. When this ligament is damaged, it can lead to abnormal movement patterns between the scaphoid and lunate bones, potentially causing long-term instability if not properly managed.
@@ -10792,7 +10956,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
           "Perturbation work: loaded ball tosses, unstable-surface hand support, to rebuild reflexive wrist stability",
           "Fall technique practice for contact or fall-prone sports, aiming to absorb force through a flexed elbow rather than a locked, extended wrist"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: two consecutive weeks of full training or full work demand without a flare, grip strength close to the uninjured side, confident weight-bearing through the palm, and no recurrence of catching, clunking, or giving-way."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: full training or full work demands sustained without a flare, grip strength close to the uninjured side, confident weight-bearing through the palm, and no recurrence of catching, clunking, or giving-way."
       }
     },
     lastReviewed: '2026-04-16',
@@ -10800,6 +10964,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
   },
 
   'repetitive-strain-injuries': {
+    summary: `Repetitive strain injury (RSI) is an umbrella term for pain and other symptoms in the neck, shoulders, arms or hands associated with repeated tasks. It is not one diagnosis. Work demands, recovery, stress, sleep and health can all matter, so assessment looks at the symptom pattern and possible tendon, nerve or other causes.`,
     patternMatcher: {
       clusterKey: 'elbow',
       markers: [
@@ -11068,6 +11233,7 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
   },
 
   'si-joint-dysfunction': {
+    summary: `Sacroiliac (SI) joint-related pain is pain thought to arise from the joint or nearby ligaments where the spine meets the pelvis. It may be felt below the belt line or in the buttock and aggravated by turning in bed or stairs. Similar symptoms can come from the back or hip, so assessment matters.`,
     pathophysiology: `SI-joint-related pain refers to pain thought to arise from the sacroiliac joint, between the sacrum and the pelvis (ilium), or from the ligaments around it. It can be difficult to tell apart from pain coming from the lower back or the hip, and routine examination does not reliably show that the pelvis is out of position. The joint normally allows only small amounts of movement (around 2 to 4 millimetres and 2 to 4 degrees) but plays an important role in transferring forces between your spine and legs.
 
 The SI joint is surrounded by some of the strongest ligaments in the body, which can become either too loose (hypermobile) or too tight (hypomobile), both of which can cause pain and dysfunction. The joint surfaces are irregular and interlocking, designed more for stability than mobility, which makes them vulnerable to dysfunction when normal mechanics are disturbed.
@@ -11201,7 +11367,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
 
     clinicalRedFlags: [
       {
-        sign: "Progressive neurological symptoms or leg weakness",
+        sign: "Numbness that keeps spreading, a new foot drop (the foot catches or slaps when you walk), or weakness in one leg that is getting worse",
         action: "Possible nerve compression. Same-day medical assessment"
       },
       {
@@ -11209,7 +11375,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
         action: "Possible infection or inflammatory condition. Same-day medical assessment"
       },
       {
-        sign: "Bowel or bladder changes, or numbness in the saddle area (between the legs), with back pain",
+        sign: "With back pain: new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, new loss of genital sensation or sexual function, or severe or rapidly worsening weakness in both legs",
         action: "Possible cauda equina syndrome. Go to emergency now"
       },
       {
@@ -11343,6 +11509,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
   },
 
   'pcl-injuries': {
+    summary: `The PCL (posterior cruciate ligament) helps steady the knee by resisting backward movement of the shinbone. A fall onto a bent knee or a blow to the front of the shin can injure it, causing pain, swelling or unsteadiness. Assessment checks for other injuries; the exercise phases here cover an isolated injury managed without surgery.`,
     pathophysiology: `Posterior cruciate ligament (PCL) injuries involve damage to the ligament that prevents excessive backward movement of your tibia relative to your femur. The PCL is the strongest ligament in your knee and has a better blood supply than the ACL, giving it better healing potential when injured.
 
 PCL injuries are graded from I to III based on severity: Grade I involves stretching with microscopic tears, Grade II involves partial tearing with some functional loss, and Grade III represents complete rupture. Unlike ACL injuries, isolated PCL tears have an excellent capacity for healing due to their rich vascular supply.
@@ -11569,7 +11736,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
         examples: [
           "Leg press, heel-elevated squats, and Bulgarian split squats emphasizing quadriceps dominance and a forward tibia",
           "Step-ups and step-downs with attention to knee tracking and absence of posterior sag",
-          "Hip thrusts and glute bridges for posterior chain work without isolated hamstring shear",
+          "Hip thrust or bridge variations selected by your clinician once this loading is permitted. These exercises can also load the hamstrings, so the position and dose must fit your protection plan",
           "Progressive hamstring reintroduction starting with long-lever isometrics and advancing to Nordic progressions in the late phase only",
           "Return-to-running program beginning with treadmill walk-jog intervals once strength criteria are met, typically around month 3"
         ],
@@ -11594,6 +11761,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
 
 
   'peroneal-tendinopathy': {
+    summary: `Peroneal tendinopathy is pain in the tendons that run behind and below the bony bump on the outside of the ankle. These tendons help steady the ankle, and the problem often follows earlier ankle sprains. Pain usually builds gradually and is worse with activity, such as walking on uneven trails or pushing off when running.`,
     pathophysiology: `Peroneal tendinopathy affects the fibularis longus and brevis tendons that run behind your lateral malleolus (outer ankle bone). These tendons are crucial for ankle stability, particularly during walking on uneven surfaces, and help prevent ankle sprains by providing lateral stability.
 
 The peroneal tendons are subject to significant mechanical stress as they navigate around the sharp posterior edge of the fibula, held in place by the superior peroneal retinaculum. This anatomical arrangement makes them vulnerable to friction and degenerative changes, particularly when the retinaculum is damaged or when there are underlying biomechanical issues.
@@ -11777,7 +11945,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       },
       {
         question: "Should I rest completely, or keep moving?",
-        answer: "Complete rest is rarely the answer. The tendon needs load to remodel, and long periods off just delay the conversation. Most people do better on a modified plan: drop the aggravating volume by roughly a third, swap uneven-terrain running for flatter surfaces for a few weeks, and add a specific peroneal loading program twice weekly. I use a 24-hour check as a guide: if pain during activity stays moderate (I often use about 5 out of 10 as a starting point) and settles within 24 hours, the dosage is usually acceptable. That number is a clinical rule of thumb rather than a tested threshold, so I adjust it to how your tendon responds."
+        answer: "Complete rest is rarely the answer. The tendon needs load to remodel, and long periods off just delay the conversation. Many people do better on a modified plan: reduce the aggravating volume, swap uneven-terrain running for flatter surfaces for a few weeks, and add a specific peroneal loading program twice weekly. One way to judge the dose: pain during activity stays moderate, settles within 24 hours, and does not build from week to week. These are example monitoring limits, not proof that running is safe for every cause of pain, so the plan is adjusted to how your tendon responds."
       },
       {
         question: "Do orthotics help peroneal tendinopathy?",
@@ -11808,7 +11976,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
           "Calf raise variations on flat ground, 3 sets of 12, to share load with the triceps surae",
           "Activity modification: reduce uneven-terrain running and hill work by roughly 50 percent, keep volume on flatter surfaces"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: comfortable isometric eversion (around 3 out of 10 or less) for about a week, steady single-leg balance on firm ground, and no symptom rise 24 hours after loading sessions."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: comfortable isometric eversion over several days, steady single-leg balance on firm ground, and no symptom rise 24 hours after loading sessions."
       },
       phase2: {
         title: "Phase 2: Progressive Loading and Instability Challenge (Weeks 4 to 10)",
@@ -11820,7 +11988,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
           "Single-leg balance on a foam pad or Airex, with reaches in multiple directions, 3 sets of 8 per direction per side",
           "Walking lunges and lateral step-ups to load the foot in functional positions, 3 sets of 8 to 10"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: heavy slow resistance eversion tolerated with low pain, a solid set of full-range single-leg heel raises per side, stable balance on foam with eyes closed, and two consecutive weeks of loading without a 24-hour flare."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: heavy slow resistance eversion tolerated with low pain, a solid set of full-range single-leg heel raises per side, stable balance on foam with eyes closed, and loading sustained over several weeks without a 24-hour flare."
       },
       phase3: {
         title: "Phase 3: Return to Terrain, Cutting, and Sport (Months 3 to 6)",
@@ -11832,7 +12000,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
           "Graded return to trail, hill, or uneven-surface training, increasing volume in small weekly steps",
           "Sport-specific reintegration, such as change of direction drills for soccer or court sports, in blocks with full recovery between"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: single-leg hopping close to the unaffected side, return to previous training volume and terrain without next-day flares, FAAM Sport subscale trending toward pre-injury levels, and two consecutive weeks of full training without a symptom rise."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: single-leg hopping close to the unaffected side, return to previous training volume and terrain without next-day flares, FAAM Sport subscale trending toward pre-injury levels, and full training sustained over several weeks without a symptom rise."
       }
     },
 
@@ -11859,6 +12027,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
   },
 
   'posterior-tibial-tendon-dysfunction': {
+    summary: `Posterior tibial tendon dysfunction affects a tendon that helps support the arch. It can cause inner ankle pain and difficulty rising onto the toes. Some people also develop changes in foot shape, called progressive collapsing foot deformity, which can involve other ligaments and joints as well as this tendon.`,
     pathophysiology: `Posterior tibial tendon dysfunction (PTTD), now commonly termed Progressive Collapsing Foot Deformity (PCFD), represents a complex, progressive condition involving failure of the posterior tibial tendon and associated ligamentous structures. The posterior tibial tendon serves as the primary dynamic stabilizer of the medial longitudinal arch and controls hindfoot motion during the stance phase of walking.
 
 The condition begins with inflammation and degenerative changes within the tendon substance (tendinosis), often triggered by repetitive microtrauma or acute overload. As the tendon's structural integrity compromises, its eccentric strength diminishes, particularly during the loading response and terminal stance phases of gait. This leads to progressive loss of the tendon's ability to resist pronation forces and maintain arch integrity.
@@ -12021,8 +12190,12 @@ Conservative treatment success depends heavily on early intervention and patient
         action: "Same-day medical assessment to rule out Charcot foot or infection, and keep weight off the foot until you are seen"
       },
       {
-        sign: "A foot or toe that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        sign: "A foot that suddenly becomes unusually cold, pale, or blue, or a toe with a new colour change that persists, especially with pain, numbness, or weakness",
         action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "A familiar, brief colour change in the toes triggered by cold, already diagnosed as Raynaud's",
+        action: "Follow your existing care plan. New, persistent or unusually severe changes need medical assessment, and the emergency signs above still apply. Do not assume an unexplained change is Raynaud's"
       },
       {
         sign: "Numbness or weakness in the foot that is spreading or getting worse",
@@ -12115,7 +12288,7 @@ Conservative treatment success depends heavily on early intervention and patient
           "Short-foot holds: gently doming the arch without curling the toes, 3 sets of 10 with 10-second holds",
           "Reduce prolonged standing blocks where possible, and rotate supportive footwear rather than spending the day in flat, flexible shoes"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: end-of-day medial ankle pain down meaningfully from baseline for about a week, at least a half heel rise on the affected side, and orthosis or brace well tolerated during the full waking day."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: end-of-day medial ankle pain down meaningfully from baseline over several days, at least a partial heel rise on the affected side, and orthosis or brace well tolerated during the full waking day."
       },
       phase2: {
         title: "Phase 2: Progressive Loading and Single-Leg Control (Weeks 6 to 16)",
@@ -12127,7 +12300,7 @@ Conservative treatment success depends heavily on early intervention and patient
           "Single-leg balance with a forward reach, on firm ground first, progressing to a foam pad, 3 sets of 8 per direction",
           "Continued orthotic use during all standing and walking; gastrocnemius and soleus stretching daily to maintain ankle dorsiflexion"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a solid set of clean single-leg heel rises per side, medial ankle pain low during loading (around 3 out of 10 or less), and two consecutive weeks without next-day symptom flares following heavier sessions."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: a solid set of clean single-leg heel rises per side, medial ankle pain low during loading, and several weeks without next-day symptom flares following heavier sessions."
       },
       phase3: {
         title: "Phase 3: Return to Walking Volume and Activity (Months 4 to 6+)",
@@ -12166,6 +12339,7 @@ Conservative treatment success depends heavily on early intervention and patient
   },
 
   'mortons-neuroma': {
+    summary: `Morton's neuroma is a thickened, irritated nerve between the bones of the forefoot, most often between the third and fourth toes. It often causes burning or electric pain in the ball of the foot, numbness in the toes and a feeling of walking on a pebble. Tight shoes can aggravate it, and taking them off may help.`,
     pathophysiology: `Morton's neuroma, more accurately termed intermetatarsal neuroma, represents a localized thickening of the common digital nerve as it passes beneath the deep transverse metatarsal ligament. Despite its name, this condition is not a true neuroma but rather perineural fibrosis, a reactive thickening of the nerve sheath and surrounding connective tissue.
 
 The condition most commonly affects the third intermetatarsal space (between the third and fourth metatarsals) due to unique anatomical factors. In this location, the medial and lateral plantar nerves converge, creating a larger nerve bundle that is more susceptible to compression. The nerve passes beneath the ligament that joins the metatarsal heads (the deep transverse metatarsal ligament), and can be compressed against that ligament and between the neighbouring metatarsal heads during toe-off.
@@ -12427,7 +12601,7 @@ It's important to understand that once the nerve has thickened significantly, so
           "Gentle interdigital mobilisation: pinching the skin between the toes and separating them softly, 10 slow repetitions per interspace, daily",
           "Activity modification: reduce long walks in the aggravating shoes, and spend part of each day barefoot or in a foot-shaped sandal around the home"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: comfortable walking for around 20 to 30 minutes in a wider shoe with the metatarsal pad in place, forefoot pain during the day down meaningfully from baseline, and no flare-ups requiring shoe removal mid-day for 7 consecutive days."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: comfortable walking for longer in a wider shoe with the metatarsal pad in place, forefoot pain during the day down meaningfully from baseline, and no flare-ups requiring shoe removal mid-day over several days in a row."
       },
       phase2: {
         title: "Phase 2: Building Intrinsic Foot Capacity (Weeks 4 to 10)",
@@ -12439,7 +12613,7 @@ It's important to understand that once the nerve has thickened significantly, so
           "Single-leg balance on firm ground with a neutral foot posture, 3 sets of 30 to 45 seconds, progressing to a foam pad",
           "Calf raise variations with the heel moving cleanly over the second toe, 3 sets of 12 to 15, to reinforce forefoot alignment during push-off"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a visible short-foot hold without toe clawing, steady single-leg balance on foam with a stable forefoot, and a normal daily walking volume in appropriate shoes without forefoot pain or the pebble sensation."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: a visible short-foot hold without toe clawing, steady single-leg balance on foam with a stable forefoot, and a normal daily walking volume in appropriate shoes without forefoot pain or the pebble sensation."
       },
       phase3: {
         title: "Phase 3: Return to Activity and Long-Term Footwear Strategy (Months 3+)",
@@ -12451,7 +12625,7 @@ It's important to understand that once the nerve has thickened significantly, so
           "Bodyweight or light load calf and single-leg work maintained to support forefoot control",
           "Periodic footwear reviews every 6 to 12 months, because sock thickness, shoe wear, and foot shape all change over time"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: return to preferred activities without forefoot pain or numbness, comfortable time in narrower shoes only if that is one of your goals, and a long-term footwear plan you are willing to stick with."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: return to preferred activities without forefoot pain or numbness, comfortable time in narrower shoes only if that is one of your goals, and a long-term footwear plan you are willing to stick with."
       }
     },
 
@@ -12478,6 +12652,7 @@ It's important to understand that once the nerve has thickened significantly, so
   },
 
   'metatarsalgia': {
+    summary: `Metatarsalgia is pain under the ball of the foot, where the long foot bones meet the toes. It describes where it hurts rather than one diagnosis, so assessment looks for the underlying cause. It often feels bruised or burning, builds with long periods of standing or walking, and can come with calluses.`,
     pathophysiology: `Metatarsalgia represents a symptom complex rather than a specific diagnosis, describing pain under the metatarsal heads in the forefoot. This mechanical overload syndrome occurs when weight-bearing forces exceed the tissues' adaptive capacity, leading to inflammation and pain in the plantar structures of the forefoot.
 
 The normal forefoot functions as a complex lever system during push-off, with forces distributed across all five metatarsal heads. The central metatarsals (second and third) typically bear the greatest loads due to their length and position in the transverse arch. When this load distribution becomes pathological, excessive pressure concentrates under one or more metatarsal heads.
@@ -12747,7 +12922,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
           "Toe splay and short-foot holds introduced seated, 10 slow repetitions with 5-second holds, to begin reawakening the intrinsic foot muscles",
           "Activity modification: reduce prolonged standing blocks, break up long walks, and add a cushioned insole or secondary pair of supportive shoes if switching occupations or surfaces during the day"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: walking tolerance of around 20 to 30 minutes in supportive footwear with the pad in place without escalating forefoot pain, reduction in end-of-day aching compared to baseline, and no need to remove shoes for relief during the work day for 7 consecutive days."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: walking tolerance building in supportive footwear with the pad in place without escalating forefoot pain, reduction in end-of-day aching compared to baseline, and no need to remove shoes for relief during the work day over several days in a row."
       },
       phase2: {
         title: "Phase 2: Build Forefoot Capacity (Weeks 4 to 10)",
@@ -12759,7 +12934,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
           "Single-leg calf raises with the heel tracking cleanly over the second toe, 3 sets of 12 to 15, progressed from floor to step",
           "Single-leg balance on firm ground progressing to a foam pad, 3 sets of 30 to 45 seconds, emphasising a stable, wide forefoot contact"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a visible short-foot hold without toe clawing, a solid set of single-leg calf raises with low forefoot pain (around 3 out of 10 or less), and return to normal daily walking and standing volume in appropriate shoes without next-day flares."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: a visible short-foot hold without toe clawing, a solid set of single-leg calf raises with low forefoot pain, and return to normal daily walking and standing volume in appropriate shoes without next-day flares."
       },
       phase3: {
         title: "Phase 3: Return to Loading and Long-Term Strategy (Months 3+)",
@@ -12771,7 +12946,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
           "Footwear audit every 6 to 12 months, including checking for midsole compression and whether the pad position still matches the current painful area",
           "Selective reintroduction of narrower or dressier shoes for shorter blocks, with recovery in wider, cushioned footwear rather than all-day wear"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: return to desired walking, running, or occupational demands without ball-of-foot pain or next-day flares, comfortable time in previously aggravating shoes only if that is one of your goals, and a maintenance plan you are willing to stick with."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: return to desired walking, running, or occupational demands without ball-of-foot pain or next-day flares, comfortable time in previously aggravating shoes only if that is one of your goals, and a maintenance plan you are willing to stick with."
       }
     },
 
@@ -12780,6 +12955,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
   },
 
   'hallux-valgus': {
+    summary: `A bunion (hallux valgus) is a change in the shape of the big toe joint: the toe drifts toward the other toes and a bony bump forms on the inner side of the foot. It can cause stiffness and pain from shoe pressure. Care focuses on reducing pain and making footwear and walking more comfortable.`,
     symptoms: [
       "Visible bony prominence on the inner side of the foot at the base of the great toe",
       "Progressive lateral deviation of the great toe toward the second toe",
@@ -12988,8 +13164,12 @@ It's important for patients to understand that conservative treatment cannot cor
         action: "See your family doctor before starting physiotherapy, to check for a nerve problem such as diabetic neuropathy"
       },
       {
-        sign: "A foot or toe that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        sign: "A foot that suddenly becomes unusually cold, pale, or blue, or a toe with a new colour change that persists, especially with pain, numbness, or weakness",
         action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "A familiar, brief colour change in the toes triggered by cold, already diagnosed as Raynaud's",
+        action: "Follow your existing care plan. New, persistent or unusually severe changes need medical assessment, and the emergency signs above still apply. Do not assume an unexplained change is Raynaud's"
       },
       {
         sign: "A sore over the bunion, or a wound that is slow to heal",
@@ -13073,7 +13253,7 @@ It's important for patients to understand that conservative treatment cannot cor
           "Metatarsal pad placement behind the lesser metatarsal heads if transfer pain under the ball of the foot is a significant feature",
           "Activity modification: reduce time in narrow or elevated shoes, break up long standing blocks, avoid bare feet on hard surfaces during flares"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: bunion and forefoot pain low (around 3 out of 10 or less) during a normal day in the updated footwear, a visible and repeatable active big toe abduction contraction even if small, and no shoe-related flare that requires rest for 7 consecutive days."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: bunion and forefoot pain low during a normal day in the updated footwear, a visible and repeatable active big toe abduction contraction even if small, and no shoe-related flare that requires rest over several days in a row."
       },
       phase2: {
         title: "Phase 2: Intrinsic Foot Strengthening and First Ray Mobility (Weeks 4 to 12)",
@@ -13086,7 +13266,7 @@ It's important for patients to understand that conservative treatment cannot cor
           "Self-mobilisation of the first metatarsophalangeal joint into extension, sustained 20 to 30 second holds within comfort, performed before weight-bearing activity",
           "Single-leg calf raises with heel tracking over the second toe, 3 sets of 12 to 15, to reinforce first ray loading during push-off"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a clearly visible active big toe abduction, a steady short-foot hold without toe clawing, big toe dorsiflexion preserved near baseline, and normal daily walking volume in appropriate footwear without bunion or forefoot pain."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: a clearly visible active big toe abduction, a steady short-foot hold without toe clawing, big toe dorsiflexion preserved near baseline, and normal daily walking volume in appropriate footwear without bunion or forefoot pain."
       },
       phase3: {
         title: "Phase 3: Maintenance and Long-Term Progression Management (Months 3+)",
@@ -13108,6 +13288,7 @@ It's important for patients to understand that conservative treatment cannot cor
   },
 
   'hallux-rigidus': {
+    summary: `Hallux rigidus is arthritis of the big toe joint, where the toe gradually loses its ability to bend upward. It often causes pain and stiffness when pushing off while walking, running or climbing stairs, and a bony bump can form on top of the joint. It is different from a bunion, where the toe drifts sideways.`,
     symptoms: [
       "Progressive loss of upward bending motion in the great toe joint",
       "Pain and stiffness in the great toe, especially during push-off when walking",
@@ -13404,7 +13585,7 @@ The progressive nature of the condition means that periodic reassessment and tre
           "Calf and soleus stretching, 30 seconds for 3 repetitions per side, to reduce the demand on forefoot push-off",
           "Activity modification: avoid barefoot walking on hard surfaces and aggressive toe extension activities such as deep lunges, yoga toe stands, and incline walking during flares"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: daytime pain low (around 3 out of 10 or less) in the adapted footwear, morning stiffness clearing reasonably quickly, and tolerance of gentle mobility work without next-day symptom rise for 7 consecutive days."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: daytime pain low in the adapted footwear, morning stiffness clearing reasonably quickly, and tolerance of gentle mobility work without next-day symptom rise over several days in a row."
       },
       phase2: {
         title: "Phase 2: Mobility, Manual Therapy, and Progressive Loading (Weeks 4 to 12)",
@@ -13417,7 +13598,7 @@ The progressive nature of the condition means that periodic reassessment and tre
           "Big toe flexor strengthening by curling a towel under the forefoot or a resisted band, 3 sets of 15",
           "Low-impact cardiovascular work (cycling, elliptical, swimming) maintained as tolerance for walking builds"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: improvement in active big toe extension compared to baseline, tolerance of around 30 to 45 minutes of walking in adapted footwear without pain above 3 out of 10, and return to most routine daily activities without compensatory gait changes."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: improvement in active big toe extension compared to baseline, tolerance of longer walks in adapted footwear with only mild pain, and return to most routine daily activities without compensatory gait changes."
       },
       phase3: {
         title: "Phase 3: Return to Activity and Long-Term Management (Months 3+)",
@@ -13438,6 +13619,7 @@ The progressive nature of the condition means that periodic reassessment and tre
   },
 
   'turf-toe': {
+    summary: `Turf toe is a sprain of the big toe joint, caused by the toe being bent too far upward, often while pushing off hard in sport. It causes pain and swelling at the base of the big toe. Injuries range from a mild stretch to a tear of the tissue under the joint (the plantar plate).`,
     symptoms: [
       "Immediate sharp pain at the base of the great toe following injury",
       "Swelling around the first metatarsophalangeal joint within hours",
@@ -13640,8 +13822,12 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
         action: "Go to urgent care or emergency for an X-ray, and ask for an orthopaedic review of a possible Grade III injury or sesamoid fracture"
       },
       {
-        sign: "A big toe or foot that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        sign: "A foot that suddenly becomes unusually cold, pale, or blue, or a big toe or other toe with a new colour change that persists, especially with pain, numbness, or weakness",
         action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "A familiar, brief colour change in the toes triggered by cold, already diagnosed as Raynaud's",
+        action: "Follow your existing care plan. New, persistent or unusually severe changes need medical assessment, and the emergency signs above still apply. Do not assume an unexplained change is Raynaud's"
       },
       {
         sign: "Numbness or tingling in the big toe that does not settle",
@@ -13719,7 +13905,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Protect and Calm (Days 1 to 14, grade-dependent)",
-        focus: "Protect the healing capsule and plantar plate, control swelling, and maintain ankle and foot mobility where it is safe to do so. Protection level scales with injury grade. Grade 1 may only need taping and footwear modification. Grade 2 typically needs a stiff-soled shoe or walking boot. Grade 3 usually requires a period of strict immobilisation, often in a walker boot with a Morton's extension, and surgical review if plantar plate rupture is suspected.",
+        focus: "Protect the healing capsule and plantar plate, control swelling, and maintain ankle and foot mobility where it is safe to do so. The level of protection depends on the injury grade and on any boot, cast or weight-bearing restriction you have been given. A Grade 1 sprain may only need taping and a change of footwear. A Grade 2 sprain often needs a stiff-soled shoe or a walking boot, and sometimes a short period of immobilisation. A suspected complete tear (Grade 3) needs medical assessment and its own protection plan first, as the note above explains.",
         examples: [
           "Relative rest from sport and cutting activities, with footwear locked into a stiff-soled shoe, carbon plate insert, or walker boot depending on grade",
           "Turf toe taping with a dorsal block that restricts end-range hallux extension, applied for any weight-bearing activity during the protection period",
@@ -13727,7 +13913,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
           "Pain-free ankle dorsiflexion and plantarflexion range of motion, 2 sets of 10 to 15, to prevent stiffness up the chain",
           "Gentle non-weight-bearing hallux flexion within pain-free range, avoiding any forced extension during this phase"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person and grade rather than fixed cut-offs: swelling and pain at rest settled, weight-bearing in the protective footwear with low pain (around 3 out of 10 or less), and tolerance of gentle pain-free hallux flexion for 7 consecutive days."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: swelling and pain at rest settled, walking in the protective footwear with little pain, and gentle big-toe bending staying comfortable over several days."
       },
       phase2: {
         title: "Phase 2: Restore Motion and Rebuild Strength (Weeks 2 to 6, grade-dependent)",
@@ -13744,7 +13930,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
       },
       phase3: {
         title: "Phase 3: Return to Sport and Re-Injury Prevention (Weeks 4 to 12+, grade-dependent)",
-        focus: "Rebuild sport-specific demands in a graded, criterion-based progression. Linear running comes before change of direction, unresisted agility before contact, and full-intensity sport before match conditions. Taping and stiff plates remain in use during this phase for grade 2 and 3 athletes, tapering off as strength and confidence consolidate.",
+        focus: "Rebuild sport-specific demands in a graded, criterion-based progression. Linear running comes before change of direction, unresisted agility before contact, and full-intensity sport before match conditions. After a Grade 2 sprain, taping and stiff plates often stay in use during this phase, tapering off as strength and confidence build.",
         examples: [
           "Jogging progressed to running in straight lines, then gentle curves, then cutting patterns, increasing volume in small weekly steps",
           "Plyometric progression from double-leg pogo hops to single-leg forefoot hops, 3 sets of 10 to 20, on a forgiving surface",
@@ -13752,7 +13938,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
           "Position-specific work reintroduced for football, soccer, rugby, and basketball athletes, with carbon plate or turf toe taping retained during initial return to contact",
           "Maintenance strengthening of intrinsic foot, flexor hallucis, and calf complex, 2 to 3 sessions weekly, sustained through the season to reduce re-injury risk"
         ],
-        progressionCriteria: "Full, symmetrical hallux motion, painless sport-specific testing (cutting, acceleration, deceleration) at full intensity, and athlete and clinician agreement on readiness for contested training and then competition. Grade 3 athletes should meet additional strength and imaging criteria where relevant before full return."
+        progressionCriteria: "Full, symmetrical hallux motion, painless sport-specific testing (cutting, acceleration, deceleration) at full intensity, and athlete and clinician agreement on readiness for contested training and then competition."
       }
     },
 
@@ -13761,6 +13947,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
   },
 
   'severs-disease': {
+    summary: `Sever's disease (calcaneal apophysitis) is heel pain in growing children, near the growth centre where the Achilles tendon attaches to the heel bone. It affects children and young teens rather than adults. Pain is often worse during or after sport, and the heel may also feel tender.`,
     symptoms: [
       "Heel pain that worsens during and after physical activity",
       "Tenderness when squeezing both sides of the heel bone",
@@ -14086,6 +14273,7 @@ The condition serves as an important lesson in listening to the body's signals a
   },
 
   'tarsal-tunnel-syndrome': {
+    summary: `Tarsal tunnel syndrome is compression or irritation of the posterior tibial nerve as it passes through a narrow space on the inside of the ankle. It often causes burning, tingling or numbness in the sole of the foot and the toes, which can be worse at night or after long periods of standing or walking.`,
     lastReviewed: '2026-04-16',
     symptoms: [
       "Burning, tingling, or electric shock-like sensations in the sole of the foot",
@@ -14336,6 +14524,7 @@ Understanding the relationship between foot biomechanics and nerve compression h
   },
 
   'stress-fractures': {
+    summary: `A stress fracture is a small crack in a bone when repeated loading outpaces its ability to repair. Pain often builds gradually and is felt at one spot. Bone stress can also occur before a crack appears. The affected bone and the extent of the injury both influence protection and recovery.`,
     pathophysiology: `Bone is not static. It is constantly being broken down and rebuilt, and that turnover is how it adapts to the demands you place on it. Repeated loading creates microscopic damage, which under normal circumstances is repaired during recovery between sessions.
 
 A stress fracture develops when the rate of damage outpaces the rate of repair. This happens along a continuum rather than as a single event: bone stress with no structural change, then a stress reaction where the bone is irritated and swollen, and finally a true fracture line. Recognising the problem early in that continuum makes a substantial difference to how long recovery takes.
@@ -14509,6 +14698,7 @@ Some sites carry more risk than others. Stress fractures of the femoral neck, th
   },
 
   'diabetes-related-conditions': {
+    summary: `Frozen shoulder, hand stiffness and carpal tunnel syndrome are more common in people with diabetes. Diabetes can also affect healing and the nerves in the feet, changing sensation and balance. This page explains these different problems and how exercise and rehabilitation can be adapted alongside care from your diabetes team.`,
     pathophysiology: `Sustained elevation of blood glucose changes the behaviour of collagen, the main structural protein in tendon, joint capsule and fascia. Sugars bind to collagen and form cross-links between fibres, a process that makes connective tissue stiffer and less able to glide and lengthen. Because this affects tissue throughout the body, it produces a recognisable cluster of musculoskeletal presentations rather than a single condition.
 
 The shoulder is the most frequently affected site, and adhesive capsulitis occurs considerably more often in people with diabetes than in those without. In the hand, the same process contributes to trigger finger, Dupuytren's contracture, and a general reduction in finger extension sometimes described as limited joint mobility. Tendon problems elsewhere are also more common.
@@ -14585,8 +14775,8 @@ Where reduced foot sensation is present, skin checks and footwear review become 
         action: "Do not exercise. Follow your diabetes team's plan for high readings and contact them right away. If you cannot reach them and your sugar stays very high or ketones are high, go to emergency"
       },
       {
-        sign: "High blood sugar or ketones with vomiting, stomach pain, deep or fast breathing, or marked drowsiness or confusion",
-        action: "Go to emergency now. These can be signs of diabetic ketoacidosis"
+        sign: "Deep or fast breathing, marked drowsiness or confusion, or repeated vomiting with stomach pain, especially if glucose or ketones are high",
+        action: "Go to emergency now. These can be signs of diabetic ketoacidosis, which can happen even when glucose is not high. Do not delay care to check ketones. Call 911 if the person is difficult to wake or cannot travel safely"
       }
     ],
     differentialDiagnosis: [
@@ -14692,6 +14882,7 @@ Where reduced foot sensation is present, skin checks and footwear review become 
   },
 
   'growth-plate-injuries': {
+    summary: `Growing bones can be injured in different ways. A fall or blow may fracture the growth plate near the end of a bone; repeated loading can also injure it. Pain can also develop at growth centres where tendons attach, as in Osgood-Schlatter or Sever's disease. These problems need different assessment and activity advice.`,
     pathophysiology: `During growth, the ends of long bones contain a layer of cartilage called the growth plate, where new bone is laid down. That cartilage is mechanically weaker than the surrounding bone and, importantly, weaker than the nearby ligaments and tendons. The consequence is that a force which would sprain a ligament in an adult can instead injure the growth plate in a child or adolescent.
 
 Two patterns account for most presentations. The first is an acute injury where a single significant force fractures through or across the growth plate. The second, and more common in clinic, is traction apophysitis: a tendon repeatedly pulls on the growing bone at its attachment, irritating the area over weeks or months. Sever's disease at the heel and Osgood-Schlatter at the knee are the familiar examples.
@@ -14713,7 +14904,7 @@ Management in a growing athlete is therefore less about rest and more about cali
         "Tight calf, thigh, or hip muscles during a growth spurt",
         "Limping after sport, or difficulty taking weight after an injury"
       ],
-      typicalPattern: "Pain around a growing bone can come from overuse or from an acute fracture, and those need different care. A new injury, a limp, or difficulty bearing weight should be checked by a doctor before exercise begins. A limping child or teenager with hip, thigh, or knee pain needs a same-day medical assessment."
+      typicalPattern: "Pain around a growing bone can come from overuse or from an acute fracture, and those need different care. A new injury, a limp, or difficulty bearing weight should be checked by a doctor before exercise begins. Go to emergency now for sudden hip, thigh or knee pain, inability to bear weight, a leg that looks deformed, or a fever with feeling unwell. If a slipped growth plate at the hip (SCFE) is suspected, keep the child off the leg and seek emergency assessment today."
     },
     differentialDiagnosis: [
       {
@@ -14738,7 +14929,7 @@ Management in a growing athlete is therefore less about rest and more about cali
       },
       {
         condition: "Slipped Capital Femoral Epiphysis (SCFE)",
-        distinguishingFeatures: "Adolescent, often with elevated BMI, presenting with hip, groin, or referred knee pain and a limp. Externally rotated posture of the affected leg, loss of internal rotation, obligatory external rotation on hip flexion. Requires urgent orthopaedic assessment, not physiotherapy as a first line."
+        distinguishingFeatures: "Adolescent, often with elevated BMI, presenting with hip, groin, or referred knee pain and a limp. Externally rotated posture of the affected leg, loss of internal rotation, obligatory external rotation on hip flexion. A suspected SCFE needs no weight-bearing and urgent emergency or orthopaedic assessment, not physiotherapy as a first line."
       }
     ],
     faqs: [
@@ -14777,8 +14968,16 @@ Management in a growing athlete is therefore less about rest and more about cali
     ],
     clinicalRedFlags: [
       {
-        sign: "A child or teenager with a limp, or hip, groin, thigh, or knee pain without a clear cause, especially with an outward-turned foot",
-        action: "Same-day medical assessment with hip X-rays to rule out a slipped capital femoral epiphysis (SCFE); keep weight off the leg until it is checked"
+        sign: "A child or teenager with a new limp that has no clear explanation",
+        action: "Get a prompt medical assessment before starting exercises. A hip problem can be felt only in the groin, thigh or knee"
+      },
+      {
+        sign: "A limping child or teenager with sudden hip, thigh or knee pain, who cannot put weight on the leg, whose leg looks deformed, or who has a fever and feels unwell",
+        action: "Go to emergency now"
+      },
+      {
+        sign: "A suspected slipped growth plate at the hip (SCFE)",
+        action: "Do not let the child walk on the leg, and seek emergency assessment today. In a teenager this can show up as a limp with hip, groin, thigh or knee pain, sometimes with the foot turned outward, even when they can still walk"
       },
       {
         sign: "Unable to bear weight, a visible deformity, or marked swelling over a growth plate after a fall or a blow",
@@ -14863,6 +15062,7 @@ Management in a growing athlete is therefore less about rest and more about cali
   },
 
   'scaphoid-fractures': {
+    summary: `The scaphoid is a small wrist bone at the base of the thumb, often broken in a fall onto an outstretched hand. Swelling can be mild and the first X-ray can look normal. Persistent pain there after a fall needs prompt assessment; protect the wrist and avoid lifting or putting weight through it until assessed.`,
     pathophysiology: `The scaphoid sits between the two rows of carpal bones and acts as a bridge between them, so a large share of the load crossing your wrist passes through it. That position is also what makes it vulnerable: a fall onto an outstretched hand with the wrist extended drives force directly across the bone.
 
 What makes the scaphoid different from most fractures is its blood supply. Vessels enter near the far end of the bone and travel backwards through it, so a fracture through the middle or the near end can interrupt supply to the fragment closest to the forearm. That fragment then has limited ability to heal, which is why these fractures are associated with delayed healing, non-union, and in some cases loss of blood supply to the bone.
@@ -15013,6 +15213,7 @@ Once the fracture has been managed and healing is confirmed, rehabilitation addr
   },
 
   'hammer-toe-deformities': {
+    summary: `A hammer toe is a smaller toe that lifts at its base and bends down at its middle joint, most often the second toe. Early on it can still be straightened by hand, but over time it can stiffen into a fixed position. Pain usually comes from pressure and rubbing, such as a corn on top of the bent joint.`,
     pathophysiology: `A hammer toe develops when the small intrinsic muscles inside your foot can no longer balance the pull of the longer tendons that run down from the leg. The intrinsics normally bend the toe at the joint where it meets the foot while keeping the smaller joints beyond it straight. When they can no longer do that, the toe buckles: it lifts at the base and bends at the middle joint.
 
 Early on the deformity is flexible and the toe can still be straightened by hand. Over time the joint capsule, the small plantar plate beneath the joint and the surrounding soft tissue adapt to the shortened position, and the deformity becomes fixed. That distinction matters, because a flexible toe has more room to respond to footwear change, padding and exercise, at least for comfort, than a rigid one.
@@ -15160,7 +15361,7 @@ Because the toes are working harder to stabilise you than most people realise, d
           "Calf raise variations with the heel moving cleanly over the second toe, 3 sets of 12 to 15, to reinforce forefoot alignment during push-off",
           "Single-leg balance on firm ground with a neutral foot posture, 3 sets of 30 to 45 seconds, progressing to a foam pad as tolerated"
         ],
-        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a visible short-foot hold without toe clawing, steady single-leg balance on foam with a stable forefoot, and a reduction in day-to-day pain or pressure symptoms at the affected toe."
+        progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: a visible short-foot hold without toe clawing, steady single-leg balance on foam with a stable forefoot, and a reduction in day-to-day pain or pressure symptoms at the affected toe."
       },
       phase3: {
         title: "Phase 3: Maintain Mechanics and Protect the Forefoot Long Term (Months 3+)",
@@ -15181,6 +15382,7 @@ Because the toes are working harder to stabilise you than most people realise, d
   },
 
   'patella-fractures': {
+    summary: `A patella fracture is a break in the kneecap, often after a fall or direct blow. It can cause pain, swelling and difficulty straightening the knee. A suspected fracture needs medical assessment first. Rehabilitation follows the treating team's instructions for weight-bearing, knee movement and protection, whether or not surgery is needed.`,
     clinicalPresentation: {
       primarySymptoms: [
         "Pain and swelling at the front of the knee after a fall or a direct blow",

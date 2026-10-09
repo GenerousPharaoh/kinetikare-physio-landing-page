@@ -154,6 +154,12 @@ export default function ConditionFlowPage({
   const researchInsights = condition.researchInsights ?? [];
   const keyResearch = condition.keyResearch ?? [];
   const nameLower = inlineName(condition.name);
+  // The differential section compares alternatives; on the diabetes page it
+  // lists the problems the page covers, so it gets its own heading.
+  const similarHeading =
+    conditionSlug === 'diabetes-related-conditions'
+      ? { label: 'Related problems', eyebrow: 'Related problems', heading: 'Problems this page covers' }
+      : { label: 'Similar conditions', eyebrow: 'Similar conditions', heading: 'Conditions that can feel similar' };
   const GUIDE_REGION: Record<string, string> = { knee: 'Knee' };
   const guideRegion = GUIDE_REGION[condition.category];
   const regionGuides = guideRegion ? guidesForRegion(guideRegion) : [];
@@ -166,7 +172,7 @@ export default function ConditionFlowPage({
     { id: 'red-flags', label: 'See a doctor first', show: redFlags.length > 0 },
     { id: 'treatment', label: 'Treatment', show: Boolean(primary || showRehab || condition.selfManagement || condition.treatmentApproach) },
     { id: 'recovery', label: 'Recovery time', show: Boolean(condition.prognosis || condition.timeline) },
-    { id: 'similar', label: 'Similar conditions', show: Boolean(condition.differentialDiagnosis?.length) },
+    { id: 'similar', label: similarHeading.label, show: Boolean(condition.differentialDiagnosis?.length) },
     { id: 'faqs', label: 'Questions', show: Boolean(condition.faqs?.length) },
     { id: 'science', label: 'The science', show: Boolean(scienceText || condition.biomechanics) },
     { id: 'research', label: 'Research', show: keyResearch.length > 0 || researchInsights.length > 0 },
@@ -578,7 +584,7 @@ export default function ConditionFlowPage({
             {/* Similar conditions */}
             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
               <section id="similar" className="scroll-mt-28 py-14 border-t border-slate-200">
-                <Heading eyebrow="Similar conditions">Conditions that can feel similar</Heading>
+                <Heading eyebrow={similarHeading.eyebrow}>{similarHeading.heading}</Heading>
                 <dl className="grid md:grid-cols-2 gap-x-10 gap-y-6">
                   {condition.differentialDiagnosis.map((d) => (
                     <div key={d.condition}>

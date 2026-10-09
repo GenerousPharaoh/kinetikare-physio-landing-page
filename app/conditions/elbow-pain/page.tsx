@@ -166,8 +166,20 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Call 911 now. These can be warning signs of a heart attack.',
   },
   {
-    sign: 'Arm pain with neck pain, persistent numbness, or weakness that is getting worse',
-    action: 'Arrange a medical assessment before starting physiotherapy, since the source may be a nerve in the neck. Sudden or rapidly worsening weakness needs urgent care the same day.',
+    sign: 'Arm pain with neck pain, persistent numbness, or weakness that is slowly getting worse',
+    action: 'Arrange a medical assessment before starting physiotherapy, since the source may be a nerve in the neck.',
+  },
+  {
+    sign: 'New or worsening hand clumsiness, or trouble walking or balancing, alongside arm symptoms',
+    action: 'Get a same-day medical assessment before any exercise. This can mean pressure on the spinal cord in the neck.',
+  },
+  {
+    sign: 'Arm or hand weakness that gets worse rapidly, or clumsiness or balance changes that start suddenly, worsen rapidly or make walking difficult',
+    action: 'Go to emergency now.',
+  },
+  {
+    sign: 'Sudden unexplained weakness or numbness in an arm or leg, even if it improves',
+    action: 'Call 911 now. This can be a stroke. Do not wait for a physiotherapy appointment.',
   },
   {
     sign: 'A snap or pop at the inner elbow during a hard throw, lift, or pull, with immediate pain and weakness',

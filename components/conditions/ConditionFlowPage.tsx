@@ -190,7 +190,7 @@ export default function ConditionFlowPage({
   const ground = (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-y-0 -left-[100vw] -right-[100vw] -z-10 bg-[#F8F3EA]"
+      className="pointer-events-none absolute inset-y-0 -left-[100vw] -right-[100vw] -z-10 max-w-none bg-[#F8F3EA]"
     />
   );
 

@@ -33,6 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['foot-ankle-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/foot-ankle-pain';
@@ -119,7 +120,7 @@ const locationGuides: LocationGuide[] = [
       {
         slug: 'achilles-tendinopathy',
         label: 'Achilles tendinopathy',
-        note: 'Morning stiffness and load-related pain in the Achilles. Responds well to progressive loading, with dosing that differs for mid-portion and insertional pain.',
+        note: 'Morning stiffness and load-related pain in the Achilles. Often improves with progressive loading, with dosing that differs for mid-portion and insertional pain.',
       },
     ],
   },
@@ -132,7 +133,7 @@ const locationGuides: LocationGuide[] = [
       {
         slug: 'ankle-sprains',
         label: 'Ankle sprains',
-        note: 'Outer ankle ligament injury from a rolled ankle. Early movement and balance work matter more than rest, and incomplete rehabilitation is strongly linked to repeat sprains.',
+        note: 'Outer ankle ligament injury from a rolled ankle. Early protected movement and balance work usually help more than prolonged rest, and incomplete rehabilitation has been linked to repeat sprains.',
       },
       {
         slug: 'peroneal-tendinopathy',
@@ -150,7 +151,7 @@ const locationGuides: LocationGuide[] = [
       {
         slug: 'posterior-tibial-tendon-dysfunction',
         label: 'Posterior tibial tendon dysfunction',
-        note: 'Inner ankle and arch pain with progressive arch flattening. Single-leg heel raise is usually difficult or painful, and early loading matters because the pattern is progressive.',
+        note: 'Inner ankle and arch pain with an arch that can gradually flatten. Single-leg heel raise is usually difficult or painful, and earlier care aims to improve function while the foot is still flexible.',
       },
       {
         slug: 'tarsal-tunnel-syndrome',
@@ -201,7 +202,7 @@ const locationGuides: LocationGuide[] = [
     region: 'Along the shin',
     subtitle: 'Running-related shin pain and bone stress',
     description:
-      'Aching along the inner border of the shin that appears with running and settles with rest, typically spread over a hand-width or more of bone. A more worrying version is pain that narrows to a single point you can cover with a fingertip, keeps hurting after you stop, or starts waking you at night, which raises the question of bone stress rather than a load-tolerance problem. In growing athletes, pain at the bony attachment points has its own pattern.',
+      'Aching along the inner border of the shin that appears with running and settles with rest, typically spread over a hand-width or more of bone. A more worrying version is pain that narrows to a single point you can cover with a fingertip, keeps hurting after you stop, or starts waking you at night, which raises the question of a stress fracture rather than a diffuse shin-pain pattern. In growing athletes, pain at the bony attachment points has its own pattern.',
     commonSources: [
       {
         slug: 'shin-splints',
@@ -225,12 +226,16 @@ const locationGuides: LocationGuide[] = [
 // Red flags: when to seek urgent medical care rather than physiotherapy
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Unable to put weight through the foot for four steps straight after an injury and still unable in clinic, with tenderness over the ankle or foot bones',
-    action: 'Seek medical assessment for imaging. The Ottawa Ankle Rules are used to decide whether an X-ray is warranted after an acute ankle or foot injury.',
+    sign: 'After an ankle or midfoot injury, either of these: you could not take four steps (even limping) straight after the injury and still cannot, or a specific spot on the ankle or midfoot bones is sore to press',
+    action: 'Get assessed the same day for whether an X-ray is needed before starting rehabilitation. Either sign on its own is enough. The Ottawa Ankle Rules, which a clinician applies at set points on the ankle and midfoot bones, decide whether an X-ray is warranted.',
   },
   {
     sign: 'Obvious deformity, an open wound, or a foot that is numb, cold, or pale after trauma',
-    action: 'Go to emergency. These point to fracture, dislocation, or a compromised blood or nerve supply that needs immediate care.',
+    action: 'Go to emergency now. These point to fracture, dislocation, or a compromised blood or nerve supply that needs immediate care.',
+  },
+  {
+    sign: 'A foot or toe that suddenly turns cold, pale or blue, especially with severe pain, numbness or weakness, even without an injury',
+    action: 'Go to emergency now. This can mean the blood supply is blocked. If colour or feeling changes only during exercise and fully settles with rest, stop that activity and arrange a prompt medical assessment.',
   },
   {
     sign: 'A sudden pop or a feeling of being kicked at the back of the ankle, with difficulty pushing off or rising onto the toes',
@@ -245,12 +250,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Seek same-day medical review for possible septic arthritis or gout, both of which need medical management rather than rehabilitation.',
   },
   {
-    sign: 'Diabetes or peripheral neuropathy with a new foot wound, numbness, colour change, or a foot changing shape',
-    action: 'Contact your physician or foot care team promptly. Reduced sensation means damage can progress without the usual pain warning.',
+    sign: 'Diabetes or reduced feeling in the feet with a foot that is newly hot, red or swollen, with or without pain, or a foot that is changing shape',
+    action: 'Get a medical assessment the same day and keep weight off that foot until you are seen. This can be an acute Charcot foot, which needs urgent offloading.',
+  },
+  {
+    sign: 'Diabetes or reduced feeling in the feet with a new wound, blister or skin break',
+    action: 'Contact your physician or foot care team within one working day. If redness is spreading or you feel unwell with a fever, go to emergency now. Reduced feeling means damage can progress without the usual pain warning.',
   },
   {
     sign: 'Progressive numbness or weakness, a foot that catches or drops when walking, or symptoms spreading up the leg',
-    action: 'See your physician for nerve assessment, since the source may sit at the back or the knee rather than the foot.',
+    action: 'See your physician for nerve assessment, since the source may sit in the low back or at the knee rather than the foot. Sudden or rapidly worsening weakness needs urgent care the same day.',
   },
   {
     sign: 'Night pain that wakes you, unexplained weight loss, or new foot pain with a history of cancer',
@@ -263,12 +272,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Why does my heel hurt most on the first steps in the morning?',
     answer:
-      'That pattern is the signature of plantar heel pain. Overnight the foot rests in a pointed position and the plantar fascia sits short, so the first loading of the day stretches tissue that has stiffened up. It typically eases over five or ten minutes as the tissue accommodates, then returns after a period of sitting or towards the end of a long day on your feet. The pattern itself is diagnostically useful, which is why I ask about it specifically. It usually points away from a bone stress problem, where pain tends to build with activity rather than ease off.',
+      'That pattern is typical of plantar heel pain. Overnight the foot rests in a pointed position and the plantar fascia sits short, so the first loading of the day stretches tissue that has stiffened up. It typically eases over five or ten minutes as the tissue accommodates, then returns after a period of sitting or towards the end of a long day on your feet. The pattern itself is diagnostically useful, which is why I ask about it specifically. It usually points away from a bone stress problem, where pain tends to build with activity rather than ease off.',
   },
   {
     question: 'Do I need an X-ray for a rolled ankle?',
     answer:
-      'Most rolled ankles do not need one. The Ottawa Ankle Rules are the standard screening tool, and they key on whether you could bear weight immediately after the injury and in clinic, and whether there is bone tenderness at specific points on the ankle and foot. If those are negative, a fracture is very unlikely and rehabilitation can start straight away. I apply that screen at the first visit, and when it is positive I refer you to your family doctor or urgent care for an X-ray.',
+      'Many rolled ankles do not need one. The Ottawa Ankle Rules are the standard screening tool a clinician applies, and they ask two separate questions: could you take four steps straight after the injury and at the assessment, and is a specific point on the ankle or midfoot bones tender to press. Either one on its own is enough to consider an X-ray. When neither is present, a fracture is very unlikely and rehabilitation can start. I apply that screen at the first visit, and when it is positive I refer you to your family doctor or urgent care for an X-ray.',
   },
   {
     question: 'How long does plantar fasciitis take to settle?',
@@ -288,7 +297,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Can I keep running with shin pain?',
     answer:
-      'Often yes, with the dose changed rather than running removed, provided the picture is a load-tolerance one rather than bone stress. The distinction matters. Diffuse aching spread along the inner shin that settles with rest usually tolerates a reduced and rebuilt running plan alongside calf and foot strengthening exercises. Pain that narrows to a point you can cover with a fingertip, keeps hurting after you stop, or wakes you at night is a different problem and needs medical assessment before loading continues. I sort which of those you are dealing with at the first visit.',
+      'Often yes, with the dose changed rather than running removed, provided the picture is a diffuse shin-pain pattern rather than a suspected focal stress fracture. The distinction matters. Diffuse aching spread along the inner shin that settles with rest often tolerates a reduced and rebuilt running plan alongside calf and foot strengthening exercises. Pain that narrows to a point you can cover with a fingertip, keeps hurting after you stop, changes how you walk, or wakes you at night is a different problem: stop impact activity and get a medical assessment before loading continues. I look for these features at the first visit, and when imaging would change the plan, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'What is the difference between a bunion and big toe arthritis?',
@@ -312,7 +321,7 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Heel Pain - Plantar Fasciitis: Revision 2023',
+    title: 'Heel Pain (Plantar Fasciitis): Revision 2023',
     source: 'JOSPT (Koc, Bise, Neville, Carreira, Martin)',
     year: 2023,
     summary:
@@ -518,11 +527,11 @@ export default function FootAnklePainHubPage() {
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                The foot and ankle carry more distinct pain patterns than anywhere else in the
-                lower limb, and where it hurts is the first clue. Under the heel, at the
-                Achilles, on the outside after a roll, along the inner arch, under the ball of the
-                foot, or along the shin. This page is the map I use with patients to sort which
-                one they are dealing with and what usually changes it.
+                The foot and ankle have many distinct pain patterns, and where it hurts is a
+                useful first clue. Under the heel, at the Achilles, on the outside after a roll,
+                along the inner arch, under the ball of the foot, or along the shin. This page is
+                the map I use with patients as a starting point for the assessment, and what
+                often helps each pattern.
               </p>
 
               <p className="text-xs text-slate-600 mt-3">
@@ -530,27 +539,7 @@ export default function FootAnklePainHubPage() {
                 for Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -592,32 +581,33 @@ export default function FootAnklePainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Where it hurts does most of the diagnostic work
+                  Where it hurts helps guide the assessment
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  Foot and ankle pain sorts by location more cleanly than almost anywhere else.
-                  Pain under the heel that is worst on the first steps of the morning is plantar
-                  heel pain. Stiffness in the cord above the heel that eases as you warm up and
-                  flares afterwards is the Achilles. Outer ankle pain after the foot rolled inwards
-                  is a ligament sprain, and the same area hurting without an injury usually
-                  involves the tendons running behind that bony point. Inner ankle and arch pain
-                  with difficulty rising onto the toes points at the posterior tibial tendon.
-                  Forefoot pain with numbness between the toes behaves like a nerve. Shin pain is
-                  either a load-tolerance problem or a bone stress one, and those two need
-                  separating before anything else happens.
+                  Pain location helps narrow the possibilities, alongside how symptoms began, what
+                  brings them on and what the examination shows. First-step heel pain often fits
+                  plantar heel pain. Pain and stiffness along the cord above the heel can suggest
+                  an Achilles tendon problem. Outer ankle pain after a roll often involves a
+                  sprain, but an assessment also checks for a fracture and other injuries, and
+                  the same area hurting without an injury can involve the tendons running behind
+                  that bony point. Inner ankle and arch pain with difficulty rising onto the toes
+                  can point at the posterior tibial tendon. Forefoot pain with numbness between
+                  the toes can behave like a nerve problem. Diffuse shin pain and pain focused on
+                  one spot of bone need separating before running continues, because a suspected
+                  stress fracture is managed differently. These patterns overlap, so the map is a
+                  starting point.
                 </p>
                 <p>
                   Two points about recovery. The first is that timelines here tend to be
                   longer than people expect, particularly for plantar heel pain and Achilles
                   tendinopathy, and knowing that upfront changes how the plan feels. The second is
                   that the foot is where incomplete rehabilitation shows up most clearly. Ankle
-                  sprains are the obvious case, where stopping once the pain settles leaves the
-                  balance and strength deficits that predict the next sprain, and van Middelkoop
-                  and colleagues found exactly that link between re-spraining and incomplete
-                  recovery.
+                  sprains are the obvious case, where stopping once the pain settles can leave
+                  balance and strength deficits behind, and van Middelkoop and colleagues found
+                  a link between re-spraining in the first months and incomplete recovery.
                 </p>
                 <p>
                   The rest of this page walks through the common sources grouped by where they
@@ -695,6 +685,8 @@ export default function FootAnklePainHubPage() {
             </div>
           </div>
         </section>
+
+        <RedFlagsBox flags={redFlags} />
 
         {/* How I approach foot and ankle pain */}
         <section className="py-12 bg-white">

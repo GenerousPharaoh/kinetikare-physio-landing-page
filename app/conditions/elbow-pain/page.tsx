@@ -33,6 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['elbow-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/elbow-pain';
@@ -96,7 +97,7 @@ const locationGuides: LocationGuide[] = [
     region: 'Outside of the elbow (lateral epicondyle)',
     subtitle: 'Pain on the bony point on the outside of the elbow',
     description:
-      'Point tenderness at the bony bump on the outside of the elbow, with pain on gripping, pouring a kettle, a firm handshake, or lifting a coffee cup by the handle. This is the classic tennis elbow picture, and it is far more common in desk workers and tradespeople than in people who actually play tennis. Wrist extension loading reproduces the symptoms.',
+      'Point tenderness at the bony bump on the outside of the elbow, with pain on gripping, pouring a kettle, a firm handshake, or lifting a coffee cup by the handle. This often fits tennis elbow, and many people who have it do not play tennis. Loading the wrist extensors often reproduces the symptoms, and I also screen the nerves and the neck.',
     commonSources: [
       {
         slug: 'tennis-elbow',
@@ -122,12 +123,12 @@ const locationGuides: LocationGuide[] = [
     region: 'Numbness in the ring and little fingers',
     subtitle: 'Cubital tunnel pattern at the inner elbow',
     description:
-      'Tingling or numbness in the ring and little fingers, often worse when the elbow is bent for long periods such as on the phone, reading, or sleeping with a bent elbow. Sometimes with weakness of grip or clumsiness with fine hand tasks. This is a cubital tunnel picture, where the ulnar nerve is irritated at the inner elbow. No dedicated condition page for cubital tunnel sits on the site yet, but the broader nerve-entrapment context applies. If symptoms are more in the thumb, index, and middle fingers, the source is usually at the wrist.',
+      'Tingling or numbness in the ring and little fingers, often worse when the elbow is bent for long periods such as on the phone, reading, or sleeping with a bent elbow. Sometimes with weakness of grip or clumsiness with fine hand tasks. This pattern often fits cubital tunnel syndrome, where the ulnar nerve is irritated at the inner elbow, although the neck can produce similar symptoms. If symptoms are more in the thumb, index, and middle fingers, the source is often at the wrist instead: the contrasting pattern below.',
     commonSources: [
       {
         slug: 'carpal-tunnel-syndrome',
-        label: 'Carpal tunnel syndrome',
-        note: 'Median nerve compression at the wrist. Numbness in the thumb, index, and middle fingers, often worse at night. Sometimes mistaken for elbow or forearm pain.',
+        label: 'Carpal tunnel syndrome (a contrasting pattern)',
+        note: 'Median nerve compression at the wrist. Numbness in the thumb, index, and middle fingers, often worse at night, rather than the little finger. Sometimes mistaken for elbow or forearm pain.',
       },
     ],
   },
@@ -135,7 +136,7 @@ const locationGuides: LocationGuide[] = [
     region: 'Diffuse forearm aching, no single spot',
     subtitle: 'Broad forearm fatigue with repetitive work',
     description:
-      'Aching that spreads through the forearm without a clear single painful point, usually tied to repetitive gripping, typing, or fine hand work that has outgrown the forearm tissues capacity. The pattern is overload rather than a specific structural injury. Wrist, elbow, and shoulder contributions all need to be assessed together.',
+      'Aching that spreads through the forearm without a clear single painful point, often linked to repetitive gripping, typing, or fine hand work. It often reflects more load than the forearm is currently used to rather than a specific structural injury, and it does not mean the tissue is being damaged. Wrist, elbow, neck, and shoulder contributions all need to be assessed together.',
     commonSources: [
       {
         slug: 'repetitive-strain-injuries',
@@ -161,8 +162,12 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Seek same-day medical review to rule out septic arthritis, gout, or other inflammatory joint conditions.',
   },
   {
-    sign: 'Elbow pain with neck, shoulder, or chest symptoms, or with left arm radiation',
-    action: 'Seek urgent medical assessment. Elbow pain can occasionally be a referred symptom of a cervical or cardiac issue.',
+    sign: 'New arm or elbow discomfort with chest pressure or pain, shortness of breath, sweating, nausea or light-headedness. Symptoms can affect either arm.',
+    action: 'Call 911 now. These can be warning signs of a heart attack.',
+  },
+  {
+    sign: 'Arm pain with neck pain, persistent numbness, or weakness that is getting worse',
+    action: 'Arrange a medical assessment before starting physiotherapy, since the source may be a nerve in the neck. Sudden or rapidly worsening weakness needs urgent care the same day.',
   },
   {
     sign: 'A snap or pop at the inner elbow during a hard throw, lift, or pull, with immediate pain and weakness',
@@ -184,22 +189,22 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Is it really tennis elbow if I have never played tennis?',
     answer:
-      'Almost certainly. The name sticks, but tennis elbow is a lateral elbow tendinopathy most often driven by desk work, trades, gripping sports, or repetitive lifting. In population studies (Shiri et al., American Journal of Epidemiology 2006) prevalence sits around 1 to 1.3 percent in the general population, rising sharply in occupations that combine forceful gripping with repetition. What matters is the pattern on exam, not the sport.',
+      'Yes, tennis elbow can develop without playing tennis. The name sticks, but tennis elbow is a lateral elbow tendinopathy often associated with desk work, trades, gripping sports, or repetitive lifting. In population studies (Shiri et al., American Journal of Epidemiology 2006) prevalence sits around 1 to 1.3 percent in the general population, rising sharply in occupations that combine forceful gripping with repetition. What matters is the pattern on exam, not the sport.',
   },
   {
     question: 'Are cortisone injections a good idea for tennis elbow?',
     answer:
-      'Usually not as a first step. The Bisset BMJ 2006 trial compared physiotherapy, corticosteroid injection, and wait-and-see. Injections felt better at six weeks but produced worse outcomes at twelve months, with high recurrence. The Coombes JAMA 2013 trial reinforced this, showing that adding an injection to physiotherapy was no better than physiotherapy alone, and the injection group had higher recurrence. Structured rehabilitation is the more reliable path.',
+      'Usually not as a first step. The Bisset BMJ 2006 trial compared physiotherapy, corticosteroid injection, and wait-and-see. Injections felt better at six weeks but produced worse outcomes at twelve months, with high recurrence. The Coombes JAMA 2013 trial reinforced this, showing that adding an injection to physiotherapy was no better than physiotherapy alone, and the injection group had higher recurrence. I usually start with structured rehabilitation, and any injection decision belongs with a physician.',
   },
   {
     question: 'How long does tennis elbow take to get better?',
     answer:
-      'Most cases respond to eight to twelve weeks of structured loading, though the timeline is dictated by how long the symptoms have been there and how well the load plan can sit alongside work and training demands. The 2022 JOSPT clinical practice guideline for lateral elbow pain (Lucado et al.) supports progressive exercise therapy combined with manual therapy and education as first-line care, with clear dosing rather than long avoidance.',
+      'Many people improve over a few months of structured loading, though the timeline depends on how long the symptoms have been there and how well the load plan can sit alongside work and training demands. The 2022 JOSPT clinical practice guideline for lateral elbow pain (Lucado et al.) supports progressive exercise therapy combined with manual therapy and education as first-line care, with clear dosing rather than long avoidance.',
   },
   {
     question: 'Can I keep working or lifting with elbow pain?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make tendinopathy more reactive, not less. The typical move is to keep the activity but change the dose, grip diameter, tool weight, volume, or which arm leads, and pair it with a targeted loading program. A simple guide I use in clinic: pain under 3 out of 10 during an activity, settling inside 24 hours, is usually fine. Pain that lingers for days or swelling that keeps returning means the plan needs to change.',
+      'Usually yes, with adjustments. Complete rest does not usually build a tendon\'s tolerance for the work you need it to do. The typical move is to keep the activity but change the dose, grip diameter, tool weight, volume, or which arm leads, and pair it with a targeted loading program. A simple guide I use in clinic: pain under 3 out of 10 during an activity, settling inside 24 hours, is usually fine. Pain that lingers for days or swelling that keeps returning means the plan needs to change.',
   },
   {
     question: 'Why does my ring and little finger feel numb?',
@@ -209,7 +214,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'What is the difference between tennis elbow and golfer\'s elbow?',
     answer:
-      'They are the same type of problem on opposite sides of the elbow. Tennis elbow is lateral epicondylopathy, involving the wrist extensor tendon origin on the outside of the elbow. Golfer\'s elbow is medial epicondylopathy, involving the wrist flexor and pronator tendon origin on the inside. Loading tests distinguish them: wrist extension against resistance provokes tennis elbow, wrist flexion against resistance provokes golfer\'s elbow. Treatment principles are similar but the loading target is different.',
+      'They are the same type of problem on opposite sides of the elbow. Tennis elbow is lateral epicondylopathy, involving the wrist extensor tendon origin on the outside of the elbow. Golfer\'s elbow is medial epicondylopathy, involving the wrist flexor and pronator tendon origin on the inside. Resisted tests help tell them apart: wrist extension against resistance often provokes tennis elbow, wrist flexion against resistance often provokes golfer\'s elbow. Inner elbow pain can also come from the ulnar nerve or a ligament, so I check those too. Treatment principles are similar but the loading target is different.',
   },
   {
     question: 'Do I need a referral to see you for elbow pain in Burlington?',
@@ -408,11 +413,11 @@ export default function ElbowPainHubPage() {
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Elbow pain breaks down into a small number of recognisable patterns. Pain on the
-                outside is usually tennis elbow. Pain on the inside is usually golfer&rsquo;s elbow.
-                Numbness in the fingers has its own distinct map. This page is a guide I use with
-                patients to sort where the pain is, what usually drives it, and how I go about
-                treating it.
+                Elbow pain often follows a few recognisable patterns. Pain on the outside often
+                involves the tendons used for gripping. Pain on the inside can involve tendons, a
+                nerve, or a ligament. Numbness in the fingers has its own map. This page is a
+                guide I use with patients as a starting point for the assessment, what often
+                drives the pain, and how I go about treating it.
               </p>
 
               <p className="text-xs text-slate-600 mt-3">
@@ -420,27 +425,7 @@ export default function ElbowPainHubPage() {
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -482,30 +467,31 @@ export default function ElbowPainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Outside, inside, or nerve: elbow pain has a simple map
+                  Outside, inside, or nerve: a starting map for elbow pain
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  Elbow pain sorts itself cleanly. Pain on the outside of the elbow that flares
-                  when you grip, pour, or shake a hand is usually tennis elbow. Pain on the
-                  inside that flares with wrist flexion, a golf swing, or a heavy pull is almost
-                  always golfer&rsquo;s elbow. Numbness in the ring and little finger points to the
-                  ulnar nerve at the inner elbow. Numbness in the thumb, index, and middle
-                  fingers points to the median nerve at the wrist, even when the pain feels like
-                  it is coming from further up the arm. A diffuse forearm aching without a clear
-                  single painful spot is usually an overuse pattern. Those five pictures cover
-                  most of what walks into clinic.
+                  Pain location is a useful starting point. Outer elbow pain with gripping,
+                  pouring, or a handshake often fits tennis elbow. Inner elbow pain can involve
+                  the flexor tendons (golfer&rsquo;s elbow), the ulnar nerve, or a ligament.
+                  Numbness centred on the little finger and the little-finger side of the ring
+                  finger often involves the ulnar nerve at the inner elbow. Numbness in the
+                  thumb, index, and middle fingers often involves the median nerve at the wrist,
+                  even when the pain feels like it is coming from further up the arm. A diffuse
+                  forearm ache without a clear single painful spot is often an overuse pattern.
+                  Symptoms can overlap, so I check the movement pattern, the neck, and the rest
+                  of the arm.
                 </p>
                 <p>
-                  Most elbow pain in adults is tendon-driven and can respond well to structured
-                  rehabilitation. The JOSPT 2022 lateral elbow pain clinical
+                  Much elbow pain in adults involves a tendon and can respond to structured
+                  rehabilitation. For outer elbow pain, the JOSPT 2022 lateral elbow pain clinical
                   practice guideline, the Bisset BMJ 2006 trial, and the Coombes JAMA 2013 trial
-                  all point the same way. Graded exercise therapy, manual therapy as an adjunct,
-                  and clear load management have the strongest evidence for long-term outcomes, while
-                  corticosteroid injections tend to feel better short-term but worsen longer-term
-                  outcomes. What changes between people is the tissue, the work or sport demands
+                  point the same way. Graded exercise therapy, manual therapy as an adjunct,
+                  and clear load management are supported for longer-term outcomes, while
+                  corticosteroid injections tend to feel better short-term but were linked to
+                  worse longer-term outcomes in those trials. What changes between people is the tissue, the work or sport demands
                   driving it, and how load needs to be dosed.
                 </p>
                 <p>
@@ -584,6 +570,8 @@ export default function ElbowPainHubPage() {
             </div>
           </div>
         </section>
+
+        <RedFlagsBox flags={redFlags} />
 
         {/* How I approach elbow pain */}
         <section className="py-12 bg-white">

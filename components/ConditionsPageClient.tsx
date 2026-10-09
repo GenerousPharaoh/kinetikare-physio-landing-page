@@ -252,7 +252,7 @@ function ConditionsPageWithParams({
               </div>
 
               <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
-                Personalized care for acute injuries and chronic conditions, tailored to specific needs and recovery goals
+                Browse conditions by body region, compare symptoms that can overlap, or start with a pain guide.
               </p>
 
               {/* Early CTA for visitors unsure which condition applies */}

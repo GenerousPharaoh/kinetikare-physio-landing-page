@@ -468,7 +468,7 @@ const hipPelvisConditions: Condition[] = [
     slug: 'hip-osteoarthritis',
     name: 'Hip Osteoarthritis',
     category: 'hip-pelvis',
-    description: 'Joint degeneration, cartilage breakdown, activity-related pain',
+    description: 'Groin and hip pain with stiffness from osteoarthritis, often worse with longer walks and getting in and out of a car',
     featured: true,
     priority: 9,
     seoTitle: 'Hip Osteoarthritis: Symptoms and Treatment in Burlington',
@@ -520,7 +520,7 @@ const hipPelvisConditions: Condition[] = [
     slug: 'proximal-hamstring-tendinopathy',
     name: 'Proximal Hamstring Tendinopathy',
     category: 'hip-pelvis',
-    description: 'Sitting bone pain, hamstring origin tendon issues',
+    description: 'Pain at the sitting bone where the hamstring tendons attach, often worse with sitting, hills and running',
     featured: true,
     priority: 31,
     seoTitle: 'Proximal Hamstring Tendinopathy Treatment in Burlington',
@@ -542,7 +542,7 @@ const hipPelvisConditions: Condition[] = [
     slug: 'si-joint-dysfunction',
     name: 'Sacroiliac (SI) Joint Dysfunction',
     category: 'hip-pelvis',
-    description: 'SI joint pain and instability',
+    description: 'Pain thought to come from the sacroiliac joint at the back of the pelvis, often felt low in the back or buttock',
     metaDescription: 'SI joint pain treatment in Burlington. Physiotherapy for sacroiliac pain with hip and trunk strengthening and hands-on care. Direct billing, no referral.',
   },
   {
@@ -561,7 +561,7 @@ const hipPelvisConditions: Condition[] = [
     slug: 'hamstring-strains',
     name: 'Hamstring Strains',
     category: 'hip-pelvis',
-    description: 'Hamstring tears and chronic tightness',
+    description: 'Hamstring strains from sprinting or kicking, and the rehab back to running and sport',
     featured: true,
     priority: 22,
     seoTitle: 'Hamstring Strain: Recovery Time and Treatment in Burlington',
@@ -645,7 +645,7 @@ const kneeConditions: Condition[] = [
     slug: 'knee-osteoarthritis',
     name: 'Knee Osteoarthritis',
     category: 'knee',
-    description: 'Degenerative joint disease management',
+    description: 'Knee pain and stiffness from osteoarthritis, often worse with stairs, kneeling and longer walks',
     seoTitle: 'Knee Osteoarthritis: Symptoms and Treatment in Burlington',
     metaDescription: 'Knee osteoarthritis symptoms and the strengthening and exercise-based physiotherapy that can help, in Burlington. Direct billing, no referral, evening hours.',
   },
@@ -924,7 +924,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Spinal stenosis can cause nerve root compression leading to sciatica', relevanceScore: 8 }
   ],
   'rotator-cuff-injuries': [
-    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Shoulder impingement often leads to rotator cuff damage over time', relevanceScore: 9 },
+    { slug: 'shoulder-impingement', relationshipType: 'anatomical', explanation: 'Both describe load-related irritation of the rotator cuff tendons and often overlap', relevanceScore: 9 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness; can develop sequentially', relevanceScore: 7 },
     { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon closely related to rotator cuff; injuries often coexist', relevanceScore: 7 },
     { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'AC joint dysfunction can alter shoulder mechanics and stress rotator cuff', relevanceScore: 6 },
@@ -933,7 +933,7 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'shoulder-impingement': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'anatomical', explanation: 'Both describe irritation of the rotator cuff tendons and often overlap', relevanceScore: 9 },
-    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause overhead movement restriction; impingement can progress to adhesive capsulitis', relevanceScore: 7 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both can limit overhead movement, and early frozen shoulder can look similar', relevanceScore: 7 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
     { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Forward head posture contributes to scapular dysfunction and impingement', relevanceScore: 6 },
     { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 },
@@ -941,7 +941,7 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'frozen-shoulder': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and movement restriction; can coexist or develop sequentially', relevanceScore: 7 },
-    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Impingement can progress to capsular inflammation and adhesive capsulitis', relevanceScore: 7 },
+    { slug: 'shoulder-impingement', relationshipType: 'symptomatic', explanation: 'Early frozen shoulder can look like impingement until the stiffness becomes clear', relevanceScore: 7 },
     { slug: 'diabetes-related-conditions', relationshipType: 'causal', explanation: 'Diabetes significantly increases risk of developing adhesive capsulitis', relevanceScore: 8 },
     { slug: 'shoulder-bursitis', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness with inflammatory components', relevanceScore: 6 },
     { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'Compensatory movements from frozen shoulder can stress AC joint', relevanceScore: 5 }

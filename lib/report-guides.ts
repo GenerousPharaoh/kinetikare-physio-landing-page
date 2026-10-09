@@ -82,12 +82,12 @@ export const REPORT_GUIDES: ReportGuide[] = [
     },
     redFlags: [
       {
-        sign: 'Hot, swollen knee with fever or feeling unwell',
-        action: 'Seek same-day medical assessment to rule out infection.',
+        sign: 'A newly hot, swollen knee, with or without a fever, or feeling unwell',
+        action: 'Seek same-day medical assessment to rule out infection, or go to emergency if you feel unwell. Infection is possible even without a fever.',
       },
       {
         sign: 'Sudden severe pain or inability to bear weight, with or without a recent injury',
-        action: 'See a doctor promptly. A fracture, including an insufficiency fracture, needs to be ruled out.',
+        action: 'Seek same-day medical assessment and keep weight off the leg until it is checked. A fracture, including an insufficiency fracture, needs to be ruled out.',
       },
       {
         sign: 'Morning stiffness lasting over half an hour, or several swollen joints',
@@ -273,13 +273,13 @@ export const REPORT_GUIDES: ReportGuide[] = [
                 text: 'The report mentions chondrocalcinosis, calcium deposits in the cartilage, which can go with a crystal arthritis.',
               },
               {
-                text: 'It describes collapse, flattening or a fracture line, or the pain came on suddenly and severely without an injury. An insufficiency fracture needs an MRI and a doctor’s review.',
+                text: 'It describes collapse, flattening or a fracture line, or the pain came on suddenly and severely without an injury. Ask a doctor to review it promptly, the same day if the pain came on suddenly or you cannot bear weight. If an insufficiency fracture is suspected, the doctor may arrange an MRI, including when an initial X-ray does not explain the symptoms.',
               },
               {
                 text: 'The changes have progressed quickly between reports, or the knee has started to change shape.',
               },
               {
-                text: 'The knee is hot and swollen, or you feel feverish or unwell. Seek same-day medical care.',
+                text: 'The knee is newly hot and swollen, with or without a fever, or you feel unwell. Seek same-day medical care.',
               },
               {
                 text: 'The report says there is no narrowing but the symptoms continue. A normal X-ray does not rule out cartilage or meniscus problems, and a single front view can miss the kneecap joint (Guermazi et al., 2012; Duncan et al., 2006).',

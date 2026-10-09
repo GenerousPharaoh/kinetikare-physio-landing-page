@@ -33,6 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['hip-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
@@ -106,7 +107,7 @@ const locationGuides: LocationGuide[] = [
       {
         slug: 'hip-bursitis',
         label: 'Hip bursitis',
-        note: 'Secondary bursal irritation, usually part of the broader GTPS picture.',
+        note: 'Pain called hip bursitis often involves the gluteal tendons too; the GTPS page explains this broader pattern.',
       },
     ],
   },
@@ -193,24 +194,32 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'Go to emergency to rule out hip or pelvic fracture, especially if over 65 or on bone-affecting medication.',
   },
   {
-    sign: 'Hip pain with fever, chills, or feeling systemically unwell',
-    action: 'See a physician or urgent care to rule out joint infection.',
+    sign: 'A child or teenager with a new limp, or hip, groin, thigh or knee pain that limits walking',
+    action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) needs urgent assessment, and other childhood hip conditions need a doctor to check them too.',
+  },
+  {
+    sign: 'New trouble passing urine, loss of bladder or bowel control, or numbness around the genitals, buttocks or inner thighs',
+    action: 'Go to emergency now. These can be signs of cauda equina syndrome.',
+  },
+  {
+    sign: 'Hip pain with fever, chills, or feeling unwell, or a newly hot, swollen or very painful hip',
+    action: 'Get medical assessment today to rule out a joint infection, or go to emergency if you feel very unwell. Infection is possible even without a fever.',
+  },
+  {
+    sign: 'Groin or hip pain in a runner that builds with each run, hurts when hopping on that leg, or aches at rest or at night',
+    action: 'Possible femoral neck stress fracture. Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal.',
+  },
+  {
+    sign: 'Numbness or weakness in the leg that is getting worse',
+    action: 'Get medical assessment the same day to check the nerves and lower back.',
   },
   {
     sign: 'Severe, constant pain that is not relieved by any position, particularly at night',
-    action: 'Book a physician review to investigate for stress fracture or other bone pathology.',
-  },
-  {
-    sign: 'Progressive numbness, weakness, or changes in bowel or bladder control',
-    action: 'Seek emergency care to rule out cauda equina syndrome.',
+    action: 'See your family doctor promptly to look for a stress fracture or other bone problem.',
   },
   {
     sign: 'Unexplained weight loss or a history of cancer with new hip pain',
     action: 'See your family physician for medical workup before starting physiotherapy.',
-  },
-  {
-    sign: 'Hip pain in a child or adolescent that limits walking',
-    action: 'See a physician to rule out conditions such as slipped capital femoral epiphysis or Perthes disease.',
   },
 ];
 
@@ -224,22 +233,22 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Can physiotherapy help hip pain without surgery?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block usually comes first.',
+      'For many hip problems, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery can still be the right call for some labral tears and advanced arthritis, but a structured rehab block usually comes first.',
   },
   {
     question: 'When should I worry about hip pain?',
     answer:
-      'Most hip pain is mechanical. Get medical review before physiotherapy if you have had a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological changes, unexplained weight loss, or pain that is severe and unrelieved by any position.',
+      'Most hip pain is mechanical, but some patterns need medical care first. Go to emergency if you cannot put weight on the leg after a fall, if you have new bladder or bowel changes or numbness around the genitals, or if a child or teenager has a new limp with hip, thigh or knee pain (keep them off the leg). Get medical assessment the same day for a fever or a hot, swollen hip, leg weakness that is getting worse, or groin pain in a runner that builds with each run (stop running and keep weight off the leg until it is checked). See your family doctor before physiotherapy for unexplained weight loss or pain that is severe and unrelieved by any position.',
   },
   {
     question: 'What causes hip pain at night?',
     answer:
-      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night when the joint loses its capacity to dampen load. The fix is rarely more rest. Sleep position, sitting and standing habits, and a progressive loading program are what usually settle it over a few weeks.',
+      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night. More rest is rarely the whole answer. Sleep position, sitting and standing habits, and a progressive loading program often help it settle over weeks to months. Night pain that is severe, constant, or comes with feeling unwell needs a doctor\'s assessment first.',
   },
   {
     question: 'Is it safe to keep exercising with hip pain?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make most hip conditions more reactive, not less. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. I set clear guardrails at the first visit so the dosing is obvious.',
+      'For many assessed, load-related hip problems, yes, with adjustments: changing the activity is often more useful than prolonged complete rest. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. After a new injury, or with a limp, difficulty bearing weight, or groin pain that builds with each run, get assessed before exercising through the pain. The right activity and dose depend on the diagnosis and how you respond afterward, and I set clear guardrails at the first visit so the dosing is obvious.',
   },
   {
     question: 'Do I need imaging before starting physiotherapy?',
@@ -249,12 +258,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does hip pain take to recover with physiotherapy?',
     answer:
-      'The tissue drives the timeline. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, but most people notice meaningful improvement in pain and function inside eight to twelve weeks of structured exercise and hands-on work.',
+      'The tissue drives the timeline, and recovery varies from person to person. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain often needs three to six months or more of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, and many people notice meaningful improvement in pain and function within eight to twelve weeks of structured exercise and hands-on work.',
   },
   {
     question: 'Do you treat hip pain after a hip replacement?',
     answer:
-      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Most people progress through guided exercise work across the first three to four months after surgery.',
+      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Many people progress through guided exercise work across the first three to four months after surgery.',
   },
 ];
 
@@ -473,27 +482,7 @@ export default function HipPainHubPage() {
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -633,6 +622,8 @@ export default function HipPainHubPage() {
             </div>
           </div>
         </section>
+
+        <RedFlagsBox flags={redFlags} />
 
         {/* How I approach hip pain */}
         <section className="py-12 bg-white">

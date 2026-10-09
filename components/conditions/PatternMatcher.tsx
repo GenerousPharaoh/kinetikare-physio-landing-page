@@ -616,8 +616,9 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
         <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50/60 p-4">
           <p className="text-sm text-slate-600 leading-relaxed">
             <span className="font-medium text-slate-800">Important:</span> this is a pattern match,
-            not a diagnosis. Several conditions can share features, and a physical exam is what
-            distinguishes them reliably.
+            not a diagnosis. Several conditions share features, and this comparison cannot rule out
+            other causes. An assessment can help narrow the possibilities, and sometimes further
+            tests are needed.
           </p>
         </div>
 
@@ -655,8 +656,9 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
         <span className="text-[#8A6F0A]">more than one pattern</span>.
       </h3>
       <p className="mt-3 text-base text-slate-700 leading-relaxed max-w-[64ch]">
-        Both of these match parts of what you described. A hands-on exam is what separates them
-        cleanly. Here is what lines up with each, based on your answers.
+        Both of these match parts of what you described. An assessment can help tell them apart,
+        though some cases take more than one visit or further tests. Here is what lines up with
+        each, based on your answers.
       </p>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -767,7 +769,7 @@ function buildLopsidedReasoning(top: ConditionScore): string {
     const follow = secondary.phrase.replace(/^You answered "/, 'you also said ').replace(/"/g, '').replace(/\.$/, '');
     return `${lead}. ${capitalize(follow)}. Together, these lean toward ${top.name} more than the other patterns in this cluster.`;
   }
-  return `${lead}. That pattern fits ${top.name} more cleanly than the other conditions on this page.`;
+  return `${lead}. That pattern leans toward ${top.name} more than the other conditions on this page.`;
 }
 
 function buildDistinguishingNote(candidates: ConditionScore[]): string {

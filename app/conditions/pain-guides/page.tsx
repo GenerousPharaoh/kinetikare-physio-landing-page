@@ -21,7 +21,7 @@ import { PAIN_GUIDE_GROUPS } from '@/lib/pain-guides';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides';
 const PAGE_TITLE = 'Symptom & Pain Guides | Kareem Hassanein Physiotherapy';
 const PAGE_DESCRIPTION =
-  'Plain-language pain and symptom guides from a Burlington Registered Physiotherapist. Find the likely cause and the right condition page to read next.';
+  'Plain-language pain and symptom guides from a Burlington Registered Physiotherapist. Understand common explanations for symptoms and find the condition page to read next.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -138,8 +138,8 @@ export default function PainGuidesIndexPage() {
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
                 Plain-language guides that start from what you notice: where it hurts, or a
-                phrase on your X-ray, ultrasound or MRI report. Each one walks through the
-                likely causes, what the pattern or wording usually means, and links on to the
+                phrase on your X-ray, ultrasound or MRI report. Each one walks through common
+                causes, what the pattern or wording usually means, and links on to the
                 deeper condition pages for the next step.
               </p>
 

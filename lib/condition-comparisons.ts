@@ -91,7 +91,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'What it feels like with a cup of coffee',
-        aForA: 'Pain at the outside of the elbow when lifting the mug with the palm facing down. This is a reliable real-world screen.',
+        aForA: 'Pain at the outside of the elbow when lifting the mug with the palm facing down. This is one useful clue, but it cannot confirm the diagnosis on its own.',
         aForB: 'Pain at the inside of the elbow when lifting the mug with the palm facing up or carrying groceries with the arm at the side.',
       },
       {
@@ -106,7 +106,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'How common it is',
-        aForA: 'Far more common in clinic than golfer\'s elbow. Lateral elbow pain affects roughly 1 to 3 percent of adults.',
+        aForA: 'More common than golfer\'s elbow. Lateral elbow pain affects roughly 1 to 3 percent of adults.',
         aForB: 'Less common, roughly a third as frequent as tennis elbow in the general population.',
       },
     ],
@@ -114,22 +114,22 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: "Cozen's test (resisted wrist extension)",
         whatItShows:
-          "With the elbow straight and the forearm turned palm-down, I resist you extending the wrist. Pain at the outside of the elbow points to tennis elbow.",
+          "With the elbow straight and the forearm turned palm-down, I resist you extending the wrist. Pain at the outside of the elbow suggests tennis elbow.",
       },
       {
         test: "Mill's test (passive wrist flexion with the elbow straight)",
         whatItShows:
-          'Stretching the wrist extensors by bending the wrist down while the elbow is straight reproduces lateral elbow pain in tennis elbow.',
+          'Stretching the wrist extensors by bending the wrist down while the elbow is straight often reproduces lateral elbow pain in tennis elbow.',
       },
       {
         test: 'Resisted wrist flexion with the forearm palm-up',
         whatItShows:
-          "Pain at the inside of the elbow on resisted wrist flexion is the primary screen for golfer's elbow.",
+          "Pain at the inside of the elbow on resisted wrist flexion is the main resisted test for golfer's elbow.",
       },
       {
         test: 'Resisted forearm pronation',
         whatItShows:
-          "Resisted turning of the palm down against my hand reproduces medial elbow pain in golfer's elbow because pronator teres shares that origin.",
+          "Resisted turning of the palm down against my hand often reproduces medial elbow pain in golfer's elbow because pronator teres shares that origin.",
       },
       {
         test: 'Tinel\'s at the cubital tunnel',
@@ -140,9 +140,9 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     whenItIsA:
       "Your pattern more likely fits tennis elbow if the pain sits on the outside of the elbow, lifting a coffee mug with the palm down hurts, gripping and wrist extension trigger it, and the bony bump on the outside is tender. It often starts after an increase in gripping work, a change in racquet technique, or a heavy stretch of yard work or trades.",
     whenItIsB:
-      "Your pattern more likely fits golfer's elbow if the pain sits on the inside of the elbow, carrying a shopping bag or lifting with the palm up hurts, wrist flexion and forearm rotation trigger it, and the bony bump on the inside is tender. It often flares after heavier grip work, a change in a golf or throwing motion, or climbing volume going up.",
+      "Your pattern more likely fits golfer's elbow if the pain sits on the inside of the elbow, carrying a shopping bag or lifting with the palm up hurts, wrist flexion and forearm rotation trigger it, and the bony bump on the inside is tender. It often flares after heavier grip work, a change in a golf or throwing motion, or climbing volume going up. Inner elbow pain can also come from the ulnar nerve or, in throwers, a ligament, so I check those too.",
     whenUncertain:
-      "If you cannot tell whether the pain is on the inside or the outside of the elbow, or if it feels like both, do not keep pushing through. A brief in-person assessment sorts this in about ten minutes. I localise the tenderness, run the resisted tests, screen the ulnar nerve, and look upstream at the shoulder and neck because elbow pain can be referred. Self-directed stretching the wrong tendon can drag the condition out.",
+      "If you cannot tell whether the pain is on the inside or the outside of the elbow, or if it feels like both, do not keep pushing through. The mug-lifting pattern is one useful clue, but it cannot confirm the diagnosis. An assessment combines your history, the tender area, strength and movement tests, and a nerve screen, and I look upstream at the shoulder and neck because elbow pain can be referred. Self-directed stretching of the wrong tendon can drag the condition out.",
     overlap:
       "Both conditions can coexist in the same arm, particularly in tradespeople and climbers. It is also common to see a tennis elbow picture with a partly irritable neck or a stiff thoracic spine contributing to forearm overload. That is why I always screen the whole upper quadrant on the first visit rather than only treating the elbow.",
     redFlags: [
@@ -174,12 +174,12 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: "Can I have tennis elbow and golfer's elbow at the same time?",
         answer:
-          "Yes, and it happens more than people expect. Tradespeople, climbers, and anyone doing heavy repeated gripping can overload both the extensor and flexor tendons in the same arm. The tender points sit on opposite sides of the elbow, so the exam still separates them, but the plan needs to address both origins at once.",
+          "Yes, and it happens more than people expect. Tradespeople, climbers, and anyone doing heavy repeated gripping can overload both the extensor and flexor tendons in the same arm. The tender points sit on opposite sides of the elbow, so the exam can usually tell them apart, but the plan needs to address both origins at once.",
       },
       {
         question: "I don't play tennis or golf. Can I still have these conditions?",
         answer:
-          "Absolutely. Most people I see with lateral or medial epicondyle tendinopathy have never picked up a racquet or a club. The sports lent their names to the conditions, not their exclusive causes. Gripping, lifting, computer work, trades, gardening, guitar playing, and parenting a heavy toddler are all common real-world triggers.",
+          "Yes. Many people with lateral or medial epicondyle tendinopathy have never played tennis or golf. The sports lent their names to the conditions, not their exclusive causes. Gripping, lifting, computer work, trades, gardening, guitar playing, and parenting a heavy toddler are all common real-world triggers.",
       },
       {
         question: "Why does the pain travel down my forearm?",
@@ -189,17 +189,17 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: "Does a cortisone injection fix this?",
         answer:
-          "It can reduce pain in the short term, but the longer-term results for cortisone in tennis elbow are poor. The 2013 Coombes et al. trial in JAMA showed corticosteroid injection had worse one-year outcomes than placebo. For most patients, a progressive loading program plus sensible load adjustment gives a better medium-term result.",
+          "It can reduce pain in the short term, but the longer-term results for cortisone in tennis elbow are poor. The 2013 Coombes et al. trial in JAMA showed corticosteroid injection had worse one-year outcomes than placebo. For many people, a progressive loading program plus sensible load adjustment is the better medium-term option, and any injection decision belongs with a physician.",
       },
       {
         question: "How long does each usually take to settle with physiotherapy?",
         answer:
-          "Tendons recover slowly. I tell people to expect real change across six to twelve weeks of dosed loading, with earlier wins in pain and grip as the irritation calms. Severe or long-standing cases can take longer. If symptoms are getting worse rather than better over three to four weeks of good rehab, I re-examine rather than just pushing on.",
+          "Tendons recover slowly. Many people notice real change over a few months of dosed loading, with earlier wins in pain and grip as the irritation calms. Severe or long-standing cases can take longer. If symptoms are getting worse rather than better over three to four weeks of good rehab, I re-examine rather than just pushing on.",
       },
       {
         question: "Can I keep training or working while I rehab this?",
         answer:
-          "Usually yes, with modifications. I adjust the specific provoking movements, change grip width or handle size where possible, and keep the tendon working at a load it can tolerate. Complete rest tends to make tendons more reactive, not less, so the aim is better dosing rather than no activity.",
+          "Usually yes, with modifications. I adjust the specific provoking movements, change grip width or handle size where possible, and keep the tendon working at a load it can tolerate. Complete rest does not usually build a tendon's tolerance, so the aim is better dosing rather than no activity.",
       },
     ],
     evidenceNotes: [
@@ -243,7 +243,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       shortName: 'Frozen shoulder',
     },
     atAGlance:
-      "Both cause shoulder pain and both make it hard to use the arm, but the mechanics are different. Rotator cuff problems are tendon and muscle driven, which means the cuff hurts and weakens but the joint can usually still be moved by someone else. Frozen shoulder (adhesive capsulitis) is a capsule problem, which means the whole joint stiffens up so badly that even a physio cannot move it past a certain point. That is the crucial separator, and it is why they need very different plans.",
+      "Both cause shoulder pain and both make it hard to use the arm, but the mechanics are different. Rotator cuff problems are tendon and muscle driven, which means the cuff hurts and weakens but the joint can usually still be moved by someone else. Frozen shoulder (adhesive capsulitis) is a capsule problem, which means the whole joint stiffens, so even when someone else moves the arm it stops well short of normal. That difference is one of the most useful clues, and it is why the plans differ.",
     distinguishing: [
       {
         aspect: 'Typical age and onset',
@@ -256,14 +256,14 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
         aForB: 'A clear hard block. Both your active and my passive movement stop well short of normal, particularly on external rotation with the arm at your side.',
       },
       {
-        aspect: 'External rotation (turning the palm out with the elbow tucked)',
-        aForA: 'Usually preserved unless there is a large cuff tear affecting infraspinatus specifically.',
-        aForB: 'Dramatically lost. This is the single most useful bedside finding. A loss of passive external rotation is the hallmark of frozen shoulder.',
+        aspect: 'External rotation (turning the forearm outward with the elbow bent and kept at your side)',
+        aForA: 'Usually preserved when someone else moves the arm, even if turning it out yourself is weak or painful.',
+        aForB: 'Markedly reduced, both when you try and when someone else moves the arm. That loss is one of the most useful clinical findings for frozen shoulder.',
       },
       {
         aspect: 'Night pain',
         aForA: 'Common, especially lying on that side. Usually reduces when you find a comfortable position.',
-        aForB: 'Classic, severe, and position-independent. Often wakes people multiple times a night during the painful phase, even on the other side.',
+        aForB: 'Night pain can be prominent, especially early on, and may persist despite changing position. It often wakes people during the painful phase.',
       },
       {
         aspect: 'Strength',
@@ -273,7 +273,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         aspect: 'Timeline',
         aForA: 'Can settle in weeks to months with the right loading program. A true full-thickness tear may not fully close but is often manageable without surgery.',
-        aForB: 'Follows a slow three-phase course: painful (2 to 9 months), stiff (4 to 12 months), thawing (5 to 24 months). Total natural history is 1 to 3 years. Physiotherapy can help with pain and range while it recovers.',
+        aForB: 'Many people improve over months to years, but recovery can be incomplete and does not always follow three neat phases. Physiotherapy can help with pain and range while it changes.',
       },
       {
         aspect: 'What imaging usually shows',
@@ -285,7 +285,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Passive external rotation with the arm at the side',
         whatItShows:
-          "I hold your elbow into your side, support the forearm, and rotate the hand outward. A firm capsular block well short of normal (usually less than 30 degrees on the affected side compared with the other arm) is the strongest bedside marker of frozen shoulder.",
+          "I hold your elbow against your side, support the forearm, and turn it outward. A firm stop well short of the other arm is one of the most useful clinical signs of frozen shoulder.",
       },
       {
         test: 'Drop arm / empty can / external rotation strength (rotator cuff battery)',
@@ -305,7 +305,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Scapular assist and relocation tests',
         whatItShows:
-          'Improving active range by manually positioning the shoulder blade suggests scapular and cuff contributions. A frozen capsule does not budge with scapular assistance.',
+          'Improving active range by manually positioning the shoulder blade suggests scapular and cuff contributions. In frozen shoulder, range usually changes little with this help, although pain and guarding can also limit it.',
       },
     ],
     whenItIsA:
@@ -315,19 +315,19 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     whenUncertain:
       "The two can look similar in the early painful phase, which is when an assessment helps most. I check passive external rotation first (it does most of the separating work), then run the cuff battery, compare active and passive range, and ask targeted history questions. If I am still unsure, I will tell you that and re-check at the next visit, because frozen shoulder declares itself more clearly with time.",
     overlap:
-      "A stiff, painful shoulder after a rotator cuff strain can progress into secondary stiffness that looks like early frozen shoulder. It also works the other way: people with true frozen shoulder often have co-existing cuff tendinopathy from years of compensation. Treating one and ignoring the other is a common reason shoulders do not fully recover.",
+      "A stiff, painful shoulder after a rotator cuff strain can progress into secondary stiffness that looks like early frozen shoulder. It also works the other way: people with frozen shoulder can also have cuff tendinopathy. So the assessment checks for both, and the plan covers whichever is present.",
     redFlags: [
       {
         sign: 'Sudden inability to lift the arm after a fall, or an obvious change in the shape of the shoulder',
         action: 'Go to emergency or urgent care to rule out a fracture, dislocation, or large tendon tear.',
       },
       {
-        sign: 'Shoulder pain with chest tightness, shortness of breath, sweating, or nausea',
+        sign: 'Shoulder or arm pain on either side with chest discomfort, shortness of breath, sweating, nausea, or light-headedness',
         action: 'Call 911. Shoulder pain can come from the heart.',
       },
       {
         sign: 'A hot, red, swollen shoulder with fever or feeling unwell',
-        action: 'Seek same-day medical care to rule out a joint infection.',
+        action: 'Go to emergency now. This can be a joint infection.',
       },
       {
         sign: 'Unexplained weight loss, night sweats, or a history of cancer with new shoulder pain',
@@ -345,12 +345,12 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: "My shoulder is stiff and painful. Is it just a rotator cuff injury that needs more time?",
         answer:
-          "Maybe, but there is a specific test that helps. Try to externally rotate your shoulder with the elbow tucked into your side, then compare it to the other arm. If that motion is strikingly limited and painful on the affected side and the other side looks normal, frozen shoulder is very much in the picture. If external rotation at the side is similar to the other arm, rotator cuff issues become more likely. Either way, an exam sorts it in one visit.",
+          "Maybe. One movement gives a useful clue. Bend both elbows to a right angle and keep them against your sides, then turn both forearms outward as far as is comfortable, without letting the elbows leave your sides, and compare the two. Do not force it, and skip this if the shoulder was recently injured. If the sore side turns out much less than the other, frozen shoulder becomes more likely. If both sides turn out about the same, a rotator cuff problem is more likely. An examination usually narrows the possibilities. Early frozen shoulder can remain uncertain, and a follow-up assessment may make the pattern clearer.",
       },
       {
         question: 'Does frozen shoulder get better on its own?',
         answer:
-          "Most cases eventually resolve, but the natural timeline is long. Published series show one to three years from onset to full recovery without treatment, with meaningful functional loss in the stiff phase. Physiotherapy focused on pain control, capsular mobility, and progressive loading can help with pain and movement along the way, and in the UK FROST trial people improved with early physiotherapy plus a steroid injection about as much as with surgery.",
+          "Many people improve over months to years, but recovery can be incomplete and does not always follow three neat phases. In one long-term follow-up averaging 4.4 years, 41 percent still had some symptoms, mostly mild (Hand and colleagues, 2008). Physiotherapy focused on pain control, mobility and progressive loading can help with pain and movement along the way, and in the UK FROST trial people improved with early physiotherapy plus a steroid injection about as much as with surgery.",
       },
       {
         question: "Should I get an MRI before starting physiotherapy?",
@@ -365,12 +365,12 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'What if I have both a rotator cuff tear and a frozen shoulder?',
         answer:
-          "Common, and manageable. The plan addresses the stiffer pattern first because you cannot strengthen into range you do not have. As capsular mobility improves, the rotator cuff rehab layers in. Skipping the capsular work early usually stalls the whole rehab.",
+          "Common, and manageable. The plan addresses the stiffer pattern first because you cannot strengthen into range you do not have. As capsular mobility improves, the rotator cuff rehab layers in. Leaving out the mobility work early can stall progress.",
       },
       {
         question: 'I have diabetes. Does that change anything?',
         answer:
-          "Yes. Frozen shoulder is several times more common in people with diabetes, it tends to be more severe, and it takes longer to recover. That is not a reason to abandon rehab, it is a reason to start earlier, pace more carefully, and protect sleep aggressively through the painful phase.",
+          "Yes. Frozen shoulder is several times more common in people with diabetes, and it can be more severe and take longer to recover. That is not a reason to abandon rehab. It is a reason to start earlier, pace more carefully, and protect sleep through the painful phase.",
       },
     ],
     evidenceNotes: [
@@ -415,7 +415,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       shortName: 'Patellofemoral pain',
     },
     atAGlance:
-      "Both sit at the front of the knee and both flare with loaded knee bending. The difference comes down to where the pain points and what triggers it. Patellar tendinopathy is a localised tendon overload problem. The pain sits at the bottom tip of the kneecap on the tendon, flares with jumping and changes of direction, and eases as the tendon warms up. Patellofemoral pain is a loading and tracking problem at the joint surface behind the kneecap. The pain is more diffuse, flares with stairs, prolonged sitting, and running, and does not warm up in the same way.",
+      "Both sit at the front of the knee and both flare with loaded knee bending. The difference comes down to where the pain points and what triggers it. Patellar tendinopathy is a localised tendon overload problem. The pain usually sits at the bottom tip of the kneecap on the tendon, flares with jumping and changes of direction, and often eases as the tendon warms up. Patellofemoral pain is pain around or behind the kneecap, often aggravated by squatting, stairs and running. It tends to be more diffuse and often does not warm up in the same way. These patterns overlap and the two can coexist, so an assessment looks at the full history and examination rather than one feature.",
     distinguishing: [
       {
         aspect: 'Where you point to when asked',
@@ -449,8 +449,8 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'What a single-leg squat shows',
-        aForA: 'Pain at the bottom tip of the kneecap as the knee flexes under load. Usually reproduces the symptom cleanly.',
-        aForB: 'Pain around or behind the kneecap, often with a visible knee-in (valgus) collapse or a hip drop on the stance side. Reproduction is typical but less focal.',
+        aForA: 'Pain at the bottom tip of the kneecap as the knee bends under load. It often reproduces the familiar pain.',
+        aForB: 'Pain around or behind the kneecap, sometimes with the knee falling inward (valgus) or the pelvis dropping on the opposite side. The pain is often less focal.',
       },
     ],
     specificTests: [
@@ -462,48 +462,48 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Single-leg decline squat (25 degrees)',
         whatItShows:
-          'Squatting on one leg on a 25-degree decline board selectively loads the patellar tendon. Clear pain at the bottom of the kneecap during this test is strongly suggestive of patellar tendinopathy.',
+          'Squatting on one leg on a 25-degree decline board puts more load through the patellar tendon. Clear pain at the bottom of the kneecap during this test fits patellar tendinopathy, although no single test confirms it.',
       },
       {
         test: 'Step-down from a stair, 20 to 30 cm height',
         whatItShows:
-          'Reproducing your anterior knee pain on a single-leg step-down, particularly with visible knee-in collapse or hip drop, is a reliable in-clinic trigger for patellofemoral pain.',
+          'Reproducing your familiar pain around or behind the kneecap on a single-leg step-down supports the patellofemoral pattern. I also watch how the knee and pelvis are controlled during the movement. No single test confirms it.',
       },
       {
         test: 'Clarke\'s sign and patellar compression',
         whatItShows:
-          'Gentle compression of the kneecap against the femur, with and without active quad contraction. Pain behind the kneecap (not below it) supports patellofemoral pain, although specificity is limited.',
+          'Gentle compression of the kneecap against the thigh bone, with and without a quad contraction. Pain behind the kneecap (not below it) can fit patellofemoral pain, but these tests have limited accuracy, so they carry less weight than reproducing your familiar pain during squatting or stepping.',
       },
       {
         test: 'Hip strength screen (abduction and external rotation)',
         whatItShows:
-          'Weakness in the glutes, particularly gluteus medius and the deep rotators, is common in people with patellofemoral pain. It can be a contributor to patellar tendinopathy too, but it is a more consistent finding in patellofemoral cases.',
+          'Weakness in the glutes, particularly gluteus medius and the deep rotators, is often found in people with patellofemoral pain, though not in everyone, and pain itself can reduce strength. It can play a part in patellar tendinopathy too.',
       },
     ],
     whenItIsA:
-      "Your pattern more closely matches patellar tendinopathy if you can put one finger on the bottom tip of the kneecap where it hurts, the pain warms up as you keep going and flares afterwards, jumping and changes of direction reliably bring it on, and sitting with a bent knee is fine. A recent spike in training volume, a new sport, or a preseason return are common setups.",
+      "Your pattern more closely matches patellar tendinopathy if you can put one finger on the bottom tip of the kneecap where it hurts, the pain warms up as you keep going and flares afterwards, jumping and changes of direction bring it on, and sitting with a bent knee is fine. A recent spike in training volume, a new sport, or a preseason return are common setups.",
     whenItIsB:
       "Your pattern more closely matches patellofemoral pain if the pain is more diffuse around or behind the kneecap, going down stairs and sitting with bent knees for a while both bother it, and you notice a feeling of the knee giving or buckling going downhill. It often starts after a running ramp-up, a life change that added a lot more stairs or walking, or after a period of detraining.",
     whenUncertain:
-      "These genuinely overlap and they can coexist, so a brief assessment matters. I localise the tenderness first, because one finger on the inferior pole of the patella is a useful first clue. Then I run the single-leg decline squat and the step-down, check hip strength, and look at your running or squat mechanics if relevant. That usually sorts it. Where they coexist, I dose the tendon work and the patellofemoral rehab in parallel rather than arguing about which is primary.",
+      "These genuinely overlap and they can coexist, so a brief assessment matters. I localise the tenderness first, because pain you can cover with one finger at the bottom tip of the kneecap is a useful first clue. Then I run the single-leg decline squat and the step-down, check hip strength, and look at your running or squat mechanics if relevant. That helps narrow it down; when the picture stays mixed, I reassess as the knee responds to the first few weeks of loading. Where they coexist, I dose the tendon work and the patellofemoral rehab in parallel rather than arguing about which is primary.",
     overlap:
-      "It is common to see both in the same knee, particularly in jumping athletes who also sit at a desk all day. Hip and trunk weakness feeds both. Chronic patellofemoral pain can also alter loading at the patellar tendon over time, and a grumbling tendon can change how you squat, which feeds the patellofemoral side. The rehab for both has a lot of shared elements, so the plan is rarely either-or.",
+      "It is common to see both in the same knee, particularly in jumping athletes who also sit at a desk all day. Hip and trunk strength can play a part in both. Chronic patellofemoral pain can also alter loading at the patellar tendon over time, and a grumbling tendon can change how you squat, which feeds the patellofemoral side. The rehab for both has a lot of shared elements, so the plan is rarely either-or.",
     redFlags: [
       {
         sign: 'A pop below the kneecap, then sudden inability to straighten the knee or lift the straight leg',
         action: 'Go to emergency or urgent care. A patellar tendon rupture needs early surgical assessment.',
       },
       {
-        sign: 'A hot, red, swollen knee with fever or feeling unwell',
-        action: 'Seek same-day medical care to rule out a joint infection.',
+        sign: 'A newly hot, red, markedly swollen knee, with or without a fever',
+        action: 'Seek same-day medical care to rule out a joint infection, or go to emergency if you feel unwell. Infection is possible even without a fever.',
       },
       {
         sign: 'A knee that locks and will not fully straighten',
         action: 'See your family doctor promptly.',
       },
       {
-        sign: 'In a child or teenager, knee pain with a limp, or pain in the hip or thigh',
-        action: 'See a doctor soon. A hip problem such as a slipped growth plate (slipped capital femoral epiphysis) can show up as knee pain.',
+        sign: 'In a child or teenager, a new limp with knee, thigh or hip pain',
+        action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) can show up as knee pain and needs urgent assessment.',
       },
     ],
     relatedTreatmentIds: [
@@ -527,22 +527,22 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'Why do stairs down hurt more than stairs up with patellofemoral pain?',
         answer:
-          "Going down usually loads the kneecap a little more. The quads work eccentrically to control descent, and the compressive force behind the kneecap tends to be slightly higher going down than going up. That is why stairs down, downhill running, and decelerating are the classic aggravators.",
+          "Both going up and going down stairs load the kneecap joint more than level walking. Going down also asks the quads to control the lowering, which many people with patellofemoral pain find harder. That is why stairs down, downhill running, and decelerating are common aggravators, although some people notice going up more.",
       },
       {
         question: "Does my tracking or alignment actually matter?",
         answer:
-          "Less than older theories suggested, but it is not nothing. What matters more in current evidence is strength and control. Hip abductor and external rotator weakness, poor trunk control, quad weakness, and sudden spikes in training load are bigger drivers than small anatomical differences. The rehab focuses on the pieces you can change.",
+          "Less than older theories suggested, but it is not nothing. Current guidance puts more weight on how much load the knee is handling and on quad and hip strength than on small differences in alignment, and a visible tracking problem is not needed for the diagnosis. Strength, control and training load are things rehab can change, so the plan focuses there.",
       },
       {
         question: "Is squatting bad for my knees with either condition?",
         answer:
-          "No, provided the load is dosed to what the knee tolerates today. Complete avoidance of knee flexion usually makes both conditions worse over time because the tissue loses capacity. The real questions are depth, load, tempo, and frequency. I adjust those to keep you training without flaring the symptom.",
+          "Not usually, provided the load is dosed to what the knee tolerates today. Avoiding knee bending completely can leave both tissues less able to handle load over time. The real questions are depth, load, tempo, and frequency. I adjust those to keep you training without flaring the symptom.",
       },
       {
         question: 'How long does each usually take to settle with physiotherapy?',
         answer:
-          "Patellofemoral pain typically improves meaningfully over six to twelve weeks of targeted hip and quad work with sensible load management. Patellar tendinopathy is slower because tendons are slower tissues. Expect three to six months of progressive loading before full return to jumping sport, with earlier wins in day-to-day function along the way.",
+          "Many people with patellofemoral pain improve over six to twelve weeks of targeted hip and quad work with sensible load management, although symptoms can persist or come back for some. Patellar tendinopathy is often slower because tendons adapt slowly. A return to jumping sport often takes three to six months or longer of progressive loading, with earlier gains in day-to-day function along the way.",
       },
     ],
     evidenceNotes: [
@@ -594,11 +594,11 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       shortName: 'Piriformis syndrome',
     },
     atAGlance:
-      "Both can send pain from the buttock down the back of the leg, and both get lumped together as 'sciatica' in everyday language. True sciatica is nerve-root irritation at the lumbar spine, most often from a disc, that produces a dermatomal pattern of symptoms and, in more involved cases, changes in reflexes, strength, or sensation. Piriformis syndrome, now often discussed under the broader heading of deep gluteal syndrome, is compression or irritation of the sciatic nerve in the buttock itself, below the spine. Same nerve, different location. The leg symptoms can look similar on the surface, but the history, provocation pattern, and exam findings separate them.",
+      "Both can send pain from the buttock down the back of the leg, and both get lumped together as 'sciatica' in everyday language. Sciatica from the spine is irritation of a nerve root in the lower back, most often from a disc. Its symptoms often follow the strip of the leg that nerve root supplies (a dermatome), in more involved cases with changes in reflexes, strength, or sensation, and it can occur with or without much back pain. Piriformis syndrome, now often discussed under the broader heading of deep gluteal syndrome, is compression or irritation of the sciatic nerve in the buttock itself, below the spine. Same nerve, different location. The leg symptoms can look similar, and the history, what provokes the pain, and the exam findings help tell them apart. Neither a pain map nor a single nerve-tension test establishes the source on its own.",
     distinguishing: [
       {
         aspect: 'Where the pain starts',
-        aForA: 'Usually in the low back or sacral area first, then travels down the buttock and leg. Many people can draw a line showing the path of the pain from spine to foot.',
+        aForA: 'Often in the low back or sacral area first, then travels down the buttock and leg, although leg pain from a nerve root can come with little or no back pain. Many people can draw a line showing the path of the pain down the leg.',
         aForB: 'Starts deep in the middle of the buttock, over the piriformis, above the sitting bone. Low back is typically not the primary complaint.',
       },
       {
@@ -613,8 +613,8 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'How lumbar positions change it',
-        aForA: 'Often shifts with spine positions. Repeated extension (lying on the stomach, standing tall) can centralise the leg pain back toward the spine. This is a useful positive sign.',
-        aForB: 'Spinal movements do not meaningfully change the symptom. The pain is tied to piriformis loading, sitting pressure, and hip rotation rather than to spine position.',
+        aForA: 'Often shifts with spine positions. In some people, repeated extension (lying on the stomach, standing tall) draws the leg pain back toward the spine, which is a useful sign. Others are aggravated by extension, so this is something I test in the clinic, not a rule to treat yourself by.',
+        aForB: 'Spinal movements often change the symptom very little. The pain tends to follow sitting pressure, hip rotation and loading of the deep buttock rather than spine position.',
       },
       {
         aspect: 'Straight leg raise',
@@ -623,8 +623,8 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'Local buttock tenderness',
-        aForA: 'Usually not strikingly tender when I press into the deep buttock at the greater sciatic notch. The problem is upstream at the spine.',
-        aForB: 'Focal tenderness when I press into the deep buttock near the greater sciatic notch, often reproducing your familiar pain. This is one of the most helpful bedside findings.',
+        aForA: 'The deep buttock can be tender, but often less strikingly than with a buttock source.',
+        aForB: 'Focal tenderness when I press into the deep buttock near the greater sciatic notch, often reproducing your familiar pain. It is one of the more consistent features reported, although tenderness alone does not confirm the source.',
       },
       {
         aspect: 'Sitting behaviour',
@@ -633,7 +633,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'Red-flag screening',
-        aForA: 'Saddle numbness, progressive weakness in the leg, or bladder and bowel changes are urgent and send someone straight to emergency care for cauda equina screening. Rare, but the screen is always part of the first visit.',
+        aForA: 'Saddle numbness or new bladder and bowel changes mean going to emergency now to check for cauda equina syndrome. Leg weakness that is getting worse needs same-day medical assessment. These are rare, but the screen is always part of the first visit.',
         aForB: 'Red flags are uncommon from piriformis alone. Persistent deep buttock pain with night pain or systemic symptoms still warrants a broader screen.',
       },
     ],
@@ -666,17 +666,17 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Neurological screen (reflexes, myotomes, dermatomes)',
         whatItShows:
-          'Ankle and knee reflexes, big-toe extension and plantarflexion strength, and sensation mapping help identify a specific nerve root. Clear objective deficits in a nerve-root pattern strongly support a spinal source over piriformis.',
+          'Ankle and knee reflexes, big-toe extension and plantarflexion strength, and sensation mapping help identify a specific nerve root. Clear deficits in a nerve-root pattern point toward a spinal source rather than the buttock.',
       },
     ],
     whenItIsA:
       "Your pattern more closely matches sciatica if the pain started in the low back or the sacral area before spreading down the leg, it follows a clean strip down the leg rather than sitting in the buttock, coughing or sneezing makes it worse, and you have objective nerve signs like dermatomal numbness, a reduced reflex, or big-toe weakness. Bending forward provokes it and lying down or repeated extension often eases it over minutes. A recent bend-and-lift episode, a long drive, or a gradual onset over a few days is a common setup.",
     whenItIsB:
-      "Your pattern more closely matches piriformis syndrome if the pain is centred in the deep buttock rather than the back, sitting on that side for any length of time reliably flares it, direct pressure into the deep buttock reproduces your familiar pain, and spinal movements do not really change anything. Objective nerve-root signs are absent or vague. A recent increase in running volume, new long drives, a new bike fit, or sitting on a thick wallet are common triggers.",
+      "Your pattern more closely matches piriformis syndrome if the pain is centred in the deep buttock rather than the back, sitting on that side for any length of time flares it, direct pressure into the deep buttock reproduces your familiar pain, and spinal movements do not really change anything. Objective nerve-root signs are absent or vague. A recent increase in running volume, new long drives, a new bike fit, or sitting on a thick wallet are common triggers.",
     whenUncertain:
-      "These two can look similar on the surface, and a smaller share of sciatic-type pain is thought to come from a non-discogenic source in the deep gluteal region. The exam does most of the work. I run the neurological screen first, then the tension tests (straight leg raise and slump), then the piriformis-specific tests (FAIR, seated piriformis stretch, Pace, deep palpation). If the neurological screen is clean and the piriformis tests reproduce your pain cleanly, piriformis syndrome moves up the list. If the neurological screen shows dermatomal numbness, a lost reflex, or clear myotomal weakness, the spine is the more likely source and I plan around that. MRI is not needed in most cases to start treatment. With progressive neurological loss, red-flag features, or symptoms that are not changing on the expected timeline, I flag it to your family doctor or specialist and refer you.",
+      "These two can look similar on the surface, and a smaller share of sciatic-type pain is thought to come from a non-discogenic source in the deep gluteal region. The history and exam help narrow it down. I run the neurological screen first, then the tension tests (straight leg raise and slump), then the piriformis-specific tests (FAIR, seated piriformis stretch, Pace, deep palpation). If the neurological screen is clear and the piriformis tests reproduce your familiar pain, piriformis syndrome moves up the list. If the neurological screen shows dermatomal numbness, a lost reflex, or clear myotomal weakness, the spine is the more likely source and I plan around that. Sometimes the pattern stays uncertain, and I reassess as you respond or flag it for medical investigation. MRI is usually not needed to start treatment. With progressive neurological loss, red-flag features, or symptoms that are not changing on the expected timeline, I flag it to your family doctor or specialist and refer you.",
     overlap:
-      "Both can coexist, and chronic lumbar dysfunction often sits alongside piriformis and deep gluteal irritability because the whole posterior chain compensates together. A person with a previous disc episode can later develop piriformis-dominant symptoms, and someone with long-standing piriformis pain can eventually pick up secondary low-back stiffness. That is why I screen the lumbar spine, SI joint, hip, and deep gluteal region on the first visit rather than assuming the label.",
+      "Both can coexist, and a long-standing low back problem can sit alongside deep gluteal irritability. A person with a previous disc episode can later develop piriformis-dominant symptoms, and someone with long-standing piriformis pain can eventually pick up secondary low-back stiffness. That is why I screen the lumbar spine, SI joint, hip, and deep gluteal region on the first visit rather than assuming the label.",
     redFlags: [
       {
         sign: 'Numbness in the groin, genitals, or inner thighs (the saddle area), or new difficulty controlling the bladder or bowel',
@@ -702,12 +702,12 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'My doctor said I have sciatica. Could it actually be piriformis syndrome?',
         answer:
-          "Possibly. 'Sciatica' is often used as a general label for any leg pain that travels down from the buttock, which includes both nerve-root irritation from the spine and sciatic nerve irritation in the deep gluteal region. A focused exam sorts it. If the low back is not tender, spinal movements do not change the symptom, and pressing into the deep buttock reproduces your familiar pain, piriformis or deep gluteal involvement moves up the list.",
+          "Possibly. 'Sciatica' is often used as a general label for any leg pain that travels down from the buttock, which includes both nerve-root irritation from the spine and sciatic nerve irritation in the deep gluteal region. A focused exam helps tell them apart. If the low back is not tender, spinal movements do not change the symptom, and pressing into the deep buttock reproduces your familiar pain, piriformis or deep gluteal involvement moves up the list.",
       },
       {
         question: 'Do I need an MRI to find out which one it is?',
         answer:
-          "Usually no. MRI is useful when there are progressive neurological signs, red-flag features, or when symptoms are not responding on the expected rehab timeline. For most people, a careful history and exam distinguishes the two well enough to start treatment. Imaging also picks up incidental findings in pain-free adults very often, so it is not a shortcut to a diagnosis.",
+          "Usually no. MRI is useful when there are progressive neurological signs, red-flag features, or when symptoms are not responding on the expected rehab timeline. For many people, a careful history and exam give enough information to start treatment, with reassessment if the response is not as expected. Imaging also picks up incidental findings in pain-free adults very often, so it is not a shortcut to a diagnosis.",
       },
       {
         question: 'Why does sitting make piriformis pain so much worse?',
@@ -717,17 +717,17 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'Will stretching my piriformis fix it?',
         answer:
-          "Stretching alone rarely fixes it. A short window of gentle nerve glides and piriformis stretching can calm things, but the sustainable plan usually includes strengthening the gluteus medius and deep hip rotators, changing the loading that set it off (long sitting, running volume, bike fit, wallet), and sometimes dry needling into the deep gluteal region for symptom relief. Stretching a guarding muscle without changing its job tends to give short-lived results.",
+          "Stretching alone is often not enough. A short window of gentle nerve glides and piriformis stretching can calm things, but the sustainable plan usually includes strengthening the gluteus medius and deep hip rotators, changing the loading that set it off (long sitting, running volume, bike fit, wallet), and sometimes dry needling into the deep gluteal region for symptom relief. Stretching a guarding muscle without changing its job tends to give short-lived results.",
       },
       {
         question: 'Is sciatica dangerous?',
         answer:
-          "Most sciatica is not dangerous and settles with time and targeted rehab. The specific situations that need urgent attention are saddle numbness (numbness in the groin or inner thighs), loss of bladder or bowel control, and progressive weakness in the leg. Those features raise concern for cauda equina syndrome and warrant emergency assessment rather than a physiotherapy visit.",
+          "Most sciatica is not dangerous and settles with time and targeted rehab. Saddle numbness (numbness in the groin, genitals or inner thighs) or new loss of bladder or bowel control can be signs of cauda equina syndrome: go to emergency now rather than booking a physiotherapy visit. Leg weakness that is getting worse needs same-day medical assessment.",
       },
       {
         question: 'How long does each typically take to settle?',
         answer:
-          "Straightforward sciatica from a disc often improves meaningfully over four to twelve weeks of targeted rehab, though tissue healing can take several months even after pain has resolved. Piriformis or deep gluteal pain usually responds faster to load-change plus specific strengthening, often within four to eight weeks, provided the provoking loads are actually modified. Longer-standing cases of either take longer, and I reassess rather than push on if progress stalls by about four weeks.",
+          "Straightforward sciatica from a disc often improves meaningfully over four to twelve weeks of targeted rehab, though tissue healing can take several months even after pain has resolved. Piriformis or deep gluteal pain can improve over several weeks once the provoking loads are changed and strengthening starts, but the research on it is limited and recovery times vary. Longer-standing cases of either take longer, and I reassess rather than push on if progress stalls by about four weeks.",
       },
     ],
     evidenceNotes: [
@@ -787,28 +787,28 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'Stiffness pattern',
-        aForA: 'Morning stiffness that eases with movement, typically lasting under 30 minutes. Stiffness also after prolonged sitting, with a characteristic "start-up" feeling getting out of a chair.',
+        aForA: 'Morning stiffness that eases with movement, absent or usually lasting no more than 30 minutes. Stiffness also after prolonged sitting, with a characteristic "start-up" feeling getting out of a chair.',
         aForB: 'Not a stiffness-dominant presentation. The hip does not feel globally tight. The issue is sharp, localised pain with specific loads and positions.',
       },
       {
         aspect: 'Hip internal rotation',
-        aForA: 'Restricted and often painful, especially in flexion. Loss of internal rotation is one of the most reliable clinical markers for hip OA.',
+        aForA: 'Restricted and often painful, especially in flexion. Loss of internal rotation is one of the more useful clinical signs of hip OA.',
         aForB: 'Usually preserved and comfortable. If internal rotation is significantly limited, a co-existing or primary intra-articular problem should be considered.',
       },
       {
         aspect: 'Lying on the affected side',
         aForA: 'Often tolerable or mildly uncomfortable. Sleep disturbance tends to come from overall stiffness rather than from direct side pressure.',
-        aForB: 'Classic aggravator. Night pain lying on the painful side is one of the strongest pointers to GTPS, and lying on the opposite side with the top knee falling across the body can hurt too because it compresses the tendons.',
+        aForB: 'Classic aggravator. Night pain lying on the painful side is a common pointer to GTPS, and lying on the opposite side with the top knee falling across the body can hurt too because it compresses the tendons.',
       },
       {
         aspect: 'Single-leg stance',
         aForA: 'Usually manageable for 30 seconds, although prolonged standing can ache in the groin. A Trendelenburg drop is not the main finding.',
-        aForB: 'Reproduces pain over the greater trochanter within 30 seconds in many cases. A visible pelvic drop on the stance side (Trendelenburg sign) supports gluteal tendon involvement because the glutes are failing to hold the pelvis level.',
+        aForB: 'Reproduces pain over the greater trochanter within 30 seconds in many cases. A drop of the pelvis on the opposite, unsupported side (Trendelenburg sign) can point to difficulty with the hip abductors of the standing leg, but it is not specific to a gluteal tendon problem.',
       },
       {
         aspect: 'Stairs, hills, and uneven ground',
         aForA: 'Stairs are often uncomfortable, particularly going up with the affected leg, because of the demand on hip flexion and rotation in the groin.',
-        aForB: 'Walking uphill, climbing stairs, and stepping off a curb all compress the gluteal tendons against the trochanter. These are classic aggravators and often describe why running flared it.',
+        aForB: 'Walking uphill, climbing stairs, and stepping off a curb all load the gluteal tendons and are common aggravators.',
       },
       {
         aspect: 'Imaging findings',
@@ -825,7 +825,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Hip internal rotation range of motion in flexion',
         whatItShows:
-          'With you on your back and the hip and knee bent to 90 degrees, I rotate the lower leg outward to measure internal rotation at the hip. A painful, hard block short of the other side is one of the most useful bedside markers for hip OA.',
+          'With you on your back and the hip and knee bent to 90 degrees, I rotate the lower leg outward to measure internal rotation at the hip. A painful, hard block short of the other side is a useful bedside sign of hip OA.',
       },
       {
         test: 'FABER test (Flexion, Abduction, External Rotation)',
@@ -840,12 +840,12 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Single-leg stance test (30 seconds)',
         whatItShows:
-          "You stand on the affected leg for up to 30 seconds. Reproduction of focal pain over the greater trochanter within that window, with or without a visible pelvic drop, is one of the best clinical pointers to gluteal tendinopathy and GTPS.",
+          "You stand on the affected leg for up to 30 seconds. Reproduction of focal pain over the greater trochanter within that window, with or without a visible pelvic drop, is a useful clinical pointer to gluteal tendinopathy and GTPS.",
       },
       {
         test: 'Palpation over the greater trochanter',
         whatItShows:
-          'Direct pressure over the greater trochanter reproduces the familiar pain in GTPS. Pain with palpation plus positive single-leg stance and pain on resisted hip abduction is a strong clinical triad for gluteal tendinopathy.',
+          'Direct pressure over the greater trochanter reproduces the familiar pain in GTPS. Pain with palpation, a positive single-leg stance and pain on resisted hip abduction together support gluteal tendinopathy, although no single finding confirms it.',
       },
     ],
     whenItIsA:
@@ -853,25 +853,25 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     whenItIsB:
       "Your pattern more closely matches GTPS or gluteal tendinopathy if the pain is on the outside of the hip and you can put a finger on it, lying on that side at night wakes you, walking uphill or climbing stairs flares it, and standing on one leg reproduces it within thirty seconds. There is often a recent change in walking or running volume, a new weight-loss ramp-up, or a long stretch of sitting with crossed legs.",
     whenUncertain:
-      "The two can coexist, and occasionally present together in one hip, which is when an exam helps most. I check passive internal rotation first because it does most of the work separating OA from soft-tissue lateral pain. Then I palpate the greater trochanter, run single-leg stance, and test resisted hip abduction. If internal rotation is clean and lateral palpation reproduces your familiar pain, GTPS moves up the list. If internal rotation is clearly limited and groin pain dominates, hip OA moves up the list. It is usually diagnosed from the history and exam; when an X-ray would change the plan, I flag it to your family doctor or specialist and refer you (an X-ray, not MRI, comes first).",
+      "The two can coexist, and occasionally present together in one hip, which is when an exam helps most. I check passive internal rotation first because it is one of the more useful signs for telling OA from soft-tissue pain on the outside of the hip. Then I palpate the greater trochanter, run single-leg stance, and test resisted hip abduction. If internal rotation is clean and lateral palpation reproduces your familiar pain, GTPS moves up the list. If internal rotation is clearly limited and groin pain dominates, hip OA moves up the list. It is usually diagnosed from the history and exam; when an X-ray would change the plan, I flag it to your family doctor or specialist and refer you (an X-ray, not MRI, comes first).",
     overlap:
-      "Older adults with hip OA often develop secondary gluteal tendinopathy because the joint changes shift load patterns through the pelvis and the glutes work under tougher conditions. Equally, a person with long-standing GTPS can protect the hip in ways that add stiffness. Treating one and ignoring the other is a common reason lateral hip pain or post-arthroplasty stiffness lingers longer than expected.",
+      "Hip OA and gluteal tendinopathy can occur together in older adults, and changes in how the joint is loaded may play a part. Equally, a person with long-standing GTPS can protect the hip in ways that add stiffness. Treating one and missing the other can be one reason lateral hip pain or post-arthroplasty stiffness lingers longer than expected.",
     redFlags: [
       {
         sign: 'A fall followed by hip or groin pain and difficulty putting weight on the leg',
         action: 'Go to emergency to rule out a hip fracture.',
       },
       {
-        sign: 'Groin or hip pain in a runner that builds with each run and aches at rest or at night',
-        action: 'Stop running and see a doctor within a few days to rule out a femoral neck stress fracture.',
+        sign: 'Groin or hip pain in a runner that builds with each run, hurts when hopping on that leg, or aches at rest or at night',
+        action: 'Possible femoral neck stress fracture. Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal.',
       },
       {
-        sign: 'A hot, painful hip with fever or feeling unwell',
-        action: 'Seek same-day medical care to rule out a joint infection.',
+        sign: 'A hot, swollen or very painful hip, with or without a fever, or feeling unwell',
+        action: 'Seek same-day medical care to rule out a joint infection, or go to emergency if you feel unwell. Infection is possible even without a fever.',
       },
       {
-        sign: 'In a child or teenager, hip, thigh, or knee pain with a limp',
-        action: 'See a doctor promptly to rule out a slipped growth plate at the hip (slipped capital femoral epiphysis).',
+        sign: 'In a child or teenager, a new limp with hip, groin, thigh, or knee pain',
+        action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) needs urgent assessment.',
       },
       {
         sign: 'Unexplained weight loss, a history of cancer, or constant night pain',
@@ -903,7 +903,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: "Will strengthening make my GTPS worse before it gets better?",
         answer:
-          "It can flare briefly if the early dose is wrong. The common mistake is starting with stretching or standing abductions, both of which compress the tendons. The better sequence is reducing the compressive loads first (sleep position, crossed legs, wide standing base, walking cadence), then introducing isometric holds, and only then progressing to functional strengthening. Done in that order, pain usually eases within a few weeks and the tendon capacity builds over the next two to three months.",
+          "It can flare briefly if the early dose or position is wrong. Some stretches and exercise positions aggravate the outer hip, particularly when the hip drops into adduction (the thigh drifting across the body). I start by reducing the compressive positions (sleep position, crossed legs, hanging your weight onto one hip), begin strengthening in a position and dose the hip tolerates, often with isometric holds, and progress according to how it responds. Many people notice the pain easing over several weeks, while tendon capacity keeps building over the following months.",
       },
       {
         question: 'Can hip OA be managed without surgery?',
@@ -913,7 +913,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: "I was told it is just bursitis and given an injection. It came back. Why?",
         answer:
-          "Because the underlying driver was likely gluteal tendinopathy, and injections can quiet the pain without changing the load pattern that irritated the tendons in the first place. The 2018 LEAP trial compared education plus exercise, corticosteroid injection, and wait-and-see for gluteal tendinopathy. At both 8 weeks and 12 months, more people reported overall improvement with education plus exercise than with the injection; pain was lower with exercise at 8 weeks and similar at 12 months. Injections have a role, but they are not the whole plan.",
+          "Often because the pain involves the gluteal tendons, and injections can quiet the pain without changing the load pattern that irritated the tendons in the first place. The 2018 LEAP trial compared education plus exercise, corticosteroid injection, and wait-and-see for gluteal tendinopathy. At both 8 weeks and 12 months, more people reported overall improvement with education plus exercise than with the injection; pain was lower with exercise at 8 weeks and similar at 12 months. Injections have a role, but they are not the whole plan.",
       },
     ],
     evidenceNotes: [
@@ -958,7 +958,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       shortName: 'Meniscus tear',
     },
     atAGlance:
-      "Both commonly follow a twisting knee injury, and both show up frequently in skiers, court sports, and soccer. They often travel together too. The classic O'Donoghue triad combines ACL rupture, medial collateral ligament injury, and a medial meniscus tear. Despite the overlap, the mechanism, swelling timing, exam findings, and natural history differ enough that the two can usually be separated clinically in the first visit. The reason this matters is practical: the management decisions, timelines, and return-to-sport plans look quite different.",
+      "Both commonly follow a twisting knee injury, and both show up frequently in skiers, court sports, and soccer. They often travel together too. The classic O'Donoghue triad combines ACL rupture, medial collateral ligament injury, and a medial meniscus tear. Despite the overlap, the mechanism, swelling timing, exam findings, and natural history often point more toward one than the other, and imaging through a doctor fills the gap when it would change the plan. The reason this matters is practical: the management decisions, timelines, and return-to-sport plans look quite different.",
     distinguishing: [
       {
         aspect: 'Typical mechanism',
@@ -1038,9 +1038,9 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     whenItIsB:
       "Your pattern more closely matches a meniscus tear if the injury happened while twisting with the foot planted, often in a squat or deep flexion, the swelling built up slowly over a day or two rather than immediately, and you now notice catching, clicking, or a feeling of the knee briefly locking. Joint-line tenderness and a positive McMurray or Thessaly reinforce the picture. Degenerative meniscal tears can also appear with no clear injury in adults over 40.",
     whenUncertain:
-      "The two genuinely overlap, and they co-occur often enough that a clean split is not always possible clinically. I take a careful mechanism history, look at swelling timing, run Lachman first (it does most of the work on the ACL question), then McMurray, Thessaly, and joint-line palpation for the meniscus. If Lachman is clearly positive or the knee is grossly unstable, I flag it to your family doctor and refer you promptly for an MRI and an orthopaedic opinion. If the clinical picture is a clean meniscus pattern and the knee is not locked, a trial of exercise-based physiotherapy is reasonable first, because recent trials show that for many degenerative and non-obstructive tears, rehabilitation is comparable to arthroscopy over two to five years.",
+      "The two genuinely overlap, and they co-occur often enough that a clean split is not always possible clinically. I take a careful mechanism history, look at swelling timing, run Lachman first (it is the most useful single bedside test for the ACL), then McMurray, Thessaly, and joint-line palpation for the meniscus. If Lachman is clearly positive or the knee is grossly unstable, I flag it to your family doctor and refer you promptly for an orthopaedic opinion, where an MRI can be arranged if it would change the plan. If the clinical picture fits a meniscus pattern and the knee is not locked, a trial of exercise-based physiotherapy is reasonable first, because trials show that for many degenerative and non-obstructive tears, rehabilitation is comparable to arthroscopy over one to five years.",
     overlap:
-      "The O'Donoghue triad is a real clinical pattern: ACL rupture, MCL injury, and medial meniscus tear from a valgus-pivot mechanism. That is why I always screen for a meniscus in someone with a confirmed ACL injury, and I always check ligamentous stability in someone presenting with meniscus symptoms after a bigger twist than their history first suggests. In middle-aged adults, degenerative meniscal changes also sit alongside early knee OA, which changes the rehab plan and pushes strongly toward exercise-first management.",
+      "The O'Donoghue triad is a real clinical pattern: ACL rupture, MCL injury, and medial meniscus tear from a valgus-pivot mechanism. That is why I always screen for a meniscus in someone with a confirmed ACL injury, and I always check ligamentous stability in someone presenting with meniscus symptoms after a bigger twist than their history first suggests. In middle-aged adults, degenerative meniscal changes also sit alongside early knee OA, which changes the rehab plan and favours exercise-first management.",
     redFlags: [
       {
         sign: 'Unable to take four steps on the leg after the injury, or tenderness on the kneecap or the bony point on the outside of the knee',
@@ -1051,16 +1051,20 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
         action: 'See a doctor promptly. A displaced meniscus tear can need early surgical review.',
       },
       {
+        sign: 'After a major injury, the knee looked dislocated or feels loose in more than one direction',
+        action: 'Go to emergency now, even if the knee has moved back into place. A knee dislocation can damage the blood vessels and nerves behind the knee.',
+      },
+      {
         sign: 'Numbness, coldness, or colour change in the foot after a major knee injury',
         action: 'Go to emergency now. A severe ligament injury can damage the blood supply to the leg.',
       },
       {
         sign: 'Calf pain, swelling, or warmth in the days after the injury or after surgery',
-        action: 'Seek urgent medical assessment to rule out a blood clot.',
+        action: 'Seek same-day medical assessment to rule out a blood clot. Sudden shortness of breath or chest pain means go to emergency now.',
       },
       {
-        sign: 'A hot, red, swollen knee with fever, or redness and discharge around a surgical wound',
-        action: 'Seek same-day medical care to rule out infection.',
+        sign: 'A newly hot, red, swollen knee, with or without a fever, or redness and discharge around a surgical wound',
+        action: 'Seek same-day medical care to rule out infection, or go to emergency if you feel unwell. Infection is possible even without a fever.',
       },
     ],
     relatedTreatmentIds: [
@@ -1089,7 +1093,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: "Can I test my ACL myself?",
         answer:
-          "Not reliably. Self-Lachman is difficult because you cannot relax the hamstrings on the injured leg while also applying the force. What you can do is compare how safe the knee feels on deceleration, single-leg squats, and slow changes of direction versus the other leg. If there is a real sense that the knee is moving beneath you or could buckle, that warrants a proper exam rather than self-diagnosis.",
+          "Not reliably, and I would not try. Self-Lachman is difficult because you cannot relax the hamstrings on the injured leg while also applying the force. Do not try to prove the knee is stable by cutting, twisting, landing, or repeatedly testing it, because a knee that gives way can cause a fall or further damage. Notice whether it gives way during ordinary activity, and arrange an assessment, especially after a new injury or rapid swelling. Functional testing belongs later in rehab, once the knee has been assessed.",
       },
       {
         question: 'My MRI shows a meniscus tear but I cannot remember an injury. Is that normal?',
@@ -1180,8 +1184,8 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         aspect: 'Stretching it',
-        aForA: 'Stretching the hamstring usually makes it worse, not better, because it adds tensile load to an already irritable tendon.',
-        aForB: 'A gentle piriformis stretch, knee drawn toward the opposite shoulder, often eases it at least briefly, whereas a straight hamstring stretch is less relevant.',
+        aForA: 'Deep hamstring stretches, such as reaching for the toes, often aggravate it, because they squeeze and pull on an already irritable tendon at the sitting bone.',
+        aForB: 'Some people find a gentle hip stretch, knee drawn toward the opposite shoulder, eases it briefly; for others, stretches that tension the nerve make the leg symptoms worse.',
       },
       {
         aspect: 'Nerve symptoms',
@@ -1226,13 +1230,13 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     whenItIsB:
       'Your pattern more likely fits piriformis syndrome if the pain sits deeper and higher in the buttock, travels down the leg with a nerve quality, is hard to put a finger on, and comes with tingling or a heavy, asleep feeling. Prolonged sitting, crossing the legs, or driving tend to set it off, and a gentle piriformis stretch may give brief relief.',
     whenUncertain:
-      'These genuinely overlap, and it is common to be unsure, because both hurt with sitting and both sit in the deep buttock. A short in-person assessment sorts it. I localise the tender point, load the hamstring to see if the tendon is the driver, put the hip through the positions that tension the piriformis, and run neural tests to judge how much the sciatic nerve is involved. I also clear the lower back first, since a disc or nerve root can mimic both. Stretching the wrong structure, particularly repeated hard hamstring stretches when the tendon is the problem, can keep it going.',
+      'These genuinely overlap, and it is common to be unsure, because both hurt with sitting and both sit in the deep buttock. A short in-person assessment can narrow the possibilities, and some cases need reassessment as they respond. I localise the tender point, load the hamstring to see if the tendon is the driver, put the hip through the positions that tension the piriformis, and run neural tests to judge how much the sciatic nerve is involved. I also clear the lower back first, since a disc or nerve root can mimic both. Stretching the wrong structure, particularly repeated hard hamstring stretches when the tendon is the problem, can keep it going.',
     overlap:
       'These can coexist, and they share a neighbourhood: the sciatic nerve runs right beside both the hamstring origin and the piriformis. A tendon problem at the sitting bone can secondarily irritate the nerve, and a sensitive nerve can make the whole area guard. The umbrella term deep gluteal syndrome is sometimes used precisely because these structures sit so close together and can be hard to separate. That is why I treat the dominant driver first rather than chasing every tender spot.',
     redFlags: [
       {
         sign: 'A sudden pop or tearing feeling at the sitting bone during a sprint, slip, or forced split, often with bruising down the back of the thigh',
-        action: 'See a doctor within a few days. A suspected proximal hamstring avulsion needs an urgent surgical opinion, because the timing of repair matters.',
+        action: 'Possible proximal hamstring avulsion. Get an urgent surgical opinion within days, through your family doctor, a sports medicine physician or emergency. Not every avulsion needs surgery, but if repair is chosen it is easier when done early.',
       },
       {
         sign: 'Numbness in the groin, genitals, or inner thighs (the saddle area), or new difficulty controlling the bladder or bowel',
@@ -1267,7 +1271,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'Should I stretch it?',
         answer:
-          'This is where guessing wrong costs you time. If it is a hamstring tendinopathy, aggressive hamstring stretching usually makes it worse, because it adds load to an already irritable tendon. If it is a piriformis problem, gentle hip stretches can ease it. Because the right move is opposite depending on the cause, it is worth knowing which one you are dealing with before you build a routine around stretching.',
+          'Avoid stretches that bring on your familiar sitting-bone pain or increase pain or tingling down the leg. Deep hamstring stretches often aggravate an irritable hamstring tendon. With a deep gluteal problem, some people find a gentle hip stretch eases it, while for others stretching irritates the nerve. Exercise choice and range depend on the assessment and how you respond, not just on the label, so it is worth knowing what you are dealing with before you build a routine around stretching.',
       },
       {
         question: 'Could it be my back instead?',
@@ -1282,15 +1286,21 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'How long does each take to settle?',
         answer:
-          'Both ask for patience. Proximal hamstring tendinopathy is a progressive loading problem and usually improves across a few months, not weeks, with the right dosing and sitting modification. Piriformis and deep gluteal symptoms can settle faster once the aggravating positions and nerve sensitivity are managed, but recurrence is common if the underlying load and habits do not change. Neither responds well to rest alone.',
+          'Both ask for patience. Proximal hamstring tendinopathy often improves over a few months rather than weeks, with gradual loading and changes to sitting. Piriformis and deep gluteal symptoms can settle sooner once the aggravating positions and nerve sensitivity are managed, but they can come back if the load and habits that set them off do not change. Rest alone is often not enough for either.',
       },
     ],
     evidenceNotes: [
       {
         claim:
-          'Proximal hamstring tendinopathy typically presents as deep buttock pain at the hamstring common origin, is load-related, and is managed with progressive tendon loading rather than rest, with no randomised trials yet establishing a single protocol.',
+          'Proximal hamstring tendinopathy typically presents as deep buttock pain where the hamstrings attach to the sitting bone, is load-related, and is commonly managed with education and progressive tendon loading rather than rest. Research has not established a single best program.',
         source:
           'Goom TS, Malliaras P, Reiman MP, Purdam CR. "Proximal Hamstring Tendinopathy: Clinical Aspects of Assessment and Management." J Orthop Sports Phys Ther 2016; 46(6): 483-493.',
+      },
+      {
+        claim:
+          'In a randomised trial of 100 people with proximal hamstring tendinopathy, six sessions of individualised physiotherapy and six sessions of shockwave therapy, both with standardised education, gave similar results on the main outcomes up to 52 weeks.',
+        source:
+          'Rich A, Ford J, Cook J, Hahne A. "Physiotherapy Compared With Shockwave Therapy for the Treatment of Proximal Hamstring Tendinopathy: A Randomized Controlled Trial." Am J Sports Med 2025; 53(14): 3396-3407.',
       },
       {
         claim:

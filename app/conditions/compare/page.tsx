@@ -160,8 +160,9 @@ export default function ComparisonIndexPage() {
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
                 Some conditions sit close enough together that people (and sometimes
                 clinicians) get them mixed up. These pages lay the patterns side by
-                side. Where the pain points, what triggers it, which clinical tests
-                separate them, and what I check in clinic when I am not sure yet.
+                side: where the pain sits, what triggers it, which tests help tell them
+                apart, and what I check in clinic. Symptoms alone do not settle a diagnosis,
+                and the two can also occur together.
               </p>
 
               <div className="mt-5 flex flex-wrap items-center gap-2">

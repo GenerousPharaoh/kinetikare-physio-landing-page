@@ -84,7 +84,7 @@ export const LOW_BACK_CLUSTER: PatternMatcherCluster = {
     {
       id: 'eases_with_sitting_or_leaning_forward',
       text: 'After walking for a while, does it settle once you sit down or lean forward on a grocery cart?',
-      helper: 'A classic pattern for narrowing of the spinal canal.',
+      helper: 'A common pattern with narrowing of the spinal canal, though it is not the only cause.',
       options: STANDARD_OPTIONS,
     },
     {

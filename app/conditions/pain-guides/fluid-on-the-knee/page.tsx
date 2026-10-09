@@ -32,6 +32,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
 const PAGE_TITLE = 'Suprapatellar Effusion (Fluid on the Knee) in Burlington';
 const PAGE_DESCRIPTION =
@@ -103,7 +104,7 @@ const onsetGroups: OnsetGroup[] = [
       },
       {
         label: 'Patellar dislocation',
-        note: 'Usually a pivot or landing where the kneecap visibly shifts out of place, often relocating on its own. Swelling and bruising follow quickly.',
+        note: 'Usually a pivot or landing where the kneecap visibly shifts out of place, often relocating on its own. Swelling and bruising follow quickly. If the kneecap stays out of place, go to emergency now and do not push it back yourself; if it went back in, get assessed the same day.',
         urgency: 'medical',
       },
       {
@@ -171,7 +172,7 @@ const onsetGroups: OnsetGroup[] = [
     heading: 'Hot, red, and systemically unwell',
     subtitle: 'Same-day emergency care, not physiotherapy',
     description:
-      'A hot, red, swollen joint with fever, chills, or feeling generally unwell is a medical red flag until proven otherwise. Mathews and colleagues in the Lancet (2010) describe bacterial septic arthritis as a medical emergency with significant morbidity. Go to emergency or urgent care the same day.',
+      'A hot, red, swollen joint with fever, chills, or feeling generally unwell is a medical red flag until proven otherwise. Mathews and colleagues in the Lancet (2010) describe bacterial septic arthritis as a medical emergency with significant morbidity. Go to emergency or urgent care the same day. A newly hot, red, markedly swollen knee needs the same-day check even without a fever, because a joint infection does not always cause one.',
     causes: [
       {
         label: 'Septic arthritis',
@@ -212,12 +213,16 @@ const extraArticular: Mimic[] = [
 // Red flags
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Hot, red, and swollen knee with fever or feeling systemically unwell',
-    action: 'Seek same-day medical assessment to rule out septic arthritis or another infection-driven process.',
+    sign: 'A newly hot, red, or markedly swollen knee, with or without a fever, especially if you feel unwell',
+    action: 'Seek same-day medical assessment to rule out a joint infection, or go to emergency if you feel unwell. Infection is possible even without a fever.',
+  },
+  {
+    sign: 'After an injury, the kneecap is still out of place, the knee looks deformed, or the foot is cold, pale or numb',
+    action: 'Go to emergency now. Do not try to put the kneecap or knee back yourself.',
   },
   {
     sign: 'Sudden large swelling within an hour or two of trauma, with inability to bear weight',
-    action: 'Go to emergency or urgent care to rule out ACL rupture, fracture, or significant ligament injury, in line with the Ottawa Knee Rules.',
+    action: 'Get same-day assessment at urgent care or emergency for a significant knee injury. The clinician examines the knee and, where appropriate, uses the Ottawa Knee Rules to decide whether an X-ray is needed for a fracture. An ACL or other ligament injury needs its own examination and sometimes later imaging.',
   },
   {
     sign: 'Locked knee that cannot be straightened or bent fully after a twist',
@@ -225,15 +230,15 @@ const redFlags: Array<{ sign: string; action: string }> = [
   },
   {
     sign: 'Calf pain, warmth, or swelling behind the knee, particularly after travel, surgery, or long periods of bed rest',
-    action: 'Seek urgent medical assessment to rule out deep vein thrombosis before starting physiotherapy.',
+    action: 'Seek same-day medical assessment to rule out a blood clot (deep vein thrombosis) before starting physiotherapy. Sudden shortness of breath or chest pain means go to emergency now.',
   },
   {
     sign: 'Unexplained weight loss, night pain, or a history of cancer with new knee swelling',
     action: 'See your family physician for medical workup before starting physiotherapy.',
   },
   {
-    sign: 'Progressive numbness, weakness, or foot drop alongside the knee swelling',
-    action: 'See your physician to investigate potential nerve involvement or lumbar radiculopathy before rehabilitation.',
+    sign: 'Numbness, weakness, or foot drop alongside the knee swelling that is getting worse',
+    action: 'Get medical assessment the same day to check for nerve involvement or a nerve root problem in the lower back.',
   },
 ];
 
@@ -252,12 +257,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How is a suprapatellar effusion treated?',
     answer:
-      'By treating what is causing it. The fluid usually settles as the underlying problem settles. For an osteoarthritis flare, that means adjusting load for a while and then a graded exercise programme, in line with the OARSI and NICE guidance. After an injury, it means a staged rehabilitation plan once a significant injury has been ruled out or managed. Compression, elevation and gentle movement help with comfort in the short term. Draining the knee is a medical decision, usually considered when the joint is very tense or the fluid needs testing. A hot, red knee with fever needs same-day medical care.',
+      'By treating what is causing it. The fluid usually settles as the underlying problem settles. For an osteoarthritis flare, that means adjusting load for a while and then a graded exercise programme, in line with the OARSI and NICE guidance. After an injury, it means a staged rehabilitation plan once a significant injury has been ruled out or managed. Compression, elevation and gentle movement help with comfort in the short term. Draining the knee is a medical decision, usually considered when the joint is very tense or the fluid needs testing. A newly hot or red knee needs same-day medical care, with or without a fever.',
   },
   {
     question: 'Is fluid on the knee the same as a knee effusion?',
     answer:
-      'Yes. Fluid on the knee is the everyday term for a knee joint effusion, which simply means extra fluid inside the knee joint. A true effusion sits in the suprapatellar pouch and makes the whole knee feel tight and full. A bump directly over the front of the kneecap is usually prepatellar bursitis, which sits outside the joint and behaves differently.',
+      'Yes. Fluid on the knee is the everyday term for a knee joint effusion, which simply means extra fluid inside the knee joint. Joint fluid tends to collect in the suprapatellar pouch above the kneecap. A larger effusion can make the whole knee feel full or tight; a small one can be much subtler. A bump directly over the front of the kneecap is usually prepatellar bursitis, which sits outside the joint and behaves differently.',
   },
   {
     question: 'Does knee swelling always mean a serious injury?',
@@ -342,7 +347,7 @@ const research: ResearchItem[] = [
     source: 'Stiell et al., JAMA',
     year: 1997,
     summary:
-      'Validated clinical decision rule for when to image an acutely injured knee. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
+      'Validated clinical decision rule for when an acutely injured knee needs an X-ray to look for a fracture. It does not rule out ligament or cartilage injuries. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
   },
 ];
 
@@ -509,27 +514,7 @@ export default function FluidOnTheKneeGuidePage() {
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -669,11 +654,12 @@ export default function FluidOnTheKneeGuidePage() {
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
                   The first thing I sort out is where the swelling actually sits. A true knee
-                  effusion is inside the joint capsule. It fills the suprapatellar pouch
-                  above the kneecap, the whole knee feels tight and full, bending and
-                  straightening feel restricted, and the kneecap can be pushed gently down
-                  onto the underlying bone and bounced back up (the ballottable patella
-                  sign). That is different from a soft, well-defined bump directly over the
+                  effusion is inside the joint capsule and collects in the suprapatellar pouch
+                  above the kneecap. A larger effusion can make the whole knee feel tight and
+                  full, restrict bending and straightening, and let the kneecap be pushed
+                  gently down onto the underlying bone and bounce back up (the ballottable
+                  patella sign, which I check in the clinic). A small effusion can be much
+                  subtler. That is different from a soft, well-defined bump directly over the
                   front of the kneecap, which is usually prepatellar bursitis sitting outside
                   the joint capsule.
                 </p>
@@ -681,9 +667,10 @@ export default function FluidOnTheKneeGuidePage() {
                   The difference matters for what comes next. Intra-articular effusions
                   reflect something happening inside the joint, whether that is an injury, an
                   arthritic flare, a crystal arthropathy, or, rarely, an infection.
-                  Extra-articular bursae and tendon-related fullness behave more like
-                  localised soft-tissue problems and usually settle without any concern about
-                  the joint itself.
+                  A localised swelling may come from a bursa or another soft tissue rather
+                  than fluid inside the joint. Many of these are manageable, but redness,
+                  warmth, broken skin over the swelling, rapidly increasing pain or feeling
+                  unwell need medical assessment, because a bursa can become infected too.
                 </p>
                 <p>
                   From there the next question is how quickly the swelling came on, because
@@ -695,6 +682,8 @@ export default function FluidOnTheKneeGuidePage() {
             </div>
           </div>
         </section>
+
+        <RedFlagsBox flags={redFlags} />
 
         {/* Onset groups */}
         <section className="py-12 bg-slate-50/60">
@@ -803,8 +792,9 @@ export default function FluidOnTheKneeGuidePage() {
               </div>
               <p className="text-slate-600 mb-6">
                 These are not true knee effusions, but patients often describe them as fluid
-                on the knee because of how they look and feel. They are generally more benign
-                and easier to settle than an intra-articular effusion.
+                on the knee because of how they look and feel. Many are manageable, but a
+                bursa can become infected: redness, warmth, broken skin over the swelling,
+                rapidly increasing pain or feeling unwell need same-day medical assessment.
               </p>
 
               <div className="grid md:grid-cols-2 gap-4">
@@ -854,7 +844,7 @@ export default function FluidOnTheKneeGuidePage() {
                   story points toward structural injury, I use targeted tests: Lachman and
                   anterior drawer for the ACL, McMurray and joint-line tenderness for the
                   meniscus, varus and valgus stress for the collaterals. After acute trauma I
-                  use the Ottawa Knee Rules to decide whether an X-ray is worth chasing, and
+                  use the Ottawa Knee Rules to decide whether an X-ray for a fracture is worth chasing, and
                   I am upfront when the picture warrants medical review before rehab.
                 </p>
                 <p>

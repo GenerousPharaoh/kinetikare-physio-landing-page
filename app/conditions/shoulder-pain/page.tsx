@@ -33,6 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['shoulder-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/shoulder-pain';
@@ -155,7 +156,7 @@ const locationGuides: LocationGuide[] = [
       {
         slug: 'frozen-shoulder',
         label: 'Frozen shoulder (adhesive capsulitis)',
-        note: 'Gradual loss of active and passive range in every direction. Can follow a period of underloading or injury, more common in people aged 40 to 60 and in people with diabetes.',
+        note: 'Gradual loss of active and passive range in every direction. Often starts for no clear reason, can follow an injury, surgery or time in a sling, and is more common in people aged 40 to 60 and in people with diabetes.',
       },
     ],
   },
@@ -190,16 +191,16 @@ const redFlags: Array<{ sign: string; action: string }> = [
     action: 'See your physician to investigate possible cervical radiculopathy or peripheral nerve involvement before rehabilitation.',
   },
   {
-    sign: 'Hot, red, swollen shoulder with fever or feeling systemically unwell',
-    action: 'Seek same-day medical review to rule out septic arthritis or other inflammatory joint conditions.',
+    sign: 'Hot, red, swollen shoulder with fever or feeling generally unwell',
+    action: 'Go to emergency now. This can be a joint infection.',
   },
   {
     sign: 'Night pain that is severe, constant, and disproportionate to daytime activity',
     action: 'Book a physician review to investigate for other sources such as bone, cardiac referral, or inflammatory disease.',
   },
   {
-    sign: 'Left shoulder pain with chest tightness, breathlessness, or nausea',
-    action: 'Call 911 or go to emergency. Shoulder pain can be a referred symptom of a cardiac event.',
+    sign: 'Shoulder or arm pain on either side with chest discomfort, breathlessness, sweating, nausea, or light-headedness',
+    action: 'Call 911. Shoulder and arm pain can be a sign of a heart problem.',
   },
   {
     sign: 'Unexplained weight loss, night sweats, or a history of cancer with new shoulder pain',
@@ -222,17 +223,17 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Why does my shoulder hurt at night?',
     answer:
-      'Lying on the affected side compresses the rotator cuff and subacromial structures, and rolling off it in your sleep pulls the arm into provocative positions. Rotator cuff tendinopathy and frozen shoulder both tend to flare at night for this reason. Sleep positioning, pillow setup, and a progressive loading plan usually settle it over a few weeks, without needing to rely on anti-inflammatories long-term. Severe, constant night pain that does not ease in any position warrants medical review.',
+      'Night pain is common with several shoulder conditions. Lying on the painful side or holding the arm in one position can aggravate it, but position is not the whole explanation. Try supporting the arm with pillows in a comfortable position. Improvement varies: with rotator cuff pain it often eases over a few weeks of the right loading, while with frozen shoulder it can last for months. Severe, constant night pain that does not change with position needs a medical review.',
   },
   {
     question: 'How long does frozen shoulder take to recover?',
     answer:
-      'Frozen shoulder runs a long course. The older literature described three phases totalling up to two or three years, though many people improve sooner. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found neither operation clearly better on patient-reported outcomes at twelve months. Physiotherapy with a steroid injection where appropriate is a reasonable first-line path for most people.',
+      'Frozen shoulder often runs a long course. The older literature described three phases totalling up to two or three years. In practice recovery varies: many people improve sooner, and some still have mild symptoms years later. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found neither operation clearly better on patient-reported outcomes at twelve months. Physiotherapy with a steroid injection where appropriate is a reasonable first-line path for most people.',
   },
   {
     question: 'Is it safe to keep training at the gym with shoulder pain?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make most shoulder conditions more reactive, not less. The typical move is to drop the specific provoking positions, bench pressing below the shoulder line, deep overhead pressing, or behind-the-neck work, and build around tolerable variations. I pair that with targeted rotator cuff and scapular strengthening exercises dosed to your current tolerance. Pain under 3 out of 10 during a session that settles inside 24 hours is usually fine.',
+      'Usually yes, with adjustments. Full rest tends to make most shoulder conditions more reactive, not less. The typical move is to drop the specific provoking positions, bench pressing below the shoulder line, deep overhead pressing, or behind-the-neck work, and build around tolerable variations. I pair that with targeted rotator cuff and scapular strengthening exercises dosed to your current tolerance. Some discomfort during a session can be acceptable if it settles by the next day, and I set those limits with you after the assessment.',
   },
   {
     question: 'What is the difference between impingement and a rotator cuff tear?',
@@ -242,7 +243,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Does shoulder surgery work better than physiotherapy?',
     answer:
-      'For most non-traumatic shoulder pain, no. The CSAW trial (Beard et al., Lancet 2018) compared arthroscopic subacromial decompression against placebo surgery and against no treatment in patients who had already completed non-operative care. Decompression offered no clinically meaningful advantage over placebo. The JOSPT 2022 rotator cuff guideline specifically recommends against subacromial decompression for rotator cuff tendinopathy. Structured rehabilitation is first-line, and surgery is reserved for cases where it is genuinely indicated.',
+      'It depends on the condition and the operation. For shoulder pain without a full-thickness tear, decompression surgery did no better than placebo surgery in the CSAW trial (Beard and colleagues, Lancet 2018), and the 2022 JOSPT rotator cuff guideline recommends against decompression for rotator cuff tendinopathy. Many atraumatic cuff tears also improve with rehabilitation, but repair can offer an advantage for selected tears, especially over longer follow-up: in one trial of small to medium tears, repair gave better results than physiotherapy at 15 years (Moosmayer and colleagues, 2024). I discuss referral for a surgical opinion when the injury pattern or your progress makes it relevant.',
   },
   {
     question: 'Do I need a referral to see you for shoulder pain in Burlington?',
@@ -463,27 +464,7 @@ export default function ShoulderPainHubPage() {
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -626,6 +607,8 @@ export default function ShoulderPainHubPage() {
           </div>
         </section>
 
+        <RedFlagsBox flags={redFlags} />
+
         {/* How I approach shoulder pain */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -653,14 +636,14 @@ export default function ShoulderPainHubPage() {
                 <p>
                   I look at how you move before I test what hurts. Watching you reach overhead,
                   behind the back, and across the body tells me more than any single provocation
-                  test. From there I check shoulder range actively and passively, strength
-                  through the rotator cuff and scapular muscles, and the targeted tests that
-                  separate the usual patterns: Neer and Hawkins-Kennedy and the painful arc for
-                  subacromial pain, external rotation strength and the drop-arm test for the cuff,
-                  Speed and Yergason for the biceps, cross-body adduction and tenderness for the
-                  AC joint, and clearly restricted passive external rotation as the hallmark of
-                  frozen shoulder. I screen the cervical spine every time, because neck-driven
-                  pain masquerades as shoulder pain more often than people realise.
+                  test. From there I check shoulder range when you move it and when I move it,
+                  strength through the rotator cuff and shoulder blade muscles, and a few targeted
+                  tests that help tell the usual patterns apart: a painful arc and pressure tests
+                  for subacromial pain, outward rotation strength for the cuff, tests that load the
+                  biceps at the front of the shoulder, reaching across the body and tenderness for
+                  the AC joint, and outward rotation that stays clearly restricted when I move the
+                  arm, which points toward frozen shoulder. No single test settles it on its own. I
+                  screen the neck every time, because neck-driven pain can feel like shoulder pain.
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same

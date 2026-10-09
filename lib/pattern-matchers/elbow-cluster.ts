@@ -74,7 +74,7 @@ export const ELBOW_CLUSTER: PatternMatcherCluster = {
     {
       id: 'pain_with_gripping_or_handshake',
       text: 'Does a firm handshake, pouring a full kettle, or turning a doorknob reproduce the pain?',
-      helper: 'Classic pattern for the outside of the elbow.',
+      helper: 'A common pattern for the outside of the elbow.',
       options: STANDARD_OPTIONS,
     },
     {
@@ -85,7 +85,7 @@ export const ELBOW_CLUSTER: PatternMatcherCluster = {
     {
       id: 'tingling_thumb_index_middle',
       text: 'Is there tingling, numbness, or pins and needles in the thumb, index, or middle finger of that hand?',
-      helper: 'The first three fingers, including the thumb. The ring and small fingers are a different nerve pattern.',
+      helper: 'The thumb, index and middle fingers, and sometimes the thumb-side half of the ring finger. Symptoms centred on the little finger suggest a different nerve pattern.',
       options: STANDARD_OPTIONS,
     },
     {

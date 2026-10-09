@@ -90,6 +90,36 @@ function Heading({
   );
 }
 
+// A research card's source line. Uses `citation` when present, otherwise builds
+// one from authors, year, journal and title (32 cards carried those fields and
+// showed no source at all). PubMed IDs and DOIs in the text become links.
+function CitationLine({ research }: { research: NonNullable<Condition['keyResearch']>[number] }) {
+  const built = [
+    research.authors,
+    research.year ? `(${research.year})` : undefined,
+    research.journal,
+  ].filter(Boolean).join(' ');
+  const showTitle = research.title && research.finding && research.title !== research.finding;
+  const text = research.citation || [built, showTitle ? research.title : undefined].filter(Boolean).join('. ');
+  if (!text) return null;
+  const parts: React.ReactNode[] = [];
+  const re = /(PMID:?\s*(\d{6,9}))|(\b(?:doi:?\s*|https?:\/\/doi\.org\/)(10\.\d{4,9}\/[^\s,;)]+[^\s,;).]))/gi;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    const href = m[2] ? `https://pubmed.ncbi.nlm.nih.gov/${m[2]}/` : `https://doi.org/${m[4]}`;
+    parts.push(
+      <a key={m.index} href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#8A6F0A]">
+        {m[0]}
+      </a>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return <p className="m-0 mt-3 text-sm text-slate-500">{parts}</p>;
+}
+
 // Adds a full stop only when the data string does not already end with one.
 const sentence = (s: string) => (/[.!?]$/.test(s.trim()) ? s.trim() : `${s.trim()}.`);
 
@@ -367,6 +397,15 @@ export default function ConditionFlowPage({
                 )}
                 {hasPatternMatcher && patternCluster && patternConditions && (
                   <div className="mt-8">
+                    {redFlags.length > 0 && (
+                      <p className="m-0 mb-4 text-[15px] text-slate-700">
+                        Before using this comparison, check{' '}
+                        <a href="#red-flags" className="font-medium text-[#8A6F0A] underline underline-offset-2 hover:text-[#B08D57]">
+                          when these symptoms need a doctor first
+                        </a>
+                        .
+                      </p>
+                    )}
                     <PatternMatcher currentSlug={conditionSlug} cluster={patternCluster} conditionsBySlug={patternConditions} />
                   </div>
                 )}
@@ -422,7 +461,7 @@ export default function ConditionFlowPage({
                 )}
                 {prevention && (
                   <Para className="mb-8">
-                    <strong className="text-slate-900">Keeping it from coming back.</strong> {sentence(prevention)}
+                    <strong className="text-slate-900">Managing it over time.</strong> {sentence(prevention)}
                   </Para>
                 )}
 
@@ -633,7 +672,7 @@ export default function ConditionFlowPage({
                         {title && <h3 className="text-base md:text-lg font-semibold text-slate-900 leading-snug mb-2">{title}</h3>}
                         {body && <p className="m-0 mb-3 text-base text-slate-700 leading-relaxed">{body}</p>}
                         {relevance && <p className="m-0 text-[15px] text-slate-600 leading-relaxed">{relevance}</p>}
-                        {r.citation && <p className="m-0 mt-3 text-sm text-slate-500">{r.citation}</p>}
+                        <CitationLine research={r} />
                       </div>
                     );
                   })}

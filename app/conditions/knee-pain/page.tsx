@@ -33,6 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['knee-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/knee-pain';
@@ -207,12 +208,20 @@ const locationGuides: LocationGuide[] = [
 // Red flags: when to seek urgent medical care rather than physio
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Unable to bear weight after trauma, or the knee gave way with a pop and immediate swelling',
-    action: 'Go to emergency or urgent care to rule out fracture or a significant ligament rupture, in line with the Ottawa Knee Rules.',
+    sign: 'After an injury, the kneecap is still out of place, the knee looks deformed or dislocated, or the foot is cold, pale or numb',
+    action: 'Go to emergency now. Do not try to put the kneecap or knee back yourself, and do not walk on the leg.',
   },
   {
-    sign: 'Hot, red, swollen knee with fever or feeling systemically unwell',
-    action: 'Seek same-day medical assessment to rule out septic arthritis, gout, or other inflammatory joint conditions.',
+    sign: 'Unable to bear weight after trauma, or the knee gave way with a pop and immediate swelling',
+    action: 'Get same-day assessment at urgent care or emergency for a significant knee injury. The clinician examines the knee and, where appropriate, uses the Ottawa Knee Rules to decide whether an X-ray is needed for a fracture. Ligament or cartilage injuries need their own examination and sometimes later imaging.',
+  },
+  {
+    sign: 'A newly hot, red, swollen knee, with or without a fever',
+    action: 'Seek same-day medical assessment to rule out a joint infection or gout, or go to emergency if you feel unwell. Infection is possible even without a fever.',
+  },
+  {
+    sign: 'A child or teenager with a new limp and knee, thigh or hip pain',
+    action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) can show up as knee pain and needs urgent assessment.',
   },
   {
     sign: 'Locked knee that cannot be straightened or bent fully',
@@ -220,11 +229,11 @@ const redFlags: Array<{ sign: string; action: string }> = [
   },
   {
     sign: 'Calf pain, warmth, or swelling behind the knee, particularly after travel or surgery',
-    action: 'Seek urgent medical assessment to rule out deep vein thrombosis before starting physiotherapy.',
+    action: 'Seek same-day medical assessment to rule out a blood clot (deep vein thrombosis) before starting physiotherapy. Sudden shortness of breath or chest pain means go to emergency now.',
   },
   {
-    sign: 'Progressive numbness, weakness, or foot drop alongside the knee pain',
-    action: 'See your physician to investigate potential nerve injury or lumbar radiculopathy before rehabilitation.',
+    sign: 'Numbness, weakness, or foot drop alongside the knee pain that is getting worse',
+    action: 'Get medical assessment the same day to check for a nerve injury or a nerve root problem in the lower back.',
   },
   {
     sign: 'Unexplained weight loss, night pain, or a history of cancer with new knee pain',
@@ -237,12 +246,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Why does my knee hurt going down stairs?',
     answer:
-      'Stair negotiation loads the front of the knee heavily: patellofemoral joint forces sit around three times body weight, climbing a touch higher on descent in many people. That position is classic for patellofemoral pain, patellar tendinopathy, and early knee osteoarthritis, and it usually tells me quadriceps and hip strength are not yet matched to the demand. Structured loading, not avoidance, is what changes it.',
+      'Both going up and going down stairs load the kneecap joint more than level walking. Going down also asks the quadriceps to control the lowering, which can be particularly uncomfortable with patellofemoral pain, patellar tendinopathy, and early knee osteoarthritis. It often suggests quadriceps and hip strength are not yet matched to the demand, and gradual loading, rather than avoiding stairs altogether, is how that capacity is rebuilt.',
   },
   {
     question: 'Is it safe to keep running with knee pain?',
     answer:
-      'Often yes, with adjustments. Full rest tends to make most knee conditions more reactive, not less. The usual move is to modify volume, surface, and pace, and add hip and quadriceps strengthening. A simple rule I use in clinic: pain under 3 out of 10 during the run, settling inside 24 hours, is usually fine to train through. Pain that lingers for days, or a knee that swells after a run, means the plan needs to change.',
+      'For many assessed, load-related knee problems, yes, with adjustments: changing the activity is often more useful than prolonged complete rest. The usual move is to modify volume, surface, and pace, and add hip and quadriceps strengthening. For those problems, a guide I use in clinic is that pain under 3 out of 10 during the run, settling within 24 hours, is usually acceptable. After a new injury, or with swelling, limping, locking, giving way, or difficulty bearing weight, get assessed before deciding to run through the pain. Pain that lingers for days, or a knee that swells after a run, means the plan needs to change.',
   },
   {
     question: 'When do I need an MRI for knee pain?',
@@ -257,12 +266,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does knee pain take to heal?',
     answer:
-      'The tissue drives it. Simple muscle strains and mild MCL sprains often settle in four to eight weeks. Patellofemoral pain and IT band syndrome usually respond to six to twelve weeks of structured loading. Patellar tendinopathy typically needs three to six months of progressive rehab to rebuild capacity. Knee osteoarthritis is longer-term management, but most people see meaningful gains in pain and function inside eight to twelve weeks of guided exercise.',
+      'The tissue drives it, and recovery varies from person to person. Simple muscle strains and mild MCL sprains often settle in four to eight weeks. Patellofemoral pain and IT band syndrome often improve over six to twelve weeks of structured loading, although some cases take longer. Patellar tendinopathy often needs three to six months or more of progressive rehab to rebuild capacity. Knee osteoarthritis is longer-term management, and many people see meaningful gains in pain and function within eight to twelve weeks of guided exercise.',
   },
   {
     question: 'Will knee pain go away on its own?',
     answer:
-      'Short-lived knee pain after a new activity often does, with a few days of sensible load reduction. Pain that has been there more than a few weeks, pain with swelling, or pain that keeps coming back with the same activity usually needs a structured plan. Waiting it out often prolongs things and lets strength deficits and movement habits settle in, which makes eventual recovery slower.',
+      'Short-lived knee pain after a new activity often does, with a few days of sensible load reduction. Pain that has been there more than a few weeks, pain with swelling, or pain that keeps coming back with the same activity usually needs a structured plan. Waiting it out can prolong things and let strength deficits and movement habits settle in.',
   },
   {
     question: 'Should I use ice or heat for knee pain?',
@@ -290,7 +299,7 @@ const research: ResearchItem[] = [
     source: 'Stiell et al., JAMA',
     year: 1997,
     summary:
-      'A validated clinical decision rule for when to image an acutely injured knee. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
+      'A validated clinical decision rule for when an acutely injured knee needs an X-ray to look for a fracture. It does not rule out ligament or cartilage injuries. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
   },
   {
     title: 'Osteoarthritis in over 16s: diagnosis and management',
@@ -496,27 +505,7 @@ export default function KneePainHubPage() {
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -657,6 +646,8 @@ export default function KneePainHubPage() {
             </div>
           </div>
         </section>
+
+        <RedFlagsBox flags={redFlags} />
 
         {/* How I approach knee pain */}
         <section className="py-12 bg-white">

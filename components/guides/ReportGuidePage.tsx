@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import {
   AcademicCapIcon,
   ArrowRightIcon,
@@ -32,6 +32,7 @@ import { reportGuideUrl, type GuideBlock, type GuideIcon, type ReportGuide } fro
 import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 
 // Same visual language as the hand-built pain guides
 // (app/conditions/pain-guides/fluid-on-the-knee): hero, badge-headed sections
@@ -261,26 +262,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
                 Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {guide.redFlags.map((flag) => (
-                      <div key={flag.sign} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
@@ -314,7 +296,8 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
 
         {/* Content sections, alternating white and slate */}
         {guide.sections.map((section, index) => (
-          <section key={section.id} id={section.id} className={`py-12 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`}>
+          <Fragment key={section.id}>
+          <section id={section.id} className={`py-12 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto flow-root">
                 {section.showPlate && guide.plate && (
@@ -331,6 +314,9 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
               </div>
             </div>
           </section>
+          {/* The warnings sit open after the first section (they used to be a closed 12px panel in the hero). */}
+          {index === 0 && <RedFlagsBox flags={guide.redFlags} />}
+          </Fragment>
         ))}
 
         {/* FAQ */}

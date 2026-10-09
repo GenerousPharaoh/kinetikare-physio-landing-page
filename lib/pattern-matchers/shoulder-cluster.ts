@@ -76,7 +76,7 @@ export const SHOULDER_CLUSTER: PatternMatcherCluster = {
     {
       id: 'passive_motion_restricted_all_directions',
       text: 'If someone else moves your arm for you while you stay relaxed, is it still blocked or painful in every direction?',
-      helper: 'A classic pattern for a frozen shoulder, where even assisted motion is limited.',
+      helper: 'Only answer from what you have noticed, and do not force a painful or recently injured shoulder to test it. Limited movement even with help is common in frozen shoulder, but pain and guarding can limit it too, so treat this as a clue rather than an answer.',
       options: STANDARD_OPTIONS,
     },
     {

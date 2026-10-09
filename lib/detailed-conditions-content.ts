@@ -129,7 +129,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
         "Previous episodes may mean longer recovery",
         "Sleep quality affects pain sensitivity"
       ],
-      naturalHistory: "Without addressing underlying factors, recurrence is common but doesn't mean worsening damage"
+      naturalHistory: "Recurrence is common and does not mean worsening damage"
     },
 
     selfManagement: [
@@ -250,7 +250,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
       },
       {
         question: "Should I rest or stay active?",
-        answer: "Stay active within tolerance. Bed rest beyond a day or two slows recovery and deconditions you."
+        answer: "Stay active within tolerance. Bed rest beyond a day or two can slow recovery and leave you deconditioned."
       },
       {
         question: "How long does low back pain usually take to settle?",
@@ -262,7 +262,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
       },
       {
         question: "Is it safe to keep exercising or lifting weights?",
-        answer: "Often yes, with short-term modifications. Completely stopping training tends to make things worse, not better. What I usually adjust first is deadlift volume, heavy loaded flexion, and deep morning bending, while keeping most of your programme intact. Pain during exercise up to about 3 or 4 out of 10 that settles within 24 hours is generally safe, and is closer to what the JOSPT 2021 low back pain CPG describes as appropriate loaded progression."
+        answer: "Often yes, with short-term changes. Stopping training completely can make things harder rather than easier. What I usually adjust first is deadlift volume, heavy loaded bending, and deep bending first thing in the morning, while keeping most of your programme going. Some discomfort during exercise can be acceptable, depending on your assessment. I watch how symptoms behave during the session and the next day, whether you are functioning better, and whether any leg symptoms are stable. New weakness, spreading numbness or steadily worsening leg pain needs reassessment."
       },
       {
         question: "Why does my back feel worse in the morning?",
@@ -274,7 +274,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
       },
       {
         question: "When should I be worried about back pain?",
-        answer: "Seek urgent care for loss of bladder or bowel control, numbness in the saddle area, rapidly progressing leg weakness, or foot drop. These can signal cauda equina syndrome. Also see your physician promptly for unexplained weight loss, fever with back pain, severe unrelenting night pain, or a history of cancer, rather than starting physiotherapy first."
+        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or sciatica in both legs. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse or a foot that drops or slaps when you walk. See your family doctor before starting physiotherapy for unexplained weight loss, severe unrelenting night pain, or a history of cancer, and get assessed the same day for fever with back pain."
       }
     ],
 
@@ -285,11 +285,11 @@ What does matter is variety and capacity. Long stretches in any one position ten
         examples: [
           "Short, frequent walks (5 to 10 minutes) rather than one long walk, built up over the first 1 to 2 weeks",
           "Cat-camel and pelvis tilts on hands and knees, 10 slow repetitions, for segmental mobility",
-          "Supine hook-lying diaphragmatic breathing with gentle abdominal bracing, 5 to 10 breaths, several times daily",
+          "Lying on your back with knees bent and feet flat, slow breathing while you gently tighten your stomach muscles, 5 to 10 breaths, several times a day",
           "Dead bug and modified bird dog to re-introduce spine-neutral control, 2 sets of 6 to 8 per side",
           "Breaks from sustained sitting every 30 to 45 minutes with a short stand or walk"
         ],
-        progressionCriteria: "Resting pain 3/10 or less, ability to sit and stand for 30 minutes without a meaningful flare, and confidence performing basic daily tasks (dressing, driving short distances, getting in and out of bed) without guarding."
+        progressionCriteria: "Pain at rest low and settling, sitting and standing for about 30 minutes without a meaningful flare, and confidence with basic daily tasks (dressing, driving short distances, getting in and out of bed) without guarding."
       },
       phase2: {
         title: "Progressive Loading: Build Capacity",
@@ -301,11 +301,11 @@ What does matter is variety and capacity. Long stretches in any one position ten
           "Side plank and modified Pallof press for lateral and anti-rotation trunk control",
           "Farmer carries 20 to 40 metres for trunk stiffness under load, 3 to 4 rounds"
         ],
-        progressionCriteria: "Tolerating a moderate hinge and squat load with pain under 3/10, walking 30 minutes comfortably, and a full workday without symptom escalation."
+        progressionCriteria: "Tolerating a moderate hinge and squat load with only mild discomfort that settles, walking 30 minutes comfortably, and a full workday without symptoms building up."
       },
       phase3: {
         title: "Return to Function: Demand-Specific Loading and Resilience",
-        focus: "The last phase is about matching capacity to the job, sport, or hobby the person is going back to. For a construction worker that looks different than it does for a runner or a lifter. Building a maintenance plan the patient can keep doing is what protects against the high recurrence rate in the first 12 months described in the Lancet Low Back Pain Series.",
+        focus: "The last phase is about matching capacity to the job, sport, or hobby the person is going back to. For a construction worker that looks different than it does for a runner or a lifter. Recurrence in the first year is common (Lancet Low Back Pain Series), and a maintenance plan of regular exercise that you can keep doing may lower the chance of another episode.",
         examples: [
           "Trap bar or conventional deadlift, progressively loaded, 3 to 4 sets of 3 to 5",
           "Front squats or split squats at working loads, matched to patient goals",
@@ -324,7 +324,7 @@ What does matter is variety and capacity. Long stretches in any one position ten
 
   'neck-pain': {
     lastReviewed: '2026-04-16',
-    pathophysiology: `Neck pain involves complex interactions between joints, muscles, and nerves. The small joints in your neck bear significant load during daily activities, especially with modern computer use. The deep stabilizing muscles often become weak while surface muscles overwork to compensate.
+    pathophysiology: `Neck pain involves interactions between the joints, muscles and nerves of the neck. In long-standing neck pain, the deep neck muscles often show less endurance, and the larger muscles near the surface can work harder.
 
 The upper part of your neck is responsible for half of all neck rotation and can refer pain to the head. This explains why neck problems often cause headaches.`,
 
@@ -397,14 +397,14 @@ What tends to help is variety and capacity: changing position often, moving the 
     ],
 
     prognosis: {
-      timeline: "Many people see improvement within 2-4 weeks, with most recovering within 12 weeks",
+      timeline: "A recent episode of neck pain often improves over the first few weeks. Persistent or recurring neck pain can take longer, so I review pain, movement and daily function as the plan progresses",
       factors: [
         "Workload and time at a screen can affect recovery",
         "Stress and sleep quality affect pain levels",
         "Previous episodes may mean longer recovery",
         "Staying active tends to help recovery"
       ],
-      naturalHistory: "Tends to recur if underlying factors not addressed, but each episode doesn't mean worsening"
+      naturalHistory: "Neck pain can come back, and a new episode does not mean the neck is getting worse"
     },
 
     selfManagement: [
@@ -464,7 +464,7 @@ What tends to help is variety and capacity: changing position often, moving the 
         journal: "Bulletin of Faculty of Physical Therapy",
         sampleSize: "60 participants",
         findings: "Deep cervical flexors training plus conventional therapy showed greater improvement in proprioception and pain reduction compared to conventional therapy alone after 4 weeks of treatment.",
-        relevance: "Supports specific targeting of deep neck stabilizer muscles rather than general exercise approaches",
+        relevance: "Suggests adding deep neck flexor training to usual physiotherapy may help pain and position sense in long-standing neck pain. It was a small trial (60 people) with results measured after four weeks of treatment",
         citation: "Amin FS, Abdel-Aal NM, El Shater BS. Effect of Maitland mobilization versus deep cervical flexors muscles training on proprioception in adults with chronic mechanical neck pain: a randomized controlled trial. Bull Fac Phys Ther. 2024;29:34."
       },
       {
@@ -474,7 +474,7 @@ What tends to help is variety and capacity: changing position often, moving the 
         journal: "Musculoskeletal Science and Practice",
         sampleSize: "Meta-analysis of 10 studies",
         findings: "Motor control training of deep neck flexors with pressure biofeedback was more effective than strength-endurance training for improving pain (Hedges' g = 0.323) and disability (Hedges g = 0.401).",
-        relevance: "Demonstrates importance of precise motor control retraining over general strengthening for neck dysfunction",
+        relevance: "Suggests deep neck flexor training with pressure feedback may help a little more than strength and endurance training, although the differences were small",
         citation: "Tsiringakis G, Dimitriadis Z, Triantafylloy E, McLean S. Motor control training of deep neck flexors with pressure biofeedback improves pain and disability in patients with neck pain: A systematic review and meta-analysis. Musculoskelet Sci Pract. 2020;50:102220."
       },
       {
@@ -592,10 +592,10 @@ Something I often see hold people back is the instinct to rest flat and wait it 
       factors: [
         "Severity of nerve compression affects timeline",
         "Early movement and activity helps recovery",
-        "Avoiding prolonged sitting speeds improvement",
+        "Breaking up long periods of sitting often helps",
         "Psychological factors influence recovery"
       ],
-      naturalHistory: "Most cases resolve with conservative treatment. Surgery rarely needed unless progressive weakness"
+      naturalHistory: "Many people improve without surgery. Surgery is considered for worsening weakness, cauda equina syndrome, or leg pain that stays severe and disabling despite appropriate care"
     },
 
     selfManagement: [
@@ -668,11 +668,11 @@ Something I often see hold people back is the instinct to rest flat and wait it 
       },
       {
         question: "What positions make sciatica worse?",
-        answer: "Prolonged sitting, slumped driving posture, and deep forward bending are the most common aggravators. All three increase load on the lumbar discs and narrow the space where the nerve root exits. Coughing, sneezing, and bearing down can spike symptoms too. Many patients feel better standing, walking short distances, or lying with the knees supported."
+        answer: "Long periods of sitting, slumped driving and deep forward bending aggravate many people's sciatica, while standing or walking aggravates others. Coughing, sneezing and straining can spike it too. The response depends on what is irritating the nerve: disc-related sciatica is often worse with sitting and bending, while narrowing around the nerve's exit is more often brought on by standing and arching back. I use the positions that ease your symptoms and gradually rebuild your tolerance for the others. Pain in one position does not by itself mean the nerve is being squeezed more."
       },
       {
         question: "When should I worry about sciatica?",
-        answer: "Seek urgent medical care for loss of bladder or bowel control, numbness in the saddle area, rapidly progressing leg weakness, or foot drop. These can signal cauda equina syndrome or significant nerve compromise. Severe, unrelenting night pain, unexplained weight loss, or fever with back pain also warrant medical review rather than physiotherapy as a first step."
+        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or sciatica in both legs. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse or a foot that drops or slaps when you walk. Severe, unrelenting night pain, unexplained weight loss or a history of cancer need a medical review before physiotherapy, and fever with back pain needs one the same day."
       },
       {
         question: "Does sciatica always come from a disc?",
@@ -680,7 +680,7 @@ Something I often see hold people back is the instinct to rest flat and wait it 
       },
       {
         question: "Do I need surgery for sciatica?",
-        answer: "Surgery is rarely the first step. The SPORT trial (Weinstein et al., JAMA 2006) and subsequent Cochrane reviews show that at 1 to 2 years, outcomes for disc-related sciatica converge between surgery and structured conservative care, though surgery can offer faster early relief. Surgery is typically considered when there is progressive neurological loss, or when symptoms remain severe and disabling after 6 to 12 weeks of appropriate treatment."
+        answer: "Surgery is rarely the first step, and many people improve without it. For selected people with persistent, disabling disc-related leg pain, surgery can give faster relief. The SPORT trial (Weinstein and colleagues, JAMA 2006) found substantial improvement with both surgery and non-surgical care, but so many people switched groups that its randomised comparison is hard to interpret, and analyses based on the treatment people actually received favoured surgery, including at eight years (Lurie and colleagues, Spine 2014). Surgery is considered when there is worsening nerve weakness or cauda equina syndrome, or when leg pain stays severe and disabling after 6 to 12 weeks of appropriate treatment. The decision depends on your symptoms, nerve function, scan findings and preferences."
       }
     ],
     exerciseProgression: {
@@ -693,11 +693,11 @@ Something I often see hold people back is the instinct to rest flat and wait it 
           "Short, frequent walking bouts of 5 to 10 minutes rather than one long walk",
           "Postural resets from sitting using a small lumbar roll and standing breaks every 30 minutes"
         ],
-        progressionCriteria: "Leg symptoms consistently stay at or above the knee, rest pain is mild (2/10 or less), and the patient can sit for 20 to 30 minutes without flaring symptoms."
+        progressionCriteria: "Leg symptoms easing or moving back toward the back, numbness and any weakness stable or improving, mild rest pain, and sitting for 20 to 30 minutes without a flare."
       },
       phase2: {
         title: "Progressive Loading and Motor Control",
-        focus: "Rebuild trunk and hip capacity, restore confident hinging and squatting, and progress nerve mobility work from sliders to tensioners as tolerance allows. Graded exercise and education outperform passive care, consistent with the Lancet Low Back Pain Series.",
+        focus: "Rebuild trunk and hip capacity, restore confident hinging and squatting, and progress nerve mobility work from sliders to tensioners as tolerance allows. The Lancet Low Back Pain Series recommends graded exercise and education over passive treatments.",
         examples: [
           "Bird dog and dead bug, 2 to 3 sets of 8 to 10 per side, emphasizing a neutral spine",
           "Hip hinge progressions: broomstick hinge, kettlebell deadlift, then single-leg Romanian deadlift",
@@ -705,11 +705,11 @@ Something I often see hold people back is the instinct to rest flat and wait it 
           "Glute bridges and side-lying hip abduction to address gluteal weakness, which is common in this group",
           "Sciatic nerve tensioners in supine or slump, short ranges, 8 to 10 controlled repetitions"
         ],
-        progressionCriteria: "Loaded hinging and squatting with pain under 3/10, a full workday with normal sitting tolerated, and walking for 30 minutes or more without symptom flare."
+        progressionCriteria: "Loaded hinging and squatting with only mild discomfort that settles, a full workday with normal sitting, and walking for 30 minutes or more without a flare."
       },
       phase3: {
         title: "Return to Full Activity and Resilience",
-        focus: "Rebuild capacity for the specific demands the patient is returning to, whether lifting at work, running, or sport. The focus shifts to heavier loading, higher-velocity tasks, and a maintenance plan to reduce recurrence, which is common in the first 12 months without ongoing loading.",
+        focus: "Rebuild capacity for the specific demands the patient is returning to, whether lifting at work, running, or sport. The focus shifts to heavier loading and faster tasks. Recurrence in the first year is common, and a maintenance plan of regular exercise may lower the chance of another episode.",
         examples: [
           "Barbell or trap-bar deadlift built progressively from light loads, 3 to 4 sets of 5",
           "Front-loaded squats or split squats at working loads, matched to patient goals",
@@ -779,7 +779,7 @@ Age plays a part, because tendons change over the decades and cuff changes are c
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive strengthening exercises can achieve outcomes comparable to surgery for many degenerative rotator cuff tears while avoiding surgical risks and recovery time",
+      primaryStrategy: "Progressive strengthening exercise is the usual first treatment for rotator cuff pain and for many gradual-onset tears, and many people avoid surgery. For selected tears, repair can offer an advantage, so I discuss a surgical opinion when the tear pattern or your progress makes it relevant",
       secondaryStrategy: "Shoulder blade exercises can help as part of the programme, so the cuff and the shoulder blade share the load during daily activities",
       preventionStrategy: "Keeping up some shoulder strengthening after the pain settles, and building up overhead work gradually, may lower the chance of a flare",
       sources: "BMJ Rotator Cuff Guidelines; JOSPT Clinical Practice Guidelines"
@@ -908,15 +908,15 @@ Age plays a part, because tendons change over the decades and cuff changes are c
     faqs: [
       {
         question: "How do I know if my rotator cuff is torn?",
-        answer: "Clinically, the pattern I look for is weakness that is out of proportion to pain, particularly with resisted testing of a specific tendon, plus a story of sudden loss of strength or chronic overhead aggravation. Classic signs include a positive drop-arm test, weakness on external rotation against resistance, or difficulty lifting the arm overhead without hitching the shoulder blade. Clinical tests are imperfect, so imaging such as ultrasound or MRI is the definitive answer when a tear would change management."
+        answer: "Clinically, the pattern I look for is weakness that is out of proportion to pain, particularly with resisted testing of a specific tendon, plus a story of sudden loss of strength or chronic overhead aggravation. Classic signs include a positive drop-arm test, weakness on external rotation against resistance, or difficulty lifting the arm overhead without hitching the shoulder blade. Clinical tests are imperfect, so when knowing whether there is a tear would change the plan, I flag it to your family doctor or specialist and refer you for an ultrasound or MRI."
       },
       {
         question: "Can a torn rotator cuff heal without surgery?",
-        answer: "Many tears can become pain-free and functional without surgery, even if the tendon itself does not structurally knit back together. The MOON Shoulder Group work led by Kuhn and colleagues (JSES 2013) found that roughly 75% of patients with atraumatic full-thickness tears avoided surgery at 2 years after a structured exercise programme. Long-term data is more nuanced. Moosmayer and colleagues followed small to medium tears for 10 years (JBJS 2019) and reported that tendon repair produced modestly better pain and function scores than physiotherapy alone, though both groups still did reasonably well. The honest message: many atraumatic tears can be managed without surgery and stay functional, but structural repair may offer an edge at long follow-up in the right candidate. Traumatic tears in younger, active patients are a different conversation and I refer on promptly when indicated."
+        answer: "Many tears can become pain-free and functional without surgery, even if the tendon itself does not knit back together. In the MOON Shoulder Group cohort (Kuhn and colleagues, JSES 2013), about 75% of people with atraumatic full-thickness tears had not had surgery two years after a structured exercise programme, and at ten years physical therapy was still successful for more than 70% (Kuhn and colleagues, JBJS 2024). Trial data add nuance. Moosmayer and colleagues randomised 103 people with small to medium tears (up to 3 cm) to tendon repair or physiotherapy, and at 15 years repair gave better shoulder scores, less pain and more pain-free movement, while unrepaired tears had on average grown (JBJS 2024). So many atraumatic tears can be managed without surgery and stay functional, but repair may offer an advantage for selected tears, especially over the long term. Traumatic tears in younger, active people are a different conversation, and I refer on promptly when that applies."
       },
       {
         question: "What makes rotator cuff pain worse at night?",
-        answer: "A few things stack up at night. Lying on the affected side compresses the supraspinatus and the subacromial bursa, the shoulder loses the gravitational unloading it had during the day, and local blood flow to an already compromised tendon drops. I usually have patients sleep on the unaffected side with the sore arm supported forward on a pillow, or on their back with a small towel roll behind the scapula. For most people this settles night pain meaningfully within a couple of weeks, though it rarely disappears overnight."
+        answer: "Night pain is common with rotator cuff problems. Lying on the sore side or holding the arm in one position for a long time can aggravate it, but position is not the whole explanation, and a sensitive tendon can simply be more irritable at rest. I usually suggest sleeping on the other side with the sore arm supported forward on a pillow, or on your back with a small pillow under the elbow. Night pain often eases over a few weeks as the shoulder settles, though how quickly varies. Severe, constant pain that does not change with position needs a medical review."
       },
       {
         question: "How long to recover from rotator cuff surgery?",
@@ -928,7 +928,7 @@ Age plays a part, because tendons change over the decades and cuff changes are c
       },
       {
         question: "Do MRIs always show a torn rotator cuff?",
-        answer: "MRI is sensitive but the bigger issue is the reverse: scans often show tears in people with no symptoms at all. A 2014 systematic review by Teunis and colleagues found rotator cuff abnormalities on imaging in roughly 10% of asymptomatic shoulders at age 20, rising past 60% over age 80. That is why I treat the patient, not the scan. If an MRI finding does not match your clinical picture, it should not automatically drive a surgical decision."
+        answer: "MRI is sensitive, but the bigger issue is the reverse: scans often show cuff changes in people with no shoulder pain. A 2014 review that pooled 30 studies (Teunis and colleagues) found rotator cuff abnormalities on scans in about 10% of people aged 20 and younger, rising to about 62% of those aged 80 and older, and a similar rise with age whether or not people had symptoms. So a scan has to be read alongside your symptoms and examination, and a tear on an image does not automatically mean surgery is needed."
       },
       {
         question: "Can rotator cuff injuries heal on their own?",
@@ -950,11 +950,11 @@ Age plays a part, because tendons change over the decades and cuff changes are c
       },
       {
         condition: "Biceps Tendinopathy",
-        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion or forearm supination. Rotator cuff lesions produce lateral deltoid referral with resisted rotation rather than anterior pain."
+        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion or forearm supination. Rotator cuff pain more often spreads to the outer upper arm with resisted rotation, although the two often overlap and can occur together."
       },
       {
         condition: "AC Joint Pathology",
-        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tenderness on direct palpation, and positive cross-body adduction test. Resisted rotator cuff tests are typically pain-free, which separates it from a primary cuff lesion."
+        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tenderness on direct palpation, and positive cross-body adduction test. Resisted rotator cuff tests are often pain-free, which helps tell it apart from a cuff problem, although the two can coexist."
       },
       {
         condition: "Cervical Radiculopathy (C5-C6)",
@@ -971,20 +971,20 @@ Age plays a part, because tendons change over the decades and cuff changes are c
     ],
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Pain Modulation and Isometrics (Weeks 0 to 4)",
-        focus: "Settle symptoms, protect sleep, and reintroduce load in a form the tendon tolerates. Isometric loading has evidence for short-term analgesia in tendinopathy and lets you produce meaningful force without the angular movement that typically aggravates rotator cuff pain. Work from Lewis and Littlewood, along with the JOSPT 2022 rotator cuff disorders CPG, supports active rehabilitation and graded loading rather than rest.",
+        title: "Phase 1: Settling Pain and Starting to Load",
+        focus: "Settle symptoms, protect sleep, and start loading the tendon in a form it tolerates. A static hold, where the muscle works without the arm moving (an isometric), can be a manageable way to begin when movement is painful. It eases pain for some people, but the effect varies, so I set the effort and hold time by how your shoulder responds and use another option if it aggravates symptoms. The 2022 JOSPT rotator cuff guideline (Lafrance and colleagues) recommends active rehabilitation with exercise and education rather than rest.",
         examples: [
           "Isometric external rotation against a wall or doorframe at the side, holding 30 to 45 seconds, 4 to 5 repetitions, daily",
-          "Isometric abduction and internal rotation at comparable intensity (roughly 50 to 70% effort, no sharp pain)",
+          "Isometric abduction and internal rotation at a moderate, comfortable effort with no sharp pain",
           "Scapular setting drills and low-row band holds to restore posterior chain control",
           "Pain-free active range of motion in flexion, abduction, and rotation to maintain mobility",
           "Activity modification education: removing the specific overhead or end-range provocations driving flare-ups"
         ],
-        progressionCriteria: "Night pain manageable, resting pain below 3/10, and isometric holds tolerated at 70% effort without symptom flare-up lasting beyond 24 hours."
+        progressionCriteria: "Night pain becoming manageable, low pain at rest, and the static holds feeling comfortable without a flare that lasts into the next day."
       },
       phase2: {
-        title: "Phase 2: Progressive Loading (Weeks 4 to 12)",
-        focus: "Build tendon and cuff capacity through progressive resistance. Littlewood's SELF study showed a single progressively loaded self-managed exercise can match usual physiotherapy for rotator cuff tendinopathy, and broader tendinopathy literature supports moving beyond isometrics to slow heavy resistance work. The aim is enough load to drive adaptation, not indefinite theraband-only programmes.",
+        title: "Phase 2: Progressive Loading",
+        focus: "Build tendon and cuff capacity through progressive resistance. In a small trial (the SELF study, Littlewood and colleagues 2016), a single progressively loaded exercise done at home gave results similar to usual physiotherapy for rotator cuff tendinopathy. The aim is enough load for the tendon to adapt, progressed steadily rather than staying on light bands indefinitely.",
         examples: [
           "Dumbbell or band external rotation at the side, 3 sets of 8 to 12 reps with a controlled 3-second eccentric phase",
           "Side-lying external rotation progressing weekly by small dumbbell increments",
@@ -992,11 +992,11 @@ Age plays a part, because tendons change over the decades and cuff changes are c
           "Cable or band horizontal rows emphasising scapular retraction and external rotation",
           "Loaded carries (farmer and suitcase carry) to train dynamic shoulder girdle stability under load"
         ],
-        progressionCriteria: "Strength symmetry approaching 80% of the unaffected side on external rotation testing, ability to load a moderate dumbbell through full range without painful catching, and return of overhead reach for daily tasks without compensatory hitching."
+        progressionCriteria: "Outward rotation strength getting closer to the other side, a moderate dumbbell moved through full range without painful catching, and overhead reach for daily tasks without hitching the shoulder."
       },
       phase3: {
-        title: "Phase 3: Return to Overhead, Sport, and High-Demand Work (Months 3 to 6+)",
-        focus: "Restore the capacity to tolerate overhead, ballistic, and end-range loading. This phase is often skipped and is a common reason people recover part-way then plateau. Current JOSPT guidance for rotator cuff disorders emphasises criterion-based rather than time-based progression for return to sport and heavy occupations.",
+        title: "Phase 3: Return to Overhead, Sport, and Heavier Work",
+        focus: "Restore the capacity to tolerate overhead, faster and end-range loading. Later rehabilitation helps prepare the shoulder for the demands you want to return to, and I progress it on how the shoulder performs (strength, control and confidence) rather than on the calendar. A flare can still happen after a well-completed programme, particularly with heavy overhead sport or work; if it does, I review the plan with you.",
         examples: [
           "Overhead press progressions, starting with landmine press and advancing to full overhead dumbbell and barbell press",
           "Pulling variations: pull-ups with assistance as needed, lat pulldowns, and weighted rows",
@@ -1004,7 +1004,7 @@ Age plays a part, because tendons change over the decades and cuff changes are c
           "Sport or occupation-specific drills (throwing mechanics, swim stroke, overhead lifting patterns) rebuilt with volume progressions",
           "End-range strength work: full overhead holds, Turkish get-ups, and bottoms-up kettlebell work for stability at length"
         ],
-        progressionCriteria: "Strength symmetry within 10% of the unaffected side across rotation, abduction, and press testing, pain-free performance of sport or job demands at expected volume, and confidence in the shoulder during unplanned or reactive movements."
+        progressionCriteria: "Strength close to the other side on rotation, lifting and pressing, sport or job demands managed at the usual volume without pain, and confidence in the shoulder during unplanned or reactive movements."
       }
     },
 
@@ -1065,15 +1065,15 @@ Risk factors include age 40-50 years (peak incidence), occupations requiring rep
 
     biomechanics: `The biomechanical drivers of tennis elbow center on repetitive eccentric loading of the wrist extensors during gripping and wrist stabilization tasks. When you grip an object, your wrist extensors must contract to prevent wrist flexion and maintain functional hand position. This creates tensile stress at the lateral epicondyle, particularly when gripping with the elbow extended and forearm pronated.
 
-Computer work represents a major biomechanical stressor. During mouse use, the wrist extensors maintain wrist position against the weight of the hand while performing fine motor control. Hours of repetitive clicking with the wrist extended and deviated places cumulative microtrauma on the ECRB tendon. Keyboard use with wrists resting on pads forces wrist extension, requiring continuous extensor activation. Sustained, high-volume computer use is recognised in the occupational literature as a risk factor for lateral epicondylalgia.
+Computer work can add load for some people. During mouse use, the wrist extensors hold the wrist position against the weight of the hand while performing fine motor control, and long periods with the wrist held extended keep those muscles working. Keyboard use with the wrists propped on pads can do the same. This is a plausible loading mechanism rather than proof that ordinary computer work damages the tendon; many people use a computer all day without elbow pain, and how the tendon responds depends on the total load, recovery, and general health.
 
 Manual labor and tool use create even higher loads. Using a screwdriver requires forceful gripping combined with wrist stabilization against rotational torque. Hammering involves rapid eccentric loading as the tool decelerates after impact. Painting with a brush or roller demands sustained isometric contraction of wrist extensors to control the implement. Carrying shopping bags with handles or lifting objects with a pronated grip (palm down) maximizes stress on the lateral extensors compared to supinated (palm up) grips.
 
 Sports biomechanics reveal why tennis players get this injury despite representing a minority of cases. During the backhand stroke, especially with poor technique using excessive wrist extension and late contact point, massive eccentric forces load the wrist extensors at ball impact. One-handed backhands create even higher demands than two-handed technique. However, any racquet sport, weightlifting with poor wrist position, or golf can create similar loading patterns.
 
-Poor proximal mechanics amplify distal loading. Weak scapular stabilizers cause compensatory wrist extension during reaching tasks. Limited thoracic rotation forces the wrist and forearm to generate movement that should come from the trunk. Cervical spine dysfunction can alter motor control of the forearm muscles through neural mechanisms. Even something as simple as lifting with your elbow locked out rather than slightly bent dramatically increases the moment arm and stress on the lateral epicondyle.
+Poor proximal mechanics amplify distal loading. Weak scapular stabilizers cause compensatory wrist extension during reaching tasks. Limited thoracic rotation forces the wrist and forearm to generate movement that should come from the trunk. Cervical spine dysfunction can alter motor control of the forearm muscles through neural mechanisms. Even something as simple as lifting with your elbow locked out rather than slightly bent can increase the load on the lateral epicondyle.
 
-Grip technique and tool design matter enormously. Larger diameter grips distribute pressure over more surface area, reducing tendon stress compared to thin handles. Powered tools reduce sustained muscle contraction compared to manual tools. Ergonomic modifications like vertical computer mice minimize forearm pronation, while proper desk height prevents excessive wrist extension during typing.`,
+Grip technique and tool design can matter. Larger diameter grips distribute pressure over more surface area, reducing tendon stress compared to thin handles. Powered tools reduce sustained muscle contraction compared to manual tools. Ergonomic modifications like vertical computer mice minimize forearm pronation, while proper desk height prevents excessive wrist extension during typing.`,
 
     understanding: `Tennis elbow is one of the most common reasons people seek care for elbow pain, affecting 1-3% of the general population and up to 15% of workers in high-risk occupations. Despite the name suggesting a sports injury, most cases develop from everyday activities like computer use, manual labor, or household tasks requiring repetitive gripping and wrist movements.
 
@@ -1182,7 +1182,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
         "Duration of symptoms (longer duration associated with slower recovery)",
         "Severity of tendon degeneration on imaging (more severe changes may require longer treatment)",
         "Work demands and ability to modify aggravating activities during rehabilitation",
-        "Adherence to progressive loading program (most critical factor for success)",
+        "Consistency with the progressive loading program",
         "Presence of concurrent cervical or shoulder dysfunction (requires addressing proximal issues)",
         "Baseline grip strength (weaker baseline strength associated with slower recovery)",
         "Psychosocial factors including kinesiophobia (fear of movement) and catastrophization",
@@ -1263,11 +1263,11 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
     faqs: [
       {
         question: "Is tennis elbow actually caused by tennis?",
-        answer: "Rarely. Only a small share of the people I see with it play racquet sports. The name stuck because tennis was one of the first activities formally associated with it, but the far more common drivers are computer work with a mouse, trades involving repeated gripping and tool use, and sudden spikes in gym training or yard work. The tissue does not care what activity loaded it, only that the load was more than the tendon could tolerate."
+        answer: "Usually not. Only a small share of people with tennis elbow play racquet sports. The name stuck because tennis was one of the first activities formally associated with it, but it is more often linked to forceful or repeated gripping at work, trades and tool use, and sudden spikes in gym training or yard work. Computer work can aggravate it for some people. What seems to matter is that the load was more than the tendon was ready for at the time, not which activity it was."
       },
       {
         question: "How long does tennis elbow take to heal?",
-        answer: "With a well-structured loading program, most people notice meaningful change by 6 to 12 weeks, and recovery commonly takes 3 to 6 months. The JOSPT 2022 Clinical Practice Guideline on lateral elbow tendinopathy (Lucado et al.) supports exercise as the mainstay of care. Longer symptom duration before starting rehab consistently predicts a slower recovery, which is why I push patients not to keep waiting it out."
+        answer: "With a well-structured loading program, most people notice meaningful change by 6 to 12 weeks, and recovery commonly takes 3 to 6 months. The JOSPT 2022 Clinical Practice Guideline on lateral elbow tendinopathy (Lucado et al.) supports exercise as the mainstay of care. Longer symptom duration before starting rehab has been linked to slower recovery in some studies, although many cases also settle on their own over a year or so."
       },
       {
         question: "Should I get a cortisone shot for tennis elbow?",
@@ -1275,11 +1275,11 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
       },
       {
         question: "Does a tennis elbow strap actually work?",
-        answer: "Counterforce braces can give short-term pain relief during specific tasks by shifting the load point away from the irritated tendon insertion. They are not a treatment in themselves. I use them as a bridge while the loading program builds tendon capacity, not as a substitute for exercise. Wearing a strap without addressing the underlying capacity issue tends to prolong the problem."
+        answer: "Counterforce braces can give short-term pain relief during specific tasks by shifting the load point away from the irritated tendon insertion. They are not a treatment in themselves. I use them as a bridge while the loading program builds tendon capacity, not as a substitute for exercise. A strap on its own does not build the tendon's tolerance, so I pair it with the loading program."
       },
       {
         question: "Is it okay to keep using my computer and working while I have tennis elbow?",
-        answer: "Most people need to, and complete rest is usually the wrong answer anyway. What matters is reducing peak load spikes. That can mean a vertical mouse, lowering mouse sensitivity so the wrist does fewer large excursions, keyboard and chair height changes, micro-breaks every 20 to 30 minutes, and tempo changes on high-grip tasks. If your elbow is less irritable by the morning, yesterday's load was acceptable."
+        answer: "Most people need to, and complete rest is not usually needed anyway. What matters is reducing peak load spikes. That can mean a vertical mouse, adjusting pointer speed and mouse position so you can use it comfortably without repeated large wrist movements, keyboard and chair height changes, micro-breaks every 20 to 30 minutes, and tempo changes on high-grip tasks. If your elbow is less irritable by the morning, yesterday's load was acceptable."
       },
       {
         question: "Why does my elbow hurt when I shake someone's hand or lift a coffee cup?",
@@ -1305,7 +1305,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
           "Scapular setting and row variations with a light band, 3 sets of 10, addressing upstream shoulder support",
           "Workstation or tool adjustments: mouse switched to vertical or moved closer to the keyboard, chair and desk height checked, micro-breaks every 20 to 30 minutes during gripping tasks"
         ],
-        progressionCriteria: "Pain during isometric holds at or below 3 out of 10, no more than mild next-day soreness after sessions for a full week, and grip on everyday tasks such as carrying a coffee mug or opening a door no longer provoking sharp pain."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: isometric holds comfortable (around 3 out of 10 or less), no more than mild next-day soreness after sessions for a full week, and grip on everyday tasks such as carrying a coffee mug or opening a door no longer provoking sharp pain."
       },
       phase2: {
         title: "Phase 2: Progressive Loading of the Wrist Extensors (Weeks 3 to 8)",
@@ -1317,7 +1317,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
           "Progressive grip work using a grip trainer or towel squeezes across increasing wrist extension angles, 3 sets of 10",
           "Continued scapular and rotator cuff strengthening, 2 to 3 sets of 10 to 12, to reduce compensatory distal loading"
         ],
-        progressionCriteria: "Pain-free grip strength within 20% of the unaffected side, no 24-hour flare from heavier sessions for at least 2 consecutive weeks, and PRTEE score reduced by at least 11 points from baseline or clearly tracking downward."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: pain-free grip strength closer to the unaffected side, no 24-hour flare from heavier sessions for at least 2 consecutive weeks, and the PRTEE questionnaire score clearly tracking downward from baseline."
       },
       phase3: {
         title: "Phase 3: Return to Full Work, Sport, and Heavier Loading (Weeks 8 to 16+)",
@@ -1329,7 +1329,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
           "Ongoing Tyler protocol or heavy slow resistance wrist work 2 times per week as maintenance during return to sport",
           "Review of ergonomic set-up once symptoms are controlled, to confirm the load environment has actually changed"
         ],
-        progressionCriteria: "Pain 2 out of 10 or less during full work or sport demands, symmetrical pain-free grip strength, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: low pain (around 2 out of 10 or less) during full work or sport demands, grip strength close to the other side, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
       }
     },
     lastReviewed: '2026-04-16',
@@ -1403,7 +1403,6 @@ Contributing factors include sudden increases in weight-bearing activity, biomec
         "Duration of symptoms before seeking treatment (shorter duration predicts better outcomes)",
         "Female sex and bilateral heel pain associated with poorer long-term outcomes",
         "BMI and foot posture abnormalities influence healing trajectory",
-        "Presence of plantar calcaneal spur predicts favorable response to shockwave therapy",
         "Ankle plantarflexor strength and positive response to taping predict orthotic success"
       ],
       naturalHistory: "Most people improve with consistent conservative care, although it often takes many months. A small number who still have significant pain after a thorough trial of conservative care go on to discuss injection or surgery with a physician"
@@ -1532,8 +1531,12 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
 
     faqs: [
       {
+        question: "I have a heel spur on my X-ray. Is that the cause, and does it need removing?",
+        answer: "A heel spur is a bony change that can show up on an X-ray, including in many people who have no heel pain at all. It does not by itself identify the cause of your symptoms, and it does not usually need to be removed. Treatment usually focuses on the painful tissue under the heel and on how much walking and standing your foot tolerates, rather than on the spur. Physiotherapy does not remove a spur, and symptoms can settle while the spur stays exactly as it is."
+      },
+      {
         question: "Why does my heel hurt the most with my first steps in the morning?",
-        answer: "That first-step pattern is one of the most reliable features of plantar fasciopathy. Overnight the fascia sits in a shortened position with no load through it. The first steps reload tissue that has not been primed, which reproduces pain sharply. It usually eases within 10 to 15 minutes as the fascia warms up and gets used to the morning loading. Pain that stays sharp beyond that window, or that is accompanied by tingling or burning, pushes the picture toward other causes."
+        answer: "That first-step pattern is a common feature of plantar fasciopathy. Overnight the fascia sits in a shortened position with no load through it. The first steps reload tissue that has not been primed, which reproduces pain sharply. It usually eases within 10 to 15 minutes as the fascia warms up and gets used to the morning loading. Pain that stays sharp beyond that window, or that is accompanied by tingling or burning, pushes the picture toward other causes."
       },
       {
         question: "How long does plantar fasciitis take to get better?",
@@ -1561,7 +1564,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
       },
       {
         question: "Can I keep running with plantar fasciitis?",
-        answer: "Often yes, with adjustments. If pain during a run stays at or below about 4 out of 10, settles within 24 hours, and does not rise week over week, running is usually safe. Easing volume by around 30 percent, running on softer surfaces, and avoiding aggressive hill or speed work early on usually keeps things manageable. If the pain pattern does not meet those conditions, a brief pause with cross-training typically gets the runner back to normal volume faster than grinding through."
+        answer: "Often yes, with adjustments. If pain during a run stays at or below about 4 out of 10, settles within 24 hours, and does not rise week over week, running can usually continue. Those limits are a clinical guide I adjust for each person, not proof that running is safe for every heel. Easing volume by around 30 percent, running on softer surfaces, and avoiding aggressive hill or speed work early on usually keeps things manageable. If the pain pattern does not meet those conditions, a brief pause with cross-training often gets the runner back to normal volume faster than pushing through."
       }
     ],
 
@@ -1576,11 +1579,11 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
           "Seated heel raises for the soleus with the knee bent to roughly 90 degrees, 3 sets of 15",
           "Activity pacing: reduce prolonged standing blocks, rotate supportive footwear, introduce short walking breaks during long standing periods"
         ],
-        progressionCriteria: "Morning first-step pain at 4 out of 10 or less for 7 consecutive days, tolerance of a 20 to 30 minute walk without escalating pain, and no next-day symptom rise after stretching and early loading sessions."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: morning first-step pain low (around 4 out of 10 or less) for about a week, tolerance of a 20 to 30 minute walk without escalating pain, and no next-day symptom rise after stretching and early loading sessions."
       },
       phase2: {
         title: "Phase 2: High-Load Strength Training (Weeks 4 to 12)",
-        focus: "Rebuild fascia and calf capacity using the Rathleff high-load protocol (Scandinavian Journal of Medicine and Science in Sports, 2015). The key exercise is a slow single-leg heel raise with the toes held in dorsiflexion, performed every second day with a 3-second up, 2-second pause, 3-second down tempo. Load progresses from body weight toward carrying a backpack or using a calf-raise machine, moving from higher-rep sets toward lower-rep, heavier sets across the block. Stretching continues as maintenance rather than as the main intervention.",
+        focus: "Rebuild fascia and calf capacity with a program adapted from the Rathleff high-load protocol (Scandinavian Journal of Medicine and Science in Sports, 2015). The main exercise is a slow single-leg heel raise with the toes held in dorsiflexion, performed every second day with a 3-second up, 2-second pause, 3-second down tempo. Load progresses from body weight toward carrying a backpack or using a calf-raise machine, moving from higher-rep sets toward lower-rep, heavier sets across the block. Stretching continues as maintenance rather than as the main intervention.",
         examples: [
           "High-load single-leg heel raise on a step with a towel rolled under the toes, 3 sets every second day: week 1 to 2 at 3 sets of 12 reps, progressing to 3 sets of 10, 3 sets of 8, then 3 sets of 6 with added load by week 8 to 12",
           "Continued calf and plantar fascia-specific stretching as maintenance, daily",
@@ -1588,7 +1591,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
           "Hip abductor and glute max strengthening to offload the lower chain, 3 sets of 10 to 12",
           "Supportive footwear during higher-load daily standing periods, with or without an over-the-counter orthosis"
         ],
-        progressionCriteria: "Foot Function Index improving meaningfully from baseline, single-leg heel raise with load tolerated at 3 out of 10 pain or less, and consistent tolerance of normal walking and standing demands without next-day flares."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: Foot Function Index improving meaningfully from baseline, loaded single-leg heel raises tolerated with low pain (around 3 out of 10 or less), and consistent tolerance of normal walking and standing demands without next-day flares."
       },
       phase3: {
         title: "Phase 3: Return to Running, Sport, and Prevention (Months 3 to 6+)",
@@ -1658,7 +1661,7 @@ Most whiplash is a sprain that settles. How sore the neck is in the first days i
 
     evidenceSnapshot: {
       primaryStrategy: "Gentle, frequent neck movement started early can help pain and recovery more than rest and a soft collar",
-      secondaryStrategy: "Clear information that most whiplash settles can make it easier to keep moving, which matters because fear of movement can slow recovery",
+      secondaryStrategy: "Clear information that whiplash often settles can make it easier to keep moving, which matters because fear of movement can slow recovery",
       preventionStrategy: "Returning to normal activities step by step, within comfort, helps you avoid losing fitness while the neck settles",
       sources: "Rosenfeld M et al., Spine 2003;28(22):2491-2498"
     },
@@ -1688,14 +1691,14 @@ Most whiplash is a sprain that settles. How sore the neck is in the first days i
     ],
 
     prognosis: {
-      timeline: "Grade I-II typically recover within 6-12 weeks. Grade III may take 3-6 months",
+      timeline: "Many people improve during the first weeks to months, but some have symptoms for longer. Early pain and disability, any nerve symptoms, and how recovery is going help guide follow-up more than a fixed deadline",
       factors: [
-        "Initial pain intensity predicts recovery time",
+        "Higher pain and disability early on can mean a longer recovery",
         "Keeping the neck moving early tends to help",
-        "Psychological factors strongly influence recovery",
+        "Worry, stress and expectations about recovery can affect how quickly pain settles",
         "Previous neck pain may slow recovery"
       ],
-      naturalHistory: "Many recover well, but a substantial proportion develop persistent symptoms, and prognosis is improved by appropriate early management"
+      naturalHistory: "Many people recover well, but a substantial proportion develop persistent symptoms, and early active care may help"
     },
 
     selfManagement: [
@@ -1789,9 +1792,9 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Phase-specific physiotherapy can produce meaningful improvement in pain and function over 12-18 months when matched to tissue healing stages",
-      secondaryStrategy: "Joint mobilization and stretching techniques restore shoulder range of motion when applied appropriately to each phase of the condition",
-      preventionStrategy: "Early recognition and treatment of shoulder stiffness may reduce the likelihood of progression to full frozen shoulder in higher-risk patients",
+      primaryStrategy: "Physiotherapy matched to how painful and how stiff the shoulder is now can help pain and function while the condition changes, which often takes many months",
+      secondaryStrategy: "Joint mobilization and stretching within comfort may help range of movement, with the intensity matched to how irritable the shoulder is",
+      preventionStrategy: "Frozen shoulder coming back in the same shoulder is uncommon, and there is no established way to prevent it in the other one. If stiffness is building, an assessment can clarify the cause and help you manage pain and daily tasks",
       sources: "JOSPT Adhesive Capsulitis Guidelines; BMJ Best Practice"
     },
 
@@ -1820,7 +1823,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
     ],
 
     prognosis: {
-      timeline: "Total duration typically 1-3 years. Recovery is non-linear with plateaus and flare-ups being normal. Physiotherapy can help you manage pain and keep function while it runs its course",
+      timeline: "Many people improve over months to years, but recovery can be incomplete and does not always follow three neat phases. Plateaus and flare-ups are normal. Physiotherapy can help you manage pain and keep function while it changes",
       factors: [
         "Diabetes and thyroid conditions associated with longer recovery",
         "Duration of symptoms before treatment affects outcome",
@@ -1887,7 +1890,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
     faqs: [
       {
         question: "How long does frozen shoulder last?",
-        answer: "Longer than most people want to hear. The classic teaching is 1 to 3 years through freezing, frozen, and thawing phases, but long-term data pushes that timeline out. Wong and colleagues (Physiotherapy 2017) systematically reviewed the natural history and concluded that treatment produced some, but not complete, improvement over one to four years, and that the tidy idea of a clean recovery phase is not well supported. Hand and colleagues (JSES 2008) followed patients on average 4.4 years and found 41% reported some ongoing symptoms, though most were mild. Physiotherapy matched to your phase can help you manage pain and keep function along the way, but I am careful not to promise a quick fix."
+        answer: "Longer than most people want to hear. The classic teaching is 1 to 3 years through freezing, frozen, and thawing phases, but long-term data pushes that timeline out. Wong and colleagues (Physiotherapy 2017) systematically reviewed the natural history and found that without treatment, range of movement improved somewhat but not completely over one to four years, that most improvement came early rather than late, and that the tidy idea of phases ending in full recovery is not well supported. Hand and colleagues (JSES 2008) followed patients on average 4.4 years and found 41% reported some ongoing symptoms, though most were mild. Physiotherapy matched to your phase can help you manage pain and keep function along the way, but I am careful not to promise a quick fix."
       },
       {
         question: "Will my shoulder ever move normally again?",
@@ -1899,7 +1902,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
       },
       {
         question: "Why does my shoulder hurt so much at night?",
-        answer: "Night pain is one of the most recognisable features of frozen shoulder and it has two main drivers. The inflamed capsule becomes more sensitised when you lie still and blood flow pools in the tissues, and any roll onto the affected side directly compresses an already irritated joint. I usually coach patients to sleep on the unaffected side with pillows propping the sore arm forward, or on their back with a small towel roll behind the shoulder blade. Night pain tends to ease as the condition moves out of the freezing phase."
+        answer: "Night pain is one of the most recognisable features of frozen shoulder, especially in the early, painful phase. Rolling onto the sore side or holding the arm still in one position can aggravate it, but it can persist whatever position you are in, and the exact reasons are not fully understood. I usually suggest sleeping on the other side with pillows supporting the sore arm forward, or on your back with the arm supported. Night pain often eases as the painful phase settles, though this can take months. If night pain comes with fever, weight loss or feeling unwell, see your family doctor."
       },
       {
         question: "Do I need surgery for frozen shoulder?",
@@ -1929,7 +1932,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
       },
       {
         condition: "Glenohumeral Osteoarthritis",
-        distinguishingFeatures: "Similar loss of passive range and external rotation, but usually seen in older patients with crepitus, radiographic joint space narrowing and osteophytes, and a more gradual decade-long course rather than the 1 to 3 year self-limiting pattern of frozen shoulder."
+        distinguishingFeatures: "Similar loss of passive range and external rotation, but usually seen in older patients with crepitus, radiographic joint space narrowing and osteophytes, and a more gradual course over many years, whereas frozen shoulder often improves over months to years."
       },
       {
         condition: "Calcific Tendinitis",
@@ -1946,7 +1949,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
     ],
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Freezing Phase (Pain Dominant, Typically 0 to 3 Months In)",
+        title: "Phase 1: Painful, Irritable Shoulder (Often the First Few Months)",
         focus: "Settle pain and protect sleep while maintaining whatever range you currently have. This phase is highly irritable and aggressive stretching tends to backfire. The Kelley et al. JOSPT clinical practice guideline (2013) recommends low-intensity, pain-guided motion alongside modalities and education rather than end-range loading in the irritable phase.",
         examples: [
           "Pendulum (Codman) swings in small circles, 1 to 2 minutes, 3 to 4 times daily, using gravity rather than force",
@@ -1958,7 +1961,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
         progressionCriteria: "Night pain reducing to a level that allows most nights of sleep, pain at rest dropping to around 3 out of 10 or less, and movement in mid-range no longer provoking sharp pain."
       },
       phase2: {
-        title: "Phase 2: Stiff Phase (Stiffness Dominant, Typically 3 to 9 Months In)",
+        title: "Phase 2: Stiffness Dominant (Timing Varies Widely)",
         focus: "Now that pain is calmer, the restricted capsule is the main barrier. This phase tolerates and often requires more assertive mobilisation. Evidence from the Kelley et al. JOSPT CPG and the Page et al. 2014 Cochrane review (manual therapy and exercise for adhesive capsulitis) supports combining joint mobilisation with progressive stretching held into the end-range discomfort zone rather than backing off at first resistance.",
         examples: [
           "Hands-on grade III to IV glenohumeral mobilisations (posterior and inferior glides) delivered in clinic, paired with immediate home stretching",
@@ -1970,7 +1973,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
         progressionCriteria: "Measurable gains of roughly 10 to 15 degrees in external rotation or flexion over 4 to 6 weeks, ability to reach behind the back to mid-lumbar level, and recovery from stretching within 30 to 60 minutes rather than aggravation lasting into the night."
       },
       phase3: {
-        title: "Phase 3: Thawing Phase (Functional Loading, Typically 9+ Months In)",
+        title: "Phase 3: Range Returning (Functional Loading)",
         focus: "Once range is returning, the shoulder needs strength and confidence to meet real-world demands. Deconditioning from months of guarding is often substantial. General tendinopathy and shoulder loading evidence supports progressing from isometric into dynamic strengthening as range normalises, matched to what the individual shoulder is actually tolerating that week.",
         examples: [
           "Resisted external and internal rotation at the side with a resistance band, building from isometric holds to slow dynamic reps",
@@ -2015,11 +2018,11 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
 
 After injury, the knee loses rotational stability, leading to episodes of giving way and potential damage to other structures like the meniscus and cartilage. ACL injuries significantly increase the long-term risk of developing knee osteoarthritis, even with successful surgical reconstruction. Concurrent injuries such as meniscus tears or MCL/LCL sprains are common and require comprehensive management alongside ACL rehabilitation.`,
 
-    biomechanics: `The majority of ACL injuries happen without any direct contact to the knee. They're usually the result of poor movement mechanics during cutting, jumping, and landing. The classic injury pattern I see involves a combination of knee valgus (knee caving inward), limited knee flexion (landing stiff-legged), and foot positioned too far from the body's center of mass. This creates massive rotational and shearing forces that exceed the ACL's capacity.
+    biomechanics: `Many ACL injuries happen without direct contact to the knee, during cutting, jumping, or landing. Injury risk reflects several factors, including the sport, fatigue, strength and movement, and some of these can be changed with training. A pattern often described in research combines the knee caving inward (valgus), landing with the knee fairly straight, and the foot planted away from the body's centre of mass, which can place high rotational and shearing loads on the ligament.
 
-Landing mechanics are absolutely critical. When you land from a jump with straight or minimally bent knees, your ACL has to absorb enormous forces that should be distributed through your entire leg. Female athletes are particularly vulnerable to this pattern because they tend to land in more knee valgus and with less hip and knee flexion compared to males. Add in lateral trunk lean (shifting your body weight over one leg) and you create the perfect storm for ACL failure.
+Landing mechanics matter. Landing from a jump with straight or minimally bent knees leaves less of the force shared through the hips and ankles. Female athletes have a higher rate of ACL injury in many sports, for a mix of reasons that are still being studied, and movement differences may be one part of it. Leaning the trunk sideways over one leg can add to the load.
 
-The "position of no return" happens during cutting movements when your foot plants and your knee starts to collapse inward while your body continues moving in a different direction. This typically occurs in the first 50 milliseconds of the movement, faster than you can consciously react. Poor hip strength, particularly weak glutes, contributes significantly because your glutes should control your thigh position and prevent excessive knee valgus. Fatigue makes everything worse, as tired muscles can't maintain proper alignment, especially late in games or training sessions.`,
+The "position of no return" happens during cutting movements when your foot plants and your knee starts to collapse inward while your body continues moving in a different direction. This typically occurs in the first 50 milliseconds of the movement, faster than you can consciously react. Hip strength may play a part, because the glutes help control thigh position, and fatigue can make control harder late in games or training sessions. These are reasons to train strength and movement, not a way to blame anyone for an injury.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -2179,7 +2182,7 @@ The "position of no return" happens during cutting movements when your foot plan
       },
       {
         question: "When can I run after ACL surgery?",
-        answer: "Typically between 12 and 16 weeks post-reconstruction, but only once criteria are met, not purely by the calendar. Common benchmarks I use, consistent with the Aspetar 2023 guideline and broader return-to-running literature, include full symmetrical knee extension, minimal effusion, quadriceps strength at least 70 to 80 percent of the other side on dynamometer testing, and pain-free single-leg hopping in place. Running too early on an underpowered quadriceps is one of the most common reasons rehab stalls."
+        answer: "Typically between 12 and 16 weeks post-reconstruction, but only once criteria are met, not purely by the calendar. Running starts only after agreed clinical and strength criteria are met and your surgical team has cleared it. The Aspetar 2023 guideline proposes quadriceps strength above 80 percent of the other side, together with full knee extension, minimal swelling and pain-free relevant loading such as hopping in place; these are proposed criteria, not a guarantee of safety, and symmetry alone can mislead when both legs have lost strength. Running too early on an underpowered quadriceps is a common reason rehab stalls."
       },
       {
         question: "Do all ACL tears need an MRI?",
@@ -2289,8 +2292,8 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
 
     evidenceSnapshot: {
       primaryStrategy: "Exercises that ease the leg or arm symptoms, or draw them back toward the spine, can help early on and often bring meaningful relief within the first several weeks",
-      secondaryStrategy: "Neural mobilization techniques reduce nerve sensitivity and improve mobility when combined with directional exercises that promote centralization of symptoms",
-      preventionStrategy: "Movement education focusing on spine-sparing strategies and graded loading can reduce the likelihood of recurrent disc episodes",
+      secondaryStrategy: "Gentle nerve gliding exercises may help nerve sensitivity and movement when combined with exercises that ease the leg or arm symptoms",
+      preventionStrategy: "Keeping up regular exercise after the symptoms settle may lower the chance of another episode of back pain",
       sources: "JOSPT Low Back Pain Clinical Practice Guidelines (George et al., 2021); Lancet Low Back Pain Series (Foster et al., 2018); NICE NG59"
     },
 
@@ -2367,6 +2370,12 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
         year: 2015,
         findings: "Spontaneous regression of conservatively managed lumbar herniations was common, with higher resorption rates for larger herniations: about 96% of sequestrations, 70% of extrusions, 41% of protrusions, and 13% of bulges showed regression",
         relevance: "Supports conservative management approach"
+      },
+      {
+        finding: "Physiotherapy was associated with less pain and disability from a lumbar disc prolapse",
+        detail: "A 2021 systematic review and meta-analysis of physiotherapy for lumbar prolapsed intervertebral disc (11 trials) found physiotherapy was associated with a reduction in pain (mean difference -0.91 points) and disability (mean difference -5.76 points) compared with control groups",
+        clinicalRelevance: "Supports exercise-based physiotherapy as a first option for disc-related back and leg pain, although the average differences were modest",
+        citation: "Singh V, Malik M, Kaur J, et al. A systematic review and meta-analysis on the efficacy of physiotherapy intervention in management of lumbar prolapsed intervertebral disc. Int J Health Sci (Qassim). 2021;15(2):49-57."
       }
     ],
 
@@ -2408,11 +2417,11 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
           "Short walking bouts of 5 to 10 minutes several times per day, using posture cues that feel best",
           "Standing breaks every 20 to 30 minutes and a small lumbar roll for sitting"
         ],
-        progressionCriteria: "Leg symptoms consistently stay at or above the knee, rest pain is 2/10 or lower, sitting tolerance reaches 20 to 30 minutes, and the patient can identify at least one movement that reliably centralizes symptoms."
+        progressionCriteria: "Leg symptoms easing or moving back toward the back, numbness and any weakness stable or improving, mild rest pain, sitting for 20 to 30 minutes, and at least one movement you know eases the leg symptoms."
       },
       phase2: {
         title: "Restoring Load Tolerance and Motor Control",
-        focus: "Rebuild trunk and hip capacity so the spine tolerates daily loads again. Graded exercise and education outperform passive care in the Lancet Low Back Pain Series (Foster et al., 2018). Neural mobility work progresses from sliders toward tensioners as leg symptoms settle.",
+        focus: "Rebuild trunk and hip capacity so the spine tolerates daily loads again. The Lancet Low Back Pain Series (Foster and colleagues, 2018) recommends graded exercise and education over passive treatments. Nerve mobility work progresses from sliders toward tensioners as leg symptoms settle.",
         examples: [
           "Bird dog and dead bug, 2 to 3 sets of 8 to 10 per side, emphasizing a neutral spine",
           "Hip hinge patterning from a broomstick to a kettlebell deadlift, progressed by load rather than range",
@@ -2420,7 +2429,7 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
           "Glute bridges and side-lying hip abduction to address gluteal weakness common in this group",
           "Short-range sciatic nerve tensioners in supine or slump, 8 to 10 controlled repetitions"
         ],
-        progressionCriteria: "Loaded hinging and squatting with pain under 3/10, a full workday with normal sitting tolerated, and 30 minutes of walking without symptom spread into the leg."
+        progressionCriteria: "Loaded hinging and squatting with only mild discomfort that settles, a full workday with normal sitting, and 30 minutes of walking without symptoms spreading into the leg."
       },
       phase3: {
         title: "Return to Full Activity and Reducing Recurrence",
@@ -2439,11 +2448,11 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
     faqs: [
       {
         question: "Will my disc herniation heal on its own?",
-        answer: "Often, yes. Systematic reviews of serial MRI studies show that most herniations shrink over time, with higher resorption rates for larger extrusions and sequestrations than for small bulges or protrusions. Symptom improvement usually precedes imaging change, which is why I track function rather than imaging week to week. The size of the herniation on your scan does not neatly predict how bad it feels, nor how quickly you will recover."
+        answer: "Often, yes. Systematic reviews of repeat MRI studies of the lower back show that many herniations shrink over time, with higher resorption rates for larger extrusions and sequestrations than for small bulges or protrusions. Symptom improvement usually precedes imaging change, which is why I track function rather than imaging week to week. The size of the herniation on your scan does not neatly predict how bad it feels, nor how quickly you will recover."
       },
       {
         question: "Do I need surgery for a herniated disc?",
-        answer: "Most people do not. The SPORT trial (Weinstein et al., JAMA 2006) and its follow-up studies found that at 1 to 2 years, outcomes between surgery and structured conservative care for lumbar disc herniation converge, though surgery can produce faster early relief. Surgery is typically reserved for progressive neurological loss, cauda equina syndrome, or pain and disability that remain severe after 6 to 12 weeks of appropriate non-surgical management."
+        answer: "Many people do not. For selected people with persistent, disabling disc-related leg pain, surgery can give faster relief. The SPORT trial (Weinstein and colleagues, JAMA 2006) found substantial improvement with both surgery and non-surgical care, but frequent switching between groups made its randomised comparison hard to interpret, and analyses based on the treatment people actually received favoured surgery, including at eight years (Lurie and colleagues, Spine 2014). Surgery is usually reserved for worsening nerve weakness, cauda equina syndrome (an emergency), or pain and disability that stay severe after 6 to 12 weeks of appropriate non-surgical care. The decision depends on your symptoms, nerve function, scan findings and preferences."
       },
       {
         question: "How long does recovery take?",
@@ -2467,7 +2476,7 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
       },
       {
         question: "When should I get urgent medical care?",
-        answer: "Loss of bladder or bowel control, numbness in the saddle area, rapidly progressing leg weakness, foot drop, or bilateral leg symptoms all warrant an emergency department visit. Severe unrelenting night pain, unexplained weight loss, or fever with back pain should be reviewed by a physician before starting physiotherapy."
+        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or symptoms in both legs. These can be signs of cauda equina syndrome. With a neck disc, clumsy or numb hands or a change in walking or balance need a same-day medical assessment, as does leg or arm weakness that is getting worse or a foot that drops or slaps when you walk. Severe unrelenting night pain or unexplained weight loss should be reviewed by a doctor before physiotherapy, and fever with back pain the same day."
       }
     ],
 
@@ -2479,11 +2488,11 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
   'knee-osteoarthritis': {
     pathophysiology: `Osteoarthritis involves breakdown of cartilage, changes in underlying bone, and inflammation of the joint lining. It's not just wear and tear but an active process involving the whole joint. Quadriceps weakness is linked with a higher risk of developing knee osteoarthritis and with more pain and difficulty once it is present. Previous injuries such as ACL tears or meniscus tears significantly increase the risk of developing knee osteoarthritis, as these injuries often lead to altered biomechanics and joint instability. Like other degenerative conditions, knee osteoarthritis may coexist with patellofemoral pain syndrome, particularly when both involve similar movement pattern dysfunctions.`,
 
-    biomechanics: `Knee osteoarthritis isn't simply "wear and tear" but rather the result of abnormal loading patterns that overwhelm your joint's ability to maintain healthy cartilage. Quadriceps weakness is one of the main factors, and it can become a cycle: weak quads absorb less of the impact forces during walking, stairs, and daily activities, placing greater stress on your knee cartilage. As the cartilage breaks down and becomes painful, you naturally become less active, leading to even greater muscle weakness.
+    biomechanics: `Knee osteoarthritis isn't simply "wear and tear". Age, previous injury, body weight, genetics and how the knee is loaded all play a part. Quadriceps weakness is linked with more pain and difficulty, and it can become a cycle: pain can make you less active, which can lead to more weakness. Pain can arise from several tissues in and around the joint, and how much it hurts does not map directly to how much cartilage has been lost. Strength training helps many people, without that proving weakness caused the arthritis.
 
-Poor movement patterns compound the problem significantly. When your glutes are weak, you lose control of your thigh position, often leading to knee valgus (knee caving inward) during weight-bearing activities. This shifts the loading away from the healthy center of your knee joint to the edges, accelerating cartilage breakdown in these areas. Stiffness at the hip or ankle can also change how you walk and how load passes through the knee.
+Movement may play a part. Some people's knees drift inward (valgus) or outward during weight-bearing activities, which changes how load is shared within the joint, and stiffness at the hip or ankle can also change how you walk and how load passes through the knee.
 
-Previous injuries create lasting biomechanical changes that predispose you to osteoarthritis. An old ACL injury, meniscus tear, or even a significant ankle sprain can subtly alter how you move, creating compensatory patterns that overload your knee joint in ways it wasn't designed to handle. Carrying extra body weight adds to this, not just through the extra load but because excess weight often leads to muscle weakness and altered movement patterns that multiply the mechanical stress on your knees during daily activities like stair climbing and getting up from chairs.`,
+Previous knee injuries, such as an ACL injury or a meniscus tear, raise the risk of osteoarthritis later on. For people carrying extra body weight, it adds load to the knee during daily activities like stair climbing and getting up from chairs, and losing some weight can ease symptoms alongside exercise.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -2522,7 +2531,7 @@ Previous injuries create lasting biomechanical changes that predispose you to os
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive quadriceps strengthening combined with low-impact aerobic exercise reduces pain and improves function meaningfully for most patients, often enough to defer surgery",
+      primaryStrategy: "Progressive quadriceps strengthening combined with low-impact aerobic exercise can meaningfully reduce pain and improve function for many people, and for some it helps put off surgery",
       secondaryStrategy: "For people carrying extra weight, losing some weight reduces the load on the knee and can improve pain and function alongside exercise",
       preventionStrategy: "Keeping up a strengthening and activity routine after the first block of rehab helps keep pain and function from slipping back, and for some people helps put off the need for surgery",
       sources: "OARSI Guidelines; Arthritis Foundation Recommendations"
@@ -2584,7 +2593,7 @@ Previous injuries create lasting biomechanical changes that predispose you to os
     clinicalRedFlags: [
       {
         sign: "A hot, red, very swollen knee, especially with a fever or feeling unwell",
-        action: "Possible joint infection or gout. Same-day medical assessment, or go to emergency if you feel unwell"
+        action: "Possible joint infection or gout. Same-day medical assessment, even without a fever, or go to emergency if you feel unwell"
       },
       {
         sign: "Calf pain, swelling or warmth, or sudden shortness of breath, especially after surgery or a long period of reduced activity",
@@ -2595,8 +2604,8 @@ Previous injuries create lasting biomechanical changes that predispose you to os
         action: "Possible fracture or other bone problem. See your family doctor promptly, the same day after a fall"
       },
       {
-        sign: "Knee locking or inability to extend",
-        action: "May indicate loose body or meniscus tear"
+        sign: "The knee locks and will not straighten",
+        action: "Possible loose fragment or meniscus tear blocking movement. See your family doctor or a sports medicine physician within a few days"
       }
     ],
 
@@ -2682,7 +2691,7 @@ Previous injuries create lasting biomechanical changes that predispose you to os
       },
       {
         question: "Does the grinding noise from my knee mean it is getting worse?",
-        answer: "Crepitus without pain is common and not predictive of worsening arthritis. Many asymptomatic adults have audible clicks, pops, or grinding from their knees. What matters clinically is pain, function, and trajectory over weeks and months, not the noise itself. A quiet knee that hurts more is a bigger concern than a noisy knee that is functioning well."
+        answer: "Painless clicking or grinding (crepitus) is common, and many adults without symptoms have noisy knees. The sound alone does not show whether arthritis is worsening or whether treatment is needed; pain, function, and how they change over weeks and months matter more than the noise itself. A quiet knee that hurts more is a bigger concern than a noisy knee that is functioning well."
       },
       {
         question: "Can I still lift weights and squat with knee osteoarthritis?",
@@ -2887,7 +2896,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
     faqs: [
       {
         question: "Do I need surgery if my MRI shows a meniscus tear?",
-        answer: "Usually not. The FIDELITY trial (Sihvonen et al., NEJM 2013) randomised 146 patients with degenerative medial meniscus tears and no osteoarthritis to arthroscopic partial meniscectomy or sham surgery, and found no difference in any primary outcome at 12 months. The ESCAPE trial (van de Graaf et al., JAMA 2018) compared physical therapy to arthroscopic partial meniscectomy in 321 patients with degenerative tears, and its 5-year follow-up (Noorduyn et al., JAMA Network Open 2022) found physical therapy remained noninferior for patient-reported knee function. For degenerative tears, a structured rehabilitation program is a reasonable first step for the large majority."
+        answer: "Usually not. The FIDELITY trial (Sihvonen et al., NEJM 2013) randomised 146 patients with degenerative medial meniscus tears and no osteoarthritis to arthroscopic partial meniscectomy or sham surgery, and found no difference in any primary outcome at 12 months. The ESCAPE trial (van de Graaf et al., JAMA 2018) compared physical therapy to arthroscopic partial meniscectomy in 321 patients with degenerative tears, and its 5-year follow-up (Noorduyn et al., JAMA Network Open 2022) found physical therapy remained noninferior for patient-reported knee function. For degenerative tears, a structured rehabilitation program is a reasonable first step for many people."
       },
       {
         question: "What is the difference between a traumatic and a degenerative meniscus tear?",
@@ -2895,7 +2904,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
       },
       {
         question: "Can a meniscus tear heal on its own?",
-        answer: "The outer third has blood supply and some capacity to heal, particularly in younger patients with peripheral tears. The inner two thirds are essentially avascular and do not heal in a true biological sense. That does not mean symptoms cannot settle. Plenty of degenerative tears become asymptomatic with strengthening, load management, and time, even if the tear itself stays visible on imaging."
+        answer: "The outer third has blood supply and some capacity to heal, particularly in younger patients with peripheral tears. Healing potential varies with the tear's location, pattern and treatment; the inner region has much less blood supply, so it has less ability to heal on its own. That does not mean symptoms cannot settle. Plenty of degenerative tears become asymptomatic with strengthening, load management, and time, even if the tear itself stays visible on imaging."
       },
       {
         question: "Is my knee locking because of a meniscus tear?",
@@ -2907,11 +2916,11 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
       },
       {
         question: "When is surgery actually useful for a meniscus tear?",
-        answer: "True mechanical locking that cannot be released, large bucket-handle tears, and displaced flap tears in younger patients with genuine function-limiting symptoms are the clearer surgical indications. Younger patients with peripheral longitudinal tears in well-vascularised tissue may also be candidates for meniscus repair, which is a different operation from a partial meniscectomy and has very different implications for long-term knee health. These are case-by-case decisions made with an orthopaedic surgeon."
+        answer: "True mechanical locking that cannot be released, large bucket-handle tears, and displaced flap tears in younger patients with genuine function-limiting symptoms are the clearer surgical indications, along with some root tears, where early repair may help protect the joint. Younger patients with peripheral longitudinal tears in well-vascularised tissue may also be candidates for meniscus repair, which is a different operation from a partial meniscectomy and has very different implications for long-term knee health. These are case-by-case decisions made with an orthopaedic surgeon."
       },
       {
         question: "Can I keep running or training with a meniscus tear?",
-        answer: "Often yes, with modification. The tear itself is not made worse by most training activities, and loading the quadriceps and hip musculature is part of the treatment. Sharp twisting, deep loaded squatting early on, and sudden large jumps in volume tend to flare symptoms. The usual approach is reducing aggravating activities for a few weeks while rebuilding strength, then layering load back in."
+        answer: "Often yes, with modification, for an assessed stable or degenerative tear. Appropriately adjusted activity is often possible, and loading the quadriceps and hip musculature is part of the treatment. Root tears, displaced tears, a new major injury and a repaired meniscus need different advice. Sharp twisting, deep loaded squatting early on, and sudden large jumps in volume tend to flare symptoms. The usual approach is reducing aggravating activities for a few weeks while rebuilding strength, then layering load back in."
       },
       {
         question: "Will I get arthritis because of my meniscus tear?",
@@ -2977,7 +2986,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
           "Plyometric work including drop jumps and bounds, with attention to landing mechanics",
           "Change-of-direction drills at graded speeds, building from low to moderate to high intensity",
           "Heavier bilateral squatting and deadlifting matched to training goals",
-          "Graded return-to-run or sport-specific program, increasing volume by no more than 10 percent per week"
+          "Graded return-to-run or sport-specific program, increasing volume gradually and adjusting each step to how the knee responds over the following 24 hours"
         ],
         progressionCriteria: "Single-leg hop distance within 10 percent of the unaffected side, full sport-specific drills with pain 2 out of 10 or less and no 24-hour flare, and two consecutive weeks of return-to-training volume without symptom regression."
       }
@@ -2989,7 +2998,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
   'it-band-syndrome': {
     pathophysiology: `IT band syndrome involves irritation where the iliotibial band crosses the lateral knee. It's not friction but compression of sensitive fat pad beneath the band. Contributing factors include hip weakness, training errors, and biomechanical issues.`,
 
-    biomechanics: `IT band syndrome is felt at the knee, but hip control often plays a part. Weak glutes, particularly the gluteus medius, fail to control your thigh position during running and walking. When your hip drops on one side during single-leg activities, it causes your thigh to angle inward (hip adduction), which increases tension in the IT band and compresses the sensitive tissue underneath it at the knee.
+    biomechanics: `IT band syndrome is felt at the knee, but hip control may play a part. When the pelvis drops on one side during single-leg activities, the thigh angles inward (hip adduction), which can increase tension in the IT band and compress the sensitive tissue underneath it at the knee. Hip weakness and running differences seen in people with ITB pain do not prove they caused it, but they are things rehab can work on.
 
 Running mechanics play a huge role in developing IT band syndrome. Overstriding (landing with your foot too far in front of your body), excessive crossover gait (feet landing across the midline), and running with too much vertical oscillation all increase IT band tension. Downhill running is particularly problematic because it encourages longer stride lengths and places greater demands on your hip stabilizers. When your hip muscles fatigue, your running form deteriorates, creating even more IT band stress.
 
@@ -3032,7 +3041,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Hip abductor strengthening combined with running gait modification reduces pain and supports return to running, typically within 6 to 8 weeks",
+      primaryStrategy: "Hip abductor strengthening combined with training changes and running gait modification can reduce pain and support a return to running, although the research is limited and recovery times vary",
       secondaryStrategy: "Training load management and cadence modification reduce ITB stress while maintaining running fitness through targeted cross-training activities",
       preventionStrategy: "Regular hip strengthening and proper training progression may help reduce the risk of ITB syndrome in recreational and competitive runners",
       sources: "Fredericson et al. 2000 (Clin J Sport Med); Mucha et al. 2017 systematic review (J Sci Med Sport)"
@@ -3058,7 +3067,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
     ],
 
     prognosis: {
-      timeline: "Most runners return to full training within 6-8 weeks",
+      timeline: "Some runners improve over several weeks, while others need longer. Return to running and return to full training are separate milestones, guided by symptoms and tolerance",
       factors: [
         "Duration of symptoms",
         "Training modifications",
@@ -3104,7 +3113,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
       {
         title: "Hip Abductor Weakness in Distance Runners with Iliotibial Band Syndrome (Fredericson et al., Clinical Journal of Sport Medicine)",
         year: 2000,
-        findings: "In a case series of 24 distance runners with ITBS, a 6-week hip abductor (gluteus medius) strengthening program left 22 of 24 pain-free and able to return to running, with no recurrence at 6 months",
+        findings: "In a small, uncontrolled case series of 24 distance runners with ITBS, a 6-week hip abductor (gluteus medius) strengthening program left 22 of 24 pain-free and able to return to running, with no recurrence at 6 months",
         relevance: "Supports hip-focused rehabilitation"
       }
     ],
@@ -3129,7 +3138,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
       },
       {
         question: "How long does ITB syndrome take to resolve?",
-        answer: "Most recreational runners are back to full training within about 6 to 8 weeks when hip strengthening, load management, and running-form work are addressed together. Runners who only rest tend to cycle in and out of symptoms for months. The duration of symptoms before starting a proper program is one of the bigger predictors of how long recovery takes."
+        answer: "Some runners improve over several weeks when hip strengthening, load management, and running-form work are addressed together, while others need longer. Getting back to running and getting back to full training are separate milestones, both guided by symptoms and tolerance. Rest alone often does not settle it for long, and symptoms that have been present for a long time can take longer to settle."
       },
       {
         question: "Does cadence actually help IT band pain?",
@@ -3145,7 +3154,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
       },
       {
         question: "Why is downhill running so much worse?",
-        answer: "Downhill running increases knee flexion around the 20 to 30 degree window where the iliotibial band structures are most compressed against the lateral femoral epicondyle region, and it demands more eccentric control from the hip stabilisers. That combination is why steep descents so reliably flare symptoms. Early rehab usually avoids aggressive downhill work and reintroduces it gradually once strength and mechanics are holding up."
+        answer: "Downhill running increases knee flexion around the 20 to 30 degree window where the iliotibial band structures are most compressed against the lateral femoral epicondyle region, and it demands more eccentric control from the hip stabilisers. That combination is why steep descents often flare symptoms. Early rehab usually avoids aggressive downhill work and reintroduces it gradually once strength and mechanics are holding up."
       }
     ],
     differentialDiagnosis: [
@@ -3203,7 +3212,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
         title: "Phase 3: Return to Full Training and Terrain (Weeks 6 to 10+)",
         focus: "Rebuild running volume and reintroduce hills, intervals, and terrain variety. Relapses often happen in this phase when volume jumps too fast, so weekly increases are kept small, with about 10 percent as a rough guide rather than a fixed rule.",
         examples: [
-          "Graded return-to-run progression, increasing weekly volume by no more than 10 percent",
+          "Graded return-to-run progression, increasing running gradually and adjusting each step to symptoms and recovery, counting changes in speed, hills and terrain as well as distance",
           "Reintroduction of gentle downhill running, starting with short, mild gradients before longer or steeper sections",
           "Faster-paced interval work once easy running is consistently pain-free",
           "Continued hip strengthening twice weekly as maintenance",
@@ -3252,8 +3261,8 @@ With chronic ankle instability, the entire lower limb adapts through compensator
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Early functional mobilization with progressive exercise can substantially reduce the risk of developing chronic ankle instability compared with immobilization approaches, and supports faster recovery",
-      secondaryStrategy: "Balance and proprioception training combined with strengthening can reduce re-injury risk and effectively addresses the neuromuscular deficits that lead to chronic instability",
+      primaryStrategy: "Early functional rehabilitation with progressive exercise is favoured over immobilization for most sprains in current guidelines, with support for a faster return to activity",
+      secondaryStrategy: "Balance and proprioception training combined with strengthening can reduce re-injury risk and targets the balance and control changes linked to chronic instability",
       preventionStrategy: "Structured neuromuscular training programs incorporating balance, plyometrics, and sport-specific movements can help prevent initial ankle sprains and reduce recurrence in high-risk populations",
       sources: "JOSPT Clinical Practice Guidelines 2021; British Journal of Sports Medicine Consensus Statement; Cochrane Systematic Reviews"
     },
@@ -3334,9 +3343,9 @@ With chronic ankle instability, the entire lower limb adapts through compensator
 
     selfManagement: [
       {
-        strategy: "PEACE & LOVE Protocol",
-        rationale: "Protect and elevate in the first days, avoid early anti-inflammatories, use compression, then return to gradual loading",
-        precautions: ["Avoid excessive rest and ice"]
+        strategy: "Protect first, then load gradually",
+        rationale: "Protect the ankle at first, then restore supported weight-bearing and exercise as the injury allows. Compression and elevation may help swelling, and brief, wrapped cold packs can be used for comfort. Ask a doctor or pharmacist whether pain medication is suitable for you",
+        precautions: ["A severe sprain may need a short period of greater protection, such as a brace or boot", "Avoid prolonged rest", "Wrap cold packs in a cloth and keep each use brief"]
       },
       {
         strategy: "Balance Exercises",
@@ -3347,8 +3356,8 @@ With chronic ankle instability, the entire lower limb adapts through compensator
 
     clinicalRedFlags: [
       {
-        sign: "Unable to take 4 steps, or tender on the back edge or tip of either ankle bone, the base of the fifth toe bone, or the bone on the inner midfoot",
-        action: "Go to urgent care or your family doctor for an X-ray (Ottawa ankle rules) before loading the ankle"
+        sign: "Either of these after the injury: you could not take 4 steps (even limping) straight afterwards and still cannot, or you are tender on the back edge or tip of either ankle bone, the base of the fifth toe bone, or the bone on the inner midfoot",
+        action: "Get assessed the same day at urgent care or by your family doctor for an X-ray (Ottawa ankle rules) before loading the ankle. Either sign on its own is enough"
       },
       {
         sign: "A cold, pale, or blue foot, or numbness that does not settle",
@@ -3376,7 +3385,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       },
       {
         question: "Should I keep walking on a sprained ankle?",
-        answer: "For most grade 1 and grade 2 lateral sprains, yes, within pain tolerance. The PEACE and LOVE framework (Dubois and Esculier, BJSM 2020) has replaced strict RICE. Early protected weight bearing and gradual loading improve outcomes compared to prolonged immobilization. The JOSPT clinical practice guideline (Martin et al., 2021) supports early functional rehabilitation. If you cannot bear weight at all or have a clear fracture pattern, that is different and needs screening first."
+        answer: "For many grade 1 and grade 2 lateral sprains, yes, within pain tolerance. Educational frameworks such as PEACE and LOVE (Dubois and Esculier, BJSM 2020) emphasise early protected loading rather than strict rest, and current guidelines favour early protected weight bearing and gradual loading over prolonged immobilization for most sprains (Vuurberg et al., 2018; Martin et al., JOSPT 2021). Brief, wrapped cold packs can still be used for comfort alongside exercise. A severe sprain may need a short period of greater protection in a brace or boot first. If you cannot bear weight at all or a fracture is suspected, that is different and needs screening first."
       },
       {
         question: "How long does a sprained ankle take to heal?",
@@ -3384,7 +3393,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       },
       {
         question: "Why does my ankle still feel weak months after I sprained it?",
-        answer: "Roughly 40 percent of people who sustain a first-time lateral ankle sprain go on to develop chronic ankle instability at 12 month follow-up (Doherty et al., AJSM 2016). This is not just ligament laxity. It involves damaged mechanoreceptors, altered peroneal muscle timing, and compensatory strategies that ripple up the hip and trunk. The fix is targeted balance and neuromuscular training, strength work for the peroneals and hip, and progressive loading of sport-specific tasks, not more rest."
+        answer: "Roughly 40 percent of people who sustain a first-time lateral ankle sprain go on to develop chronic ankle instability at 12 month follow-up (Doherty et al., AJSM 2016). This is not just ligament laxity. It involves damaged mechanoreceptors, altered peroneal muscle timing, and compensatory strategies that ripple up the hip and trunk. What often helps is targeted balance and neuromuscular training, strength work for the peroneals and hip, and progressive loading of sport-specific tasks, not more rest."
       },
       {
         question: "Do I need an MRI for a sprained ankle?",
@@ -3392,7 +3401,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       },
       {
         question: "When can I return to sport after an ankle sprain?",
-        answer: "Return to sport is criterion-based, not time-based. I use objective markers from the JOSPT CPG (Martin et al., 2021), including pain-free hopping and cutting, symmetrical single-leg balance (Star Excursion or Y-Balance within 4 cm of the other side), ankle strength within about 90 percent of the uninjured side, and completion of progressive agility and sport-specific drills without apprehension. Depending on grade, this is typically 2 to 8 weeks for simple sprains and longer for grade 3 or high ankle sprains."
+        answer: "Return to sport is based on criteria rather than time alone, in line with the JOSPT CPG (Martin et al., 2021). Examples of the markers I use: pain-free hopping and cutting, single-leg balance and reach tests close to the other side, ankle strength close to the uninjured side, and completing progressive agility and sport-specific drills without apprehension. These are clinical guides I set for each person rather than validated cut-offs. Depending on grade, this is often 2 to 8 weeks for simple sprains and longer for grade 3 or high ankle sprains."
       }
     ],
     differentialDiagnosis: [
@@ -3428,7 +3437,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Acute Protection and Early Loading (Days 0 to 7 to 14)",
-        focus: "Apply the PEACE component of PEACE and LOVE (Dubois and Esculier, BJSM 2020): Protection, Elevation, Avoid anti-inflammatories, Compression, Education. Prolonged rest and routine ice are no longer recommended. The JOSPT CPG (Martin et al., 2021) supports early functional rehabilitation with short-term external support if needed.",
+        focus: "Protect the ankle at first, then restore supported weight-bearing and gentle movement as the injury allows. Compression and elevation may help swelling, and brief, wrapped cold packs can be used for comfort alongside exercise. Ask a doctor or pharmacist whether pain medication is suitable for you. The JOSPT CPG (Martin et al., 2021) supports early functional rehabilitation with short-term external support if needed, and a severe sprain may need a short period of greater protection before this phase.",
         examples: [
           "Protected weight bearing within pain tolerance, using crutches only if gait is antalgic, transitioning off as soon as a normal heel-to-toe gait is achieved",
           "Ankle pumps and active alphabet tracing in all planes to prevent joint stiffness and maintain fluid movement",
@@ -3440,7 +3449,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       },
       phase2: {
         title: "Phase 2: Progressive Loading, Balance, and Strength (Weeks 2 to 6)",
-        focus: "Apply the LOVE component: Load, Optimism, Vascularisation, Exercise. This is the highest-yield phase for preventing chronic ankle instability. Balance and neuromuscular training is the most consistently supported intervention for reducing recurrence (Martin et al., JOSPT 2021; Doherty et al., BJSM 2017).",
+        focus: "Build load, confidence and exercise as the ankle allows. This phase targets the balance and strength changes linked to chronic ankle instability. Balance and neuromuscular training has consistent support for reducing recurrence (Martin et al., JOSPT 2021; Doherty et al., BJSM 2017).",
         examples: [
           "Single-leg balance progression on firm then unstable surfaces (foam pad, BOSU), building to eyes-closed and reactive perturbation drills",
           "Resisted eversion and inversion with a resistance band, progressing volume and resistance as strength improves",
@@ -3448,11 +3457,11 @@ With chronic ankle instability, the entire lower limb adapts through compensator
           "Star Excursion or Y-Balance reaches in anterior, posteromedial, and posterolateral directions to restore dynamic stability",
           "Bilateral then unilateral hopping in place, progressing to forward, lateral, and diagonal hops once pain-free"
         ],
-        progressionCriteria: "Single-leg balance at least 30 seconds on a firm surface with eyes closed, single-leg heel raise symmetry of 80 percent or greater of the uninjured side, Y-Balance composite reach within 4 cm of the uninjured side, and pain-free hopping in place."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: steady single-leg balance on a firm surface with eyes closed, single-leg heel raises close to the uninjured side, reach tests (such as the Y-Balance) close to the uninjured side, and pain-free hopping in place."
       },
       phase3: {
         title: "Phase 3: Return to Sport and Cutting (Weeks 4 to 12+)",
-        focus: "Restore high-speed, multidirectional tasks with confidence. The JOSPT CPG (Martin et al., 2021) emphasises criterion-based return to sport. Pooled evidence consistently shows neuromuscular training programs meaningfully reduce ankle sprain recurrence, which is why prevention work carries through into the maintenance phase rather than stopping at symptom resolution.",
+        focus: "Restore high-speed, multidirectional tasks with confidence. The JOSPT CPG (Martin et al., 2021) emphasises criterion-based return to sport. Pooled evidence suggests neuromuscular training programs can reduce ankle sprain recurrence, which is why prevention work carries through into the maintenance phase rather than stopping at symptom resolution.",
         examples: [
           "Progressive plyometric progression: double-leg to single-leg hops, linear to lateral to rotational hops, and drop landings with quality scoring",
           "Change-of-direction drills starting with planned cutting at 45 degrees and progressing to 90 and 180 degree cuts, then reactive cutting",
@@ -3460,7 +3469,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
           "Fatigue-resistance training by placing balance and single-leg work at the end of a session to mimic late-game demands when reinjury rates rise",
           "Ongoing neuromuscular maintenance program 2 to 3 times per week, modelled on FIFA 11+ style injury prevention warm-ups"
         ],
-        progressionCriteria: "Strength symmetry for dorsiflexion, plantarflexion, eversion, and inversion of 90 percent or greater of the uninjured side, symmetrical hop test battery (single, triple, crossover, 6 metre timed) within 90 percent, completion of reactive cutting and sport-specific drills without apprehension, and negative Cumberland Ankle Instability Tool screen if available."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: ankle strength in all directions close to the uninjured side (around 90 percent is a common clinical target), hop tests close to the other side, completion of reactive cutting and sport-specific drills without apprehension, and no ongoing feeling of the ankle giving way (a short questionnaire such as the Cumberland Ankle Instability Tool can help track this)."
       }
     },
     lastReviewed: '2026-04-16',
@@ -3533,13 +3542,13 @@ Footwear and training surface changes can trigger Achilles problems even in expe
     prognosis: {
       timeline: "Recovery is slow and requires patience. Pain and function usually improve gradually over the first 12 weeks of loading and keep improving after that (Murphy et al., 2018), but full recovery often takes a year or longer. Some people keep mild symptoms while returning to the activities they want",
       factors: [
-        "Age and sex show conflicting evidence as predictors (male gender may have better pain reduction)",
-        "Baseline pain levels during provocation tests predict outcomes at 24 weeks",
-        "Limited ankle dorsiflexion ROM associated with poorer outcomes",
+        "Research has not found a factor that reliably predicts recovery for one person; the studies are few and low quality",
         "Duration of symptoms and imaging findings (thickness, focal lesions) do not reliably predict outcomes",
-        "Psychosocial factors like fear-avoidance and catastrophizing likely influence recovery"
+        "Whether the pain is mid-portion or insertional changes how loading is dosed",
+        "How irritable the tendon is at the start, and how training load is managed alongside rehab",
+        "Worry about the tendon and confidence with loading may influence recovery"
       ],
-      naturalHistory: "Most people improve with a well-dosed loading program. A smaller group who still have significant symptoms after at least 6 months of good conservative care go on to discuss other options, including surgery, with a specialist"
+      naturalHistory: "Many people improve with a well-dosed loading program. A smaller group who still have significant symptoms after at least 6 months of good conservative care go on to discuss other options, including surgery, with a specialist"
     },
 
     selfManagement: [
@@ -3657,15 +3666,15 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       {
         question: "Should I stop running with Achilles tendinopathy?",
-        answer: "Usually no. Complete rest tends to detrain the tendon further and symptoms return as soon as running resumes. The Silbernagel pain-monitoring model allows continued running provided pain stays at or below about 5 out of 10 during the run, settles within 24 hours, and does not creep up week over week. If all three conditions hold, running is serving the rehab rather than undermining it."
+        answer: "Often no. Complete rest can detrain the tendon, and symptoms often return when running resumes. The Silbernagel pain-monitoring model allows continued running provided pain stays at or below about 5 out of 10 during the run, settles within 24 hours, and does not creep up week over week. If all three hold, running can usually continue alongside the rehab. These limits are a guide used in one trial program, not a safety threshold, so I adjust them to how your tendon responds."
       },
       {
         question: "Do eccentric heel drops still work, or is heavy slow resistance better?",
-        answer: "Both work. Alfredson's 1998 protocol of 3 sets of 15 heel drops twice daily for 12 weeks produced results strong enough to reshape tendon rehab globally. Beyer and colleagues (AJSM 2015) compared heavy slow resistance against eccentric training at 12 and 52 weeks and found equivalent outcomes with higher patient satisfaction in the heavy slow resistance group at 12 weeks. I typically pick based on equipment access, schedule, and what the person will actually do three times a week."
+        answer: "Both can help. Alfredson's 1998 study of 3 sets of 15 heel drops twice daily for 12 weeks was small, but it shaped how tendon rehab is done. Beyer and colleagues (AJSM 2015) compared heavy slow resistance against eccentric training at 12 and 52 weeks and found equivalent outcomes with higher patient satisfaction in the heavy slow resistance group at 12 weeks. I typically pick based on equipment access, schedule, and what the person will actually do three times a week."
       },
       {
         question: "Why is my Achilles worst in the morning?",
-        answer: "Morning stiffness is one of the most reliable features of tendinopathy. During sleep the tendon sits in a shortened, unloaded position, and the first weight-bearing steps reload tissue that has not been primed. Stiffness that eases within 10 to 15 minutes, and a warm-up period where the tendon feels better during activity, are classic. Stiffness lasting over 30 minutes or worsening through the day signals that loading needs to be dialled back."
+        answer: "Morning stiffness is a common feature of tendinopathy. During sleep the tendon sits in a shortened, unloaded position, and the first weight-bearing steps reload tissue that has not been primed. Stiffness that eases within several minutes, and a warm-up period where the tendon feels better during activity, are typical. Stiffness that lasts noticeably longer than usual the morning after a session, or builds through the day, can be a sign that loading needs to be dialled back."
       },
       {
         question: "What is the difference between insertional and mid-portion Achilles tendinopathy?",
@@ -3673,7 +3682,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       {
         question: "Are cortisone injections a good idea for Achilles tendinopathy?",
-        answer: "I steer people away from peritendinous cortisone for the Achilles. Pain relief is short-lived, and there is a real concern about tendon weakening and rupture risk with injection into or around a degenerative tendon. Current tendinopathy reviews do not support corticosteroid injection as a primary treatment. Progressive loading remains the cornerstone."
+        answer: "I do not treat an Achilles injection as a routine first step. Injection into the tendon itself raises particular concern about weakening it, and the technique and the rehabilitation afterwards matter. One placebo-controlled trial in selected adults with long-standing mid-portion pain found more improvement at six months when an ultrasound-guided injection around the tendon was added to exercise, with no severe side effects in that group (Johannsen et al., JAMA Network Open 2022). That trial does not cover insertional pain, partial tears, or every loading program. If an injection is being considered, a sports medicine physician should discuss whether that evidence applies to you and explain the risks. Progressive loading stays at the centre of the plan either way."
       },
       {
         question: "When should I worry about an Achilles rupture versus tendinopathy?",
@@ -3696,7 +3705,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
           "Soleus-focused seated calf raise with the knee bent to roughly 90 degrees, 3 sets of 15",
           "Running volume reduced by 30 to 50 percent, with steepest uphill or speed work paused"
         ],
-        progressionCriteria: "Morning stiffness under 15 minutes for 7 consecutive days, pain during isometric holds at or below 3 out of 10, and no symptom rise 24 hours after loading sessions."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: morning stiffness settling quickly for about a week, isometric holds feeling comfortable (around 3 out of 10 or less), and no symptom rise 24 hours after loading sessions."
       },
       phase2: {
         title: "Phase 2: Heavy Slow Resistance or Eccentric Loading (Weeks 4 to 12)",
@@ -3708,7 +3717,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
           "Insertional: floor-level or slightly elevated calf raises only, same tempo and sets, avoiding end-range dorsiflexion",
           "Running maintained or gradually rebuilt using the 24-hour symptom rule as the gatekeeper"
         ],
-        progressionCriteria: "Full-range single-leg calf raises at 3 out of 10 pain or less, at least 20 consecutive single-leg raises possible on the affected side, and two weeks of loading sessions tolerated without a 24-hour flare."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: full-range single-leg calf raises with low pain (around 3 out of 10 or less), a solid set of consecutive single-leg raises on the affected side, and two weeks of loading sessions tolerated without a 24-hour flare."
       },
       phase3: {
         title: "Phase 3: Energy Storage and Return to Sport (Months 3 to 6+)",
@@ -3720,7 +3729,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
           "Running volume rebuilt in small weekly steps, with hills and speed work reintroduced last",
           "Sport-specific demands such as cutting for soccer, repeated sprints, or jump-intensive training reintroduced in graded blocks"
         ],
-        progressionCriteria: "VISA-A score trending upward and above 80 when used, single-leg hop symmetry within 10 percent of the unaffected side, and two consecutive weeks of full training or running volume without a 24-hour symptom flare."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: VISA-A score trending upward when used, single-leg hopping close to the unaffected side, and two consecutive weeks of full training or running volume without a 24-hour symptom flare."
       }
     },
 
@@ -3774,7 +3783,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive calf and hip loading, with cadence or landing changes where they help, can reduce the load on the tibia and support a gradual return to running over several weeks",
+      primaryStrategy: "Progressive calf and hip loading, a reduced and rebuilt running plan, and for some runners a step-rate or landing cue, can support a gradual return to running over several weeks",
       secondaryStrategy: "Training modification and cross-training maintain fitness while allowing bone adaptation and reducing repetitive loading forces on the tibia",
       preventionStrategy: "Gradual training progression and running form changes may help lower the risk of a recurrence, though the evidence for preventing medial tibial stress syndrome is limited",
       sources: "Winters (2020) MTSS evidence update; Crowell & Davis (2011) gait retraining"
@@ -3800,7 +3809,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
     ],
 
     prognosis: {
-      timeline: "Most return to running within 4-8 weeks with proper management",
+      timeline: "Many runners return to running over several weeks with a structured plan. The timeline depends on how long symptoms have been building and how training load is managed",
       factors: [
         "Training errors",
         "Biomechanical factors",
@@ -3825,12 +3834,12 @@ Biomechanical factors significantly influence shin splint development. Overprona
 
     clinicalRedFlags: [
       {
-        sign: "Pain at one small spot on the shin bone, pain at night or at rest, or sharp pain when hopping on that leg",
-        action: "Stop running and see your family doctor before starting physiotherapy, to check for a stress fracture"
+        sign: "Pain at one small spot on the shin bone, pain at night or at rest, or pain that changes the way you walk",
+        action: "Stop running and other impact activity and see your family doctor before starting physiotherapy, to check for a stress fracture. Do not hop or exercise to exhaustion to test it"
       },
       {
         sign: "Pain on the front of the shin rather than the inner edge, especially a tender spot on the bone",
-        action: "See your family doctor promptly; stress fractures on the front of the shin heal poorly and need medical review"
+        action: "Stop impact activity and see your family doctor promptly; stress fractures on the front of the shin heal poorly and need medical review"
       },
       {
         sign: "A tight, very painful lower leg after an injury or a hard session, pain out of proportion to what happened, or numbness and weakness in the foot",
@@ -3841,8 +3850,12 @@ Biomechanical factors significantly influence shin splint development. Overprona
         action: "See your family doctor, who can refer you for testing for exertional compartment syndrome"
       },
       {
-        sign: "A cold, pale, or numb foot during exercise",
-        action: "See your family doctor promptly to check the circulation to the leg"
+        sign: "A foot or toe that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "Colour or feeling changes in the foot that come on only during exercise and fully settle with rest",
+        action: "Stop that activity and arrange a prompt medical assessment of the circulation to the leg"
       }
     ],
 
@@ -3908,19 +3921,19 @@ Biomechanical factors significantly influence shin splint development. Overprona
     faqs: [
       {
         question: "Do I have shin splints or a stress fracture?",
-        answer: "Shin splints produce diffuse tenderness along roughly a 5 cm or longer stretch of the inner tibia, and pain eases somewhat with walking or gentle movement. A stress fracture is usually a single focal spot of bone pain, often with sharp pain on hopping or a single-leg calf raise to failure, and night pain or rest pain is a red flag. When the hop test reproduces sharp focal pain or when tenderness stays pinpoint rather than spread out, I pause running and arrange imaging rather than continuing to load."
+        answer: "Shin splints usually produce diffuse tenderness along a longer stretch of the inner shin bone (roughly 5 cm or more), and pain often eases somewhat with walking or gentle movement. A stress fracture is usually a single focal spot of bone pain, and night pain or rest pain is a red flag. Stop impact activity and get assessed if pain becomes focal over the bone, persists at rest, or changes your walking. Do not repeatedly hop or exercise to exhaustion to test it yourself. When the picture points to a stress fracture, I pause running, and when imaging would change the plan, I flag it to your family doctor or specialist and refer you."
       },
       {
         question: "Should I run through shin splints?",
-        answer: "Running through rising shin pain is the fastest route to a stress fracture, so the answer is no when pain is climbing week over week, when the shin is tender after sessions, or when a single-leg hop is painful. Early and mild cases often tolerate reduced volume, softer surfaces, and a higher cadence, but this only works if symptoms stabilise or improve. If they do not, a short window away from running and dedicated calf loading usually resolves things faster than grinding through."
+        answer: "Running through rising shin pain raises the risk of the bone stress progressing, so the answer is no when pain is climbing week over week, when the shin is tender after sessions, or when pain is narrowing to one spot. Early and mild cases often tolerate reduced volume and softer surfaces, and for some runners a small change in step rate or a softer-landing cue helps, but this only works if symptoms stabilise or improve. If they do not, a short window away from running with dedicated calf loading often settles things faster than pushing through."
       },
       {
         question: "How long do shin splints take to settle?",
-        answer: "Mild cases caught early often settle in 2 to 4 weeks with load reduction and calf strengthening. Cases that have been building for months typically need 6 to 12 weeks of progressive rehab before full running volume returns. The biggest variable is whether the original training spike is actually modified. Without that, symptoms tend to recur as soon as mileage rebuilds."
+        answer: "Mild cases caught early often settle within a few weeks with load reduction and calf strengthening. Cases that have been building for months often need a longer period of progressive rehab, sometimes a few months, before full running volume returns. A big variable is whether the original training spike is actually modified. Without that, symptoms often recur as mileage rebuilds."
       },
       {
         question: "Does increasing running cadence help shin splints?",
-        answer: "Often yes. A higher step rate, typically a 5 to 10 percent increase over habitual cadence, shortens stride length, reduces overstride, and lowers vertical impact loading. Studies on gait retraining in runners show reductions in tibial strain and impact metrics with cadence cueing. It is not a standalone fix, but combined with calf strengthening and a sensible mileage rebuild it is one of the more effective running tweaks."
+        answer: "It can help some runners. A small increase from your usual step rate (5 to 10 percent is the range most often studied) shortens the stride and reduces overstriding. The effect on shin loading is less certain: in one small experiment, cues to take shorter steps or to run softly reduced a measure of impact on the shin slightly at an easy pace, while a step-rate increase did not (Anderson et al., Gait & Posture 2024). Impact measures are not the same as the load inside the bone, and none of this proves faster recovery. I choose a cue, if any, based on your running pattern and how your shin responds, alongside calf strengthening and a sensible mileage rebuild."
       },
       {
         question: "Are orthotics or new shoes a solution?",
@@ -3939,7 +3952,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Load Reduction and Early Loading (Weeks 1 to 3)",
-        focus: "Bring tibial tenderness and activity pain down while preserving aerobic fitness and starting to rebuild calf capacity. Running is reduced or paused for 1 to 2 weeks in most cases, with a clear return-to-run criterion: a pain-free single-leg hop and non-tender palpation along the tibial border. Cross-training carries the aerobic load. The Winters et al. work on MTSS diagnosis, including the clinical use of tibial palpation and hop testing, guides both assessment and return-to-run decision-making.",
+        focus: "Bring tibial tenderness and activity pain down while preserving aerobic fitness and starting to rebuild calf capacity. Running is often reduced or paused for a short period, and the return to running is based on checks I do in clinic, such as no tenderness along the shin bone and comfortable single-leg hopping, rather than on hopping tests at home. Cross-training carries the aerobic load. The Winters et al. work on MTSS diagnosis, including the clinical use of tibial palpation and hop testing, guides both assessment and return-to-run decision-making.",
         examples: [
           "Double-leg calf raises on flat ground, 3 sets of 15, 3 seconds up and 3 seconds down",
           "Seated heel raises for the soleus with the knee bent, 3 sets of 15",
@@ -3947,23 +3960,23 @@ Biomechanical factors significantly influence shin splint development. Overprona
           "Cycling, pool running, elliptical, or rowing to maintain aerobic fitness at conversational intensity",
           "Hip abductor and glute max strengthening such as side planks and single-leg bridges, 3 sets of 10 to 12"
         ],
-        progressionCriteria: "Tibial palpation no longer tender, pain-free single-leg hopping for 20 repetitions, double-leg calf raises tolerated without post-exercise shin pain the next morning."
+        progressionCriteria: "Examples of the checks I use in clinic, set for each person rather than fixed cut-offs: the shin bone no longer tender to press, comfortable single-leg hopping, and double-leg calf raises tolerated without shin pain the next morning."
       },
       phase2: {
         title: "Phase 2: Progressive Loading and Return to Running (Weeks 3 to 8)",
-        focus: "Rebuild calf, hip, and running-specific capacity while reintroducing running in structured walk-run intervals. Cadence is checked and, where helpful, increased by 5 to 10 percent from the runner's habitual step rate to reduce tibial loading. Weekly running volume increases in small steps, and sessions are spaced to allow bone recovery.",
+        focus: "Rebuild calf, hip, and running-specific capacity while reintroducing running in structured walk-run intervals. Running form is checked, and for some runners a small change from their usual step rate, or a shorter-step or softer-landing cue, is tried, based on their running pattern and response. Weekly running volume increases in small steps, and sessions are spaced to allow bone recovery.",
         examples: [
           "Single-leg calf raises, 3 sets of 8 to 15, progressing to loaded calf raises as tolerated",
           "Soleus-focused seated calf raises with load, 3 sets of 8 to 12",
           "Step-ups and split squats, 3 sets of 8 to 10 per side, to build single-leg capacity",
           "Walk-run intervals starting at 1 minute run and 2 minutes walk, progressing toward continuous running on soft surfaces",
-          "Cadence work with a metronome or music at 170 to 180 steps per minute if previously running at a notably lower rate"
+          "If it suits your running pattern, a small step-rate change from your usual cadence or a softer-landing cue, practised in short blocks within easy runs"
         ],
-        progressionCriteria: "Continuous 20 to 30 minute easy run on soft surface without shin pain during or next-day, 20 or more single-leg calf raises on the affected side, and two consecutive weeks of load progression without symptom rise."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a continuous easy run of around 20 to 30 minutes on a soft surface without shin pain during or the next day, a solid set of single-leg calf raises on the affected side, and two consecutive weeks of load progression without symptom rise."
       },
       phase3: {
         title: "Phase 3: Full Training and Prevention (Weeks 8+)",
-        focus: "Return to normal training volume, reintroduce speed, hills, and harder surfaces, and install the habits that keep the tibia loaded within its capacity. The aim is not just symptom resolution but a runner who can take on the next training block without regression. Monitoring weekly load increases, continuing calf and hip strength work, and respecting planned down-weeks are the most reliable preventive tools.",
+        focus: "Return to normal training volume, reintroduce speed, hills, and harder surfaces, and install the habits that keep the tibia loaded within its capacity. The aim is not just symptom resolution but a runner who can take on the next training block without regression. Monitoring weekly load increases, continuing calf and hip strength work, and respecting planned down-weeks are the main preventive tools I use, although the evidence for preventing shin splints is limited.",
         examples: [
           "Plyometric progression from double-leg pogo hops to single-leg hops in place and for distance, 3 sets of 10 to 20 contacts",
           "Tempo and interval running reintroduced one quality session per week, gradually building volume",
@@ -4015,17 +4028,17 @@ Risk factors include age 40-60 years (peak incidence), occupations requiring for
 
     biomechanics: `The biomechanical drivers of golfer's elbow center on repetitive eccentric and isometric loading of the wrist flexors and forearm pronators during gripping and rotational tasks. When you grip an object forcefully while simultaneously flexing your wrist or rotating your forearm inward (pronation), high tensile stress concentrates at the medial epicondyle. This loading pattern occurs during the golf downswing (hence the name), but more commonly during occupational and daily activities.
 
-Computer work creates significant medial elbow stress through less obvious mechanisms. During typing, especially with keyboards positioned too low or wrists resting in flexion on wrist pads, the flexor tendons must maintain sustained low-level contraction to control finger movement. This constant activation prevents adequate recovery periods between loading cycles. Mouse work with the wrist deviated and forearm pronated combines both risk factors: sustained flexor activation and pronation torque. Prolonged daily typing without proper ergonomics is associated with a higher incidence of medial epicondylalgia.
+Computer work may add some load for some people. Typing with the wrists propped in a bent position keeps the flexor muscles working at a low level, and mouse use with the forearm turned palm-down adds some pronation load. This is a plausible loading mechanism rather than proof that ordinary computer work damages the tendon; many people type all day without elbow pain, and how a tendon responds depends on total load, recovery, and general health.
 
 Manual labor and tool use create even more extreme loading scenarios. Using a hammer requires forceful gripping combined with rapid eccentric loading during impact deceleration. The flexor-pronator muscles must stabilize the wrist against the vibration and torque generated with each strike. Screwdriver use, particularly when driving screws into hard materials, combines sustained maximal grip force with repetitive pronation-supination torque. Carrying heavy objects with handles (shopping bags, buckets, toolboxes) places sustained isometric load on the flexors, especially when the load is held away from the body with the elbow extended.
 
-Golf biomechanics reveal why swing deficiencies cause this injury. During the downswing, the lead arm (left for right-handed golfers) must generate both club speed and control. Poor technique that creates excessive wrist flexion at impact, early release of the wrist angle before ball contact, or hitting behind the ball repeatedly creates explosive eccentric loading on the flexor-pronator mass. Gripping too tightly throughout the swing prevents necessary relaxation phases. The trailing arm is also vulnerable during the follow-through if the golfer pulls across the body with excessive forearm rotation.
+Golf technique can add load. During the downswing, the lead arm (left for right-handed golfers) must generate both club speed and control. Poor technique that creates excessive wrist flexion at impact, early release of the wrist angle before ball contact, or hitting behind the ball repeatedly creates explosive eccentric loading on the flexor-pronator mass. Gripping too tightly throughout the swing prevents necessary relaxation phases. The trailing arm is also vulnerable during the follow-through if the golfer pulls across the body with excessive forearm rotation.
 
 Throwing mechanics in baseball and softball create similar stresses. During the acceleration phase of throwing, the medial elbow experiences high valgus stress that loads both the ulnar collateral ligament and flexor-pronator mass. The flexors must eccentrically control the elbow extension velocity while the forearm pronates to impart spin on the ball. This is why medial elbow pain in overhead athletes often represents a complex of pathology including UCL strain, flexor-pronator tendinopathy, and potential ulnar nerve irritation.
 
 Racquet sports, particularly tennis serves and overhead strokes, create wrist flexion torque at ball contact that must be controlled by the flexor-pronator group. Poor technique that relies on wrist action rather than trunk rotation significantly overloads these structures. Single-handed backhands with late contact point create similar medial elbow demands.
 
-Proximal dysfunction amplifies distal loading dramatically. Weak scapular stabilizers force compensatory wrist and forearm muscle activation during reaching and lifting tasks. Limited thoracic rotation causes the forearm to generate movement that should originate from the trunk. Reduced shoulder internal rotation range, common in throwing athletes and manual laborers, increases the pronation demands on the forearm during rotational tasks. Even cervical spine dysfunction can alter motor control patterns of the forearm musculature through neural mechanisms, contributing to overload.
+What happens further up the arm may add to the load at the elbow. Weak scapular stabilizers can lead to compensatory wrist and forearm muscle activation during reaching and lifting tasks. Limited thoracic rotation causes the forearm to generate movement that should originate from the trunk. Reduced shoulder internal rotation range, common in throwing athletes and manual laborers, increases the pronation demands on the forearm during rotational tasks. Even cervical spine dysfunction can alter motor control patterns of the forearm musculature through neural mechanisms, contributing to overload.
 
 Grip size and tool design significantly influence loading magnitude. Smaller diameter handles (thin golf club grips, undersized tool handles) require higher muscle activation to maintain grip security compared to larger diameter grips that distribute pressure across more surface area. Tool weight and balance affect the moment arm and force requirements at the medial epicondyle. Ergonomic modifications such as padded handles, proper grip sizing, and power-assisted tools reduce sustained muscle activation demands.`,
 
@@ -4103,7 +4116,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
       {
         approach: "Eccentric Strengthening",
         evidence: "Low-certainty evidence: a 2026 review found five small studies in which pain and function improved with eccentric exercise, with an advantage over a comparison treatment in only one trial (See et al., 2026). Involves controlled lengthening of the wrist flexors under gradually increasing load",
-        effectivenessLevel: "strong"
+        effectivenessLevel: "limited"
       },
       {
         approach: "Manual Therapy and Soft Tissue Techniques",
@@ -4133,7 +4146,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
     ],
 
     prognosis: {
-      timeline: "Most people notice meaningful change within 8 to 12 weeks of structured loading, and full recovery often takes 3 to 6 months. Longer-standing cases tend to take longer",
+      timeline: "Many people notice meaningful change over a few months of structured loading, although the evidence specific to golfer's elbow is limited and timelines vary. Longer-standing cases tend to take longer",
       factors: [
         "Duration of symptoms (longer duration associated with slower recovery and higher chronicity risk)",
         "Severity of tendon degeneration on imaging (more severe structural changes require longer rehabilitation)",
@@ -4224,7 +4237,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
     faqs: [
       {
         question: "Is golfer's elbow actually caused by golf?",
-        answer: "Usually not. Most cases arise outside golf, typically from repetitive work tasks, lifting, or gym training. Golfers can develop it, but most of the patients I see have it from carrying, gripping, climbing, trades work, or a sudden gym or yard work spike."
+        answer: "Usually not. Many cases arise outside golf, often linked to repetitive work tasks, lifting, or gym training. Golfers can develop it, but carrying, gripping, climbing, trades work, or a sudden gym or yard work spike are more common links."
       },
       {
         question: "Is golfer's elbow the same as tennis elbow?",
@@ -4232,15 +4245,15 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
       },
       {
         question: "How long does golfer's elbow take to heal?",
-        answer: "The honest answer is that the evidence base for medial epicondylalgia is weaker than for tennis elbow, with fewer high-quality trials. From my clinical experience and the tendinopathy literature, most people see meaningful change by 8 to 12 weeks of structured loading, with full resolution often taking 3 to 6 months. Longer symptom duration consistently predicts a slower recovery, and patients who have been symptomatic for over a year should expect a longer program."
+        answer: "The honest answer is that the evidence base for medial epicondylalgia is weaker than for tennis elbow, with fewer high-quality trials. Going by the wider tendinopathy literature, many people see meaningful change over a few months of structured loading, although timelines vary. Longer symptom duration has been linked to slower recovery, so people who have had symptoms for over a year may need a longer program."
       },
       {
         question: "Should I rest my elbow completely?",
-        answer: "Complete rest usually stalls recovery. Tendinopathies respond to progressive load, not avoidance. Reducing aggravating peaks while continuing gentle, structured loading is what rebuilds tendon capacity. When people take weeks off and then return to full activity, symptoms often come back soon after, because the tendon's capacity has not changed."
+        answer: "Complete rest does not usually build the tendon's tolerance. Reducing aggravating peaks while continuing gentle, structured loading is how I work on tendon capacity. When people take weeks off and then return to full activity, symptoms often come back soon after, because the tendon's capacity has not changed."
       },
       {
         question: "Should I get a cortisone shot for golfer's elbow?",
-        answer: "I am cautious about it. The tendinopathy literature, including Coombes and colleagues' work on lateral epicondyle tendinopathy, consistently shows that corticosteroid injection helps short term but produces worse outcomes at 6 and 12 months compared to exercise, with higher recurrence. Medial epicondylalgia has less high-quality data than lateral, but the pattern of caution applies. I reserve injection as a conversation only when pain genuinely prevents engagement with loading rehab, not as a first-line fix."
+        answer: "I am cautious about it. In trials on the outer elbow (tennis elbow), including Coombes and colleagues' JAMA 2013 trial, corticosteroid injection helped in the short term but was linked to worse outcomes at one year and more recurrence. Medial epicondylalgia has less high-quality data than lateral, so that evidence may not transfer exactly, but I apply the same caution. Injection is a conversation for a physician, usually when pain is stopping someone from doing the loading rehab, rather than a first-line fix."
       },
       {
         question: "Why do my ring and small fingers feel numb too?",
@@ -4248,7 +4261,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
       },
       {
         question: "When can I go back to lifting weights or golf?",
-        answer: "Once you can tolerate full-range loading under moderate resistance without a 24-hour flare, and grip strength is close to your unaffected side. For golf, that also means reviewing whether grip size, swing mechanics, or a recent change in practice volume contributed to the original flare. Returning to the exact conditions that caused the problem without changing them is the most common reason I see symptoms recur."
+        answer: "Once you can tolerate full-range loading under moderate resistance without a 24-hour flare, and grip strength is close to your unaffected side. For golf, that also means reviewing whether grip size, swing mechanics, or a recent change in practice volume contributed to the original flare. Returning to the exact conditions that caused the problem without changing them is a common reason symptoms recur."
       },
       {
         question: "Do I need an MRI for golfer's elbow?",
@@ -4266,7 +4279,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
           "Grip squeezes with a soft ball at submaximal effort, 3 sets of 10, avoiding full wrist flexion under grip",
           "Scapular and rotator cuff setting with a light band, 3 sets of 10, to reduce distal compensation during reaching and lifting"
         ],
-        progressionCriteria: "Isometric holds comfortable at 3 out of 10 or less, no more than mild next-day soreness after sessions for a full week, and everyday gripping tasks such as carrying groceries or using a kettle no longer provoking sharp medial elbow pain."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: isometric holds comfortable (around 3 out of 10 or less), no more than mild next-day soreness after sessions for a full week, and everyday gripping tasks such as carrying groceries or using a kettle no longer provoking sharp medial elbow pain."
       },
       phase2: {
         title: "Phase 2: Progressive Flexor-Pronator Loading (Weeks 3 to 8)",
@@ -4278,7 +4291,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
           "Farmer and suitcase carries with moderate load, 3 rounds of 20 to 40 metres, to build grip endurance without extreme peak force",
           "Continued scapular and posterior chain work, 3 sets of 10 to 12, to reduce distal overload during lifting"
         ],
-        progressionCriteria: "Pain-free grip within 20% of the unaffected side, ability to complete heavy slow resistance sessions without a 24-hour flare for at least 2 consecutive weeks, and PREE score trending downward from baseline."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: pain-free grip closer to the unaffected side, heavy slow resistance sessions completed without a 24-hour flare for at least 2 consecutive weeks, and PREE score trending downward from baseline."
       },
       phase3: {
         title: "Phase 3: Return to Full Sport, Work, and Heavier Loading (Weeks 8 to 16+)",
@@ -4288,9 +4301,9 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
           "Compound pulling and pressing with attention to grip endurance, such as rows, deadlifts, and chin-ups cycled across the week",
           "Sport-specific return: for golfers, graded practice (chipping, half-swings, then full swings) before returning to 18 holes; for throwers, a progressive throwing program",
           "Occupational task rehearsal at realistic duration and load, with micro-breaks planned in",
-          "Maintenance loading 1 to 2 times per week indefinitely once back to full duties, because the reason the tendon failed was capacity, not injury"
+          "Maintenance loading 1 to 2 times per week once back to full duties, to maintain tolerance for the tasks you return to"
         ],
-        progressionCriteria: "Pain 2 out of 10 or less during full work or sport demands, symmetrical pain-free grip strength, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: low pain (around 2 out of 10 or less) during full work or sport demands, grip strength close to the other side, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
       }
     },
     lastReviewed: '2026-04-16',
@@ -4337,7 +4350,7 @@ Sleeping postures contribute to nocturnal symptoms, the hallmark of CTS. Most pe
 
 Sustained pinch grip activities create unique biomechanical stress. Fine hand tasks requiring sustained thumb-index finger pinch (sewing, knitting, crafts, detailed assembly work, using scissors) maintain continuous flexor tendon loading without relaxation periods. The sustained nature prevents recovery time between loading cycles, promoting inflammation. Smartphone and tablet use requiring sustained thumb reach and wrist flexion while supporting device weight contributes to modern CTS incidence.
 
-Proximal factors influence distal nerve function through neural tension and vascular mechanisms. Forward head posture and rounded shoulders common in desk workers create increased neural tension throughout the brachial plexus and median nerve. This proximal tension makes the nerve more vulnerable to compression at the carpal tunnel (double crush phenomenon). Thoracic outlet compression can reduce nerve blood flow proximally, making the nerve more susceptible to ischemic damage from distal compression. Even cervical spine dysfunction at C6-C7 (which contributes to median nerve formation) can create symptoms overlapping with or mimicking CTS.
+Problems higher up the arm can overlap with carpal tunnel symptoms. Irritation of a nerve root in the neck, particularly at C6 and C7, which contribute to the median nerve, can produce symptoms that mimic or overlap with CTS, and some researchers propose that irritation at one point along a nerve may make another point more sensitive (the "double crush" idea, which is still debated). I assess the neck and shoulder when symptoms suggest another nerve problem, rather than assuming posture is the cause of compression at the wrist.
 
 Grip strength and hand size create biomechanical vulnerability. Individuals with smaller wrist circumferences have smaller carpal tunnels with less space for median nerve. Reduced grip strength forces people to grip harder to achieve the same task, increasing flexor tendon forces and tunnel pressure. Weak wrist stabilizers cause compensatory wrist movement during gripping tasks, forcing the wrist out of neutral position under load.`,
 
@@ -4416,7 +4429,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       {
         approach: "Night Splinting in Neutral Position",
         evidence: "Low-certainty evidence of small benefits: a 2023 Cochrane review of 29 trials found night-time splinting improved overall symptoms more often than no treatment in the short term, while average symptom scores changed only slightly. A neutral wrist position keeps tunnel pressure lowest",
-        effectivenessLevel: "strong"
+        effectivenessLevel: "limited"
       },
       {
         approach: "Nerve and Tendon Gliding Exercises",
@@ -4426,12 +4439,12 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       {
         approach: "Activity and Ergonomic Modification",
         evidence: "Adjusting the workstation, reducing sustained wrist bending, and taking micro-breaks may ease symptoms; the evidence is limited",
-        effectivenessLevel: "strong"
+        effectivenessLevel: "limited"
       },
       {
         approach: "Corticosteroid Injection",
         evidence: "Given by a physician, not by me. A 2023 Cochrane review found it probably improves symptoms more than placebo for up to three to six months, with a small reduction in the need for surgery at one year",
-        effectivenessLevel: "strong"
+        effectivenessLevel: "moderate"
       },
       {
         approach: "Manual Therapy and Soft Tissue Mobilization",
@@ -4489,7 +4502,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       {
         strategy: "Proximal Chain Assessment",
         rationale: "Addressing neck posture, shoulder position, and thoracic mobility that influence nerve tension and blood flow from cervical spine through the arm to wrist. Irritation higher up the nerve may make the wrist more sensitive, so the whole path of the nerve is checked",
-        precautions: ["Don't ignore neck and shoulder symptoms even though wrist is primary complaint", "Forward head posture and rounded shoulders increase neural tension throughout median nerve", "Thoracic outlet restrictions can contribute to symptoms", "Full nerve pathway from neck to hand should be assessed"]
+        precautions: ["Don't ignore neck and shoulder symptoms even though wrist is primary complaint", "Posture alone is not assumed to be the cause; the neck and shoulder are checked when symptoms suggest another nerve problem", "Thoracic outlet restrictions can contribute to symptoms", "Full nerve pathway from neck to hand should be assessed"]
       }
     ],
 
@@ -4507,8 +4520,12 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
         action: "See your family doctor promptly for nerve testing and a surgical opinion"
       },
       {
-        sign: "Symptoms in the whole hand including the little finger, or in both arms with neck pain, clumsiness, or trouble walking",
-        action: "See your family doctor before starting physiotherapy; this pattern points to the neck or another nerve problem rather than the wrist"
+        sign: "New or worsening clumsiness in the hands together with trouble walking, balance changes, or symptoms in both arms",
+        action: "See your family doctor urgently, within a day or two, and before any physiotherapy; this can mean pressure on the spinal cord in the neck. Go to emergency now if these symptoms come on suddenly or are getting worse quickly"
+      },
+      {
+        sign: "Symptoms in the whole hand including the little finger, without trouble walking or balance changes",
+        action: "See your family doctor before starting physiotherapy; this pattern can come from the neck or another nerve rather than the wrist, and deserves an assessment of the neck and other nerves"
       },
       {
         sign: "No improvement after 8-12 weeks of appropriate conservative treatment with good compliance",
@@ -4570,11 +4587,11 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       },
       {
         question: "Is carpal tunnel syndrome caused by typing?",
-        answer: "Typing alone is not the whole story. The evidence for pure keyboard use as a direct cause is weaker than people assume. What I see more often is a combination of sustained wrist posture, repetitive forceful gripping, and underlying factors like pregnancy, diabetes, thyroid issues, higher body mass, or anatomically smaller tunnels. Changing the workstation helps many people, but if symptoms do not shift, I screen for the systemic contributors."
+        answer: "Typing alone is not the whole story. The evidence for pure keyboard use as a direct cause is weaker than people assume. More often it is a combination of sustained wrist posture, repetitive forceful gripping, and underlying factors like pregnancy, diabetes, thyroid issues, higher body mass, or anatomically smaller tunnels. Changing the workstation helps many people, but if symptoms do not shift, I screen for the systemic contributors."
       },
       {
         question: "Why are my symptoms in both hands?",
-        answer: "Bilateral carpal tunnel syndrome is common, and often points to a systemic contribution rather than a purely mechanical one. Pregnancy, diabetes, hypothyroidism, and inflammatory arthritis all raise carpal tunnel pressure or compromise nerve resilience on both sides. When I see bilateral presentations, I check medical history more carefully and think about referring back to the family doctor for bloodwork if those have not been reviewed recently."
+        answer: "If both hands have become clumsy and your walking or balance has changed too, that needs an urgent medical assessment rather than physiotherapy first, because it can come from the neck. Otherwise, bilateral carpal tunnel syndrome is common, and can point to a systemic contribution rather than a purely mechanical one. Pregnancy, diabetes, hypothyroidism, and inflammatory arthritis all raise carpal tunnel pressure or compromise nerve resilience on both sides. When I see bilateral presentations, I check medical history more carefully and think about referring back to the family doctor for bloodwork if those have not been reviewed recently."
       }
     ],
     exerciseProgression: {
@@ -4592,12 +4609,12 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       },
       phase2: {
         title: "Phase 2: Restore Capacity in the Forearm and Wrist (Weeks 4 to 10)",
-        focus: "Once the nerve is less irritable, start rebuilding the muscular support around the wrist, hand, and proximal chain. This phase is about increasing the hand's tolerance for daily loads without repeating the postures that compress the nerve. Proximal posture and scapular control matter here, because forward head and rounded shoulder postures increase neural tension the whole length of the median nerve.",
+        focus: "Once the nerve is less irritable, start rebuilding the muscular support around the wrist, hand, and proximal chain. This phase is about increasing the hand's tolerance for daily loads without repeating the postures that compress the nerve. Shoulder and upper back work is added when the assessment suggests it helps, for comfort and endurance in sustained tasks.",
         examples: [
           "Thumb abduction and opposition strengthening with a light band, 3 sets of 10 to 15, to maintain thenar function",
           "Wrist flexor and extensor strengthening with a light dumbbell at slow tempo, 3 sets of 10 to 15, through a comfortable pain-free range",
           "Grip work with a soft ball or putty at submaximal effort, 3 sets of 10, progressing resistance as tolerance allows",
-          "Scapular setting, rows, and external rotation with a light band, 3 sets of 10 to 12, to reduce proximal neural tension",
+          "Scapular setting, rows, and external rotation with a light band, 3 sets of 10 to 12, for shoulder endurance during sustained desk or hand tasks",
           "Progressive median nerve tensioners introduced at low dosage, only if sliders have been fully comfortable for 2 weeks"
         ],
         progressionCriteria: "Nocturnal symptoms largely controlled with splint, no constant daytime numbness, grip strength improving on serial testing, and Boston Carpal Tunnel Questionnaire scores trending downward by at least 1 point on symptom severity."
@@ -4660,7 +4677,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
       primarySymptoms: [
         "Sharp, localized pain on the radial (thumb) side of wrist, 2-3 cm proximal to thumb base",
         "Visible swelling over radial styloid process (bony prominence on thumb side of wrist)",
-        "Pain dramatically worsened by Finkelstein's test (making fist with thumb tucked inside, bending wrist toward little finger)",
+        "Thumb-side wrist pain with lifting, gripping, or certain thumb movements. A clinician can use gentle examination tests to assess the tendons; avoid repeatedly forcing the thumb into a painful stretch to check it yourself",
         "Difficulty gripping and lifting objects, especially with thumb-up position",
         "Pain with thumb abduction and extension movements"
       ],
@@ -4676,15 +4693,15 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
 
     evidenceSnapshot: {
       primaryStrategy: "A thumb spica splint with activity changes can ease symptoms by reducing friction in the first dorsal compartment. In pooled trial data, a splint combined with a corticosteroid injection succeeded more often than a splint alone or an injection alone (Cavaleri et al., 2016)",
-      secondaryStrategy: "When symptoms persist, a corticosteroid injection from a physician is the usual next step, and ultrasound guidance improves accuracy (Abi-Rafeh et al., 2022). Gentle tendon gliding and later strengthening help restore thumb use",
+      secondaryStrategy: "A corticosteroid injection from a physician, often combined with a short period in a thumb spica, can also be discussed early rather than only after other care has failed; the choice depends on symptoms, preferences, and medical factors. Ultrasound guidance improves accuracy (Abi-Rafeh et al., 2022). Gentle tendon gliding and later strengthening help restore thumb use",
       preventionStrategy: "Modified lifting technique (supporting baby's weight on forearm rather than with extended thumb), ergonomic tool and smartphone use, and thumb and wrist strengthening lower the risk of recurrence in high-risk groups including new mothers and repetitive workers",
       sources: "Abi-Rafeh et al., Plastic and Reconstructive Surgery (2022); Cavaleri et al., Journal of Hand Therapy (2016); Huisstede et al., Archives of Physical Medicine and Rehabilitation (2018); Bae et al., Clinics in Orthopaedic Surgery (2022)"
     },
 
     whatToExpect: {
       firstVisit: "I'll perform specific assessment including palpation over the first dorsal compartment (you'll have exquisite tenderness over the radial styloid), Finkelstein's test (passively moving your thumb and wrist into the provocative position - positive if this reproduces your familiar sharp pain), Eichhoff's test (similar but you actively make a fist around your thumb), and assessment of thumb and wrist range of motion. Testing grip and pinch strength helps quantify functional limitation. I'll identify specific activities triggering your symptoms and anatomical factors that may influence treatment. You'll leave with splinting recommendations, clear activity modification strategies, and initial exercises if appropriate",
-      earlyPhase: "Focus on reducing inflammation through thumb spica splinting that immobilizes the thumb interphalangeal joint and wrist, strict modification of provocative activities (especially thumb abduction with wrist deviation), ice application for acute symptoms, and gentle pain-free range of motion. For new mothers, teaching alternative infant lifting techniques using forearm support rather than thumb abduction. Timeline: 0-3 weeks",
-      progression: "As pain reduces, gradual weaning from splint during non-provocative activities, progressive tendon gliding exercises to maintain mobility and prevent adhesions, strengthening of thumb and wrist stabilizers, and systematic reintroduction of functional activities with proper biomechanics. If symptoms persist despite 6-8 weeks of appropriate conservative care, discussion of corticosteroid injection or surgical consultation. Timeline: 3-12 weeks"
+      earlyPhase: "Focus on reducing inflammation through thumb spica splinting that supports the wrist and the base and knuckle joints of the thumb (CMC and MCP) while leaving the thumb's end joint free, strict modification of provocative activities (especially thumb abduction with wrist deviation), ice application for acute symptoms, and gentle pain-free range of motion. For new mothers, teaching alternative infant lifting techniques using forearm support rather than thumb abduction. Timeline: 0-3 weeks",
+      progression: "As pain reduces, gradual weaning from splint during non-provocative activities, progressive tendon gliding exercises to maintain mobility and prevent adhesions, strengthening of thumb and wrist stabilizers, and systematic reintroduction of functional activities with proper biomechanics. A corticosteroid injection from a physician can be discussed at any stage, and a surgical consultation if symptoms persist despite appropriate care. Timeline: 3-12 weeks"
     },
 
     differentialDiagnosis: [
@@ -4713,7 +4730,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
     evidenceBasedTreatment: [
       {
         approach: "Thumb Spica Splinting",
-        evidence: "Splinting with activity changes can help, but in pooled trial data a splint alone succeeded less often than a splint combined with an injection (Cavaleri et al., 2016). A splint that holds the wrist and thumb is usually worn for several weeks, then weaned",
+        evidence: "Splinting with activity changes can help, but in pooled trial data a splint alone succeeded less often than a splint combined with an injection (Cavaleri et al., 2016). A splint that supports the wrist and the base and knuckle joints of the thumb (CMC and MCP), leaving the thumb's end joint free, is usually worn for several weeks, then weaned. A 2023 network meta-analysis recommended an injection combined with 3 to 4 weeks in such a splint as a first-line option, although the added benefit of the splint was small (Challoumas et al., JAMA Network Open 2023)",
         effectivenessLevel: "strong"
       },
       {
@@ -4744,13 +4761,13 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
     ],
 
     prognosis: {
-      timeline: "Mild cases often improve within 4 to 6 weeks of splinting and activity changes. Longer-standing cases can take 8 to 12 weeks or more. When conservative care stalls after 6 to 8 weeks, an injection from a physician is the usual next step, and surgical release is an option for the few who do not settle",
+      timeline: "Mild cases often improve over several weeks of splinting and activity changes, and longer-standing cases can take a few months. A corticosteroid injection from a physician, often with a short period in a splint, can be discussed early or when symptoms persist, and surgical release is an option for the few who do not settle",
       factors: [
         "Duration of symptoms (shorter duration predicts better conservative treatment response; chronic cases over 6 months more likely to require injection or surgery)",
         "Severity of stenosis and sheath thickening (severe thickening on ultrasound predicts poorer conservative response)",
         "Presence of anatomical variations (septated compartments may require surgical release if injection fails; multiple APL slips complicate treatment)",
         "Ability to modify provocative activities (new mothers unable to avoid infant lifting have slower recovery; work modifications essential for occupational cases)",
-        "Compliance with splinting protocol (inconsistent splint wearing significantly reduces treatment effectiveness)",
+        "Consistency with the splint and activity changes, if that is the chosen approach",
         "Postpartum status (pregnancy-related hormonal factors typically resolve by 6 months postpartum, improving healing capacity)",
         "Comorbidities (diabetes, rheumatoid arthritis, hypothyroidism associated with slower healing and higher failure rates)",
         "Previous failed treatments (multiple corticosteroid injections predict lower success with further conservative care)"
@@ -4761,7 +4778,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
     selfManagement: [
       {
         strategy: "Thumb Spica Splinting Protocol",
-        rationale: "Immobilizes thumb interphalangeal joint and wrist in neutral position, preventing the thumb abduction and wrist deviation that creates friction within the first dorsal compartment. Settles irritation by limiting repeated friction. Off-the-shelf or custom splints should extend from mid-forearm to thumb tip, leaving thumb tip free for sensation",
+        rationale: "A properly fitted thumb spica supports the wrist and the base and knuckle joints of the thumb (CMC and MCP), usually leaving the thumb's end joint free. Limiting the thumb and wrist movements that irritate the first dorsal compartment lets it settle. The fit and wearing schedule should suit your symptoms and daily tasks",
         precautions: ["Wear during waking hours for the first 2 to 3 weeks, then during higher-demand activities for a further 3 to 4 weeks", "Remove for hygiene and your exercises", "Ensure the splint holds the wrist in a neutral position", "Monitor for skin irritation, numbness, or excessive swelling indicating too-tight application"]
       },
       {
@@ -4798,7 +4815,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
       },
       {
         sign: "Pain in the hollow at the base of the thumb (the anatomical snuffbox) after a fall onto an outstretched hand",
-        action: "See your family doctor or urgent care this week for an X-ray; a missed scaphoid fracture can fail to heal"
+        action: "Get a prompt medical assessment, the same day or next day, for an X-ray. Until then, support the wrist in a splint and avoid lifting or putting weight through it. An early X-ray can be normal, so continued suspicion needs follow-up imaging and protection; a missed scaphoid fracture can fail to heal"
       },
       {
         sign: "Fever or feeling unwell with a red, hot, swollen wrist or thumb",
@@ -4844,19 +4861,19 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
       },
       {
         question: "Is Finkelstein's test enough to diagnose this?",
-        answer: "It is the cornerstone of the clinical diagnosis, but it is not the whole picture. A positive Finkelstein's combined with tenderness directly over the first dorsal compartment and a story that fits (new parenting, a spike in thumb-loading activity, hairdressing, racquet sports) is usually all you need. What I am also doing is ruling out thumb CMC arthritis, intersection syndrome, a scaphoid problem, and superficial radial nerve irritation. Those can all sit close by and be mistaken for each other."
+        answer: "It is one part of the clinical diagnosis, not the whole picture. The test often described online (making a fist around the thumb and bending the wrist toward the little finger) is strictly Eichhoff's manoeuvre, which can also be uncomfortable in healthy wrists (Wu et al., Journal of Hand and Microsurgery 2018). A clinician-performed test, combined with tenderness directly over the first dorsal compartment and a story that fits (new parenting, a spike in thumb-loading activity, hairdressing, racquet sports), is often enough for a working diagnosis. What I am also doing is ruling out thumb CMC arthritis, intersection syndrome, a scaphoid problem, and superficial radial nerve irritation. Those can all sit close by and be mistaken for each other."
       },
       {
         question: "Do I really have to wear a thumb spica splint?",
-        answer: "Yes, and consistency matters. A thumb spica that holds the wrist and the thumb interphalangeal joint still takes load off the first compartment and lets the sheath calm down. Huisstede and colleagues' 2018 systematic review in Archives of Physical Medicine and Rehabilitation supports splinting, particularly combined with corticosteroid injection when injection is needed. Two or three weeks of consistent use usually makes a noticeable difference. Wearing the splint only when convenient is the most common reason I see treatment stall."
+        answer: "Not always; it is one option. A properly fitted thumb spica supports the wrist and the base and knuckle joints of the thumb (CMC and MCP), usually leaving the thumb's end joint free, which takes load off the first compartment. Huisstede and colleagues' 2018 systematic review in Archives of Physical Medicine and Rehabilitation supports splinting, particularly combined with corticosteroid injection, and a 2023 network meta-analysis recommended an injection plus 3 to 4 weeks in a splint as a first-line option, although the splint added only a small benefit (Challoumas et al., JAMA Network Open 2023). If you use one, consistency matters, and the fit and wearing schedule should suit your symptoms and daily tasks."
       },
       {
         question: "Will a cortisone injection fix this?",
-        answer: "For many people with a confirmed De Quervain's, a well-placed corticosteroid injection into the first dorsal compartment helps significantly, particularly when combined with a thumb spica. Anatomical septations are common, and injections that miss a septated sub-compartment do not work as well, which is why ultrasound-guided injection tends to outperform landmark-based in the literature. Injection is not something I do myself, but I often coordinate with the physician who does."
+        answer: "For many people with a confirmed De Quervain's, a well-placed corticosteroid injection into the first dorsal compartment can help, particularly when combined with a short period in a thumb spica, and it can be discussed early rather than only after other care has failed. Anatomical septations are common, and injections that miss a septated sub-compartment do not work as well, which is why ultrasound-guided injection tends to outperform landmark-based in the literature. Injection is not something I do myself, but I often coordinate with the physician who does."
       },
       {
         question: "How long until it settles?",
-        answer: "Most mild and moderate cases I see meaningfully improve within four to six weeks of consistent splinting, activity modification, and graded exercise. Post-partum cases often continue to settle over a few months as the hormonal picture shifts and the lifting pattern improves. Cases that have been smouldering for more than six months, or that have already failed injection, tend to be slower and sometimes end up at a surgical consult."
+        answer: "Many mild and moderate cases improve over several weeks of splinting, activity modification, and graded exercise, or after an injection from a physician. Post-partum cases often continue to settle over a few months as the hormonal picture shifts and the lifting pattern improves. Cases that have been smouldering for more than six months, or that have already failed injection, tend to be slower and sometimes end up at a surgical consult."
       },
       {
         question: "Can I still pick up my baby?",
@@ -4864,7 +4881,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
       },
       {
         question: "Do I need surgery?",
-        answer: "Usually not. Surgical release of the first dorsal compartment is an option when it is needed, but the path usually starts with a thumb spica, activity change, and graded rehab, then a corticosteroid injection if conservative care plateaus. Surgery is reserved for people who have failed a proper trial of conservative care including injection, or for clear anatomical reasons like a separate EPB sub-compartment that keeps blocking injection success."
+        answer: "Usually not. Surgical release of the first dorsal compartment is an option when it is needed, but the path usually starts with conservative care: a thumb spica, activity change, and graded rehab, with a corticosteroid injection from a physician as an option early on or if symptoms persist. Surgery is reserved for people who have failed a proper trial of conservative care including injection, or for clear anatomical reasons like a separate EPB sub-compartment that keeps blocking injection success."
       }
     ],
     exerciseProgression: {
@@ -4872,7 +4889,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
         title: "Phase 1: Calm the compartment (Weeks 1 to 3)",
         focus: "The first job is to reduce friction at the first dorsal compartment and take the sting out of daily tasks. That means consistent thumb spica use, pain-free movement only, and a deliberate audit of how the thumb is being loaded during the day. Nothing in this phase should reproduce the sharp radial-sided pain.",
         examples: [
-          "Off-the-shelf or custom thumb spica that immobilises the wrist and the thumb IP joint, worn during waking hours for 2 to 3 weeks",
+          "Off-the-shelf or custom thumb spica that supports the wrist and the base and knuckle joints of the thumb (CMC and MCP), leaving the thumb's end joint free, worn during waking hours for 2 to 3 weeks",
           "Pain-free thumb IP and MCP flexion and extension, 10 slow repetitions 3 times daily, to prevent stiffness",
           "Lifting technique coaching for new parents: wide forearm-supported scoop, palm-up where possible, thumbs tucked close to the hand",
           "Ice over the radial styloid 10 to 15 minutes after aggravating activities if it helps symptoms",
@@ -5016,16 +5033,16 @@ Modern research (2024) emphasizes that discrepancies exist between external join
 
     clinicalRedFlags: [
       {
-        sign: "Severe night pain or constant pain",
-        action: "Investigation for inflammatory arthritis or malignancy"
+        sign: "A hot, swollen or suddenly very painful hip, a fever, or feeling unwell",
+        action: "Possible joint infection. Get medical assessment today, or go to emergency if you feel unwell. Infection is possible even without a fever"
       },
       {
-        sign: "Rapid onset or worsening symptoms",
-        action: "Assessment for avascular necrosis or fracture"
+        sign: "You cannot put weight on the leg after a fall, or hip pain that comes on or worsens quickly without a clear reason",
+        action: "Possible fracture or loss of blood supply to the bone (avascular necrosis). Same-day medical assessment; go to emergency after a fall"
       },
       {
-        sign: "Systemic symptoms (fever, weight loss)",
-        action: "Medical evaluation for systemic disease"
+        sign: "Severe pain at night or at rest, constant pain, or unexplained weight loss",
+        action: "Not typical of osteoarthritis. See your family doctor promptly to look for other causes"
       }
     ],
 
@@ -5077,7 +5094,7 @@ Modern research (2024) emphasizes that discrepancies exist between external join
       },
       phase2: {
         title: "Phase 2: Strengthening the Hip Envelope (Weeks 5 to 12)",
-        focus: "This mirrors the structured land-based exercise recommended by OARSI 2019 (Bannuru et al., Osteoarthritis and Cartilage) as a Core Treatment for hip OA. The goal here is building a strong hip envelope, particularly abductors and extensors, so the joint is shared-loaded across muscle rather than dumped into bone. Resistance is progressed weekly by about 10 percent when the 24-hour response stays quiet.",
+        focus: "This mirrors the structured land-based exercise recommended by OARSI 2019 (Bannuru et al., Osteoarthritis and Cartilage) as a Core Treatment for hip OA. The goal here is building strength around the hip, particularly the abductors and extensors, so everyday tasks feel easier and more controlled. As an example, resistance might go up by about 10 percent a week when the 24-hour response stays quiet; the right step depends on how your hip responds.",
         examples: [
           "Sit-to-stand from a chair at a height that allows pain below 3 out of 10, 3 sets of 8 to 12 reps, progressing to a lower chair across the block",
           "Hip hinge to a chair or bench with bodyweight progressing to a goblet hold, 3 sets of 10, teaching a posterior chain strategy for bending and lifting",
@@ -5116,7 +5133,7 @@ Modern research (2024) emphasizes that discrepancies exist between external join
       },
       {
         condition: "Inflammatory Arthropathy (Ankylosing Spondylitis or Rheumatoid)",
-        distinguishingFeatures: "Morning stiffness longer than an hour that does not settle with movement, systemic symptoms such as fatigue or rashes, bilateral involvement, and inflammatory markers on bloodwork."
+        distinguishingFeatures: "Prolonged morning stiffness, night pain, symptoms that ease with movement and exercise, other painful or swollen joints, or features such as fatigue or rashes can suggest an inflammatory arthritis and warrant medical assessment. These are clues rather than a diagnosis, and normal blood tests do not rule it out."
       },
       {
         condition: "Hip Labral Tear",
@@ -5135,23 +5152,23 @@ Modern research (2024) emphasizes that discrepancies exist between external join
       },
       {
         question: "Will exercise make my hip arthritis worse?",
-        answer: "No. The Cochrane review of exercise for hip OA (Fransen et al., 2014) showed reliable small-to-moderate reductions in pain and improvements in function, and no signal of harm. The 2025 JOSPT CPG strongly recommends individualised strengthening, flexibility, and endurance programmes. What makes hip OA worse is a sudden spike beyond current capacity, not loading itself. Dosing matters more than avoidance."
+        answer: "Not when it is dosed sensibly. The Cochrane review of exercise for hip OA (Fransen et al., 2014) found small-to-moderate reductions in pain and improvements in function, with no signal of harm. The 2025 JOSPT CPG strongly recommends individualised strengthening, flexibility, and endurance programmes. Flares tend to follow a sudden spike beyond what the hip currently tolerates rather than loading itself, so dosing matters more than avoidance."
       },
       {
         question: "Can physiotherapy help me avoid a hip replacement?",
-        answer: "For many people, yes, at least for years. Strong exercise evidence backs meaningful symptom and function improvement. That said, I will not oversell it. The Bennell JAMA 2014 trial specifically found that a structured multimodal physiotherapy programme did not outperform sham over 36 weeks, which has been debated widely since. My read of the broader literature, including the 2025 JOSPT revision, is that consistent long-term loading, weight management, and education meaningfully shift the trajectory for most patients, and surgery remains a reasonable option when conservative care has plateaued and pain is dominating daily life."
+        answer: "For many people, yes, at least for years. Strong exercise evidence backs meaningful symptom and function improvement. That said, I will not oversell it. The Bennell JAMA 2014 trial specifically found that a structured multimodal physiotherapy programme did not outperform sham over 36 weeks, which has been debated widely since. My read of the broader literature, including the 2025 JOSPT revision, is that consistent long-term loading, weight management, and education can meaningfully shift the trajectory for many patients, and surgery remains a reasonable option when conservative care has plateaued and pain is dominating daily life."
       },
       {
         question: "Why does my hip hurt in the groin rather than the side?",
-        answer: "The hip joint sits deeper and more anterior than most people expect, so genuine hip joint pain referred from articular cartilage and the labrum is most often felt in the groin and front of the thigh, occasionally travelling to the knee. Pain over the outer hip bone usually points to the gluteal tendons rather than the joint itself. This is why I examine hip rotation carefully. Losing internal rotation first is one of the most reliable examination findings in hip OA."
+        answer: "The hip joint sits deeper and further forward than most people expect, so pain associated with the joint is often felt in the groin or front of the thigh and can travel to the knee. Several tissues in and around the joint can contribute, so where the pain sits is only one part of the assessment. Pain over the outer hip bone more often points to the gluteal tendons than to the joint itself. This is why I examine hip rotation carefully: loss of internal rotation is one of the more useful examination findings in hip OA."
       },
       {
         question: "Is it safe to keep running with hip osteoarthritis?",
-        answer: "In many cases, yes, with adjustments. Running is not the cause of hip OA in most people. Total volume, terrain, recovery, and overall hip strength matter more than the act of running itself. I usually keep symptomatic runners running at a reduced, symptom-guided dose while they build abductor and extensor capacity, then rebuild volume by about 10 percent per week. Trail running and downhill running are the two patterns I temporarily reduce first."
+        answer: "In many cases, yes, with adjustments. Running is not the cause of hip OA in most people. Total volume, terrain, recovery, and overall hip strength matter more than the act of running itself. I usually keep symptomatic runners running at a reduced, symptom-guided dose while they build abductor and extensor capacity, then rebuild volume gradually, guided by how the hip feels over the following 24 hours. Trail running and downhill running are the two patterns I temporarily reduce first."
       },
       {
         question: "What about glucosamine, collagen, and supplements?",
-        answer: "OARSI 2019 issued conditional recommendations against glucosamine and chondroitin for hip OA, citing inconsistent evidence on pain and function. Collagen and turmeric data are mixed. I do not discourage patients from trying low-risk options, but I do not want supplements displacing the interventions with the strongest evidence, which are exercise, education, weight management where relevant, and topical or short-course oral NSAIDs on flare days under their physician's guidance."
+        answer: "OARSI 2019 issued conditional recommendations against glucosamine and chondroitin for hip OA, citing inconsistent evidence on pain and function. Collagen and turmeric data are mixed. I do not discourage patients from trying low-risk options, but I do not want supplements displacing the interventions with the strongest evidence: exercise, education, and weight management where relevant. A physician or pharmacist can discuss whether an oral anti-inflammatory medicine is suitable for flare days, taking your other conditions and medicines into account."
       },
       {
         question: "How long until I feel a real difference?",
@@ -5295,15 +5312,15 @@ Activity demands significantly influence symptom development. Athletes in sports
     clinicalRedFlags: [
       {
         sign: "Groin or hip pain in a runner or athlete that builds with each session, hurts when hopping on that leg, or follows a sudden jump in training",
-        action: "Possible stress fracture of the hip (femoral neck). Stop running and see your family doctor the same week for imaging"
+        action: "Possible stress fracture of the hip (femoral neck). Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal"
       },
       {
-        sign: "A teenager with a new limp and hip, thigh or knee pain",
-        action: "Possible slipped growth plate at the hip (SCFE). Same-day medical assessment, and no running or sport until it is checked"
+        sign: "A child or teenager with a new limp and hip, groin, thigh or knee pain",
+        action: "Possible slipped growth plate at the hip (SCFE). Do not let them walk on the leg. Go to emergency today for an urgent assessment"
       },
       {
-        sign: "A hot, painful hip with fever, or you cannot put weight on the leg",
-        action: "Same-day medical assessment, or go to emergency, to rule out infection or fracture"
+        sign: "A hot, swollen or very painful hip, a fever or feeling unwell, or you cannot put weight on the leg",
+        action: "Possible infection or fracture. Get medical assessment today, or go to emergency if you feel unwell or cannot bear weight. Infection is possible even without a fever"
       },
       {
         sign: "The hip locks or gives way",
@@ -5369,12 +5386,12 @@ Activity demands significantly influence symptom development. Athletes in sports
       },
       phase2: {
         title: "Phase 2: Building Posterior Chain Capacity (Weeks 7 to 16)",
-        focus: "Evidence on conservative care for FAI syndrome is evolving. The UK FASHIoN trial (Griffin et al., Lancet 2018) reported that hip arthroscopy produced larger improvements than personalised hip therapy at 12 months, while the Mansell et al. (AJSM 2018) trial found no significant difference between arthroscopy and physical therapy at 2 years. In both, the conservative arm was not progressive strength training at adequate dose. I treat this phase as genuine strength work, not activation drills, while keeping range short of impingement.",
+        focus: "Evidence on conservative care for FAI syndrome is evolving. The UK FASHIoN trial (Griffin et al., Lancet 2018) reported that hip arthroscopy produced larger improvements than personalised hip therapy at 12 months, while the Mansell et al. (AJSM 2018) trial found no significant difference between arthroscopy and physical therapy at 2 years. These trials compared specific rehabilitation programs with surgery and reached different results, and they do not establish the best exercise dose for every person. A structured, progressive program remains a reasonable first option, with reassessment if progress is limited. I treat this phase as genuine strength work, not activation drills, while keeping range short of the painful pinch.",
         examples: [
           "Goblet box squat to a box that keeps hip flexion shy of the patient's impingement angle, 3 sets of 8 with a 6 to 12 kilogram kettlebell",
           "Rear-foot-elevated split squat with the foot flat, staying tall to avoid forward hip flexion, 3 sets of 8 per side",
           "Romanian deadlift with light-to-moderate load, emphasising hip hinge and posterior chain, 3 sets of 8",
-          "Step-up to a mid-thigh box with control of the pelvis, 3 sets of 8 per side",
+          "Step-ups onto a low step with control of the pelvis, raising the height only while the movement stays controlled and comfortable, 3 sets of 8 per side",
           "Banded standing hip abduction and extension, 3 sets of 12 per side, for continued abductor and extensor dose"
         ],
         progressionCriteria: "Can load a goblet squat and Romanian deadlift at body weight relative loads without groin pain, step-ups stay level-pelvis, and weekly training does not leave a next-day flare."
@@ -5427,7 +5444,7 @@ Activity demands significantly influence symptom development. Athletes in sports
       },
       {
         question: "Should I just have hip arthroscopy?",
-        answer: "Sometimes that is the right call, but not as a first step. The UK FASHIoN trial (Griffin et al., Lancet 2018) favoured arthroscopy over personalised hip therapy at 12 months. Mansell et al. (AJSM 2018) found no significant difference between arthroscopy and physical therapy at 2 years. In both trials, the conservative arms were modest and crossover was a limitation. My approach, consistent with the Warwick Agreement, is about 3 to 6 months of genuinely progressed loading and movement retraining first, and surgery considered only if that fails or the patient's life demands do not allow waiting."
+        answer: "Sometimes that is the right call, but not as a first step. The UK FASHIoN trial (Griffin et al., Lancet 2018) favoured arthroscopy over personalised hip therapy at 12 months. Mansell et al. (AJSM 2018) found no significant difference between arthroscopy and physical therapy at 2 years, although many people crossed over between groups. The trials tested specific rehabilitation programs and reached different results, so neither settles the question for every person. My approach, consistent with the Warwick Agreement, is about 3 to 6 months of genuinely progressed loading and movement retraining first, and surgery considered only if that fails or the patient's life demands do not allow waiting."
       },
       {
         question: "Why does getting out of a low car hurt so much?",
@@ -5435,15 +5452,15 @@ Activity demands significantly influence symptom development. Athletes in sports
       },
       {
         question: "Should I stop squatting and deadlifting?",
-        answer: "Usually not stop, just modify the range. Squats to a box that keeps your hip flexion shy of the impingement angle are fine. Romanian deadlifts, which bias the hinge and keep the knee relatively straight, tend to be well tolerated. I treat lifting as part of the rehab rather than something to avoid."
+        answer: "Usually not stop, just modify the range. Squats to a box that keeps your hip flexion short of the painful pinch are often well tolerated. Romanian deadlifts, which bias the hinge and keep the knee relatively straight, tend to be well tolerated. I treat lifting as part of the rehab rather than something to avoid."
       },
       {
         question: "Are hip flexor stretches safe for FAI?",
-        answer: "Hard, end-range hip flexor stretches such as the couch stretch or a deep lunge push the front of the hip to its limit and often flare an irritable FAI hip, even though impingement itself happens in flexion and rotation. I usually swap them for controlled hip extension strength work, which produces the same functional length without provoking pain. If stretching is helping the other side or the lumbar spine, keep it there, just not aggressively into the painful hip."
+        answer: "Hard, end-range hip flexor stretches such as the couch stretch or a deep lunge push the front of the hip to its limit and often flare an irritable FAI hip, even though impingement itself happens in flexion and rotation. I usually swap them for controlled hip extension strength work, which works the front of the hip through a useful range with less provocation. If stretching is helping the other side or the lumbar spine, keep it there, just not aggressively into the painful hip."
       },
       {
         question: "Can I still do yoga or pilates?",
-        answer: "Yes, with edits. Positions that repeatedly force hip internal rotation in deep flexion, such as pigeon or deep lotus, are often the culprits. External rotation stretches and modified versions usually remain comfortable. I coach patients to own the modifications rather than stop the practice."
+        answer: "Often yes, with edits. Deep or forced hip positions, including some versions of pigeon or lotus, can aggravate an irritable hip. Changing the depth, adding support, and not forcing a painful end range usually let people keep practising. I coach patients to own the modifications rather than stop the practice."
       },
       {
         question: "How long before I know if conservative care is going to work?",
@@ -5482,13 +5499,13 @@ Weakness in the gluteus medius and minimus doesn't just cause local pain; it deg
 
 Chronic tendon pain is frustrating because the pain is often worse with rest (like at night), creating a cycle of anxiety and poor sleep. Poor sleep, in turn, is known to increase pain sensitivity.`,
 
-    biomechanics: `The gluteus medius muscle functions as your hip's primary dynamic stabilizer during single-leg weight-bearing activities. During the stance phase of walking, your gluteus medius must generate enough force to prevent your pelvis from dropping toward the opposite side, a mechanical challenge that becomes more demanding as you walk faster, climb hills, or navigate uneven terrain. Research using instrumented implants shows the hip experiences approximately 238% of body weight during normal walking, with these forces concentrated at the greater trochanter insertion site where the gluteus medius and minimus tendons attach.
+    biomechanics: `The gluteus medius muscle functions as your hip's primary dynamic stabilizer during single-leg weight-bearing activities. During the stance phase of walking, your gluteus medius must generate enough force to prevent your pelvis from dropping toward the opposite side, a mechanical challenge that becomes more demanding as you walk faster, climb hills, or navigate uneven terrain. A small study using instrumented hip implants in four people measured joint contact forces of roughly 238% of body weight during normal walking (Bergmann et al., 2001). That is the load through the joint itself, not the load on the gluteal tendons, so it does not show the exact force on an individual tendon. What it does show is how hard the muscles around the hip work during ordinary walking.
 
 In GTPS, the primary mechanical problem involves compression of the gluteal tendons against the greater trochanter. This compression occurs most significantly when your hip moves into adduction, bringing your thigh across your body's midline. Common culprits include standing with weight shifted predominantly to one side ("hanging on one hip"), crossing your legs while sitting, and particularly during side-lying sleep where the top leg falls forward across the midline. Hip adduction positions substantially increase compressive loads on the gluteal tendons compared to neutral alignment.
 
 The iliotibial (IT) band plays a crucial mechanical role in GTPS. When your hip adducts, the IT band moves posteriorly and compresses the gluteal tendons against the greater trochanter like a bowstring. This compression mechanism explains why activities involving repetitive hip adduction, such as running on banked surfaces, stairs, or prolonged standing on one leg, frequently trigger or worsen symptoms. Studies using dynamic ultrasound imaging show visible tendon compression under the IT band during hip adduction movements in symptomatic patients.
 
-Single-leg loading amplifies these forces dramatically. When you stand on one leg, your gluteus medius must contract forcefully to prevent the opposite side of your pelvis from dropping, generating tensile loads through the tendon while simultaneously experiencing compressive forces from the IT band. This explains why activities like climbing stairs, running, or standing on one leg to put on shoes frequently reproduce pain. Research indicates that weakness of the hip abductors increases this challenge, creating a vicious cycle: the weaker the muscle, the greater the compensatory strategies, the higher the abnormal loads on the tendon.
+Single-leg loading amplifies these forces dramatically. When you stand on one leg, your gluteus medius must contract forcefully to prevent the opposite side of your pelvis from dropping, generating tensile loads through the tendon while simultaneously experiencing compressive forces from the IT band. This explains why activities like climbing stairs, running, or standing on one leg to put on shoes frequently reproduce pain. Strength, changes in activity and movement habits may all affect symptoms, and pain itself can reduce strength, so hip abductor weakness can be both a contributor and a consequence.
 
 Body weight can add to the load: the heavier the body, the more force the gluteus medius has to produce to keep the pelvis level when walking. The link between body mass index and GTPS is not consistent, though; in one large study (Segal et al., 2007) body mass index was not associated with GTPS once other factors were accounted for.
 
@@ -5589,7 +5606,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
     clinicalRedFlags: [
       {
         sign: "Severe, constant pain not relieved by position changes",
-        action: "Investigation for stress fracture or other bone pathology"
+        action: "Not typical of tendon pain. See your family doctor promptly to look for a stress fracture or other bone problem"
       },
       {
         sign: "Sudden pain after a fall, or you cannot put weight on the leg",
@@ -5597,7 +5614,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
       },
       {
         sign: "A hot, red or swollen outer hip, especially with a fever",
-        action: "Possible infected bursa. Same-day medical assessment"
+        action: "Possible infected bursa. Same-day medical assessment, even without a fever, or go to emergency if you feel unwell"
       },
       {
         sign: "Numbness, tingling or weakness spreading down the leg",
@@ -5686,7 +5703,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
     differentialDiagnosis: [
       {
         condition: "Hip Osteoarthritis",
-        distinguishingFeatures: "Groin pain as the dominant symptom rather than point tenderness on the outer hip, morning stiffness lasting over 30 minutes, loss of hip internal rotation on examination, and often a C-sign where the patient cups the hip from groin to side."
+        distinguishingFeatures: "Activity-related groin pain as the dominant symptom rather than point tenderness on the outer hip, morning stiffness that is absent or usually lasts no more than 30 minutes, loss of hip internal rotation on examination, often in people aged 45 or older, and sometimes a C-sign where the patient cups the hip from groin to side."
       },
       {
         condition: "Femoroacetabular Impingement",
@@ -5720,7 +5737,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
     faqs: [
       {
         question: "Why does my outer hip hurt at night?",
-        answer: "Night pain is the most characteristic feature of gluteal tendinopathy, and it comes down to sustained compression of the tendon against the greater trochanter. Lying on the painful side presses directly on the tendon. Lying on the other side with the top knee falling forward stretches the iliotibial band across the tendon. Both positions create hours of compressive load at exactly the time the tissue needs to recover. Sleep modification is often the fastest way to reduce overall symptoms."
+        answer: "Night pain is one of the most characteristic features of gluteal tendinopathy, and it is often linked to sustained compression of the tendon against the greater trochanter. Lying on the painful side presses directly on the tendon. Lying on the other side with the top knee falling forward stretches the iliotibial band across the tendon. Both positions create hours of compressive load at exactly the time the tissue needs to recover. Sleep modification is often the fastest way to reduce overall symptoms."
       },
       {
         question: "Can I sleep on my side with GTPS?",
@@ -5728,7 +5745,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
       },
       {
         question: "Why is walking uphill worse for my hip?",
-        answer: "Walking uphill, climbing stairs, and stepping onto a curb all demand more hip abductor force to keep the pelvis level in single-leg stance. In gluteal tendinopathy the tendon is already under-capacity, so these tasks push it past its tolerance. Bergmann's instrumented hip implant work (Journal of Biomechanics, 2001) put normal walking at roughly 238% body weight through the hip, and uphill walking rises from there. This is why graded exposure, not avoidance, is the rehabilitation strategy."
+        answer: "Walking uphill, climbing stairs, and stepping onto a curb all demand more hip abductor force to keep the pelvis level in single-leg stance. In gluteal tendinopathy the tendon can be less tolerant of load for a while, so these tasks can push it past what it currently handles. Bergmann's instrumented hip implant study in four people (Journal of Biomechanics, 2001) measured roughly 238% of body weight through the hip joint during normal walking and more on stairs; that is joint load rather than tendon load, but it shows how hard the hip muscles work. This is part of why graded exposure, rather than avoidance, is the rehabilitation approach."
       },
       {
         question: "Are cortisone injections good for GTPS?",
@@ -5777,7 +5794,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
   'hip-labral-tears': {
     pathophysiology: `Hip labral tears involve damage to the acetabular labrum, a ring of fibrocartilage that runs along the rim of the hip socket (acetabulum), acting like a suction cup to enhance stability. The labrum provides a suction seal that maintains negative pressure within the joint, contributing significantly to hip stability. When torn, this can result in mechanical symptoms and altered joint biomechanics.
 
-Critically, labral tears very often occur in conjunction with femoroacetabular impingement (FAI). An X-ray or MRI can identify the specific bony morphology and assess the health of the acetabular labrum, but understanding the relationship between these conditions is crucial. A cam-type FAI morphology can make contact with the socket and labrum during deep hip flexion, leading to a pinching sensation and potential stress on the labrum over time.
+Labral tears often occur alongside femoroacetabular impingement (FAI). X-rays can assess bone shape and joint-space changes, but they do not show the labrum; MRI may be considered when information about the labrum or other soft tissues would change treatment. When imaging would change the plan, I flag it to your family doctor or specialist and refer you. A cam-type FAI morphology can make contact with the socket and labrum during deep hip flexion, leading to a pinching sensation and potential stress on the labrum over time.
 
 However, not all labral tears are symptomatic: many people have labral tears without pain. The development of symptoms depends on the tear's location, size, the individual's activity demands, and importantly, the presence of underlying bony abnormalities like FAI. Treating an isolated labral tear without addressing underlying FAI morphology may lead to poor outcomes, as the mechanical cause of the tear remains unaddressed.`,
 
@@ -5876,11 +5893,11 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
       },
       {
         sign: "Groin pain in a runner that builds with each run or hurts when hopping on that leg",
-        action: "Possible stress fracture of the hip (femoral neck). Stop running and see your family doctor the same week"
+        action: "Possible stress fracture of the hip (femoral neck). Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal"
       },
       {
-        sign: "A hot, painful hip with fever, or you cannot put weight on the leg",
-        action: "Same-day medical assessment, or go to emergency, to rule out infection or fracture"
+        sign: "A hot, swollen or very painful hip, a fever or feeling unwell, or you cannot put weight on the leg",
+        action: "Possible infection or fracture. Get medical assessment today, or go to emergency if you feel unwell or cannot bear weight. Infection is possible even without a fever"
       },
       {
         sign: "Severe, constant pain that does not change with position",
@@ -5961,7 +5978,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
       },
       {
         question: "Why does sitting on a low couch hurt my hip so much?",
-        answer: "Low seats drop the hip below 90 degrees of flexion, which increases compressive load on the anterior labrum, particularly if there is any underlying cam morphology. A firmer, higher seat, or a small wedge cushion, often makes a large difference while you rebuild tolerance."
+        answer: "Low seats put your knees higher than your hips, which takes the hip into deeper flexion, past about 90 degrees. Many irritable hips tolerate that deep bend poorly, particularly with a cam-shaped hip. A firmer, higher seat, or a small wedge cushion, often makes a large difference while you rebuild tolerance."
       }
     ],
 
@@ -5985,7 +6002,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
           "Goblet box squat to a depth that stays shy of the patient's impingement angle, 3 sets of 8 with a moderate kettlebell",
           "Romanian deadlift with light-to-moderate load, 3 sets of 8, for posterior chain loading",
           "Rear-foot-elevated split squat with an upright torso, 3 sets of 8 per side",
-          "Step-ups to a mid-thigh box with clean pelvis control, 3 sets of 8 per side",
+          "Step-ups onto a low step with clean pelvis control, raising the height only while the movement stays controlled and comfortable, 3 sets of 8 per side",
           "Banded standing hip abduction and extension, 3 sets of 12 per side, for continued abductor and extensor dose"
         ],
         progressionCriteria: "Goblet squats and Romanian deadlifts load progressively without triggering groin pain, step-ups stay level-pelvis, and a 60 minute continuous walk is tolerated the next day without flare."
@@ -6041,7 +6058,9 @@ Repetitive activities that involve hip abduction and adduction cycles create a "
 
 The iliopsoas bursa experiences different mechanical stresses. This bursa sits at the front of the hip where the iliopsoas tendon crosses the brim of the pelvis and hip joint capsule. During hip flexion and extension movements, such as running, climbing stairs, or performing sit-ups, the iliopsoas tendon slides back and forth across the bursa. In individuals with tight hip flexors or those performing high volumes of hip flexion activities, this repetitive motion can irritate the bursa.
 
-Body positioning during sleep creates sustained compression on hip bursae that prevents overnight recovery. When lying on your side, direct pressure compresses the trochanteric bursa for hours at a time. This sustained compression impedes blood flow to the bursal tissues and prevents the normal inflammatory healing processes from occurring during sleep. Clinically, sustained side-lying compression on the affected hip is a recognised aggravating factor, with the mechanical stress of prolonged compression impeding recovery.
+Sleep position matters too. Lying on the painful side presses on the outer hip for hours at a time, and sustained side-lying pressure is a recognised aggravating factor that can disturb sleep and keep symptoms going.
+
+This page uses "hip bursitis" because it is the familiar term, but the rehabilitation outline here is mainly for pain over the outside of the hip, which often involves the gluteal tendons as well as the bursa. Pain at the front of the hip (around the iliopsoas bursa), a new injury, or signs of infection need their own assessment.
 
 Muscle weakness, particularly of the hip abductors, creates abnormal loading patterns that increase friction forces on the bursae. When your gluteus medius is weak, the IT band and tensor fasciae latae must work harder to stabilize the pelvis during single-leg stance. This increased muscle tension translates to greater compression and friction forces on the trochanteric bursa. Hip abductor weakness is associated with increased IT band tension during walking compared to normal strength, contributing to greater bursal compression.`,
 
@@ -6121,12 +6140,20 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
 
     clinicalRedFlags: [
       {
-        sign: "Fever, systemic illness, or rapidly spreading redness",
-        action: "Immediate medical assessment for septic bursitis"
+        sign: "A hot, red or swollen hip, spreading redness, a fever, or feeling unwell",
+        action: "Possible infected bursa (septic bursitis). Get medical assessment today, or go to emergency if you feel unwell. Infection is possible even without a fever"
       },
       {
-        sign: "Severe swelling with marked restriction of movement",
-        action: "Assessment for complications or alternative diagnosis"
+        sign: "Sudden pain after a fall, or you cannot put weight on the leg",
+        action: "Possible fracture or tendon tear. Same-day medical assessment, or go to emergency"
+      },
+      {
+        sign: "Severe swelling, or hip movement that is very restricted or painful in every direction",
+        action: "Not typical of bursitis. See your family doctor promptly to look for a joint problem or other cause"
+      },
+      {
+        sign: "Numbness, tingling or weakness spreading down the leg",
+        action: "See your family doctor before starting physiotherapy to check the lower back and nerves"
       }
     ],
 
@@ -6232,7 +6259,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
   'proximal-hamstring-tendinopathy': {
     pathophysiology: `Proximal hamstring tendinopathy is centered around one specific, exquisitely tender spot: the ischial tuberosity, or the "sitting bone." The pain is a deep, localized ache right in the crease of the buttock where the hamstring muscles originate from a thick, shared tendon. The most common mistake people make is treating this like a simple hamstring muscle strain and aggressively stretching it, which often makes it worse. A tendinopathy at the hamstring's origin is sensitive to both compressive and tensile loads. Aggressive stretching places a high tensile load on the tendon, while sitting on it directly compresses it against the ischial tuberosity. Both actions can perpetuate the pain cycle. The condition is often linked to altered running mechanics, commonly an "over-striding" gait where the foot lands too far in front of the body's center of mass, putting massive braking and tensile load on the hamstring at foot strike.`,
 
-    biomechanics: `The proximal hamstring tendon experiences two distinct types of mechanical stress that contribute to tendinopathy development: tensile loading during activities and compressive loading during sitting. Understanding both mechanisms is essential because they require different management strategies. The hamstring muscles (semitendinosus, semimembranosus, and biceps femoris long head) originate from a common tendinous insertion at the ischial tuberosity, creating a concentrated point of mechanical stress where all three muscles converge.
+    biomechanics: `The proximal hamstring tendon experiences two distinct types of mechanical stress that contribute to tendinopathy development: tensile loading during activities and compressive loading during sitting. Understanding both mechanisms is essential because they require different management strategies. The proximal hamstring tendons attach around the sitting bone (ischial tuberosity): the semitendinosus and biceps femoris long head share a combined tendon, and the semimembranosus attaches just beside it, so a lot of load passes through a small area.
 
 During running, the hamstring experiences its peak tensile loading at the terminal swing phase, the moment just before your foot strikes the ground when your hip is flexed and your knee is extending. At this instant, the hamstring must eccentrically contract to decelerate the forward-swinging leg, generating very high tensile forces at the proximal tendon insertion. Runners with an over-striding pattern, where the foot lands significantly ahead of the body's center of mass, experience higher peak hamstring forces compared to runners landing closer to their center of mass.
 
@@ -6272,7 +6299,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive loading from isometrics through heavy slow resistance is the most reliable approach for proximal hamstring tendinopathy, though recovery is typically slow",
+      primaryStrategy: "A tailored, progressive loading program, from isometrics through heavier slow resistance, is a reasonable way to rebuild strength and activity tolerance. Research has not established one best program for everyone, and progress is often gradual",
       secondaryStrategy: "Load management and sitting posture modification provide symptom relief while allowing tendon adaptation through controlled exercise progression",
       preventionStrategy: "Gradual training progression and avoiding sudden increases in hill running or speed work reduces the risk of proximal hamstring tendinopathy in runners",
       sources: "Goom et al. (2016) JOSPT proximal hamstring tendinopathy clinical commentary; tendinopathy loading literature"
@@ -6308,7 +6335,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
     ],
 
     prognosis: {
-      timeline: "This can be a stubborn condition. Meaningful pain reduction from load management can happen in a few weeks, but building tendon strength and resilience takes longer: expect 3 to 9 months to get back to desired activities without significant pain. The progression must be slow and steady; pushing through pain will set you back.",
+      timeline: "This can be a stubborn condition. Meaningful pain reduction from load management can happen in a few weeks, but building tendon strength and resilience takes longer: expect 3 to 9 months to get back to desired activities without significant pain. The progression is slow and steady: some discomfort during exercise is acceptable if it settles within 24 hours, but pain that keeps climbing from session to session means the load needs adjusting.",
       factors: [
         "Duration of symptoms before treatment",
         "Compliance with sitting modifications",
@@ -6317,7 +6344,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
         "Baseline strength of entire posterior chain",
         "Understanding of load management principles"
       ],
-      naturalHistory: "Notorious for its persistence if not managed properly. Responds well to appropriate load management and progressive exercise. Poor response to rest alone or aggressive stretching."
+      naturalHistory: "It can be persistent. Many people improve with load management and progressive exercise, although progress is often gradual, and rest alone or aggressive stretching often does not settle it."
     },
 
     selfManagement: [
@@ -6332,24 +6359,32 @@ I am upfront with people that this one is usually slow. The early work is mostly
         precautions: ["No touching toes or aggressive hamstring stretches", "Substitute hip hinge movements for deep forward bending", "Learn to pick things up with proper hip hinge technique"]
       },
       {
-        strategy: "Progressive Loading Only",
-        rationale: "Only way to make tendon more resilient is through carefully graded loading program",
+        strategy: "Progressive Loading",
+        rationale: "A carefully graded loading program is a reasonable way to rebuild tendon strength and tolerance; research has not settled on one best program",
         precautions: ["Start with isometric exercises", "Progress very gradually", "Stop if sharp increase in symptoms", "Consistency more important than intensity"]
       }
     ],
 
     clinicalRedFlags: [
       {
+        sign: "New trouble passing urine, loss of bladder or bowel control, or numbness around the genitals, buttocks or inner thighs",
+        action: "Possible cauda equina syndrome (pressure on the nerves at the base of the spine). Go to emergency now"
+      },
+      {
+        sign: "New or worsening weakness in the leg or foot",
+        action: "Possible nerve compression. Get medical assessment today"
+      },
+      {
+        sign: "Numbness or tingling spreading down the leg",
+        action: "See your family doctor before starting physiotherapy to check the lower back and sciatic nerve"
+      },
+      {
+        sign: "A sudden pop or tearing feeling at the sit bone, with bruising down the back of the thigh or difficulty walking",
+        action: "Possible proximal hamstring avulsion (the tendon pulled off the bone). Get an urgent surgical opinion within days, through your family doctor, a sports medicine physician or emergency"
+      },
+      {
         sign: "Severe, constant pain not related to sitting or activity",
-        action: "Investigation for other pathology including stress fracture"
-      },
-      {
-        sign: "Neurological symptoms (numbness, weakness, bladder/bowel changes)",
-        action: "Assessment for nerve involvement or cauda equina syndrome"
-      },
-      {
-        sign: "Rapid onset after significant trauma",
-        action: "Assessment for complete tear or avulsion injury"
+        action: "Not typical of tendon pain. See your family doctor promptly to look for other causes, including a stress fracture"
       }
     ],
 
@@ -6389,7 +6424,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
           "Standing isometric leg curl against a wall or anchor point with a straighter-leg position, 5 sets of 30 to 45 seconds per side",
           "Short-range glute bridge with neutral spine, 3 sets of 10, keeping hip flexion modest",
           "Seating review: firmer and higher chairs, a wedge cushion if useful, standing breaks every 30 to 45 minutes, no low bucket seats for now",
-          "Remove deep forward bends, toe-touch stretches, and couch-stretch loading of the hamstring origin"
+          "Remove deep forward bends, toe-touch stretches, and any deep hip bending with the knee straight that reproduces the sitting-bone pain"
         ],
         progressionCriteria: "Daily irritability is lower, sitting for 30 to 45 minutes is tolerable on the modified set-up, and isometric holds at 45 seconds do not leave a 24-hour flare."
       },
@@ -6520,11 +6555,11 @@ Hip positioning significantly influences the mechanical load on the piriformis a
 
 The piriformis muscle experiences variable mechanical demands based on hip position. When your hip is in neutral or slight extension, the piriformis functions primarily as an external rotator, with relatively modest force production. However, when the hip flexes beyond 60 degrees, the piriformis muscle's line of action shifts, transforming it into a hip abductor rather than an external rotator. During active contraction in hip flexion positions, the piriformis can enlarge, reducing the space available for the sciatic nerve within the deep gluteal tunnel.
 
-Activity-related muscle hypertrophy plays a significant role in piriformis-related nerve compression. Athletes who perform repetitive hip external rotation activities, such as soccer players, ballet dancers, figure skaters, and hockey players, develop significant piriformis muscle hypertrophy over time. Repetitive external-rotation demands can contribute to deep hip rotator changes over time, though the degree of piriformis hypertrophy varies between individuals. This sport-specific adaptation explains why certain athletic populations show higher prevalence of piriformis-related symptoms.
+Some athletes whose sports demand repeated hip rotation, such as soccer, ballet, figure skating and hockey, may develop larger deep hip rotators over time, though how much this contributes to nerve irritation varies between individuals and is not well established.
 
-Compensatory muscle recruitment patterns contribute to piriformis overload and subsequent nerve compression. When your gluteus maximus or gluteus medius muscles are weak or inhibited, which is common with sedentary lifestyles or after hip injuries, the piriformis and other deep external rotators must work harder to stabilize the hip during functional activities. When the larger gluteal muscles underperform, the deep external rotators including the piriformis tend to take on more of the workload during walking and stair climbing. This chronic overwork leads to muscle hypertrophy, increased resting muscle tone, and potential for nerve compression.
+Several structures in the deep buttock can irritate the sciatic nerve, and the precise source is not always clear. One common idea is that when the larger gluteal muscles are weak, the deep rotators work harder and become irritable; that is plausible, but it is not established as the cause in any one person. Hip strength, activity changes and sitting habits may all affect symptoms, so they guide the exercise plan.
 
-Sitting mechanics create sustained compression similar to other deep gluteal space conditions. When you sit, body weight compresses the soft tissues of the buttock, including the piriformis muscle and sciatic nerve, between the ischial tuberosity and the seat surface. Sitting on hard surfaces generates sustained pressure in the deep gluteal tissues that can impede blood flow to both muscle and nerve tissues. This sustained ischemia during prolonged sitting explains why symptoms often worsen with desk work, driving, or activities requiring extended periods in seated positions.
+Sitting mechanics create sustained compression similar to other deep gluteal space conditions. When you sit, body weight compresses the soft tissues of the buttock, including the piriformis muscle and sciatic nerve, between the ischial tuberosity and the seat surface. Sitting on hard surfaces keeps pressure on the deep gluteal tissues and the nerve, which is one likely reason symptoms often worsen with desk work, driving, or other long periods of sitting.
 
 The relationship between pelvic positioning and piriformis length significantly influences symptoms. When your pelvis tilts posteriorly, as commonly occurs with slouched sitting postures, the origin of the piriformis on the sacrum moves away from its insertion on the greater trochanter, effectively lengthening and tensioning the muscle. This increased muscle length can compress the sciatic nerve against surrounding structures. Conversely, anterior pelvic tilt shortens the piriformis but may increase compression through other mechanisms. Pelvic tilt alters piriformis length and tension, highlighting how postural factors influence the mechanical environment of the sciatic nerve.`,
 
@@ -6576,7 +6611,7 @@ The relationship between pelvic positioning and piriformis length significantly 
     ],
 
     prognosis: {
-      timeline: "Most improve within 6-8 weeks with appropriate treatment",
+      timeline: "Many people improve over several weeks once aggravating loads are changed, but research on recovery times is limited and some cases take longer",
       factors: [
         "Duration of symptoms",
         "Contributing factors",
@@ -6601,16 +6636,16 @@ The relationship between pelvic positioning and piriformis length significantly 
 
     clinicalRedFlags: [
       {
-        sign: "Progressive neurological symptoms",
-        action: "Urgent assessment for significant nerve compression"
+        sign: "New trouble passing urine, loss of bladder or bowel control, or numbness around the genitals, buttocks or inner thighs",
+        action: "Possible cauda equina syndrome (pressure on the nerves at the base of the spine). Go to emergency now"
       },
       {
-        sign: "Bilateral symptoms or cauda equina signs (saddle numbness, bladder or bowel change)",
-        action: "Emergency spinal assessment"
+        sign: "Leg weakness or numbness that is getting worse, or symptoms in both legs",
+        action: "Possible significant nerve compression. Get medical assessment today"
       },
       {
-        sign: "Severe, constant pain not responsive to position changes",
-        action: "Investigation for other pathology"
+        sign: "Severe, constant pain that does not change with position",
+        action: "Not typical of piriformis syndrome. See your family doctor promptly to look for other causes"
       }
     ],
 
@@ -6653,11 +6688,11 @@ The relationship between pelvic positioning and piriformis length significantly 
       },
       {
         question: "How do I know if it is my piriformis and not a disc?",
-        answer: "The typical pattern with deep gluteal or piriformis-driven pain is deep buttock tenderness that is reproduced with direct palpation, worse with prolonged sitting, and often without significant low back pain. A disc-related radiculopathy more commonly produces back pain plus leg pain, reproduces with straight leg raise or slump testing, and may include myotomal weakness or reflex change. Clinical exam sorts most of this out in one session. Imaging is reserved for cases with red flags or failed conservative care."
+        answer: "The typical pattern with deep gluteal or piriformis-driven pain is deep buttock tenderness that is reproduced with direct palpation, worse with prolonged sitting, and often without significant low back pain. A disc-related radiculopathy more commonly produces back pain plus leg pain, reproduces with straight leg raise or slump testing, and may include myotomal weakness or reflex change, although leg pain from a nerve root can also occur without much back pain. The history and examination can suggest whether symptoms are more likely to come from the back, the deep buttock or another source; sometimes the pattern stays uncertain and needs reassessment or medical investigation. Imaging is reserved for cases with red flags or failed conservative care."
       },
       {
         question: "How long does piriformis syndrome take to settle?",
-        answer: "Most cases respond within 6 to 8 weeks with a combination of load management, graded hip strengthening, and sensible sitting modifications. Chronic or heavily deconditioned cases can take longer. Duration of symptoms before starting treatment is the single biggest predictor I see, which is why addressing it early matters."
+        answer: "Many people improve over several weeks with a combination of load management, graded hip strengthening, and sensible sitting modifications, but recovery times vary and the research on them is limited. Long-standing or heavily deconditioned cases can take longer, which is one reason addressing it early helps."
       },
       {
         question: "Should I stretch my piriformis aggressively?",
@@ -6665,15 +6700,15 @@ The relationship between pelvic positioning and piriformis length significantly 
       },
       {
         question: "Why does sitting make it so much worse?",
-        answer: "Sitting compresses the deep gluteal space between the ischial tuberosity and the seat, reduces blood flow to the soft tissues, and puts the piriformis on stretch when the hip is flexed, adducted, and internally rotated, which is exactly how most people sit. For acute flares I recommend standing or walking breaks every 20 to 30 minutes, avoiding cross-legged sitting, and using a firm cushion that offloads the affected side."
+        answer: "Sitting compresses the deep gluteal space between the ischial tuberosity and the seat, and puts the piriformis on stretch when the hip is flexed, adducted, and internally rotated, which is how many people sit. For acute flares I recommend standing or walking breaks every 20 to 30 minutes, avoiding cross-legged sitting, and using a firm cushion that offloads the affected side."
       },
       {
         question: "Can I run with piriformis syndrome?",
-        answer: "Often yes, with modifications, provided running does not reliably reproduce or worsen leg symptoms. Short, flat, gentle-paced runs are usually tolerated before long runs or hills. What tends to flare it is long sitting before or after a run, aggressive hill work, and sudden increases in mileage. A graded walk-run return is more reliable than pushing through."
+        answer: "Often yes, with modifications, provided running does not consistently reproduce or worsen leg symptoms. Short, flat, gentle-paced runs are usually tolerated before long runs or hills. What tends to flare it is long sitting before or after a run, aggressive hill work, and sudden increases in mileage. A graded walk-run return usually works better than pushing through."
       },
       {
         question: "Do I need a cortisone injection or surgery?",
-        answer: "Surgery for deep gluteal syndrome is uncommon and reserved for clearly imaged structural entrapment that has failed sustained conservative care. Image-guided piriformis injections (local anaesthetic plus or minus corticosteroid) are sometimes used when symptoms are severe or diagnosis is unclear, but most people respond well to conservative care without them."
+        answer: "Surgery for deep gluteal syndrome is uncommon and reserved for clearly imaged structural entrapment that has failed sustained conservative care. Image-guided piriformis injections (local anaesthetic plus or minus corticosteroid) are sometimes used when symptoms are severe or diagnosis is unclear, but many people improve with conservative care without them."
       },
       {
         question: "Do I need an MRI?",
@@ -6761,7 +6796,7 @@ The relationship between pelvic positioning and piriformis length significantly 
 
 These injuries occur during high-velocity movements when the muscle undergoes eccentric contraction (lengthening under load). The mechanism typically involves forceful hip adduction against an abduction force, or sudden acceleration during sprinting. Sports like soccer, hockey, and football place athletes at highest risk due to the rapid direction changes, kicking motions, and explosive movements required.
 
-When the adductor muscle-tendon complex is overloaded beyond its capacity, microscopic tears develop in the muscle fibers. In acute strains, this creates immediate pain and functional limitation. When inadequately rehabilitated or subjected to chronic overload, the tissue can develop degenerative changes including enthesopathy (tendon attachment inflammation), bone marrow edema, and in severe cases, complete rupture requiring surgical repair.
+When the adductor muscle-tendon complex is overloaded beyond its capacity, microscopic tears develop in the muscle fibers. In acute strains, this creates immediate pain and functional limitation. With ongoing overload, longer-standing changes can develop, such as a problem at the tendon attachment (enthesopathy) or bone marrow edema. A substantial tear or avulsion needs assessment to decide whether rehabilitation or a surgical opinion is appropriate; some complete tears are managed without surgery.
 
 According to the 2014 Doha Agreement classification system, groin strains fall under "adductor-related groin pain", characterized by tenderness over the adductor muscles and pain provoked by resisted adduction testing. This classification helps distinguish adductor strains from other groin pain causes like hip joint pathology, inguinal canal issues, or pubic bone stress.`,
 
@@ -6879,7 +6914,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
     clinicalRedFlags: [
       {
         sign: "Sudden severe pain with an audible pop and you could not carry on",
-        action: "Possible complete tear or avulsion. See a doctor within 1 to 2 days for imaging and a surgical opinion"
+        action: "Possible complete tear or avulsion. See a doctor within 1 to 2 days to decide whether imaging and a surgical opinion are needed"
       },
       {
         sign: "Extensive bruising spreading down the thigh within 24 hours",
@@ -6887,11 +6922,15 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
       },
       {
         sign: "Groin or hip pain in a runner that builds with each run, or pain when hopping on that leg",
-        action: "Possible stress fracture of the hip (femoral neck). Stop running and see your family doctor the same week"
+        action: "Possible stress fracture of the hip (femoral neck). Stop running and all impact exercise, keep weight off the leg, and get medical assessment today. If you cannot put weight on the leg or the pain is severe, go to emergency. An early X-ray can look normal"
+      },
+      {
+        sign: "A child or teenager with a new limp and groin, hip, thigh or knee pain",
+        action: "Possible slipped growth plate at the hip (SCFE). Do not let them walk on the leg. Go to emergency today for an urgent assessment"
       },
       {
         sign: "Groin pain with fever, a hot or swollen hip, or you cannot put weight on the leg",
-        action: "Same-day medical assessment to rule out infection or fracture"
+        action: "Possible infection or fracture. Get medical assessment today, or go to emergency if you feel unwell or cannot bear weight. Infection is possible even without a fever"
       },
       {
         sign: "Pain with coughing, sneezing, or bearing down, or a lump in the groin",
@@ -6939,7 +6978,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Protect, Load Gently, and Establish Pain-Free Isometrics (Days 1 to 14)",
-        focus: "Thorborg's 2023 clinical concepts paper (Journal of Athletic Training) and the earlier Hölmich protocol both build adductor rehab on exercise and load management rather than prolonged rest. Pain-free isometric adduction within the first few days sets the floor for the whole programme. This phase is about keeping the tissue active while it knits, not resting it flat.",
+        focus: "Thorborg's 2023 clinical concepts paper (Journal of Athletic Training) and the earlier Hölmich protocol both build adductor rehab on exercise and load management rather than prolonged rest. Pain-free isometric adduction within the first few days sets the floor for the whole programme. This phase is about keeping the tissue active while it knits, not resting it flat. The week ranges in these phase titles are illustrative: the size of the injury and meeting each phase's criteria decide when you progress.",
         examples: [
           "Short-lever ball squeeze between the knees in hook-lying, 5 sets of 20 seconds at sub-maximal effort, twice daily",
           "Long-lever ball squeeze with legs straight, same dose, once daily tolerance is established",
@@ -6967,11 +7006,11 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
         examples: [
           "Accelerations and decelerations at progressing speeds, including change-of-direction drills",
           "Controlled kicking progression starting with short-range passing, building to long kicks",
-          "Heavy resisted hip adduction, 4 sets of 6, working toward adductor strength at least 80 percent of abductor strength",
+          "Heavy resisted hip adduction, 4 sets of 6, working toward adductor strength that matches the demands of your sport",
           "Sport-specific intervals and small-sided drills before full training",
           "Continuation of Copenhagen adduction exercise twice weekly long term as prevention"
         ],
-        progressionCriteria: "Adductor-to-abductor strength ratio at or above 80 percent, symptom-free full training, and a maintenance plan including Copenhagen adduction twice weekly through the season."
+        progressionCriteria: "Adductor strength adequate for your sport, tolerance of full sport-specific training with no meaningful next-day flare, and a maintenance plan including Copenhagen adduction twice weekly through the season."
       }
     },
 
@@ -6982,7 +7021,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
       },
       {
         question: "Is this a pulled muscle or a sports hernia?",
-        answer: "Different problems, and they need different plans. A classic adductor strain is tender right over the adductor longus origin and reproduces with resisted adduction. A sports hernia (inguinal-related groin pain in the Doha classification) sits deeper, around the inguinal canal, often flares with coughing, sneezing, or sit-ups, and does not reproduce cleanly with a simple squeeze test. Serner et al. (BJSM 2016) showed that clinical examination maps well to imaging for adductor injuries but misses more with other groin pain entities, which is why history and exam have to work together."
+        answer: "Different problems, and they need different plans. A classic adductor strain is tender right over the adductor longus origin and reproduces with resisted adduction. What is often called a sports hernia (inguinal-related groin pain in the Doha classification) sits deeper, around the inguinal canal, often flares with coughing, sneezing, or sit-ups, and does not reproduce cleanly with a simple squeeze test. A true hernia, a lump that bulges with coughing or straining, is a different problem again and needs your family doctor's assessment. Serner et al. (BJSM 2016) showed that clinical examination maps well to imaging for adductor injuries but misses more with other groin pain entities, which is why history and exam have to work together."
       },
       {
         question: "Should I rest or should I train?",
@@ -7002,7 +7041,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
       },
       {
         question: "Can I prevent this happening again?",
-        answer: "You can lower the risk. Two things commonly drive recurrence: incomplete rehab (returning before strength and hop symmetry are back) and dropping adductor loading during the season. Keep the Copenhagen adduction exercise in at least once a week through the season, aim to keep adductor strength at or above 80 percent of abductor strength, and warm up properly before kicking sessions."
+        answer: "You can lower the risk. Two common contributors to recurrence are incomplete rehab (returning before strength and hop symmetry are back) and dropping adductor loading during the season. Keep the Copenhagen adduction exercise in at least once a week through the season, keep your adductor strength up (in one study of professional ice hockey players, adductor strength below 80 percent of abductor strength was linked to more strains), and warm up properly before kicking sessions."
       }
     ],
 
@@ -7026,7 +7065,7 @@ Hip flexor tightness and anterior pelvic tilt position create biomechanical pred
 
 Lumbopelvic control deficits amplify hamstring loading during sprinting and change-of-direction movements. When your core muscles cannot maintain stable pelvic positioning during high-speed running, excessive anterior pelvic tilt occurs dynamically at each stride. This pelvic instability effectively lengthens your hamstrings beyond the range they would experience with proper core control. Poor lumbopelvic control is thought to allow greater hamstring lengthening during sprinting compared to those with good core stability.
 
-Previous hamstring injuries create lasting biomechanical changes that increase re-injury risk. After a hamstring strain, the affected muscle develops scar tissue at the injury site, creating a region of reduced compliance that cannot lengthen as freely as surrounding healthy tissue. This mechanical "weak link" experiences higher stress during terminal swing phase, making re-injury more likely at or near the original injury location. Recurrent strains commonly occur at or near the original injury site, supporting this mechanical vulnerability concept.
+A previous hamstring strain raises the risk of another, and repeat strains often occur at or near the original site. The reasons include several factors, such as strength, exposure to high-speed running and how complete the recovery was, and changes in the healed tissue may play a part. Rehabilitation aims to address the factors that can be changed.
 
 Strength differences between legs may also matter. When one hamstring is clearly weaker than the other, stride mechanics can change in ways that add stress to the weaker side, which is why side-to-side strength is one of the things checked before a return to sprinting. The research linking strength asymmetry to future injury is mixed, so it is one factor among several rather than a predictor on its own.`,
 
@@ -7101,7 +7140,7 @@ Strength differences between legs may also matter. When one hamstring is clearly
     clinicalRedFlags: [
       {
         sign: "A pop or tearing feeling high up at the sit bone, often in a slip, waterskiing fall or sudden lunge, with large bruising down the back of the thigh, a gap you can feel, or difficulty walking",
-        action: "Possible proximal hamstring avulsion. Get an urgent surgical opinion within days, through your family doctor, a sports medicine physician or emergency, because repair works best when done early"
+        action: "Possible proximal hamstring avulsion. Get an urgent surgical opinion within days, through your family doctor, a sports medicine physician or emergency. Not every avulsion needs surgery, but if repair is chosen it is easier when done early"
       },
       {
         sign: "Sudden sharp pain at the sit bone in a teenager during sprinting or kicking",
@@ -7133,7 +7172,7 @@ Strength differences between legs may also matter. When one hamstring is clearly
       },
       {
         condition: "Proximal Hamstring Avulsion",
-        distinguishingFeatures: "Acute traumatic mechanism, often during sprinting, waterskiing, or a sudden slip. Significant weakness with resisted knee flexion, marked bruising tracking down the posterior thigh, and a palpable gap or retraction in some cases. MRI indicated and surgical consult in complete or high-grade partial avulsions (Lempainen et al., Muscles Ligaments Tendons J 2015)."
+        distinguishingFeatures: "Acute traumatic mechanism, often during sprinting, waterskiing, or a sudden slip. Significant weakness with resisted knee flexion, marked bruising tracking down the posterior thigh, and a palpable gap or retraction in some cases. An MRI through a doctor and a surgical opinion are usually considered for suspected complete or high-grade partial avulsions, although not every avulsion needs repair (Lempainen et al., Muscles Ligaments Tendons J 2015)."
       },
       {
         condition: "Lumbar Radiculopathy (L5 or S1)",
@@ -7207,7 +7246,7 @@ Strength differences between legs may also matter. When one hamstring is clearly
       },
       {
         question: "Do I have to do Nordic hamstring curls?",
-        answer: "Strongly yes for anyone returning to running, kicking, or cutting sport. Van Dyk et al. (BJSM 2019) pooled 15 studies across 8,459 athletes and found inclusion of the Nordic in a prevention programme roughly halved hamstring injury rates. It is not a pleasant exercise, but the effect size is larger than almost anything else in the rehab toolbox."
+        answer: "Not necessarily, but they can be useful, particularly in sports with sprinting or kicking. Van Dyk et al. (BJSM 2019) pooled 15 studies across 8,459 athletes and found that prevention programmes including the Nordic roughly halved hamstring injury rates; that is a prevention effect in athletes, not a treatment effect for an existing tear. Nordics need a tolerable starting level and are one part of a program that also rebuilds running and sport-specific capacity, and other exercises may be used when they better fit you or your stage of recovery."
       },
       {
         question: "When can I start running again?",
@@ -7235,17 +7274,11 @@ Strength differences between legs may also matter. When one hamstring is clearly
   'facet-joint-syndrome': {
     pathophysiology: `Facet joints are small joints between vertebrae that guide and limit movement. They can become arthritic or inflamed, causing localized back pain. The joint capsule is richly innervated, making it a significant pain source.`,
 
-    biomechanics: `The lumbar facet joints function as part of a three-joint complex at each spinal level, working together with the intervertebral disc anteriorly and two facet joints posteriorly. This mechanical relationship means that changes in any one component directly affect loading patterns on the others. When your intervertebral disc degenerates and loses height, the annular fibers shift loads more posteriorly onto the facet joints, accelerating their degenerative process. Finite element modeling shows that disc degeneration shifts load posteriorly and substantially increases facet joint loading compared to healthy discs.
-
-During spinal extension (leaning backward), the inferior articular process of the upper vertebra moves inferiorly and posteriorly until the spinous processes approach contact. In this position, facet joint loading increases substantially compared to neutral spine alignment. Biomechanical studies using pressure-sensitive film inserted into cadaveric facet joints demonstrate that extension movements markedly increase facet joint contact forces relative to neutral standing posture. This explains why activities involving repeated or sustained extension, such as overhead work, backward bending, or arching movements, frequently trigger facet joint pain.
-
-The lumbar extensor muscles amplify facet joint compression during active extension movements. When you actively arch your back, your erector spinae and multifidus muscles contract to produce the movement, but these same muscles generate compressive forces that push the vertebrae together. This muscle-generated compression adds to the forces already present from body weight and spinal positioning.
-Combined extension with rotation movements create particularly high facet joint stresses. When you twist your spine while bending backward, one facet joint experiences increased compression while the opposite side experiences tensile and shear forces. This asymmetrical loading pattern concentrates stress on specific portions of the joint surfaces. That is why looking up while twisting is a common trigger.
+    biomechanics: `The facet joints are small paired joints at the back of each spinal level. They share load with the disc in front of them and guide how the spine bends and twists. Arching backward and twisting load them more than standing in a neutral position, which is why leaning back, reaching overhead, or looking up while turning can bring on facet-type pain once the joints are sensitive.
 
 Long spells of standing, overhead work or repeated backward bending are common aggravators once the joints are sensitive, so I adjust those early and build them back up.
 
-Facet joint changes can also contribute to spinal stenosis. As facet joints age, they often develop osteophytes (bone spurs) and thickened joint capsules in response to abnormal mechanical stress. This hypertrophy can narrow the spinal canal and nerve root foramen, creating stenotic conditions.
-The facet joints' orientation in the lumbar spine makes them particularly vulnerable to extension and rotation forces. At L4-L5 and L5-S1, the facet joints sit more vertically oriented, while at upper lumbar levels they orient more horizontally. This anatomical variation means that lower lumbar facets resist more anterior shear forces, while upper lumbar facets resist more rotation. Transition zones where facet orientation changes, such as the thoracolumbar and lumbosacral junctions, are recognised sites of mechanical stress concentration during combined movements, and lower lumbar levels show the highest facet degeneration prevalence.`,
+Facet joints change with age, as discs do, and these changes become common on scans of people without back pain, so a report of facet arthritis does not on its own explain your pain. With age, enlarged facet joints and bone spurs can also add to narrowing of the spinal canal or of the spaces where nerves leave the spine, which is covered on the spinal stenosis page.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -7292,7 +7325,7 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
     ],
 
     prognosis: {
-      timeline: "Most improve within 4-6 weeks with appropriate treatment",
+      timeline: "Many people improve within 4 to 6 weeks with appropriate treatment, and longer-standing pain can take longer",
       factors: [
         "Duration of symptoms",
         "Activity level",
@@ -7377,7 +7410,7 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
     faqs: [
       {
         question: "How do I know if my back pain is coming from my facet joints?",
-        answer: "The classic clinical pattern is localised one-sided lower back pain that worsens with extension and rotation, eases with forward flexion and sitting, and often refers into the buttock or posterior thigh but not below the knee. Cohen and Raja and subsequent consensus guidelines (Cohen et al. 2020) note that no single clinical test is definitive. Facet joint pain is a clinical diagnosis supported by examination, with diagnostic medial branch blocks reserved for cases being considered for interventional procedures."
+        answer: "One-sided low back pain that is worse with arching back or twisting, eases with bending forward or sitting, and may spread into the buttock or back of the thigh but not below the knee can make facet joint pain one possibility. But no single test, and not even the whole examination, can reliably prove which spinal structure is hurting (Cohen and colleagues, 2020). I treat the symptoms and how you function while watching for other causes. If a specialist is considering radiofrequency treatment, a diagnostic nerve block may be used to help select who is likely to benefit."
       },
       {
         question: "Does my MRI have to show facet arthritis for this to be the problem?",
@@ -7393,7 +7426,7 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
       },
       {
         question: "Will I need a facet joint injection or radiofrequency ablation?",
-        answer: "Usually no. Most facet-driven presentations respond to manual therapy combined with progressive strengthening and movement re-education. Interventional procedures are typically considered when symptoms remain significantly disabling after at least 3 months of appropriate conservative care and when two diagnostic medial branch blocks reproduce at least 80% relief, consistent with current consensus guidance."
+        answer: "Many people do not. Facet-related back pain often improves with exercise, joint mobilization for short-term relief, and gradually reloading the movements that hurt. If pain stays disabling despite a reasonable trial of care, usually at least three months, your family doctor may discuss a specialist opinion. Guidelines differ on how many diagnostic nerve blocks to use and how much relief is needed before radiofrequency treatment, so the specialist explains their approach and its limits."
       },
       {
         question: "Why does walking help but standing still does not?",
@@ -7475,20 +7508,11 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
   'thoracic-outlet-syndrome': {
     pathophysiology: `TOS involves compression of nerves or blood vessels between the neck and shoulder. This can occur at multiple sites including scalene muscles, first rib, or pectoralis minor.`,
 
-    biomechanics: `The thoracic outlet represents a confined anatomical space where the brachial plexus nerves, subclavian artery, and subclavian vein must navigate through two potential compression zones: the interscalene triangle and the costoclavicular space. The interscalene triangle is bordered anteriorly by the anterior scalene muscle, posteriorly by the middle scalene muscle, and inferiorly by the first rib. Any factor that reduces the dimensions of this triangle or increases the size of structures within it creates potential for neurovascular compression.
+    biomechanics: `The thoracic outlet is the narrow space between the neck, the collarbone and the first rib, where the nerves and blood vessels to the arm pass. Raising the arm overhead narrows part of this space, which is why overhead work, sleeping with the arms above the head, or carrying heavy bags on the shoulders can bring symptoms on.
 
-Arm elevation movements dramatically alter the spatial relationships within the thoracic outlet. When you raise your arm overhead, your first rib elevates slightly and your clavicle rotates posteriorly, reducing the costoclavicular space dimensions. Imaging during arm elevation demonstrates that the costoclavicular space narrows markedly during full overhead positioning. This mechanical narrowing explains why overhead activities, sleeping with arms above head, or carrying backpacks with tight straps frequently trigger TOS symptoms.
+Some people have anatomy that leaves less room, such as an extra rib above the first rib (a cervical rib) or a fibrous band, and a collarbone fracture that healed out of line can do the same. Others develop symptoms after a period of heavy overhead training or work, or after an injury to the neck or shoulder.
 
-The scalene muscles play a critical mechanical role in TOS development. These muscles, which attach from your cervical vertebrae to the first rib, act as accessory breathing muscles and also control neck positioning. When chronically shortened due to forward head posture, excessive breathing through the upper chest, or direct muscle trauma, the scalenes narrow the interscalene triangle by drawing the first rib superiorly and compressing neurovascular structures against bony boundaries. Individuals with TOS commonly demonstrate increased scalene muscle tension compared to unaffected controls.
-
-Forward head and rounded shoulder posture creates biomechanical conditions that predispose to TOS. Holding the head forward for long spells may keep the scalene muscles working harder. Simultaneously, rounded shoulders cause the pectoralis minor muscle to shorten and the scapula to protract forward, narrowing the space beneath the pectoralis minor where neurovascular structures pass.
-Cervical rib anomalies and first rib variations create structural narrowing of the thoracic outlet. Approximately 0.5-1% of the population has cervical ribs (extra ribs arising from the seventh cervical vertebra), and about 10% of these individuals develop TOS symptoms. Even when complete bony ribs are absent, fibrous bands connecting cervical transverse processes to the first rib can create compression. Research using CT angiography demonstrates that cervical ribs or fibrous bands elevate the subclavian artery and brachial plexus, increasing tension on these structures and reducing available space within the thoracic outlet.
-
-Repetitive overhead activities in athletics and occupations create cumulative microtrauma to thoracic outlet structures. Baseball pitchers, swimmers, volleyball players, and workers performing overhead tasks expose their neurovascular bundle to thousands of compression-decompression cycles. Bigger scalene and subclavius muscles in some overhead athletes may add to this.
-
-Clavicle fractures and shoulder trauma can alter thoracic outlet biomechanics long after initial healing. When clavicle fractures heal with malunion (abnormal alignment), even small changes in clavicle length or angulation can permanently reduce costoclavicular space dimensions. Clavicle malunion that shortens or angulates the bone can reduce costoclavicular space and contribute to TOS, as documented in case reports. Similarly, shoulder dislocations or acromioclavicular separations can alter scapular positioning, affecting how the scapula and clavicle relate to the first rib during arm movements.
-
-Respiratory patterns significantly influence thoracic outlet mechanics. Upper chest breathing, common in individuals with chronic stress or respiratory conditions, requires increased scalene muscle activation to elevate the upper ribs with each breath. Breathing mostly with the upper chest keeps the scalenes working with every breath. Individuals with TOS who breathe primarily through the upper chest tend to rely more on scalene activation during quiet breathing than diaphragmatic breathers, suggesting that breathing mechanics can contribute to the condition's development and persistence.`,
+How the shoulder blades sit and move, how much the neck and upper chest muscles work during breathing, and how long you hold provoking positions are thought to contribute in some people. These factors vary between people and the evidence for each is limited, so the assessment looks for the ones that change your symptoms.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -7508,7 +7532,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative care centred on scapular control, nerve mobility, and breathing mechanics is the appropriate first step for neurogenic TOS, with meaningful change typically taking three to six months",
+      primaryStrategy: "For neurogenic TOS without significant weakness or muscle wasting, a monitored trial of rehabilitation is usually the first step, and change often takes three to six months. Significant or worsening weakness or wasting needs a prompt medical assessment, because it can change that order (INTOS consensus, 2024)",
       secondaryStrategy: "Changing how long you hold provoking positions, such as arms overhead or heavy carrying, can ease symptoms while the exercise programme builds tolerance",
       preventionStrategy: "Keeping up shoulder girdle strength and breaking up long spells in provoking positions may help symptoms stay settled",
       sources: "Journal of Vascular Surgery Guidelines"
@@ -7534,7 +7558,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     ],
 
     prognosis: {
-      timeline: "Improvement within 3-6 months of conservative treatment",
+      timeline: "Improvement often takes 3 to 6 months of rehabilitation",
       factors: [
         "Type of TOS",
         "Duration of symptoms",
@@ -7580,8 +7604,8 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
         action: "Call 911"
       },
       {
-        sign: "Weakness or visible wasting of the hand muscles that is getting worse",
-        action: "See your family doctor promptly for nerve testing"
+        sign: "Weakness or visible wasting of the hand muscles that is significant or getting worse",
+        action: "See your family doctor within a few days for nerve testing and a specialist opinion, rather than waiting out a long exercise trial first"
       }
     ],
 
@@ -7597,7 +7621,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       },
       {
         question: "Can physiotherapy actually help, or do I need surgery?",
-        answer: "For neurogenic TOS, conservative care is the appropriate first step and often the only step needed. The Cochrane review by Povlsen and colleagues updated in 2014 found limited high-quality comparative evidence but noted that the established intervention pathway remains a trial of physiotherapy first, reserving surgery for those who do not respond. Current conservative frameworks describe a graded programme built around scapular control, posture, nerve mobility, and breathing pattern. Venous and arterial subtypes are a different conversation and are surgical."
+        answer: "For neurogenic TOS without significant weakness or muscle wasting, rehabilitation is usually the first step, and for many people it is the only one needed. The Cochrane review by Povlsen and colleagues updated in 2014 found limited high-quality comparative evidence but noted that the established intervention pathway remains a trial of physiotherapy first, reserving surgery for those who do not respond. Current conservative frameworks describe a graded programme built around scapular control, posture, nerve mobility, and breathing pattern. Venous and arterial subtypes are a different conversation and are surgical."
       },
       {
         question: "Why does my hand get cold or change colour?",
@@ -7605,7 +7629,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       },
       {
         question: "Will stretching my scalenes fix it?",
-        answer: "Stretching and releasing the scalenes can provide short-term relief, but on their own they rarely solve the pattern. The more consistent outcomes come from addressing scapular position and control, rebuilding breathing mechanics (many people with TOS are chronic upper-chest breathers), restoring first rib and thoracic mobility, and progressively loading the shoulder girdle. Conservative frameworks frame this as retraining the whole shoulder and neck complex, not just freeing one muscle."
+        answer: "Stretching and releasing the scalenes can give short-term relief, but on its own it often does not settle the problem. Rehabilitation usually also works on shoulder blade control, breathing, upper back and first rib mobility, and gradually loading the shoulder girdle, although the best programme has not been firmly established. Conservative frameworks describe this as retraining the whole shoulder and neck region, not just freeing one muscle."
       },
       {
         question: "What about nerve gliding exercises I've seen online?",
@@ -7613,11 +7637,11 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       },
       {
         question: "How long does this take to improve?",
-        answer: "Published guidance, including conservative frameworks and most vascular surgery consensus statements, suggests a minimum of two to three months of consistent physiotherapy before concluding that conservative care has not worked. Realistically, meaningful improvement often takes three to six months. Patients who try a handful of sessions over a few weeks and conclude it did not work have usually not given the programme a fair trial."
+        answer: "Published guidance, including conservative frameworks and most vascular surgery consensus statements, suggests a minimum of two to three months of consistent physiotherapy before concluding that conservative care has not worked. Realistically, meaningful improvement often takes three to six months. A few sessions may be too short to judge the overall plan, but a lack of progress is a reason to reassess the diagnosis, the exercise dose and any practical barriers."
       },
       {
         question: "When should I consider surgery?",
-        answer: "For neurogenic TOS, surgery (typically first rib resection and scalenectomy) is considered after a proper conservative trial of at least three to six months has failed, with clear electrodiagnostic or imaging findings when relevant, and with a surgeon experienced in TOS. The Society for Vascular Surgery reporting standards published by Illig and colleagues in 2016 set out how candidates should be evaluated. For venous or arterial TOS, surgical decompression is often the primary treatment and the timeline is much shorter."
+        answer: "For neurogenic TOS, surgery (usually removal of the first rib and release of the scalene muscles) is usually considered after a proper trial of rehabilitation, often three to six months, has not helped enough, with supporting test results where relevant and a surgeon experienced in TOS. Significant or worsening weakness or muscle wasting is an exception that can bring a surgical opinion forward (INTOS consensus, 2024). The Society for Vascular Surgery reporting standards (Illig and colleagues, 2016) set out how candidates are evaluated. For venous or arterial TOS, surgery is often the main treatment and happens much sooner."
       }
     ],
     differentialDiagnosis: [
@@ -7648,10 +7672,10 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     ],
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Decompression and Breathing Reset (Weeks 0 to 4)",
-        focus: "Reduce compressive load on the brachial plexus and subclavian vessels. The main levers are breathing mechanics, scapular position, and gentle soft tissue work through the scalenes, pectoralis minor, and first rib region. Conservative TOS frameworks centre the early phase on scapular control and postural unloading before any strengthening.",
+        title: "Phase 1: Settling Symptoms and Breathing",
+        focus: "Settle symptoms by reducing how often and how long you are in the positions that provoke them. The early phase usually works on breathing, shoulder blade position and gentle soft tissue work around the neck and chest, before any strengthening.",
         examples: [
-          "Diaphragmatic breathing drills, 5 minutes twice daily, to shift load off the scalenes",
+          "Slow breathing drills using the lower ribs and stomach, 5 minutes twice daily",
           "Scapular setting and lower trapezius activation in supported positions",
           "Gentle scalene, upper trapezius, and pectoralis minor self-release and stretching within comfortable range",
           "Cervical retraction and thoracic extension mobility work over a foam roller or chair back",
@@ -7660,8 +7684,8 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
         progressionCriteria: "Reduction in symptom provocation with overhead positioning, tolerance of five minutes of arm-elevated activity without flare, and consistent diaphragmatic breathing at rest."
       },
       phase2: {
-        title: "Phase 2: Scapular Control and Neural Mobility (Weeks 4 to 10)",
-        focus: "Build the scapular stabilisers and introduce graded neural mobilisation. Evidence from conservative TOS literature consistently points to scapular mechanics and nerve mobility as the two most reliable drivers of change in neurogenic TOS.",
+        title: "Phase 2: Scapular Control and Neural Mobility",
+        focus: "Build the shoulder blade muscles and introduce graded nerve mobility work. Shoulder blade control and carefully dosed nerve mobility exercises are common parts of rehabilitation for neurogenic TOS, although high-quality trials are lacking and the best programme is not firmly established.",
         examples: [
           "Prone Y, T, and W holds and supported rows for lower trapezius and posterior cuff",
           "Serratus anterior activation with wall slides and push-up-plus variations",
@@ -7672,8 +7696,8 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
         progressionCriteria: "Symmetrical shoulder girdle strength on basic testing, nerve glide drills tolerated without lasting flare, and ability to work or train for an hour without typical provocation."
       },
       phase3: {
-        title: "Phase 3: Return to Overhead, Work, and Sport (Months 3 to 6+)",
-        focus: "Rebuild tolerance for the specific overhead, sustained-load, or sport-specific demands that drove or perpetuated symptoms. This is where many conservative programmes stop short, and it is often why symptoms creep back.",
+        title: "Phase 3: Return to Overhead, Work, and Sport",
+        focus: "Rebuild tolerance for the specific overhead, sustained-load, or sport-specific demands that brought on or kept up the symptoms. Later rehabilitation helps prepare you for those demands. Symptoms can still return, and if they do, I reassess the plan with you.",
         examples: [
           "Progressive overhead pressing (landmine, dumbbell, barbell) once scapular and cuff capacity allow",
           "Pull-up progressions and loaded rowing work for posterior chain strength",
@@ -7741,7 +7765,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Structured exercise for rotator cuff strength and shoulder blade control is the first-line treatment, and in trials surgery has not done better than it for most people, with lower risk and cost",
+      primaryStrategy: "Structured exercise for rotator cuff strength and shoulder blade control is the first-line treatment. For this kind of pain, decompression surgery did no better than placebo surgery in a large trial (CSAW, Beard and colleagues, 2018), so it is not a first-line option",
       secondaryStrategy: "Joint mobilization and, through your doctor, a corticosteroid injection may give short-term relief while the exercise programme builds capacity",
       preventionStrategy: "Keeping up cuff and shoulder blade strengthening, and building overhead load gradually, may lower the chance of a flare",
       sources: "JOSPT Shoulder Guidelines"
@@ -7782,11 +7806,11 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
         "Symptom duration over 3 months strongest predictor of slower recovery",
         "Psychosocial factors (work stress, low support) significantly impact outcomes",
         "Middle age (45-54 years) associated with longer recovery",
-        "Shape of acromion surprisingly NOT predictive of outcome",
+        "The shape of the acromion does not predict how you will recover",
         "High baseline pain and disability require more intensive management",
-        "Exercise compliance critical for success"
+        "Keeping up the exercises affects progress"
       ],
-      naturalHistory: "The majority of cases resolve with proper conservative management. Left alone, it can linger and the shoulder can become more sensitive over time"
+      naturalHistory: "Many people improve with conservative care. Left alone, it can linger and the shoulder can become more sensitive over time"
     },
 
     selfManagement: [
@@ -7881,7 +7905,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     faqs: [
       {
         question: "Is shoulder impingement actually a pinching problem?",
-        answer: "The name is misleading. Modern terminology has moved toward subacromial pain syndrome or rotator cuff-related shoulder pain, because the older mechanical model of the acromion pinching the cuff does not match what the evidence shows. Imaging studies find so-called hooked acromions in plenty of pain-free shoulders, and the CSAW trial (Beard et al., Lancet 2018) found that shaving the underside of the acromion produced no meaningful benefit over placebo surgery. What I see clinically is a loading problem: cuff capacity does not match the demands being placed on it, often alongside scapular control issues and sensitisation. That reframing changes treatment from 'making more space' to 'building more capacity'."
+        answer: "The name is misleading. Modern terminology has moved toward subacromial pain syndrome or rotator cuff-related shoulder pain, because the older mechanical model of the acromion pinching the cuff does not match what the evidence shows. Imaging studies find so-called hooked acromions in plenty of pain-free shoulders, and the CSAW trial (Beard et al., Lancet 2018) found that shaving the underside of the acromion produced no meaningful benefit over placebo surgery. What I see clinically is a loading problem: cuff capacity does not match the demands being placed on it, often alongside scapular control issues and sensitisation. So treatment focuses on building capacity rather than making more space."
       },
       {
         question: "Do I need an MRI before starting physio?",
@@ -7889,11 +7913,11 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         question: "How long until I feel better?",
-        answer: "Most people notice meaningful change in 6 to 12 weeks of consistent loading, with further gains over 3 to 6 months. The biggest predictor of slower recovery I see is symptom duration before starting care, which matches Chester and colleagues (BJSM 2018, 1030 patients) who found longer symptom duration, higher baseline pain, and lower pain self-efficacy consistently predicted worse outcomes at 6 weeks and 6 months. Psychological factors were more strongly associated with outcome than any specific structural finding. Early structured loading beats waiting it out."
+        answer: "Most people notice meaningful change in 6 to 12 weeks of consistent loading, with further gains over 3 to 6 months. The biggest predictor of slower recovery I see is symptom duration before starting care, which matches Chester and colleagues (BJSM 2018, 1030 patients) who found longer symptom duration, higher baseline pain, and lower pain self-efficacy consistently predicted worse outcomes at 6 weeks and 6 months. Psychological factors were more strongly associated with outcome than any specific structural finding. Starting structured loading early usually helps more than waiting it out."
       },
       {
         question: "Why does it hurt more at night?",
-        answer: "Lying on the affected side compresses the cuff and bursa, the shoulder loses the gravitational unloading it had during the day, and a sensitised tendon is more easily provoked by sustained positions. Most patients do better on the unaffected side with the sore arm supported forward on a pillow, or on their back with a small towel roll behind the scapula. Night pain usually settles meaningfully within a few weeks of appropriate loading, though it rarely disappears overnight."
+        answer: "Night pain is common with this kind of shoulder pain. Lying on the sore side or holding the arm in one position for a long time can aggravate it, but position is not the whole explanation, and a sensitive tendon can simply be more irritable at rest. Many people do better on the other side with the sore arm supported forward on a pillow, or on their back with a small pillow under the elbow. Night pain often eases over a few weeks of appropriate loading, though how quickly varies. Severe, constant pain that does not change with position needs a medical review."
       },
       {
         question: "Should I get a cortisone injection?",
@@ -7905,7 +7929,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         question: "Can I keep lifting weights?",
-        answer: "Usually yes, with modifications. Complete rest tends to backfire. Early on I cut the movements that flare you (often overhead pressing, upright rows, behind-the-neck work) and keep loaded work below shoulder height with rotator cuff isometrics and scapular work layered in. As symptoms settle, overhead loading comes back in progressively. People who keep training modified often recover faster than those who stop everything for a month and try to jump back to their previous programme."
+        answer: "Usually yes, with modifications. Complete rest tends to backfire. Early on I cut the movements that flare you (often overhead pressing, upright rows, behind-the-neck work) and keep loaded work below shoulder height with rotator cuff isometrics and scapular work layered in. As symptoms settle, overhead loading comes back in progressively. Keeping some modified training going is usually easier to build back from than stopping everything for a month and then jumping back to your previous programme."
       },
       {
         question: "Is bad posture causing this?",
@@ -7920,15 +7944,15 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         condition: "Frozen Shoulder (Adhesive Capsulitis)",
-        distinguishingFeatures: "Global loss of passive range of motion, particularly external rotation at the side, with a firm capsular end-feel. Subacromial pain preserves passive range and shows resisted weakness or a painful arc rather than true capsular restriction."
+        distinguishingFeatures: "Global loss of passive range of motion, particularly turning the arm outward with the elbow at the side, with a firm stop when someone else moves the arm. Subacromial pain usually preserves passive range and shows resisted weakness or a painful arc rather than true capsular restriction, although early frozen shoulder can be hard to tell apart."
       },
       {
         condition: "AC Joint Pathology",
-        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tenderness on direct palpation, and a positive cross-body adduction test. Resisted rotator cuff testing is typically pain-free, separating it from a primary subacromial problem."
+        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tenderness on direct palpation, and a positive cross-body adduction test. Resisted rotator cuff testing is often pain-free, which helps tell it apart from a subacromial problem, although the two can coexist."
       },
       {
         condition: "Biceps Tendinopathy",
-        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion or forearm supination. Subacromial pain produces lateral deltoid referral with overhead motion rather than anterior groove tenderness."
+        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion or forearm supination. Subacromial pain more often spreads to the outer upper arm with overhead movement, although the two can overlap."
       },
       {
         condition: "Cervical Radiculopathy (C5-C6)",
@@ -7942,20 +7966,20 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
 
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Settle and Reload (Weeks 0 to 4)",
-        focus: "Take the edge off symptoms, protect sleep, and reintroduce load in a form the cuff tolerates. Isometric loading has short-term analgesic effects and produces meaningful force without the angular motion that typically provokes subacromial pain. The 2022 JOSPT rotator cuff disorders CPG (Lafrance et al.) endorses active, task-oriented rehabilitation over passive modalities or rest.",
+        title: "Phase 1: Settle and Reload",
+        focus: "Take the edge off symptoms, protect sleep, and reintroduce load in a form the cuff tolerates. A static hold, where the muscle works without the arm moving (an isometric), can be a manageable way to begin when movement is painful. It eases pain for some people, but not consistently, so I choose the effort and hold time by your response and use another option if it aggravates symptoms. The 2022 JOSPT rotator cuff guideline (Lafrance and colleagues) recommends active, task-oriented rehabilitation over passive treatments or rest.",
         examples: [
-          "Isometric external rotation at the side against a wall or doorframe, 30 to 45 seconds at 50 to 70% effort, 4 to 5 repetitions daily",
+          "Isometric external rotation at the side against a wall or doorframe, 30 to 45 seconds at a moderate, comfortable effort, 4 to 5 repetitions daily",
           "Isometric abduction and internal rotation at matched intensity, stopping before any sharp pain",
           "Low-row and scapular retraction holds with a band to restore posterior chain engagement",
           "Pain-free active range of motion drills (table slides, wall walks, pendulum) to maintain mobility without flaring",
           "Activity audit: identifying and temporarily modifying the specific overhead or end-range tasks driving flare-ups"
         ],
-        progressionCriteria: "Night pain manageable on most nights, resting pain below 3/10, and isometric holds tolerated at 70% effort without a flare-up lasting beyond 24 hours."
+        progressionCriteria: "Night pain manageable on most nights, low pain at rest, and the static holds feeling comfortable without a flare that lasts into the next day."
       },
       phase2: {
-        title: "Phase 2: Build Cuff and Scapular Capacity (Weeks 4 to 12)",
-        focus: "Shift from pain modulation to genuine strength work. This is where most under-treated shoulders get stuck, because they leave phase 1 feeling better and never rebuild capacity. Zhong et al. (Front Neurol 2024) showed scapular stabilisation exercises produced better pain and disability outcomes than conventional physiotherapy in subacromial pain, and Hanratty et al. (Semin Arthritis Rheum 2012) confirmed exercise effectiveness across 16 trials.",
+        title: "Phase 2: Build Cuff and Scapular Capacity",
+        focus: "Shift from settling pain to genuine strength work. In a 2024 review (Zhong and colleagues), shoulder blade exercises were associated with slightly better pain and disability scores than conventional physiotherapy for subacromial pain, and an earlier review of 16 trials (Hanratty and colleagues, 2012) found exercise helped pain and function in the short term.",
         examples: [
           "Dumbbell or band external rotation at the side, 3 sets of 8 to 12 reps with a 3-second eccentric, progressed weekly by small load increments",
           "Side-lying external rotation, prone Y/T/W exercises, and prone rows for scapular stabilisers",
@@ -7963,11 +7987,11 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
           "Landmine press and half-kneeling press progressions to reintroduce pressing angles below true vertical",
           "Loaded carries (farmer and suitcase carry) for dynamic shoulder girdle stability under load"
         ],
-        progressionCriteria: "External rotation strength approaching 80% of the unaffected side, moderate dumbbells loaded through full available range without painful catching, and overhead reach for daily tasks without hitching."
+        progressionCriteria: "Outward rotation strength getting closer to the other side, moderate dumbbells loaded through full available range without painful catching, and overhead reach for daily tasks without hitching."
       },
       phase3: {
-        title: "Phase 3: Return to Overhead and Demand-Specific Loading (Months 3 to 6+)",
-        focus: "Rebuild the capacity to tolerate overhead, ballistic, and end-range work. This phase is frequently skipped, which is a common reason people recover much of the way and then plateau. JOSPT 2022 guidance emphasises criterion-based rather than time-based progression for return to sport and heavy occupations. Return to overhead sport is typically guided by external rotation strength, scapular control, and graded sport-specific loading.",
+        title: "Phase 3: Return to Overhead and Demand-Specific Loading",
+        focus: "Rebuild the capacity to tolerate overhead, faster and end-range work. Later rehabilitation helps prepare the shoulder for the demands you want to return to. Return to overhead sport is guided by rotation strength, shoulder blade control and graded sport-specific loading rather than the calendar. A flare can still happen after a well-completed programme; if it does, I review the plan with you.",
         examples: [
           "Overhead press progressions from landmine to full overhead dumbbell and barbell variations",
           "Pull-up and lat pulldown progressions, plus weighted rows loaded into strength ranges",
@@ -7975,7 +7999,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
           "Sport or job-specific drills (throwing mechanics, swim stroke, overhead lifting patterns) rebuilt with structured volume progressions",
           "End-range strength: full overhead holds, Turkish get-ups, bottoms-up kettlebell work for stability at length"
         ],
-        progressionCriteria: "Strength symmetry within 10% of the unaffected side across rotation, abduction, and press testing, pain-free sport or job demands at expected volume, and confidence in the shoulder during unplanned or reactive movements."
+        progressionCriteria: "Strength close to the other side on rotation, lifting and pressing, sport or job demands managed at the usual volume without pain, and confidence in the shoulder during unplanned or reactive movements."
       }
     },
 
@@ -8004,21 +8028,11 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
 
     pathophysiology: `AC joint injuries involve damage to ligaments connecting the clavicle to the acromion. These range from sprains to complete separations. The joint is superficial and vulnerable to direct trauma.`,
 
-    biomechanics: `The acromioclavicular joint functions as a critical link in the kinetic chain transferring forces between your arm and axial skeleton. Despite its small size, this joint must accommodate substantial loads during upper extremity activities while allowing the scapula to rotate and translate relative to the clavicle. The AC joint's stability depends on both intrinsic capsular ligaments and extrinsic coracoclavicular ligaments (conoid and trapezoid), with each system serving distinct mechanical functions.
+    biomechanics: `The AC joint is where the collarbone meets the top of the shoulder blade. Ligaments around the joint, and two strong ligaments running down to the shoulder blade (the coracoclavicular ligaments), hold it together. A fall onto the point of the shoulder is the usual cause of a sprain or separation: milder injuries stretch or tear the joint's own ligaments, and higher-grade injuries also tear the coracoclavicular ligaments, which is when a clear step appears at the top of the shoulder.
 
-The extracapsular coracoclavicular ligaments provide primary vertical and compressive stability to the AC joint. These ligaments, connecting the coracoid process of the scapula to the inferior surface of the clavicle, must resist the downward pull of gravity on your arm. When you hold a weight at your side, the scapula wants to rotate downward and separate from the clavicle. The coracoclavicular ligaments prevent this separation, experiencing tensile loads proportional to arm weight. Cadaveric studies show these ligaments act as the primary restraint to vertical and superior displacement, explaining why high-grade AC separations involve coracoclavicular ligament rupture.
+Pressing and carrying load the joint, and wide-grip bench press, dips and reaching across the body are common aggravators once it is sore. That is why I change those first and bring them back gradually.
 
-The capsular ligaments surrounding the AC joint itself provide stability in the anteroposterior and horizontal planes. During arm movements requiring scapular protraction or retraction, these ligaments resist horizontal translation of the clavicle relative to the acromion. Biomechanical studies of bench press technique show that wide grip positioning increases anteroposterior shear across the AC joint, stressing the anterior and posterior joint capsule. This explains why bench pressing, particularly with poor technique, frequently aggravates AC joint pathology.
-
-Direct trauma mechanisms create the highest risk for acute AC joint injury. When you fall directly onto the point of your shoulder with your arm adducted to your side, the ground reaction force drives the acromion inferiorly while your torso's inertia maintains clavicle position. This creates a separation force that first damages the AC joint capsule (Grade I injury), then the AC ligaments (Grade II), and finally the coracoclavicular ligaments (Grade III or higher). Higher-energy impacts cause progressively more severe ligamentous failure, with the exact injury grade depending on force magnitude and direction.
-
-Overhead activities create repetitive microtrauma to the AC joint through compressive and shear loading. Each time you raise your arm overhead, your scapula must rotate upward approximately 60 degrees. This rotation compresses the AC joint surfaces together while creating anteroposterior shear as the acromion translates relative to the clavicle. Athletes performing hundreds of overhead repetitions daily, such as swimmers, volleyball players, and CrossFit athletes, accumulate thousands of compression cycles weekly. High training volume in these sports is thought to add to wear of the joint over the years.
-
-CrossFit training and bench press variations create specific mechanical stresses on the AC joint. During wide-grip bench press, when your hands are positioned outside shoulder width, the AC joint experiences higher compressive forces as the clavicle and acromion are forced together. Biomechanical analysis of bench press technique shows that wide-grip positioning increases AC joint compression compared to a narrower grip, while also increasing shear forces during the eccentric lowering phase. This combination of compression and shear explains why powerlifters and CrossFit athletes show disproportionately high rates of AC joint pathology.
-
-Degenerative AC joint arthritis develops through cumulative mechanical stress over decades. Unlike acute traumatic injuries, degenerative changes result from repeated low-to-moderate loads that gradually erode joint cartilage. Each arm elevation or cross-body movement creates small amounts of cartilage wear. Over years, this cumulative microtrauma leads to cartilage thinning, subchondral bone exposure, and osteophyte formation. Changes in this joint are common on X-rays from middle age, often without pain.
-
-Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapulohumeral rhythm. When your scapula doesn't move properly during arm elevation due to muscle imbalances or previous injuries, the AC joint must compensate by allowing greater translation or experiencing abnormal compression patterns. Studies of scapular kinematics show that individuals with scapular dyskinesis place altered loads on the AC joint during overhead reaching compared to those with normal scapular mechanics.`,
+AC joint changes become common with age and may follow an injury. They are often painless, and ordinary shoulder movement does not mean the joint is wearing away with each repetition. Some people who lift heavily develop pain from the end of the collarbone (distal clavicular osteolysis), which is listed under conditions that can feel similar.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -8039,7 +8053,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "For most grade I to III AC joint injuries, progressive rehab matched to the grade has given results similar to surgery in trials",
+      primaryStrategy: "Grade I and II AC joint injuries are managed with rehabilitation matched to the injury. For grade III, trials have found rehabilitation gives results similar to surgery for many people, while higher grades (IV to VI) usually need a surgical opinion",
       secondaryStrategy: "Shoulder blade exercises and temporary changes to pressing and carrying can ease the load on the joint while it settles",
       preventionStrategy: "Rebuilding shoulder strength before returning to contact sport, and padding where the sport allows it, may help protect the joint",
       sources: "2019 Cochrane Review (Tamaoki et al.); ISAKOS 2014 consensus (Beitzel et al., Arthroscopy)"
@@ -8072,14 +8086,14 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
         "Age",
         "Rehabilitation compliance"
       ],
-      naturalHistory: "Can develop arthritis long-term, especially Grade III+"
+      naturalHistory: "Many people return to full use of the shoulder. Some develop arthritis in the joint years later"
     },
 
     keyResearch: [
       {
-        finding: "Conservative care is a reasonable first choice even for higher-grade AC separations",
-        detail: "2019 Cochrane review found surgery compared with conservative treatment may not improve shoulder function, return to former activities, or quality of life at one year for Rockwood types 3 through 6 AC joint separations",
-        clinicalRelevance: "Supports physiotherapy as first-line treatment even for complete AC separations with appropriate rehabilitation protocols",
+        finding: "Surgery did not clearly improve results at one year for higher-grade AC separations",
+        detail: "A 2019 Cochrane review of six trials (357 mainly young adults) found low-certainty evidence that surgery, compared with a sling and rehabilitation, may not improve shoulder function, return to former activities, or quality of life at one year, and that recovery was earlier without surgery",
+        clinicalRelevance: "The evidence is low certainty. Injury grade, how far the collarbone is displaced, skin or nerve concerns, the demands of your sport or work, and ongoing instability still affect whether a surgical opinion is worthwhile",
         citation: "Tamaoki MJ, Lenza M, Matsunaga FT, et al. Surgical versus conservative interventions for treating acromioclavicular dislocation of the shoulder in adults. Cochrane Database Syst Rev. 2019;10(10):CD007429."
       },
       {
@@ -8133,7 +8147,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       },
       {
         question: "Do I need surgery for a Grade III separation?",
-        answer: "For most people, no. Tang et al.'s meta-analysis (Medicine, 2018) comparing surgical and conservative management of Rockwood Type III AC dislocations found no statistical difference in clinical outcomes, and conservative treatment resulted in lower rates of coracoclavicular ligament ossification and lateral clavicle osteolysis. The 2019 Cochrane review of high-grade AC injuries (types III to VI) similarly found surgery did not reliably improve shoulder function, return to activities, or quality of life at one year. I reserve surgical referral for overhead athletes, manual labourers with high demands, or patients with persistent scapular dysfunction and functional loss after 3 to 6 months of structured rehab, or an unstable pattern on cross-body adduction view."
+        answer: "For most people, no. Tang et al.'s meta-analysis (Medicine, 2018) comparing surgical and conservative management of Rockwood Type III AC dislocations found no statistical difference in clinical outcomes, and conservative treatment resulted in lower rates of coracoclavicular ligament ossification and lateral clavicle osteolysis. The 2019 Cochrane review of higher-grade AC injuries similarly found, with low-certainty evidence, that surgery did not clearly improve shoulder function, return to activities, or quality of life at one year. I reserve surgical referral for overhead athletes, manual labourers with high demands, or patients with persistent scapular dysfunction and functional loss after 3 to 6 months of structured rehab, or an unstable pattern on cross-body adduction view."
       },
       {
         question: "How long until I can go back to work or sport?",
@@ -8141,7 +8155,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       },
       {
         question: "Will the bump ever go away?",
-        answer: "Probably not completely. In Grade II and Grade III separations, the visible step-off where the distal clavicle sits higher than the acromion is usually permanent, even with good functional outcomes. The bump is cosmetic, not functional. Once pain settles and the cuff and scapula are strong, most people regain full use of the shoulder with the deformity still visible. Surgery can correct the cosmetic deformity but does not reliably improve function compared to rehab, which is why it is usually not recommended on cosmetic grounds alone."
+        answer: "Probably not completely. In Grade II and Grade III separations, the visible step where the end of the collarbone sits higher than the acromion often remains, even when the shoulder works well. Once pain settles and the cuff and shoulder blade muscles are strong, many people regain full use of the shoulder with the bump still visible. Ongoing pain or a feeling of instability deserves reassessment. Surgery can correct the cosmetic deformity but does not reliably improve function compared to rehab, which is why it is usually not recommended on cosmetic grounds alone."
       },
       {
         question: "Is it safe to bench press again?",
@@ -8153,7 +8167,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       },
       {
         question: "Can AC joint arthritis develop later?",
-        answer: "Yes, and this is part of why rehab quality matters even for a Grade I or II. The AC joint is a small, heavily loaded joint, and post-traumatic osteoarthritis or distal clavicular osteolysis can develop years later, particularly in overhead athletes and people who do high-volume bench pressing or CrossFit-style training. The risk is meaningfully higher after Grade III and above. Restoring normal scapular mechanics, building cuff capacity, and avoiding chronic low-grade overload after return to sport reduces the chance of long-term trouble."
+        answer: "It can. Post-traumatic arthritis or distal clavicular osteolysis can develop years later, particularly in people who press heavily or do a lot of overhead work. It is not known whether rehabilitation changes that long-term risk, but building shoulder strength and returning to heavy pressing gradually can help the joint cope with the demands you put on it. If pain at the top of the shoulder comes back, it is worth having it reassessed."
       },
       {
         question: "Does a cortisone injection help?",
@@ -8252,21 +8266,11 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
 
     pathophysiology: `Biceps tendinopathy involves degeneration of the long head of biceps tendon. The tendon runs through the bicipital groove and into the shoulder joint, making it vulnerable to impingement and wear.`,
 
-    biomechanics: `The long head of the biceps tendon follows a complex anatomical path that makes it vulnerable to mechanical irritation. Originating from the supraglenoid tubercle inside the shoulder joint, the tendon travels through the rotator interval, makes a sharp turn over the humeral head, and descends through the narrow bicipital groove between the greater and lesser tuberosities. This circuitous route exposes the tendon to friction, compression, and tensile forces during shoulder movements.
+    biomechanics: `The long head of the biceps starts inside the shoulder joint, turns over the top of the arm bone and runs down a groove at the front of the shoulder. Overhead reaching, throwing, and pressing or pulling with the arm away from the body all load it there.
 
-During shoulder flexion and overhead reaching, the biceps tendon experiences substantial tensile loading. While the long head plays only a minimal role in shoulder flexion beyond 30 degrees of elevation, the tendon still experiences significant forces as it stabilizes the humeral head against the glenoid. Research shows that the biceps tendon can either restrict or facilitate axial humeral rotation depending on glenohumeral elevation angle. At lower angles (0-60 degrees), biceps tension helps depress the humeral head, while at higher angles, it can contribute to superior migration if rotator cuff function is compromised.
+Biceps pain at the shoulder often comes with rotator cuff problems, and biceps changes are more common as cuff tears get larger (Redondo-Alonso and colleagues, 2014). That is why the plan usually works on the cuff and shoulder blade muscles as well as the biceps.
 
-Overhead athletes face particularly demanding mechanical stresses on the biceps tendon. Baseball pitchers, volleyball players, swimmers, and tennis players repetitively load the biceps during the late cocking and early acceleration phases of throwing or serving. During these phases, the shoulder reaches extreme positions of abduction and external rotation, stretching the anterior shoulder capsule and biceps tendon. In throwing, the biceps also works hard to slow the arm down after the ball is released.
-
-Impingement within the bicipital groove creates mechanical irritation distinct from intra-articular pathology. The bicipital groove's bony anatomy varies considerably between individuals, with some having shallow grooves that provide less tendon containment. During shoulder internal and external rotation, the tendon translates within the groove, creating friction against the groove walls. Ultrasound studies show that in shoulders with shallow or irregular grooves, the biceps tendon can sublux partially out of the groove during rotation, creating repetitive microtrauma. This mechanical irritation accelerates tendon degeneration, particularly in individuals performing high-volume rotational activities.
-
-Rotator cuff pathology dramatically alters biceps tendon biomechanics. The rotator cuff normally depresses and centralizes the humeral head in the glenoid socket during arm elevation. When rotator cuff tears occur, particularly of the supraspinatus, the humeral head migrates superiorly, altering the angle at which the biceps tendon approaches its attachment. This altered geometry increases shear forces on the biceps tendon's intra-articular portion and can cause secondary biceps inflammation. Research tracking patients with rotator cuff tears shows that biceps tendon involvement becomes more frequent as tears progress, highlighting the mechanical interdependence of these structures.
-
-Shoulder internal rotation movements during activities like swimming freestyle or throwing generate torsional loads on the biceps tendon. As your humerus rotates internally, the biceps tendon winds around the humeral head, creating a wringing effect. In swimmers, the number of strokes per session adds up quickly. Competitive swimmers carry a high burden of shoulder pain and tendinopathy, with risk tending to rise alongside weekly training volume. The freestyle stroke's recovery phase generates peak biceps loading, explaining why distance swimmers face higher risk than sprinters.
-
-Bench press and similar horizontal pressing movements create compression of the biceps tendon within the groove. During the descent phase, as your elbows lower below shoulder level, the humeral head translates anteriorly, compressing the biceps tendon against the anterior groove wall. Bench pressing with a wide grip and elbows flared outward tends to increase compressive load on the biceps tendon compared with a close-grip technique. This mechanical compression, repeated for thousands of repetitions in strength training programs, can lead to chronic tendinopathy even in non-overhead athletes.
-
-The biceps tendon's intra-articular portion experiences unique mechanical challenges from joint fluid pressure and synovial inflammation. When shoulder joint inflammation occurs due to arthritis or rotator cuff pathology, inflammatory mediators in the synovial fluid directly contact the biceps tendon, causing chemical irritation in addition to mechanical stress. Imaging of shoulders with synovitis can show biceps tendon signal changes even without primary biceps pathology.`,
+A jump in training load is a common trigger: more overhead sport, more swimming, or more pressing and pulling in the gym. Wide-grip bench press, upright rows and deep dips are frequent aggravators, so I swap them for gentler versions for a while and bring them back gradually.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -8287,8 +8291,8 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive eccentric and heavy-slow loading can improve pain and function for most patients with biceps tendinopathy, though biceps-specific dosing evidence is still limited",
-      secondaryStrategy: "Rotator cuff and shoulder blade work is usually part of the plan, because biceps problems rarely occur on their own",
+      primaryStrategy: "Progressive eccentric and heavy-slow loading can help pain and function for many people with biceps tendinopathy, though biceps-specific dosing evidence is still limited",
+      secondaryStrategy: "Rotator cuff and shoulder blade work is usually part of the plan, because biceps problems often occur alongside cuff problems",
       preventionStrategy: "Keeping up cuff and shoulder strength and building pressing and overhead load gradually may lower the chance of a flare",
       sources: "Shoulder & Elbow Journal Reviews"
     },
@@ -8371,7 +8375,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         question: "Is my biceps tendon the whole problem or is it my rotator cuff?",
-        answer: "It is usually both, and the cuff often comes first. When rotator cuff function drops, the humeral head migrates superiorly during elevation, which changes the angle the biceps tendon approaches its attachment and loads it abnormally. Imaging and operative series consistently show that long head of biceps tendon pathology becomes more common as rotator cuff tear size increases, with most massive cuff tears showing some degree of biceps involvement. In practice, if I only treat your biceps and ignore a weak cuff, you will come back."
+        answer: "It is often both. Imaging and surgical studies show that long head of biceps problems become more common as rotator cuff tears get larger (Redondo-Alonso and colleagues, 2014), and a cuff that is not controlling the ball of the joint well may change how the biceps tendon is loaded. I also assess the rotator cuff, because it can contribute to front-of-shoulder symptoms and may need treatment alongside the biceps."
       },
       {
         question: "Will eccentric exercises fix it?",
@@ -8379,7 +8383,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         question: "Can the long head of the biceps tendon rupture?",
-        answer: "Yes, and in the right patient it is often a reasonable outcome rather than an emergency. Rupture of the long head typically happens in older adults with pre-existing degenerative tendon change, often during a lift or sudden pull. It produces a classic 'Popeye' deformity where the muscle belly bunches lower in the arm. Strength loss is surprisingly small, usually around 10 to 20% of elbow flexion and forearm supination power. In older patients with rotator cuff disease, the rupture can actually reduce anterior pain by decompressing the tendon. Surgical repair is usually reserved for younger patients with high supination demands, not routine for degenerative ruptures."
+        answer: "Yes, and in the right patient it is often a reasonable outcome rather than an emergency. Rupture of the long head typically happens in older adults with pre-existing degenerative tendon change, often during a lift or sudden pull. It produces a classic 'Popeye' deformity where the muscle belly bunches lower in the arm. Strength loss is often smaller than people expect, although some people notice it when turning the forearm or lifting with the elbow bent. Some people find their front-of-shoulder pain eases after the tendon ruptures. Surgical repair is usually reserved for younger people with high demands on forearm turning strength, and is not routine for degenerative ruptures."
       },
       {
         question: "Should I consider a tenodesis or tenotomy?",
@@ -8387,7 +8391,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         question: "Why does it hurt when I reach overhead?",
-        answer: "Two main reasons. First, overhead motion is the position in which the long head tendon is compressed most against the bicipital groove and the coracoacromial arch. Second, for the tendon to travel smoothly through the groove during internal and external rotation, it needs normal cuff and scapular mechanics. If the cuff is weak or the scapula is not rotating upward properly during elevation, the biceps tendon experiences abnormal shear and compression. That is why I spend most of your treatment time on the cuff, scapula, and thoracic mobility rather than just the biceps itself."
+        answer: "Overhead reaching loads the long head of the biceps where it runs over the front of the shoulder and through its groove, and an irritated tendon can be sensitive to that. How well the rotator cuff and shoulder blade are working also seems to matter, although the exact mechanics are not fully established. That is why much of the treatment works on the cuff, the shoulder blade and upper back movement, not just the biceps itself."
       },
       {
         question: "Can I still lift weights?",
@@ -8414,7 +8418,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         condition: "AC Joint Pathology",
-        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint with tenderness on direct palpation and positive cross-body adduction. Speed and Yergason tests are typically negative, which separates it from biceps pathology."
+        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint with tenderness on direct palpation and positive cross-body adduction. Speed and Yergason tests are often negative, which helps tell it apart from a biceps problem, although the two can coexist."
       },
       {
         condition: "Cervical Radiculopathy (C5-C6)",
@@ -8428,19 +8432,19 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
 
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Reduce Irritability, Load Isometrically (Weeks 0 to 4)",
-        focus: "Calm the tendon and the surrounding shoulder structures while keeping the biceps loaded in a form it tolerates. Isometric loading provides short-term analgesia in tendinopathy and allows meaningful force output without the repetitive groove compression that typically flares symptoms. I also start cuff and scapular work early, because biceps symptoms are rarely isolated (Redondo-Alonso et al., BMC Musculoskelet Disord 2014).",
+        title: "Phase 1: Reduce Irritability, Load Isometrically",
+        focus: "Calm the tendon and the surrounding shoulder structures while keeping the biceps loaded in a form it tolerates. A static hold, where the muscle works without the joint moving (an isometric), can be a manageable way to begin. It eases pain for some people, but not consistently, and evidence on dosing for the biceps specifically is limited, so I set the effort and hold time by your response and use another option if it aggravates symptoms. I also start cuff and shoulder blade work early, because biceps symptoms often come with cuff problems (Redondo-Alonso and colleagues, BMC Musculoskelet Disord 2014).",
         examples: [
-          "Isometric elbow flexion in mid-range, pain-free position, 30 to 45 seconds at 50 to 70% effort, 4 to 5 repetitions daily",
+          "Isometric elbow flexion in a mid-range, pain-free position, 30 to 45 seconds at a moderate, comfortable effort, 4 to 5 repetitions daily",
           "Isometric supination hold against a doorframe or towel at comparable intensity",
           "Isometric shoulder external rotation and abduction at the side to load the cuff without groove aggravation",
           "Scapular setting and retraction holds with a band to restore posterior chain engagement",
           "Activity audit: temporarily removing upright rows, wide-grip bench, deep dips, and heavy preacher curls"
         ],
-        progressionCriteria: "Anterior shoulder pain at rest below 3/10, night pain manageable, and isometric holds tolerated at 70% effort without symptom flare-up lasting beyond 24 hours."
+        progressionCriteria: "Low pain at the front of the shoulder at rest, night pain manageable, and the static holds feeling comfortable without a flare that lasts into the next day."
       },
       phase2: {
-        title: "Phase 2: Progressive Loading Through Range (Weeks 4 to 10)",
+        title: "Phase 2: Progressive Loading Through Range",
         focus: "Move from isometrics into slow, heavy dynamic loading through available range, layered with ongoing cuff and scapular work. Evidence for tendinopathy more broadly (Alfredson, Beyer, and related Achilles and patellar work) supports progressing past isometrics once pain allows. Biceps-specific dosing is less defined, so I titrate load by response rather than a fixed protocol.",
         examples: [
           "Dumbbell hammer curls and neutral-grip curls, 3 sets of 8 to 12 reps with a 3-second eccentric, progressed weekly",
@@ -8449,11 +8453,11 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
           "Landmine press and half-kneeling press progressions to reintroduce pressing below true vertical",
           "Supination strength work with a weighted hammer or dumbbell, held short lever then long lever"
         ],
-        progressionCriteria: "Elbow flexion and supination strength approaching 80% of the unaffected side, tolerance of full-range curls and rows at moderate load, and overhead reach without sharp anterior pain."
+        progressionCriteria: "Elbow bending and forearm turning strength getting closer to the other side, full-range curls and rows at moderate load, and overhead reach without sharp pain at the front of the shoulder."
       },
       phase3: {
-        title: "Phase 3: Return to Overhead, Throwing, and Heavy Pressing (Months 3 to 6+)",
-        focus: "Rebuild the capacity to tolerate end-range and high-velocity loading of the biceps-cuff complex. Kibler et al. (Br J Sports Med 2013, scapular summit) highlights that return-to-play decisions should be based on restored scapular position and motion plus strength symmetry, not time alone. Overhead athletes and lifters need this phase to avoid recurrence.",
+        title: "Phase 3: Return to Overhead, Throwing, and Heavy Pressing",
+        focus: "Rebuild the capacity to tolerate end-range and faster loading of the biceps and cuff. Return to sport is guided by strength, shoulder blade control and how the shoulder copes, rather than by time alone. This phase helps overhead athletes and lifters prepare for the demands of their sport, although a flare can still happen; if it does, I review the plan with you.",
         examples: [
           "Overhead press progressions from landmine to full barbell and dumbbell variations",
           "Bench press progression: close-grip and narrow-grip work before full-range wide-grip",
@@ -8461,7 +8465,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
           "Plyometric and reactive work: medicine ball chest pass, overhead throw, rebounder drills for throwing athletes",
           "Sport-specific or occupation-specific drills (throwing mechanics, swim stroke, overhead lifting patterns) rebuilt with structured volume"
         ],
-        progressionCriteria: "Strength symmetry within 10% of the unaffected side across elbow flexion, supination, external rotation, and pressing, pain-free performance at pre-injury loads and velocities, and confidence in the shoulder during unplanned or reactive movements."
+        progressionCriteria: "Strength close to the other side for elbow bending, forearm turning, outward rotation and pressing, pre-injury loads and speeds managed without pain, and confidence in the shoulder during unplanned or reactive movements."
       }
     },
 
@@ -8517,7 +8521,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Most Grade I and II MCL/LCL sprains return to sport with structured conservative care built around early mobilization and progressive strengthening",
+      primaryStrategy: "Many isolated Grade I and II MCL and LCL sprains return to sport with structured conservative care built around early movement within any brace or weight-bearing limits and progressive strengthening, although the research behind specific rehab programs is of low certainty",
       secondaryStrategy: "Functional bracing provides stability during healing phases while allowing controlled movement and preventing joint stiffness",
       preventionStrategy: "Neuromuscular training that works on landing, cutting and knee control is linked with fewer knee injuries in pivoting sports, and can be kept in the routine after return to sport",
       sources: "Logerstedt et al., JOSPT knee ligament sprain clinical practice guideline (2017)"
@@ -8543,7 +8547,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
     ],
 
     prognosis: {
-      timeline: "Grade I: 2-4 weeks, Grade II: 4-8 weeks, Grade III: 8-12 weeks",
+      timeline: "As a rough guide for isolated MCL sprains: Grade I about 2 to 4 weeks, Grade II about 4 to 8 weeks, Grade III about 8 to 12 weeks. Recovery varies, and LCL and combined ligament injuries can take longer",
       factors: [
         "Injury grade",
         "Associated injuries",
@@ -8565,7 +8569,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
       {
         strategy: "Bracing if Needed",
         rationale: "Provides stability during healing",
-        precautions: ["Don't become dependent on brace"]
+        precautions: ["Wear a prescribed brace as advised, and wean off it when your clinician or surgeon says it is time"]
       },
       {
         strategy: "Progressive Loading",
@@ -8617,11 +8621,11 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
       },
       {
         question: "Do I need to wear a knee brace?",
-        answer: "A hinged knee brace limiting valgus or varus stress is reasonable during the early healing phase for Grade II and III injuries, and I often use one to let patients stay mobile without worrying about an awkward step. It is not a lifetime commitment. The goal is to wean off the brace as strength and neuromuscular control return, because long-term bracing does not strengthen the ligament and can create a dependency that slows confidence-building."
+        answer: "A hinged knee brace limiting valgus or varus stress is reasonable during the early healing phase for Grade II and III injuries, and I often use one to let patients stay mobile without worrying about an awkward step. It is not a lifetime commitment. The goal is to wean off the brace as strength and neuromuscular control return, on your clinician's or surgeon's advice. Long-term bracing does not strengthen the ligament, and weaning at the right time helps you build confidence in the knee."
       },
       {
         question: "Will I always be unstable after an MCL tear?",
-        answer: "Most people regain functional stability, but some end up with a small amount of residual laxity on clinical testing that never fully disappears. What matters more is whether the knee feels stable during cutting, pivoting, and deceleration, and that is driven by quadriceps strength, hip control, and neuromuscular retraining rather than by millimetres of laxity on an exam table. Most people who work through progressive strengthening and return-to-sport testing end up with a knee they trust, even if the ligament itself heals slightly longer than the other side."
+        answer: "Many people regain functional stability, but some end up with a small amount of residual laxity on clinical testing that never fully disappears. What often matters more is whether the knee feels stable during cutting, pivoting, and deceleration, which is influenced by quadriceps strength, hip control, and neuromuscular retraining as well as by the ligament itself. Many people who work through progressive strengthening and return-to-sport testing end up with a knee they trust, even if the ligament itself heals slightly longer than the other side."
       },
       {
         question: "Do I need an MRI?",
@@ -8705,8 +8709,8 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
   },
 
   'patellar-tendinopathy': {
-    summary: `Patellar tendinopathy, often called jumper's knee, is pain in the tendon just below the kneecap that comes from loading it more than it can currently handle. It is most common in sports with jumping and landing. It usually responds to a gradual tendon-loading programme rather than rest, over three to six months.`,
-    pathophysiology: `Patellar tendinopathy represents a complex degenerative condition affecting the patellar tendon, predominantly at its attachment to the inferior pole of the patella. The condition involves progressive collagen fiber disorganization and failed healing response rather than true inflammation, which changes how it is treated.
+    summary: `Patellar tendinopathy, often called jumper's knee, is pain in the tendon just below the kneecap that comes from loading it more than it can currently handle. It is most common in sports with jumping and landing. Many people improve with a gradual tendon-loading programme rather than rest, often over three to six months or longer.`,
+    pathophysiology: `Patellar tendinopathy is a persistent tendon problem, most often where the patellar tendon attaches to the bottom of the kneecap (the inferior pole of the patella). It involves changes in the tendon's structure and in how pain is processed, and inflammation can be part of a more complex process. Symptoms do not reveal a precise tissue stage.
 
 The pathology begins with repetitive microtrauma from jumping and landing activities that overwhelm the tendon's capacity to repair. This creates microscopic failures within the tendon structure, leading to alterations at the cellular level that undermine its mechanical properties. The normal parallel arrangement of type I collagen fibers becomes disrupted, replaced by areas of mucoid degeneration and increased ground substance that weakens the tendon's tensile strength.
 
@@ -8714,7 +8718,7 @@ At the cellular level, tenocytes undergo significant changes in response to repe
 
 The tendon's appearance changes dramatically at the microscopic level. Instead of tightly packed, parallel collagen bundles, affected tendons show areas of fibrinoid necrosis, pseudocyst formation, and random collagen orientation. There's hypercellularity with atypical fibroblast proliferation and areas of cell death through apoptosis. This creates the characteristic thickened, painful tendon seen clinically, often described as having a "mucoid" appearance on imaging.
 
-Importantly, this is primarily a degenerative rather than inflammatory condition. While acute inflammation may occur with initial injury, chronic patellar tendinopathy shows minimal inflammatory cells. This understanding has shifted treatment away from anti-inflammatory approaches toward loading programs that stimulate proper tendon remodeling and collagen synthesis.`,
+Older descriptions called this a purely degenerative, non-inflammatory condition. More recent research describes a mixed picture, with immune cells and inflammatory mediators also involved (Millar et al., Nature Reviews Disease Primers, 2021), so neither label tells the whole story. What has held up is the shift in treatment away from anti-inflammatory approaches toward loading programs that help the tendon adapt.`,
 
     biomechanics: `The patellar tendon experiences extraordinary mechanical loads during jumping and landing activities that predispose athletes to tendinopathy. During the eccentric phase of landing from a jump, your quadriceps must generate high forces while lengthening to control knee flexion and decelerate your body's downward momentum. Research using force plates and inverse-dynamics modelling shows that landing from a vertical jump creates patellar tendon forces of several times body weight, with estimates in the range of roughly 4-5 times, concentrated at the bone-tendon interface where pathology most commonly develops.
 
@@ -8749,7 +8753,7 @@ Body mass significantly influences absolute patellar tendon loading. Each kilogr
         "Visible or palpable tendon thickening, especially when compared to the unaffected side",
         "Sensation of knee stiffness or fullness after prolonged activity"
       ],
-      typicalPattern: "Patellar tendinopathy follows a predictable progression through distinct stages. Initially, pain occurs only after intense activity and doesn't affect performance. This progresses to pain during activity that may warm up but returns worse afterward. Later stages involve pain during daily activities and inability to participate in sports. The hallmark feature is load-related pain that increases predictably with energy storage activities like jumping. Athletes often describe being able to pinpoint the exact moment in training when pain will begin, such as after a specific number of jumps or at a particular point in their run."
+      typicalPattern: "Patellar tendinopathy often follows a recognisable progression, although not everyone goes through the same stages. Initially, pain occurs only after intense activity and doesn't affect performance. This progresses to pain during activity that may warm up but returns worse afterward. Later stages involve pain during daily activities and inability to participate in sports. The hallmark feature is load-related pain that tends to increase with spring-like activities such as jumping. Athletes often describe being able to pinpoint the exact moment in training when pain will begin, such as after a specific number of jumps or at a particular point in their run."
     },
 
     clinicalObservations: {
@@ -8862,7 +8866,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
     ],
 
     prognosis: {
-      timeline: "Most athletes experience significant improvement within 12 weeks of appropriate loading programs, with many returning to sport over the following months, though recovery timelines vary considerably. However, complete tendon remodeling continues for 6-12 months. In-season athletes can often continue playing with modified training while undergoing rehabilitation",
+      timeline: "Many athletes experience significant improvement within 12 weeks of appropriate loading programs, with many returning to sport over the following months, though recovery timelines vary considerably. However, complete tendon remodeling continues for 6-12 months. In-season athletes can often continue playing with modified training while undergoing rehabilitation",
       factors: [
         "Duration of symptoms before treatment starts: patients treated earlier generally respond better than those with symptoms over a year, though individual response varies",
         "Adherence to the progressive loading program matters: higher compliance is associated with better results than poor compliance",
@@ -8871,7 +8875,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
         "Presence of central sensitization or kinesiophobia may require additional pain education strategies",
         "Athletes who can maintain fitness through alternative training show better psychological and physical outcomes"
       ],
-      naturalHistory: "Without appropriate treatment, around one-third of athletes are unable to return to sport within six months (Cook et al. 1997), and roughly half ultimately retire because of persistent symptoms (Kettunen et al. 2002). With evidence-based loading programs, many athletes return to their previous level of sport, though patience is required as biological healing cannot be rushed"
+      naturalHistory: "Patellar tendinopathy can be persistent and may limit sport for months or longer. Older follow-up studies of athletes (Cook et al. 1997; Kettunen et al. 2002) found that symptoms often lasted a long time, but they cannot predict any one person's course. Recovery varies, and a tailored loading plan can help guide a gradual return; patience is needed because tendons adapt slowly"
     },
 
     keyResearch: [
@@ -8912,24 +8916,24 @@ Many athletes fear that continuing to exercise with some pain will damage the te
 
     clinicalRedFlags: [
       {
-        sign: "Sudden severe pain with immediate loss of function during jumping or landing activity",
-        action: "Immediate assessment for complete patellar tendon rupture requiring urgent surgical consultation"
+        sign: "Sudden severe pain or a pop while jumping or landing, and you cannot straighten the knee or lift the straight leg",
+        action: "Possible patellar tendon rupture. Go to emergency or an urgent care clinic the same day; a complete rupture needs an early surgical opinion"
       },
       {
-        sign: "Significant swelling, warmth, and redness around the patellar tendon",
-        action: "Rule out septic arthritis or inflammatory arthropathy requiring medical investigation"
+        sign: "A newly hot, red or markedly swollen knee, or redness and swelling around the tendon",
+        action: "Possible infection or inflammatory flare. Same-day medical assessment, even without a fever, or go to emergency if you feel unwell"
       },
       {
-        sign: "Night pain, rest pain, or pain disproportionate to loading history",
-        action: "Consider bone pathology including stress fracture or tumor needing further imaging through your doctor"
+        sign: "Night pain, pain at rest, or pain out of proportion to what you have been doing",
+        action: "Not typical of tendon pain. See your family doctor promptly to look for other causes, such as a bone problem"
       },
       {
-        sign: "Progressive weakness despite appropriate rehabilitation over 12 weeks",
-        action: "MRI assessment for partial tear or other structural pathology requiring modified approach"
+        sign: "Weakness that keeps getting worse despite 12 weeks of appropriate rehabilitation",
+        action: "I flag it to your family doctor or a sports medicine physician, who can arrange imaging if it would change the plan"
       },
       {
-        sign: "Bilateral symptoms in non-athlete or systemic symptoms",
-        action: "Screen for inflammatory conditions such as spondyloarthropathy requiring rheumatological assessment"
+        sign: "Pain in both knees without a clear change in activity, other painful or swollen joints, or back stiffness that eases as you move",
+        action: "Possible inflammatory arthritis. See your family doctor, who can arrange tests or a rheumatology referral"
       }
     ],
 
@@ -8961,11 +8965,11 @@ Many athletes fear that continuing to exercise with some pain will damage the te
       },
       {
         question: "Can I keep playing sport during the season while rehabbing jumper's knee?",
-        answer: "Often yes. Rio et al. (BJSM 2015) showed that isometric holds (Spanish squats or wall sits at around 70% effort for 5 sets of 45 seconds) produce meaningful pain relief for roughly 45 minutes afterward, which is useful before competition or training. A reasonable in-season plan is isometrics plus modified jumping volume, then building heavy slow resistance work more aggressively in the off-season."
+        answer: "Often yes. Some people get short-term relief from isometric exercise: in a small study of six volleyball players (Rio et al., BJSM 2015), a specific isometric knee-extension protocol eased pain for at least 45 minutes. Later trials have not consistently repeated that, and no hold guarantees a set period of relief, so choose a tolerable exercise, such as a Spanish squat or wall sit, and use your response to guide the next session. A reasonable in-season plan is isometrics plus modified jumping volume, then building heavy slow resistance work more aggressively in the off-season."
       },
       {
         question: "What is the difference between patellar tendinopathy and patellofemoral pain?",
-        answer: "Patellar tendinopathy causes focal pain and tenderness at the bottom tip of the kneecap where the tendon attaches, and it behaves predictably with loading activities like jumping or decline squats. Patellofemoral pain is more diffuse, sits behind or around the kneecap, and is aggravated by stairs, running, and prolonged sitting with bent knees. The distinction matters because the rehabilitation programs differ significantly in focus and progression."
+        answer: "Patellar tendinopathy causes focal pain and tenderness at the bottom tip of the kneecap where the tendon attaches, and it tends to flare with loading activities like jumping or decline squats. Patellofemoral pain is more diffuse, sits behind or around the kneecap, and is aggravated by stairs, running, and prolonged sitting with bent knees. The distinction matters because the rehabilitation programs differ significantly in focus and progression."
       },
       {
         question: "Why does my knee hurt more the day after exercise?",
@@ -9041,7 +9045,7 @@ Training load matters too. A sudden increase in running, jumping, hills or stair
         "Sensation of knee giving way or instability",
         "Stiffness after prolonged inactivity",
         "Difficulty kneeling or direct pressure on kneecap",
-        "Pain with descending stairs worse than ascending"
+        "Pain on stairs, often worse going down"
       ],
       typicalPattern: "I typically see pain that develops gradually without a specific injury. It's often worse with activities that load the knee in flexion; my patients frequently tell me about pain climbing stairs, getting up from sitting, or after long car rides. The pain tends to be more noticeable during and after activity rather than at rest."
     },
@@ -9108,15 +9112,15 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
     ],
 
     prognosis: {
-      timeline: "Most people see meaningful improvement in 6-12 weeks with appropriate exercise therapy. Full recovery typically takes 3-4 months",
+      timeline: "Many people see meaningful improvement over 6 to 12 weeks of exercise therapy, but recovery times vary, and symptoms can persist or come back even after treatment",
       factors: [
-        "Early intervention leads to better outcomes",
-        "Compliance with exercise program is crucial",
-        "Addressing contributing biomechanical factors improves prognosis",
+        "How long symptoms have been present before treatment starts",
+        "Consistency with the exercise program",
+        "Addressing contributing load and strength factors may help",
         "Younger, more active individuals often respond faster",
         "Bilateral symptoms may take longer to resolve"
       ],
-      naturalHistory: "Without appropriate treatment, symptoms often persist and can become chronic, potentially limiting participation in physical activities and affecting quality of life"
+      naturalHistory: "Symptoms can last for months or years and limit physical activity. Many people improve with exercise and education, though symptoms can persist or recur even after treatment, so progress, activity demands and your preferences guide the longer-term plan"
     },
 
     keyResearch: [
@@ -9163,15 +9167,23 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
     clinicalRedFlags: [
       {
         sign: "Significant swelling with warmth and redness",
-        action: "Possible infection or inflammatory arthritis. Same-day medical assessment, especially with a fever"
+        action: "Possible infection or inflammatory arthritis. Same-day medical assessment, even without a fever, or go to emergency if you feel unwell"
       },
       {
         sign: "Locking or true giving way of the knee",
         action: "Possible meniscus tear or other structural injury. See your family doctor or a sports medicine physician for assessment and imaging if needed"
       },
       {
-        sign: "A kneecap that has slipped out of place, or the knee swelled up quickly after a twist",
-        action: "Possible kneecap dislocation or ligament injury. See a doctor within a few days"
+        sign: "The kneecap is still out of place, or the knee looks deformed",
+        action: "Possible kneecap dislocation. Go to emergency now. Do not try to push the kneecap back yourself, and do not walk on the leg"
+      },
+      {
+        sign: "The kneecap slipped out and went back in, or the knee swelled up quickly after a twist",
+        action: "Possible kneecap dislocation or ligament injury. Get medical assessment today, even if the kneecap is back in place"
+      },
+      {
+        sign: "A child or teenager with a new limp and knee, thigh or hip pain",
+        action: "Possible slipped growth plate at the hip (SCFE), which can be felt as knee pain. Do not let them walk on the leg. Go to emergency today for an urgent assessment"
       },
       {
         sign: "Severe pain at rest or night pain",
@@ -9191,15 +9203,15 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
       },
       {
         question: "How long does patellofemoral pain take to heal?",
-        answer: "Most people improve meaningfully within 6 to 12 weeks of consistent exercise therapy, with full resolution often taking 3 to 4 months. The 2019 JOSPT Clinical Practice Guideline (Willy et al.) supports hip and knee strengthening as the most effective approach. Long-term follow-up studies, though, show a substantial proportion of people still have some symptoms years later if rehabilitation stops early or is inconsistent. That is why I treat maintenance strengthening as part of the plan, not an optional extra."
+        answer: "Many people improve meaningfully within 6 to 12 weeks of consistent exercise therapy, and the 2019 JOSPT Clinical Practice Guideline (Willy et al.) recommends combined hip and knee strengthening as first-line care. Long-term follow-up studies show that symptoms can persist or recur in a substantial proportion of people, even after treatment. Progress, your activity demands and your preferences guide the longer-term plan, which is why I include maintenance strengthening as part of it."
       },
       {
         question: "Do I need an MRI for patellofemoral pain?",
-        answer: "Usually not. Patellofemoral pain is a clinical diagnosis based on history and examination, and imaging does not reliably correlate with symptoms. I consider MRI when symptoms fail to improve with appropriate rehab, when there is true locking or giving way, significant trauma, or signs pointing toward meniscal or ligamentous injury, not as a first-line investigation."
+        answer: "Usually not. Patellofemoral pain is a clinical diagnosis based on history and examination, and imaging does not reliably correlate with symptoms. When symptoms fail to improve with appropriate rehab, or there is true locking or giving way, significant trauma, or signs pointing toward a meniscus or ligament injury, I flag it to your family doctor or specialist and refer you, because imaging may then change the plan. It is not a first-line investigation."
       },
       {
         question: "Why does my knee hurt going down stairs more than up?",
-        answer: "Descending stairs is an eccentric, single-leg task. Pooled data on healthy adults puts peak patellofemoral joint reaction force during stair descent at roughly 2.8 times body weight, higher than walking. If the quadriceps and hip musculature cannot control knee flexion well, that load concentrates on a smaller patch of cartilage behind the kneecap, which is a common driver of pain."
+        answer: "Both directions load the kneecap joint far more than walking. Pooled data on healthy adults put peak patellofemoral joint force at roughly 3.2 times body weight going up and 2.8 going down (Hart et al., BJSM 2022), so force alone does not explain it. Going down is a controlled lowering on one leg: the quadriceps has to work eccentrically to control the knee bending, and many people with patellofemoral pain find that harder and more uncomfortable. Some people notice going up more, which is also common."
       },
       {
         question: "Can I keep running with patellofemoral pain?",
@@ -9319,9 +9331,9 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Exercise therapy focusing on spinal stability and mobility combined with education reduces pain and improves function while normalizing the understanding that disc changes are part of normal aging",
-      secondaryStrategy: "Manual therapy and activity modification provide symptom relief during flares while maintaining functional capacity and preventing fear-avoidance behaviors",
-      preventionStrategy: "Regular spine strengthening exercises and proper movement education can reduce the frequency of symptomatic flares and the likelihood of chronic disability",
+      primaryStrategy: "Exercise combined with clear information about what disc changes mean can help reduce pain and improve function, and no single type of exercise has been shown to be best",
+      secondaryStrategy: "Hands-on treatment and short-term changes to activity may ease a flare while you keep moving",
+      preventionStrategy: "Keeping up regular exercise after a flare settles may lower the chance of another episode of back pain",
       sources: "JOSPT Low Back Pain Guidelines (2021); Cochrane systematic reviews; clinical practice guidelines"
     },
 
@@ -9359,19 +9371,19 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       factors: [
         "Understanding the benign nature of disc degeneration improves outcomes",
         "Staying active prevents deconditioning and maintains function",
-        "Previous episodes don't predict future severity",
+        "Previous episodes may mean a longer recovery, but do not mean the spine is getting worse",
         "Overall health and fitness level influence recovery",
         "Psychological factors like fear-avoidance affect prognosis"
       ],
-      naturalHistory: "Disc degeneration is a normal aging process; most people with imaging findings have no symptoms. With appropriate management, function can be maintained despite structural changes"
+      naturalHistory: "Age-related disc changes are common in people with and without back pain, and a scan finding alone cannot tell whether it explains your symptoms. With appropriate management, function can be maintained despite these changes"
     },
 
     keyResearch: [
       {
-        finding: "Physiotherapy can reduce pain and disability from a lumbar disc prolapse",
-        detail: "A 2021 systematic review and meta-analysis of physiotherapy for lumbar prolapsed intervertebral disc (11 trials) found physiotherapy was associated with a reduction in pain (mean difference -0.91 points) and disability (mean difference -5.76 points) compared with control groups",
-        clinicalRelevance: "Supports exercise-based physiotherapy as a first option when disc changes are causing symptoms",
-        citation: "Singh V, Malik M, Kaur J, et al. A systematic review and meta-analysis on the efficacy of physiotherapy intervention in management of lumbar prolapsed intervertebral disc. Int J Health Sci (Qassim). 2021;15(2):49-57."
+        finding: "Exercise probably reduces pain in chronic low back pain",
+        detail: "A 2021 Cochrane review of 249 trials found moderate-certainty evidence that exercise probably reduces pain in chronic low back pain compared with no treatment, usual care or placebo, with a smaller effect on function and no single best type of exercise",
+        clinicalRelevance: "The trials covered chronic low back pain in general rather than age-related disc changes alone, which is the group most people with this scan label belong to",
+        citation: "Hayden JA, Ellis J, Ogilvie R, et al. Exercise therapy for chronic low back pain. Cochrane Database Syst Rev. 2021;9(9):CD009790."
       },
       {
         finding: "McKenzie Method (MDT) can reduce pain and disability in patients with directional preference",
@@ -9510,7 +9522,7 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       },
       {
         question: "My MRI looks scary. How worried should I be?",
-        answer: "In the vast majority of cases, much less worried than the report sounds. Terms like 'disc desiccation,' 'mild bulging,' 'facet arthropathy,' and 'degenerative changes' show up on the scans of many people with zero back pain. Jensen et al. (NEJM 1994) found disc bulges in 52% and protrusions in 27% of pain-free adults. I pay close attention to red flags and to the match between the scan and your actual symptoms, not to scary sounding words in isolation."
+        answer: "Usually much less worried than the report sounds. Terms like 'disc desiccation,' 'mild bulging,' 'facet arthropathy,' and 'degenerative changes' show up on the scans of many people with zero back pain. Jensen et al. (NEJM 1994) found disc bulges in 52% and protrusions in 27% of pain-free adults. I pay close attention to red flags and to the match between the scan and your actual symptoms, not to scary sounding words in isolation."
       },
       {
         question: "Will this get worse over time?",
@@ -9518,11 +9530,11 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       },
       {
         question: "Is there a cure for DDD?",
-        answer: "There is no treatment that reverses age-related disc changes, and that is the wrong question to aim at. The useful question is how to build a back that handles your life with fewer flares and faster recoveries. That is what exercise, strength work, education, and sensible load management do. ACP (Qaseem et al., 2017) and NICE NG59 both recommend non-pharmacological, active care as first-line."
+        answer: "Age-related disc changes usually remain visible on scans, and no treatment reverses them. Treatment instead focuses on helping you move more comfortably, have fewer and shorter flares, and do the activities that matter to you. Exercise, strength work, education and sensible load management are how I work on that, and the ACP (Qaseem and colleagues, 2017) and NICE NG59 guidelines both recommend active, non-drug care first."
       },
       {
         question: "Should I stop lifting weights or running?",
-        answer: "Usually not. Strength training and running are two of the better long-term investments you can make for a back with DDD, provided load and progression are managed. Avoidance tends to deconditioning, which makes flares more frequent, not less. During an acute flare I temporarily pull back on heavy or deeply flexed loading, then rebuild systematically."
+        answer: "Usually not. Strength training and running can be good long-term investments for a back with DDD, provided load and progression are managed. Stopping them can lead to deconditioning, which can make flares more frequent rather than less. During a flare I temporarily pull back on heavy or deeply bent loading, then rebuild step by step."
       },
       {
         question: "Do I need surgery for degenerative disc disease?",
@@ -9534,7 +9546,7 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       },
       {
         question: "When should I worry about back pain with DDD?",
-        answer: "Seek medical review for loss of bladder or bowel control, saddle numbness, rapidly progressing leg weakness or foot drop, bilateral leg symptoms, unexplained weight loss, fever with back pain, or severe unrelenting night pain. These are not typical DDD patterns and warrant physician assessment before starting physiotherapy."
+        answer: "Go to emergency now for loss of bladder or bowel control, new trouble passing urine, numbness in the saddle area (between the legs or around the back passage), or sciatica in both legs. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse, a foot that drops or slaps when you walk, or fever with back pain. Unexplained weight loss or severe, unrelenting night pain need a doctor's assessment before physiotherapy. None of these are typical DDD patterns."
       }
     ],
     lastReviewed: '2026-04-16',
@@ -9566,8 +9578,7 @@ Walking on an incline often feels easier than walking on flat ground because the
         "Back pain that may be less prominent than leg symptoms",
         "Cramping sensations in calves or thighs",
         "Balance problems or unsteadiness",
-        "Numbness or tingling in feet",
-        "Bladder urgency or frequency (in severe cases)"
+        "Numbness or tingling in feet"
       ],
       typicalPattern: "The classic pattern I see is someone who can sit comfortably for long periods but develops leg symptoms within minutes of standing or walking. They often tell me they can walk much further in a grocery store while leaning on a cart, or that they can bike for miles but struggle to walk to the mailbox."
     },
@@ -9664,6 +9675,10 @@ Walking on an incline often feels easier than walking on flat ground because the
         action: "Go to emergency now. These can be signs of cauda equina syndrome"
       },
       {
+        sign: "A new or unexplained change in bladder function, such as sudden urgency or needing to go much more often, without the signs above",
+        action: "Same-day medical assessment. It is not always serious, but it needs checking before physiotherapy"
+      },
+      {
         sign: "Leg weakness that is getting worse quickly, or a foot that drops or slaps when you walk",
         action: "Same-day medical assessment"
       },
@@ -9719,7 +9734,7 @@ Walking on an incline often feels easier than walking on flat ground because the
       },
       {
         question: "Should I avoid walking because it brings on symptoms?",
-        answer: "No. Interval walking works better than avoidance. Walk until symptoms are mild, sit or lean forward until they ease, then go again. Over weeks, the distance before symptoms usually extends. Avoidance leads to deconditioning, which makes everything harder."
+        answer: "No. Interval walking usually helps more than avoiding walking. Walk until symptoms are mild, sit or lean forward until they ease, then go again. Over weeks, the distance before symptoms often extends. Avoiding walking can lead to deconditioning, which makes everything harder."
       },
       {
         question: "Is leaning on a shopping cart a sign that I am getting worse?",
@@ -9727,11 +9742,11 @@ Walking on an incline often feels easier than walking on flat ground because the
       },
       {
         question: "Will an epidural steroid injection help?",
-        answer: "Sometimes, and usually short-term. Injections can reduce leg symptoms enough to participate in rehabilitation, but the effect is typically measured in weeks to a few months rather than years. They are reasonable to consider when pain is limiting your ability to progress with exercise, but they are not a standalone solution."
+        answer: "For walking-related leg symptoms from narrowing of the central spinal canal, the evidence on injections is mixed. NICE (NG59) and the 2021 non-surgical stenosis guideline (Bussières and colleagues) both advise against epidural steroid injections for this, while a 2025 American Academy of Neurology review found they possibly improve disability but did not clearly reduce short-term pain. This is different from acute, severe sciatica, where NICE suggests an epidural may be considered. Your doctor can clarify the cause of your symptoms and talk through the likely benefits, limits and risks. Either way, the walking and exercise plan stays the main part of care."
       },
       {
         question: "What symptoms mean I should see a doctor urgently?",
-        answer: "New or progressive leg weakness, foot drop, loss of bladder or bowel control, saddle-area numbness, or a sudden change in balance. These can indicate cauda equina syndrome or significant neurological compromise and need urgent medical assessment rather than physiotherapy as a first step."
+        answer: "Go to emergency now if you cannot pass urine, lose control of your bladder or bowels, or have numbness between the legs or around the back passage. These can be signs of cauda equina syndrome. Get a same-day medical assessment for leg weakness that is getting worse, a foot that drops or slaps when you walk, a new change in bladder function, or a sudden change in balance or clumsy hands. These need a doctor before physiotherapy."
       }
     ],
 
@@ -9806,11 +9821,9 @@ Walking on an incline often feels easier than walking on flat ground because the
   },
 
   'postural-dysfunction': {
-    pathophysiology: `Postural dysfunction, particularly upper crossed syndrome, develops from prolonged positioning that creates predictable patterns of muscle imbalance. When you maintain positions like forward head posture or rounded shoulders for extended periods, certain muscles adapt by shortening while others become lengthened and weakened.
+    pathophysiology: `Some people develop neck or upper-back discomfort during long periods at a desk or on a phone. Posture alone does not explain who gets pain: workload, time spent in one position, sleep, stress and physical capacity can all matter. The assessment helps me find which movements and exercises are useful for you.
 
-The muscles that commonly become tight and overactive include the upper trapezius, levator scapulae, sternocleidomastoid, and pectoral muscles. Meanwhile, the deep cervical flexors, middle and lower trapezius, and serratus anterior become weakened and underactive. This creates a characteristic "crossed" pattern of imbalances.
-
-This "upper crossed" description is a useful way to plan exercises, but the research linking posture to pain is weaker than it suggests. Most people with a forward head or rounded shoulders have no pain, and many people with neck pain sit upright. What the pattern usually reflects is long spells in one position and muscles that are not used to holding the head and arms up for hours.`,
+You may see this described as "upper crossed syndrome", a pattern of tight chest and upper shoulder muscles with weaker deep neck and mid-back muscles. It can be a useful way to plan exercises, but the research linking posture to pain is weaker than the label suggests. Many people with a forward head or rounded shoulders have no pain, and many people with neck pain sit upright.`,
 
     biomechanics: `Long hours at a computer or on a phone keep the head forward and the shoulders rounded for long stretches. The position itself is not harmful, but holding any position for hours without a break tends to leave the neck and upper back stiff and sore by the end of the day.
 
@@ -9871,13 +9884,12 @@ Stress, poor sleep and a sudden increase in screen time make that end-of-day sor
     ],
 
     prognosis: {
-      timeline: "Initial improvements in pain and muscle tension typically occur within 4-6 weeks; significant postural changes require 3-6 months of consistent effort",
+      timeline: "Pain and tension often ease within 4 to 6 weeks of regular exercise and movement breaks. Building endurance takes longer, and visible changes in resting posture, if they happen, are slow and matter less than how you feel and function",
       factors: [
-        "Degree of postural deviation affects recovery time",
-        "Compliance with home exercises is crucial",
-        "Workplace demands may slow progress if not addressed",
-        "Younger individuals often respond faster",
-        "Concurrent ergonomic improvements accelerate recovery"
+        "How long the symptoms have been there",
+        "Your daily demands, such as hours at a screen",
+        "How you respond to the plan, which guides how it progresses",
+        "Keeping up the exercises and movement breaks"
       ],
       naturalHistory: "Symptoms tend to follow workload and stress, easing on holidays and building in busy periods. Regular movement and exercise usually keep them manageable"
     },
@@ -9894,22 +9906,22 @@ Stress, poor sleep and a sudden increase in screen time make that end-of-day sor
     selfManagement: [
       {
         strategy: "Frequent Position Changes",
-        rationale: "Regular breaks from sustained postures prevent muscles from adapting to shortened positions and reduce accumulated stress",
+        rationale: "Changing position often can make long desk periods more comfortable",
         precautions: ["Set reminders initially", "Even small movements help"]
       },
       {
         strategy: "Workstation Optimization",
-        rationale: "Proper monitor height, keyboard position, and chair setup reduce postural stress during prolonged work periods",
+        rationale: "A screen at eye level, a keyboard within easy reach and a supportive chair can make long work periods more comfortable",
         precautions: ["Consider professional ergonomic assessment", "Adjust gradually to new positions"]
       },
       {
         strategy: "Daily Stretching Routine",
-        rationale: "Regular stretching of tight muscles helps counteract the effects of prolonged positioning and maintains mobility",
+        rationale: "Gentle stretching can ease stiffness after long periods in one position",
         precautions: ["Focus on quality over quantity", "Avoid aggressive stretching"]
       },
       {
         strategy: "Strengthening Integration",
-        rationale: "Incorporating postural muscle strengthening into daily activities helps build endurance for maintaining better posture",
+        rationale: "Building strength in the neck, shoulder blade and mid-back muscles helps long days cost less effort",
         precautions: ["Start with basic exercises", "Progress intensity gradually"]
       }
     ],
@@ -10179,7 +10191,7 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
     faqs: [
       {
         question: "I dislocated my shoulder once. Will it happen again?",
-        answer: "Age at first dislocation is the single biggest predictor. Hovelius's 25-year follow-up published in JBJS (2008) tracked 255 primary anterior dislocations treated non-operatively and found roughly half of shoulders in the 12 to 25 year age group eventually required stabilisation surgery or remained recurrent, while outcomes in patients 26 to 40 years were noticeably better. Data from the West Point and US military cohorts show similarly high re-dislocation rates in young contact athletes. If you are under 25, in-season in a collision sport, or had a large bony Bankart lesion on imaging, the odds of re-dislocation without surgery are genuinely high and worth discussing with an orthopaedic surgeon early."
+        answer: "Age at first dislocation is one of the strongest predictors. Hovelius's 25-year follow-up published in JBJS (2008) tracked 255 primary anterior dislocations treated non-operatively and found roughly half of shoulders in the 12 to 25 year age group eventually required stabilisation surgery or remained recurrent, while outcomes in patients 26 to 40 years were noticeably better. Data from the West Point and US military cohorts show similarly high re-dislocation rates in young contact athletes. If you are under 25, in-season in a collision sport, or had a large bony Bankart lesion on imaging, the odds of re-dislocation without surgery are genuinely high and worth discussing with an orthopaedic surgeon early."
       },
       {
         question: "Do I need surgery after a first dislocation?",
@@ -10187,11 +10199,11 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
       },
       {
         question: "What about atraumatic instability, where nothing obvious happened?",
-        answer: "Atraumatic instability, including multidirectional instability, responds well to structured rehabilitation in most cases. The Derby Shoulder Instability Programme led by Bateman and colleagues, and the Watson MDI programme, both report meaningful improvements in pain, function, and perceived stability with progressive scapular and rotator cuff retraining. Surgery is reserved for those who do not respond to an adequate rehabilitation trial, typically six months or more."
+        answer: "Atraumatic instability, including multidirectional instability, often responds well to structured rehabilitation. The Derby Shoulder Instability Programme led by Bateman and colleagues, and the Watson MDI programme, both report meaningful improvements in pain, function, and perceived stability with progressive scapular and rotator cuff retraining. Surgery is reserved for those who do not respond to an adequate rehabilitation trial, typically six months or more."
       },
       {
         question: "How long before I can get back to sport?",
-        answer: "For conservative management of atraumatic instability, a realistic window is three to six months of progressive rehabilitation before unrestricted return to collision or overhead sport. Recent data in athletes show that roughly three-quarters return to play after conservative rehab, though recurrence rates are substantial, especially in collision athletes. Post-surgical timelines after Bankart repair typically run four to six months. Psychological readiness matters. Published work using the Shoulder Instability Return to Sport After Injury scale shows athletes scoring below 55 have significantly higher re-injury rates."
+        answer: "For atraumatic instability managed without surgery, three to six months of progressive rehabilitation before unrestricted return to collision or overhead sport is a realistic window. The shoulder can still slip or dislocate again after returning, especially in collision sports. After Bankart repair, return usually takes four to six months or longer, following your surgeon's protocol. Confidence matters too: in athletes after stabilisation surgery, those who were not psychologically ready at six months, measured with the SIRSI questionnaire, had more recurrences (Pasqualini and colleagues, 2024). That study did not include people managed without surgery."
       },
       {
         question: "Can I strengthen my way out of a loose shoulder?",
@@ -10251,7 +10263,7 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
       },
       phase2: {
         title: "Phase 2: Dynamic Strengthening and Proprioception (Weeks 6 to 16)",
-        focus: "Layer in dynamic loading of the rotator cuff, deltoid, and scapular stabilisers in progressively more demanding positions. Proprioceptive and closed-chain work is central. Research on atraumatic instability shows that addressing scapular control and neuromuscular coordination, not just raw strength, is what changes stability.",
+        focus: "Layer in dynamic loading of the rotator cuff, deltoid, and scapular stabilisers in progressively more demanding positions. Position-sense and closed-chain work is central. Programmes for atraumatic instability, such as the Derby and Watson programmes, work on shoulder blade control and coordination as well as strength.",
         examples: [
           "Banded external rotation at the side progressing to 45 degrees abduction, 3 sets of 10 to 12 reps",
           "Prone Y, T, W, and I exercises for the posterior scapular chain",
@@ -10263,15 +10275,15 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
       },
       phase3: {
         title: "Phase 3: Return to Sport or High-Demand Activity (Months 4 to 6+)",
-        focus: "Rebuild the capacity to handle unplanned, ballistic, and contact demands. This phase is most often cut short and is the main reason athletes re-dislocate. Criterion-based progression with plyometrics and sport-specific drills matches the criterion-based return-to-sport approach used in the Watson and Derby programmes.",
+        focus: "Rebuild the capacity to handle unplanned, fast and contact demands. Later rehabilitation helps prepare the shoulder for the demands you want to return to, and progression is based on how the shoulder performs, as in the Watson and Derby programmes. A dislocation can still happen again after a well-completed programme, particularly when the injury itself or the sport carries a higher risk, so I use your progress and goals to decide whether further rehabilitation or a surgical opinion is the right next step.",
         examples: [
           "Plyometric drills: ball slams, wall rebounders, and medicine ball throws in functional positions",
           "Loaded overhead work, starting with landmine press and advancing to barbell or dumbbell overhead pressing",
           "Sport-specific skill rehearsal with volume progression (throwing programme, swim intervals, tackling drills non-contact then contact)",
           "Perturbation and reactive tasks including unstable-surface work and partner-driven rhythmic stabilisation",
-          "Psychological readiness check using the SIRSI scale before unrestricted return to competition"
+          "A check of your confidence in the shoulder before full return to competition (after stabilisation surgery, the SIRSI questionnaire is one way to measure it)"
         ],
-        progressionCriteria: "Strength symmetry within 10% of the unaffected side, tolerance of sport-specific load and volume without apprehension or subluxation, and SIRSI score indicating readiness for full participation."
+        progressionCriteria: "Strength close to the other side, sport-specific load and volume managed without apprehension or the shoulder slipping, and confidence in the shoulder for full participation."
       }
     },
     lastReviewed: '2026-04-16',
@@ -10283,7 +10295,7 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
 
 The bursa usually becomes irritated together with the rotator cuff tendons beneath it, when the shoulder is asked to do more than it is ready for, such as a jump in overhead work or training. On a scan this shows as a thickened bursa, which is also common in shoulders without pain.
 
-The condition often coexists with rotator cuff tendinopathy and shoulder impingement syndrome, as they share similar mechanical causes. The inflamed bursa can contribute to pain and dysfunction, but it's usually a secondary problem rather than the primary issue. Understanding this relationship is crucial because treating only the bursitis without addressing underlying mechanical problems often leads to recurrence.
+The condition often coexists with rotator cuff tendinopathy and shoulder impingement syndrome, as they share similar causes. The irritated bursa can contribute to pain and dysfunction, but it is usually part of a wider rotator cuff problem rather than the whole story. That is why treatment works on the cuff and shoulder blade muscles as well as settling the bursa.
 
 Acute bursitis may result from direct trauma or sudden overuse, while chronic bursitis typically develops gradually from repetitive microtrauma and sustained mechanical irritation.`,
 
@@ -10359,16 +10371,16 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
         "Chronic cases may take longer due to secondary changes in surrounding tissues",
         "Keeping up the home exercises affects outcomes",
         "Concurrent rotator cuff pathology may prolong recovery",
-        "Early intervention prevents progression to chronic bursitis"
+        "Symptoms that have lasted longer before treatment often mean a longer recovery"
       ],
-      naturalHistory: "With a progressive loading programme most cases settle. If the shoulder is not built back up, symptoms tend to recur"
+      naturalHistory: "Many people improve with a progressive loading programme. Symptoms can come back, and if they do, I review the plan with you"
     },
 
     keyResearch: [
       {
         finding: "Injection gave faster relief, physiotherapy had the fewest recurrences",
         detail: "A 2023 randomised trial in chronic subacromial bursitis compared a corticosteroid injection, physiotherapy, and both combined. Pain, shoulder flexion and external rotation improved more in the injection and combined groups, but recurrence was 36.1% after injection alone, 17.1% after the combination and 7.5% after physiotherapy",
-        clinicalRelevance: "An injection can calm a very painful shoulder sooner, and exercise-based physiotherapy is what lowers the chance of it coming back",
+        clinicalRelevance: "In this trial an injection calmed pain sooner, and recurrence was lowest after physiotherapy alone. It is one trial, so I treat it as one piece of the picture",
         citation: "Hsieh LF, Kuo YC, Huang YH, et al. Comparison of corticosteroid injection, physiotherapy and combined treatment for patients with chronic subacromial bursitis: a randomised controlled trial. Clin Rehabil. 2023;37(9):1189-1200."
       },
       {
@@ -10450,15 +10462,15 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
       },
       {
         question: "Why does my shoulder hurt more at night?",
-        answer: "A few things stack up at night. Lying on the affected side compresses the bursa and supraspinatus tendon, you lose the gravitational unloading that upright posture provides during the day, and blood flow to an already irritable area drops. I usually ask people to sleep on the opposite side with a pillow supporting the sore arm forward, or on their back with a small towel roll behind the scapula. Most people see a meaningful reduction in night pain within a couple of weeks."
+        answer: "Night pain is common with shoulder bursitis. Lying on the sore side or holding the arm in one position for a long time can aggravate it, but position is not the whole explanation, and an irritated area can simply be more sensitive at rest. I usually suggest sleeping on the other side with a pillow supporting the sore arm forward, or on your back with a small pillow under the elbow. Night pain often eases over a few weeks, though how quickly varies. Severe, constant pain that does not change with position needs a medical review."
       },
       {
         question: "Should I rest or keep moving?",
-        answer: "Keep moving within reasonable limits. Complete rest tends to make shoulder pain worse because the rotator cuff quickly loses capacity and the joint stiffens. What I usually modify is the provocative activity (overhead work, reaching behind, sleeping position) rather than general movement. Light loading of the rotator cuff with isometrics and low-load external rotation is safe from the start for most subacromial presentations."
+        answer: "Keep moving within reasonable limits. Complete rest tends to make shoulder pain worse because the rotator cuff quickly loses capacity and the joint stiffens. What I usually modify is the provocative activity (overhead work, reaching behind, sleeping position) rather than general movement. Light loading of the rotator cuff with isometrics and low-load external rotation is usually well tolerated from the start."
       },
       {
         question: "How long will this take to settle?",
-        answer: "Realistic timelines are six to twelve weeks for meaningful improvement with a progressive programme. Around half of people are substantially better by six to eight weeks, and most of the rest continue to improve toward three months. Symptom duration before starting care is the biggest predictor of a slower recovery. Once pain has been present for over three months, I expect a longer road and set expectations accordingly."
+        answer: "Realistic timelines are six to twelve weeks for meaningful improvement with a progressive programme. Many people are noticeably better by six to eight weeks, and others keep improving toward three months or longer. How long symptoms were present before starting care is one of the clearest predictors of a slower recovery. Once pain has been present for over three months, I expect a longer road and set expectations accordingly."
       },
       {
         question: "Do I need imaging?",
@@ -10470,7 +10482,7 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
       },
       {
         question: "What exercises actually make a difference?",
-        answer: "Three buckets, in this order: isometric and low-load rotator cuff work at the side to reduce irritability, scapular control drills to restore the platform the shoulder needs, and then progressive loading into ranges and positions that matter for your life and sport. The 2022 JOSPT guideline and Lewis's rotator cuff related shoulder pain framework both support active, task-oriented rehabilitation over passive treatments. Details matter: sets, reps, tempo, and progression are what separate a programme that changes pain from one that just ticks boxes."
+        answer: "Three buckets, in this order: isometric and low-load rotator cuff work at the side to reduce irritability, scapular control drills to restore the platform the shoulder needs, and then progressive loading into ranges and positions that matter for your life and sport. The 2022 JOSPT guideline and Lewis's rotator cuff related shoulder pain framework both support active, task-oriented rehabilitation over passive treatments. The details, such as load, repetitions and how the programme progresses, are set to your shoulder and adjusted as it responds."
       }
     ],
     differentialDiagnosis: [
@@ -10484,7 +10496,7 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
       },
       {
         condition: "AC Joint Pathology",
-        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tender on direct palpation, and worse with cross-body adduction. Subacromial presentations refer to the lateral deltoid rather than over the AC joint."
+        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tender on direct palpation, and worse with cross-body adduction. Pain from the bursa and cuff more often spreads to the outer upper arm rather than sitting over the AC joint, although both can be present."
       },
       {
         condition: "Calcific Tendinopathy",
@@ -10496,13 +10508,13 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
       },
       {
         condition: "Biceps Tendinopathy",
-        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion. Lateral deltoid referral from the cuff or bursa is absent."
+        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion. Pain from the cuff or bursa more often spreads to the outer upper arm, although the two can occur together."
       }
     ],
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Settle Irritability (Weeks 0 to 3)",
-        focus: "Drop pain below the threshold where the bursa and surrounding cuff can tolerate active loading. Isometric loading has evidence for short-term pain relief in tendinopathy and lets you produce force without the movement that typically aggravates subacromial pain. The 2022 JOSPT CPG supports active rehabilitation over rest from day one.",
+        title: "Phase 1: Settle Irritability",
+        focus: "Settle pain enough for the bursa and surrounding cuff to tolerate active loading. A static hold, where the muscle works without the arm moving (an isometric), can be a manageable way to begin when movement is painful. It eases pain for some people, but not consistently, so I choose the effort and hold time by your response and use another option if it aggravates symptoms. The 2022 JOSPT guideline recommends active rehabilitation over rest.",
         examples: [
           "Isometric external and internal rotation at the side, 4 to 5 holds of 30 to 45 seconds, daily",
           "Pain-free pendulum and small-arc active range of motion",
@@ -10510,11 +10522,11 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
           "Sleep position modification and activity pacing education to reduce nightly flare-ups",
           "Relative rest from the specific provocative tasks (usually overhead reaching, lifting above shoulder height, sleeping on the affected side)"
         ],
-        progressionCriteria: "Night pain manageable, resting pain below 3/10, and isometric holds tolerated at 70% effort without a flare-up lasting beyond 24 hours."
+        progressionCriteria: "Night pain manageable, low pain at rest, and the static holds feeling comfortable without a flare that lasts into the next day."
       },
       phase2: {
-        title: "Phase 2: Restore Capacity (Weeks 3 to 10)",
-        focus: "Build rotator cuff and scapular strength through progressively heavier resistance, which is the evidence-based driver of long-term improvement. Lewis's rotator cuff related shoulder pain framework and the 2022 JOSPT guideline both emphasise moving beyond light bands once irritability allows.",
+        title: "Phase 2: Restore Capacity",
+        focus: "Build rotator cuff and shoulder blade strength through progressively heavier resistance, which is the main aim of rehabilitation. Lewis's rotator cuff related shoulder pain framework and the 2022 JOSPT guideline both support progressive loading beyond light bands once irritability allows.",
         examples: [
           "Dumbbell or cable external rotation at the side, 3 sets of 8 to 12 reps with a controlled eccentric",
           "Side-lying external rotation progressing weekly by small dumbbell increments",
@@ -10522,11 +10534,11 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
           "Cable or band face pulls emphasising scapular retraction and posterior cuff activation",
           "Loaded carries (farmer and suitcase) to train shoulder girdle stability under load"
         ],
-        progressionCriteria: "Strength symmetry approaching 80% of the unaffected side on rotation testing, pain-free loading through full active range, and tolerance of moderate daily overhead reach."
+        progressionCriteria: "Rotation strength getting closer to the other side, pain-free loading through full active range, and tolerance of moderate daily overhead reach."
       },
       phase3: {
-        title: "Phase 3: Return to Overhead and Sport (Months 2.5 to 5)",
-        focus: "Restore capacity for overhead, ballistic, and end-range demands. Skipping this phase is why people plateau at partial recovery. Criterion-based rather than time-based progression matches the JOSPT guidance on rotator cuff rehabilitation.",
+        title: "Phase 3: Return to Overhead and Sport",
+        focus: "Restore capacity for overhead, faster and end-range demands. Later rehabilitation helps prepare the shoulder for the demands you want to return to, and I progress it on how the shoulder performs rather than on the calendar. Symptoms can still come back after a well-completed programme; if they do, I review the plan with you.",
         examples: [
           "Overhead press progressions, starting with landmine press and advancing to full overhead dumbbell and barbell press",
           "Pulling work: lat pulldowns, progressions toward full pull-ups or assisted variations",
@@ -10534,7 +10546,7 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
           "Sport or occupation-specific skill rehearsal with volume progression",
           "End-range strength work such as full overhead holds, Turkish get-ups, and bottoms-up kettlebell work for stability at length"
         ],
-        progressionCriteria: "Strength symmetry within 10% of the unaffected side across rotation, abduction, and press testing, pain-free sport or occupation demands at expected volume, and confident overhead reaching in unplanned movements."
+        progressionCriteria: "Strength close to the other side on rotation, lifting and pressing, sport or work demands managed at the usual volume without pain, and confident overhead reaching in unplanned movements."
       }
     },
     lastReviewed: '2026-04-16',
@@ -10554,7 +10566,7 @@ The healing potential of wrist ligaments varies significantly depending on their
 
 During normal wrist extension, the scaphoid tends to flex while the lunate extends, creating a complex motion that requires intact ligamentous restraints. When the scapholunate ligament is injured, this coordinated movement is disrupted, leading to altered mechanics and potential for progressive instability.
 
-The dart throwing motion (DTM) represents a path of movement where the wrist moves from radial extension to ulnar flexion, following the natural alignment of the carpal bones. This movement pattern places less stress on the scapholunate interval and is often used therapeutically in rehabilitation programs.
+The dart throwing motion (DTM) represents a path of movement where the wrist moves from radial extension to ulnar flexion, following the natural alignment of the carpal bones. In an intact wrist this path places less stress on the scapholunate interval, and a short, controlled arc of it is often used in rehabilitation. It is not stress-free after an injury: in a torn or repaired scapholunate ligament, the gap between the two bones can widen toward the ends of the movement, so the safe range is set for the specific injury (Bergner et al., Journal of Hand Therapy 2020).
 
 TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist stability. The complex must maintain proper relationship between the radius, ulna, and carpal bones during activities that involve gripping combined with rotation, such as using a screwdriver or opening jars.`,
 
@@ -10573,11 +10585,11 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
         "Difficulty with rotational activities (turning doorknobs, keys)",
         "Compensatory movements in the forearm or shoulder"
       ],
-      typicalPattern: "I often see two patterns: acute injuries from falls or sports where patients remember the exact moment of injury, and gradual onset cases from repetitive stress. Patients frequently describe pain with specific activities like push-ups or difficulty gripping objects firmly."
+      typicalPattern: "Two patterns are common: acute injuries from falls or sports where people remember the exact moment of injury, and gradual onset cases from repetitive stress. Patients frequently describe pain with specific activities like push-ups or difficulty gripping objects firmly."
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Once a fracture has been ruled out, a short spell of bracing followed by early protected movement can help most wrist sprains settle",
+      primaryStrategy: "Once a fracture and significant ligament instability have been ruled out, a short spell of bracing followed by early protected movement can help many stable wrist sprains settle",
       secondaryStrategy: "Strengthening and wrist control exercises can help restore grip and confidence and may lower the chance of the wrist giving way",
       preventionStrategy: "Keeping up wrist and grip strength, and wrist guards for sports like snowboarding, may lower the risk of another sprain",
       sources: "Hand surgery literature; systematic reviews on scapholunate and TFCC rehabilitation; evidence-based exercise protocols"
@@ -10597,8 +10609,8 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       },
       {
         approach: "Dart Throwing Motion Exercises",
-        evidence: "Moving the wrist along the dart thrower's path puts less strain on the scapholunate ligament, so it is a useful early exercise",
-        effectivenessLevel: "strong"
+        evidence: "A short, controlled mid-range dart-throwing arc can help keep the wrist moving. After a scapholunate injury, studies suggest limiting the ends of the arc, because a torn or repaired ligament may separate more there; the evidence is preliminary (Bergner et al., 2020)",
+        effectivenessLevel: "emerging"
       },
       {
         approach: "Targeted Muscle Strengthening",
@@ -10618,7 +10630,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
     ],
 
     prognosis: {
-      timeline: "Acute injuries typically show improvement within 6-8 weeks with appropriate treatment. Complete recovery may take 3-4 months depending on severity",
+      timeline: "Many acute sprains improve over several weeks with appropriate treatment, and complete recovery can take a few months depending on severity. Significant ligament tears follow a timeline set with a hand surgeon",
       factors: [
         "Severity of ligament damage affects healing time",
         "Getting a fracture ruled out early matters",
@@ -10656,15 +10668,15 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       },
       {
         strategy: "Movement Pattern Awareness",
-        rationale: "Learning to use beneficial movement patterns like dart throwing motion promotes healing and function",
-        precautions: ["Focus on quality over quantity", "Stop if pain increases significantly"]
+        rationale: "A clinician-selected, short mid-range movement path such as the dart thrower's arc can help keep the wrist moving comfortably while the ligament heals",
+        precautions: ["Keep to the range you have been shown; after a scapholunate injury, avoid the ends of the arc", "Focus on quality over quantity", "Stop if pain increases significantly"]
       }
     ],
 
     clinicalRedFlags: [
       {
         sign: "Tenderness in the hollow at the base of the thumb (the snuffbox), or pain when the thumb is pushed in toward the wrist, after a fall on an outstretched hand",
-        action: "Protect the wrist and get an X-ray that week to rule out a scaphoid fracture before it is treated as a sprain"
+        action: "Support the wrist in a splint, avoid lifting or putting weight through it, and get a prompt medical assessment and X-ray, the same day or next day, to rule out a scaphoid fracture before it is treated as a sprain. A normal first X-ray may need follow-up imaging"
       },
       {
         sign: "A change in the shape of the wrist, severe swelling, or being unable to move the wrist after a fall",
@@ -10718,11 +10730,11 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
     faqs: [
       {
         question: "I fell on my hand last week, how do I know if it is broken versus sprained?",
-        answer: "You probably cannot tell from the outside, and that is why a fall on an outstretched hand with persistent wrist pain deserves an X-ray. A scaphoid fracture in particular can look and feel like a bad sprain, and Rhemrev and colleagues' 2011 review in the International Journal of Emergency Medicine is clear that the clinical tests are sensitive but not specific. If there is tenderness in the anatomical snuffbox or pain when the thumb is pushed in toward the wrist, it needs an X-ray that week before it is treated as a sprain, and I refer you for one. The same applies if the pain is not steadily improving after a week."
+        answer: "You probably cannot tell from the outside, and that is why a fall on an outstretched hand with persistent wrist pain deserves an X-ray. A scaphoid fracture in particular can look and feel like a bad sprain, and Rhemrev and colleagues' 2011 review in the International Journal of Emergency Medicine is clear that the clinical tests are sensitive but not specific. If there is tenderness in the anatomical snuffbox or pain when the thumb is pushed in toward the wrist, the wrist should be supported in a splint, kept from lifting and weight-bearing, and assessed promptly for an X-ray, the same day or next day, before it is treated as a sprain. I refer you for that through your family doctor or urgent care. An early X-ray can be normal, so continued suspicion needs follow-up imaging and protection. Pain that is not steadily improving after a week also needs a medical review."
       },
       {
         question: "Does a wrist sprain always need a brace?",
-        answer: "A short course of bracing, usually one to three weeks, helps an acute ligament-dominant injury settle. The point is to protect the ligament while pain and swelling come down, not to immobilise you for months. For ulnar-sided TFCC patterns and low-grade scapholunate irritations, I tend to use a brace for pain control and protect it during sport, then transition into progressive loading quickly. Immobilisation beyond what the ligament needs tends to stiffen the wrist and slow the return to sport."
+        answer: "A short course of bracing, usually one to three weeks, can help a stable sprain settle once a fracture and significant ligament instability have been ruled out. A significant scapholunate or TFCC tear may need longer protection, set by a hand surgeon. The point is to protect the ligament while pain and swelling come down, not to immobilise you for months. For ulnar-sided TFCC patterns and low-grade scapholunate irritations, I tend to use a brace for pain control and protect it during sport, then transition into progressive loading quickly. Immobilisation beyond what the ligament needs tends to stiffen the wrist and slow the return to sport."
       },
       {
         question: "Why does my wrist click or clunk even after the pain has settled?",
@@ -10734,7 +10746,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       },
       {
         question: "What is the dart throwing motion and why does everyone keep mentioning it?",
-        answer: "It is the path your wrist takes when you throw a dart, from radial extension to ulnar flexion. Through that arc the scapholunate interosseous ligament is under far less strain than it is during pure flexion or pure extension. Early in rehab, especially after a scapholunate-type injury, it is a useful way to keep the wrist moving without stressing the ligament, and there is a growing body of work supporting its use in scapholunate and TFCC rehab."
+        answer: "It is the path your wrist takes when you throw a dart, from radial extension to ulnar flexion. In an intact wrist, that arc puts less strain on the scapholunate interosseous ligament than pure flexion or extension. A short, controlled dart-throwing arc can sometimes help maintain movement. It is not stress-free: a torn or repaired scapholunate ligament may separate more at the ends of the movement (Bergner et al., Journal of Hand Therapy 2020). The safe range, brace and timing need to be set for the specific injury, and the research on it is still preliminary."
       },
       {
         question: "How long should a wrist sprain take to heal?",
@@ -10760,9 +10772,9 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       },
       phase2: {
         title: "Phase 2: Controlled loading and movement quality (Weeks 3 to 8)",
-        focus: "Once the acute phase is over, the job is to restore capacity in the muscles that stabilise the wrist, particularly those supporting the scapholunate and distal radioulnar joint. Dart throwing motion plays a central role here because it moves the wrist while keeping strain off the scapholunate interval. Grip capacity gets its own focused attention.",
+        focus: "Once the acute phase is over, the job is to restore capacity in the muscles that stabilise the wrist, particularly those supporting the scapholunate and distal radioulnar joint. A short, controlled dart-throwing arc can be part of this if it suits the diagnosed ligament injury, kept to the range a clinician has set, because an injured scapholunate ligament may separate more at the ends of the movement. Grip capacity gets its own focused attention.",
         examples: [
-          "Dart throwing motion drills, from radial extension to ulnar flexion, unloaded then with a light dumbbell, 3 sets of 10",
+          "A clinician-selected, short mid-range dart-throwing arc, initially without resistance, if appropriate for the diagnosed ligament injury, 3 sets of 10",
           "Wrist flexor and extensor isometrics progressing to slow concentric and eccentric work with a 1 to 2 kg dumbbell, 3 sets of 10 to 15",
           "Forearm pronation and supination with a light hammer or dumbbell, 3 sets of 10, through pain-free range",
           "Grip work with soft putty or a stress ball, progressing to a hand trainer, 3 sets of 10 submaximal",
@@ -10780,7 +10792,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
           "Perturbation work: loaded ball tosses, unstable-surface hand support, to rebuild reflexive wrist stability",
           "Fall technique practice for contact or fall-prone sports, aiming to absorb force through a flexed elbow rather than a locked, extended wrist"
         ],
-        progressionCriteria: "Two consecutive weeks of full training or full work demand without a flare, symmetrical grip strength within about 10 percent of the uninjured side, confident weight-bearing through the palm, and no recurrence of catching, clunking, or giving-way."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: two consecutive weeks of full training or full work demand without a flare, grip strength close to the uninjured side, confident weight-bearing through the palm, and no recurrence of catching, clunking, or giving-way."
       }
     },
     lastReviewed: '2026-04-16',
@@ -10805,11 +10817,11 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       ],
     },
 
-    pathophysiology: `Repetitive strain injuries (RSI) develop when tissues are subjected to repeated low-level stress over extended periods, exceeding their capacity to recover between episodes of use. This creates a cycle of microtrauma and incomplete healing that gradually leads to tissue breakdown and sensitization of pain pathways.
+    pathophysiology: `RSI is a broad label for symptoms associated with repeated tasks or sustained positions. It can include tendon pain, nerve irritation, and muscle pain. Symptoms reflect the task demands, recovery between spells of work, general health, and pain sensitivity; they do not automatically mean tissue is breaking down.
 
-The pathophysiology involves multiple systems: musculoskeletal tissues experience microscopic damage from repetitive loading, while the nervous system becomes increasingly sensitive to normal stimuli. This process, called peripheral and central sensitization, means that activities which were once painless now trigger significant discomfort.
+Several systems can be involved: a tendon or muscle may be working beyond what it is currently used to, and the nervous system can become more sensitive to ordinary activity. This process, called peripheral and central sensitization, means that activities which were once painless now trigger significant discomfort.
 
-Computer-related RSI typically affects the upper limbs through sustained postures combined with repetitive small movements. The muscles that stabilize your shoulder blade, neck, and forearm work continuously to maintain positions required for keyboard and mouse use, leading to fatigue and eventual breakdown of normal tissue architecture.
+Computer-related RSI typically affects the upper limbs through sustained postures combined with repetitive small movements. The muscles that stabilize your shoulder blade, neck, and forearm work continuously to maintain positions required for keyboard and mouse use, which can lead to fatigue and discomfort. Many people do this work all day without symptoms, and symptoms that do appear can settle with changes to the task, breaks, and graded exercise.
 
 Psychological factors play a significant role in RSI development and persistence. Work stress, time pressure, and fear of job security can increase muscle tension and delay recovery. The condition often becomes a complex interaction between physical tissue changes and psychological stress responses.`,
 
@@ -11020,7 +11032,7 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
         examples: [
           "Micro-break schedule every 20 to 30 minutes during computer or repetitive work, with 30 to 60 seconds of gentle upper limb movement each break",
           "Neck and shoulder mobility: chin tucks, upper trapezius and levator stretches, and scapular setting, 2 to 3 times per day",
-          "Gentle median and ulnar nerve sliders, 10 slow repetitions 2 to 3 times per day, stopping short of any provocation",
+          "If the assessment points to nerve irritation, gentle nerve sliders for the nerve involved, 10 slow repetitions 2 to 3 times per day, stopping short of any provocation",
           "Low-load wrist flexion and extension with a 1 to 2 kg dumbbell through a comfortable range, 2 sets of 10 to 15",
           "Ergonomic audit: chair and screen height, mouse type and sensitivity, keyboard placement, and sleep posture"
         ],
@@ -11056,11 +11068,11 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
   },
 
   'si-joint-dysfunction': {
-    pathophysiology: `Sacroiliac (SI) joint dysfunction involves abnormal movement or positioning of the joint between your sacrum and ilium bones. This joint normally allows only small amounts of movement (2-4mm translation and 2-4 degrees rotation) but plays a crucial role in transferring forces between your spine and lower extremities.
+    pathophysiology: `SI-joint-related pain refers to pain thought to arise from the sacroiliac joint, between the sacrum and the pelvis (ilium), or from the ligaments around it. It can be difficult to tell apart from pain coming from the lower back or the hip, and routine examination does not reliably show that the pelvis is out of position. The joint normally allows only small amounts of movement (around 2 to 4 millimetres and 2 to 4 degrees) but plays an important role in transferring forces between your spine and legs.
 
 The SI joint is surrounded by some of the strongest ligaments in the body, which can become either too loose (hypermobile) or too tight (hypomobile), both of which can cause pain and dysfunction. The joint surfaces are irregular and interlocking, designed more for stability than mobility, which makes them vulnerable to dysfunction when normal mechanics are disturbed.
 
-Muscle imbalances around the pelvis significantly contribute to SI joint problems. When muscles like the deep abdominals, multifidus, gluteus maximus, or latissimus dorsi don't function properly, it alters the force distribution across the joint and can lead to compensatory stress patterns.
+Muscle function around the pelvis may contribute to SI joint problems. When muscles like the deep abdominals, multifidus, gluteus maximus, or latissimus dorsi don't function properly, it alters the force distribution across the joint and can lead to compensatory stress patterns.
 
 The joint is richly innervated with pain receptors, which explains why SI dysfunction can be extremely painful. The pain pattern often involves the posterior pelvis but can refer to the groin, hip, thigh, and even down to the foot, making diagnosis challenging.`,
 
@@ -11140,15 +11152,14 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
     ],
 
     prognosis: {
-      timeline: "Most patients see significant improvement within 6-8 weeks of appropriate treatment, with pain reduction often occurring within the first few sessions",
+      timeline: "Many people improve over 6 to 8 weeks of appropriate treatment, although some take longer",
       factors: [
-        "Three or more positive SI joint provocation tests correlate with better treatment response",
-        "Early intervention prevents development of chronic pain patterns",
+        "How long the pain has been present before treatment starts",
         "Compliance with home exercise program crucial for maintaining gains",
-        "Addressing contributing factors like hip mobility improves outcomes",
+        "Addressing contributing factors such as hip mobility may help",
         "Pregnancy-related SI dysfunction may require modified approach but generally responds well"
       ],
-      naturalHistory: "Most SI joint presentations respond well to a combination of manual therapy and graded hip and trunk strengthening"
+      naturalHistory: "Many people with SI-joint-related pain improve with a combination of manual therapy and graded hip and trunk strengthening"
     },
 
     keyResearch: [
@@ -11233,7 +11244,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
     faqs: [
       {
         question: "How is SI joint pain actually diagnosed?",
-        answer: "Clinically, using a cluster of provocation tests rather than a single test. Laslett and colleagues (Manual Therapy 2005) showed that two or more positive tests out of four (distraction, thigh thrust, compression, sacral thrust) reach around 88% sensitivity and 78% specificity for SI joint pain, and subsequent reviews have supported the cluster's clinical utility. Imaging rarely confirms the source unless an injection is being considered, so the exam is what usually drives the diagnosis."
+        answer: "Clinically, by looking at several pain-provocation tests together (distraction, thigh thrust, compression, sacral thrust) alongside the history and an examination of the back and hips, rather than relying on a single test. Laslett and colleagues (Manual Therapy 2005) found that combinations of these tests matched diagnostic injections better than single tests. A 2021 meta-analysis (Saueressig et al., JOSPT) rated the evidence as very low certainty: a positive cluster is not enough to confirm the SI joint as the source, while a negative cluster makes it much less likely. Positive tests also do not by themselves predict how well rehabilitation will go. Imaging rarely confirms the source, so the history and exam usually drive the working diagnosis."
       },
       {
         question: "Is my SI joint actually out of place?",
@@ -11245,7 +11256,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       },
       {
         question: "How long does SI joint pain usually take to settle?",
-        answer: "Most cases respond within 6 to 8 weeks with a combination of manual therapy and graded strengthening of the deep trunk and gluteal muscles. Recurrence is not uncommon in the first year, particularly when load drops off, which is why a maintenance programme matters as much as the initial rehab."
+        answer: "Many people improve over 6 to 8 weeks with a combination of manual therapy and graded strengthening of the deep trunk and gluteal muscles, although some take longer. Recurrence is not uncommon in the first year, particularly when load drops off, which is why a maintenance programme matters as much as the initial rehab."
       },
       {
         question: "Is a pelvic support belt a good idea?",
@@ -11257,7 +11268,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       },
       {
         question: "Do I need an SI joint injection or surgery?",
-        answer: "Surgery (SI joint fusion) is uncommon and reserved for carefully selected, imaging-confirmed, persistent cases that have failed sustained conservative care. Diagnostic and therapeutic injections are sometimes used when the diagnosis is unclear or symptoms are severe, but they sit alongside, not instead of, structured rehabilitation."
+        answer: "Surgery (SI joint fusion) is uncommon and reserved for carefully selected persistent cases, after specialist assessment and failure of appropriate nonsurgical care. Selection involves more than imaging and may include diagnostic injections. Diagnostic and therapeutic injections are sometimes used when the diagnosis is unclear or symptoms are severe, but they sit alongside, not instead of, structured rehabilitation."
       }
     ],
 
@@ -11453,20 +11464,28 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
 
     clinicalRedFlags: [
       {
-        sign: "Multiple ligament injury signs or severe instability",
-        action: "Possible injury to more than one ligament, which may need surgery. See your family doctor for an orthopaedic referral promptly"
+        sign: "After a major injury, the knee looked dislocated or shifted out of place, or it feels grossly unstable or loose in more than one direction",
+        action: "Possible knee dislocation or injury to more than one ligament. Go to emergency now, even if the knee has moved back into place, so the blood vessels and nerves behind the knee can be checked"
       },
       {
         sign: "A cold, pale or numb foot, or foot drop, after the injury",
         action: "Possible damage to the artery or nerve behind the knee. Go to emergency now"
       },
       {
-        sign: "Locked knee or inability to bear weight",
-        action: "Possible meniscus tear or fracture. Same-day medical assessment if you cannot bear weight"
+        sign: "You cannot put weight on the leg after the injury",
+        action: "Possible fracture or more serious knee injury. Same-day medical assessment"
+      },
+      {
+        sign: "The knee locks and will not straighten",
+        action: "Possible meniscus tear blocking movement. See your family doctor or a sports medicine physician within a few days"
       },
       {
         sign: "Calf pain, swelling or warmth, especially while in a brace or after surgery",
-        action: "Possible blood clot. Same-day medical assessment"
+        action: "Possible blood clot. Same-day medical assessment; sudden shortness of breath or chest pain means go to emergency now"
+      },
+      {
+        sign: "After surgery: a fever, or a wound that is red, hot, leaking or increasingly painful",
+        action: "Possible infection. Contact your surgical team the same day, or go to emergency"
       },
       {
         sign: "No functional improvement after 3 months of appropriate rehabilitation",
@@ -11494,7 +11513,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
       },
       {
         question: "Why am I being told to avoid hamstring exercises early on?",
-        answer: "The hamstrings pull the tibia posteriorly, which is the exact direction of stress the healing PCL cannot tolerate well. In the first several weeks I avoid isolated hamstring curls and heavy Romanian deadlifts, not because hamstrings are bad but because the timing is wrong. As healing progresses, hamstring loading is reintroduced in ways that do not create a posterior shear force, and by the later phases of rehabilitation they are trained normally."
+        answer: "The hamstrings pull the tibia posteriorly, which is the exact direction of stress the healing PCL cannot tolerate well. In the first several weeks I avoid isolated hamstring curls and heavy Romanian deadlifts, not because hamstrings are bad but because the timing is wrong. As healing progresses, hamstring work is introduced when it is appropriate and progressed in ways that limit stress on the healing ligament, and by the later phases of rehabilitation they are trained normally. After PCL surgery, your surgeon's protocol sets when hamstring work can start."
       },
       {
         question: "How long until I can return to sport?",
@@ -11506,7 +11525,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
       },
       {
         question: "Will I get arthritis from this?",
-        answer: "Long-term data show a modest rise in radiographic osteoarthritis after PCL injury even with non-operative management, more so when there is associated meniscus or cartilage damage. That said, most people maintain good subjective function for more than a decade after isolated PCL injury when rehabilitated well. This is part of why I take the quadriceps program seriously: muscle-driven control of tibial position is the most practical tool for protecting the joint surface over time."
+        answer: "Long-term data show a modest rise in radiographic osteoarthritis after PCL injury even with non-operative management, more so when there is associated meniscus or cartilage damage. That said, many people maintain good subjective function for more than a decade after isolated PCL injury when rehabilitated well. This is part of why I take the quadriceps program seriously: muscle-driven control of tibial position is the most practical tool for protecting the joint surface over time."
       }
     ],
     differentialDiagnosis: [
@@ -11537,7 +11556,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
         focus: "Minimize posterior tibial translation, maintain range of motion without forcing deep flexion, and re-establish confident quadriceps activation. The Pierce et al. (KSSTA 2012) rehabilitation protocol emphasizes prone positioning, quadriceps-dominant loading, and avoidance of isolated hamstring contraction during this window.",
         examples: [
           "Quad sets and straight leg raises performed supine with a small towel roll under the ankle to support full extension",
-          "Prone knee flexion active-assisted to around 90 degrees, avoiding forced hyperflexion in the first few weeks",
+          "Protected knee bending lying on your front, done passively or with a therapist's help within the range your clinician or surgeon has set, with no active hamstring pulling until you are cleared and no forcing into deep bending",
           "Patellar mobilizations in all four directions to keep the quadriceps mechanism gliding",
           "Mini-squats and wall sits to a shallow angle, keeping the tibia forward rather than allowing posterior sag",
           "Dynamic PCL brace during walking and daily activity for Grade II and III injuries"
@@ -11554,7 +11573,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
           "Progressive hamstring reintroduction starting with long-lever isometrics and advancing to Nordic progressions in the late phase only",
           "Return-to-running program beginning with treadmill walk-jog intervals once strength criteria are met, typically around month 3"
         ],
-        progressionCriteria: "Quadriceps limb symmetry approaching 85 to 90 percent on dynamometry, pain-free single-leg squat to 60 degrees with controlled alignment, tolerance of straight-line jogging without reactive effusion, and minimal posterior sag on clinical testing."
+        progressionCriteria: "Quadriceps limb symmetry approaching 85 to 90 percent on dynamometry, pain-free single-leg squat to 60 degrees with controlled alignment, tolerance of straight-line jogging without reactive effusion, and acceptable stability on clinical testing."
       },
       phase3: {
         title: "Phase 3: Return to Sport and Performance (Month 4 to 6+)",
@@ -11566,7 +11585,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
           "Change-of-direction work starting with planned cuts at 45 and 90 degrees, progressing to reactive cutting with a partner or cue",
           "Sport-specific drills and graded return-to-contact progression for collision athletes"
         ],
-        progressionCriteria: "Limb symmetry index of 90 percent or greater on strength and hop testing, minimal to no posterior sag, clean mechanics on change-of-direction work, no effusion response to training, and subjective confidence in the knee during sport-specific loads."
+        progressionCriteria: "Limb symmetry index of 90 percent or greater on strength and hop testing, acceptable stability on clinical assessment (some laxity can remain after a PCL injury even when function is good), clean mechanics on change-of-direction work, no effusion response to training, and subjective confidence in the knee during sport-specific loads."
       }
     },
     lastReviewed: '2026-04-16',
@@ -11651,15 +11670,15 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
     ],
 
     prognosis: {
-      timeline: "Symptoms often improve within 6-12 weeks with appropriate loading program, though complete resolution may take 3-4 months",
+      timeline: "Improvement often takes weeks to months with an appropriate loading program, and longer-standing cases can take longer",
       factors: [
         "Duration of symptoms affects recovery time, with longer-standing cases taking longer",
         "Addressing underlying ankle instability improves outcomes",
-        "Compliance with exercise program crucial for tendon adaptation",
+        "Consistency with the loading program",
         "Biomechanical factors like foot posture influence recovery",
         "Activity demands and sport requirements affect timeline"
       ],
-      naturalHistory: "Most cases respond well to conservative management when underlying instability is addressed. Failure to improve may require surgical evaluation"
+      naturalHistory: "Many cases improve with conservative management, particularly when any underlying ankle instability is addressed. The research specific to peroneal tendon problems is sparse. Failure to improve may warrant imaging and a surgical opinion through your family doctor"
     },
 
     keyResearch: [
@@ -11754,11 +11773,11 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       },
       {
         question: "How long does peroneal tendinopathy usually take to settle?",
-        answer: "Most people see meaningful change inside 8 to 12 weeks of consistent loading, with full return to running, hiking, or cutting sports often landing in the 3 to 6 month range. Cases that have been grumbling for over a year, or that have developed on a background of untreated ankle instability, take longer. The two biggest predictors of a faster timeline are catching it early and sticking with a progressive loading program rather than cycling through rest, flare, rest."
+        answer: "Improvement often takes weeks to months, and a full return to running, hiking, or cutting sports can take a few months. Cases that have been grumbling for over a year, or that have developed on a background of untreated ankle instability, often take longer. Research cannot reliably rank the main predictors for one person; ankle stability, activity demands, and how the tendon responds to loading help guide the plan."
       },
       {
         question: "Should I rest completely, or keep moving?",
-        answer: "Complete rest is rarely the answer. The tendon needs load to remodel, and long periods off just delay the conversation. Most people do better on a modified plan: drop the aggravating volume by roughly a third, swap uneven-terrain running for flatter surfaces for a few weeks, and add a specific peroneal loading program twice weekly. The 24-hour rule is the gatekeeper. If pain during activity stays under about 5 out of 10 and settles within 24 hours, the dosage is acceptable."
+        answer: "Complete rest is rarely the answer. The tendon needs load to remodel, and long periods off just delay the conversation. Most people do better on a modified plan: drop the aggravating volume by roughly a third, swap uneven-terrain running for flatter surfaces for a few weeks, and add a specific peroneal loading program twice weekly. I use a 24-hour check as a guide: if pain during activity stays moderate (I often use about 5 out of 10 as a starting point) and settles within 24 hours, the dosage is usually acceptable. That number is a clinical rule of thumb rather than a tested threshold, so I adjust it to how your tendon responds."
       },
       {
         question: "Do orthotics help peroneal tendinopathy?",
@@ -11770,7 +11789,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       },
       {
         question: "Can I keep running with peroneal tendinopathy?",
-        answer: "Usually yes, with adjustments. Dropping weekly mileage by around a third, running on flatter surfaces temporarily, and spacing runs at least 48 hours apart gives the tendon time to adapt. Hills, trails, and speed work come back last. If the pain climbs above 5 out of 10 during runs, or morning stiffness starts lasting more than 15 minutes, the loading has outpaced the tendon and the plan needs to scale back for a week or two."
+        answer: "Usually yes, with adjustments. Dropping weekly mileage by around a third, running on flatter surfaces temporarily, and spacing runs at least 48 hours apart gives the tendon time to adapt. Hills, trails, and speed work come back last. If pain keeps climbing during runs, or morning stiffness is lasting noticeably longer than usual, the loading has probably outpaced the tendon and the plan needs to scale back for a week or two."
       },
       {
         question: "Is an ankle brace a good idea, or does it make me weaker?",
@@ -11789,7 +11808,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
           "Calf raise variations on flat ground, 3 sets of 12, to share load with the triceps surae",
           "Activity modification: reduce uneven-terrain running and hill work by roughly 50 percent, keep volume on flatter surfaces"
         ],
-        progressionCriteria: "Pain during isometric eversion at or below 3 out of 10 for 7 consecutive days, single-leg balance on firm ground for 30 seconds without wobble, and no symptom rise 24 hours after loading sessions."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: comfortable isometric eversion (around 3 out of 10 or less) for about a week, steady single-leg balance on firm ground, and no symptom rise 24 hours after loading sessions."
       },
       phase2: {
         title: "Phase 2: Progressive Loading and Instability Challenge (Weeks 4 to 10)",
@@ -11801,7 +11820,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
           "Single-leg balance on a foam pad or Airex, with reaches in multiple directions, 3 sets of 8 per direction per side",
           "Walking lunges and lateral step-ups to load the foot in functional positions, 3 sets of 8 to 10"
         ],
-        progressionCriteria: "Heavy slow resistance eversion tolerated at 3 out of 10 pain or less, single-leg heel raise at full range for 15 reps per side, stable balance on foam for 30 seconds with eyes closed, and two consecutive weeks of loading without a 24-hour flare."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: heavy slow resistance eversion tolerated with low pain, a solid set of full-range single-leg heel raises per side, stable balance on foam with eyes closed, and two consecutive weeks of loading without a 24-hour flare."
       },
       phase3: {
         title: "Phase 3: Return to Terrain, Cutting, and Sport (Months 3 to 6)",
@@ -11813,7 +11832,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
           "Graded return to trail, hill, or uneven-surface training, increasing volume in small weekly steps",
           "Sport-specific reintegration, such as change of direction drills for soccer or court sports, in blocks with full recovery between"
         ],
-        progressionCriteria: "Single-leg hop symmetry within 10 percent of the unaffected side, return to previous training volume and terrain without next-day flares, FAAM Sport subscale trending toward pre-injury levels, and two consecutive weeks of full training without a symptom rise."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: single-leg hopping close to the unaffected side, return to previous training volume and terrain without next-day flares, FAAM Sport subscale trending toward pre-injury levels, and two consecutive weeks of full training without a symptom rise."
       }
     },
 
@@ -11943,19 +11962,18 @@ Risk factors that predispose to biomechanical failure include obesity (increasin
     ],
 
     prognosis: {
-      timeline: "Stage I PTTD often responds well to conservative treatment within 3 to 6 months. Stage II requires 6-12 months for meaningful improvement, with some patients stabilizing rather than fully recovering. Stage III-IV typically require surgical intervention with recovery extending 12-18 months post-operatively",
+      timeline: "Early-stage PTTD often improves over a few months of conservative care. Flexible later-stage cases can take longer, and some people stabilise rather than fully recover. With a stiff or advanced deformity, exercise is unlikely to change the foot's shape, although a brace may still improve comfort and walking, and a foot and ankle surgeon can discuss surgical and non-surgical options",
       factors: [
-        "Stage at diagnosis: early-stage (I-II) disease responds well to conservative care, whereas rigid Stage III deformity is generally not amenable to conservative management",
-        "BMI significantly impacts outcomes with obesity predicting poorer response to conservative treatment",
-        "Diabetes mellitus associated with delayed healing and higher failure rates",
-        "Age >60 years correlates with reduced likelihood of avoiding surgical intervention",
-        "Compliance with orthotic wear is one of the strongest predictors of whether the condition stabilises",
-        "Symptom duration >2 years associated with poorer conservative outcomes"
+        "Stage: a flexible foot has more room to respond to conservative care; with a stiff deformity, exercise is unlikely to change the shape, though a brace may still help comfort and walking",
+        "Body weight, which adds load to the tendon",
+        "Diabetes or inflammatory arthritis, which can affect tendon health",
+        "Consistency with the orthosis or brace, if that is part of the plan",
+        "How long symptoms have been present before care starts"
       ],
-      naturalHistory: "PTTD tends to progress without treatment, although the pace varies and some early cases stay stable for years. In a case series of stage I and II disease treated with an orthosis and exercise, 83 percent had successful outcomes and 11 percent needed surgery (Alvarez et al., 2006). Fixed, late-stage deformity usually needs a surgical opinion"
+      naturalHistory: "PTTD tends to progress without treatment, although the pace varies and some early cases stay stable for years. In a case series of stage I and II disease treated with an orthosis and exercise, 83 percent had successful outcomes and 11 percent needed surgery (Alvarez et al., 2006). A fixed, late-stage deformity deserves a foot and ankle surgeon's opinion, and a substantial brace remains an option for people who do not want or cannot have surgery"
     },
 
-    understanding: `PTTD represents one of the most common acquired foot deformities in adults, particularly affecting women over 40. The condition often develops insidiously, with patients initially dismissing symptoms as normal aging or minor strain. Early recognition and intervention are crucial because the condition follows a predictable progression from flexible to rigid deformity.
+    understanding: `PTTD represents one of the most common acquired foot deformities in adults, particularly affecting women over 40. The condition often develops insidiously, with patients initially dismissing symptoms as normal aging or minor strain. Early recognition matters because the condition can progress from a flexible to a rigid deformity, although the pace varies.
 
 The "single heel rise test" serves as the most reliable clinical indicator - your inability to lift your heel while standing on one foot indicates significant posterior tibial weakness. This simple test often reveals the diagnosis before visible deformity appears. The characteristic "too many toes" sign, where the outer toes become visible when viewing the foot from behind, indicates progressive forefoot abduction.
 
@@ -12000,11 +12018,15 @@ Conservative treatment success depends heavily on early intervention and patient
       },
       {
         sign: "A hot, red, swollen foot, especially if you have diabetes or reduced feeling in your feet",
-        action: "Same-day medical assessment to rule out Charcot foot or infection"
+        action: "Same-day medical assessment to rule out Charcot foot or infection, and keep weight off the foot until you are seen"
       },
       {
-        sign: "Spreading numbness, weakness, or a cold, pale foot",
-        action: "Same-day medical assessment to check the nerves and circulation"
+        sign: "A foot or toe that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "Numbness or weakness in the foot that is spreading or getting worse",
+        action: "Same-day medical assessment to check the nerves"
       },
       {
         sign: "Unable to bear weight after an injury, or a visibly deformed ankle or foot",
@@ -12058,11 +12080,11 @@ Conservative treatment success depends heavily on early intervention and patient
       },
       {
         question: "Why cannot I rise up on my toes on the painful side anymore?",
-        answer: "A single-leg heel rise depends on the posterior tibial tendon inverting the heel and locking the midfoot so the calf can push through a stable lever. When the tendon has failed, the heel cannot invert, the midfoot stays mobile, and the calf pushes into a collapsing arch rather than a rigid foot. The heel rise falters or does not happen at all. It is one of the most reliable signs in the clinic, and the gradual return of that movement is one of the first things I track as rehab progresses."
+        answer: "A single-leg heel rise depends on the posterior tibial tendon inverting the heel and locking the midfoot so the calf can push through a stable lever. When the tendon has failed, the heel cannot invert, the midfoot stays mobile, and the calf pushes into a collapsing arch rather than a rigid foot. The heel rise falters or does not happen at all. It is a useful sign in the clinic, and the gradual return of that movement is one of the first things I track as rehab progresses."
       },
       {
         question: "Do I really have to wear the orthotic all the time?",
-        answer: "In the early months, largely yes. The orthotic is doing the work the tendon currently cannot, which is what gives the tendon a chance to adapt without the arch continuing to collapse under it. Alvarez's protocol used a short articulated brace for the early phase before transitioning to a functional foot orthosis. Long term, many patients taper down to wearing the orthosis only during higher-demand standing and walking, but this is a stepwise reduction as strength returns, not an immediate choice."
+        answer: "In the early months, often yes. The orthotic takes over some of the work the tendon currently cannot do, which may give the tendon a chance to adapt and may help limit further collapse, although that is a goal rather than a guarantee. Alvarez's protocol used a short articulated brace for the early phase before transitioning to a functional foot orthosis. Long term, many patients taper down to wearing the orthosis only during higher-demand standing and walking, but this is a stepwise reduction as strength returns, not an immediate choice."
       },
       {
         question: "What is the difference between posterior tibial tendon dysfunction and plantar fasciitis?",
@@ -12074,11 +12096,11 @@ Conservative treatment success depends heavily on early intervention and patient
       },
       {
         question: "Will the arch come back once I start strengthening?",
-        answer: "Not usually. Once the spring ligament and surrounding tissues have stretched, the shape of the foot rarely reverses fully even with successful rehab. The realistic goal is to halt further collapse, regain function, and get the pain down. Many people return to long walks, hiking, and standing-intensive work with a flatter foot that is strong, controlled, and comfortable, which is a very different situation from one that is flattening further every year."
+        answer: "Not usually. Once the spring ligament and surrounding tissues have stretched, the shape of the foot rarely reverses fully even with successful rehab. In earlier stages, I aim to improve function, get the pain down, and monitor the shape of the foot; slowing further collapse is a goal, not a guarantee. With a stiff or advanced deformity, exercise is unlikely to change the foot's shape, but a brace may still improve comfort and walking. Many people return to long walks, hiking, and standing-intensive work with a flatter foot that is strong, controlled, and comfortable, which is a very different situation from one that is flattening further every year."
       },
       {
         question: "When is surgery actually on the table?",
-        answer: "Surgery enters the conversation when the deformity becomes rigid, when the hindfoot no longer corrects passively, or when conservative care has been done well for at least six months without meaningful improvement. Stage III and IV disease, where the subtalar or ankle joint is involved, typically exceeds what rehabilitation alone can address. Before that point, the priority is giving a well-structured orthotic and loading program a genuine trial, because most stage I and II patients do not end up in the surgical path."
+        answer: "Surgery enters the conversation when the deformity becomes rigid, when the hindfoot no longer corrects passively, or when conservative care has been done well for at least six months without meaningful improvement. With Stage III and IV disease, where the subtalar or ankle joint is involved, exercise is unlikely to change the foot's shape. A substantial brace may still improve comfort and walking, including for people who do not want or cannot have surgery, and a foot and ankle surgeon can discuss both routes. Before that point, the priority is giving a well-structured orthotic and loading program a genuine trial; in the Alvarez case series of stage I and II disease, 11 percent went on to surgery."
       }
     ],
 
@@ -12093,7 +12115,7 @@ Conservative treatment success depends heavily on early intervention and patient
           "Short-foot holds: gently doming the arch without curling the toes, 3 sets of 10 with 10-second holds",
           "Reduce prolonged standing blocks where possible, and rotate supportive footwear rather than spending the day in flat, flexible shoes"
         ],
-        progressionCriteria: "End-of-day medial ankle pain down meaningfully from baseline for 7 consecutive days, at least a half heel rise on the affected side, and orthosis or brace well tolerated during the full waking day."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: end-of-day medial ankle pain down meaningfully from baseline for about a week, at least a half heel rise on the affected side, and orthosis or brace well tolerated during the full waking day."
       },
       phase2: {
         title: "Phase 2: Progressive Loading and Single-Leg Control (Weeks 6 to 16)",
@@ -12105,11 +12127,11 @@ Conservative treatment success depends heavily on early intervention and patient
           "Single-leg balance with a forward reach, on firm ground first, progressing to a foam pad, 3 sets of 8 per direction",
           "Continued orthotic use during all standing and walking; gastrocnemius and soleus stretching daily to maintain ankle dorsiflexion"
         ],
-        progressionCriteria: "Single-leg heel rise for at least 10 clean reps per side, medial ankle pain at 3 out of 10 or less during loading, and two consecutive weeks without next-day symptom flares following heavier sessions."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a solid set of clean single-leg heel rises per side, medial ankle pain low during loading (around 3 out of 10 or less), and two consecutive weeks without next-day symptom flares following heavier sessions."
       },
       phase3: {
         title: "Phase 3: Return to Walking Volume and Activity (Months 4 to 6+)",
-        focus: "Rebuild tolerance for long walks, standing-intensive work, and, where appropriate, low-impact running or hiking. This is not a return-to-sprint phase for most patients. The goal is a comfortable, capable foot in daily life, and a structure that does not continue to deform. Ongoing orthotic use and twice-weekly maintenance loading keep the gains.",
+        focus: "Rebuild tolerance for long walks, standing-intensive work, and, where appropriate, low-impact running or hiking. This is not a return-to-sprint phase for most patients. The goal is a comfortable, capable foot in daily life, with the shape of the foot monitored over time. Ongoing orthotic use and twice-weekly maintenance loading can help maintain the gains.",
         examples: [
           "Walking volume progression on softer surfaces, in small weekly steps",
           "Step-ups and step-downs with controlled foot posture, 3 sets of 8 to 10",
@@ -12146,7 +12168,7 @@ Conservative treatment success depends heavily on early intervention and patient
   'mortons-neuroma': {
     pathophysiology: `Morton's neuroma, more accurately termed intermetatarsal neuroma, represents a localized thickening of the common digital nerve as it passes beneath the deep transverse metatarsal ligament. Despite its name, this condition is not a true neuroma but rather perineural fibrosis, a reactive thickening of the nerve sheath and surrounding connective tissue.
 
-The condition most commonly affects the third intermetatarsal space (between the third and fourth metatarsals) due to unique anatomical factors. In this location, the medial and lateral plantar nerves converge, creating a larger nerve bundle that is more susceptible to compression. The nerve becomes trapped between the metatarsal heads above, the deep transverse metatarsal ligament below, and compressed laterally by adjacent metatarsals during toe-off.
+The condition most commonly affects the third intermetatarsal space (between the third and fourth metatarsals) due to unique anatomical factors. In this location, the medial and lateral plantar nerves converge, creating a larger nerve bundle that is more susceptible to compression. The nerve passes beneath the ligament that joins the metatarsal heads (the deep transverse metatarsal ligament), and can be compressed against that ligament and between the neighbouring metatarsal heads during toe-off.
 
 Repetitive mechanical irritation leads to chronic inflammation of the nerve sheath, followed by progressive fibrosis and thickening. This creates a pathological cycle where the enlarged nerve becomes increasingly susceptible to further compression. The resultant ischemia and mechanical deformation of nerve fibers produces the characteristic neuropathic pain symptoms.
 
@@ -12186,7 +12208,7 @@ The plantar fascia's role in maintaining arch stability affects metatarsal mecha
       primaryStrategy: "Conservative treatment combining footwear modification, metatarsal padding, and activity modification can settle symptoms in many cases, particularly when initiated early after symptom onset",
       secondaryStrategy: "Injections are given by a physician. A 2024 Cochrane review found that adding a corticosteroid to a local anaesthetic injection made little to no difference to pain at three to six months, while ultrasound guidance probably helped",
       preventionStrategy: "Continuing with wide, low-heeled footwear after symptoms settle may lower the chance of a flare",
-      sources: "Cochrane Systematic Review (Thomson et al. 2004); Journal of Foot and Ankle Surgery Meta-analyses; American College of Foot and Ankle Surgeons Clinical Practice Guidelines"
+      sources: "Matthews et al., Cochrane Database of Systematic Reviews 2024; Mahadevan et al., Bone and Joint Journal 2016"
     },
 
     whatToExpect: {
@@ -12247,7 +12269,7 @@ The plantar fascia's role in maintaining arch stability affects metatarsal mecha
     ],
 
     prognosis: {
-      timeline: "Conservative treatment typically shows initial improvement within 4-6 weeks, with maximal benefit achieved by 12-16 weeks. Early intervention is associated with better conservative outcomes than long-standing, chronic cases",
+      timeline: "Many people notice some change within several weeks of footwear changes and padding, and improvement can continue over a few months. Long-standing cases may take longer",
       factors: [
         "Duration of symptoms before treatment: earlier treatment tends to do better",
         "Severity at presentation: constant pain tends to mean a slower recovery",
@@ -12259,9 +12281,9 @@ The plantar fascia's role in maintaining arch stability affects metatarsal mecha
       naturalHistory: "Symptoms often come and go with footwear and activity, and in some people they become more constant over time. Many people settle with footwear changes and padding. Surgery has good reported results but can leave permanent numbness in the toes, so it is reserved for those who do not settle with conservative care"
     },
 
-    understanding: `Morton's neuroma represents one of the most common causes of forefoot pain, particularly in women who wear restrictive footwear. The condition is largely preventable through proper shoe selection, yet often develops insidiously before patients recognize the connection between their symptoms and footwear choices.
+    understanding: `Morton's neuroma represents one of the most common causes of forefoot pain, particularly in women who wear restrictive footwear. Roomier footwear may lower the risk, but it often develops gradually before patients recognize the connection between their symptoms and footwear choices.
 
-The key to understanding this condition lies in recognizing it as primarily a mechanical problem with a biomechanical solution. The nerve compression occurs because of external factors (tight shoes, high heels) and biomechanical dysfunction (foot mechanics) that can be modified. This makes conservative treatment highly effective when patients understand and commit to the necessary changes.
+This condition is often described as mainly a mechanical problem. The nerve compression occurs because of external factors (tight shoes, high heels) and biomechanical dysfunction (foot mechanics) that can be modified. This is why conservative treatment can help when people are able to make those changes.
 
 Many patients struggle with the footwear modifications required for treatment, particularly professional women who feel their shoe choices are limited. However, modern shoe design has evolved to offer stylish options that accommodate forefoot health. The temporary sacrifice in shoe style typically results in permanent symptom resolution and prevention of surgical intervention.
 
@@ -12378,7 +12400,7 @@ It's important to understand that once the nerve has thickened significantly, so
       },
       {
         question: "Is a cortisone injection a shortcut I should take?",
-        answer: "It can help, but I rarely lead with it. The evidence supports ultrasound-guided corticosteroid injection as an effective option when conservative measures have not resolved symptoms, with reasonable pain relief reported over months. The issue is that the mechanical cause, often footwear and forefoot loading, does not change with the injection. If those are not corrected, the pain tends to come back. I prefer to get the mechanical picture settled first, then consider injection if genuine conservative care has not moved the needle."
+        answer: "An injection is an option to discuss with a physician if footwear changes and padding have not helped enough. The evidence is limited: in the 2024 Cochrane review, adding a steroid to a local anaesthetic injection made little or no difference to pain at three to six months, while ultrasound guidance probably improved results compared with an unguided injection (Matthews et al., 2024). Steroid injections can also thin the skin or the fat pad under the foot in a small number of people. The benefits, side effects and alternatives deserve their own discussion with the physician giving it, and the footwear and loading changes still matter either way."
       },
       {
         question: "How do metatarsal pads actually help, and where do they go?",
@@ -12401,11 +12423,11 @@ It's important to understand that once the nerve has thickened significantly, so
         examples: [
           "Daily wear of a shoe with a clearly wider toe box and a heel under roughly 2 cm, during work, commuting, and errands",
           "Metatarsal pad placed proximal to the painful interspace, positioned by a clinician initially, then checked for tolerance over the first week",
-          "Toe splay and toe spreader use at home for 5 to 10 minutes, to counter the forefoot compression built up over years of narrow shoes",
+          "Toe splay and toe spreader use at home for 5 to 10 minutes, for comfort and toe mobility",
           "Gentle interdigital mobilisation: pinching the skin between the toes and separating them softly, 10 slow repetitions per interspace, daily",
           "Activity modification: reduce long walks in the aggravating shoes, and spend part of each day barefoot or in a foot-shaped sandal around the home"
         ],
-        progressionCriteria: "Symptom-free walking for 20 to 30 minutes in a wider shoe with the metatarsal pad in place, forefoot pain during the day down meaningfully from baseline, and no flare-ups requiring shoe removal mid-day for 7 consecutive days."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: comfortable walking for around 20 to 30 minutes in a wider shoe with the metatarsal pad in place, forefoot pain during the day down meaningfully from baseline, and no flare-ups requiring shoe removal mid-day for 7 consecutive days."
       },
       phase2: {
         title: "Phase 2: Building Intrinsic Foot Capacity (Weeks 4 to 10)",
@@ -12417,11 +12439,11 @@ It's important to understand that once the nerve has thickened significantly, so
           "Single-leg balance on firm ground with a neutral foot posture, 3 sets of 30 to 45 seconds, progressing to a foam pad",
           "Calf raise variations with the heel moving cleanly over the second toe, 3 sets of 12 to 15, to reinforce forefoot alignment during push-off"
         ],
-        progressionCriteria: "A visible short-foot hold without toe clawing, single-leg balance on foam for 30 seconds with a stable forefoot, and a normal daily walking volume in appropriate shoes without forefoot pain or the pebble sensation."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a visible short-foot hold without toe clawing, steady single-leg balance on foam with a stable forefoot, and a normal daily walking volume in appropriate shoes without forefoot pain or the pebble sensation."
       },
       phase3: {
         title: "Phase 3: Return to Activity and Long-Term Footwear Strategy (Months 3+)",
-        focus: "Rebuild tolerance for the activities that previously provoked symptoms, including longer walks, running where relevant, and the occasional narrower or dressier shoe. The long-term strategy is not total shoe avoidance but informed shoe choice, with daily wear anchored in foot-shaped footwear and narrower shoes used selectively.",
+        focus: "Rebuild tolerance for the activities that previously provoked symptoms, including longer walks, running where relevant, and, if it is one of your goals, the occasional narrower or dressier shoe. The long-term strategy is not total shoe avoidance but informed shoe choice, with daily wear anchored in foot-shaped footwear and narrower shoes used selectively.",
         examples: [
           "Gradual progression of walking or running volume in small weekly steps, with forefoot strike reintroduced cautiously if relevant",
           "Intrinsic foot strengthening continued twice weekly as maintenance, rather than daily",
@@ -12429,7 +12451,7 @@ It's important to understand that once the nerve has thickened significantly, so
           "Bodyweight or light load calf and single-leg work maintained to support forefoot control",
           "Periodic footwear reviews every 6 to 12 months, because sock thickness, shoe wear, and foot shape all change over time"
         ],
-        progressionCriteria: "Return to preferred activities without forefoot pain or numbness, symptom-free tolerance of previously aggravating shoes for meaningful blocks of time, and a clear long-term footwear plan that the patient feels willing to stick with."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: return to preferred activities without forefoot pain or numbness, comfortable time in narrower shoes only if that is one of your goals, and a long-term footwear plan you are willing to stick with."
       }
     },
 
@@ -12563,7 +12585,7 @@ Intrinsic foot muscle weakness contributes to metatarsalgia by reducing the foot
     ],
 
     prognosis: {
-      timeline: "Conservative treatment typically shows initial improvement within 4-6 weeks, with significant pain reduction achieved by 8-12 weeks. Complete resolution may take 3-6 months depending on underlying factors and compliance with management strategies",
+      timeline: "Many people notice some improvement within several weeks of offloading and footwear changes, and recovery can take a few months depending on the underlying cause and how the forefoot load is managed",
       factors: [
         "Underlying foot structure: rigid foot types often take longer",
         "Other forefoot problems: a bunion or hammer toes can complicate treatment and may need managing at the same time",
@@ -12694,7 +12716,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
       },
       {
         question: "Where does the metatarsal pad actually go?",
-        answer: "Behind the painful metatarsal head, not on top of it. The pad lifts the metatarsal shaft from underneath, which opens space between the heads and takes the peak pressure off the sore one. In one pressure study the pad worked best about 6 to 11 mm behind the metatarsal head (Hastings et al., 2007). A pad that sits directly under the painful head tends to make things worse, which is the most common reason people try metatarsal pads, hate them, and give up. When positioning is right, the pad is usually tolerated well within a day or two."
+        answer: "Behind the painful metatarsal head, not on top of it. The pad lifts the metatarsal shaft from underneath, which opens space between the heads and takes the peak pressure off the sore one. In one pressure study in people with diabetes and nerve damage in the feet, pads placed about 6 to 11 mm behind the metatarsal head reduced pressure most (Hastings et al., 2007); that exact spacing has not been tested in everyone, so I adjust the position to your foot and comfort. A pad that sits directly under the painful head can make things worse, which is a common reason people try metatarsal pads and give up. When positioning is right, the pad is often comfortable within a day or two."
       },
       {
         question: "Do I need custom orthotics or will over-the-counter work?",
@@ -12725,7 +12747,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
           "Toe splay and short-foot holds introduced seated, 10 slow repetitions with 5-second holds, to begin reawakening the intrinsic foot muscles",
           "Activity modification: reduce prolonged standing blocks, break up long walks, and add a cushioned insole or secondary pair of supportive shoes if switching occupations or surfaces during the day"
         ],
-        progressionCriteria: "Walking tolerance of 20 to 30 minutes in supportive footwear with the pad in place without escalating forefoot pain, reduction in end-of-day aching compared to baseline, and no need to remove shoes for relief during the work day for 7 consecutive days."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: walking tolerance of around 20 to 30 minutes in supportive footwear with the pad in place without escalating forefoot pain, reduction in end-of-day aching compared to baseline, and no need to remove shoes for relief during the work day for 7 consecutive days."
       },
       phase2: {
         title: "Phase 2: Build Forefoot Capacity (Weeks 4 to 10)",
@@ -12737,7 +12759,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
           "Single-leg calf raises with the heel tracking cleanly over the second toe, 3 sets of 12 to 15, progressed from floor to step",
           "Single-leg balance on firm ground progressing to a foam pad, 3 sets of 30 to 45 seconds, emphasising a stable, wide forefoot contact"
         ],
-        progressionCriteria: "A visible short-foot hold without toe clawing, single-leg calf raise for 15 clean reps without forefoot pain above 3 out of 10, and return to normal daily walking and standing volume in appropriate shoes without next-day flares."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a visible short-foot hold without toe clawing, a solid set of single-leg calf raises with low forefoot pain (around 3 out of 10 or less), and return to normal daily walking and standing volume in appropriate shoes without next-day flares."
       },
       phase3: {
         title: "Phase 3: Return to Loading and Long-Term Strategy (Months 3+)",
@@ -12749,7 +12771,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
           "Footwear audit every 6 to 12 months, including checking for midsole compression and whether the pad position still matches the current painful area",
           "Selective reintroduction of narrower or dressier shoes for shorter blocks, with recovery in wider, cushioned footwear rather than all-day wear"
         ],
-        progressionCriteria: "Return to desired walking, running, or occupational demands without ball-of-foot pain or next-day flares, comfortable tolerance of previously aggravating shoes for meaningful blocks, and a maintenance plan that the patient is willing to stick with."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: return to desired walking, running, or occupational demands without ball-of-foot pain or next-day flares, comfortable time in previously aggravating shoes only if that is one of your goals, and a maintenance plan you are willing to stick with."
       }
     },
 
@@ -12840,7 +12862,7 @@ Ground reaction force patterns change significantly with hallux valgus progressi
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative management combining footwear modification, padding, and orthotic therapy can relieve symptoms for many patients without halting deformity progression",
+      primaryStrategy: "Conservative management combining footwear modification, padding, and orthotic therapy can relieve symptoms for many people, although whether it changes the deformity over time is uncertain",
       secondaryStrategy: "Targeted exercises and manual therapy techniques help maintain joint mobility and muscle balance, potentially helping to slow progression when combined with other interventions",
       preventionStrategy: "Wide, low-heeled footwear and keeping the big toe joint mobile may help keep symptoms manageable over time",
       sources: "Cochrane Systematic Reviews on hallux valgus; American Podiatric Medical Association Clinical Practice Guidelines; International Weight Bearing CT Studies"
@@ -12912,7 +12934,7 @@ It's important for patients to understand that conservative treatment cannot cor
     ],
 
     prognosis: {
-      timeline: "Conservative treatment provides meaningful symptom relief for many patients over the first few months, though deformity progression continues at variable rates. Long-term management required to maintain symptom control and function",
+      timeline: "Conservative treatment provides meaningful symptom relief for many people over the first few months. The toe position may change slowly, stay fairly stable, or become more troublesome over time, so comfort, walking and toe position are followed rather than promised",
       factors: [
         "Severity of deformity at presentation: flexible deformities respond better to conservative treatment than fixed, rigid deformities",
         "Patient age and growth status: adolescent bunions often progress more rapidly but respond better to conservative interventions",
@@ -12921,7 +12943,7 @@ It's important for patients to understand that conservative treatment cannot cor
         "Occupational and recreational demands influence both symptom development and treatment adherence",
         "Family history and genetic factors strongly influence natural progression rates regardless of treatment"
       ],
-      naturalHistory: "Hallux valgus is typically progressive without intervention, with deformity angles tending to increase gradually over time. Symptom severity does not always correlate with deformity magnitude. Surgical intervention may become necessary in some cases when conservative management fails to maintain acceptable function and comfort"
+      naturalHistory: "Hallux valgus often changes slowly over time, but the rate varies and some bunions stay fairly stable. Symptom severity does not always correlate with deformity magnitude. Surgical intervention may become necessary in some cases when conservative management fails to maintain acceptable function and comfort"
     },
 
     selfManagement: [
@@ -12966,8 +12988,12 @@ It's important for patients to understand that conservative treatment cannot cor
         action: "See your family doctor before starting physiotherapy, to check for a nerve problem such as diabetic neuropathy"
       },
       {
-        sign: "Colour changes, a cold foot, a sore over the bunion, or a wound that is slow to heal",
-        action: "See your family doctor promptly, the same day if the foot is cold or the sore looks infected, especially if you have diabetes"
+        sign: "A foot or toe that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "A sore over the bunion, or a wound that is slow to heal",
+        action: "See your family doctor promptly, the same day if the sore looks infected or you have diabetes"
       },
       {
         sign: "Pain bad enough that you cannot walk normally or put weight on the foot",
@@ -13028,7 +13054,7 @@ It's important for patients to understand that conservative treatment cannot cor
       },
       {
         question: "Will my bunion keep getting worse no matter what I do?",
-        answer: "Most bunions are slowly progressive, but the rate varies widely between people and is not entirely fixed. Good footwear and keeping the foot strong and mobile may help, although whether they slow the deformity is not well established. Genetics and first ray laxity play a large part. The expectation I set with people is that the clock cannot be stopped, but daily care can often buy years of comfortable function, which for many is enough."
+        answer: "Bunions may change slowly, remain fairly stable, or become more troublesome, and the rate varies widely between people. Footwear, padding and exercises can help symptoms for some people, but I cannot promise they will stop the deformity changing; whether they slow it is not well established. Genetics and first ray laxity play a large part. I follow comfort, walking, and any changes in toe position over time."
       },
       {
         question: "Why does the ball of my foot hurt when the bunion is at the big toe?",
@@ -13047,7 +13073,7 @@ It's important for patients to understand that conservative treatment cannot cor
           "Metatarsal pad placement behind the lesser metatarsal heads if transfer pain under the ball of the foot is a significant feature",
           "Activity modification: reduce time in narrow or elevated shoes, break up long standing blocks, avoid bare feet on hard surfaces during flares"
         ],
-        progressionCriteria: "Bunion and forefoot pain reliably at 3 out of 10 or less during a normal day in the updated footwear, a visible and repeatable active big toe abduction contraction even if small, and no shoe-related flare that requires rest for 7 consecutive days."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: bunion and forefoot pain low (around 3 out of 10 or less) during a normal day in the updated footwear, a visible and repeatable active big toe abduction contraction even if small, and no shoe-related flare that requires rest for 7 consecutive days."
       },
       phase2: {
         title: "Phase 2: Intrinsic Foot Strengthening and First Ray Mobility (Weeks 4 to 12)",
@@ -13060,7 +13086,7 @@ It's important for patients to understand that conservative treatment cannot cor
           "Self-mobilisation of the first metatarsophalangeal joint into extension, sustained 20 to 30 second holds within comfort, performed before weight-bearing activity",
           "Single-leg calf raises with heel tracking over the second toe, 3 sets of 12 to 15, to reinforce first ray loading during push-off"
         ],
-        progressionCriteria: "A clearly visible active big toe abduction, short-foot hold for 10 seconds without toe clawing, big toe dorsiflexion preserved near baseline, and normal daily walking volume in appropriate footwear without bunion or forefoot pain."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a clearly visible active big toe abduction, a steady short-foot hold without toe clawing, big toe dorsiflexion preserved near baseline, and normal daily walking volume in appropriate footwear without bunion or forefoot pain."
       },
       phase3: {
         title: "Phase 3: Maintenance and Long-Term Progression Management (Months 3+)",
@@ -13125,11 +13151,11 @@ It's important for patients to understand that conservative treatment cannot cor
       ]
     },
 
-    pathophysiology: `Hallux rigidus represents degenerative arthritis of the first metatarsophalangeal joint, characterized by progressive cartilage destruction and osteophyte formation. The condition typically begins with articular cartilage damage on the dorsal aspect of the metatarsal head, where repetitive impingement occurs during the terminal stance phase of gait.
+    pathophysiology: `Hallux rigidus represents degenerative arthritis of the first metatarsophalangeal joint, characterized by cartilage wear and bone spur (osteophyte) formation. The condition typically begins with articular cartilage damage on the dorsal aspect of the metatarsal head, where repetitive impingement occurs during the terminal stance phase of gait.
 
-Initial cartilage fibrillation progresses to full-thickness defects, exposing underlying subchondral bone. The body's attempt to stabilize the damaged joint results in osteophyte formation, particularly prominent dorsally. These bone spurs create a mechanical block to dorsiflexion, establishing a vicious cycle where restricted motion leads to further impingement and accelerated joint destruction.
+Initial cartilage fibrillation progresses to full-thickness defects, exposing underlying subchondral bone. The body's attempt to stabilize the damaged joint results in osteophyte formation, particularly prominent dorsally. These bone spurs can block the toe from bending upward. Arthritis can change cartilage and bone and make the big toe stiff, but symptoms and progression vary, and a stiff joint does not mean everyday walking is causing ongoing damage.
 
-The synovium becomes chronically inflamed due to cartilage debris and mechanical irritation, producing inflammatory mediators that perpetuate joint destruction. Subchondral bone undergoes sclerotic changes and cyst formation as load distribution becomes increasingly abnormal across the damaged joint surfaces.
+The synovium becomes chronically inflamed due to cartilage debris and mechanical irritation, which can add to pain and swelling during flares. Subchondral bone undergoes sclerotic changes and cyst formation as load distribution becomes increasingly abnormal across the damaged joint surfaces.
 
 As the condition progresses, the joint space narrows significantly, and the normal congruent relationship between the metatarsal head and proximal phalanx is lost. Late stages show near-complete loss of dorsiflexion, with the joint essentially fused in a plantar flexed position. This functional ankylosis severely compromises the windlass mechanism and normal push-off mechanics during gait.`,
 
@@ -13236,7 +13262,7 @@ The progressive nature of the condition means that periodic reassessment and tre
     ],
 
     prognosis: {
-      timeline: "Mild to moderate cases often feel clearly better within 6 to 8 weeks of footwear and activity changes. Later stages may need 12 to 16 weeks to get the most from non-surgical care",
+      timeline: "Mild to moderate cases often feel better within several weeks of footwear and activity changes. Later stages can take a few months to get the most from non-surgical care",
       factors: [
         "Stage of arthritis at presentation is the strongest predictor of conservative treatment success",
         "Patient compliance with footwear modifications critically determines long-term outcomes",
@@ -13343,11 +13369,11 @@ The progressive nature of the condition means that periodic reassessment and tre
       },
       {
         question: "Can exercise restore the motion I have lost?",
-        answer: "Usually not all of it, but often meaningfully more than people expect. In a small trial, Shamus and colleagues (2004) found that sesamoid mobilization with strengthening and gait training improved big toe motion more than standard care in people with functional hallux limitus. What exercise cannot do is regrow cartilage or remove dorsal bone spurs. So the honest framing is that early and moderate hallux rigidus often responds well to mobility and loading work, while late-stage rigidus with a large dorsal spur and near-zero motion is more about managing function than recovering lost movement."
+        answer: "Usually not all of it, but often meaningfully more than people expect. In a small trial, Shamus and colleagues (2004) found that sesamoid mobilization with strengthening and gait training improved big toe motion more than standard care in people with functional hallux limitus, a related problem without established arthritis. Whether the same gains apply to arthritis of the joint is less certain. What exercise cannot do is regrow cartilage or remove dorsal bone spurs. So the honest framing is that mobility and loading work may help comfort and function in earlier stages, while late-stage rigidus with a large dorsal spur and near-zero motion is more about managing function than recovering lost movement."
       },
       {
         question: "Why does a stiff-soled shoe help when it feels like the joint should move more?",
-        answer: "Counterintuitive, but consistent. A rigid sole or a rocker bottom allows the foot to roll forward during push-off without the big toe having to bend. That eliminates the joint impingement that drives the pain. Clinical guidance on hallux rigidus management commonly points to stiff-soled, rocker footwear as a useful first-line conservative measure, though the formal evidence base for footwear modification remains limited. The goal is not permanent immobilisation. It is to remove the daily repetitive bending that keeps the joint inflamed, so mobility work and loading can actually produce gains."
+        answer: "It can seem counterintuitive. A rigid sole or a rocker bottom allows the foot to roll forward during push-off without the big toe having to bend as far. That reduces the bending that tends to provoke the pain. Clinical guidance on hallux rigidus management commonly points to stiff-soled, rocker footwear as a useful first-line conservative measure, though the formal evidence base for footwear modification remains limited. The goal is not permanent immobilisation. It is to remove the daily repetitive bending that keeps the joint inflamed, so mobility work and loading have a better chance of helping."
       },
       {
         question: "I have a bump on top of my big toe, is that arthritis or a bunion?",
@@ -13378,11 +13404,11 @@ The progressive nature of the condition means that periodic reassessment and tre
           "Calf and soleus stretching, 30 seconds for 3 repetitions per side, to reduce the demand on forefoot push-off",
           "Activity modification: avoid barefoot walking on hard surfaces and aggressive toe extension activities such as deep lunges, yoga toe stands, and incline walking during flares"
         ],
-        progressionCriteria: "Daytime pain at 3 out of 10 or less in the adapted footwear, morning stiffness clearing within 30 minutes, and tolerance of gentle mobility work without next-day symptom rise for 7 consecutive days."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: daytime pain low (around 3 out of 10 or less) in the adapted footwear, morning stiffness clearing reasonably quickly, and tolerance of gentle mobility work without next-day symptom rise for 7 consecutive days."
       },
       phase2: {
         title: "Phase 2: Mobility, Manual Therapy, and Progressive Loading (Weeks 4 to 12)",
-        focus: "Work the mobility that is genuinely available and begin loading the surrounding structures. Evidence for manual therapy combined with loading is reasonable for mild to moderate hallux rigidus, based on Shamus and colleagues and broader manual therapy reviews. The realistic goal is preserved and modestly improved function rather than full restoration of normal motion.",
+        focus: "Work the mobility that is genuinely available and begin loading the surrounding structures. Evidence for manual therapy combined with loading is limited: the main trial (Shamus and colleagues) was small and in people with functional hallux limitus rather than established arthritis. The realistic goal is preserved and modestly improved function rather than full restoration of normal motion.",
         examples: [
           "Big toe active range of motion into available extension, 3 sets of 15 slow, sustained holds at end range, daily",
           "Supervised mobilisation of the first MTP joint in clinic, typically grade III and IV mobilisations in physiological directions that are tolerated well",
@@ -13391,7 +13417,7 @@ The progressive nature of the condition means that periodic reassessment and tre
           "Big toe flexor strengthening by curling a towel under the forefoot or a resisted band, 3 sets of 15",
           "Low-impact cardiovascular work (cycling, elliptical, swimming) maintained as tolerance for walking builds"
         ],
-        progressionCriteria: "Improvement in active big toe extension compared to baseline, tolerance of 30 to 45 minutes of walking in adapted footwear without pain above 3 out of 10, and return to most routine daily activities without compensatory gait changes."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: improvement in active big toe extension compared to baseline, tolerance of around 30 to 45 minutes of walking in adapted footwear without pain above 3 out of 10, and return to most routine daily activities without compensatory gait changes."
       },
       phase3: {
         title: "Phase 3: Return to Activity and Long-Term Management (Months 3+)",
@@ -13577,7 +13603,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
         "Previous great toe injuries may complicate recovery and increase risk of chronic problems",
         "Compliance with activity restrictions during healing phase is crucial for preventing re-injury"
       ],
-      naturalHistory: "Most Grade I and II injuries heal completely with appropriate conservative management. Grade III injuries may result in some degree of permanent stiffness or instability, though most athletes can return to full competition. Inadequate initial management can lead to chronic pain, instability, and arthritis development"
+      naturalHistory: "Many Grade I and II injuries heal well with appropriate conservative management. Grade III injuries follow a longer, more protected pathway set with a foot and ankle surgeon, and may leave some permanent stiffness or instability, although many athletes return to competition. Inadequate initial management can lead to chronic pain, instability, and arthritis development"
     },
 
     selfManagement: [
@@ -13614,8 +13640,12 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
         action: "Go to urgent care or emergency for an X-ray, and ask for an orthopaedic review of a possible Grade III injury or sesamoid fracture"
       },
       {
-        sign: "Numbness, tingling, or a pale or cold big toe",
-        action: "Same-day medical assessment to check the nerves and circulation"
+        sign: "A big toe or foot that suddenly turns cold, pale, or blue, especially with severe pain, numbness, or weakness",
+        action: "Go to emergency now; the blood supply may be blocked"
+      },
+      {
+        sign: "Numbness or tingling in the big toe that does not settle",
+        action: "Same-day medical assessment to check the nerves"
       },
       {
         sign: "Fever, red streaking, or pus",
@@ -13697,7 +13727,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
           "Pain-free ankle dorsiflexion and plantarflexion range of motion, 2 sets of 10 to 15, to prevent stiffness up the chain",
           "Gentle non-weight-bearing hallux flexion within pain-free range, avoiding any forced extension during this phase"
         ],
-        progressionCriteria: "Swelling and pain at rest settled, weight-bearing in the protective footwear achievable without pain above 3 out of 10, and tolerance of gentle pain-free hallux flexion for 7 consecutive days."
+        progressionCriteria: "Examples of the targets I use, set for each person and grade rather than fixed cut-offs: swelling and pain at rest settled, weight-bearing in the protective footwear with low pain (around 3 out of 10 or less), and tolerance of gentle pain-free hallux flexion for 7 consecutive days."
       },
       phase2: {
         title: "Phase 2: Restore Motion and Rebuild Strength (Weeks 2 to 6, grade-dependent)",
@@ -13986,19 +14016,19 @@ The condition serves as an important lesson in listening to the body's signals a
     faqs: [
       {
         question: "Will my child grow out of Sever's disease?",
-        answer: "Yes. Sever's is an apophysitis of the calcaneal growth plate, and once that growth plate fuses (typically around age 14 to 16), the vulnerable structure no longer exists. Most children return to full activity well before skeletal maturity, often within a few months of starting sensible management. It is a self-limiting condition, not a progressive injury."
+        answer: "In most cases, yes. Sever's is an apophysitis of the calcaneal growth plate, and once that growth plate fuses (typically around age 14 to 16), the vulnerable structure no longer exists. Most children return to full activity well before skeletal maturity, often within a few months of starting sensible management. It is a self-limiting condition, not a progressive injury."
       },
       {
         question: "Does my child need to stop sports completely?",
-        answer: "Rarely. Complete rest deconditions the athlete and tends to delay return rather than help it. The usual plan is a temporary reduction in running and jumping volume, not removal. Most children can keep playing in some form while the heel settles, provided pain during and after activity stays manageable and settles overnight."
+        answer: "Often not. The usual plan is a temporary reduction in running and jumping volume rather than complete rest. Many children can keep playing in some form while the heel settles, provided pain during and after activity stays manageable and settles overnight. If your child is limping when they walk or play, take a break from running and jumping sport until the limp has gone, and have it reviewed."
       },
       {
         question: "How long until the pain goes away?",
-        answer: "With activity modification, calf flexibility work, heel cups, and supportive footwear, most children feel clearly better within 2 to 4 weeks. Full resolution typically takes 2 to 6 months. Bilateral cases tend to take longer than one-sided cases. The condition does not recur once the growth plate has closed."
+        answer: "With activity modification, calf flexibility work, heel cups, and supportive footwear, many children feel better within a few weeks, and full resolution can take a few months. Bilateral cases tend to take longer than one-sided cases. The condition does not recur once the growth plate has closed."
       },
       {
         question: "Why does the pain come back every season?",
-        answer: "Sever's tends to flare when training load jumps quickly, like the start of a soccer season or a growth spurt combined with new activity. The common pattern I see is a child who felt fine all summer, starts three practices a week in September on turf, and has heel pain by week two. The fix is smoothing out those load spikes and maintaining calf flexibility year round rather than only when symptoms appear."
+        answer: "Sever's tends to flare when training load jumps quickly, like the start of a soccer season or a growth spurt combined with new activity. A common pattern is a child who felt fine all summer, starts three practices a week in September on turf, and has heel pain soon after. What often helps is smoothing out those load spikes and maintaining calf flexibility year round rather than only when symptoms appear."
       },
       {
         question: "Do heel cups actually help?",
@@ -14196,7 +14226,7 @@ Understanding the relationship between foot biomechanics and nerve compression h
       },
       {
         approach: "Neural Mobilization and Nerve Gliding Exercises",
-        evidence: "Specific nerve mobilization techniques help restore normal nerve mobility and reduce adhesions, as part of a combined plan; evidence specific to tarsal tunnel syndrome is limited",
+        evidence: "Gentle nerve gliding may help nerve symptoms for some people as part of a combined plan; evidence specific to tarsal tunnel syndrome is limited",
         effectivenessLevel: "moderate"
       },
       {
@@ -14206,7 +14236,7 @@ Understanding the relationship between foot biomechanics and nerve compression h
       },
       {
         approach: "Manual Therapy and Soft Tissue Mobilization",
-        evidence: "Soft tissue techniques addressing the flexor retinaculum and surrounding structures may improve tunnel dimensions and reduce nerve compression",
+        evidence: "Soft tissue techniques around the inner ankle may ease symptoms for some people; there is little direct evidence for them in tarsal tunnel syndrome",
         effectivenessLevel: "limited"
       },
       {
@@ -14283,10 +14313,17 @@ Understanding the relationship between foot biomechanics and nerve compression h
         keyResearch: [
       {
         year: 2024,
-        finding: "Across 32 studies of tarsal tunnel treatment, about three quarters of cases had excellent or good results",
-        detail: "A scoping review by Haq and colleagues (Journal of Clinical Orthopaedics and Trauma, 2024) of 32 observational studies found excellent or good results in 75.3% of cases and fair or poor results in 24.7%. Age, symptom duration, the underlying cause, other health conditions, symptom severity and nerve scarring may influence outcome, but the studies were low quality",
+        finding: "Across 32 observational studies of tarsal tunnel treatment, including surgical decompression, about three quarters of cases were reported as having excellent or good results",
+        detail: "A scoping review by Haq and colleagues (Journal of Clinical Orthopaedics and Trauma, 2024) of 32 observational studies found excellent or good results in 75.3% of cases and fair or poor results in 24.7%. The figure pools different treatments, with surgery prominent among them, from studies that were low quality and varied substantially, so it does not estimate the success rate of physiotherapy or predict an individual's result. Age, symptom duration, the underlying cause, other health conditions, symptom severity and nerve scarring may influence outcome",
         clinicalRelevance: "Poor results are not uncommon, so a thorough trial of conservative care and a clear look for the underlying cause come before any decision about surgery",
         citation: "Haq II, Banerjee AA, Arshad Z, et al. The management of tarsal tunnel syndrome: A scoping review. J Clin Orthop Trauma. 2024;54:102489."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "What else could cause burning or numbness in the sole of my foot?",
+        answer: "Several things can feel similar. An irritated nerve root in the low back can send symptoms into the foot. Diabetes and other causes of peripheral neuropathy usually affect both feet, often starting in the toes. Plantar heel pain is usually sore rather than burning and is often worst on the first steps in the morning. Morton's neuroma tends to sit between the toes in the forefoot. Less often, a lump such as a cyst or a swollen vein presses on the nerve in the tunnel. I check the low back and the other nerves, and when nerve testing or imaging would change the plan, I flag it to your family doctor or specialist and refer you."
       }
     ],
 
@@ -14309,6 +14346,21 @@ The symptom pattern reflects the progression. Pain typically starts late in an a
 Factors that reduce repair capacity matter just as much. Insufficient energy intake relative to training demands, low bone density, certain medications, and disrupted menstrual function all impair the rebuilding side of the equation. Where these are present, addressing them is part of the management rather than an afterthought.
 
 Some sites carry more risk than others. Stress fractures of the femoral neck, the front of the tibia, the navicular in the midfoot and the base of the fifth metatarsal have a greater tendency toward poor healing and need earlier medical assessment and imaging. Suspected stress fracture at these locations should not be managed with rest and hope alone.`,
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Pain at one spot on a bone, often small enough to cover with a fingertip",
+        "Pain that starts during or after activity such as running, then over time comes on earlier or lasts longer afterwards",
+        "Tenderness when that spot on the bone is pressed",
+        "As it progresses, pain with ordinary walking or at rest"
+      ],
+      associatedSymptoms: [
+        "Mild swelling over the sore spot",
+        "Pain at night in more advanced cases",
+        "A recent increase in training, a new activity, or a change in surface or footwear",
+        "With hip or groin pain in a runner, a limp or pain when putting weight on the leg"
+      ],
+      typicalPattern: "Usually builds over days to weeks after a change in training load. Where it hurts matters as much as how it hurts: pain in the groin, the front of the shin, the top of the midfoot, or near the base of the fifth toe bone needs earlier medical assessment, because those sites are more likely to heal poorly."
+    },
     differentialDiagnosis: [
       {
         condition: "Medial Tibial Stress Syndrome (Shin Splints)",
@@ -14328,7 +14380,7 @@ Some sites carry more risk than others. Stress fractures of the femoral neck, th
       },
       {
         condition: "Bone Stress Injury Without Fracture Line",
-        distinguishingFeatures: "Earlier point on the same continuum. Focal bony tenderness and training-related pain, MRI showing bone marrow oedema without a cortical fracture line. Managed similarly to low-risk stress fractures but usually with a shorter timeline to return."
+        distinguishingFeatures: "Earlier point on the same continuum. Focal bony tenderness and training-related pain. MRI can show bone stress (marrow oedema) before a fracture line develops. Management still depends on the site, the symptoms and the scan findings: a stress reaction at a high-risk location needs medical guidance even without a visible crack, while an earlier injury at a lower-risk site may recover sooner (Hoenig et al., British Journal of Sports Medicine 2025)."
       },
       {
         condition: "Nerve Entrapment or Exertional Compartment Syndrome",
@@ -14342,7 +14394,7 @@ Some sites carry more risk than others. Stress fractures of the femoral neck, th
       },
       {
         question: "How long does a stress fracture take to heal?",
-        answer: "Most low-risk stress fractures, such as posteromedial tibia, fibula, or a metatarsal shaft, settle over roughly 6 to 8 weeks of protected loading, with a graduated return to running over the following 4 to 8 weeks. High-risk sites often need longer periods of offloading and formal medical review. Healing timelines also depend on age, nutrition, hormonal health, and whether the original training load and any underlying drivers are addressed."
+        answer: "Many low-risk stress fractures, such as posteromedial tibia, fibula, or a metatarsal shaft, settle over roughly 6 to 8 weeks of protected loading, with a graduated return to running over the following 4 to 8 weeks. High-risk sites often need longer periods of offloading and formal medical review. Healing timelines also depend on age, nutrition, hormonal health, and whether the original training load and any underlying drivers are addressed."
       },
       {
         question: "Can I keep running with a stress fracture?",
@@ -14354,7 +14406,7 @@ Some sites carry more risk than others. Stress fractures of the femoral neck, th
       },
       {
         question: "Do I need an MRI to diagnose a stress fracture?",
-        answer: "MRI is the most sensitive imaging for bone stress injury and shows marrow oedema before any cortical crack appears. Plain X-rays often look normal for the first two to three weeks and can still be normal even with a confirmed stress fracture. When the clinical picture is clear and the site is low-risk, treatment can start without imaging. When a high-risk site is suspected, or recovery is stalling, MRI is worth pursuing."
+        answer: "MRI is the most sensitive imaging for bone stress injury and shows marrow oedema before any cortical crack appears. Plain X-rays often look normal for the first two to three weeks and can still be normal even with a confirmed stress fracture. When the clinical picture is clear and the site is low-risk, treatment can start without imaging. When a high-risk site is suspected, or recovery is stalling, MRI is worth pursuing. When imaging would change the plan, I flag it to your family doctor or specialist and refer you."
       },
       {
         question: "What is a high-risk stress fracture?",
@@ -14366,12 +14418,12 @@ Some sites carry more risk than others. Stress fractures of the femoral neck, th
       },
       {
         question: "How do I stop this from happening again?",
-        answer: "Return to running is the rehab, not the finish line. Most recurrences trace back to jumping back into previous mileage too fast or not addressing what caused the first one. I work with you on a graded return, usually starting with walk-run intervals once pain-free on daily walks, limiting weekly increases, adding strength work for the relevant area, and reviewing training periodisation, footwear, nutrition, and sleep. For athletes with repeated stress injuries, screening for bone health and energy availability is important."
+        answer: "Return to running is part of the rehab, not the finish line. Recurrences often trace back to returning to previous mileage too fast or not addressing what caused the first one. I work with you on a graded return, usually starting with walk-run intervals once pain-free on daily walks, limiting weekly increases, adding strength work for the relevant area, and reviewing training periodisation, footwear, nutrition, and sleep. For athletes with repeated stress injuries, screening for bone health and energy availability is important."
       }
     ],
     clinicalRedFlags: [
       {
-        sign: "Groin, hip, or front-of-thigh pain in a runner or walker, especially pain on hopping, at night, or a new limp",
+        sign: "Groin, hip, or front-of-thigh pain in a runner or walker, especially pain when putting weight on the leg, at night, or a new limp",
         action: "Stop running, use crutches if walking hurts, and get same-day medical assessment; a stress fracture of the femoral neck (top of the thigh bone) can become a complete break"
       },
       {
@@ -14467,14 +14519,58 @@ Two further factors compound the picture. Changes in the small blood vessels can
 Practically, this changes how rehabilitation is paced rather than what it consists of. Stiffness responds to sustained, tolerable loading rather than aggressive stretching, and progressions are typically slower because tissue adaptation takes longer. Setting expectations about timeframe at the outset tends to make the process considerably easier.
 
 Where reduced foot sensation is present, skin checks and footwear review become part of the picture, and load is monitored more closely because the usual pain feedback is less reliable. Medical management of diabetes itself remains with your physician; physiotherapy addresses the joint, tendon and movement consequences alongside it.`,
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Shoulder pain and stiffness that build over weeks or months, making it hard to reach overhead, reach behind your back or sleep (frozen shoulder)",
+        "Numbness, tingling or burning in the feet, often worse at night (peripheral neuropathy)",
+        "Numbness or tingling in the thumb and first fingers that often wakes you at night (carpal tunnel syndrome)",
+        "Stiff fingers that will not fully straighten, or a hand that will not lie flat on a table",
+        "A finger that catches or locks when you bend it (trigger finger)"
+      ],
+      typicalPattern: "These problems often come on gradually and can affect both sides. They are different conditions with different plans, so the first step is working out which one, or which combination, you have."
+    },
+    evidenceSnapshot: {
+      primaryStrategy: "Treatment depends on which problem you have: graded mobility work and loading for a stiff shoulder, nerve and hand care for carpal tunnel, and balance, strength and foot protection when feeling in the feet is reduced. Physiotherapy works on movement and daily function while your diabetes team manages blood sugar, medication and related medical care",
+      secondaryStrategy: "Regular aerobic and strength exercise is recommended for most people with diabetes (Colberg and colleagues, Diabetes Care 2016), planned around your blood sugar readings, your medication and any foot or eye problems"
+    },
+    prognosis: {
+      timeline: "There is no single timeline. Frozen shoulder can take longer to settle in people with diabetes, often many months. Carpal tunnel and trigger finger symptoms vary, and some need a medical or surgical opinion. Nerve changes in the feet are managed over the long term rather than cured: the aim is staying active safely, with good balance and protected feet",
+      factors: [
+        "Which problem, or combination of problems, you have",
+        "How long the symptoms have been there",
+        "Other health conditions and medications",
+        "Reduced feeling in the feet, which changes how exercise is planned"
+      ]
+    },
+    selfManagement: [
+      {
+        strategy: "Daily Foot Checks",
+        rationale: "If feeling in your feet is reduced, check them every day for blisters, cuts, redness or swelling, and wear well-fitting shoes and socks for exercise",
+        precautions: ["A new sore, or a warm, swollen foot, needs a medical review as listed on this page"]
+      },
+      {
+        strategy: "Planning Exercise Around Blood Sugar",
+        rationale: "Check your blood sugar before and after exercise if your diabetes team has advised it, and keep fast-acting sugar with you if you use insulin or a medication that can cause lows",
+        precautions: ["Do not exercise with ketones, or when a high reading comes with feeling unwell"]
+      },
+      {
+        strategy: "Keep Moving Within Comfort",
+        rationale: "Gentle, regular movement helps a stiff shoulder or hand hold on to the range it has while treatment builds on it",
+        precautions: ["Avoid forcing a painful, stiff shoulder to the end of its range"]
+      }
+    ],
     clinicalRedFlags: [
       {
         sign: "Chest pain, pressure, unusual breathlessness, or feeling faint during or after exercise",
         action: "Stop exercising and call 911"
       },
       {
-        sign: "Shakiness, sweating, confusion, a pounding heart or sudden hunger during or after exercise",
+        sign: "Shakiness, sweating, a pounding heart, sudden hunger or mild confusion during or after exercise",
         action: "Stop, check your blood sugar and treat a low as your diabetes team has advised. Do not restart that session"
+      },
+      {
+        sign: "A low blood sugar you cannot treat yourself: severe confusion, being unable to swallow safely, a seizure, or passing out",
+        action: "Someone should call 911 now. If you have prescribed glucagon and they know how to use it, they should give it. Nothing should be given by mouth to someone who cannot swallow safely"
       },
       {
         sign: "A new sore, blister or ulcer on the foot, or redness, warmth, swelling or discharge around a wound",
@@ -14485,8 +14581,12 @@ Where reduced foot sensation is present, skin checks and footwear review become 
         action: "See your doctor the same day and keep weight off the foot. This can be Charcot foot"
       },
       {
-        sign: "Blood sugar that is very high or swinging widely, or ketones if you check them",
-        action: "Hold exercise and speak to your diabetes team before the next session"
+        sign: "Blood sugar that is very high or swinging widely, or ketones on a home test",
+        action: "Do not exercise. Follow your diabetes team's plan for high readings and contact them right away. If you cannot reach them and your sugar stays very high or ketones are high, go to emergency"
+      },
+      {
+        sign: "High blood sugar or ketones with vomiting, stomach pain, deep or fast breathing, or marked drowsiness or confusion",
+        action: "Go to emergency now. These can be signs of diabetic ketoacidosis"
       }
     ],
     differentialDiagnosis: [
@@ -14530,7 +14630,7 @@ Where reduced foot sensation is present, skin checks and footwear review become 
       },
       {
         question: "Should I exercise if my blood sugar is not well controlled?",
-        answer: "Generally yes, with some sensible adjustments. Colberg and colleagues' 2016 position statement in Diabetes Care supports regular aerobic and resistance training for most people with diabetes, because exercise improves glycaemic control, cardiovascular health, and musculoskeletal function. If blood sugars are very high or very unstable, coordination with your physician or diabetes nurse is important before progressing load, and any new foot sores or unusual symptoms need medical review."
+        answer: "Generally yes, with some sensible adjustments. Colberg and colleagues' 2016 position statement in Diabetes Care supports regular aerobic and resistance training for most people with diabetes, because exercise can help blood sugar control, heart health and musculoskeletal function. If blood sugars are very high or very unstable, speak with your physician or diabetes nurse before progressing load. Do not exercise when ketones are present or when a high reading comes with feeling unwell, and follow the warning signs listed on this page. Any new foot sore or unusual symptom needs a medical review."
       },
       {
         question: "Why is my hand stiff and clawing, even though it does not hurt?",
@@ -14602,6 +14702,19 @@ Because the growth plate contributes to the future length and shape of the bone,
 Training load is the modifiable factor. High volumes of running and jumping, year-round participation in a single sport, and a sudden increase at the start of a season all raise the demand at the attachment. Playing through pain tends to prolong the episode rather than build tolerance.
 
 Management in a growing athlete is therefore less about rest and more about calibration: reducing the aggravating load enough to settle symptoms, maintaining strength and flexibility around the area, and rebuilding volume at a rate the tissue can keep pace with. Complete withdrawal from sport is rarely necessary and is rarely the best answer.`,
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Overuse pattern: pain at a bony bump where a tendon attaches, such as just below the kneecap or at the back of the heel, that builds with running and jumping",
+        "Acute pattern: pain, swelling, and tenderness over the end of a bone after a fall, tackle, or twist",
+        "Pain that settles with rest in overuse cases, often during or after a growth spurt"
+      ],
+      associatedSymptoms: [
+        "A sore, sometimes enlarged, bony bump that is tender to press",
+        "Tight calf, thigh, or hip muscles during a growth spurt",
+        "Limping after sport, or difficulty taking weight after an injury"
+      ],
+      typicalPattern: "Pain around a growing bone can come from overuse or from an acute fracture, and those need different care. A new injury, a limp, or difficulty bearing weight should be checked by a doctor before exercise begins. A limping child or teenager with hip, thigh, or knee pain needs a same-day medical assessment."
+    },
     differentialDiagnosis: [
       {
         condition: "Salter-Harris Physeal Fracture (Types I to V)",
@@ -14620,8 +14733,8 @@ Management in a growing athlete is therefore less about rest and more about cali
         distinguishingFeatures: "Traction apophysitis at the inferior pole of the patella, the pediatric mirror of patellar tendinopathy. Focal anterior knee pain worse with jumping and running, tenderness at the bottom tip of the patella. Settles with load management through skeletal maturity."
       },
       {
-        condition: "Little League Shoulder / Elbow (Proximal Humeral and Medial Epicondylar Apophysitis)",
-        distinguishingFeatures: "Overuse injuries in young throwing athletes, with pain over the proximal humeral physis or medial elbow. Often linked to high pitch counts or year-round throwing. DiFiori and colleagues' 2014 position statement on youth overuse injuries highlights load monitoring as central to prevention and recovery."
+        condition: "Little League Shoulder / Elbow (Proximal Humeral Growth Plate Stress Injury and Medial Epicondyle Apophysitis)",
+        distinguishingFeatures: "Overuse injuries in young throwing athletes. Little League shoulder is a stress injury to the growth plate at the top of the upper arm bone (the proximal humeral physis), rather than a tendon pulling on a bony bump, and is managed as a growth plate injury with rest from throwing and medical review. Little League elbow involves the growth centre on the inner elbow. Often linked to high pitch counts or year-round throwing. DiFiori and colleagues' 2014 position statement on youth overuse injuries highlights load monitoring as central to prevention and recovery."
       },
       {
         condition: "Slipped Capital Femoral Epiphysis (SCFE)",
@@ -14655,7 +14768,7 @@ Management in a growing athlete is therefore less about rest and more about cali
       },
       {
         question: "Do I need an X-ray?",
-        answer: "If the injury is acute with suspected fracture, yes, imaging is part of the initial workup. For apophysitis presentations with a classic clinical picture, such as a 12-year-old gymnast with bilateral heel pain and positive calcaneal squeeze, imaging often adds little. I usually escalate to imaging when the story does not match the exam, when symptoms are not settling as expected, or when a higher-risk pattern is suspected."
+        answer: "If the injury is acute with suspected fracture, yes, imaging is part of the initial workup. For apophysitis presentations with a classic clinical picture, such as a 12-year-old gymnast with bilateral heel pain and positive calcaneal squeeze, imaging often adds little. When the story does not match the exam, when symptoms are not settling as expected, or when a higher-risk pattern is suspected, imaging can change the plan, and then I flag it to your family doctor or specialist and refer you."
       },
       {
         question: "When can my child return to full sport?",
@@ -14760,10 +14873,26 @@ Early scaphoid fractures are frequently missed. Swelling is often modest, the wr
 Because the wrist often still moves and grip is only moderately reduced, the injury can be mistaken for a sprain and managed with rest alone. Continuing to load the wrist through a fracture that has not been identified is what allows a healing problem to develop, so the priority in the early stage is accurate diagnosis and appropriate immobilisation rather than early rehabilitation.
 
 Once the fracture has been managed and healing is confirmed, rehabilitation addresses the stiffness, grip weakness and forearm rotation loss that follow a period of immobilisation, and rebuilds tolerance for loading through the wrist.`,
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Pain on the thumb side of the wrist after a fall onto an outstretched hand",
+        "Tenderness in the hollow at the base of the thumb (the anatomical snuffbox) or over the bony bump on the palm side of the wrist",
+        "Pain when gripping, pinching, or pushing the thumb in toward the wrist",
+        "Mild swelling around the thumb side of the wrist"
+      ],
+      associatedSymptoms: [
+        "The wrist often still moves, which is why it can be mistaken for a sprain",
+        "Reduced grip strength",
+        "Pain putting weight through the hand, such as pushing up from a chair",
+        "After a cast comes off: stiffness, weaker grip, and less forearm rotation"
+      ],
+      typicalPattern: "Usually a fall onto an outstretched hand, often in sport, on ice, or from standing. Pain may seem modest at first and the first X-ray can be normal, so persistent thumb-side wrist pain after a fall needs medical assessment and protection rather than reassurance from a single normal film."
+    },
+
     clinicalRedFlags: [
       {
         sign: "Tenderness in the hollow at the base of the thumb (the snuffbox), or pain when the thumb is pushed in toward the wrist, after a fall on an outstretched hand",
-        action: "Protect the wrist and get an X-ray that week, even if it looks like a sprain. A normal first X-ray may need repeating"
+        action: "Get a prompt medical assessment and X-ray, the same day or next day, even if it looks like a sprain. Until then, support the wrist in a splint and avoid lifting or putting weight through it. An early X-ray can be normal, so continued suspicion needs follow-up imaging and protection"
       },
       {
         sign: "An obvious change in the shape of the wrist, severe swelling, or being unable to move the wrist or fingers after a fall",
@@ -14808,7 +14937,7 @@ Once the fracture has been managed and healing is confirmed, rehabilitation addr
     faqs: [
       {
         question: "I fell on my hand and my wrist still hurts. How do I know if it is broken or sprained?",
-        answer: "You probably cannot tell from the outside, and the clinical exam only takes you so far. Rhemrev and colleagues' 2011 review in the International Journal of Emergency Medicine makes the point that the classic bedside tests, snuffbox tenderness, pain with axial loading of the thumb, and scaphoid compression, are sensitive but not specific. They are good at raising suspicion, but they cannot rule a fracture in or out on their own. If you have snuffbox tenderness or pain when the thumb is pushed in toward the wrist after a fall on an outstretched hand, the wrist should be protected and X-rayed that week, not watched to see if it settles. I refer you for that through your family doctor or urgent care."
+        answer: "You probably cannot tell from the outside, and the clinical exam only takes you so far. Rhemrev and colleagues' 2011 review in the International Journal of Emergency Medicine makes the point that the classic bedside tests, snuffbox tenderness, pain with axial loading of the thumb, and scaphoid compression, are sensitive but not specific. They are good at raising suspicion, but they cannot rule a fracture in or out on their own. If you have snuffbox tenderness or pain when the thumb is pushed in toward the wrist after a fall on an outstretched hand, the wrist should be supported in a splint, kept from lifting and weight-bearing, and assessed promptly for an X-ray, the same day or next day, not watched to see if it settles. I refer you for that through your family doctor or urgent care. An early X-ray can be normal, so continued suspicion needs follow-up imaging and protection."
       },
       {
         question: "Why do people worry so much about scaphoid fractures compared with other wrist injuries?",
@@ -14816,7 +14945,7 @@ Once the fracture has been managed and healing is confirmed, rehabilitation addr
       },
       {
         question: "What tests will a clinician actually do at the bedside?",
-        answer: "I am looking to build a hypothesis rather than tick boxes. Steinmann and colleagues (2006) described three bedside manoeuvres that together raise or lower suspicion: tenderness in the anatomical snuffbox, tenderness over the scaphoid tubercle on the palm side, and pain with axial compression through the thumb. None of them is diagnostic on its own, but combined with the story of the fall and the pattern of pain, they tell me how likely a fracture is. If any of them is positive after a fall, I refer you for an X-ray that week, because the cost of missing a scaphoid fracture is much higher than the cost of an X-ray."
+        answer: "I am looking to build a hypothesis rather than tick boxes. Steinmann and colleagues (2006) described three bedside manoeuvres that together raise or lower suspicion: tenderness in the anatomical snuffbox, tenderness over the scaphoid tubercle on the palm side, and pain with axial compression through the thumb. None of them is diagnostic on its own, but combined with the story of the fall and the pattern of pain, they tell me how likely a fracture is. If any of them is positive after a fall, I ask you to support the wrist in a splint and refer you for a prompt X-ray, the same day or next day, because the cost of missing a scaphoid fracture is much higher than the cost of an X-ray."
       },
       {
         question: "The X-ray was clear but my wrist still hurts. What now?",
@@ -14851,7 +14980,7 @@ Once the fracture has been managed and healing is confirmed, rehabilitation addr
           "Tendon gliding sequence for the fingers (straight, hook, fist, tabletop, straight fist), 5 repetitions of each position 3 times daily",
           "Edema management with elevation, gentle retrograde massage, and compressive sleeve as tolerated"
         ],
-        progressionCriteria: "Full or near-full pain-free active wrist range of motion, no snuffbox tenderness with daily tasks, and comfortable light grip on a soft ball without provoking thumb-side pain. Clearance from the treating physician to begin loading is assumed before moving to phase 2."
+        progressionCriteria: "Full or near-full pain-free active wrist range of motion, no snuffbox tenderness with daily tasks, and comfortable light grip on a soft ball without provoking thumb-side pain. Confirm clearance from the treating physician to begin loading before moving to phase 2."
       },
       phase2: {
         title: "Phase 2: Restoring Grip and Forearm Capacity (Weeks 4 to 10)",
@@ -14886,14 +15015,28 @@ Once the fracture has been managed and healing is confirmed, rehabilitation addr
   'hammer-toe-deformities': {
     pathophysiology: `A hammer toe develops when the small intrinsic muscles inside your foot can no longer balance the pull of the longer tendons that run down from the leg. The intrinsics normally bend the toe at the joint where it meets the foot while keeping the smaller joints beyond it straight. When they can no longer do that, the toe buckles: it lifts at the base and bends at the middle joint.
 
-Early on the deformity is flexible and the toe can still be straightened by hand. Over time the joint capsule, the small plantar plate beneath the joint and the surrounding soft tissue adapt to the shortened position, and the deformity becomes fixed. That distinction matters, because a flexible toe responds to load management, footwear change and targeted exercise in a way a rigid one does not.
+Early on the deformity is flexible and the toe can still be straightened by hand. Over time the joint capsule, the small plantar plate beneath the joint and the surrounding soft tissue adapt to the shortened position, and the deformity becomes fixed. That distinction matters, because a flexible toe has more room to respond to footwear change, padding and exercise, at least for comfort, than a rigid one.
 
 Symptoms usually come from friction and pressure rather than the deformity itself. The raised middle joint rubs against the top of the shoe and forms a corn, while the toe tip and the ball of the foot beneath the base of the toe take more pressure than they were designed for.`,
     biomechanics: `Footwear is the most common contributor. A narrow toe box squeezes the toes together, and any heel height shifts your weight forward onto the front of the foot, which increases the demand on the toes to grip. Both encourage the buckled position.
 
-Foot structure plays a part too. A second toe that is longer than the big toe, a high arch that concentrates load on the ball of the foot, and a bunion that crowds the neighbouring toes all raise the risk. So does anything that weakens the intrinsic muscles or alters the nerve supply to the foot.
+Foot structure plays a part too. A second toe that is longer than the big toe, a high arch that concentrates load on the ball of the foot, and a bunion that crowds the neighbouring toes can all raise the risk. So can conditions that weaken the small foot muscles or alter the nerve supply to the foot.
 
 Because the toes are working harder to stabilise you than most people realise, deformity often reflects a foot that has been compensating for a long time. Assessment therefore looks beyond the toe itself to how you load the forefoot, what your footwear allows, and whether the deformity is still flexible.`,
+    clinicalPresentation: {
+      primarySymptoms: [
+        "A smaller toe that bends upward at the base and down at the middle joint, so it looks buckled",
+        "Rubbing, a corn, or a callus on top of the bent middle joint of the toe",
+        "Soreness under the ball of the foot beneath the base of that toe",
+        "Shoes feeling tight or painful over the toe"
+      ],
+      associatedSymptoms: [
+        "A callus or sore spot on the tip of the toe",
+        "The toe can be straightened by hand early on, but becomes stiffer over time",
+        "Often seen alongside a bunion or a long second toe"
+      ],
+      typicalPattern: "Usually develops gradually. Care depends on whether the toe is still flexible and whether the skin is being damaged. Broken skin, especially with diabetes or reduced feeling in the feet, needs prompt attention from your family doctor or foot care provider."
+    },
     differentialDiagnosis: [
       {
         condition: "Claw Toe Deformity",
@@ -14932,7 +15075,7 @@ Because the toes are working harder to stabilise you than most people realise, d
       },
       {
         question: "What does the evidence actually show for conservative care?",
-        answer: "Reviews of lesser toe deformities, such as Shirzad and colleagues (2011), are consistent that the evidence base for conservative management is limited and largely drawn from expert practice rather than large trials. What is reasonable is that footwear with a wide and deep toe box, strengthening of the intrinsic foot muscles, and toe splints or silicone sleeves to offload pressure can improve symptoms and slow progression in flexible deformities. I am honest with patients that the high-quality evidence for any one technique is thin, so the emphasis is on consistent, sensible mechanics rather than any single exercise."
+        answer: "Reviews of lesser toe deformities, such as Shirzad and colleagues (2011), are consistent that the evidence base for conservative management is limited and largely drawn from expert practice rather than large trials. What is reasonable is that footwear with a wide and deep toe box, strengthening of the intrinsic foot muscles, and toe splints or silicone sleeves to offload pressure may improve comfort and control in a flexible toe. They are not proven to stop progression or to straighten a fixed deformity. I am honest with patients that the high-quality evidence for any one technique is thin, so the emphasis is on consistent, sensible mechanics rather than any single exercise."
       },
       {
         question: "What kind of shoe should I be wearing?",
@@ -14997,7 +15140,7 @@ Because the toes are working harder to stabilise you than most people realise, d
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Unload the Forefoot and Start Intrinsic Activation (Weeks 1 to 4)",
-        focus: "Early work is about giving the forefoot and the affected toe a break. That means wider and deeper toe box shoes worn consistently, offloading the top of the PIP joint with silicone sleeves or padding if a corn or callus is present, and introducing gentle activation of the intrinsic foot muscles that have usually been dormant for years. Nothing in this phase should provoke sharp toe pain or skin breakdown.",
+        focus: "Early work is about giving the forefoot and the affected toe a break. That means wider and deeper toe box shoes worn consistently, offloading the top of the PIP joint with silicone sleeves or padding if a corn or callus is present, and introducing gentle activation of the small muscles inside the foot for comfort and toe control. Nothing in this phase should provoke sharp toe pain or skin breakdown.",
         examples: [
           "Daily wear of a shoe with a wide, deep, foot-shaped toe box and a heel under roughly 2 cm",
           "Silicone toe sleeve or gel cap over a painful dorsal PIP prominence if footwear pressure is a factor",
@@ -15009,7 +15152,7 @@ Because the toes are working harder to stabilise you than most people realise, d
       },
       phase2: {
         title: "Phase 2: Build Intrinsic Foot and Lesser Toe Control (Weeks 4 to 10)",
-        focus: "Once the toe is less irritable, the work shifts to rebuilding strength and coordination in the intrinsic foot muscles and the muscles that balance the long and short flexors of the toe. Stronger intrinsics and better toe control help share forefoot load more evenly and slow the progression of a flexible deformity. This phase runs alongside continued footwear and offloading adjustments.",
+        focus: "Once the toe is less irritable, the work shifts to rebuilding strength and coordination in the intrinsic foot muscles and the muscles that balance the long and short flexors of the toe. Gentle foot exercises may support comfort and control in a flexible toe and help share forefoot load. They are not proven to stop progression or straighten a fixed deformity. This phase runs alongside continued footwear and offloading adjustments.",
         examples: [
           "Progressive short-foot holds, moving from seated to standing on two feet, then to single-leg stance, 3 sets of 10 to 15",
           "Towel scrunches with the toes and marble or small-object pickups, 2 sets of 15 to 20 repetitions per foot",
@@ -15017,7 +15160,7 @@ Because the toes are working harder to stabilise you than most people realise, d
           "Calf raise variations with the heel moving cleanly over the second toe, 3 sets of 12 to 15, to reinforce forefoot alignment during push-off",
           "Single-leg balance on firm ground with a neutral foot posture, 3 sets of 30 to 45 seconds, progressing to a foam pad as tolerated"
         ],
-        progressionCriteria: "A visible short-foot hold without toe clawing, single-leg balance on foam for 30 seconds with a stable forefoot, and a reduction in day-to-day pain or pressure symptoms at the affected toe."
+        progressionCriteria: "Examples of the targets I use, set for each person rather than fixed cut-offs: a visible short-foot hold without toe clawing, steady single-leg balance on foam with a stable forefoot, and a reduction in day-to-day pain or pressure symptoms at the affected toe."
       },
       phase3: {
         title: "Phase 3: Maintain Mechanics and Protect the Forefoot Long Term (Months 3+)",
@@ -15079,7 +15222,7 @@ Because the toes are working harder to stabilise you than most people realise, d
     differentialDiagnosis: [
       {
         condition: "Quadriceps Tendon Rupture",
-        distinguishingFeatures: "Palpable gap above the patella rather than at the bone, inability to actively extend the knee against gravity, and a high-riding patella. Mechanism often involves a sudden eccentric load in an older patient or someone with tendon-weakening risk factors."
+        distinguishingFeatures: "A gap above the kneecap rather than at the bone and loss of active knee extension can suggest a quadriceps tendon rupture; the kneecap may sit lower than usual. It needs urgent assessment, because kneecap height alone is not a diagnostic test. Mechanism often involves a sudden eccentric load in an older patient or someone with tendon-weakening risk factors."
       },
       {
         condition: "Patellar Tendon Rupture",
@@ -15134,7 +15277,7 @@ Because the toes are working harder to stabilise you than most people realise, d
       },
       {
         question: "Do I still need physiotherapy if the fracture was undisplaced?",
-        answer: "Yes, and it is often underestimated. Even without surgery, a patella fracture shuts down the quadriceps and stiffens the knee during the protected phase. People who skip structured rehab after a conservatively managed patella fracture frequently end up with a weaker, more painful knee that struggles with stairs and hills for months. Structured rehab shortens the gap between healed bone and a usable leg."
+        answer: "Often, yes. Even without surgery, a patella fracture can switch off the quadriceps and stiffen the knee during the protected phase. Rehabilitation can help restore movement, strength and confidence once the fracture is ready for each step. The amount of support needed depends on the injury, the treatment and how you progress."
       }
     ],
 

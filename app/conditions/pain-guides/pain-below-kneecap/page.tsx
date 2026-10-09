@@ -32,6 +32,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
+import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/pain-below-kneecap';
 const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is';
 const PAGE_DESCRIPTION =
@@ -131,15 +132,19 @@ const unlinkedScenarios: UnlinkedScenario[] = [
   {
     label: 'Infrapatellar bursitis (clergyman\'s knee)',
     pattern: 'A soft, fluid-filled swelling just below the kneecap after kneeling work, gardening, flooring, or plumbing. Localised, tender, and usually without the load-related pattern of a tendon problem.',
-    note: 'Usually settles with modifying kneeling load and protecting the area. Worth flagging if it becomes warm, red, or systemic, which points elsewhere.',
+    note: 'Usually settles with modifying kneeling load and protecting the area. If it becomes warm or red, the skin over it is broken, or you feel unwell, get same-day medical assessment, because a bursa can become infected.',
   },
 ];
 
 // Red flags
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Warm, red, swollen knee with fever or feeling systemically unwell',
-    action: 'Seek same-day medical assessment. Septic arthritis and certain inflammatory conditions need workup before physiotherapy.',
+    sign: 'A newly warm, red, swollen knee, with or without a fever',
+    action: 'Seek same-day medical assessment, or go to emergency if you feel unwell. A joint infection is possible even without a fever. Infection and some inflammatory conditions need workup before physiotherapy.',
+  },
+  {
+    sign: 'A sudden pop below the kneecap, then you cannot straighten the knee or lift the straight leg',
+    action: 'Possible patellar tendon rupture. Go to emergency or urgent care the same day; a complete rupture needs an early surgical opinion.',
   },
   {
     sign: 'Sudden inability to straighten the knee, or a locked-feeling knee after a twist',
@@ -147,11 +152,11 @@ const redFlags: Array<{ sign: string; action: string }> = [
   },
   {
     sign: 'A pop, sudden giving way, and immediate large swelling after trauma',
-    action: 'Go to emergency or urgent care to rule out a significant ligament or osteochondral injury, in line with the Ottawa Knee Rules.',
+    action: 'Get same-day assessment at urgent care or emergency for a significant knee injury. The clinician examines the knee and, where appropriate, uses the Ottawa Knee Rules to decide whether an X-ray is needed for a fracture. Ligament or cartilage injuries need their own examination and sometimes later imaging.',
   },
   {
-    sign: 'Pain right below the kneecap in a child who is also limping and unwell',
-    action: 'See a physician. Paediatric hip or systemic conditions sometimes refer pain toward the knee and need medical workup.',
+    sign: 'A child or teenager with a new limp and knee, thigh or hip pain, or who is limping and unwell',
+    action: 'Do not let them walk on the leg, and go to emergency today. A slipped growth plate at the hip (slipped capital femoral epiphysis) can show up as knee pain, and a limping child who is unwell can have a bone or joint infection.',
   },
   {
     sign: 'Night pain that is not related to position, with unexplained weight loss',
@@ -169,17 +174,17 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Is pain below the kneecap the same as patellar tendinitis?',
     answer:
-      'Clinically, yes, most of the time. The older term tendinitis implies active inflammation, and current tendon research shows that load-related tendon pain is more about structural change and a failed healing response than classic inflammation. That is why the preferred term is tendinopathy. The practical point is the same: graded loading rebuilds the tendon, rest alone rarely does.',
+      'Not always. Patellar tendinopathy is one possible cause, especially when jumping or loading the tendon brings on pain in one small spot. Pain in that area can also come from other structures, such as the fat pad under the kneecap, a bursa, or, in growing athletes, the growth areas at either end of the tendon, so the location alone is not a diagnosis. The older term tendinitis implies active inflammation. Current research describes persistent tendon pain as involving changes in the tendon and in how pain is processed, with inflammation part of a more complex picture, which is why the preferred term is tendinopathy. When the tendon is the source, graded loading helps rebuild it; rest alone is often not enough.',
   },
   {
     question: 'Should I stop running or jumping if I have pain below the kneecap?',
     answer:
-      'Usually no, but the dose needs to change. Full rest tends to make patellar tendon pain more reactive, not less. A rule I use in clinic: pain under about 3 out of 10 during and just after the session, settling within 24 hours and not progressively worsening week to week, is usually fine to train through while I build capacity with you. Pain that climbs into a 5 or higher, or a knee that stiffens overnight, means the plan needs adjusting.',
+      'For an assessed patellar tendon problem, often not completely, but the dose needs to change; complete rest often does not settle tendon pain for long. After a new injury, or with swelling, giving way, or difficulty straightening the knee, get assessed before training through it. For tendon pain, a guide I use in clinic: pain under about 3 out of 10 during and just after the session, settling within 24 hours and not progressively worsening week to week, is usually fine to train through while I build capacity with you. Pain that climbs into a 5 or higher, or a knee that stiffens overnight, means the plan needs adjusting.',
   },
   {
     question: 'My teenager has a painful bump right below their kneecap. Is that serious?',
     answer:
-      'The most common reason is Osgood-Schlatter, a growth-plate irritation at the top of the shinbone where the patellar tendon attaches. It is not dangerous, usually settles with age and guided management, and responds well to activity modification plus knee strengthening. Rathleff and colleagues in the Orthopaedic Journal of Sports Medicine (2020) showed 80 percent reporting a successful outcome at 12 weeks and 90 percent at one year with that approach.',
+      'A gradual, tender bump at the top of the shinbone can fit Osgood-Schlatter disease, an irritation of the growth area where the patellar tendon attaches. It is often managed with activity changes and knee strengthening: in a case series of 51 adolescents aged 10 to 14, Rathleff and colleagues (Orthopaedic Journal of Sports Medicine, 2020) reported 80 percent with a successful outcome at 12 weeks and 90 percent at one year with that approach. A sudden painful injury, being unable to straighten the knee, or difficulty bearing weight needs same-day medical assessment. A child who is limping and unwell, or who has a new limp with hip or thigh pain, needs to go to emergency.',
   },
   {
     question: 'Does imaging help if the pain is right below the kneecap?',
@@ -189,7 +194,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does pain right below the kneecap take to resolve?',
     answer:
-      'It depends on the tissue. An irritable patellar tendinopathy typically needs three to six months of progressive, well-dosed loading to rebuild capacity reliably. Patellofemoral pain often responds inside six to twelve weeks. Osgood-Schlatter in a growing athlete usually improves within a few months of sensible activity modification and strengthening, even though the bump itself can persist. Rushing tends to lengthen the timeline.',
+      'It depends on the tissue. An irritable patellar tendinopathy often needs three to six months or more of progressive, well-dosed loading to rebuild capacity. Patellofemoral pain often improves within six to twelve weeks, although some cases take longer. Osgood-Schlatter in a growing athlete usually improves within a few months of sensible activity modification and strengthening, even though the bump itself can persist. Rushing tends to lengthen the timeline.',
   },
 ];
 
@@ -399,27 +404,7 @@ export default function PainBelowKneecapGuidePage() {
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              {/* Red flags collapsible */}
-              <details className="group mt-3">
-                <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                  <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                  <span className="underline">Important: when to seek medical care before physiotherapy</span>
-                  <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="mt-2 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {redFlags.map((flag, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs">
-                        <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium text-red-900 leading-snug">{flag.sign}</p>
-                          <p className="text-red-700 mt-0.5 leading-snug">{flag.action}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
+              <RedFlagsLink className="mt-3" />
 
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -498,6 +483,8 @@ export default function PainBelowKneecapGuidePage() {
             </div>
           </div>
         </section>
+
+        <RedFlagsBox flags={redFlags} />
 
         {/* One-finger test */}
         <section className="py-12 bg-slate-50/60">

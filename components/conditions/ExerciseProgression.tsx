@@ -107,9 +107,10 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
         {/* Intro framing */}
         <p className="m-0 text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
           Recovery from {name} is usually staged: calm the symptoms first, then rebuild the strength
-          and capacity of the area, then return to your full activities. The three phases below show
-          the kind of progression the evidence supports and that I commonly work through in clinic.
-          They are here to show you what the road can look like, not to act as a personal program.
+          and capacity of the area, then return to your full activities. The phases below are examples
+          of how rehabilitation may progress. The exercises, timing and milestones depend on the
+          diagnosis, your symptoms and any medical or surgical restrictions, so they are not a
+          personal program.
         </p>
 
         {/* Condition-specific scope / clearance note (higher-stakes conditions only) */}

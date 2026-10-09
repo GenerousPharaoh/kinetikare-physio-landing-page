@@ -96,7 +96,8 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/', '/temp/', '/ai-conversations/', '/tests/'],
+        // /_next/ is not disallowed: it serves the scripts and optimised images Google needs to render and index the pages.
+        disallow: ['/api/', '/admin/', '/temp/', '/ai-conversations/', '/tests/'],
       },
       // Explicitly allow AI crawlers so the site is eligible for LLM citations
       // (ChatGPT, Claude, Perplexity, Google AI Overviews, Common Crawl).

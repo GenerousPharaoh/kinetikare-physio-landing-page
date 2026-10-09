@@ -24,6 +24,7 @@ import { getConditionHub } from '@/lib/condition-hubs';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import { REHAB_PROGRESSION_SLUGS, REHAB_SCOPE_NOTES } from '@/lib/rehab-progression';
 import { JANE_BOOKING_URL } from '@/lib/booking';
+import { inlineName } from '@/lib/text';
 import { CATEGORY_PRINT, ILLUSTRATIONS } from '@/lib/illustrations';
 import AuthorByline from './AuthorByline';
 import RegionAnatomy from './RegionAnatomy';
@@ -120,7 +121,7 @@ export default function ConditionFlowPage({
   const scienceText = condition.pathophysiology || condition.overview;
   const researchInsights = condition.researchInsights ?? [];
   const keyResearch = condition.keyResearch ?? [];
-  const nameLower = condition.name.toLowerCase();
+  const nameLower = inlineName(condition.name);
 
   // "On this page" rail (desktop) with a light scrollspy.
   const sections = [
@@ -354,6 +355,7 @@ export default function ConditionFlowPage({
                       progression={condition.exerciseProgression}
                       conditionName={condition.name}
                       scopeNote={REHAB_SCOPE_NOTES[conditionSlug]}
+                      hasWarningSigns={redFlags.length > 0}
                     />
                   </div>
                 )}

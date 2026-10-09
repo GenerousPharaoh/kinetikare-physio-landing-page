@@ -32,6 +32,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 
 import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
+import { inlineName } from '@/lib/text';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['hip-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
@@ -497,7 +498,7 @@ export default function HipPainHubPage() {
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_BOOKING_URL} data-booking-source="hub_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
@@ -795,7 +796,7 @@ export default function HipPainHubPage() {
                       </p>
                     )}
                     <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#8A6F0A]">
-                      Read the {condition.name.toLowerCase()} guide
+                      Read the {inlineName(condition.name)} guide
                       <ArrowRightIcon className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </Link>
@@ -896,7 +897,7 @@ export default function HipPainHubPage() {
 
                   <div className="mt-6">
                     <Link
-                      href={JANE_BOOKING_URL}
+                      href={JANE_BOOKING_URL} data-booking-source="hub_page"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="button-gold inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-colors"

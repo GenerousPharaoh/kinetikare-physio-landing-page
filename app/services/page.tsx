@@ -564,7 +564,7 @@ export default function ServicesPage() {
               <h2 id="services-booking-heading">Continue Your Care Journey</h2>
               <p>Partner with a physiotherapist dedicated to understanding your unique needs and achieving lasting results. Take the next step toward your recovery goals.</p>
             </div>
-            <a href={JANE_BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
+            <a href={JANE_BOOKING_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
           </div>
           <ul className={styles.trust}>
             {['Direct Insurance Billing', 'Evidence-Based Treatment', 'Personalized Care'].map(item => <li key={item}><CheckIcon aria-hidden="true" />{item}</li>)}

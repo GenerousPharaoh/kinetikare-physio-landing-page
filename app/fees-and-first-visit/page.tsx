@@ -89,7 +89,7 @@ export default function FeesAndFirstVisitPage() {
             </div>
             <div className="lg:col-span-5 lg:col-start-8 flex flex-col sm:flex-row sm:items-center gap-4 lg:justify-end">
               <Link
-                href={JANE_BOOKING_URL}
+                href={JANE_BOOKING_URL} data-booking-source="fees_page"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#D4AF37] text-slate-950 text-[15px] font-medium whitespace-nowrap hover:bg-[#E6C66A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#020617]"
@@ -232,7 +232,7 @@ export default function FeesAndFirstVisitPage() {
             </div>
             <div className="sm:col-span-2 pt-2">
               <Link
-                href={JANE_BOOKING_URL}
+                href={JANE_BOOKING_URL} data-booking-source="fees_page"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#D4AF37] text-slate-950 text-[15px] font-medium hover:bg-[#E6C66A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2"

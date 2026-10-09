@@ -714,7 +714,7 @@ function BookCta({ onRestart }: { onRestart: () => void }) {
   return (
     <div className="mt-4 flex flex-col sm:flex-row gap-3">
       <Link
-        href={JANE_BOOKING_URL}
+        href={JANE_BOOKING_URL} data-booking-source="pattern_matcher"
         target="_blank"
         rel="noopener noreferrer"
         className="button-gold inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57]"

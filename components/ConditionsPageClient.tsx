@@ -215,7 +215,7 @@ function ConditionsPageWithParams({
               <div className="text-center mb-4">
                 <p className="text-sm text-slate-500 mb-3">Not sure which condition applies to you?</p>
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_BOOKING_URL} data-booking-source="conditions_index"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-slate-950 text-sm font-semibold rounded hover:bg-[#E6C66A] transition-colors"

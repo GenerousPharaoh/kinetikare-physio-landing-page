@@ -3,7 +3,6 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
 Disallow: /temp/
 Disallow: /ai-conversations/
 Disallow: /tests/

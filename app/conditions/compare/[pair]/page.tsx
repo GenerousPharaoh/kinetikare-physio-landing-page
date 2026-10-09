@@ -35,6 +35,7 @@ import {
   CONDITION_COMPARISONS,
   getComparisonByPair,
 } from '@/lib/condition-comparisons';
+import { inlineName } from '@/lib/text';
 
 const SITE_URL = 'https://www.kinetikarephysio.com';
 
@@ -268,7 +269,7 @@ export default async function ConditionComparisonPage({
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_BOOKING_URL} data-booking-source="compare_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
@@ -316,7 +317,7 @@ export default async function ConditionComparisonPage({
                     </p>
                   )}
                   <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
-                    Read the full {comparison.conditionA.shortName.toLowerCase()} page
+                    Read the full {inlineName(comparison.conditionA.shortName)} page
                     <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </Link>
@@ -337,7 +338,7 @@ export default async function ConditionComparisonPage({
                     </p>
                   )}
                   <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
-                    Read the full {comparison.conditionB.shortName.toLowerCase()} page
+                    Read the full {inlineName(comparison.conditionB.shortName)} page
                     <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </Link>
@@ -359,8 +360,8 @@ export default async function ConditionComparisonPage({
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                The patterns that separate {comparison.conditionA.shortName.toLowerCase()}{' '}
-                from {comparison.conditionB.shortName.toLowerCase()} in clinic. Read
+                The patterns that separate {inlineName(comparison.conditionA.shortName)}{' '}
+                from {inlineName(comparison.conditionB.shortName)} in clinic. Read
                 across each row and compare.
               </p>
 
@@ -521,7 +522,7 @@ export default async function ConditionComparisonPage({
                     href={`/conditions/${comparison.conditionA.slug}`}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A] hover:text-[#997A4B]"
                   >
-                    Read the {comparison.conditionA.shortName.toLowerCase()} page
+                    Read the {inlineName(comparison.conditionA.shortName)} page
                     <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                 </div>
@@ -542,7 +543,7 @@ export default async function ConditionComparisonPage({
                     href={`/conditions/${comparison.conditionB.slug}`}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A] hover:text-[#997A4B]"
                   >
-                    Read the {comparison.conditionB.shortName.toLowerCase()} page
+                    Read the {inlineName(comparison.conditionB.shortName)} page
                     <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                 </div>
@@ -757,7 +758,7 @@ export default async function ConditionComparisonPage({
 
                   <div className="mt-6">
                     <Link
-                      href={JANE_BOOKING_URL}
+                      href={JANE_BOOKING_URL} data-booking-source="compare_page"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="button-gold inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-colors"

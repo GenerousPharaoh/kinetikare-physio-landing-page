@@ -28,7 +28,7 @@ export default function TreatmentCTA({ treatmentName }: TreatmentCTAProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href={JANE_BOOKING_URL}
+              href={JANE_BOOKING_URL} data-booking-source="treatment_page"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

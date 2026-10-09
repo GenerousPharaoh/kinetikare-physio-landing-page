@@ -198,7 +198,7 @@ export default function PainGuidesIndexPage() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_BOOKING_URL} data-booking-source="guides_index"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"

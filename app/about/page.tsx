@@ -185,7 +185,7 @@ export default function About() {
                 <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
                 <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_BOOKING_URL} data-booking-source="about_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
@@ -425,7 +425,7 @@ export default function About() {
                   <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
                   <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
                   <Link
-                    href={JANE_BOOKING_URL}
+                    href={JANE_BOOKING_URL} data-booking-source="about_page"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
@@ -921,7 +921,7 @@ export default function About() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
               <Link
-                href={JANE_BOOKING_URL}
+                href={JANE_BOOKING_URL} data-booking-source="about_page"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button-gold py-3.5 px-8 font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"

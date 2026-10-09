@@ -229,7 +229,7 @@ export default function ServicesSection() {
               {/* Booking Button */}
               <div className="mt-6 text-center">
                 <a
-                  href={JANE_BOOKING_URL}
+                  href={JANE_BOOKING_URL} data-booking-source="home"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-[transform,background,box-shadow] duration-300 hover:shadow-premium-2 shadow-premium-1 text-sm group"

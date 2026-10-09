@@ -31,6 +31,7 @@ import { getTreatmentById } from '@/lib/treatments-data';
 import { reportGuideUrl, type GuideBlock, type GuideIcon, type ReportGuide } from '@/lib/report-guides';
 import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
+import { inlineName } from '@/lib/text';
 
 // Same visual language as the hand-built pain guides
 // (app/conditions/pain-guides/fluid-on-the-knee): hero, badge-headed sections
@@ -421,7 +422,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
                         <p className="text-xs text-slate-600 leading-relaxed flex-grow">{condition.description}</p>
                       )}
                       <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#8A6F0A]">
-                        Read the {condition.name.toLowerCase()} guide
+                        Read the {inlineName(condition.name)} guide
                         <ArrowRightIcon className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </div>
                     </Link>

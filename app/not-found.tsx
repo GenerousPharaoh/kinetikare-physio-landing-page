@@ -40,7 +40,7 @@ export default function NotFound() {
             View Conditions
           </Link>
           <a
-            href={JANE_BOOKING_URL}
+            href={JANE_BOOKING_URL} data-booking-source="not_found"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-2.5 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:border-[#B08D57]/40 hover:text-[#B08D57] transition-colors"

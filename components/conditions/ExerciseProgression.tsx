@@ -38,6 +38,8 @@ interface ExerciseProgressionProps {
    * only applies to a specific population or after medical clearance.
    */
   scopeNote?: string;
+  /** False when the page lists no red flags, so the safety note does not refer to them. */
+  hasWarningSigns?: boolean;
 }
 
 // Drop a leading "Phase 1:" / "Phase 2 -" style prefix so the rendered phase
@@ -55,7 +57,7 @@ function inlineConditionName(name: string): string {
     .trim();
 }
 
-export default function ExerciseProgression({ progression, conditionName, scopeNote }: ExerciseProgressionProps) {
+export default function ExerciseProgression({ progression, conditionName, scopeNote, hasWarningSigns = true }: ExerciseProgressionProps) {
   if (!progression) return null;
   const phases = [progression.phase1, progression.phase2, progression.phase3].filter(Boolean);
   if (phases.length === 0) return null;
@@ -126,8 +128,8 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
                   with the same diagnosis can need very different programs. Before you try anything here,
                   it is worth having your movement assessed so you know it suits you and that you can
                   perform it safely with good technique. Build up gradually, and back off if symptoms get
-                  worse instead of settling. If any of the warning signs listed on this page apply to you,
-                  hold off and get assessed first.
+                  worse instead of settling.
+                  {hasWarningSigns && ' If any of the warning signs listed on this page apply to you, hold off and get assessed first.'}
                 </p>
               </div>
             </div>

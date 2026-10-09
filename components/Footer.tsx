@@ -57,7 +57,7 @@ export default function Footer() {
             </Link>
             <p className={styles.practitioner}>Kareem Hassanein<span>Registered Physiotherapist</span></p>
             {!concise && <>
-              <a href={JANE_BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`button-gold ${styles.booking}`}><span>Book Online</span></a>
+              <a href={JANE_BOOKING_URL} data-booking-source="footer" target="_blank" rel="noopener noreferrer" className={`button-gold ${styles.booking}`}><span>Book Online</span></a>
               <a href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.registration}`}><ShieldCheckIcon aria-hidden="true" /><span>CPO Verified Registration</span></a>
             </>}
           </div>

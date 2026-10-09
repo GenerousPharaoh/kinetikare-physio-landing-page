@@ -5,6 +5,7 @@ import {
   ConditionComparison,
   getComparisonsForCondition,
 } from '@/lib/condition-comparisons';
+import { inlineName } from '@/lib/text';
 
 /**
  * ComparisonCrossLinks
@@ -45,7 +46,7 @@ export default function ComparisonCrossLinks({
           </h3>
           <p className="mt-1 text-xs text-slate-500">
             Side-by-side comparisons for patterns that often get mistaken for{' '}
-            {currentConditionName.toLowerCase()}.
+            {inlineName(currentConditionName)}.
           </p>
         </div>
       </div>
@@ -65,7 +66,7 @@ export default function ComparisonCrossLinks({
               >
                 <div className="flex items-start justify-between gap-3">
                   <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm leading-snug">
-                    Is this {currentConditionName.toLowerCase()} or {other.shortName.toLowerCase()}?
+                    Is this {inlineName(currentConditionName)} or {inlineName(other.shortName)}?
                   </p>
                   <ArrowRightIcon
                     className="h-3.5 w-3.5 text-slate-300 group-hover:text-[#B08D57] group-hover:translate-x-0.5 flex-shrink-0 mt-0.5 transition-all"
@@ -79,8 +80,8 @@ export default function ComparisonCrossLinks({
                 </span>
 
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  How I separate {currentConditionName.toLowerCase()} from{' '}
-                  {other.shortName.toLowerCase()} by pattern, tests, and exam findings.
+                  How I separate {inlineName(currentConditionName)} from{' '}
+                  {inlineName(other.shortName)} by pattern, tests, and exam findings.
                 </p>
               </Link>
             </li>

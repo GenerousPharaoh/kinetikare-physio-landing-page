@@ -8210,6 +8210,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
   },
 
   'mcl-lcl-sprains': {
+    summary: `The MCL (medial collateral ligament) runs down the inner side of the knee, and the LCL (lateral collateral ligament) runs down the outer side. Together they stop the knee bending sideways: the MCL resists the knee being pushed inward, and the LCL resists it being pushed outward.`,
     pathophysiology: `The MCL (medial collateral ligament) runs down the inner side of the knee, and the LCL (lateral collateral ligament) runs down the outer side. Together they stop the knee bending sideways: the MCL resists the knee being pushed inward, and the LCL resists it being pushed outward.
 
 They are usually injured in different ways. The MCL is one of the most commonly injured parts of the knee (Phisitkul et al., Iowa Orthopaedic Journal, 2006). It is typically sprained by a blow to the outside of the knee or a twist with the foot planted that makes the knee buckle inward, which is common in hockey, soccer, football and skiing. The LCL is injured less often, usually by a force to the inner side of the knee, a hyperextension or a twist, and it is often hurt together with the structures at the back and outer corner of the knee (the posterolateral corner) or a cruciate ligament (Grawe et al., Journal of the American Academy of Orthopaedic Surgeons, 2018).

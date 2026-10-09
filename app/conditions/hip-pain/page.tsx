@@ -224,7 +224,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Can physiotherapy help hip pain without surgery?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
+      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block usually comes first.',
   },
   {
     question: 'When should I worry about hip pain?',

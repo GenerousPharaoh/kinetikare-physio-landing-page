@@ -517,7 +517,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         question: 'Can I have both at the same time?',
         answer:
-          "Yes, and in jumping sports it is a common pattern in younger athletes. The two rehabs overlap heavily, with hip strengthening, quad loading, and load management all doing double duty. The key is dosing both tissues within their current tolerance rather than pretending only one is the problem.",
+          "Yes, and in jumping sports it is a common pattern in younger athletes. The two rehabs overlap heavily, with hip strengthening, quad loading, and load management all doing double duty. What matters is dosing both tissues within their current tolerance rather than pretending only one is the problem.",
       },
       {
         question: "Why does my patellar tendon hurt more the day after training, not during?",

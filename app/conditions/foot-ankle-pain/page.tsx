@@ -741,7 +741,7 @@ export default function FootAnklePainHubPage() {
                   height, standing breaks at work, or how push-off is loaded. Build capacity with
                   progressive strengthening exercises for the calf, foot, and hip, dosed to your
                   current tolerance. Restore the balance and control work that acute ankle injuries
-                  reliably need and rarely get. Joint mobilization, soft tissue therapy, dry
+                  need and that is often skipped. Joint mobilization, soft tissue therapy, dry
                   needling, or instrument-assisted work can sit alongside that where they help. I
                   write the plan down with you and track a handful of markers so it is
                   clear whether it is working. If it is not, I change direction sooner rather than

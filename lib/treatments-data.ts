@@ -584,7 +584,7 @@ export const treatments: Treatment[] = [
       },
       {
         question: 'How many cupping sessions will I need?',
-        answer: 'Cupping is not something you should need indefinitely. It is used to take the edge off tight, guarded tissue so the active part of your rehabilitation goes better, and most people need it for only a handful of sessions while the underlying issue settles. If it is helping, you will feel the difference quickly. If it is not, it is not worth continuing.'
+        answer: 'Cupping is not something you should need indefinitely. It is used to take the edge off tight, guarded tissue so the active part of your rehabilitation goes better, and most people need it for only a handful of sessions while the underlying issue settles. If it is helping, you will usually notice within a few sessions. If it is not, it is not worth continuing.'
       }
     ],
     relatedConditions: ['greater-trochanteric-pain-syndrome', 'it-band-syndrome', 'proximal-hamstring-tendinopathy', 'hamstring-strains', 'groin-strains', 'piriformis-syndrome', 'achilles-tendinopathy', 'low-back-pain', 'shoulder-impingement', 'rotator-cuff-injuries'],

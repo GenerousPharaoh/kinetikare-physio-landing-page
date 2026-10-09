@@ -179,7 +179,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'My teenager has a painful bump right below their kneecap. Is that serious?',
     answer:
-      'The most common reason is Osgood-Schlatter, a growth-plate irritation at the top of the shinbone where the patellar tendon attaches. It is not dangerous, almost always settles with age and guided management, and responds well to activity modification plus knee strengthening. Rathleff and colleagues in the Orthopaedic Journal of Sports Medicine (2020) showed 80 percent reporting a successful outcome at 12 weeks and 90 percent at one year with that approach.',
+      'The most common reason is Osgood-Schlatter, a growth-plate irritation at the top of the shinbone where the patellar tendon attaches. It is not dangerous, usually settles with age and guided management, and responds well to activity modification plus knee strengthening. Rathleff and colleagues in the Orthopaedic Journal of Sports Medicine (2020) showed 80 percent reporting a successful outcome at 12 weeks and 90 percent at one year with that approach.',
   },
   {
     question: 'Does imaging help if the pain is right below the kneecap?',

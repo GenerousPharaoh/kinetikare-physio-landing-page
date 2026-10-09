@@ -139,6 +139,7 @@ A six-part review of every page (findings and per-area fix logs in `~/Documents/
 - Every condition and comparison page carries a "When to see a doctor first" list (`clinicalRedFlags: [{ sign, action }]`, comparisons `redFlags`).
 - Neck, whiplash, tennis and golfer's elbow, carpal tunnel and de Quervain's are kept but not promoted: never first in a list, and the related-conditions category fallback skips neck and whiplash (`NOT_PROMOTED_FALLBACK_SLUGS` in `lib/conditions-data.ts`). No MVA or workplace-injury wording.
 - No " - " used as a dash in rendered text, as well as no em or en dashes.
+- No categorical claims in Kareem's voice or about outcomes (his words, 2026-10-09: "I hate categorical claims like this"): write "many", "often", "usually", "can", never "almost everyone", "never lasts", "the one thing", "the key is", "the reframe that changes things", "what actually changes things", "the real culprit". Promises about process are fine ("I always screen the hip", "consent is always required").
 - On phones `styles/responsive-premium.css` gives every `button` a 44px minimum and 12px 20px padding; inline buttons (glossary terms in `Term.tsx`) must reset `min-h-0 min-w-0 p-0 shadow-none` or they break line spacing.
 
 ## Condition page design (2026-10-09, after the mobile audit)

@@ -272,7 +272,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Will physiotherapy help if my knee keeps swelling?',
     answer:
-      'Often yes, once serious or systemic causes have been ruled out. For osteoarthritis, the OARSI 2019 guidelines and NICE NG226 both position structured exercise, education, and self-management as first-line care, and recurrent low-grade swelling usually settles as the joint becomes better conditioned and load is better managed. For post-traumatic cases, structured rehabilitation is almost always part of the pathway, sometimes alongside surgery for specific injuries.',
+      'Often yes, once serious or systemic causes have been ruled out. For osteoarthritis, the OARSI 2019 guidelines and NICE NG226 both position structured exercise, education, and self-management as first-line care, and recurrent low-grade swelling usually settles as the joint becomes better conditioned and load is better managed. For post-traumatic cases, structured rehabilitation is usually part of the pathway, sometimes alongside surgery for specific injuries.',
   },
   {
     question: 'Is ice or heat better for knee swelling?',

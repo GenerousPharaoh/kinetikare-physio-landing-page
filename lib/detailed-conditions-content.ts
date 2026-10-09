@@ -523,9 +523,9 @@ Strength and fitness matter for recovery and for the next flare. A back and hips
     },
 
     clinicalObservations: {
-      body: `Sciatica frightens people more than almost anything else I treat, usually because the pain is severe, travels down the leg, and they have read the worst online. The reassuring reality is that most sciatica from an irritated disc or nerve root settles over time. Early on the goal is not to fix everything at once but to find the positions and movements that pull the symptoms back up toward the spine and out of the leg. Once that direction is clear, it becomes the lever for the whole recovery.
+      body: `Sciatica can be frightening, usually because the pain is severe and travels down the leg, and many people have read the worst online by the time I see them. The reassuring part is that sciatica from an irritated disc or nerve root often settles over time. Early on the goal is not to fix everything at once but to find the positions and movements that ease the leg symptoms. Once that direction is clear, it can guide much of the early recovery.
 
-What I see hold people back is the instinct to rest flat and wait it out. Gentle, frequent movement and getting out of prolonged sitting usually does more than bed rest, even when that feels counterintuitive. I do screen carefully for the small number of signs that need a doctor rather than physiotherapy, but for most people I see in Burlington, sciatica is a problem of nerve irritation that calms down with the right movement, a bit of patience, and gradually rebuilding tolerance for sitting and loading.`,
+Something I often see hold people back is the instinct to rest flat and wait it out. For most people, gentle, frequent movement and breaking up long periods of sitting help more than bed rest, even when that feels counterintuitive. I screen carefully for the signs that need a doctor rather than physiotherapy, but for many people I see in Burlington, sciatica is nerve irritation that can calm down with the right movement, some patience, and gradually rebuilding tolerance for sitting and loading.`,
       lastReviewed: '2026-06-03',
     },
 
@@ -745,9 +745,9 @@ What I see hold people back is the instinct to rest flat and wait it out. Gentle
 
   'rotator-cuff-injuries': {
     clinicalObservations: {
-      body: `The shoulders I can usually settle without surgery show their hand early. With the gradual, wear-related cuffs I see most often, they build pain-free force on an isometric hold within a visit or two, and night pain eases over a couple of weeks. That tells me the tendon is sensitive and under-loaded, and will respond to work whatever the scan named. Painless weakness after a sudden fall, where the arm will not lift, is a different problem, one I move on quickly for an orthopaedic opinion.
+      body: `With the gradual, wear-related cuff problems I see most often, early progress is usually a good sign: being able to build pain-free force on an isometric hold within a visit or two, and night pain easing over a couple of weeks. When that happens, the tendon is likely to respond to loading, whatever the scan named. Painless weakness after a sudden fall, where the arm will not lift, is a different problem, and one I refer on quickly for an orthopaedic opinion.
 
-The pattern that costs people most is stopping once the shoulder feels mostly normal. Pain settles and reaching returns, but the heavier overhead and end-range work never gets done, so the cuff re-flares the first demanding thing asked of it. Rebuilding overhead pressing, loaded carries, and end-range control is the part that holds. At each clinic I work from, I keep enough loading on hand to finish that phase properly, rather than light band work that stopped challenging the cuff.`,
+A common setback is stopping once the shoulder feels mostly normal. Pain settles and reaching returns, but the heavier overhead and end-range work can get skipped, and the cuff may flare again the next time it is asked to do something demanding. Rebuilding overhead pressing, loaded carries, and end-range control is the part that tends to hold up. At each clinic I work from, I keep enough load on hand to finish that phase properly.`,
       lastReviewed: '2026-06-03',
     },
     pathophysiology: `The rotator cuff consists of four muscles that stabilize and move your shoulder. These tendons can be injured through sudden trauma or gradual wear. The tendon tissue becomes disorganized and may develop tears.
@@ -1031,9 +1031,9 @@ Age plays a part, because tendons change over the decades and cuff changes are c
 
   'tennis-elbow': {
     clinicalObservations: {
-      body: `The pattern I see most is people treating this as something that should clear up in a couple of weeks, then getting frustrated when it does not. For most people it is the dominant arm, so true rest never happens, and the elbow stays just irritated enough to never settle on its own. The reframe that matters is that flare-ups are usually about cumulative grip load across a whole day, not one bad movement. When someone in Burlington tells me it felt fine at work but flared washing dishes that night, that is the tendon adding up everything from the day, not punishing one low-stakes task. The real culprit is often hours earlier.
+      body: `A pattern I see often is people expecting this to clear up in a couple of weeks, then getting frustrated when it does not. For most people it is the dominant arm, so full rest rarely happens, and the elbow can stay irritated enough that it does not settle on its own. Flare-ups are often about the total grip load across a day rather than one bad movement. When someone in Burlington tells me it felt fine at work but flared while washing dishes that night, that is often the whole day's load showing up, not that one task.
 
-So I have people watch the trend rather than a single reading. If the elbow is consistently no worse, or calmer, over a few mornings, the running load is about right. Morning stiffness that eases quickly with movement is usually just that, not a sign you overdid it. The honest part most people miss: they quit in the quiet middle stretch, when the pain has settled but the capacity has not caught up yet.`,
+So I have people watch the trend rather than a single reading. If the elbow is no worse, or calmer, over a few mornings, the load is probably about right. Morning stiffness that eases quickly with movement is usually just that, not a sign you overdid it. A common stumbling point is stopping in the quieter middle stretch, when the pain has settled but strength has not caught up yet.`,
       lastReviewed: '2026-06-03',
     },
     patternMatcher: {
@@ -3469,9 +3469,9 @@ With chronic ankle instability, the entire lower limb adapts through compensator
 
   'achilles-tendinopathy': {
     clinicalObservations: {
-      body: `The pattern I see most is someone treating this as a tight calf and chasing it with stretching and foam rolling for months. With insertional cases especially, that aggressive stretching usually makes things worse, because pinning the heel into deep dorsiflexion is exactly the compression the tendon cannot tolerate yet. The other common wrong turn is assuming a stubborn calf strain that simply will not heal. A simple calf strain usually settles over a few weeks. A tendon that hurts most on the first steps in the morning, eases with a warm-up, then aches again that evening is telling you it is a capacity problem, not a tissue you need to loosen.
+      body: `Something I see often is someone treating this as a tight calf and working on it with stretching and foam rolling for months. With insertional cases especially, aggressive stretching can make things worse, because deep dorsiflexion compresses the tendon where it is most sensitive. Another common assumption is a calf strain that will not heal. A simple calf strain usually settles over a few weeks. A tendon that hurts most on the first steps in the morning, eases with a warm-up, then aches again that evening usually points to a tendon load problem rather than tightness.
 
-What actually changes things is making the loading fit your real week so you genuinely do it, not a perfect program you abandon. With the people I see in Burlington, the work is finding the version of calf raises they will repeat three times a week for months, because consistency beats intensity here. Expect good days and flare days both. A flare the morning after is information to adjust the dose, not proof you have failed. A sudden sharp pop with the sense of being kicked in the back of the ankle, or a new inability to push off, is a different problem and worth getting checked promptly rather than loaded through.`,
+What tends to help most is making the loading fit your real week so you actually do it, rather than a perfect program you abandon. With the people I see in Burlington, the work is finding the version of calf raises they will keep doing several times a week for months, because consistency usually matters more than intensity here. Expect good days and flare days. A flare the morning after is information to adjust the dose, not a sign you have failed. A sudden sharp pop with the sense of being kicked in the back of the ankle, or a new inability to push off, is a different problem and worth getting checked promptly rather than loaded through.`,
       lastReviewed: '2026-06-03',
     },
     pathophysiology: `Achilles tendinopathy is a failed healing response characterized by degenerative changes rather than acute inflammation. The condition involves disorganized collagen, increased ground substance, and neovascularization within the tendon. This represents a chronic overuse injury where the cumulative load on the tendon exceeds its adaptive capacity.
@@ -3677,7 +3677,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       {
         question: "When should I worry about an Achilles rupture versus tendinopathy?",
-        answer: "A rupture is almost always a sudden event, often with a pop or a sensation of being struck in the calf, followed by immediate difficulty pushing off or rising onto the toes. Inability to perform even a small single-leg heel raise, or a positive Thompson test (squeezing the calf while lying face-down fails to move the foot), warrants urgent assessment rather than rehab planning. Tendinopathy, by contrast, builds gradually and preserves most strength."
+        answer: "A rupture is usually a sudden event, often with a pop or a sensation of being struck in the calf, followed by immediate difficulty pushing off or rising onto the toes. Inability to perform even a small single-leg heel raise, or a positive Thompson test (squeezing the calf while lying face-down fails to move the foot), warrants urgent assessment rather than rehab planning. Tendinopathy, by contrast, builds gradually and preserves most strength."
       },
       {
         question: "Does ultrasound or MRI change the treatment plan for Achilles pain?",
@@ -3932,7 +3932,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
       },
       {
         question: "Why did my shin splints come back when I started running again?",
-        answer: "Almost always because the running volume, speed, or surface returned faster than the bone could adapt. Bone remodels on a slower timeline than muscle, and a tibia that was stressed enough to become painful needs a methodical build-up, with small weekly increases and regular down-weeks. Recurrence usually points to either an unresolved strength deficit or a training plan that outran the tissue."
+        answer: "Usually because the running volume, speed, or surface returned faster than the bone could adapt. Bone remodels on a slower timeline than muscle, and a tibia that was stressed enough to become painful needs a methodical build-up, with small weekly increases and regular down-weeks. Recurrence usually points to either an unresolved strength deficit or a training plan that outran the tissue."
       }
     ],
 
@@ -3981,9 +3981,9 @@ Biomechanical factors significantly influence shin splint development. Overprona
 
   'golfers-elbow': {
     clinicalObservations: {
-      body: `The thing I see most often is people hunting for the single moment that caused this, one heavy lift or one bad day, when the real driver is something quiet and constant. It is the forearm held turned-in and gripping for hours: the phone clutched at the bottom edge, the steering wheel, the mouse, the dog leash wound tight, a toddler hauled on one hip. None of it feels like an injury, so nobody flags it. The inner elbow tends to be slower to settle and more easily stirred up than people expect, which is what makes the all-day low-grade load matter more than the obvious culprit.
+      body: `Something I see often is people looking for the single moment that caused this, one heavy lift or one bad day, when the bigger contributor is often something quiet and constant: the forearm turned in and gripping for hours, whether that is the phone held at the bottom edge, the steering wheel, the mouse, a dog leash wound tight, or a toddler carried on one hip. None of it feels like an injury, so it is easy to overlook. The inner elbow can be slower to settle than people expect, which is why the all-day, low-grade load matters.
 
-What actually shifts things is finding that hidden constant exposure and quieting the grip force you are using without noticing, then loading deliberately on top of a calmer baseline. With the people I see in Burlington, I spend real time mapping the ordinary day before any loading starts. Honest version: progress is rarely linear here, and a flare does not mean you have undone anything. Pins and needles or numbness into the ring and little fingers is a different signal, the ulnar nerve rather than the tendon, and worth getting assessed rather than worked through.`,
+What tends to help is finding that constant exposure and easing the grip force you use without noticing, then building load gradually on top of a calmer baseline. With the people I see in Burlington, I spend time mapping an ordinary day before loading starts. Progress is often uneven here, and a flare does not mean you have undone anything. Pins and needles or numbness into the ring and little fingers is a different signal, the ulnar nerve rather than the tendon, and worth getting assessed rather than worked through.`,
       lastReviewed: '2026-06-03',
     },
     patternMatcher: {
@@ -4236,7 +4236,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
       },
       {
         question: "Should I rest my elbow completely?",
-        answer: "Complete rest usually stalls recovery. Tendinopathies respond to progressive load, not avoidance. Reducing aggravating peaks while continuing gentle, structured loading is what rebuilds tendon capacity. When people take weeks off and then return to full activity, symptoms almost always come back within days because the tendon's capacity has not changed."
+        answer: "Complete rest usually stalls recovery. Tendinopathies respond to progressive load, not avoidance. Reducing aggravating peaks while continuing gentle, structured loading is what rebuilds tendon capacity. When people take weeks off and then return to full activity, symptoms often come back soon after, because the tendon's capacity has not changed."
       },
       {
         question: "Should I get a cortisone shot for golfer's elbow?",
@@ -4864,7 +4864,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
       },
       {
         question: "Do I need surgery?",
-        answer: "Usually not. Surgical release of the first dorsal compartment is an option when it is needed, but the path almost always starts with a thumb spica, activity change, and graded rehab, then a corticosteroid injection if conservative care plateaus. Surgery is reserved for people who have failed a proper trial of conservative care including injection, or for clear anatomical reasons like a separate EPB sub-compartment that keeps blocking injection success."
+        answer: "Usually not. Surgical release of the first dorsal compartment is an option when it is needed, but the path usually starts with a thumb spica, activity change, and graded rehab, then a corticosteroid injection if conservative care plateaus. Surgery is reserved for people who have failed a proper trial of conservative care including injection, or for clear anatomical reasons like a separate EPB sub-compartment that keeps blocking injection success."
       }
     ],
     exerciseProgression: {
@@ -5513,9 +5513,9 @@ Sleep positioning creates sustained compression that explains the characteristic
     },
 
     clinicalObservations: {
-      body: `Almost everyone I see for this has been told it is bursitis, has tried rest, and often had a cortisone shot that helped for a few weeks before the pain came back. The reframe that changes things is understanding it as a tendon that has lost capacity, not a bursa to be calmed. Rest lets the tendon get weaker, which is why that relief never lasts.
+      body: `Many of the people I see for this have been told it is bursitis, and some have tried rest or had a cortisone injection that helped for a while before the pain returned. Research now suggests that most of this pain involves the gluteal tendons rather than the bursa alone, so I treat it as a tendon that needs its capacity rebuilt. Rest can settle the pain for a time, but it does not build that capacity.
 
-The fastest wins usually come from removing compression before any strengthening even starts: not sleeping with the top knee dropped across the body, not crossing the legs, not standing hung onto one hip. I spend real time on these details with people in Burlington, because they are what ease the night pain, and a calmer tendon is one you can actually start to load. From there it is patient, progressive hip strengthening. Stretching the outside of the hip is usually the one thing to avoid, since it adds the very compression that drives the pain.`,
+Early relief often comes from reducing pressure on the tendon before strengthening starts: avoiding sleeping with the top knee dropped across the body, not crossing the legs, and not standing with your weight hung onto one hip. I spend time on these details with people in Burlington, because they often ease the night pain, and a calmer tendon is easier to start loading. From there it is gradual, progressive hip strengthening. I usually advise against stretching across the outside of the hip, since that position compresses the tendon.`,
       lastReviewed: '2026-06-03',
     },
 
@@ -5744,7 +5744,7 @@ The fastest wins usually come from removing compression before any strengthening
       },
       {
         question: "Is walking safe with lateral hip pain?",
-        answer: "Almost always, in some form. Complete rest is rarely helpful, and deconditioning makes the problem worse. The key is reducing provocation: avoid walking to the point of flare, break up long walks, choose flatter routes in early rehab, and hold off on hill repeats until tolerance builds. I usually prescribe a specific daily walking dose and adjust it weekly based on symptom response."
+        answer: "Usually, in some form. Complete rest is rarely helpful, and deconditioning makes the problem worse. What helps is reducing provocation: avoid walking to the point of flare, break up long walks, choose flatter routes in early rehab, and hold off on hill repeats until tolerance builds. I usually prescribe a specific daily walking dose and adjust it weekly based on symptom response."
       },
       {
         question: "Is GTPS more common in women?",
@@ -6157,7 +6157,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Offload the Side and Calm Irritability (Weeks 1 to 4)",
-        focus: "Lateral hip bursitis is almost always riding on top of gluteal tendinopathy, so the early job mirrors the LEAP trial approach (Mellor et al., BMJ 2018): reduce compression of the tendon and bursa against the greater trochanter, keep the hip moving, and start non-provocative isometric loading. Sleep and sitting positions often dictate early progress more than any single exercise.",
+        focus: "Lateral hip bursitis usually occurs alongside gluteal tendinopathy, so the early job mirrors the LEAP trial approach (Mellor et al., BMJ 2018): reduce compression of the tendon and bursa against the greater trochanter, keep the hip moving, and start non-provocative isometric loading. Sleep and sitting positions often dictate early progress more than any single exercise.",
         examples: [
           "Side-lying with a pillow between the knees to keep the hip out of adduction overnight",
           "Isometric hip abduction against a wall in standing, 5 sets of 30 to 45 seconds, twice daily",
@@ -6261,13 +6261,13 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
         "Difficulty with prolonged driving, sitting at desk, or enjoying meal at restaurant",
         "Pain with any activities that stretch or load the hamstring significantly"
       ],
-      typicalPattern: "The story of proximal hamstring tendinopathy is almost always centered around one specific, exquisitely tender spot: the ischial tuberosity, or the 'sitting bone.' The pain is a deep, localized ache right in the crease of the buttock. Patients often describe it as feeling like they are sitting on a rock. The narrative is one of insidious onset, frequently linked to a change in activity. It's the long-distance runner who recently added hill repeats to their training, or the office worker who started a new spin class. The most defining feature, and the source of immense frustration, is pain with sitting. Prolonged driving, sitting at a desk, or even enjoying a meal at a restaurant becomes a painful ordeal, forcing them to shift their weight, stand up frequently, or perch on the edge of their seat."
+      typicalPattern: "The story of proximal hamstring tendinopathy usually centres on one specific, very tender spot: the ischial tuberosity, or the 'sitting bone.' The pain is a deep, localized ache right in the crease of the buttock. Patients often describe it as feeling like they are sitting on a rock. The narrative is one of insidious onset, frequently linked to a change in activity. It's the long-distance runner who recently added hill repeats to their training, or the office worker who started a new spin class. The most defining feature, and the source of immense frustration, is pain with sitting. Prolonged driving, sitting at a desk, or even enjoying a meal at a restaurant becomes a painful ordeal, forcing them to shift their weight, stand up frequently, or perch on the edge of their seat."
     },
 
     clinicalObservations: {
-      body: `The people I see with this have almost always spent months treating it as a tight hamstring, stretching it and rolling it, which is the one thing that reliably keeps it angry. The giveaway is the location and the behaviour: a deep, pinpoint ache right on the sitting bone that is at its worst not during a run but during the drive home afterward, or at a desk, or at a long dinner. Pain that is about sitting as much as sport points to the tendon's origin, not the muscle.
+      body: `Many people I see with this have spent months treating it as a tight hamstring, stretching and rolling it, which tends to keep it irritated. The clues are the location and the behaviour: a deep, pinpoint ache right on the sitting bone that is often worst not during a run but on the drive home afterward, at a desk, or through a long dinner. Pain that is about sitting as much as sport points more toward the tendon where it attaches than toward the muscle.
 
-I am honest with people that this one is slow. The early work is unglamorous, mostly settling the tendon down by managing how you sit and loading it gently without deep stretch, and the strengthening that follows is measured in months rather than weeks. The runners I see in Burlington who recover well are usually the ones who added hills or speed too quickly in the first place and are then willing to rebuild capacity just as gradually. There are genuinely no shortcuts with it, but it does respond when the loading is right.`,
+I am upfront with people that this one is usually slow. The early work is mostly settling the tendon by changing how you sit and loading it gently without deep stretching, and the strengthening that follows is measured in months rather than weeks. The runners I see in Burlington often developed it after adding hills or speed quickly, and they tend to do well when they rebuild just as gradually. There are no real shortcuts, but it usually responds when the loading is right.`,
       lastReviewed: '2026-06-03',
     },
 
@@ -6457,7 +6457,7 @@ I am honest with people that this one is slow. The early work is unglamorous, mo
       },
       {
         question: "Is this a tear or a tendinopathy?",
-        answer: "Two different problems. Tendinopathy is a gradual irritation and structural change from repetitive load. A tear, particularly a proximal avulsion described by Lempainen et al. (Muscles Ligaments Tendons J 2015), is usually sudden and traumatic, often with a pop during sprinting or waterskiing, sometimes with bruising tracking down the back of the thigh. The history almost always tells me which I am dealing with. Tears warrant imaging and sometimes surgical consult. Tendinopathy responds to loading."
+        answer: "Two different problems. Tendinopathy is a gradual irritation and structural change from repetitive load. A tear, particularly a proximal avulsion described by Lempainen et al. (Muscles Ligaments Tendons J 2015), is usually sudden and traumatic, often with a pop during sprinting or waterskiing, sometimes with bruising tracking down the back of the thigh. The history usually tells me which I am dealing with. Tears warrant imaging and sometimes surgical consult. Tendinopathy responds to loading."
       },
       {
         question: "How long does proximal hamstring tendinopathy take to settle?",
@@ -6501,9 +6501,9 @@ I am honest with people that this one is slow. The early work is unglamorous, mo
 
   'piriformis-syndrome': {
     clinicalObservations: {
-      body: `Most people I see for this arrive convinced it is their back, because the pain runs down the leg, and they have often had an MRI of the spine that came back fairly unremarkable and left them more confused than before. The detail that makes me look harder at the buttock is simple: their back itself feels fine, but they cannot sit through a meal, a drive, or a movie without shifting onto one cheek. When the trigger is the chair rather than bending and lifting, the deep buttock moves up my list, though a flexion-sensitive disc can behave the same way, so I still test for it before settling on a cause.
+      body: `Many people I see for this arrive thinking it is their back, because the pain runs down the leg, and some have had a spine MRI that did not explain it. One detail that makes me look more closely at the buttock is when the back itself feels fine but sitting through a meal, a drive or a movie is hard without shifting onto one side. When the chair is the main trigger rather than bending and lifting, the deep buttock moves up my list, though a disc that is sensitive to bending can behave the same way, so I still test for that before settling on a cause.
 
-The thing that helps soonest is often unglamorous. I look at what people sit on all day, and a thick wallet in the back pocket or a low, scooped car seat is a surprisingly common driver for the Burlington patients I see who spend a lot of their day in the car. Offloading that often gives the quickest early relief, and it makes the gentle nerve gliding and gradual hip strengthening that follow work better. Honest timeline: progress here is measured by how long you can sit before it bites, and that number climbs in weeks, not days, so patience genuinely pays off.`,
+What helps early is often simple. I look at what people sit on all day, and a thick wallet in the back pocket or a low, scooped car seat is a common contributor for people I see in Burlington who spend a lot of the day driving. Changing that can bring early relief, and it makes the gentle nerve gliding and gradual hip strengthening that follow easier. Progress here is usually measured by how long you can sit before it bothers you, and that tends to improve over weeks rather than days.`,
       lastReviewed: '2026-06-03',
     },
     pathophysiology: `Piriformis syndrome, as traditionally understood, involves irritation of the sciatic nerve by the piriformis muscle deep in the buttock. However, this represents an outdated understanding of buttock and leg pain. For decades, "Piriformis Syndrome" was used as a catch-all term for buttock pain with leg symptoms. The piriformis muscle can be involved, but the picture is now understood to be more complex.
@@ -6661,7 +6661,7 @@ The relationship between pelvic positioning and piriformis length significantly 
       },
       {
         question: "Should I stretch my piriformis aggressively?",
-        answer: "No. Aggressive end-range stretching often irritates an already sensitised nerve and makes things worse. Gentle, brief positional stretches that do not reproduce leg symptoms, combined with nerve gliding and strengthening of the hip external rotators and glutes, settle this condition more reliably than repeatedly pulling the knee to the opposite shoulder."
+        answer: "No. Aggressive end-range stretching often irritates an already sensitised nerve and makes things worse. Gentle, brief positional stretches that do not reproduce leg symptoms, combined with nerve gliding and strengthening of the hip external rotators and glutes, tend to help more than repeatedly pulling the knee to the opposite shoulder."
       },
       {
         question: "Why does sitting make it so much worse?",
@@ -7385,7 +7385,7 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
       },
       {
         question: "Is facet joint pain just arthritis, and does it get worse with age?",
-        answer: "Facet joints change with age in almost everyone. Whether those changes drive pain depends more on load management, strength, and movement quality than on the presence of arthritis itself. People with the same imaging can have very different clinical pictures."
+        answer: "Facet joints change with age in most people. Whether those changes drive pain depends more on load management, strength, and movement quality than on the presence of arthritis itself. People with the same imaging can have very different clinical pictures."
       },
       {
         question: "Should I avoid arching my back entirely?",
@@ -7589,7 +7589,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     faqs: [
       {
         question: "What actually is thoracic outlet syndrome?",
-        answer: "TOS is compression of the brachial plexus nerves, the subclavian vein, or the subclavian artery as they pass through the narrow space between the neck, first rib, and collarbone. There are three subtypes. Neurogenic TOS, where the nerves are compressed, accounts for the large majority of cases in published series from Sanders, Illig, and the Society for Vascular Surgery reporting standards. Venous TOS (Paget-Schroetter) and arterial TOS are uncommon but serious and are managed surgically. The three are genuinely different conditions that happen to share a name, and knowing which one you have changes everything about the plan."
+        answer: "TOS is compression of the brachial plexus nerves, the subclavian vein, or the subclavian artery as they pass through the narrow space between the neck, first rib, and collarbone. There are three subtypes. Neurogenic TOS, where the nerves are compressed, accounts for the large majority of cases in published series from Sanders, Illig, and the Society for Vascular Surgery reporting standards. Venous TOS (Paget-Schroetter) and arterial TOS are uncommon but serious and are managed surgically. The three are genuinely different conditions that happen to share a name, and knowing which one you have changes the plan considerably."
       },
       {
         question: "How is neurogenic TOS different from a pinched nerve in the neck?",
@@ -7690,9 +7690,9 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
 
   'shoulder-impingement': {
     clinicalObservations: {
-      body: `The people I see in Burlington for this almost never point to one spot. They wave a hand over the outer arm, somewhere around where the deltoid sits, and call it vague and deep. Many have talked themselves into a bicep or triceps problem, because that is where the ache lands when they reach overhead. What I pay attention to is the pattern: reaching up and tucking the arm behind the back tend to be the sore movements, and a lot of the range people think they have lost is guarding rather than a truly stiff joint. That distinction matters, because the guarding loosens once you start loading sensibly.
+      body: `People I see in Burlington for this often cannot point to one spot. They wave a hand over the outer arm, around where the deltoid sits, and describe it as vague and deep. Some assume it is a biceps or triceps problem, because that is where the ache lands when they reach overhead. What I pay attention to is the pattern: reaching up and tucking the arm behind the back are often the sore movements, and some of the range people think they have lost is guarding rather than a stiff joint. That distinction matters, because guarding often eases once loading starts sensibly.
 
-The piece I lean on most is timing the dose to how the shoulder feels the next morning, not how it feels mid-session. Some soreness while loading is fine if it settles within a day. Watching that stops the cycle of overdoing on good days and crashing the next. Full recovery here is usually months rather than weeks, though most people notice some change early, provided there is no sudden true weakness or a shoulder too irritable to load, which are worth getting checked first.`,
+I usually judge the dose by how the shoulder feels the next morning, not how it feels mid-session. Some soreness while loading is fine if it settles within a day. Watching that helps avoid overdoing it on good days and paying for it the next. Full recovery is usually months rather than weeks, though many people notice some change early. Sudden true weakness, or a shoulder too irritable to load, is worth getting checked first.`,
       lastReviewed: '2026-06-03',
     },
     patternMatcher: {
@@ -7905,7 +7905,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         question: "Can I keep lifting weights?",
-        answer: "Usually yes, with modifications. Complete rest tends to backfire. Early on I cut the movements that flare you (often overhead pressing, upright rows, behind-the-neck work) and keep loaded work below shoulder height with rotator cuff isometrics and scapular work layered in. As symptoms settle, overhead loading comes back in progressively. People who keep training modified almost always recover faster than those who stop everything for a month and try to jump back to their previous programme."
+        answer: "Usually yes, with modifications. Complete rest tends to backfire. Early on I cut the movements that flare you (often overhead pressing, upright rows, behind-the-neck work) and keep loaded work below shoulder height with rotator cuff isometrics and scapular work layered in. As symptoms settle, overhead loading comes back in progressively. People who keep training modified often recover faster than those who stop everything for a month and try to jump back to their previous programme."
       },
       {
         question: "Is bad posture causing this?",
@@ -8395,7 +8395,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         question: "How long will this take to settle?",
-        answer: "Most isolated cases of biceps tendinopathy improve meaningfully over 6 to 12 weeks of structured loading and activity modification, with full return to sport or heavy lifting often at 3 to 6 months. The longer timelines are almost always attached to coexisting rotator cuff pathology or delayed starts. Early, consistent loading beats waiting for the pain to pass and then trying to jump straight back into provocative training."
+        answer: "Most isolated cases of biceps tendinopathy improve meaningfully over 6 to 12 weeks of structured loading and activity modification, with full return to sport or heavy lifting often at 3 to 6 months. The longer timelines are usually linked to coexisting rotator cuff pathology or delayed starts. Early, consistent loading beats waiting for the pain to pass and then trying to jump straight back into provocative training."
       }
     ],
 
@@ -8753,9 +8753,9 @@ Body mass significantly influences absolute patellar tendon loading. Each kilogr
     },
 
     clinicalObservations: {
-      body: `Most of the jumping athletes I see for this in Burlington, the volleyball and basketball players especially, have been caught out by the warm-up effect. The knee loosens up a few minutes into training and feels fine, so they keep playing, then it bites harder that night and the next morning. That pattern, good during and worse after, is one of the clearest signs that the tendon is the problem rather than the kneecap joint.
+      body: `Many of the jumping athletes I see for this in Burlington, volleyball and basketball players especially, have been caught out by the warm-up effect. The knee loosens up a few minutes into training and feels fine, so they keep playing, then it hurts more that night and the next morning. That pattern, better during and worse after, often points to the tendon rather than the kneecap joint.
 
-The other thing I see constantly is the right exercise at the wrong dose. A patellar tendon responds to heavy, slow load, but it punishes sudden spikes, so the answer is rarely rest and rarely more stretching. It is finding the load the tendon can handle today and building from there, patiently. This one tests patience more than almost any knee problem, and the people who do best are the ones who stop chasing a quick fix and commit to the progression.`,
+Another thing I see often is the right exercise at the wrong dose. A patellar tendon tends to respond well to heavy, slow load but does not tolerate sudden spikes, so rest or more stretching on its own is usually not the answer. The work is finding the load the tendon can handle now and building from there. It can take patience, and people tend to do better when they commit to the progression rather than looking for a quick fix.`,
       lastReviewed: '2026-06-03',
     },
 
@@ -9047,9 +9047,9 @@ Training load matters too. A sudden increase in running, jumping, hills or stair
     },
 
     clinicalObservations: {
-      body: `A lot of the runners and desk workers I see in Burlington arrive worried because the pain sits right at the kneecap and nothing showed up on a scan. That is actually the typical picture. Patellofemoral pain is usually a load and control problem rather than a sign of damage, and the knee is often the victim rather than the culprit. When I assess it, the more telling findings are frequently at the hip: how well you control the thigh during a single-leg squat, and whether the knee drifts inward when you load it.
+      body: `Many of the runners and desk workers I see in Burlington arrive worried because the pain sits right at the kneecap and nothing showed up on a scan. That is a common picture. Patellofemoral pain is usually a load and control problem rather than a sign of damage. When I assess it, I look beyond the kneecap, including how well you control the thigh during a single-leg squat and whether the knee drifts inward when you load it.
 
-That is why treatment that only pokes around the kneecap tends to stall. The cases that turn around are the ones where the plan builds hip and thigh strength and cleans up how you load the knee on stairs and in squatting, instead of chasing the painful spot itself. It is rarely dramatic, but it is reliable when the strengthening is matched to where you are actually starting from.`,
+Treatment that focuses only on the kneecap can stall. Plans that build hip and thigh strength and adjust how you load the knee on stairs and in squatting tend to do better, and that is what current guidelines recommend. Progress is usually gradual, and it tends to be steady when the strengthening matches where you are starting from.`,
       lastReviewed: '2026-06-03',
     },
 
@@ -12871,7 +12871,7 @@ Ground reaction force patterns change significantly with hallux valgus progressi
 
     understanding: `Hallux valgus, commonly called a bunion, represents one of the most prevalent foot deformities, affecting approximately 23% of adults and showing a strong female predominance (9:1 ratio). While often attributed solely to tight shoes, the condition actually results from complex interactions between genetic predisposition, foot structure, and environmental factors including footwear choices.
 
-The key to understanding hallux valgus lies in recognizing it as a progressive structural problem rather than simply a cosmetic concern. The visible bunion prominence is actually the least significant aspect of the condition - the real problem is the three-dimensional joint malalignment that affects the entire forefoot's function.
+The key to understanding hallux valgus lies in recognizing it as a progressive structural problem rather than simply a cosmetic concern. The visible bunion prominence is actually the least significant aspect of the condition - the bigger issue is the three-dimensional joint malalignment that affects the entire forefoot's function.
 
 Many patients delay seeking treatment because early stages can be relatively asymptomatic. However, the deformity tends to be progressive, and early intervention focusing on biomechanical factors can significantly slow progression and prevent the development of secondary problems like transfer metatarsalgia or lesser toe deformities.
 
@@ -13674,7 +13674,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
       },
       {
         question: "Can turf toe cause long-term problems?",
-        answer: "Yes, particularly when grade 3 injuries are under-treated or when people rush back from a grade 2 before the tissue is ready. McCormick and Anderson (Sports Health, 2010) documented the link between unresolved plantar plate injuries and chronic first MTP instability, progressive hallux valgus, and early post-traumatic arthritis. The good news is that when grading is accurate and rehab is respected, most athletes return to full performance without long-term sequelae. The key is accurate grading early rather than pushing through pain."
+        answer: "Yes, particularly when grade 3 injuries are under-treated or when people rush back from a grade 2 before the tissue is ready. McCormick and Anderson (Sports Health, 2010) documented the link between unresolved plantar plate injuries and chronic first MTP instability, progressive hallux valgus, and early post-traumatic arthritis. The good news is that when grading is accurate and rehab is respected, most athletes return to full performance without long-term sequelae. Accurate grading early matters more than pushing through pain."
       },
       {
         question: "Do I actually need to avoid barefoot walking at home?",
@@ -14530,7 +14530,7 @@ Where reduced foot sensation is present, skin checks and footwear review become 
       },
       {
         question: "Should I exercise if my blood sugar is not well controlled?",
-        answer: "Generally yes, with some sensible adjustments. Colberg and colleagues' 2016 position statement in Diabetes Care supports regular aerobic and resistance training for almost everyone with diabetes, because exercise improves glycaemic control, cardiovascular health, and musculoskeletal function. If blood sugars are very high or very unstable, coordination with your physician or diabetes nurse is important before progressing load, and any new foot sores or unusual symptoms need medical review."
+        answer: "Generally yes, with some sensible adjustments. Colberg and colleagues' 2016 position statement in Diabetes Care supports regular aerobic and resistance training for most people with diabetes, because exercise improves glycaemic control, cardiovascular health, and musculoskeletal function. If blood sugars are very high or very unstable, coordination with your physician or diabetes nurse is important before progressing load, and any new foot sores or unusual symptoms need medical review."
       },
       {
         question: "Why is my hand stiff and clawing, even though it does not hurt?",

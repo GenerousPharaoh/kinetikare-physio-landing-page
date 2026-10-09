@@ -489,7 +489,7 @@ export default function ElbowPainHubPage() {
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
                   Elbow pain sorts itself cleanly. Pain on the outside of the elbow that flares
-                  when you grip, pour, or shake a hand is almost always tennis elbow. Pain on the
+                  when you grip, pour, or shake a hand is usually tennis elbow. Pain on the
                   inside that flares with wrist flexion, a golf swing, or a heavy pull is almost
                   always golfer&rsquo;s elbow. Numbness in the ring and little finger points to the
                   ulnar nerve at the inner elbow. Numbness in the thumb, index, and middle

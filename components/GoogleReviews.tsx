@@ -298,7 +298,7 @@ export default function GoogleReviews() {
                         {/* Reviewer Name - Enhanced */}
                         <div className="flex items-center justify-between flex-shrink-0 pt-4 border-t border-gray-200 relative z-10">
                           <div className="font-semibold text-gray-900">{review.name}</div>
-                          <div className="text-sm text-gray-500">Verified Patient</div>
+                          <div className="text-sm text-gray-500">Google review</div>
                         </div>
                       </div>
                     </div>

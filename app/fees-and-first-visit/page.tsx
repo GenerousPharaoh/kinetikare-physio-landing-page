@@ -8,7 +8,7 @@ import { serializeJsonLd } from '@/lib/structured-data';
 import { SEO_ORGANIZATION_ID, SEO_PERSON_ID } from '@/lib/seo-metadata';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/fees-and-first-visit';
-const PAGE_TITLE = 'Physiotherapy Fees and First Visit in Burlington | Kareem Hassanein';
+const PAGE_TITLE = 'Physiotherapy Fees and First Visit in Burlington';
 const PAGE_DESCRIPTION =
   'Initial assessment $110 (45 min). Follow-ups $90 (30 min), $100 (40 min) or $135 (60 min). Direct billing at Endorphins in Burlington, no referral needed.';
 
@@ -190,7 +190,7 @@ export default function FeesAndFirstVisitPage() {
               ['What to wear', 'Comfortable, athletic-style clothing that lets you move freely and gives access to the area being assessed: shorts for a knee, a tank top for a shoulder. If you prefer certain areas to stay covered, the assessment adapts.'],
               ['What to bring', 'Your insurance card or policy and group numbers, a list of any medications, and any relevant reports or imaging results if you have them.'],
               ['Bringing someone', 'A partner, friend, family member or caregiver is welcome to join you. Mention it when you book.'],
-              ['Cancelling or rescheduling', 'Please give at least 24 hours notice so the time can be offered to someone else. If an emergency or illness means you have to cancel at short notice, let me know as soon as you can.'],
+              ['Cancelling or rescheduling', 'Please give at least 24 hours’ notice so the time can be offered to someone else. A missed appointment or one cancelled with less notice may be charged the full fee. If an emergency or illness means you have to cancel at short notice, let me know as soon as you can.'],
             ].map(([term, def]) => (
               <div key={term} className="grid gap-1 sm:grid-cols-[11rem_1fr] sm:gap-6 py-5">
                 <dt className="font-medium text-slate-900">{term}</dt>

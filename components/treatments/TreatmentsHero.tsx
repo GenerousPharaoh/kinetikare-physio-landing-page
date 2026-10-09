@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { m as motion } from 'framer-motion';
-import { SparklesIcon } from '@heroicons/react/24/outline';
 
 export default function TreatmentsHero() {
   return (
@@ -29,16 +28,6 @@ export default function TreatmentsHero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
-            >
-              <SparklesIcon className="w-5 h-5 text-[#B08D57]" />
-              <span className="text-sm font-medium text-gray-700">Evidence-Based Care</span>
-            </motion.div>
-
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
               Treatment <span className="font-semibold">Approaches</span>
             </h1>
@@ -50,7 +39,7 @@ export default function TreatmentsHero() {
             </div>
 
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-10">
-              Tailored physiotherapy treatments designed for your unique needs and recovery goals
+              The treatments I use, and what each one is for
             </p>
           </motion.div>
         </div>

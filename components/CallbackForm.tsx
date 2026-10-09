@@ -93,7 +93,7 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
             Prefer a call back?
           </h2>
           <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
-            Leave your name and number and Kareem will call you back to sort out a time. No account needed.
+            Leave your name and number and I will call you back to sort out a time. No account needed.
           </p>
           <p className="mt-3 text-[13px] text-slate-500">
             Your details are used only to return your call. If it is urgent, call the clinic on{' '}
@@ -107,7 +107,7 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
         <div className="lg:col-span-7">
           {status === 'done' ? (
             <div role="status" className="rounded-xl border border-[#D4AF37]/40 bg-[#FBF7EC] p-6">
-              <p className="font-playfair text-xl text-slate-900">Thanks. Kareem will call you back.</p>
+              <p className="font-playfair text-xl text-slate-900">Thanks. I will call you back.</p>
               <p className="mt-2 text-[15px] text-slate-600">
                 If you would rather book a time yourself, the Book button on this page goes to the online calendar.
               </p>

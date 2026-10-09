@@ -44,14 +44,14 @@ const regionHubs: {
     blurb: 'Front, inside, outside, or back-of-knee pain, mapped to the most likely causes.',
   },
   {
+    slug: 'foot-ankle-pain',
+    label: 'Foot & Ankle Pain',
+    blurb: 'Heel, Achilles, ankle, and forefoot pain, mapped to the most likely causes.',
+  },
+  {
     slug: 'shoulder-pain',
     label: 'Shoulder Pain',
     blurb: 'Rotator cuff, stiffness, impingement, and instability sorted by symptom pattern.',
-  },
-  {
-    slug: 'elbow-pain',
-    label: 'Elbow Pain',
-    blurb: 'Tennis elbow, golfer’s elbow, nerve irritation, and elbow stiffness at a glance.',
   },
 ];
 
@@ -62,17 +62,20 @@ const painGuides: { slug: string; label: string }[] = [
 ];
 
 // Pulled from CONDITION_COMPARISONS so this row stays in sync automatically
-// as new comparison pages are added.
-const comparisonLinks = CONDITION_COMPARISONS.map((c) => ({
-  pair: c.pair,
-  label: `${c.conditionA.shortName} vs. ${c.conditionB.shortName}`,
-}));
+// as new comparison pages are added. Elbow pairs go last: tennis and golfer's
+// elbow are not areas Kareem promotes, so they should not lead the list.
+const comparisonLinks = [...CONDITION_COMPARISONS]
+  .sort((a, b) => Number(a.pair.includes('elbow')) - Number(b.pair.includes('elbow')))
+  .map((c) => ({
+    pair: c.pair,
+    label: `${c.conditionA.shortName} vs. ${c.conditionB.shortName}`,
+  }));
 
 const regionImages: Record<string, string> = {
   'hip-pain': '/images/regions/hip-pelvis.webp',
   'knee-pain': '/images/regions/knee.webp',
+  'foot-ankle-pain': '/images/regions/foot-ankle.webp',
   'shoulder-pain': '/images/regions/shoulder.webp',
-  'elbow-pain': '/images/conditions/golfers-elbow.webp',
 };
 
 export default function PopularConditionsSection() {
@@ -95,7 +98,7 @@ export default function PopularConditionsSection() {
             {regionHubs.map(region => (
               <Link key={region.slug} href={`/conditions/${region.slug}`} prefetch={false} className={styles.regionLink}>
                 <div className={styles.regionArt}>
-                  <Image src={regionImages[region.slug]} alt="" fill sizes="(min-width: 1200px) 270px, (min-width: 1024px) 23vw, (min-width: 768px) 46vw, (min-width: 360px) 44vw, 82px" className={`${styles.regionImage} ${region.slug === 'elbow-pain' ? styles.elbowImage : ''}`} />
+                  <Image src={regionImages[region.slug]} alt="" fill sizes="(min-width: 1200px) 270px, (min-width: 1024px) 23vw, (min-width: 768px) 46vw, (min-width: 360px) 44vw, 82px" className={styles.regionImage} />
                 </div>
                 <div className={styles.regionCopy}>
                   <h3>{region.label}</h3>
@@ -120,7 +123,7 @@ export default function PopularConditionsSection() {
                     <span>{categoryLabels[condition.category] || 'Condition'}</span>
                   </div>
                   <h3>{condition.name}</h3>
-                  <p>{condition.description}</p>
+                  <p>{/^e\.g\./i.test(condition.description) ? condition.description : condition.description.charAt(0).toUpperCase() + condition.description.slice(1)}</p>
                 </Link>
               </li>
             ))}

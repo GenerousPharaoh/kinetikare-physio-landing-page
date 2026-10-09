@@ -53,7 +53,7 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 /* ─── DATA ─── */
 const visitSteps = [
   { icon: MagnifyingGlassIcon, label: 'Assess', title: 'Find the root cause', text: 'A thorough movement and injury assessment to understand exactly what is driving the problem.' },
-  { icon: HandRaisedIcon, label: 'Treat', title: 'Start treatment immediately', text: 'Hands-on care in the same visit. Dry needling, joint mobilization, and soft tissue work based on your assessment findings.' },
+  { icon: HandRaisedIcon, label: 'Treat', title: 'Usually start treatment', text: 'In most cases treatment starts in the first visit, with your consent: hands-on care such as joint mobilization, soft tissue work or dry needling, chosen from your assessment.' },
   { icon: ClipboardDocumentCheckIcon, label: 'Plan', title: 'Leave with a clear plan', text: 'Specific exercises, a recovery timeline, and measurable goals to track your progress.' },
 ];
 
@@ -63,12 +63,12 @@ const conditionsRow1: ConditionPill[] = [
   { label: 'Back Pain', slug: 'low-back-pain' },
   { label: 'Knee Injuries', slug: 'knee-pain-patellofemoral' },
   { label: 'Shoulder Impingement', slug: 'shoulder-impingement' },
-  { label: 'Hip Pain', slug: 'hip-osteoarthritis' },
+  { label: 'Hip Pain', slug: 'hip-pain', href: '/conditions/hip-pain' },
   { label: 'Sciatica', slug: 'sciatica' },
   { label: 'Sports Physio', slug: 'sports-rehab-return-to-sport', href: '/treatments/sports-rehab-return-to-sport' },
-  { label: 'Neck Pain', slug: 'neck-pain' },
+  { label: "Jumper's Knee", slug: 'patellar-tendinopathy' },
   { label: 'Ankle Sprains', slug: 'ankle-sprains' },
-  { label: 'Tennis Elbow', slug: 'tennis-elbow' },
+  { label: 'Lateral Hip Pain', slug: 'greater-trochanteric-pain-syndrome' },
   { label: 'Post-Surgery Rehab', slug: 'post-surgical-rehabilitation', href: '/treatments/post-surgical-rehabilitation' },
 ];
 const conditionsRow2: ConditionPill[] = [
@@ -288,7 +288,7 @@ export default function IntakeLandingPage() {
                 </p>
 
                 <p className="intake-hero-sub intake-rise" style={{ ...rise(3), maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-                  Searching for {hero.sub} in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
+                  Looking for {hero.sub} in Burlington? I see patients from Burlington, Waterdown and nearby, and every plan starts with finding what is causing your pain.
                 </p>
 
                 <div className="intake-rise flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ ...rise(4), marginBottom: 40 }}>
@@ -506,7 +506,7 @@ export default function IntakeLandingPage() {
               <div style={{ textAlign: 'center', marginBottom: 72 }}>
                 <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>Your First Visit</p>
                 <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em' }}>
-                  Assessment to action<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.gold }}>in one visit</span>
+                  Assessment, treatment<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.gold }}>and a plan</span>
                 </h2>
               </div>
             </Reveal>
@@ -546,7 +546,7 @@ export default function IntakeLandingPage() {
             <p style={{ fontFamily: serif, fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 700, color: c.black, lineHeight: 1.3, marginBottom: 8 }}>
               Ready to get started?
             </p>
-            <p style={{ fontSize: 14, color: c.textLight, marginBottom: 24 }}>No referral required. Book online in under a minute.</p>
+            <p style={{ fontSize: 14, color: c.textLight, marginBottom: 24 }}>No referral required. Book online or call reception.</p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
               <BookingCTA size="md" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-10 !py-4 !text-[11px] !tracking-[0.22em]" style={{ boxShadow: '0 12px 36px -8px rgba(184,150,12,0.35)' }}>
                 BOOK ASSESSMENT <ArrowRightIcon width={13} height={13} aria-hidden="true" />
@@ -652,7 +652,7 @@ export default function IntakeLandingPage() {
               <Reveal from="left">
                 <div>
                   <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>The Clinic</p>
-                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Physio Clinic Near You in Burlington &amp; Waterdown</h2>
+                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>The Clinic in North Burlington</h2>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
                     {clinicDetails.map((d, i) => (
@@ -670,11 +670,6 @@ export default function IntakeLandingPage() {
 
                   <div className="flex flex-wrap gap-2" style={{ marginTop: 28 }}>
                     {serviceAreas.map((a) => <span key={a} style={{ padding: '7px 16px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginTop: 24 }}>
-                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', flexShrink: 0, marginTop: 8 }} />
-                    <span style={{ fontSize: 13, fontWeight: 600, color: c.goldText, lineHeight: 1.6 }}>Afternoon and evening appointments available this week</span>
                   </div>
                 </div>
               </Reveal>

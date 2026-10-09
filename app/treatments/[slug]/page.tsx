@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const fallbackDescription = `${treatment.name} physiotherapy treatment in Burlington with Kareem Hassanein, Registered Physiotherapist.`;
 
   return {
-    title: `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`,
+    title: treatment.seoTitle ?? `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`,
     description: treatment.metaDescription || fallbackDescription,
     authors: [SEO_AUTHOR],
     creator: SEO_AUTHOR.name,
@@ -80,7 +80,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
     notFound();
   }
 
-  const title = `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`;
+  const title = treatment.seoTitle ?? `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`;
 
   // Generate MedicalProcedure schema
   const medicalProcedureSchema = {
@@ -89,11 +89,13 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
     '@id': `https://www.kinetikarephysio.com/treatments/${treatment.id}#procedure`,
     name: treatment.name,
     description: treatment.description,
-    procedureType: 'PhysicalTherapy',
+    procedureType:
+      treatment.id === 'dry-needling'
+        ? 'https://schema.org/PercutaneousProcedure'
+        : 'https://schema.org/NoninvasiveProcedure',
     preparation: treatment.expectations,
     followup: 'Regular follow-up appointments to monitor progress and adjust treatment approach as needed.',
     howPerformed: treatment.process.map(step => step.description).join(' '),
-    bodyLocation: treatment.conditions,
 
     provider: { '@id': SEO_ORGANIZATION_ID },
     performer: { '@id': SEO_PERSON_ID },
@@ -136,7 +138,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
       <TreatmentInDepth treatment={treatment} />
       <TreatmentProcess treatment={treatment} />
       <TreatmentFAQ treatment={treatment} />
-      <TreatmentCTA treatmentName={treatment.name} />
+      <TreatmentCTA treatmentName={treatment.shortName ?? treatment.name} />
     </main>
   );
 }

@@ -85,7 +85,7 @@ interface OnsetGroup {
     slug?: string;
     label: string;
     note: string;
-    urgency?: 'medical' | 'routine';
+    urgency?: 'emergency' | 'medical' | 'routine';
   }>;
 }
 
@@ -157,7 +157,7 @@ const onsetGroups: OnsetGroup[] = [
       },
       {
         label: 'Inflammatory arthritis (rheumatoid, psoriatic, other)',
-        note: 'Morning stiffness that lasts over an hour, multiple joints involved, and persistent effusion. Needs medical workup, and physiotherapy sits alongside medical management.',
+        note: 'Morning stiffness that lasts well over half an hour, multiple joints involved, and persistent effusion. Needs medical workup, and physiotherapy sits alongside medical management.',
         urgency: 'medical',
       },
       {
@@ -169,19 +169,19 @@ const onsetGroups: OnsetGroup[] = [
   },
   {
     heading: 'Hot, red, and systemically unwell',
-    subtitle: 'Needs medical assessment before physiotherapy',
+    subtitle: 'Same-day emergency care, not physiotherapy',
     description:
-      'A hot, red, swollen joint with fever, chills, or feeling generally unwell is a medical red flag until proven otherwise. Mathews and colleagues in the Lancet (2010) describe bacterial septic arthritis as a medical emergency with significant morbidity. This presentation warrants same-day medical review.',
+      'A hot, red, swollen joint with fever, chills, or feeling generally unwell is a medical red flag until proven otherwise. Mathews and colleagues in the Lancet (2010) describe bacterial septic arthritis as a medical emergency with significant morbidity. Go to emergency or urgent care the same day.',
     causes: [
       {
         label: 'Septic arthritis',
         note: 'Rapid onset of severe pain, marked swelling, warmth, redness, and systemic illness. A medical emergency requiring joint aspiration and antibiotics.',
-        urgency: 'medical',
+        urgency: 'emergency',
       },
       {
         label: 'Reactive or infection-related arthritis',
-        note: 'Follows a recent infection elsewhere (gut, urinary, or respiratory). Needs medical assessment. Physiotherapy is a later-stage adjunct.',
-        urgency: 'medical',
+        note: 'Follows a recent infection elsewhere (gut, urinary, or respiratory). It can look like a joint infection, so it needs the same urgent assessment. Physiotherapy is a later-stage adjunct.',
+        urgency: 'emergency',
       },
     ],
   },
@@ -267,7 +267,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Should I drain fluid from my knee?',
     answer:
-      'That is a medical decision, not a physiotherapy one. Aspiration is mostly considered when a joint is very tense and painful, when diagnostic fluid analysis is needed (for example to confirm or exclude septic arthritis or gout), or when it is part of a corticosteroid injection. For most garden-variety osteoarthritis effusions, the fluid settles as the underlying flare settles. I can help you decide whether it is worth raising with your physician, and I do not perform aspiration myself.',
+      'That is a medical decision, not a physiotherapy one. Aspiration is mostly considered when a joint is very tense and painful, when diagnostic fluid analysis is needed (for example to confirm or exclude septic arthritis or gout), or when it is part of a corticosteroid injection. For most osteoarthritis effusions, the fluid settles as the underlying flare settles. I can help you decide whether it is worth raising with your physician, and I do not perform aspiration myself.',
   },
   {
     question: 'Will physiotherapy help if my knee keeps swelling?',
@@ -282,7 +282,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need an MRI if my knee keeps filling with fluid?',
     answer:
-      'Not always. For chronic osteoarthritis-pattern effusions, plain X-rays are usually more useful than MRI as a first step. After acute trauma, the Ottawa Knee Rules help decide whether an X-ray is sensible, and MRI is considered when a significant internal injury is suspected or when a case is not tracking the way the clinical pattern predicted. I flag when imaging will actually change the plan, rather than ordering it by default.',
+      'Not always. Osteoarthritis-pattern swelling is usually diagnosed from the history and exam without routine imaging, and if imaging is needed, an X-ray comes before MRI. After acute trauma, the Ottawa Knee Rules help decide whether an X-ray is sensible, and MRI is considered when a significant internal injury is suspected or when a case is not tracking the way the clinical pattern predicted. When imaging would change the plan, I flag it to your family doctor or specialist and refer you.',
   },
 ];
 
@@ -310,7 +310,7 @@ const research: ResearchItem[] = [
       'Lancet review of native-joint septic arthritis in adults. Frames septic arthritis as a medical emergency with significant morbidity and mortality, emphasising the need for urgent assessment and joint aspiration in any hot, acutely swollen, systemically unwell joint.',
   },
   {
-    title: 'OARSI guidelines for the non-surgical management of knee osteoarthritis',
+    title: 'OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis',
     source: 'OARSI (Bannuru et al.), Osteoarthritis and Cartilage',
     year: 2019,
     summary:
@@ -324,7 +324,7 @@ const research: ResearchItem[] = [
       'MRI study of older adults with and without knee pain. Moderate or larger effusions were far more common in painful osteoarthritic knees, but about 1 in 10 people with no knee pain and a normal X-ray also had one, so an effusion on a scan is not always the source of pain.',
   },
   {
-    title: 'Quantitative measurement of suprapatellar effusion by ultrasonography and knee osteoarthritis symptoms',
+    title: 'Evaluation of a quantitative measurement of suprapatellar effusion by ultrasonography and its association with symptoms of radiographic knee osteoarthritis',
     source: 'Chiba D et al., Arthritis Research & Therapy',
     year: 2016,
     summary:
@@ -338,7 +338,7 @@ const research: ResearchItem[] = [
       'Review of why the quadriceps switch off after knee injury or in arthritis. Joint swelling, inflammation, laxity and damage alter the signals from the joint and reflexively inhibit the muscle, which is why restoring quadriceps activation is an early rehabilitation goal.',
   },
   {
-    title: 'Ottawa Knee Rules for decision-making on knee radiography',
+    title: 'Implementation of the Ottawa Knee Rule for the use of radiography in acute knee injuries',
     source: 'Stiell et al., JAMA',
     year: 1997,
     summary:
@@ -744,6 +744,11 @@ export default function FluidOnTheKneeGuidePage() {
                                 <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                                   {cause.note}
                                 </p>
+                                {cause.urgency === 'emergency' && (
+                                  <p className="text-[11px] text-red-700 mt-1 font-medium">
+                                    Same-day emergency care. Do not wait for a physiotherapy appointment.
+                                  </p>
+                                )}
                                 {cause.urgency === 'medical' && (
                                   <p className="text-[11px] text-red-700 mt-1 font-medium">
                                     Warrants medical review before or alongside physiotherapy.
@@ -860,7 +865,7 @@ export default function FluidOnTheKneeGuidePage() {
                   function. For any picture that looks septic, crystal-related, or
                   inflammatory in a new way, I route you to medical care first and come
                   back to rehab in the right order afterwards. Joint mobilization, soft tissue therapy,
-                  and cupping sit alongside that work where they speed things along.
+                  and cupping can sit alongside that work where they help.
                 </p>
               </div>
               <ConsentNote />

@@ -30,7 +30,7 @@ export const conditionNav: ConditionNavCategory[] = [
       },
       {
         "slug": "whiplash",
-        "name": "Whiplash/WAD"
+        "name": "Whiplash"
       },
       {
         "slug": "sciatica",
@@ -38,7 +38,7 @@ export const conditionNav: ConditionNavCategory[] = [
       },
       {
         "slug": "disc-herniation",
-        "name": "Disc Herniations / Bulges"
+        "name": "Disc Herniation and Bulges"
       },
       {
         "slug": "degenerative-disc-disease",
@@ -76,7 +76,7 @@ export const conditionNav: ConditionNavCategory[] = [
       },
       {
         "slug": "shoulder-instability",
-        "name": "Shoulder Instability / Dislocations"
+        "name": "Shoulder Instability and Dislocation"
       },
       {
         "slug": "thoracic-outlet-syndrome",
@@ -88,7 +88,7 @@ export const conditionNav: ConditionNavCategory[] = [
       },
       {
         "slug": "shoulder-bursitis",
-        "name": "Bursitis / Tendinitis"
+        "name": "Shoulder Bursitis"
       },
       {
         "slug": "ac-joint-injuries",
@@ -186,7 +186,7 @@ export const conditionNav: ConditionNavCategory[] = [
     "conditions": [
       {
         "slug": "knee-pain-patellofemoral",
-        "name": "Knee Pain"
+        "name": "Patellofemoral Pain (Kneecap Pain)"
       },
       {
         "slug": "acl-injuries",
@@ -214,7 +214,7 @@ export const conditionNav: ConditionNavCategory[] = [
       },
       {
         "slug": "knee-osteoarthritis",
-        "name": "Osteoarthritis of the Knee"
+        "name": "Knee Osteoarthritis"
       },
       {
         "slug": "patella-fractures",

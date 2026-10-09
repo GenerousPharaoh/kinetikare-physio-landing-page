@@ -1,5 +1,6 @@
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
+import { SEO_ORGANIZATION_ID } from '@/lib/seo-metadata';
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -69,9 +70,9 @@ const services = [
     title: 'Sports Rehabilitation',
     description: (
       <>
-        Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger.{' '}
+        Rehabilitation for active people recovering from injury, with a planned, tested return to their sport.{' '}
         <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Explore sports rehabilitation approach
+          Read about my sports rehabilitation approach
         </Link>
         .
       </>
@@ -88,7 +89,7 @@ const services = [
     title: 'Dry Needling',
     description: (
       <>
-        Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension.{' '}
+        Thin filiform needles placed in tight or tender muscle; it can help ease muscular pain and tension alongside exercise.{' '}
         <Link href="/treatments/dry-needling" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about dry needling
         </Link>
@@ -101,9 +102,9 @@ const services = [
     ),
     features: [
       'Trigger point release',
-      'Muscle tension reduction',
+      'Muscle tension',
       'Pain management',
-      'Improved range of motion'
+      'Range of motion'
     ],
   },
   {
@@ -134,7 +135,7 @@ const services = [
     title: 'Posture & Ergonomic Assessment',
     description: (
       <>
-        Comprehensive analysis of your posture and work environment to address pain and prevent future issues.{' '}
+        A look at how you sit, stand, move and work, with changes that can ease pain and lower the load on sore areas.{' '}
         <Link href="/treatments/postural-assessment" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about postural assessment
         </Link>
@@ -157,7 +158,7 @@ const services = [
     title: 'Pain Management',
     description: (
       <>
-        Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM.{' '}
+        Pain education, exercise, and hands-on options such as cupping and IASTM, which can help with short-term pain relief.{' '}
         <Link href="/treatments/cupping-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about cupping
         </Link>
@@ -174,21 +175,20 @@ const services = [
     ),
     features: [
       'Acute and chronic pain treatment',
-      'Myofascial Release Therapy (Instrument Assisted Soft Tissue Massage; Cupping)',
-      'Therapeutic modalities',
+      'Instrument-assisted soft tissue mobilization (IASTM)',
+      'Cupping',
       'Pain education and self-management'
     ],
   },
 ];
 
 export default function ServicesPage() {
+  // Adds the service catalog to the one business node declared in
+  // app/layout.tsx. It must keep that @id: a node without one mints a second
+  // business entity for search engines.
   const servicesStructuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Kareem Hassanein Physiotherapy",
-    "url": "https://www.kinetikarephysio.com/services",
-    "description": "Professional physiotherapy services including manual therapy, sports rehabilitation, dry needling, exercise therapy, and pain management in Burlington, Ontario.",
-    "medicalSpecialty": "Physical Therapy",
+    "@id": SEO_ORGANIZATION_ID,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Physiotherapy Services",
@@ -206,7 +206,7 @@ export default function ServicesPage() {
           "itemOffered": {
             "@type": "MedicalTherapy",
             "name": "Sports Rehabilitation",
-            "description": "Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger."
+            "description": "Rehabilitation for active people recovering from injury, with a planned, tested return to their sport."
           }
         },
         {
@@ -214,15 +214,31 @@ export default function ServicesPage() {
           "itemOffered": {
             "@type": "MedicalTherapy", 
             "name": "Dry Needling",
-            "description": "Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension."
+            "description": "Thin filiform needles placed in tight or tender muscle; it can help ease muscular pain and tension alongside exercise."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "MedicalTherapy",
-            "name": "Exercise Therapy", 
+            "name": "Exercise Therapy",
             "description": "Customized exercise programs designed to restore function, build strength, and prevent injury recurrence."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalTherapy",
+            "name": "Posture and Ergonomic Assessment",
+            "description": "A look at how you sit, stand, move and work, with changes that can ease pain and lower the load on sore areas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalTherapy",
+            "name": "Pain Management",
+            "description": "Pain education, exercise, and hands-on options such as cupping and instrument-assisted soft tissue mobilization (IASTM), which can help with short-term pain relief."
           }
         }
       ]
@@ -237,7 +253,6 @@ export default function ServicesPage() {
         "@type": "MedicalProcedure",
         "name": "Joint Mobilization",
         "description": "Skilled manual therapy technique to restore joint movement and reduce pain",
-        "procedureType": "Physical Therapy",
         "bodyLocation": "Joints",
         "followup": "Exercise prescription and movement re-education",
         "preparation": "Physical assessment and movement analysis"
@@ -246,7 +261,6 @@ export default function ServicesPage() {
         "@type": "MedicalProcedure",
         "name": "Dry Needling",
         "description": "Therapeutic technique using thin needles to release trigger points and reduce muscle tension",
-        "procedureType": "Physical Therapy",
         "bodyLocation": "Trigger points in muscles",
         "followup": "Stretching and strengthening exercises",
         "preparation": "Identification of trigger points through palpation"
@@ -254,8 +268,7 @@ export default function ServicesPage() {
       {
         "@type": "MedicalProcedure",
         "name": "Cupping Therapy",
-        "description": "Myofascial decompression technique to improve blood flow and reduce muscle tension",
-        "procedureType": "Physical Therapy",
+        "description": "Suction cups placed on the skin over muscle; can help with short-term pain and muscle tension",
         "bodyLocation": "Soft tissues",
         "followup": "Movement exercises and self-care instructions",
         "preparation": "Skin assessment and treatment area preparation"
@@ -263,8 +276,7 @@ export default function ServicesPage() {
       {
         "@type": "MedicalProcedure",
         "name": "IASTM (Instrument Assisted Soft Tissue Mobilization)",
-            "description": "Ergonomic instruments used to detect and treat soft tissue dysfunction",
-        "procedureType": "Physical Therapy",
+            "description": "Hand-held instruments used over muscles and tendons; can help with short-term pain and mobility alongside exercise",
         "bodyLocation": "Fascia and soft tissues",
         "followup": "Therapeutic exercises and movement patterns",
         "preparation": "Tissue assessment and movement screening"
@@ -273,7 +285,6 @@ export default function ServicesPage() {
         "@type": "MedicalProcedure",
         "name": "Trigger Point Release",
         "description": "Manual pressure technique to deactivate painful trigger points",
-        "procedureType": "Physical Therapy",
         "bodyLocation": "Trigger points in muscles",
         "followup": "Stretching and postural exercises",
         "preparation": "Trigger point mapping and assessment"
@@ -282,7 +293,6 @@ export default function ServicesPage() {
         "@type": "MedicalProcedure",
         "name": "Movement Analysis",
         "description": "Comprehensive assessment of movement patterns and biomechanics",
-        "procedureType": "Diagnostic Physical Therapy",
         "bodyLocation": "Full body kinetic chain",
         "followup": "Personalized exercise program based on findings",
         "preparation": "Patient history and symptom review"
@@ -359,7 +369,7 @@ export default function ServicesPage() {
                 <div className={styles.serviceBody}>
                   <p>{service.description}</p>
                   <div>
-                    <h3>Benefits</h3>
+                    <h3>Includes</h3>
                     <ul className={styles.features}>{service.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
                   </div>
                 </div>
@@ -406,7 +416,7 @@ export default function ServicesPage() {
             </div>
             
             <p className="text-lg md:text-xl text-primary-600 leading-relaxed font-light max-w-3xl mx-auto" style={{lineHeight: '1.8'}}>
-              What to expect during your physiotherapy journey with me
+              What to expect when you see me
             </p>
           </div>
           
@@ -445,7 +455,7 @@ export default function ServicesPage() {
                   },
                   {
                     title: "Treatment",
-                    description: "Evidence-based interventions combining manual therapy, exercise, and education to address your specific needs.",
+                    description: "Manual therapy, exercise and education, chosen from current evidence and your assessment findings.",
                     icon: (
                       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
@@ -455,7 +465,7 @@ export default function ServicesPage() {
                   },
                   {
                     title: "Adaptive Progress",
-                    description: "Collaborative fine-tuning of your program based on your response, ensuring optimal recovery through continuous adaptation.",
+                    description: "Your program changes as you respond to it, and you and I agree on each change.",
                     icon: (
                       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -546,11 +556,11 @@ export default function ServicesPage() {
             </div>
             <aside className={styles.coverage} aria-labelledby="coverage-help-heading">
               <h3 id="coverage-help-heading">Need Coverage Help?</h3>
-              <p>If you're unsure whether direct billing is available for your plan, call me and I will verify your coverage details with you.</p>
+              <p>If you're unsure whether direct billing is available for your plan, reception at Endorphins can check what your plan covers.</p>
               <ul className={styles.features}>
-                <li>Free coverage verification</li><li>Direct billing when possible</li><li>Payment plan options available</li>
+                <li>Coverage questions answered by reception</li><li>Direct billing at Endorphins when your plan allows it</li>
               </ul>
-              <a href="tel:+19056346000" className={styles.textLink}>Call for Support</a>
+              <a href="tel:+19056346000" className={styles.textLink}>Call reception, (905) 634-6000</a>
             </aside>
           </div>
         </div>
@@ -561,13 +571,13 @@ export default function ServicesPage() {
           <div className={styles.ctaContent}>
             <div>
               <p className={styles.eyebrow}>Next Steps</p>
-              <h2 id="services-booking-heading">Continue Your Care Journey</h2>
-              <p>Partner with a physiotherapist dedicated to understanding your unique needs and achieving lasting results. Take the next step toward your recovery goals.</p>
+              <h2 id="services-booking-heading">Book an Assessment</h2>
+              <p>Book an initial assessment online. No referral is needed, and direct billing is available at Endorphins.</p>
             </div>
             <a href={JANE_BOOKING_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
           </div>
           <ul className={styles.trust}>
-            {['Direct Insurance Billing', 'Evidence-Based Treatment', 'Personalized Care'].map(item => <li key={item}><CheckIcon aria-hidden="true" />{item}</li>)}
+            {['Direct Insurance Billing', 'Evidence-Informed Treatment', 'Personalized Care'].map(item => <li key={item}><CheckIcon aria-hidden="true" />{item}</li>)}
           </ul>
         </div>
       </section>

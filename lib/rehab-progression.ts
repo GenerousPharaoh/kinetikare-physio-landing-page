@@ -99,6 +99,8 @@ export const REHAB_SCOPE_NOTES: Record<string, string> = {
     'Before any impact work in Phase 2, confirm with your clinician that your stress fracture is at a lower-risk site and has healed enough to load. High-risk sites such as the femoral neck, the front of the shin, the navicular, and the base of the fifth metatarsal need medical clearance first, because loading them too early can turn a stress fracture into a complete break.',
   'scaphoid-fractures':
     'Progress these phases on imaging-confirmed bone healing and your surgeon\'s clearance, not the calendar. Scaphoid fractures carry a real risk of non-union, so do not begin loaded or weight-bearing wrist work until union has been confirmed.',
+  'meniscus-tears':
+    'These phases are for meniscus tears managed without surgery, and for the later stages after a partial meniscectomy once your surgeon has cleared you. After a meniscus repair, deep bending and loaded squatting are usually restricted for several weeks, so follow your surgeon\'s protocol rather than this general timeline.',
   'patella-fractures':
     'Your weight-bearing status, the knee bend you are allowed, and your brace settings are set by your surgical team, so follow those over this general timeline. Do not start straight-leg raises or loaded exercises until your surgeon has cleared them and you can lift the leg without a lag.',
   'growth-plate-injuries':

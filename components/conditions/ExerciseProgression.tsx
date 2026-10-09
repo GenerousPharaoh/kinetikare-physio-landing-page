@@ -1,6 +1,7 @@
 import React from 'react';
 import { InformationCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import GlossaryText from './GlossaryText';
+import { inlineName } from '@/lib/text';
 import type { ExerciseProgressionPhase } from '@/lib/conditions-data';
 
 /**
@@ -49,12 +50,19 @@ function cleanPhaseTitle(title: string): string {
 }
 
 // Strip parentheticals and "/ alternative" suffixes so the name reads cleanly
-// mid-sentence: "Patellar Tendinopathy (Jumper's Knee)" -> "Patellar Tendinopathy".
+// mid-sentence: "Patellar Tendinopathy (Jumper's Knee)" -> "patellar tendinopathy".
+// "Achilles Tendinopathy / Tendinitis" -> "Achilles tendinopathy" (a spaced
+// slash is an alternative name), "MCL/LCL Sprains" -> "MCL and LCL sprains"
+// (an unspaced slash joins two structures), parentheses dropped.
 function inlineConditionName(name: string): string {
-  return name
-    .replace(/\s*\(.*?\)\s*/g, ' ')
-    .replace(/\s*\/.*$/, '')
-    .trim();
+  return inlineName(
+    name
+      .replace(/\s*\(.*?\)\s*/g, ' ')
+      .replace(/\s+\/.*$/, '')
+      .replace(/(\S)\/(\S)/g, '$1 and $2')
+      .replace(/\s+/g, ' ')
+      .trim(),
+  );
 }
 
 export default function ExerciseProgression({ progression, conditionName, scopeNote, hasWarningSigns = true }: ExerciseProgressionProps) {
@@ -74,7 +82,7 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
     >
       <div className="relative">
         {/* Header */}
-        <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
+        <div className="px-5 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
           <div className="mb-3 flex items-center gap-2.5">
             <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
             <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8A6F0A]">Rehabilitation</p>
@@ -87,7 +95,7 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
           </p>
         </div>
 
-        <div className="p-6 sm:p-8 space-y-6">
+        <div className="p-5 sm:p-8 space-y-6">
           {/* Intro framing */}
           <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
             Recovery from {name} is usually staged: calm the symptoms first, then rebuild the strength
@@ -138,8 +146,8 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
           {/* Phases */}
           <ol className="list-none m-0 p-0 space-y-5">
             {phases.map((phase, index) => (
-              <li key={index} className="rounded-xl border border-slate-200 bg-slate-50/40 p-5 sm:p-6">
-                <div className="flex items-baseline gap-3 mb-3">
+              <li key={index} className="rounded-xl border border-slate-200 bg-slate-50/40 p-4 sm:p-6">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3 mb-3">
                   <span className="flex-shrink-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8A6F0A] tabular-nums">
                     Phase {index + 1}
                   </span>

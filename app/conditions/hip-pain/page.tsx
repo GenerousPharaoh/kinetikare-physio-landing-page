@@ -96,7 +96,7 @@ const locationGuides: LocationGuide[] = [
     region: 'Side of the hip (lateral)',
     subtitle: 'Pain over the bony point on the outside of the hip',
     description:
-      'Tender over the greater trochanter, worse lying on that side at night, and cranky when standing on one leg. This is the most common presentation in people over 40, especially post-menopausal women and runners who recently increased volume.',
+      'Tender over the greater trochanter, worse lying on that side at night, and painful when standing on one leg. This is the most common presentation in people over 40, especially post-menopausal women and runners who recently increased volume.',
     commonSources: [
       {
         slug: 'greater-trochanteric-pain-syndrome',
@@ -219,12 +219,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How do I know if my hip pain is arthritis?',
     answer:
-      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and gets cranky with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam, and order imaging only when it is going to change the plan.',
+      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and hurts more with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam. When imaging would change the plan, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'Can physiotherapy help hip pain without surgery?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and the LEAP trial (BMJ 2018) showed education plus exercise beat a corticosteroid injection for lateral hip pain at one year. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
+      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
   },
   {
     question: 'When should I worry about hip pain?',
@@ -244,7 +244,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need imaging before starting physiotherapy?',
     answer:
-      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. I order imaging when it is going to change management: suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted.',
+      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. When imaging would change the plan, such as a suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'How long does hip pain take to recover with physiotherapy?',
@@ -268,21 +268,21 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Education and exercise outperform corticosteroid injection for lateral hip pain',
+    title: 'Education plus exercise versus corticosteroid injection use versus a wait and see approach on global outcome and pain from gluteal tendinopathy: prospective, single blinded, randomised clinical trial',
     source: 'Mellor et al., BMJ (LEAP trial)',
     year: 2018,
     summary:
-      'In a randomised trial of 204 adults with gluteal tendinopathy, education plus a progressive exercise program produced greater improvements in pain and global rating of change than a single corticosteroid injection at both eight weeks and one year.',
+      'In a randomised trial of 204 adults with gluteal tendinopathy, more people reported overall improvement with education plus a progressive exercise program than with a corticosteroid injection at both eight weeks and one year. Pain was lower with exercise at eight weeks; at one year pain was similar in the two groups, and both did better than wait and see.',
   },
   {
-    title: 'OARSI guidelines for non-surgical management of hip osteoarthritis',
+    title: 'OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis',
     source: 'OARSI (Bannuru et al.)',
     year: 2019,
     summary:
       'International guideline recommending land-based exercise, education, and self-management as core treatments for hip osteoarthritis, with weight management and structured strengthening as strongly supported adjuncts.',
   },
   {
-    title: 'NICE guideline on osteoarthritis assessment and management',
+    title: 'Osteoarthritis in over 16s: diagnosis and management',
     source: 'NICE NG226',
     year: 2022,
     summary:
@@ -293,14 +293,14 @@ const research: ResearchItem[] = [
     source: 'JOSPT (Koc, Cibulka et al.)',
     year: 2025,
     summary:
-      'Updated APTA Academy of Orthopaedic Physical Therapy guideline recommending progressive strengthening, manual therapy, patient education, and gait and functional training for hip osteoarthritis, with dry needling newly supported for short-term relief in pain, range, strength, and function.',
+      'Updated APTA Orthopedics guideline on physical therapy for hip osteoarthritis, covering progressive strengthening, manual therapy, patient education, and gait and functional training.',
   },
   {
     title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
     source: 'Kemp et al., British Journal of Sports Medicine',
     year: 2020,
     summary:
-      'Systematic review synthesising physiotherapist-led exercise, manual therapy, and education for hip-related pain. Found improvements in function, pain, and strength, with hip arthroscopy showing only small short-term benefit over physiotherapy and no significant difference at 24 months.',
+      'Systematic review of 14 studies of physiotherapist-led exercise, manual therapy, and education for hip-related pain in young and middle-aged adults. Physiotherapist-led care might improve pain and function; one comparison showed a small effect in favour of hip arthroscopy. The authors call for larger, high-quality trials.',
   },
 ];
 
@@ -550,11 +550,11 @@ export default function HipPainHubPage() {
                   of these pictures is actually yours.
                 </p>
                 <p>
-                  The honest version: most hip pain in adults is mechanical and manageable.
-                  NICE and OARSI guidelines, the JOSPT hip osteoarthritis CPG revised in 2025,
-                  and the 2018 LEAP trial in the BMJ all point the same way. Education, graded
-                  strengthening, and sensible load management produce the strongest long-term
-                  outcomes. Hands-on work sits alongside that, not in place of it. What changes
+                  Most hip pain in adults is mechanical and manageable. NICE and OARSI
+                  guidelines, the JOSPT hip osteoarthritis CPG revised in 2025, and the 2018
+                  LEAP trial in the BMJ all point the same way. Education, graded
+                  strengthening, and sensible load management have the strongest evidence for
+                  long-term outcomes. Hands-on work sits alongside that, not in place of it. What changes
                   between people is the tissue, the history, and how load needs to be dosed.
                 </p>
                 <p>
@@ -651,7 +651,7 @@ export default function HipPainHubPage() {
                 <p>
                   The first appointment runs on questions before it runs on equipment. Where
                   does it actually hurt, how did it start, what makes it worse, what makes it
-                  better. The small details do real work here. How you cross your legs on the
+                  better. The small details matter here. How you cross your legs on the
                   couch. Whether you can sleep on that side. Whether a recent running block
                   pushed weekly volume up faster than the tissue could adapt. Whether sitting,
                   standing, or walking is the main trigger. By the end of the history I usually
@@ -672,8 +672,9 @@ export default function HipPainHubPage() {
                   shape. Settle the irritable tissue with a short list of things to stop doing
                   and a few things to add in. Build capacity with progressive strengthening
                   exercises dosed to your current tolerance, usually across hip abductors, deep
-                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, dry
-                  needling, or cupping sit alongside that work where they speed things along. I
+                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, or
+                  cupping can sit alongside that work where they help, and for muscle and tendon
+                  pain (not hip arthritis) dry needling can too. I
                   write the plan down with you and track a handful of markers so you can see
                   whether it is actually working. If it is not, I change direction sooner
                   rather than later.

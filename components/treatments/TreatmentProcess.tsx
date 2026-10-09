@@ -20,11 +20,8 @@ export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
-            Your Treatment <span className="font-semibold">Journey</span>
+            How Treatment <span className="font-semibold">Progresses</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            A structured approach to ensure the best possible outcomes
-          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

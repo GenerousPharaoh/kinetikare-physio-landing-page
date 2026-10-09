@@ -143,17 +143,10 @@ export default function ConditionFlowPage({
     const els = sections
       .map((s) => document.getElementById(s.id))
       .filter((el): el is HTMLElement => el !== null);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: '-120px 0px -60% 0px', threshold: 0 },
-    );
-    els.forEach((el) => observer.observe(el));
-
+    // The active rail item is the last section whose top has passed the
+    // 120px line. Computed from every section on each scroll frame, so a
+    // jump of several sections (a rail click, a long fling) never leaves a
+    // stale highlight behind.
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -161,14 +154,21 @@ export default function ConditionFlowPage({
       requestAnimationFrame(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight;
         setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0);
+        let current = els[0]?.id ?? '';
+        for (const el of els) {
+          if (el.getBoundingClientRect().top <= 120) current = el.id;
+          else break;
+        }
+        setActive(current);
         ticking = false;
       });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     onScroll();
     return () => {
-      observer.disconnect();
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conditionSlug]);
@@ -390,7 +390,7 @@ export default function ConditionFlowPage({
                               <span>
                                 {rest.length > 0 ? (
                                   <>
-                                    <strong className="text-slate-900">{title}.</strong> {rest.join(': ')}
+                                    <strong className="text-slate-900">{title}.</strong> {sentence(rest.join(': '))}
                                   </>
                                 ) : (
                                   title

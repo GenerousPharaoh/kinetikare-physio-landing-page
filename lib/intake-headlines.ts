@@ -19,13 +19,13 @@
 export interface IntakeHero {
   /** H1 first line; the gold italic "Burlington" is appended after it. */
   lead: string;
-  /** Phrase inserted into "Searching for ___ in Burlington or Waterdown?" */
+  /** Phrase inserted into "Looking for ___ in Burlington?" */
   sub: string;
 }
 
 export const DEFAULT_HERO: IntakeHero = {
   lead: 'Physiotherapy in',
-  sub: 'physiotherapy near me',
+  sub: 'physiotherapy',
 };
 
 interface HeroMatcher {

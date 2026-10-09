@@ -33,7 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/pain-below-kneecap';
-const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is | Kareem Hassanein';
+const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is';
 const PAGE_DESCRIPTION =
   'A Registered Physiotherapist\'s guide to pain right below the kneecap in Burlington. Likely causes, a simple one-finger test, and when to seek care.';
 
@@ -96,12 +96,6 @@ const scenarios: Scenario[] = [
     label: 'Patellofemoral pain',
     pattern: 'More diffuse ache around or under the kneecap, not pinpoint. Worse with stairs, prolonged sitting with bent knees, running downhill, and deep squatting. Often both knees over time.',
     note: 'When the pain is not a single fingertip spot and smears around the kneecap margins, patellofemoral pain is more likely than tendinopathy.',
-  },
-  {
-    slug: 'severs-disease',
-    label: 'Sever\'s disease (growing athletes, heel version)',
-    pattern: 'Heel pain in a child or young adolescent during a growth spurt, worse with running, jumping, and cleated sports. Sits at the back of the heel rather than below the kneecap, but often comes up in the same conversation.',
-    note: 'Different site than pain below the kneecap, but the same growth-plate mechanism as Osgood-Schlatter and often confused in young athletes.',
   },
   {
     slug: 'knee-osteoarthritis',
@@ -190,7 +184,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Does imaging help if the pain is right below the kneecap?',
     answer:
-      'Usually not as a starting point. The diagnosis of patellar tendinopathy is clinical, based on a careful history and a tender inferior pole that hurts with loaded knee extension. Imaging changes show up in pain-free tendons all the time, which can muddy rather than clarify the picture. I order imaging when it will change the plan, such as after an acute trauma with swelling, a mechanically locked knee, or a case that is not tracking the way the clinical pattern predicted.',
+      'Usually not as a starting point. The diagnosis of patellar tendinopathy is clinical, based on a careful history and a tender inferior pole that hurts with loaded knee extension. Imaging changes show up in pain-free tendons all the time, which can muddy rather than clarify the picture. When imaging would change the plan, such as after an acute trauma with swelling, a mechanically locked knee, or a case that is not tracking the way the clinical pattern predicted, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'How long does pain right below the kneecap take to resolve?',
@@ -242,7 +236,6 @@ const research: ResearchItem[] = [
 const relatedConditionSlugs: string[] = [
   'patellar-tendinopathy',
   'knee-pain-patellofemoral',
-  'severs-disease',
   'knee-osteoarthritis',
   'meniscus-tears',
   'it-band-syndrome',
@@ -476,12 +469,12 @@ export default function PainBelowKneecapGuidePage() {
                   When patients say the pain sits right below the kneecap, they are usually
                   pointing at the lower tip of the patella or the tendon that runs from there
                   down to the top of the shinbone. That is a small area with only a few
-                  structures in it, which is actually good news for sorting out what is going on.
+                  structures in it, which helps when sorting out what is going on.
                 </p>
                 <p>
                   In active adults, the most common driver is patellar tendinopathy. The
                   patellar tendon inserts into the inferior pole of the patella, and tendon
-                  pain there is typically very focal, load-related, and cranky with jumping,
+                  pain there is typically very focal, load-related, and provoked by jumping,
                   landing, deep squats, and the first few minutes of running. Malliaras and
                   colleagues in JOSPT (2015) describe pinpoint inferior-pole pain plus
                   load-related pain as the hallmark of this condition.
@@ -490,10 +483,10 @@ export default function PainBelowKneecapGuidePage() {
                   In growing athletes, the picture shifts. The two common patterns in this age
                   group are Osgood-Schlatter, where the tibial tubercle is pulled on by the
                   patellar tendon during a growth spurt, and Sinding-Larsen-Johansson
-                  syndrome, which sits right at the lower tip of the kneecap itself. Both
-                  respond well to structured activity modification and knee strengthening, as
-                  Rathleff and colleagues showed in the Orthopaedic Journal of Sports Medicine
-                  (2020).
+                  syndrome, which sits right at the lower tip of the kneecap itself. For
+                  Osgood-Schlatter, Rathleff and colleagues showed in the Orthopaedic Journal of
+                  Sports Medicine (2020) that structured activity modification and knee
+                  strengthening can help; Sinding-Larsen-Johansson is managed on similar lines.
                 </p>
                 <p>
                   A few other patterns can mimic the tendon: fat pad irritation under the
@@ -680,10 +673,10 @@ export default function PainBelowKneecapGuidePage() {
                 <p>
                   The plan that comes out of that is individual. For patellar tendinopathy the
                   backbone is progressive, well-dosed loading across isometric, heavy slow
-                  resistance, and energy-storage work as tolerance grows, paired with honest
-                  training adjustments. For Osgood-Schlatter and Sinding-Larsen-Johansson I lean
-                  on the Rathleff framework: modify load, rebuild strength, return to sport in
-                  stages. For fat pad irritation I settle the tissue, then rebuild tolerance for
+                  resistance, and energy-storage work as tolerance grows, paired with realistic
+                  training adjustments. For Osgood-Schlatter, and on the same lines for
+                  Sinding-Larsen-Johansson, I follow the approach Rathleff and colleagues
+                  tested: modify load, rebuild strength, return to sport in stages. For fat pad irritation I settle the tissue, then rebuild tolerance for
                   extension loading. Joint mobilization, soft tissue therapy, dry needling, and
                   cupping sit alongside the loading work where they help it progress.
                 </p>

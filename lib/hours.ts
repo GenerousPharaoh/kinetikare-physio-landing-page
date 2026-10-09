@@ -41,13 +41,13 @@ export interface DayHours {
 }
 
 export const WEEKLY_HOURS: readonly DayHours[] = [
-  { day: 'Monday', short: 'Mon', opens: '13:30', closes: '20:00', label: '1:30 PM - 8:00 PM', site: 'endorphins' },
-  { day: 'Tuesday', short: 'Tue', opens: '10:00', closes: '14:30', label: '10:00 AM - 2:30 PM', site: 'physiomax' },
-  { day: 'Tuesday', short: 'Tue', opens: '15:30', closes: '20:00', label: '3:30 PM - 8:00 PM', site: 'endorphins' },
-  { day: 'Wednesday', short: 'Wed', opens: '14:00', closes: '19:30', label: '2:00 PM - 7:30 PM', site: 'headon' },
-  { day: 'Thursday', short: 'Thu', opens: '13:30', closes: '20:00', label: '1:30 PM - 8:00 PM', site: 'endorphins' },
-  { day: 'Friday', short: 'Fri', opens: '14:00', closes: '19:30', label: '2:00 PM - 7:30 PM', site: 'headon' },
-  { day: 'Saturday', short: 'Sat', opens: '11:00', closes: '15:00', label: '11:00 AM - 3:00 PM', site: 'physiomax' },
+  { day: 'Monday', short: 'Mon', opens: '13:30', closes: '20:00', label: '1:30 to 8:00 PM', site: 'endorphins' },
+  { day: 'Tuesday', short: 'Tue', opens: '10:00', closes: '14:30', label: '10:00 AM to 2:30 PM', site: 'physiomax' },
+  { day: 'Tuesday', short: 'Tue', opens: '15:30', closes: '20:00', label: '3:30 to 8:00 PM', site: 'endorphins' },
+  { day: 'Wednesday', short: 'Wed', opens: '14:00', closes: '19:30', label: '2:00 to 7:30 PM', site: 'headon' },
+  { day: 'Thursday', short: 'Thu', opens: '13:30', closes: '20:00', label: '1:30 to 8:00 PM', site: 'endorphins' },
+  { day: 'Friday', short: 'Fri', opens: '14:00', closes: '19:30', label: '2:00 to 7:30 PM', site: 'headon' },
+  { day: 'Saturday', short: 'Sat', opens: '11:00', closes: '15:00', label: '11:00 AM to 3:00 PM', site: 'physiomax' },
 ];
 
 export const ENDORPHINS_HOURS = WEEKLY_HOURS.filter((d) => d.site === 'endorphins');
@@ -102,9 +102,10 @@ export const ENDORPHINS_OPENING_HOURS_SCHEMA = groupByHours(ENDORPHINS_HOURS).ma
 
 /**
  * Compact multi-line summary for the ads landing page:
- *   Mon / Thu: 1:30 – 8:00 PM
- *   Tue: 3:30 – 8:00 PM
- *   Wed / Fri: 2:00 – 7:30 PM (Headon Physio, Walkers Line)
+ *   Mon / Thu: 1:30 to 8:00 PM
+ *   Tue: 3:30 to 8:00 PM
+ *   Wed / Fri: 2:00 to 7:30 PM (Headon Physio, Walkers Line)
+ * Times are joined with "to", never a dash: the site has no en or em dashes.
  * The Headon days carry their clinic because the block sits under the
  * Endorphins address; unlabelled they read as Endorphins hours.
  * PhysioMax is deliberately not listed here. That page is the landing page
@@ -115,5 +116,5 @@ export const HOURS_SUMMARY = [
   ...groupByHours(ENDORPHINS_HOURS).map((g) => ({ ...g, where: '' })),
   ...groupByHours(HEADON_HOURS).map((g) => ({ ...g, where: ' (Headon Physio, Walkers Line)' })),
 ]
-  .map((g) => `${g.days.map((d) => d.short).join(' / ')}: ${g.label.replace(' PM - ', ' – ')}${g.where}`)
+  .map((g) => `${g.days.map((d) => d.short).join(' / ')}: ${g.label}${g.where}`)
   .join('\n');

@@ -141,7 +141,7 @@ export default function Term({ termId, children }: TermProps) {
   };
 
   return (
-    <span className="relative inline-flex items-baseline">
+    <span className="relative inline">
       <button
         ref={triggerRef}
         type="button"
@@ -158,7 +158,7 @@ export default function Term({ termId, children }: TermProps) {
           if (next && popoverRef.current?.contains(next)) return;
           setOpen(false);
         }}
-        className="group/term inline text-inherit cursor-help rounded-sm border-b border-dotted border-[#B08D57]/60 decoration-from-font focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/60 focus-visible:ring-offset-1 hover:border-[#B08D57]"
+        className="group/term inline p-0 min-h-0 min-w-0 shadow-none text-inherit text-[length:inherit] leading-[inherit] cursor-help rounded-sm underline decoration-dotted decoration-[#B08D57]/60 underline-offset-[3px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/60 focus-visible:ring-offset-1 hover:decoration-[#B08D57]"
       >
         {children}
         <InformationCircleIcon

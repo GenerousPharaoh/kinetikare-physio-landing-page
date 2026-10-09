@@ -27,14 +27,14 @@ export default function ServicesSection() {
     {
       title: "Sports Injury Rehab",
       description: "Progressive rehabilitation for active people returning from knee, ankle, shoulder, and tendon injuries.",
-      features: ["Return-To-Sport Planning", "Strength Progressions", "Performance Rehab"],
+      features: ["Return-to-Sport Planning", "Strength Progressions", "Performance Rehab"],
       href: "/treatments/sports-rehab-return-to-sport",
       cta: "See sports rehab"
     },
     {
       title: "Dry Needling",
-      description: "Precise needle techniques targeting trigger points and dysfunctional tissues for pain relief and improved function.",
-      features: ["Trigger Point Release", "Pain Management", "Muscle Activation"],
+      description: "Fine needles placed in tight or tender muscle to help ease pain and stiffness, alongside exercise.",
+      features: ["Trigger Point Release", "Pain Management", "Muscle Tension"],
       href: "/treatments/dry-needling",
       cta: "See dry needling"
     }
@@ -177,7 +177,7 @@ export default function ServicesSection() {
                   Additional Services
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Comprehensive care extending beyond core services
+                  Other care that can be part of your plan
                 </p>
               </div>
 
@@ -208,7 +208,7 @@ export default function ServicesSection() {
                   <div className="flex gap-3 items-start">
                     <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-slate-700 leading-relaxed">
-                      <span className="font-medium">Evidence-Based:</span> Every technique backed by current research
+                      <span className="font-medium">Evidence-informed:</span> Techniques are chosen from current research and from how you respond
                     </p>
                   </div>
                   <div className="flex gap-3 items-start">

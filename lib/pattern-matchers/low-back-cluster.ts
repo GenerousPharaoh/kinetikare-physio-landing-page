@@ -37,7 +37,7 @@ const STANDARD_OPTIONS: { value: MatcherAnswer; label: string }[] = [
 
 export const LOW_BACK_CLUSTER: PatternMatcherCluster = {
   key: 'low-back',
-  label: 'Low back pain pattern check',
+  label: 'Low back and buttock pattern check',
   regionNoun: 'low back',
   conditionSlugs: [
     'low-back-pain',

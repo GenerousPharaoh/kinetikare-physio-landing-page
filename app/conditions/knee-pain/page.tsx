@@ -247,7 +247,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'When do I need an MRI for knee pain?',
     answer:
-      'Most knee pain does not need imaging to start physiotherapy. For acute trauma, the Ottawa Knee Rules guide whether an X-ray is sensible. MRI is most useful when a significant internal injury is suspected: an ACL tear, a mechanically locked knee, or persistent mechanical symptoms that are not responding to conservative care. I flag when imaging will actually change the plan rather than ordering it by default.',
+      'Most knee pain does not need imaging to start physiotherapy. For acute trauma, the Ottawa Knee Rules guide whether an X-ray is sensible. MRI is most useful when a significant internal injury is suspected: an ACL tear, a mechanically locked knee, or persistent mechanical symptoms that are not responding to conservative care. When imaging would change the plan, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'Can physiotherapy fix a meniscus tear?',
@@ -286,42 +286,42 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Ottawa Knee Rules for decision-making on knee radiography',
+    title: 'Implementation of the Ottawa Knee Rule for the use of radiography in acute knee injuries',
     source: 'Stiell et al., JAMA',
     year: 1997,
     summary:
       'A validated clinical decision rule for when to image an acutely injured knee. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
   },
   {
-    title: 'NICE guideline on osteoarthritis assessment and management',
+    title: 'Osteoarthritis in over 16s: diagnosis and management',
     source: 'NICE NG226',
     year: 2022,
     summary:
       'UK national guidance identifying therapeutic exercise as a first-line intervention for knee osteoarthritis, alongside information, weight management where relevant, and manual therapy as an adjunct. Surgery is reserved for people who have not responded to a structured course of non-surgical care.',
   },
   {
-    title: 'OARSI guidelines for non-surgical management of knee osteoarthritis',
+    title: 'OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis',
     source: 'OARSI (Bannuru et al.), Osteoarthritis and Cartilage',
     year: 2019,
     summary:
       'International guideline that strongly recommends land-based exercise, structured education, and self-management as core treatments for knee osteoarthritis. Weight management and supervised strengthening programs are supported as high-value additions.',
   },
   {
-    title: 'Physical therapy versus arthroscopic partial meniscectomy for meniscal tear with osteoarthritis',
+    title: 'Surgery versus physical therapy for a meniscal tear and osteoarthritis',
     source: 'Katz et al., New England Journal of Medicine (METEOR trial)',
     year: 2013,
     summary:
       'A randomised trial of 351 adults with degenerative meniscal tear and knee osteoarthritis. Structured physical therapy produced functional outcomes comparable to arthroscopic partial meniscectomy at six and twelve months, supporting a conservative-first approach for this population.',
   },
   {
-    title: 'Exercise therapy versus arthroscopic surgery for non-obstructive meniscal tears (ESCAPE)',
+    title: 'Effect of early surgery vs physical therapy on knee function among patients with nonobstructive meniscal tears: the ESCAPE randomized clinical trial',
     source: 'van de Graaf et al., JAMA',
     year: 2018,
     summary:
       'A non-inferiority randomised trial in adults aged 45 to 70 with non-obstructive meniscal tears. Exercise therapy was non-inferior to arthroscopic partial meniscectomy for knee function at 24 months, reinforcing a stepped-care model that prioritises structured rehabilitation first.',
   },
   {
-    title: 'JOSPT clinical practice guideline on patellofemoral pain',
+    title: 'Patellofemoral pain: clinical practice guidelines',
     source: 'JOSPT (Willy et al.)',
     year: 2019,
     summary:
@@ -570,14 +570,14 @@ export default function KneePainHubPage() {
                   week. A whole-knee stiffness that takes twenty minutes to unlock in the
                   morning and then eases until bedtime. A burning outer-knee pain that shows up
                   at roughly the same point in every long run. These are different conditions
-                  with different treatment plans, but each one has a signature.
+                  with different treatment plans, and each has its own pattern.
                 </p>
                 <p>
-                  The honest version: most knee pain in adults is mechanical and manageable.
-                  NICE, OARSI, and the JOSPT patellofemoral CPG all agree, and the big trials
-                  on degenerative meniscal tears, METEOR in the New England Journal of Medicine
-                  and ESCAPE in JAMA, point the same way. Education, graded strengthening, and
-                  sensible load management produce the strongest long-term outcomes. Hands-on
+                  Most knee pain in adults is mechanical and manageable. NICE, OARSI, and the
+                  JOSPT patellofemoral CPG all agree, and the big trials on degenerative
+                  meniscal tears, METEOR in the New England Journal of Medicine and ESCAPE in
+                  JAMA, point the same way. Education, graded strengthening, and sensible load
+                  management have the strongest evidence for long-term outcomes. Hands-on
                   work sits alongside that, not in place of it. What changes between people is
                   the tissue, the history, and how load needs to be dosed.
                 </p>
@@ -675,7 +675,7 @@ export default function KneePainHubPage() {
                 <p>
                   The first appointment runs on questions before it runs on equipment. Where
                   does the pain sit, how did it start, what makes it worse, what makes it
-                  better. The small details do real work. Whether a new running block pushed
+                  better. The small details matter. Whether a new running block pushed
                   weekly mileage up faster than the tissue could adapt. Whether this came on
                   after a specific twist or a direct blow. How stairs feel compared with flat
                   ground. Whether the knee has been swelling, clicking, or giving way. By the
@@ -685,13 +685,13 @@ export default function KneePainHubPage() {
                 <p>
                   From there, the exam goes region by region. I watch how you walk, squat, step
                   down, and if it is relevant, land from a small hop. I check range, quadriceps
-                  and hip strength, and the targeted tests that actually move the needle:
+                  and hip strength, and the targeted tests that help separate the options:
                   Lachman and anterior drawer for the ACL, posterior drawer for the PCL, valgus
                   and varus stress for the collaterals, McMurray and joint-line tenderness for
                   the meniscus, and compression and inhibition tests for the patellofemoral
                   joint. After acute trauma I use the Ottawa Knee Rules to decide whether an
-                  X-ray is worth chasing, and I am upfront when the picture warrants imaging
-                  rather than more rehab time.
+                  X-ray is needed, and when the picture warrants imaging I flag it to your
+                  family doctor or specialist and refer you.
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it has a familiar shape.
@@ -699,8 +699,9 @@ export default function KneePainHubPage() {
                   few things to add in, which might include adjusting training surface, volume,
                   or footwear. Build capacity with progressive strengthening exercises dosed to
                   your current tolerance, usually across quadriceps, hip abductors, glutes,
-                  hamstrings, and calves. Joint mobilization, soft tissue therapy, dry needling,
-                  or cupping sit alongside that work where they help it move faster. I write
+                  hamstrings, and calves. Joint mobilization, soft tissue therapy, or cupping can
+                  sit alongside that work where they help, and for muscle and tendon pain (not
+                  knee arthritis) dry needling can too. I write
                   the plan down with you and track a handful of markers so it is clear whether
                   it is actually working. If it is not, I change direction sooner rather than
                   later.

@@ -64,7 +64,7 @@ export default function CareJourneySection() {
           </h2>
           <div className="w-24 md:w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-4 md:mb-8"></div>
           <p className="text-base md:text-xl lg:text-2xl max-w-4xl mx-auto text-luxury-subtle">
-            A structured, personalized approach to your recovery designed to deliver measurable results
+            Four steps, from the first assessment to staying well, with goals you and I track together
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function CareJourneySection() {
                 </p>
                 <Link
                   href={step.link}
-                  {...(step.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(step.external ? { target: "_blank", rel: "noopener noreferrer", "data-booking-source": "home_care_journey" } : {})}
                   className="mt-3 md:mt-4 inline-flex items-center gap-1 text-sm text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-[text-decoration-color]"
                 >
                   {step.linkText}

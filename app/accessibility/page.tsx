@@ -4,7 +4,7 @@ import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement | Kinetikare Physiotherapy',
-  description: 'Commitment to providing accessible physiotherapy services to all individuals, including persons with disabilities, in compliance with AODA and Ontario Human Rights Code.',
+  description: 'How Kareem Hassanein, Registered Physiotherapist, makes his services accessible to people with disabilities, under the AODA and Ontario Human Rights Code.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/accessibility',
   },
@@ -44,7 +44,7 @@ export default function AccessibilityPage() {
         </p>
         <ul>
           <li>Providing documents in alternative formats (large print, electronic formats)</li>
-          <li>Ensuring my website meets WCAG 2.1 Level AA standards</li>
+          <li>Working to meet WCAG 2.1 Level AA standards on my website</li>
           <li>Responding to accessibility requests in a timely manner</li>
           <li>Providing communication supports as needed</li>
         </ul>
@@ -63,14 +63,8 @@ export default function AccessibilityPage() {
         {/* Design of Public Spaces Standard */}
         <h3>Design of Public Spaces Standard</h3>
         <p>
-          My practice space at Endorphins Health and Wellness Centre includes:
+          I see patients at three clinics: Endorphins Health and Wellness Centre (4631 Palladium Way), Headon Physio (1387 Walkers Line) and PhysioMax Wellness (1035 Brant Street). Each clinic manages its own building. If you need details on parking, entrances, washrooms or treatment rooms before your visit, contact the clinic or me and I will make sure you have them.
         </p>
-        <ul>
-          <li>Accessible parking spaces</li>
-          <li>Accessible entrance and pathways</li>
-          <li>Accessible reception and waiting areas</li>
-          <li>Accessible treatment rooms</li>
-        </ul>
         <div className="contact-box">
           <p>
             For questions about the physical accessibility of the Endorphins Health and Wellness Centre facility, you may also contact:

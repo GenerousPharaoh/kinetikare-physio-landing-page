@@ -43,6 +43,24 @@ interface AdditionalService {
   description: string;
 }
 
+/**
+ * Card title and subtitle for one condition. Uses the data fields when they
+ * are there: splitting the combined string at the first "(" broke names that
+ * contain brackets ("Sacroiliac (SI) Joint Dysfunction" became "Sacroiliac").
+ */
+function conditionLabel(
+  condition: string,
+  data?: { name: string; description?: string },
+): { main: string; details: string } {
+  if (data) {
+    const d = data.description?.trim();
+    const shown = d && !/^e\.g\./i.test(d) ? `${d.charAt(0).toUpperCase()}${d.slice(1)}` : d;
+    return { main: data.name, details: shown ? `(${shown})` : '' };
+  }
+  const parts = condition.split('(');
+  return { main: parts[0].trim(), details: parts.length > 1 ? `(${parts.slice(1).join('(')}` : '' };
+}
+
 interface TopicHub {
   href: string;
   title: string;
@@ -320,9 +338,7 @@ function ConditionsPageWithParams({
                       </h3>
                       <div className="grid md:grid-cols-2 gap-4">
                         {category.conditions.map((condition, index) => {
-                          const parts = condition.split('(');
-                          const mainCondition = parts[0].trim();
-                          const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
+                          const { main: mainCondition, details } = conditionLabel(condition, category.conditionsData?.[index]);
 
                           // Use the actual slug from conditionsData if available
                           const slug = category.conditionsData?.[index]?.slug ||
@@ -399,9 +415,7 @@ function ConditionsPageWithParams({
                   <div className="p-4 lg:p-6">
                     <div className="grid md:grid-cols-2 gap-3 items-stretch">
                       {conditionCategories[activeTab].conditions.map((condition, index) => {
-                        const parts = condition.split('(');
-                        const mainCondition = parts[0].trim();
-                        const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
+                        const { main: mainCondition, details } = conditionLabel(condition, conditionCategories[activeTab].conditionsData?.[index]);
 
                         // Use the actual slug from conditionsData if available
                         const slug = conditionCategories[activeTab].conditionsData?.[index]?.slug ||
@@ -522,11 +536,6 @@ function ConditionsPageWithParams({
               )}
             </div>
           )}
-
-          {/* Medical disclaimer, at the end rather than above the directory */}
-          <div className="mt-12">
-            <MedicalDisclaimer />
-          </div>
         </div>
       </section>
 
@@ -548,7 +557,7 @@ function ConditionsPageWithParams({
                 Additional Treatment <span className="text-[#B08D57]">Areas</span>
               </h2>
               <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive care for complex cases and unique rehabilitation needs
+                Other reasons people come to see me
               </p>
             </motion.div>
 
@@ -587,6 +596,13 @@ function ConditionsPageWithParams({
 
       {children}
       <ConditionBookingCTA />
+
+      {/* Medical disclaimer at the very end, after the directory and the booking band */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="max-w-6xl mx-auto">
+          <MedicalDisclaimer />
+        </div>
+      </div>
     </main>
   );
 }

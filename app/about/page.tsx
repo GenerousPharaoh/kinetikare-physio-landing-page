@@ -175,7 +175,7 @@ export default function About() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">6,000+ Hours Personal Training</span>
+                    <span className="text-sm font-medium">Personal Training Background</span>
                   </li>
                 </ul>
               </div>
@@ -324,7 +324,7 @@ export default function About() {
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">6,000+ Hours Personal Training</span>
+                      <span className="text-sm font-medium">Personal Training Background</span>
                     </li>
                   </ul>
                 </div>
@@ -463,7 +463,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           My path to physiotherapy began through personal experience. While playing competitive soccer and studying Kinesiology at{" "}
-                          <span className="font-semibold text-[#8A6F0A]">McMaster University</span>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients truly go through - the frustration, the setbacks, and ultimately the triumphs. Now serving <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I combine professional expertise with genuine empathy born from my own recovery experience.
+                          <span className="font-semibold text-[#8A6F0A]">McMaster University</span>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients go through: the frustration, the setbacks, and the progress. Now serving <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I combine professional expertise with genuine empathy born from my own recovery experience.
                         </p>
                       </div>
                     </div>
@@ -474,7 +474,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           This experience shaped my approach when I pursued my{" "}
-                          <span className="font-semibold text-[#8A6F0A]">Master's in Physiotherapy at Robert Gordon University</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and genuine support throughout <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
+                          <span className="font-semibold text-[#8A6F0A]">Master's in Physiotherapy at Robert Gordon University</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and steady support through every stage of recovery.
                         </p>
                       </div>
                     </div>
@@ -633,7 +633,7 @@ export default function About() {
             <h3 className="text-4xl font-light text-primary-800 mb-6 tracking-[-0.02em]">Professional Foundation</h3>
             <div className="w-32 h-1 bg-gradient-to-r from-[#B08D57] to-[#A17D47] mx-auto mb-8"></div>
             <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
-              Built on rigorous education, professional certifications, and extensive hands-on experience
+              Education, certifications, and the work that came before physiotherapy
             </p>
           </div>
 
@@ -641,7 +641,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 max-w-6xl mx-auto">
             {/* Education */}
             <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -654,19 +654,19 @@ export default function About() {
                     {/* Master's Degree */}
                     <div className="group">
                       <Link 
-                        href="https://www.rgu.ac.uk/study/courses/919-pgcert-pgdip-msc-physiotherapy-pre-registration"
+                        href="https://www.rgu.ac.uk/study/courses/pgcert-pgdip-msc-physiotherapy-pre-registration"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block p-6 bg-white/95 rounded-xl border border-white/90 backdrop-blur-sm hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
+                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 backdrop-blur-sm hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
                       >
-                        <div className="flex items-start space-x-5">
+                        <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
                           <div className="flex-shrink-0">
                         <ClientImage
                           src="/images/robert-gordon-university-logo-png_seeklogo-341455.png"
                               alt="Robert Gordon University"
                               width={96}
                               height={96}
-                              className="w-24 h-24 object-contain group-hover:scale-105 transition-transform duration-300"
+                              className="w-16 h-16 sm:w-24 sm:h-24 object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -695,16 +695,16 @@ export default function About() {
                         href="https://kinesiology.mcmaster.ca/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block p-6 bg-white/95 rounded-xl border border-white/90 backdrop-blur-sm hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
+                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 backdrop-blur-sm hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
                       >
-                        <div className="flex items-start space-x-5">
+                        <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
                           <div className="flex-shrink-0">
                         <ClientImage
                           src="/images/mcmaster-university-logo-png_seeklogo-90018.png"
                               alt="McMaster University"
                               width={96}
                               height={96}
-                              className="w-24 h-24 object-contain group-hover:scale-105 transition-transform duration-300"
+                              className="w-16 h-16 sm:w-24 sm:h-24 object-contain group-hover:scale-105 transition-transform duration-300"
                             />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -736,7 +736,7 @@ export default function About() {
 
             {/* Certifications */}
             <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -746,18 +746,18 @@ export default function About() {
                   </div>
                   
                   <div className="space-y-6 flex-1">
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy Training</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Manual Therapy Techniques</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Certification in orthopedic manual physical therapy techniques</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Certified</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Certification in orthopaedic manual therapy techniques</div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -768,13 +768,13 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Continuing Education</div>
                           <div className="text-[#8A6F0A] font-semibold text-base mb-1">Ongoing Professional Development</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Regular advancement in evidence-based treatment techniques</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Regular courses to keep treatment in line with current evidence</div>
                         </div>
                       </div>
                     </div>
@@ -788,7 +788,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {/* Experience */}
             <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -798,29 +798,29 @@ export default function About() {
                   </div>
                   
                   <div className="space-y-6 flex-1">
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">5+ Years Clinical Practice</div>
                           <div className="text-[#8A6F0A] font-semibold text-base mb-1">Physiotherapy</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Comprehensive patient care across diverse conditions and populations</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">One-on-one care for sports injuries, joint and tendon pain, and recovery after surgery</div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">6,000+ Hours Personal Training</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">Personal Training</div>
                           <div className="text-[#8A6F0A] font-semibold text-base mb-1">Fitness & Conditioning</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Extensive experience in movement analysis and exercise prescription</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Coaching movement and exercise as a personal trainer</div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -837,7 +837,7 @@ export default function About() {
 
             {/* Athletic Background */}
             <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -847,7 +847,7 @@ export default function About() {
                   </div>
                   
                   <div className="space-y-5 flex-1">
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -858,7 +858,7 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -869,7 +869,7 @@ export default function About() {
                 </div>
               </div>
 
-                    <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -892,7 +892,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 sm:mb-10 md:mb-16">
             <span className="inline-block px-3 sm:px-5 py-1 sm:py-1.5 bg-[#D4AF37]/10 text-[#8A6F0A] text-[10px] sm:text-xs md:text-sm font-medium rounded-full mb-2 sm:mb-4">
-              My Professional Guarantee
+              How I Work
             </span>
           
             <h3 className="text-xl sm:text-2xl md:text-4xl font-light text-primary-800 mb-2 sm:mb-4 md:mb-8 tracking-[-0.02em]">
@@ -901,7 +901,7 @@ export default function About() {
             <div className="w-24 sm:w-32 md:w-48 h-0.5 bg-[#B08D57] mx-auto mb-2 sm:mb-4 md:mb-10"></div>
             
             <p className="text-sm sm:text-base md:text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-2">
-              Every aspect of your care is delivered with precision and attention to detail
+              What you can expect at every appointment
             </p>
           </div>
 

@@ -103,20 +103,21 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
               </h2>
             </div>
             <p className="text-gray-600 mb-8 max-w-3xl">
-              This treatment approach can be effective for these common conditions and many more
+              Conditions where I use this treatment, usually alongside exercise.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4">
               {relatedConditions.map((condition) => (
                 condition && (
                   <Link key={condition.id} href={`/conditions/${condition.slug}`}>
-                    <div className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
-                      <h3 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors duration-300">
+                    <div className="group bg-white rounded-xl px-4 py-3 sm:p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex items-center justify-between gap-3 sm:block">
+                      <h3 className="text-base font-semibold text-slate-900 sm:mb-2 group-hover:text-[#B08D57] transition-colors duration-300">
                         {condition.name}
                       </h3>
-                      <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                      <ArrowRightIcon className="w-4 h-4 flex-shrink-0 text-[#8A6F0A] sm:hidden" aria-hidden="true" />
+                      <p className="hidden sm:block text-gray-600 text-sm mb-3 line-clamp-2">
                         {condition.shortDescription || condition.description}
                       </p>
-                      <div className="flex items-center text-[#8A6F0A] font-medium text-sm group-hover:gap-2 transition-all duration-300">
+                      <div className="hidden sm:flex items-center text-[#8A6F0A] font-medium text-sm group-hover:gap-2 transition-all duration-300">
                         View {condition.name}
                         <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>

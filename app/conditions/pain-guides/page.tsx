@@ -185,10 +185,10 @@ export default function PainGuidesIndexPage() {
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Plain-language guides written the way patients describe their symptoms, not
-                the way textbooks organise diagnoses. Each one walks through the likely
-                causes, what each pattern typically means, and links on to the deeper
-                condition pages for the next step.
+                Plain-language guides that start from what you notice: where it hurts, or a
+                phrase on your X-ray, ultrasound or MRI report. Each one walks through the
+                likely causes, what the pattern or wording usually means, and links on to the
+                deeper condition pages for the next step.
               </p>
 
               <p className="text-xs text-slate-500 mt-3">

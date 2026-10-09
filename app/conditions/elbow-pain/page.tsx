@@ -38,7 +38,7 @@ const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['elbow-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/elbow-pain';
 const PAGE_TITLE = 'Elbow Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
-  'Elbow pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Tennis elbow, golfers elbow, and forearm nerve symptoms assessed and treated.';
+  'Elbow pain treatment in Burlington with a Registered Physiotherapist. Tennis elbow, golfer\'s elbow, and forearm nerve symptoms assessed and treated.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -113,7 +113,7 @@ const locationGuides: LocationGuide[] = [
     commonSources: [
       {
         slug: 'golfers-elbow',
-        label: 'Golfers elbow (medial epicondylopathy)',
+        label: 'Golfer\'s elbow (medial epicondylopathy)',
         note: 'Pain on the inside of the elbow with wrist flexion, gripping, or throwing load. Often coexists with wrist flexor and pronator tightness.',
       },
     ],
@@ -179,7 +179,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need an MRI or X-ray for elbow pain?',
     answer:
-      'Most elbow pain does not need imaging to start physiotherapy. Tennis elbow and golfers elbow are clinical diagnoses built from history and exam. Imaging becomes useful when the picture points to a structural problem that would change the plan: suspected fracture after trauma, progressive neurological symptoms, a case not responding the way a careful exam predicted, or when a ligament rupture is in question. I flag when imaging will actually change management rather than ordering it by default.',
+      'Most elbow pain does not need imaging to start physiotherapy. Tennis elbow and golfer\'s elbow are clinical diagnoses built from history and exam. Imaging becomes useful when the picture points to a structural problem that would change the plan: suspected fracture after trauma, progressive neurological symptoms, a case not responding the way a careful exam predicted, or when a ligament rupture is in question. When imaging would change the plan, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'Is it really tennis elbow if I have never played tennis?',
@@ -207,9 +207,9 @@ const faqs: Array<{ question: string; answer: string }> = [
       'That pattern usually means the ulnar nerve is being irritated, most commonly at the inner elbow in what is called cubital tunnel syndrome. Prolonged elbow flexion, resting the elbow on hard surfaces, or sleeping with a bent elbow all provoke it. The plan focuses on unloading the nerve at the inner elbow, addressing wrist and shoulder positions in the day, and progressively adding strengthening exercises once symptoms settle. Progressive weakness or wasting in the hand needs medical review.',
   },
   {
-    question: 'What is the difference between tennis elbow and golfers elbow?',
+    question: 'What is the difference between tennis elbow and golfer\'s elbow?',
     answer:
-      'They are the same type of problem on opposite sides of the elbow. Tennis elbow is lateral epicondylopathy, involving the wrist extensor tendon origin on the outside of the elbow. Golfers elbow is medial epicondylopathy, involving the wrist flexor and pronator tendon origin on the inside. Loading tests distinguish them: wrist extension against resistance provokes tennis elbow, wrist flexion against resistance provokes golfers elbow. Treatment principles are similar but the loading target is different.',
+      'They are the same type of problem on opposite sides of the elbow. Tennis elbow is lateral epicondylopathy, involving the wrist extensor tendon origin on the outside of the elbow. Golfer\'s elbow is medial epicondylopathy, involving the wrist flexor and pronator tendon origin on the inside. Loading tests distinguish them: wrist extension against resistance provokes tennis elbow, wrist flexion against resistance provokes golfer\'s elbow. Treatment principles are similar but the loading target is different.',
   },
   {
     question: 'Do I need a referral to see you for elbow pain in Burlington?',
@@ -239,7 +239,7 @@ const research: ResearchItem[] = [
     source: 'Bisset et al., BMJ',
     year: 2006,
     summary:
-      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise outperformed wait and see at six weeks. Corticosteroid injection was superior at six weeks but produced significantly worse outcomes than physiotherapy at twelve months, with a recurrence rate of roughly 72 percent in the injection group.',
+      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise did better than wait and see at six weeks. Corticosteroid injection gave the most relief at six weeks but produced significantly worse outcomes than physiotherapy at twelve months, with a recurrence rate of roughly 72 percent in the injection group.',
   },
   {
     title: 'Effect of corticosteroid injection, physiotherapy, or both on clinical outcomes in lateral epicondylalgia',
@@ -254,13 +254,6 @@ const research: ResearchItem[] = [
     year: 2006,
     summary:
       'Population-based study reporting definite lateral epicondylitis prevalence of 1.3 percent and medial epicondylitis prevalence of 0.4 percent, peaking in adults aged 45 to 54. Smoking, obesity, repetitive work, and forceful activities were identified as independent risk factors, with rates substantially higher in occupational cohorts exposed to sustained gripping.',
-  },
-  {
-    title: 'Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears (MOON cohort)',
-    source: 'Kuhn et al., Journal of Shoulder and Elbow Surgery',
-    year: 2013,
-    summary:
-      'Included here because elbow pain in overhead athletes and lifters frequently sits inside a shoulder-driven chain. Around 75 percent of patients with atraumatic cuff tears avoided surgery at two years with a specific physical therapy protocol, supporting shoulder-first thinking when elbow symptoms travel up the chain.',
   },
 ];
 
@@ -416,7 +409,7 @@ export default function ElbowPainHubPage() {
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
                 Elbow pain breaks down into a small number of recognisable patterns. Pain on the
-                outside is usually tennis elbow. Pain on the inside is usually golfers elbow.
+                outside is usually tennis elbow. Pain on the inside is usually golfer&rsquo;s elbow.
                 Numbness in the fingers has its own distinct map. This page is a guide I use with
                 patients to sort where the pain is, what usually drives it, and how I go about
                 treating it.
@@ -498,7 +491,7 @@ export default function ElbowPainHubPage() {
                   Elbow pain sorts itself cleanly. Pain on the outside of the elbow that flares
                   when you grip, pour, or shake a hand is almost always tennis elbow. Pain on the
                   inside that flares with wrist flexion, a golf swing, or a heavy pull is almost
-                  always golfers elbow. Numbness in the ring and little finger points to the
+                  always golfer&rsquo;s elbow. Numbness in the ring and little finger points to the
                   ulnar nerve at the inner elbow. Numbness in the thumb, index, and middle
                   fingers points to the median nerve at the wrist, even when the pain feels like
                   it is coming from further up the arm. A diffuse forearm aching without a clear
@@ -506,11 +499,11 @@ export default function ElbowPainHubPage() {
                   most of what walks into clinic.
                 </p>
                 <p>
-                  The honest version: most elbow pain in adults is tendon-driven and responds
-                  well to structured rehabilitation. The JOSPT 2022 lateral elbow pain clinical
+                  Most elbow pain in adults is tendon-driven and can respond well to structured
+                  rehabilitation. The JOSPT 2022 lateral elbow pain clinical
                   practice guideline, the Bisset BMJ 2006 trial, and the Coombes JAMA 2013 trial
                   all point the same way. Graded exercise therapy, manual therapy as an adjunct,
-                  and clear load management produce the strongest long-term outcomes, while
+                  and clear load management have the strongest evidence for long-term outcomes, while
                   corticosteroid injections tend to feel better short-term but worsen longer-term
                   outcomes. What changes between people is the tissue, the work or sport demands
                   driving it, and how load needs to be dosed.
@@ -609,7 +602,7 @@ export default function ElbowPainHubPage() {
                 <p>
                   The first appointment runs on questions before it runs on equipment. Where does
                   the pain sit, how did it start, what makes it worse, what makes it better. The
-                  small details do real work. Whether a new role, sport, or gym block ramped up
+                  small details matter. Whether a new role, sport, or gym block ramped up
                   gripping faster than the tendon could adapt. Whether it came on after a specific
                   lift or fall, or gradually over weeks. What your typical day actually looks like
                   in terms of grip, typing, and tool use. Whether symptoms travel into the hand
@@ -619,9 +612,9 @@ export default function ElbowPainHubPage() {
                 </p>
                 <p>
                   From there, the exam goes region by region. I watch active elbow and wrist
-                  range, check grip strength where useful, and run the targeted tests that move
-                  the needle: resisted wrist extension and middle-finger extension for tennis
-                  elbow, resisted wrist flexion and pronation for golfers elbow, Tinel and elbow
+                  range, check grip strength where useful, and run the targeted tests that help
+                  separate the options: resisted wrist extension and middle-finger extension for
+                  tennis elbow, resisted wrist flexion and pronation for golfer&rsquo;s elbow, Tinel and elbow
                   flexion tests for cubital tunnel, and Phalen and median nerve tests if the
                   picture points further down the arm. Where palpation is relevant, it is
                   directed by the working hypothesis rather than applied as a routine sweep. I
@@ -636,7 +629,7 @@ export default function ElbowPainHubPage() {
                   exercises dosed to your current tolerance, usually isometric first if the
                   tissue is reactive, then slow heavy loading through the wrist extensors or
                   flexors as tolerance improves. Joint mobilization, soft tissue therapy, dry
-                  needling, or cupping sit alongside that work where they help it move faster. I
+                  needling, or cupping can sit alongside that work where they help. I
                   write the plan down with you and track a handful of markers so it is clear
                   whether it is actually working. If it is not, I change direction sooner rather
                   than later.

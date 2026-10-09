@@ -29,7 +29,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
             Conditions Treated
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            This treatment approach can be effective for these common conditions and many more
+            Conditions where I use this treatment, usually alongside exercise.
           </p>
         </motion.div>
         

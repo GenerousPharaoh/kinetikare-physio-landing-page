@@ -38,7 +38,7 @@ const topicHubs = [
     href: '/conditions/hip-pain',
     title: 'Hip Pain Guide',
     blurb:
-      'Understand lateral, groin, and deep hip pain with evidence-based routing to the right condition page.',
+      'Lateral, groin, and deep hip pain sorted by location, with links to the right condition page.',
     region: 'Hip',
   },
   {
@@ -47,6 +47,13 @@ const topicHubs = [
     blurb:
       'Front, medial, lateral, and posterior knee pain sorted by location so you can find the pattern that fits.',
     region: 'Knee',
+  },
+  {
+    href: '/conditions/foot-ankle-pain',
+    title: 'Foot & Ankle Pain Guide',
+    blurb:
+      'Heel, Achilles, ankle, forefoot, and shin pain sorted by location so you can find the pattern that fits.',
+    region: 'Foot & Ankle',
   },
   {
     href: '/conditions/shoulder-pain',
@@ -59,15 +66,8 @@ const topicHubs = [
     href: '/conditions/elbow-pain',
     title: 'Elbow Pain Guide',
     blurb:
-      'Tennis elbow, golfers elbow, and forearm nerve symptoms mapped by location with routing to the right condition page.',
+      "Tennis elbow, golfer's elbow, and forearm nerve symptoms sorted by location, with links to the right condition page.",
     region: 'Elbow',
-  },
-  {
-    href: '/conditions/foot-ankle-pain',
-    title: 'Foot & Ankle Pain Guide',
-    blurb:
-      'Heel, Achilles, ankle, forefoot, and shin pain sorted by location so you can find the pattern that fits.',
-    region: 'Foot & Ankle',
   },
 ];
 
@@ -124,7 +124,9 @@ export default function ConditionsPage() {
         conditionB: c.conditionB.shortName,
       };
     })
-    .filter((c): c is NonNullable<typeof c> => c !== null);
+    .filter((c): c is NonNullable<typeof c> => c !== null)
+    // Elbow pairs last: tennis and golfer's elbow are not areas Kareem promotes.
+    .sort((a, b) => Number(a.pair.includes('elbow')) - Number(b.pair.includes('elbow')));
 
   const allConditionEntries = formattedCategories.flatMap((category) => category.conditionsData);
   const itemListSchema = {

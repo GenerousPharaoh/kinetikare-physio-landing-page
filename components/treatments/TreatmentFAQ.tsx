@@ -45,7 +45,7 @@ export default function TreatmentFAQ({ treatment }: TreatmentFAQProps) {
             Frequently Asked <span className="font-semibold">Questions</span>
           </h2>
           <p className="text-xl text-gray-600 font-light">
-            Common questions about {treatment.name}
+            Common questions about {treatment.shortName ?? treatment.name}
           </p>
         </motion.div>
 

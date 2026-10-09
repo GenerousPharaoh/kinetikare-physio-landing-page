@@ -20,6 +20,7 @@ import {
   ClipboardDocumentCheckIcon,
   ScaleIcon,
   ArrowsRightLeftIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
 import {
   CONTENT_LAST_MODIFIED_ISO,
@@ -38,6 +39,12 @@ import {
 import { inlineName } from '@/lib/text';
 
 const SITE_URL = 'https://www.kinetikarephysio.com';
+
+// Keep the <title> within about 60 characters: add the name only when it fits.
+const withBrand = (title: string) => {
+  const branded = `${title} | Kareem Hassanein`;
+  return branded.length <= 60 ? branded : title;
+};
 
 export async function generateStaticParams() {
   return CONDITION_COMPARISONS.map((comparison) => ({
@@ -60,7 +67,7 @@ export async function generateMetadata({
   }
 
   const pageUrl = `${SITE_URL}/conditions/compare/${comparison.pair}`;
-  const title = `${comparison.title} | Kareem Hassanein`;
+  const title = withBrand(comparison.title);
 
   return {
     title,
@@ -112,7 +119,7 @@ export default async function ConditionComparisonPage({
   }
 
   const pageUrl = `${SITE_URL}/conditions/compare/${comparison.pair}`;
-  const pageTitle = `${comparison.title} | Kareem Hassanein`;
+  const pageTitle = withBrand(comparison.title);
 
   const conditionA = getConditionBySlug(comparison.conditionA.slug);
   const conditionB = getConditionBySlug(comparison.conditionB.slug);
@@ -582,6 +589,30 @@ export default async function ConditionComparisonPage({
                   </div>
                 </div>
               </div>
+
+              {/* Red flags */}
+              {comparison.redFlags && comparison.redFlags.length > 0 && (
+                <div className="mt-4 bg-white rounded-2xl p-6 border border-red-200">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 p-2 bg-red-50 rounded-lg">
+                      <ExclamationTriangleIcon className="h-5 w-5 text-red-700" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-slate-900 mb-2">
+                        When to see a doctor first
+                      </h3>
+                      <ul className="space-y-2">
+                        {comparison.redFlags.map((flag) => (
+                          <li key={flag.sign} className="text-sm text-slate-700 leading-relaxed">
+                            <span className="font-medium text-slate-900">{flag.sign}.</span>{' '}
+                            {flag.action}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>

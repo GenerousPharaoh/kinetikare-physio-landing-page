@@ -13,7 +13,7 @@ import { WEEKLY_HOURS, type ClinicSite } from '@/lib/hours';
 const PAGE_URL = 'https://www.kinetikarephysio.com/contact';
 const PAGE_TITLE = 'Contact Kareem Hassanein | Physiotherapy in Burlington';
 const PAGE_DESCRIPTION =
-  'Reach Kareem Hassanein, Registered Physiotherapist in Burlington, by email, or book through reception at Endorphins, PhysioMax or Headon Physio. Hours and directions for each.';
+  'Reach Kareem Hassanein, Registered Physiotherapist in Burlington, by email, or book with reception at Endorphins, PhysioMax or Headon Physio.';
 
 const EMAIL = 'kareem.hassanein@gmail.com';
 

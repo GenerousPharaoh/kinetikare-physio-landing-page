@@ -100,9 +100,10 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
           </span>
         </div>
 
-        {/* Line 3: where + when, joined by a middot. Wraps onto a new line
-            on narrow viewports without either fragment being stranded. */}
-        <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-slate-500">
+        {/* Line 3: where + when, joined by a middot from sm up. Phones stack
+            the two fragments and drop the middot, which otherwise wrapped
+            onto a line of its own. */}
+        <div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline gap-x-2 gap-y-0.5 text-slate-500">
           <span>
             Practicing at{' '}
             <Link
@@ -117,7 +118,9 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
           </span>
           {reviewed?.label && (
             <>
-              <Divider />
+              <span className="hidden sm:inline">
+                <Divider />
+              </span>
               <span>
                 Last reviewed{' '}
                 <time dateTime={reviewed.datetime} className="text-slate-600">

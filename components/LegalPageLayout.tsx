@@ -102,6 +102,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 }
                 
                 .legal-content ul {
+                  list-style: disc;
                   margin-left: 1.5rem;
                   margin-bottom: 0.75rem;
                   margin-top: 0.25rem;

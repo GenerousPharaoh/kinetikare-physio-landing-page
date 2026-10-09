@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import IntakeLandingPage from '@/components/intake/IntakeLandingPage';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy in Burlington | Physio Near You | Kareem Hassanein',
+  title: 'Physiotherapy in Burlington | Kareem Hassanein',
   description:
-    '1-on-1 physiotherapy in Burlington for back, knee, and sports injuries. Direct billing to 17+ insurers. Convenient afternoon and evening appointments, no referral needed. Book your assessment at Kinetikare Physio.',
+    'One-on-one physiotherapy in Burlington for knee, hip, back and sports injuries. Direct billing, afternoon and evening appointments, no referral needed.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/intake',
   },

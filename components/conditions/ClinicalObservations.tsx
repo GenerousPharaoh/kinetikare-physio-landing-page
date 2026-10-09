@@ -9,8 +9,10 @@ import React from 'react';
  * unaffected.
  *
  * Visual design: a distinct boxed callout with a gold left border (#B08D57),
- * a small kicker, a paragraph body, and an optional last-reviewed date. Designed
- * to read clearly as a quote from the clinician rather than encyclopedic prose.
+ * a small kicker and a paragraph body. Designed to read clearly as a quote from
+ * the clinician rather than encyclopedic prose. The page's review date lives in
+ * the author byline only, so `lastReviewed` here is kept as data but not shown
+ * (two different dates on one page read as a mistake).
  */
 
 export interface ClinicalObservationsData {
@@ -18,7 +20,7 @@ export interface ClinicalObservationsData {
   title?: string;
   /** First-person prose. If it contains `\n\n`, each chunk renders as its own paragraph. */
   body: string;
-  /** ISO date string (e.g. '2026-04-16') shown as a small transparency note below the body. */
+  /** ISO date string (e.g. '2026-04-16'). Not rendered; the byline carries the page date. */
   lastReviewed?: string;
 }
 
@@ -29,17 +31,6 @@ interface ClinicalObservationsProps {
 const DEFAULT_TITLE = 'Patterns I see in clinic';
 const KICKER = 'From the clinic';
 
-const MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-];
-
-function formatReviewedDate(iso: string): string | null {
-  const parsed = new Date(iso);
-  if (Number.isNaN(parsed.getTime())) return null;
-  return `${MONTH_NAMES[parsed.getUTCMonth()]} ${parsed.getUTCDate()}, ${parsed.getUTCFullYear()}`;
-}
-
 export default function ClinicalObservations({ observations }: ClinicalObservationsProps) {
   if (!observations) return null;
   const body = observations.body?.trim();
@@ -47,9 +38,6 @@ export default function ClinicalObservations({ observations }: ClinicalObservati
 
   const title = observations.title?.trim() || DEFAULT_TITLE;
   const paragraphs = body.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
-  const reviewedLabel = observations.lastReviewed
-    ? formatReviewedDate(observations.lastReviewed)
-    : null;
 
   return (
     <aside
@@ -80,12 +68,6 @@ export default function ClinicalObservations({ observations }: ClinicalObservati
           </p>
         ))}
       </div>
-
-      {reviewedLabel && (
-        <p className="mt-6 text-xs text-slate-500">
-          Last reviewed: <time dateTime={observations.lastReviewed}>{reviewedLabel}</time>
-        </p>
-      )}
     </aside>
   );
 }

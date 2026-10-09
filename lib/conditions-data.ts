@@ -221,27 +221,27 @@ const spinalConditions: Condition[] = [
     description: 'acute and chronic, mechanical, disc-related',
     featured: true,
     priority: 1,
-    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. Evidence-based physiotherapy using manual techniques, dry needling, and personalized exercise programs for lasting relief.',
+    metaDescription: 'Low back pain physiotherapy in Burlington with Kareem Hassanein, Registered Physiotherapist. Exercise, hands-on care and advice. Direct billing, no referral.',
   },
   {
     id: 'neck-pain',
     slug: 'neck-pain',
     name: 'Neck Pain & Stiffness',
     category: 'spinal-health',
-    description: 'including whiplash-associated disorders',
+    description: 'Neck pain, stiffness and neck-related headaches',
     featured: true,
     priority: 7,
-    metaDescription: 'Personalized neck pain treatment in Burlington. Expert physiotherapy for cervical spine issues, whiplash, and chronic neck stiffness using evidence-based manual therapy techniques.',
+    metaDescription: 'Neck pain and stiffness physiotherapy in Burlington with Kareem Hassanein, Registered Physiotherapist. Exercise, joint mobilization and advice. Direct billing.',
   },
   {
     id: 'whiplash',
     slug: 'whiplash',
-    name: 'Whiplash/WAD',
+    name: 'Whiplash',
     category: 'spinal-health',
-    description: 'Whiplash-associated disorders from motor vehicle accidents',
+    description: 'Neck pain and stiffness after a sudden jolt to the head and neck',
     featured: true,
     priority: 23,
-    metaDescription: 'Whiplash treatment in Burlington by Kareem Hassanein, Registered Physiotherapist. Motor vehicle accident rehab. Direct billing, no referral, evening hours.',
+    metaDescription: 'Whiplash: neck pain and stiffness after a sudden jolt. Physiotherapy in Burlington with Kareem Hassanein, Registered Physiotherapist. No referral needed.',
   },
   {
     id: 'sciatica',
@@ -257,28 +257,28 @@ const spinalConditions: Condition[] = [
   {
     id: 'disc-herniation',
     slug: 'disc-herniation',
-    name: 'Disc Herniations / Bulges',
+    name: 'Disc Herniation and Bulges',
     category: 'spinal-health',
-    description: 'Comprehensive disc injury management',
+    description: 'Disc bulges and herniations in the low back and neck',
     featured: true,
     priority: 10,
-    metaDescription: 'Expert disc herniation treatment in Burlington. Non-surgical physiotherapy approach to disc bulges using McKenzie method, manual therapy, and progressive rehabilitation.',
+    metaDescription: 'Disc herniation and disc bulge physiotherapy in Burlington. Directional exercises, graded loading and advice with Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'degenerative-disc',
     slug: 'degenerative-disc-disease',
     name: 'Degenerative Disc Disease',
     category: 'spinal-health',
-    description: 'Degenerative Joint Disease (Spondylosis)',
-    metaDescription: 'Degenerative disc disease treatment in Burlington. Kareem Hassanein provides personalized physiotherapy for spine degeneration, using manual therapy and targeted exercises for pain relief.',
+    description: 'Age-related disc changes seen on scans (spondylosis)',
+    metaDescription: 'Degenerative disc disease in Burlington: what the scan label means and how physiotherapy can help. Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'spinal-stenosis',
     slug: 'spinal-stenosis',
     name: 'Spinal Stenosis',
     category: 'spinal-health',
-    description: 'Narrowing of spinal canal management',
-    metaDescription: 'Spinal stenosis treatment in Burlington. Expert physiotherapy for spinal canal narrowing with Kareem Hassanein, using decompression techniques and mobility exercises.',
+    description: 'Narrowing of the spinal canal causing leg symptoms with walking',
+    metaDescription: 'Spinal stenosis physiotherapy in Burlington. Flexion-based exercise, cycling and walking plans with Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'facet-joint-syndrome',
@@ -296,7 +296,7 @@ const spinalConditions: Condition[] = [
     name: 'Postural Dysfunction',
     category: 'spinal-health',
     description: 'Related pain and movement issues',
-    metaDescription: 'Postural dysfunction treatment in Burlington. Expert physiotherapy with Kareem Hassanein for poor posture, forward head position, and related pain using corrective exercises.',
+    metaDescription: 'Posture-related neck and back pain: physiotherapy in Burlington with Kareem Hassanein, Registered Physiotherapist. Movement breaks and strengthening.',
   },
 ];
 
@@ -316,7 +316,7 @@ const shoulderConditions: Condition[] = [
     slug: 'shoulder-impingement',
     name: 'Shoulder Impingement Syndrome',
     category: 'shoulder',
-    description: 'Subacromial impingement causing pain with overhead activities',
+    description: 'Rotator cuff and bursa irritation causing pain with overhead activities',
     featured: true,
     priority: 25,
     metaDescription: 'Shoulder impingement treatment in Burlington by a Registered Physiotherapist. Hands-on care and targeted rehab. Direct billing, no referral, evening hours.',
@@ -329,15 +329,15 @@ const shoulderConditions: Condition[] = [
     description: 'Adhesive Capsulitis treatment',
     featured: true,
     priority: 8,
-    metaDescription: 'Effective frozen shoulder treatment in Burlington. Personalized physiotherapy for adhesive capsulitis using manual therapy, mobilization, and guided exercise progression.',
+    metaDescription: 'Frozen shoulder (adhesive capsulitis) physiotherapy in Burlington. Phase-matched mobility work and loading with Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'shoulder-instability',
     slug: 'shoulder-instability',
-    name: 'Shoulder Instability / Dislocations',
+    name: 'Shoulder Instability and Dislocation',
     category: 'shoulder',
-    description: 'conservative management & post-surgical',
-    metaDescription: 'Shoulder instability and dislocation treatment in Burlington. Expert physiotherapy with Kareem Hassanein for shoulder stability training and post-surgical rehabilitation.',
+    description: 'Rehab after a dislocation, for a loose shoulder, and after stabilisation surgery',
+    metaDescription: 'Shoulder instability and dislocation physiotherapy in Burlington. Stability training and post-surgical rehab with Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'thoracic-outlet',
@@ -348,6 +348,7 @@ const shoulderConditions: Condition[] = [
     featured: true,
     priority: 26,
     titleIntent: 'informational',
+    seoTitle: 'Thoracic Outlet Syndrome Treatment in Burlington',
     metaDescription: 'Thoracic outlet syndrome: symptoms, assessment, and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
@@ -356,15 +357,15 @@ const shoulderConditions: Condition[] = [
     name: 'Biceps Tendinopathy',
     category: 'shoulder',
     description: 'Long head biceps tendon pain',
-    metaDescription: 'Biceps tendinopathy treatment in Burlington. Expert physiotherapy for anterior shoulder pain with progressive loading exercises.',
+    metaDescription: 'Biceps tendinopathy physiotherapy in Burlington for pain at the front of the shoulder, with progressive loading. Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'shoulder-bursitis',
     slug: 'shoulder-bursitis',
-    name: 'Bursitis / Tendinitis',
+    name: 'Shoulder Bursitis',
     category: 'shoulder',
-    description: 'Inflammatory shoulder conditions',
-    metaDescription: 'Shoulder bursitis and tendinitis treatment in Burlington. Kareem Hassanein provides expert physiotherapy for shoulder inflammation using manual therapy and anti-inflammatory techniques.',
+    description: 'Irritation of the bursa and rotator cuff tendons at the top of the shoulder',
+    metaDescription: 'Shoulder bursitis physiotherapy in Burlington. Rotator cuff and shoulder blade loading with Kareem Hassanein, Registered Physiotherapist. Direct billing.',
   },
   {
     id: 'ac-joint',
@@ -374,7 +375,7 @@ const shoulderConditions: Condition[] = [
     description: 'Acromioclavicular joint separations and arthritis',
     featured: true,
     priority: 27,
-    metaDescription: 'AC joint injury treatment in Burlington. Expert care for shoulder separations with targeted strengthening and return-to-sport protocols.',
+    metaDescription: 'AC joint sprains and separations: physiotherapy in Burlington with graded strengthening and return to sport. Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'diabetes-related-conditions',
@@ -383,6 +384,7 @@ const shoulderConditions: Condition[] = [
     category: 'shoulder',
     description: 'Frozen shoulder, diabetic peripheral neuropathy, carpal tunnel, and stiff-hand syndrome associated with diabetes',
     titleIntent: 'informational',
+    seoTitle: 'Diabetes and Joint Problems: Physiotherapy in Burlington',
     metaDescription: 'Musculoskeletal conditions linked with diabetes: frozen shoulder, peripheral neuropathy, carpal tunnel. Co-managed physiotherapy by Kareem Hassanein, RPT.',
   },
 ];
@@ -396,7 +398,7 @@ const elbowWristConditions: Condition[] = [
     description: 'Lateral epicondylitis, common extensor tendinopathy',
     featured: true,
     priority: 6,
-    metaDescription: 'Tennis elbow treatment in Burlington. Expert physiotherapy for lateral epicondylitis using manual therapy, dry needling, and progressive loading exercises.',
+    metaDescription: 'Tennis elbow treatment in Burlington. Physiotherapy for lateral epicondylitis using progressive loading exercises, manual therapy, and dry needling.',
   },
   {
     id: 'golfers-elbow',
@@ -417,7 +419,8 @@ const elbowWristConditions: Condition[] = [
     featured: true,
     priority: 18,
     titleIntent: 'informational',
-    metaDescription: 'Carpal tunnel syndrome: symptoms, diagnosis, and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist, Burlington.',
+    seoTitle: 'Carpal Tunnel Syndrome: Symptoms and Treatment in Burlington',
+    metaDescription: 'Carpal tunnel syndrome: symptoms, warning signs, night splints, and physiotherapy treatment. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'de-quervains',
@@ -428,7 +431,8 @@ const elbowWristConditions: Condition[] = [
     featured: true,
     priority: 19,
     titleIntent: 'informational',
-    metaDescription: "De Quervain's tenosynovitis: thumb-side wrist pain, testing, and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist.",
+    seoTitle: "De Quervain's Tenosynovitis Treatment in Burlington",
+    metaDescription: "De Quervain's tenosynovitis: thumb-side wrist pain, splinting, and physiotherapy treatment. Kareem Hassanein, Registered Physiotherapist, Burlington.",
   },
   {
     id: 'wrist-sprains',
@@ -445,6 +449,7 @@ const elbowWristConditions: Condition[] = [
     category: 'elbow-wrist-hand',
     description: 'Wrist bone fracture after a fall on the outstretched hand',
     titleIntent: 'informational',
+    seoTitle: 'Scaphoid Fracture: Symptoms and Rehab in Burlington',
     metaDescription: 'Scaphoid fracture: snuffbox pain after a fall on the outstretched hand, imaging, and post-cast rehabilitation by Kareem Hassanein, Registered Physiotherapist.',
   },
   {
@@ -453,7 +458,7 @@ const elbowWristConditions: Condition[] = [
     name: 'Repetitive Strain Injuries',
     category: 'elbow-wrist-hand',
     description: 'Overuse injuries of upper limb',
-    metaDescription: 'RSI treatment in Burlington. Expert physiotherapy for workplace injuries with ergonomic assessment and targeted rehabilitation.',
+    metaDescription: 'Repetitive strain injuries of the hand, wrist and arm: physiotherapy in Burlington with load changes and graded strengthening. Kareem Hassanein, RPT.',
   },
 ];
 
@@ -507,8 +512,8 @@ const hipPelvisConditions: Condition[] = [
     slug: 'hip-bursitis',
     name: 'Hip Bursitis',
     category: 'hip-pelvis',
-    description: 'Bursal inflammation causing localized hip pain',
-    metaDescription: 'Hip bursitis treatment in Burlington. Physiotherapy for inflammatory hip conditions using activity modification and progressive loading.',
+    description: 'Pain on the outside of the hip, most often from the gluteal tendons, with the bursa irritated alongside',
+    metaDescription: 'Hip bursitis (outer hip pain) treatment in Burlington. Physiotherapy built on reducing tendon compression and progressive glute strengthening.',
   },
   {
     id: 'proximal-hamstring-tendinopathy',
@@ -526,7 +531,7 @@ const hipPelvisConditions: Condition[] = [
     slug: 'piriformis-syndrome',
     name: 'Piriformis Syndrome',
     category: 'hip-pelvis',
-    description: 'Deep buttock pain from the sciatic nerve, also called deep gluteal syndrome',
+    description: 'Deep buttock pain from the sciatic nerve as it passes through the buttock (piriformis or deep gluteal syndrome)',
     featured: true,
     priority: 20,
     seoTitle: 'Piriformis Syndrome and Deep Gluteal Syndrome in Burlington',
@@ -538,7 +543,7 @@ const hipPelvisConditions: Condition[] = [
     name: 'Sacroiliac (SI) Joint Dysfunction',
     category: 'hip-pelvis',
     description: 'SI joint pain and instability',
-    metaDescription: 'SI joint dysfunction treatment in Burlington. Personalized physiotherapy for sacroiliac pain using manual therapy and core stabilization.',
+    metaDescription: 'SI joint pain treatment in Burlington. Physiotherapy for sacroiliac pain with hip and trunk strengthening and hands-on care. Direct billing, no referral.',
   },
   {
     id: 'groin-strains',
@@ -568,9 +573,9 @@ const kneeConditions: Condition[] = [
   {
     id: 'knee-pain',
     slug: 'knee-pain-patellofemoral',
-    name: 'Knee Pain',
+    name: 'Patellofemoral Pain (Kneecap Pain)',
     category: 'knee',
-    description: "e.g., Patellofemoral Pain Syndrome, Patellar Tendinopathy",
+    description: 'Pain around or behind the kneecap, often worse with stairs, squats and long periods of sitting',
     featured: true,
     priority: 4,
     seoTitle: 'Patellofemoral Pain (Kneecap Pain) Treatment in Burlington',
@@ -610,20 +615,21 @@ const kneeConditions: Condition[] = [
     slug: 'meniscus-tears',
     name: 'Meniscal Injuries',
     category: 'knee',
-    description: 'conservative & post-surgical rehab',
+    description: 'Meniscus tears from a twist or from gradual wear, with rehab before or after surgery',
     featured: true,
     priority: 12,
-    metaDescription: 'Meniscus tear treatment in Burlington. Expert physiotherapy for meniscal injuries, avoiding surgery when possible, and post-operative rehabilitation.',
+    seoTitle: 'Meniscus Tear: Symptoms and Treatment in Burlington',
+    metaDescription: 'Meniscus tear symptoms, when rehab is the first step and when surgery is considered, and physiotherapy in Burlington. Direct billing, no referral.',
   },
   {
     id: 'it-band-syndrome',
     slug: 'it-band-syndrome',
     name: 'IT Band Syndrome',
     category: 'knee',
-    description: 'Iliotibial band friction syndrome, common in runners and cyclists',
+    description: 'Outer knee pain from compression under the iliotibial band, common in runners and cyclists',
     featured: true,
     priority: 13,
-    metaDescription: 'IT band syndrome treatment in Burlington. Personalized physiotherapy for runners and cyclists with lateral knee pain using targeted stretching and strengthening.',
+    metaDescription: 'IT band syndrome treatment in Burlington. Physiotherapy for runners and cyclists with outer knee pain, built on hip strengthening and running load changes.',
   },
   {
     id: 'patellar-tendinopathy',
@@ -637,7 +643,7 @@ const kneeConditions: Condition[] = [
   {
     id: 'knee-arthritis',
     slug: 'knee-osteoarthritis',
-    name: 'Osteoarthritis of the Knee',
+    name: 'Knee Osteoarthritis',
     category: 'knee',
     description: 'Degenerative joint disease management',
     seoTitle: 'Knee Osteoarthritis: Symptoms and Treatment in Burlington',
@@ -650,7 +656,8 @@ const kneeConditions: Condition[] = [
     category: 'knee',
     description: 'Kneecap fracture after a direct blow or fall onto the knee',
     titleIntent: 'informational',
-    metaDescription: 'Patella fracture: extensor mechanism assessment, non-operative criteria, and quadriceps-driven rehabilitation by Kareem Hassanein, Registered Physiotherapist.',
+    seoTitle: 'Kneecap (Patella) Fracture: Rehab in Burlington',
+    metaDescription: 'Rehab after a kneecap (patella) fracture in Burlington: protecting the repair, rebuilding quadriceps strength and returning to activity. Direct billing.',
   },
 ];
 
@@ -695,7 +702,7 @@ const footAnkleConditions: Condition[] = [
     description: 'Medial Tibial Stress Syndrome',
     featured: true,
     priority: 16,
-    metaDescription: 'Shin splints treatment in Burlington. Expert physiotherapy for runners with tibial pain using gait analysis and progressive loading.',
+    metaDescription: 'Shin splints treatment in Burlington. Physiotherapy for runners with inner shin pain: gait analysis, calf loading and a graded return to running.',
   },
   {
     id: 'peroneal-tendinopathy',
@@ -711,7 +718,7 @@ const footAnkleConditions: Condition[] = [
     name: 'Posterior Tibial Tendon Dysfunction',
     category: 'foot-ankle',
     description: 'Adult-acquired flatfoot, progressive foot deformity',
-    metaDescription: 'PTTD treatment in Burlington. Expert physiotherapy for adult-acquired flatfoot using orthotics, strengthening exercises, and activity modification.',
+    metaDescription: 'PTTD treatment in Burlington. Physiotherapy for adult-acquired flatfoot using orthotics, strengthening exercises, and activity modification.',
     featured: true,
     priority: 32,
   },
@@ -723,7 +730,8 @@ const footAnkleConditions: Condition[] = [
     description: 'Forefoot nerve compression causing numbness and burning pain',
     featured: true,
     priority: 33,
-    metaDescription: "Morton's neuroma treatment in Burlington. Conservative physiotherapy for forefoot pain using activity modification and footwear advice.",
+    seoTitle: "Morton's Neuroma: Symptoms and Care in Burlington",
+    metaDescription: "Morton's neuroma: forefoot nerve pain, footwear and padding, and when injection or surgery comes up. Kareem Hassanein, Registered Physiotherapist, Burlington.",
   },
   {
     id: 'metatarsalgia',
@@ -731,7 +739,8 @@ const footAnkleConditions: Condition[] = [
     name: 'Metatarsalgia',
     category: 'foot-ankle',
     description: 'Ball of foot pain, forefoot overload syndrome',
-    metaDescription: 'Metatarsalgia treatment in Burlington. Expert care for ball of foot pain using load redistribution and strengthening exercises.',
+    seoTitle: 'Metatarsalgia: Symptoms and Care in Burlington',
+    metaDescription: 'Metatarsalgia (ball of foot pain): causes, metatarsal pads, footwear, and when to see a doctor. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'hallux-valgus',
@@ -741,7 +750,8 @@ const footAnkleConditions: Condition[] = [
     description: 'Big toe joint deformity, bunion pain and stiffness',
     featured: true,
     priority: 34,
-    metaDescription: 'Bunion treatment in Burlington. Conservative physiotherapy for hallux valgus using exercises, taping, and footwear modification.',
+    seoTitle: 'Bunions (Hallux Valgus): Symptoms and Care in Burlington',
+    metaDescription: 'Bunions (hallux valgus): easing the pain with footwear, toe spacers and exercise, and when to see a surgeon. Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'hallux-rigidus',
@@ -758,7 +768,8 @@ const footAnkleConditions: Condition[] = [
     category: 'foot-ankle',
     description: 'Great toe joint sprain, first MTP joint injury',
     titleIntent: 'informational',
-    metaDescription: 'Turf toe: first MTP joint sprain, grading, and evidence-based return-to-sport treatment by Kareem Hassanein, Registered Physiotherapist, Burlington.',
+    seoTitle: 'Turf Toe: Symptoms and Treatment in Burlington',
+    metaDescription: 'Turf toe: big toe joint sprain, grading, and a graded return to sport. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'severs-disease',
@@ -777,7 +788,8 @@ const footAnkleConditions: Condition[] = [
     category: 'foot-ankle',
     description: 'Posterior tibial nerve compression, medial ankle numbness',
     titleIntent: 'informational',
-    metaDescription: 'Tarsal tunnel syndrome: medial ankle nerve compression symptoms and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist.',
+    seoTitle: 'Tarsal Tunnel Syndrome: Symptoms and Treatment in Burlington',
+    metaDescription: 'Tarsal tunnel syndrome: inner ankle nerve compression symptoms and physiotherapy treatment. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'hammer-toe-deformities',
@@ -786,7 +798,8 @@ const footAnkleConditions: Condition[] = [
     category: 'foot-ankle',
     description: 'Lesser toe deformity with flexed PIP joint, flexible or fixed',
     titleIntent: 'informational',
-    metaDescription: 'Hammer toe deformity: footwear changes, intrinsic foot strengthening, and when conservative care is appropriate, from Kareem Hassanein, Registered Physiotherapist.',
+    seoTitle: 'Hammer Toe: Symptoms and Care in Burlington',
+    metaDescription: 'Hammer toe: footwear, padding, foot strengthening, warning signs, and when to see a surgeon. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'stress-fractures',
@@ -795,7 +808,8 @@ const footAnkleConditions: Condition[] = [
     category: 'foot-ankle',
     description: 'Bone stress injuries from accumulated load, most common in tibia, navicular, and metatarsals',
     titleIntent: 'informational',
-    metaDescription: 'Stress fractures: high-risk vs low-risk sites, imaging, and graduated return to loading by Kareem Hassanein, Registered Physiotherapist in Burlington, Ontario.',
+    seoTitle: 'Stress Fractures: Symptoms and Treatment in Burlington',
+    metaDescription: 'Stress fractures: high-risk vs low-risk sites, warning signs, imaging, and a graded return to running. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'growth-plate-injuries',
@@ -804,7 +818,8 @@ const footAnkleConditions: Condition[] = [
     category: 'foot-ankle',
     description: 'Pediatric physeal and apophyseal injuries, including Salter-Harris fractures and traction apophysitis',
     titleIntent: 'informational',
-    metaDescription: 'Growth plate injuries in young athletes: Salter-Harris framework, apophysitis, and load management guidance from Kareem Hassanein, Registered Physiotherapist.',
+    seoTitle: 'Growth Plate Injuries: Symptoms and Treatment in Burlington',
+    metaDescription: 'Growth plate injuries in young athletes: apophysitis, fractures, warning signs, and load management. Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
 ];
 
@@ -900,7 +915,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'whiplash', relationshipType: 'causal', explanation: 'Whiplash is a common cause of chronic neck pain and dysfunction', relevanceScore: 8 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'anatomical', explanation: 'Both involve cervical spine region; neck posture affects thoracic outlet space', relevanceScore: 7 },
     { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Forward head posture and neck pain often coexist with shoulder impingement', relevanceScore: 6 },
-    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Poor posture is a primary contributing factor to chronic neck pain', relevanceScore: 7 }
+    { slug: 'postural-dysfunction', relationshipType: 'symptomatic', explanation: 'Long hours in one position often go with neck pain, though posture alone is a weak cause', relevanceScore: 7 }
   ],
   'sciatica': [
     { slug: 'low-back-pain', relationshipType: 'anatomical', explanation: 'Sciatica often originates from lumbar spine pathology causing back pain', relevanceScore: 9 },
@@ -917,7 +932,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'Bursitis often accompanies rotator cuff irritation and settles with the same loading approach', relevanceScore: 6 }
   ],
   'shoulder-impingement': [
-    { slug: 'rotator-cuff-injuries', relationshipType: 'causal', explanation: 'Chronic impingement leads to rotator cuff tendon damage and tears', relevanceScore: 9 },
+    { slug: 'rotator-cuff-injuries', relationshipType: 'anatomical', explanation: 'Both describe irritation of the rotator cuff tendons and often overlap', relevanceScore: 9 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause overhead movement restriction; impingement can progress to adhesive capsulitis', relevanceScore: 7 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
     { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Forward head posture contributes to scapular dysfunction and impingement', relevanceScore: 6 },
@@ -1099,10 +1114,10 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Peroneal dysfunction affects foot mechanics and can contribute to plantar fasciitis', relevanceScore: 5 }
   ],
   'whiplash': [
-    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Whiplash is a common cause of chronic neck pain and cervical dysfunction', relevanceScore: 8 },
-    { slug: 'thoracic-outlet-syndrome', relationshipType: 'anatomical', explanation: 'Whiplash can affect cervical spine positioning contributing to thoracic outlet symptoms', relevanceScore: 6 },
+    { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'Whiplash is neck pain that starts after a sudden jolt, so the two share most of their care', relevanceScore: 8 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause arm tingling after a neck injury and need to be told apart', relevanceScore: 6 },
     { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Post-whiplash neck stiffness can alter shoulder blade mechanics', relevanceScore: 5 },
-    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Whiplash often leads to protective posturing and chronic postural problems', relevanceScore: 6 }
+    { slug: 'postural-dysfunction', relationshipType: 'symptomatic', explanation: 'Guarding the neck after whiplash can leave it stiff in sustained positions', relevanceScore: 6 }
   ],
   'disc-herniation': [
     { slug: 'sciatica', relationshipType: 'causal', explanation: 'Disc herniation is the most common cause of sciatica and nerve root compression', relevanceScore: 9 },
@@ -1122,8 +1137,8 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'neck-pain', relationshipType: 'anatomical', explanation: 'Both involve cervical spine region; neck posture affects thoracic outlet space', relevanceScore: 7 },
     { slug: 'carpal-tunnel-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause arm numbness and tingling; TOS affects more proximal nerve compression', relevanceScore: 6 },
     { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
-    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Forward head posture and rounded shoulders are primary causes of TOS', relevanceScore: 7 },
-    { slug: 'whiplash', relationshipType: 'causal', explanation: 'Whiplash can alter cervical positioning contributing to thoracic outlet compression', relevanceScore: 6 }
+    { slug: 'postural-dysfunction', relationshipType: 'biomechanical', explanation: 'Shoulder blade position and breathing pattern can add to thoracic outlet symptoms', relevanceScore: 7 },
+    { slug: 'whiplash', relationshipType: 'symptomatic', explanation: 'Thoracic outlet symptoms sometimes start after a neck injury', relevanceScore: 6 }
   ],
   'ac-joint-injuries': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'biomechanical', explanation: 'AC joint dysfunction alters shoulder mechanics and can stress rotator cuff', relevanceScore: 6 },
@@ -1169,10 +1184,10 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'low-back-pain', relationshipType: 'symptomatic', explanation: 'Stenosis commonly presents with back pain and leg symptoms', relevanceScore: 6 }
   ],
   'postural-dysfunction': [
-    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Poor posture is primary cause of chronic neck pain and cervical dysfunction', relevanceScore: 7 },
-    { slug: 'thoracic-outlet-syndrome', relationshipType: 'causal', explanation: 'Forward head posture and rounded shoulders cause thoracic outlet compression', relevanceScore: 7 },
-    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Poor posture contributes to scapular dysfunction and shoulder impingement', relevanceScore: 6 },
-    { slug: 'low-back-pain', relationshipType: 'causal', explanation: 'Prolonged poor posture contributes to lumbar spine dysfunction', relevanceScore: 6 }
+    { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'End-of-day neck pain is the most common complaint people link to posture', relevanceScore: 7 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Shoulder blade position can add to arm symptoms in thoracic outlet syndrome', relevanceScore: 7 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Shoulder blade control is part of rehab for both', relevanceScore: 6 },
+    { slug: 'low-back-pain', relationshipType: 'symptomatic', explanation: 'Long spells in one position can sensitise the lower back as well as the neck', relevanceScore: 6 }
   ],
   'shoulder-instability': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'causal', explanation: 'Shoulder instability can lead to rotator cuff damage from repeated dislocations', relevanceScore: 7 },
@@ -1182,7 +1197,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Post-dislocation stiffness can develop into adhesive capsulitis', relevanceScore: 5 }
   ],
   'shoulder-bursitis': [
-    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Subacromial impingement commonly causes secondary bursitis', relevanceScore: 8 },
+    { slug: 'shoulder-impingement', relationshipType: 'anatomical', explanation: 'The bursa and the rotator cuff tendons sit in the same space and are usually irritated together', relevanceScore: 8 },
     { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and can coexist with similar presentations', relevanceScore: 7 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness with inflammatory components', relevanceScore: 6 },
     { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Subacromial bursitis can affect nearby biceps tendon', relevanceScore: 5 },
@@ -1200,7 +1215,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'tennis-elbow', relationshipType: 'causal', explanation: 'Tennis elbow is a repetitive strain injury of the lateral elbow', relevanceScore: 8 },
     { slug: 'de-quervains-tenosynovitis', relationshipType: 'causal', explanation: 'De Quervains is a repetitive strain injury of thumb tendons', relevanceScore: 8 },
     { slug: 'golfers-elbow', relationshipType: 'causal', explanation: 'Golfers elbow is a repetitive strain injury of the medial elbow', relevanceScore: 8 },
-    { slug: 'thoracic-outlet-syndrome', relationshipType: 'causal', explanation: 'Poor ergonomics contributing to RSI can also cause thoracic outlet syndrome', relevanceScore: 6 }
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause arm aching and tingling with desk work and need to be told apart', relevanceScore: 6 }
   ],
   'si-joint-dysfunction': [
     { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'SI joint dysfunction commonly coexists with lumbar spine issues', relevanceScore: 7 },
@@ -1328,8 +1343,10 @@ const isAnatomicallyOrClinicallyRelated = (
   rel: { relationshipType: string },
 ): boolean => rel.relationshipType !== 'treatment';
 
+const NOT_PROMOTED_FALLBACK_SLUGS = new Set(['neck-pain', 'whiplash']);
+
 // Get related conditions using intelligent algorithm
-export const getRelatedConditions = (currentSlug: string, category: string, limit: number = 3): Condition[] => {
+export const getRelatedConditions =(currentSlug: string, category: string, limit: number = 3): Condition[] => {
   const allConditions = getAllConditions();
 
   const relationships = (intelligentRelationships[currentSlug] || [])
@@ -1344,12 +1361,16 @@ export const getRelatedConditions = (currentSlug: string, category: string, limi
     .map(slug => allConditions.find(condition => condition.slug === slug))
     .filter((condition): condition is Condition => condition !== undefined);
 
+  // Neck pain and whiplash are not promoted on the site, so the unlabelled
+  // category fallback never adds them; they still appear where the curated
+  // map links to them with an explanation.
   if (relatedConditions.length < limit) {
     const categoryFallback = allConditions
       .filter(condition =>
         condition.slug !== currentSlug &&
         condition.category === category &&
-        !relatedSlugs.includes(condition.slug)
+        !relatedSlugs.includes(condition.slug) &&
+        !NOT_PROMOTED_FALLBACK_SLUGS.has(condition.slug)
       )
       .slice(0, limit - relatedConditions.length);
 
@@ -1384,11 +1405,11 @@ export const additionalServices = [
     description: "Multimodal approaches to help manage and reduce long-standing pain."
   },
   {
-    title: "Balance & Gait Disorders",
-    description: "Especially relevant for older adults or those with neurological considerations."
+    title: "Balance & Walking",
+    description: "Strength and balance work for unsteadiness or a change in walking after an injury or operation."
   },
   {
     title: "Pre-Operative Optimization",
-    description: "Preparing for surgery to improve outcomes."
+    description: "Strength and mobility work before a planned joint replacement or ligament surgery."
   }
 ];

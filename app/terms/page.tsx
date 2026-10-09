@@ -62,7 +62,7 @@ export default function TermsPage() {
 
         <h3>3.2 Cancellation Policy</h3>
         <p>
-          I require a minimum of <strong>24 hours notice</strong> for appointment cancellations or rescheduling.
+          I require a minimum of <strong>24 hours&rsquo; notice</strong> for appointment cancellations or rescheduling.
         </p>
         <p>
           Failure to provide adequate notice or missing an appointment without notice may result in a cancellation fee equivalent to the full appointment cost.
@@ -80,7 +80,7 @@ export default function TermsPage() {
         
         <h3>4.1 Service Fees</h3>
         <p>
-          Current fees for services are available upon request and will be communicated before treatment begins. Fees are subject to change with reasonable notice.
+          Current fees are listed on the Fees &amp; first visit page of this website and are confirmed before treatment begins. Fees are subject to change with reasonable notice.
         </p>
         
         <h3>4.2 Payment Terms</h3>

@@ -35,21 +35,11 @@ export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
               Treatments
             </Link>
             <ChevronRightIcon className="h-3 w-3" />
-            <span className="text-gray-900 font-medium">{treatment.name}</span>
+            <span className="text-gray-900 font-medium">{treatment.shortName ?? treatment.name}</span>
           </nav>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
-          >
-            <div className="w-2 h-2 rounded-full bg-[#B08D57]" />
-            <span className="text-sm font-medium text-gray-700">Evidence-Based Treatment</span>
-          </motion.div>
-
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 tracking-tight leading-tight">
-            {treatment.name}
+            {treatment.shortName ?? treatment.name}
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-3xl">

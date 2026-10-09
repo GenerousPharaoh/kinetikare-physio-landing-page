@@ -16,11 +16,11 @@ export default function TreatmentsCTA() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Personalized Treatment Plans
+            How Treatments Are Combined
           </h2>
           <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-            Treatment plans often combine multiple approaches tailored to your specific condition and goals.
-            Book an assessment to discuss which methods would benefit you most.
+            Most plans are built around exercise, with one or two hands-on treatments where they help.
+            At your assessment I explain which ones suit your problem and why.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

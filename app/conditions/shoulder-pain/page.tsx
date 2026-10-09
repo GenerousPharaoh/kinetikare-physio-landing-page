@@ -38,7 +38,7 @@ const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['shoulder-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/shoulder-pain';
 const PAGE_TITLE = 'Shoulder Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
-  'Shoulder pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Rotator cuff, frozen shoulder, AC joint, and biceps pain assessed and treated.';
+  'Shoulder pain treatment in Burlington with a Registered Physiotherapist. Rotator cuff, frozen shoulder, AC joint, and biceps pain assessed and treated.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -212,12 +212,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need an MRI for shoulder pain?',
     answer:
-      'Most shoulder pain does not need imaging to start physiotherapy. Rotator cuff tendinopathy, shoulder impingement, and early frozen shoulder are clinical diagnoses built from history and exam. MRI is most useful when the picture points to a structural problem that would change the plan: suspected full-thickness cuff tear in a younger patient, progressive neurological symptoms, or a case not responding the way a careful exam predicted. I flag when imaging will actually change management rather than ordering it by default.',
+      'Most shoulder pain does not need imaging to start physiotherapy. Rotator cuff tendinopathy, shoulder impingement, and early frozen shoulder are clinical diagnoses built from history and exam. MRI is most useful when the picture points to a structural problem that would change the plan: suspected full-thickness cuff tear in a younger patient, progressive neurological symptoms, or a case not responding the way a careful exam predicted. When imaging would change the plan, I flag it to your family doctor or specialist and refer you.',
   },
   {
     question: 'Can physiotherapy fix a rotator cuff tear?',
     answer:
-      'Many atraumatic rotator cuff tears respond well to structured rehabilitation. The MOON cohort study (Kuhn et al., JSES 2013) followed patients with atraumatic full-thickness cuff tears through a specific physical therapy protocol and found roughly 75 percent avoided surgery at two years, with long-term follow-up holding at around ten years. Tears after significant trauma in younger patients, or tears that fail a proper rehab block, are different situations, and I refer on for a surgical opinion when that is the right call.',
+      'Many atraumatic rotator cuff tears respond well to structured rehabilitation. The MOON cohort study (Kuhn et al., JSES 2013) followed patients with atraumatic full-thickness cuff tears through a specific physical therapy protocol and found roughly 75 percent avoided surgery at two years. The ten-year follow-up of the same cohort (Kuhn et al., JBJS 2024) found physiotherapy still successful for more than 70 percent. Tears after significant trauma in younger patients, or tears that fail a proper rehab block, are different situations, and I refer on for a surgical opinion when that is the right call.',
   },
   {
     question: 'Why does my shoulder hurt at night?',
@@ -227,7 +227,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does frozen shoulder take to recover?',
     answer:
-      'Frozen shoulder runs a long course. The older literature described three phases totalling up to two or three years, though most people see meaningful progress much sooner with structured care. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found no superiority of the surgical treatments on patient-reported outcomes at twelve months. Physiotherapy with a steroid injection where appropriate is a reasonable first-line path for most people.',
+      'Frozen shoulder runs a long course. The older literature described three phases totalling up to two or three years, though many people improve sooner. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found neither operation clearly better on patient-reported outcomes at twelve months. Physiotherapy with a steroid injection where appropriate is a reasonable first-line path for most people.',
   },
   {
     question: 'Is it safe to keep training at the gym with shoulder pain?',
@@ -279,7 +279,7 @@ const research: ResearchItem[] = [
     source: 'Rangan et al., The Lancet',
     year: 2020,
     summary:
-      'Multicentre pragmatic trial in 503 adults with primary frozen shoulder comparing early structured physiotherapy with steroid injection, manipulation under anaesthesia, and arthroscopic capsular release. None of the three treatments were superior on patient-reported outcomes at twelve months, supporting a physiotherapy-first pathway for most patients.',
+      'Multicentre pragmatic trial in 503 adults with primary frozen shoulder comparing early structured physiotherapy with steroid injection, manipulation under anaesthesia, and arthroscopic capsular release. None of the three treatments was clearly better on patient-reported outcomes at twelve months, supporting a physiotherapy-first pathway for most patients.',
   },
   {
     title: 'Arthroscopic subacromial decompression for subacromial shoulder pain (CSAW): a placebo-controlled randomised trial',
@@ -293,7 +293,7 @@ const research: ResearchItem[] = [
     source: 'Kuhn et al., Journal of Shoulder and Elbow Surgery',
     year: 2013,
     summary:
-      'Multicenter prospective cohort study following a specific physical therapy protocol in 452 patients with atraumatic full-thickness rotator cuff tears. Approximately 75 percent avoided surgery at two years, with long-term follow-up from the same cohort showing outcomes holding beyond a decade.',
+      'Multicenter prospective cohort study following a specific physical therapy protocol in 452 patients with atraumatic full-thickness rotator cuff tears. Approximately 75 percent avoided surgery at two years. The ten-year follow-up of the same cohort (Kuhn et al., Journal of Bone and Joint Surgery, 2024) reported physiotherapy successful in more than 70 percent.',
   },
 ];
 
@@ -541,11 +541,11 @@ export default function ShoulderPainHubPage() {
                   sorting out which of these pictures is actually yours.
                 </p>
                 <p>
-                  The honest version: most shoulder pain in adults is mechanical and manageable.
-                  The JOSPT rotator cuff guideline, the Kelley adhesive capsulitis guideline, the
-                  UK FROST trial in the Lancet, and the CSAW trial of subacromial decompression
-                  all point the same way. Education, graded strengthening, and sensible load
-                  management produce the strongest long-term outcomes. Hands-on work sits
+                  Most shoulder pain in adults is mechanical and manageable. The JOSPT rotator
+                  cuff guideline, the Kelley adhesive capsulitis guideline, the UK FROST trial in
+                  the Lancet, and the CSAW trial of subacromial decompression all point the same
+                  way. Education, graded strengthening, and sensible load management have the
+                  strongest evidence for long-term outcomes. Hands-on work sits
                   alongside that, not in place of it. What changes between people is the tissue,
                   the history, and how load needs to be dosed.
                 </p>
@@ -643,7 +643,7 @@ export default function ShoulderPainHubPage() {
                 <p>
                   The first appointment runs on questions before it runs on equipment. Where does
                   the pain sit, how did it start, what makes it worse, what makes it better. The
-                  small details do real work. Whether you can sleep on that side. Whether
+                  small details matter. Whether you can sleep on that side. Whether
                   overhead work at the gym, painting a ceiling, or unloading a shelf flared it.
                   Whether there was a fall onto the shoulder or the tip of the shoulder. Whether
                   range has been gradually closing down rather than just being painful. By the
@@ -670,7 +670,7 @@ export default function ShoulderPainHubPage() {
                   strengthening exercises dosed to your current tolerance, usually across the
                   rotator cuff, the scapular stabilisers, the thoracic spine, and the wider
                   kinetic chain. Joint mobilization, soft tissue therapy, dry needling, or
-                  cupping sit alongside that work where they speed things along. I write the plan
+                  cupping can sit alongside that work where they help. I write the plan
                   down with you and track a handful of markers so you can see whether it is
                   actually working. If it is not, I change direction sooner rather than later.
                 </p>

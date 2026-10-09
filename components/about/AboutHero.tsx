@@ -54,7 +54,7 @@ export default function AboutHero() {
 
             {/* Tagline */}
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-              Combining clinical expertise with genuine understanding to guide your recovery journey
+              One-on-one physiotherapy in Burlington for sports injuries, joint and tendon pain, and recovery after surgery
             </p>
 
             {/* Key highlights */}

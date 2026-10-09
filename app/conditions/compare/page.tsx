@@ -17,12 +17,27 @@ import {
 } from '@/lib/seo-metadata';
 import { CONDITION_COMPARISONS } from '@/lib/condition-comparisons';
 
+// Hip, knee and buttock comparisons first; the elbow pair last (not promoted).
+const DISPLAY_ORDER = [
+  'hip-osteoarthritis-vs-greater-trochanteric-pain-syndrome',
+  'proximal-hamstring-tendinopathy-vs-piriformis-syndrome',
+  'patellar-tendinopathy-vs-patellofemoral',
+  'acl-injuries-vs-meniscus-tears',
+  'sciatica-vs-piriformis-syndrome',
+  'rotator-cuff-vs-frozen-shoulder',
+  'tennis-elbow-vs-golfers-elbow',
+];
+const rank = (pair: string) => {
+  const i = DISPLAY_ORDER.indexOf(pair);
+  return i === -1 ? DISPLAY_ORDER.length : i;
+};
+const ORDERED_COMPARISONS = [...CONDITION_COMPARISONS].sort((a, b) => rank(a.pair) - rank(b.pair));
+
 const SITE_URL = 'https://www.kinetikarephysio.com';
 const PAGE_URL = `${SITE_URL}/conditions/compare`;
-const PAGE_TITLE =
-  'Condition Comparisons: How to Tell Similar Injuries Apart | Kareem Hassanein';
+const PAGE_TITLE = 'Condition Comparisons: How to Tell Similar Injuries Apart';
 const PAGE_DESCRIPTION =
-  'Side-by-side comparisons of commonly confused conditions. Tennis vs. golfer\'s elbow, rotator cuff vs. frozen shoulder, and more. Burlington Registered Physiotherapist.';
+  'Side-by-side comparisons of commonly confused conditions: hip arthritis vs. lateral hip pain, ACL vs. meniscus, and more. Burlington Registered Physiotherapist.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -185,7 +200,7 @@ export default function ComparisonIndexPage() {
               </div>
 
               <div className="grid gap-5">
-                {CONDITION_COMPARISONS.map((comparison) => (
+                {ORDERED_COMPARISONS.map((comparison) => (
                   <Link
                     key={comparison.pair}
                     href={`/conditions/compare/${comparison.pair}`}

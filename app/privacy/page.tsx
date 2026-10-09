@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy" effectiveDate="June 2, 2025">
+    <LegalPageLayout title="Privacy Policy" effectiveDate="October 9, 2026">
       {/* Introduction */}
       <section>
         <h2>Introduction</h2>
@@ -67,16 +67,21 @@ export default function PrivacyPage() {
           <li>Device and operating system information</li>
         </ul>
 
-        <h3>Website Analytics</h3>
-        <p>I use Google Analytics to understand how visitors use my website. This service collects:</p>
+        <h3>Website Analytics and Advertising</h3>
+        <p>I use Google Analytics to understand how visitors use my website, and Google Ads conversion tracking to see whether my ads lead to bookings or calls. These services collect:</p>
         <ul>
-          <li>Anonymous usage data (pages viewed, time on site, bounce rate)</li>
+          <li>Usage data (pages viewed, time on site, which booking or phone links are clicked)</li>
           <li>General location information (city/region, not specific address)</li>
           <li>Device and browser information</li>
-          <li>How you found my website (search engines, referral sites)</li>
+          <li>How you found my website (search engines, ads, referral sites)</li>
         </ul>
         <p>
-          This data is anonymized and used solely to improve website content and user experience. No personal health information is shared with Google Analytics.
+          This data does not include your name, contact details or health information, and I use it only to improve the website and my advertising. Google processes it under its own privacy policy.
+        </p>
+
+        <h3>Call-Back Requests</h3>
+        <p>
+          If you use the call-back form, I receive your name, phone number, the best time to call and, if you choose to give it, the body area that is bothering you. The form is sent to my email through Resend, an email delivery service based in the United States, so this information may be processed outside Canada. I use it only to return your call, and I do not add it to your health record unless you become a patient.
         </p>
       </section>
 

@@ -38,7 +38,7 @@ const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['foot-ankle-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/foot-ankle-pain';
 const PAGE_TITLE = 'Foot & Ankle Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
-  'Foot and ankle pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Heel pain, Achilles, ankle sprains, forefoot and shin pain assessed and treated.';
+  'Foot and ankle pain treatment in Burlington with a Registered Physiotherapist. Heel pain, Achilles, ankle sprains, forefoot and shin pain assessed and treated.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -268,12 +268,12 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need an X-ray for a rolled ankle?',
     answer:
-      'Most rolled ankles do not need one. The Ottawa Ankle Rules are the standard screening tool, and they key on whether you could bear weight immediately after the injury and in clinic, and whether there is bone tenderness at specific points on the ankle and foot. If those are negative, a fracture is very unlikely and rehabilitation can start straight away. I apply that screen at the first visit and refer for imaging when it is positive rather than by default.',
+      'Most rolled ankles do not need one. The Ottawa Ankle Rules are the standard screening tool, and they key on whether you could bear weight immediately after the injury and in clinic, and whether there is bone tenderness at specific points on the ankle and foot. If those are negative, a fracture is very unlikely and rehabilitation can start straight away. I apply that screen at the first visit, and when it is positive I refer you to your family doctor or urgent care for an X-ray.',
   },
   {
     question: 'How long does plantar fasciitis take to settle?',
     answer:
-      'Longer than most people expect, and the honest answer is that it is usually measured in months rather than weeks. The 2023 JOSPT clinical practice guideline for plantar heel pain (Koc et al.) supports a combination of loading, manual therapy, stretching, taping, and footwear or orthotic advice rather than any single intervention. Rathleff et al. (Scandinavian Journal of Medicine & Science in Sports 2015) found that adding high-load strength training produced better function scores at three months than stretching alone, though the groups had converged by six and twelve months. The practical read is that loading can speed up the early part of the recovery, not that it changes the destination.',
+      'Longer than most people expect: it is usually measured in months rather than weeks. The 2023 JOSPT clinical practice guideline for plantar heel pain (Koc et al.) supports a combination of loading, manual therapy, stretching, taping, and footwear or orthotic advice rather than any single intervention. Rathleff et al. (Scandinavian Journal of Medicine & Science in Sports 2015) found that adding high-load strength training produced better function scores at three months than stretching alone, though the groups had converged by six and twelve months. The practical read is that loading can speed up the early part of the recovery, not that it changes the destination.',
   },
   {
     question: 'Should Achilles pain be treated with eccentric heel drops or heavy slow resistance?',
@@ -337,7 +337,7 @@ const research: ResearchItem[] = [
     source: 'Rathleff et al., Scandinavian Journal of Medicine & Science in Sports',
     year: 2015,
     summary:
-      'Randomised trial comparing high-load strength training with plantar-specific stretching in adults with plantar fasciitis. The strength training group had superior Foot Function Index scores at three months, with the groups converging at six and twelve months. Supports loading as a way to speed early recovery rather than change the eventual outcome.',
+      'Randomised trial comparing high-load strength training with plantar-specific stretching in adults with plantar fasciitis. The strength training group had better Foot Function Index scores at three months, with the groups converging at six and twelve months. This suggests loading may speed early recovery rather than change the eventual outcome.',
   },
   {
     title: 'Heavy Slow Resistance Versus Eccentric Training as Treatment for Achilles Tendinopathy: a randomised controlled trial',
@@ -519,7 +519,7 @@ export default function FootAnklePainHubPage() {
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
                 The foot and ankle carry more distinct pain patterns than anywhere else in the
-                lower limb, and where it hurts narrows the field fast. Under the heel, at the
+                lower limb, and where it hurts is the first clue. Under the heel, at the
                 Achilles, on the outside after a roll, along the inner arch, under the ball of the
                 foot, or along the shin. This page is the map I use with patients to sort which
                 one they are dealing with and what usually changes it.
@@ -610,7 +610,7 @@ export default function FootAnklePainHubPage() {
                   separating before anything else happens.
                 </p>
                 <p>
-                  Two things are worth saying plainly. The first is that timelines here tend to be
+                  Two points about recovery. The first is that timelines here tend to be
                   longer than people expect, particularly for plantar heel pain and Achilles
                   tendinopathy, and knowing that upfront changes how the plan feels. The second is
                   that the foot is where incomplete rehabilitation shows up most clearly. Ankle
@@ -725,8 +725,8 @@ export default function FootAnklePainHubPage() {
                   The examination works from the ground up and outwards. I look at how you stand
                   and how the arch behaves under load, watch you walk, and where relevant watch a
                   single-leg heel raise, a squat, or a hop. After an acute injury I apply the
-                  Ottawa Ankle Rules before anything else and refer for imaging if they are
-                  positive. Targeted tests follow the hypothesis rather than a routine sweep:
+                  Ottawa Ankle Rules before anything else and, if they are positive, refer you to
+                  your family doctor or urgent care for an X-ray. Targeted tests follow the hypothesis rather than a routine sweep:
                   ligament stress tests for the sprained ankle, single-leg heel raise for the
                   posterior tibial tendon and the Achilles, forefoot squeeze and toe-space testing
                   for a suspected neuroma, big toe extension range for a stiffening joint, and
@@ -742,8 +742,8 @@ export default function FootAnklePainHubPage() {
                   progressive strengthening exercises for the calf, foot, and hip, dosed to your
                   current tolerance. Restore the balance and control work that acute ankle injuries
                   reliably need and rarely get. Joint mobilization, soft tissue therapy, dry
-                  needling, or instrument-assisted work sit alongside that where they help it move
-                  faster. I write the plan down with you and track a handful of markers so it is
+                  needling, or instrument-assisted work can sit alongside that where they help. I
+                  write the plan down with you and track a handful of markers so it is
                   clear whether it is working. If it is not, I change direction sooner rather than
                   later.
                 </p>

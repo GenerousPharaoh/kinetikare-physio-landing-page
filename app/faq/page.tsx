@@ -37,14 +37,21 @@ function extractPlainText(answer: string | React.ReactNode): string {
       node.forEach(extractText);
     } else if (node && typeof node === 'object' && 'props' in node) {
       const element = node as React.ReactElement;
-      if (element.props && (element.props as { children?: React.ReactNode }).children) {
-        extractText((element.props as { children?: React.ReactNode }).children);
+      const props = element.props as { children?: React.ReactNode; className?: string };
+      // The "Related Resources" link row is navigation, not part of the answer.
+      if (typeof props.className === 'string' && props.className.includes('border-t')) return;
+      if (props && props.children) {
+        extractText(props.children);
       }
     }
   };
 
   extractText(answer);
-  return textParts.join(' ').replace(/\s+/g, ' ').trim();
+  return textParts
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([.,;:!?)])/g, '$1')
+    .trim();
 }
 
 // FAQ categories with their respective questions and answers
@@ -173,7 +180,7 @@ const faqCategories: FAQCategory[] = [
         question: `What if I have multiple areas of pain or complex issues?`,
         answer: (
           <>
-            It is quite common for pain or dysfunction in one area to be linked to others. I will start by addressing your most significant concern while assessing the whole picture to understand how different areas might be connected. Your treatment plan will be structured holistically to address the root causes, not just isolated symptoms.{' '}
+            It is quite common for pain or dysfunction in one area to be linked to others. I will start by addressing your most significant concern while assessing the whole picture to understand how different areas might be connected. Your treatment plan will look at what is driving the problem, not just the sore spot.{' '}
             <Link href="/conditions" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               See the range of conditions I treat
             </Link>
@@ -229,7 +236,7 @@ const faqCategories: FAQCategory[] = [
             <Link href="/#contact" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               reach out
             </Link>
-            . I am happy to answer brief questions via phone or email to help you make an informed decision before you commit to an appointment. You can also{' '}
+            . I am happy to answer brief questions by email, or you can leave your number for a call back, to help you make an informed decision before you commit to an appointment. You can also{' '}
             <Link href="/about" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               learn more about my background and approach
             </Link>
@@ -262,7 +269,7 @@ const faqCategories: FAQCategory[] = [
         question: `How many physiotherapy sessions will I need?`,
         answer: (
           <>
-            The number of sessions varies depending on your specific condition, your recovery goals, and how your body responds to treatment. After your initial assessment, I will provide a clear, personalized treatment plan outlining the expected timeline and milestones. I will focus on an evidence-based strategy designed to get you results efficiently. No vague promises or unnecessary sessions.{' '}
+            The number of sessions varies depending on your specific condition, your recovery goals, and how your body responds to treatment. After your initial assessment, I will provide a clear, personalized treatment plan outlining the expected timeline and milestones. The plan follows current evidence and is reviewed as you progress. No vague promises or unnecessary sessions.{' '}
             <Link href="/conditions" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               Browse conditions I treat
             </Link>
@@ -304,7 +311,7 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/trigger-point-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               trigger point release
             </Link>
-            {' '}to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like Active Release Therapy (ART), focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
+            {' '}to ease muscle tightness and referred pain. Some soft tissue work is done while you move the joint, which can help with muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
             <Link href="/services" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               Explore all my manual therapy services
             </Link>
@@ -337,9 +344,9 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/dry-needling" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               Dry needling
             </Link>
-            {' '}is one technique I use to reduce pain and improve mobility, especially for stubborn trigger points and muscle restrictions. Using fine, sterile needles, I target specific areas of muscle tightness or dysfunction.
+            {' '}is one technique I use for muscle-related pain and stiffness. Using fine, sterile needles, I target specific areas of muscle tightness or tenderness.
 
-            This approach works well for myofascial trigger points, overactive muscle contractions, postural issues from repetitive strain, and movement restrictions where muscles contribute to pain or limit joint mobility.
+            It can help with myofascial trigger points and with pain or stiffness where tight muscles limit movement, and it works best alongside exercise. The evidence shows mostly short-term pain relief.
 
             Dry needling is never mandatory. If it could benefit your condition, I'll explain why, what to expect, and any risks involved. Your consent matters, and you can always say no. Many successful treatment plans don't include dry needling. It's simply one tool among many, chosen based on what suits you best.{' '}
             <Link href="/treatments" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
@@ -371,17 +378,13 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/cupping-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               cupping therapy
             </Link>
-            {' '}is a technique I may integrate into a treatment plan if it's suitable for your condition. Cupping uses suction cups to gently lift tissue, which can help to increase blood flow, reduce muscle tension, and promote healing. It's often used for conditions like{' '}
+            {' '}is a technique I may integrate into a treatment plan if it's suitable for your condition. Cupping uses suction cups to gently lift the skin and the tissue beneath it. It can help with short-term pain relief and muscle tension, though the evidence is limited, and it is used alongside exercise rather than on its own. It is sometimes used for{' '}
             <Link href="/conditions/low-back-pain" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               back pain
             </Link>
-            ,{' '}
-            <Link href="/conditions/neck-pain" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
-              neck pain
-            </Link>
-            , and muscle stiffness. As with any treatment, I'll discuss if cupping is appropriate for you, explain the process, and ensure your comfort and consent.{' '}
+            {' '}and muscle stiffness. As with any treatment, I'll discuss if cupping is appropriate for you, explain the process, and ensure your comfort and consent.{' '}
             <Link href="/services" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Explore my comprehensive pain management services
+              See my pain management services
             </Link>
             .
             <div className="mt-4 pt-4 border-t border-gray-200">
@@ -405,11 +408,11 @@ const faqCategories: FAQCategory[] = [
         question: `What about techniques like Graston Technique®? Do you offer that?`,
         answer: (
           <>
-            I utilize{' '}
+            I use{' '}
             <Link href="/treatments/iastm" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               <strong className="font-semibold text-primary-800">Instrument Assisted Soft Tissue Mobilization (IASTM)</strong>
             </Link>
-            , which is a skilled approach using ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
+, which uses hand-held tools moved over the muscles and tendons. It covers the same kind of technique sold under brand names like Graston Technique®. It can help with short-term pain and range of motion when it is combined with exercise; the evidence is limited, and it is never a treatment on its own. If IASTM could help your condition, I will discuss it with you as part of your overall treatment plan.{' '}
             <Link href="/treatments" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn about my manual therapy techniques
             </Link>
@@ -772,7 +775,7 @@ const faqCategories: FAQCategory[] = [
         question: `Can I come for injury prevention, performance enhancement, or tune-ups, even if I am not currently in pain?`,
         answer: (
           <>
-            Yes. Physiotherapy isn't just for treating existing injuries. Most people, even without current pain, have measurable opportunities for improvement in mobility, stability, proprioception, strength, or movement coordination (all within the scope of physiotherapy care). During your assessment, I identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, treatment focuses on physiotherapy-related goals tailored to your needs.{' '}
+            Yes. Physiotherapy isn't just for treating existing injuries. Even without pain, many people have room to improve mobility, balance, strength, or movement coordination, all within the scope of physiotherapy. During your assessment, I identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, treatment focuses on physiotherapy-related goals tailored to your needs.{' '}
             <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn about my approach
             </Link>
@@ -839,9 +842,9 @@ const faqCategories: FAQCategory[] = [
         question: `Where are you located? Is there parking?`,
         answer: (
           <>
-            I practice at Endorphins Health & Wellness Centre, located at 4631 Palladium Way, Unit 6, Burlington, ON. Parking is available on-site. The clinic is in North Burlington and serves patients from Burlington, Waterdown, Oakville, Hamilton, and surrounding areas.{' '}
-            <Link href="/#contact" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Get directions
+            Appointments booked on this site are at Endorphins Health & Wellness Centre, 4631 Palladium Way, Unit 6, Burlington, ON, in North Burlington. Parking is available on-site. I also see patients at Headon Physio (Wednesday and Friday) and PhysioMax Wellness (Tuesday morning and Saturday); each clinic books its own appointments.{' '}
+            <Link href="/contact" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Addresses, hours and directions for all three
             </Link>
             .
             <div className="mt-4 pt-4 border-t border-gray-200">
@@ -891,7 +894,7 @@ const faqCategories: FAQCategory[] = [
         question: `What is your cancellation policy?`,
         answer: (
           <>
-            I kindly request at least 24 hours notice if you need to cancel or reschedule your appointment. This allows the time slot to be offered to another patient in need. I recognize that unexpected things happen; if you need to cancel last minute due to an emergency or illness, please let me know as soon as possible. I aim to be flexible and understanding, especially for isolated incidents.{' '}
+            I kindly request at least 24 hours&rsquo; notice if you need to cancel or reschedule your appointment. This allows the time slot to be offered to another patient in need. A missed appointment or one cancelled with less notice may be charged the full fee. I recognize that unexpected things happen; if you need to cancel last minute due to an emergency or illness, please let me know as soon as possible. I aim to be flexible and understanding, especially for isolated incidents.{' '}
             <Link href="/#contact" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
               Contact me with any scheduling questions
             </Link>

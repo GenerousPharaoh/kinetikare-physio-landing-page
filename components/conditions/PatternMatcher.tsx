@@ -42,6 +42,7 @@ import type {
   PatternMatcherCluster,
   PatternMatcherQuestion,
 } from '@/lib/pattern-matchers/knee-cluster';
+import { inlineName } from '@/lib/text';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -520,8 +521,8 @@ export default function PatternMatcher({
                   <ArrowLeftIcon className="h-4 w-4" />
                   Back
                 </button>
-                <span className="text-xs text-slate-400">
-                  Tip: press 1&ndash;4 to answer quickly
+                <span className="hidden md:inline text-xs text-slate-400">
+                  Tip: press 1 to 4 to answer quickly
                 </span>
               </div>
             </motion.div>
@@ -652,7 +653,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
       <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50/60 p-4">
         <p className="text-sm text-slate-600 leading-relaxed">
           <span className="font-medium text-slate-800">What typically distinguishes them:</span>{' '}
-          {buildDistinguishingNote(candidates, cluster.regionNoun)}
+          {buildDistinguishingNote(candidates)}
         </p>
       </div>
 
@@ -754,10 +755,10 @@ function buildLopsidedReasoning(top: ConditionScore): string {
   return `${lead}. That pattern fits ${top.name} more cleanly than the other conditions on this page.`;
 }
 
-function buildDistinguishingNote(candidates: ConditionScore[], regionNoun: string): string {
+function buildDistinguishingNote(candidates: ConditionScore[]): string {
   if (candidates.length < 2) return '';
   const [a, b] = candidates;
-  return `On exam, ${a.name} and ${b.name} usually separate by where the ${regionNoun} is most tender, how it behaves under specific loads, and which movements or special tests reproduce the pain. That is what I work through during an assessment.`;
+  return `On exam, ${inlineName(a.name)} and ${inlineName(b.name)} usually separate by exactly where the pain sits, how it behaves under specific loads, and which movements or special tests reproduce it. That is what I work through during an assessment.`;
 }
 
 function capitalize(s: string): string {

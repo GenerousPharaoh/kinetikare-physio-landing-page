@@ -37,8 +37,7 @@ export default function ContactSection({ hideHeading = false }: { hideHeading?: 
   };
 
   const serviceAreas = [
-    "Waterdown", "Oakville", "Milton", "Hamilton", 
-    "Flamborough", "Dundas", "Ancaster", "Aldershot"
+    "Waterdown", "Oakville", "Hamilton", "Flamborough", "Carlisle"
   ];
 
   return (
@@ -71,7 +70,7 @@ export default function ContactSection({ hideHeading = false }: { hideHeading?: 
             </div>
 
             <p className="text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 text-luxury-subtle">
-              Ready to move forward? Experience personalized physiotherapy care designed to help you move and feel your best.
+              Book online, call reception at Endorphins, or email me with a question first.
             </p>
           </motion.div>
           )}
@@ -193,7 +192,7 @@ export default function ContactSection({ hideHeading = false }: { hideHeading?: 
                   <CalendarDaysIcon className="w-12 h-12 sm:w-16 sm:h-16 mb-6 sm:mb-8 mx-auto opacity-90" />
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal mb-6 sm:mb-8 tracking-[-0.02em]">Book Your Appointment</h3>
                   <p className="text-white/90 mb-8 sm:mb-12 leading-relaxed text-base sm:text-lg lg:text-xl font-light">
-                    Schedule your physiotherapy consultation and start your journey to better health.
+                    Book an initial assessment online with Kareem at Endorphins in Burlington.
                   </p>
                   
                   <Link
@@ -214,7 +213,7 @@ export default function ContactSection({ hideHeading = false }: { hideHeading?: 
                     </div>
                     <div className="flex items-center text-white/90">
                       <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" />
-                      <span className="font-normal text-sm sm:text-base">Same-day appointments available</span>
+                      <span className="font-normal text-sm sm:text-base">Same-day appointments sometimes available</span>
                     </div>
                     <div className="flex items-center text-white/90">
                       <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" />

@@ -191,7 +191,7 @@ export default function PainGuidesIndexPage() {
                 deeper condition pages for the next step.
               </p>
 
-              <p className="text-xs text-slate-500 mt-3">
+              <p className="text-xs text-slate-600 mt-3">
                 Based in Burlington. Convenient for Waterdown, Oakville, Hamilton,
                 Flamborough, and Carlisle residents.
               </p>

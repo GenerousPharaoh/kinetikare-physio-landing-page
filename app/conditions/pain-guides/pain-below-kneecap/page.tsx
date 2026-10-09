@@ -394,7 +394,7 @@ export default function PainBelowKneecapGuidePage() {
                 them out and which condition page to read next.
               </p>
 
-              <p className="text-xs text-slate-500 mt-3">
+              <p className="text-xs text-slate-600 mt-3">
                 Assessing and treating knee pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>

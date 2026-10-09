@@ -25,10 +25,10 @@ export default function ComparisonLinks({ comparisons }: { comparisons: Comparis
         <ul className={styles.list}>
           {comparisons.map(comparison => (
             <li key={comparison.pair}>
-              <Link href={comparison.href} prefetch={false} aria-label={comparison.label} className={styles.link}>
+              <Link href={comparison.href} prefetch={false} className={styles.link}>
                 <h3 className={styles.pair}>
-                  <span>{comparison.conditionA}</span>
-                  <span className={styles.versus}>vs.</span>
+                  <span>{comparison.conditionA}</span>{' '}
+                  <span className={styles.versus}>vs.</span>{' '}
                   <span>{comparison.conditionB}</span>
                 </h3>
               </Link>

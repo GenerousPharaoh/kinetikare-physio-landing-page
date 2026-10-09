@@ -90,25 +90,40 @@ const painGuides = [
   },
 ];
 
+// Kept on the site but not promoted: listed last within their region.
+const NOT_PROMOTED = new Set([
+  'neck-pain',
+  'whiplash',
+  'tennis-elbow',
+  'golfers-elbow',
+  'carpal-tunnel-syndrome',
+  'de-quervains-tenosynovitis',
+]);
+
 export default function ConditionsPage() {
   // Transform the condition categories to include formatted condition strings
-  const formattedCategories = conditionCategories.map(category => ({
-    slug: category.slug,
-    title: category.title,
-    subtitle: category.subtitle,
-    accent: category.accent,
-    gradient: category.gradient,
-    textGradient: category.textGradient,
-    conditions: category.conditions.map(condition => {
-      // Combine name and description in the format expected by ConditionsPageClient
-      if (condition.description) {
-        return `${condition.name} (${condition.description})`;
-      }
-      return condition.name;
-    }),
-    // Also pass the raw conditions data for proper slug generation
-    conditionsData: category.conditions
-  }));
+  const formattedCategories = conditionCategories.map(category => {
+    const ordered = [...category.conditions].sort(
+      (a, b) => Number(NOT_PROMOTED.has(a.slug)) - Number(NOT_PROMOTED.has(b.slug)),
+    );
+    return {
+      slug: category.slug,
+      title: category.title,
+      subtitle: category.subtitle,
+      accent: category.accent,
+      gradient: category.gradient,
+      textGradient: category.textGradient,
+      conditions: ordered.map(condition => {
+        // Combine name and description in the format expected by ConditionsPageClient
+        if (condition.description) {
+          return `${condition.name} (${condition.description})`;
+        }
+        return condition.name;
+      }),
+      // Also pass the raw conditions data for proper slug generation
+      conditionsData: ordered,
+    };
+  });
 
   // Dynamically enumerate comparison pages so the index never drifts from
   // `lib/condition-comparisons.ts`.

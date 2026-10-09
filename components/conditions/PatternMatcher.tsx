@@ -310,6 +310,7 @@ export default function PatternMatcher({
   const [isAdvancing, setIsAdvancing] = useState(false);
   useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current); }, []);
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const rootRef = useRef<HTMLElement | null>(null);
   const liveRegionRef = useRef<HTMLDivElement | null>(null);
 
   const onResult = step >= totalQuestions;
@@ -339,9 +340,16 @@ export default function PatternMatcher({
     setStep((s) => Math.max(0, s - 1));
   }, []);
 
+  // The result card can be two or three phone screens tall, so after a
+  // restart the page collapses above the reader. Bring the quiz top back into
+  // view (scroll-mt clears the fixed header) and focus the first question.
   const restart = useCallback(() => {
     setAnswers({});
     setStep(0);
+    requestAnimationFrame(() => {
+      rootRef.current?.scrollIntoView({ block: 'start' });
+      cardRef.current?.focus({ preventScroll: true });
+    });
   }, []);
 
   // Keyboard shortcuts: 1-4 pick answers, left arrow = back.
@@ -389,8 +397,12 @@ export default function PatternMatcher({
 
   return (
     <section
+      ref={rootRef}
       aria-label={cluster.label}
-      className="bg-white rounded-xl border border-slate-200 shadow-lg overflow-hidden"
+      // The floating Book/Call pills hide while the quiz fills the screen:
+      // they otherwise sit on the answers and on the result's own Book button.
+      data-hide-floating=""
+      className="scroll-mt-24 bg-white rounded-xl border border-slate-200 shadow-lg overflow-hidden"
     >
       {/* Screen-reader live region */}
       <div ref={liveRegionRef} aria-live="polite" aria-atomic="true" className="sr-only" />
@@ -411,8 +423,11 @@ export default function PatternMatcher({
             </h2>
             <p className="mt-1 text-sm md:text-base text-slate-600 leading-relaxed max-w-[58ch]">
               A few questions to compare your own pattern against the common {cluster.regionNoun} conditions.
-              This is not a diagnosis. It is a way to see which pattern your answers most resemble,
-              so an in-person assessment has a starting point.
+              This is not a diagnosis.
+              <span className="hidden md:inline">
+                {' '}It is a way to see which pattern your answers most resemble,
+                so an in-person assessment has a starting point.
+              </span>
             </p>
           </div>
         </div>
@@ -700,7 +715,7 @@ function CandidateCard({ score, isCurrent }: { score: ConditionScore; isCurrent:
         <div className="mt-4">
           <Link
             href={`/conditions/${score.slug}`}
-            className="inline-flex items-center gap-1 text-sm font-medium text-[#8c6d3d] hover:text-[#B08D57]"
+            className="relative before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[''] inline-flex items-center gap-1 text-sm font-medium text-[#8c6d3d] hover:text-[#B08D57]"
           >
             Read about {score.name}
             <ArrowRightIcon className="h-3.5 w-3.5" />

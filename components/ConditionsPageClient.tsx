@@ -12,7 +12,6 @@ import { useSearchParams } from 'next/navigation';
 import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
-  SparklesIcon,
   CheckCircleIcon,
   HeartIcon,
   MapPinIcon,
@@ -22,6 +21,18 @@ import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import ConditionBookingCTA from '@/components/conditions/ConditionBookingCTA';
 import ComparisonLinks, { type ComparisonLink } from '@/components/conditions/ComparisonLinks';
 import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
+
+// Everyday words that should find a condition whose name does not contain them.
+const SEARCH_SYNONYMS: Record<string, string[]> = {
+  stairs: ['knee-pain-patellofemoral', 'knee-osteoarthritis'],
+  kneecap: ['knee-pain-patellofemoral', 'patellar-tendinopathy'],
+  heel: ['plantar-fasciitis', 'achilles-tendinopathy', 'severs-disease'],
+  arch: ['plantar-fasciitis'],
+  buttock: ['piriformis-syndrome', 'proximal-hamstring-tendinopathy', 'sciatica'],
+  arthritis: ['knee-osteoarthritis', 'hip-osteoarthritis'],
+  runner: ['knee-pain-patellofemoral', 'it-band-syndrome', 'shin-splints', 'stress-fractures'],
+  running: ['knee-pain-patellofemoral', 'it-band-syndrome', 'shin-splints', 'stress-fractures'],
+};
 
 interface ConditionCategory {
   slug: string;
@@ -152,27 +163,48 @@ function ConditionsPageWithParams({
     }
   };
 
-  // Filter conditions based on search query
+  // Filter conditions based on search query.
+  // Each query word must match the start of a word ("hip" finds hip
+  // osteoarthritis, not whiplash). Name matches rank above matches that only
+  // hit the description, and a few everyday words map to the conditions
+  // people mean by them.
   const filteredCategories = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     if (!query) return conditionCategories;
+
+    const words = query.split(/\s+/).filter(Boolean);
+    const escape = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const patterns = words.map((w) => new RegExp(`(^|[^a-z0-9])${escape(w)}`, 'i'));
+    const matchesAll = (text: string) => patterns.every((re) => re.test(text));
+    const synonymSlugs = new Set(
+      words.flatMap((w) => SEARCH_SYNONYMS[w] ?? []),
+    );
 
     // Filter the display strings and the underlying records together. The
     // renderers below look a slug up by index, so filtering only one of the
     // two arrays showed one condition's name with another condition's link
     // (searching "sciatica" linked to low-back-pain).
     return conditionCategories.map(category => {
-      if (category.title.toLowerCase().includes(query)) return category;
-      const keep = category.conditions.map((condition) => condition.toLowerCase().includes(query));
+      const titleHit = matchesAll(category.title);
+      const ranked = category.conditions
+        .map((label, i) => {
+          const data = category.conditionsData?.[i];
+          const name = data?.name ?? label;
+          const rank = matchesAll(name) ? 0
+            : data && synonymSlugs.has(data.slug) ? 1
+            : matchesAll(label) ? 2
+            : titleHit ? 3
+            : -1;
+          return { label, data, rank, i };
+        })
+        .filter((r) => r.rank >= 0)
+        .sort((a, b) => a.rank - b.rank || a.i - b.i);
       return {
         ...category,
-        conditions: category.conditions.filter((_, i) => keep[i]),
-        conditionsData: category.conditionsData?.filter((_, i) => keep[i]),
+        conditions: ranked.map((r) => r.label),
+        conditionsData: category.conditionsData ? ranked.map((r) => r.data!) : undefined,
       };
-    }).filter(category =>
-      category.conditions.length > 0 ||
-      category.title.toLowerCase().includes(query)
-    );
+    }).filter(category => category.conditions.length > 0);
   }, [searchQuery, conditionCategories]);
 
   return (
@@ -198,21 +230,14 @@ function ConditionsPageWithParams({
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
+            {/* Starts at 0.01, not 0: Chrome does not count an opacity-0
+                element as painted, which held LCP back to ~9 s on phones. */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.01, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-center"
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
-              >
-                <SparklesIcon className="w-5 h-5 text-[#B08D57]" />
-                <span className="text-sm font-medium text-gray-700">Evidence-Based Care</span>
-              </motion.div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
                 Treatment <span className="font-semibold">Areas</span>
@@ -280,7 +305,8 @@ function ConditionsPageWithParams({
             {/* Add padding to prevent pill button cutoff */}
             <div role="tablist" aria-label="Filter conditions by body region" className="flex flex-wrap justify-center gap-2">
               {quickNavItems.map((item, index) => {
-                const isActive = activeTab === item.tab;
+                // No chip claims to be selected while a search is showing results.
+                const isActive = !searchQuery && activeTab === item.tab;
                 return (
                   <button
                     key={item.name}

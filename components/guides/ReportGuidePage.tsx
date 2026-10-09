@@ -256,7 +256,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">{guide.lede}</p>
 
-              <p className="text-xs text-slate-500 mt-3">
+              <p className="text-xs text-slate-600 mt-3">
                 Assessing and treating {guide.region} pain at the Burlington clinic. Convenient for Waterdown, Oakville,
                 Hamilton, Flamborough, and Carlisle residents.
               </p>

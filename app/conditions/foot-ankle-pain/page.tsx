@@ -525,7 +525,7 @@ export default function FootAnklePainHubPage() {
                 one they are dealing with and what usually changes it.
               </p>
 
-              <p className="text-xs text-slate-500 mt-3">
+              <p className="text-xs text-slate-600 mt-3">
                 Assessing and treating foot and ankle pain at the Burlington clinic. Convenient
                 for Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>

@@ -179,7 +179,7 @@ export default function ConditionFlowPage({
   return (
     <div className="min-h-screen">
       {/* Reading progress */}
-      <div aria-hidden="true" className="fixed top-[72px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
+      <div aria-hidden="true" className="fixed top-[69px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
         <div className="h-0.5 bg-slate-200/70">
           <div className="h-full bg-[#B08D57] transition-[width] duration-150" style={{ width: `${progress}%` }} />
         </div>
@@ -191,13 +191,13 @@ export default function ConditionFlowPage({
           <div className="max-w-6xl grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-center">
             <div className="min-w-0">
               <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 mb-4">
-                <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">Home</Link>
+                <Link href="/" className="relative before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[''] hover:text-[#B08D57] transition-colors duration-200">Home</Link>
                 <ChevronRightIcon className="h-3 w-3" />
-                <Link href="/conditions" className="hover:text-[#B08D57] transition-colors duration-200">Conditions</Link>
+                <Link href="/conditions" className="relative before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[''] hover:text-[#B08D57] transition-colors duration-200">Conditions</Link>
                 {conditionHub && (
                   <>
                     <ChevronRightIcon className="h-3 w-3" />
-                    <Link href={conditionHub.path} className="hover:text-[#B08D57] transition-colors duration-200">
+                    <Link href={conditionHub.path} className="relative before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[''] hover:text-[#B08D57] transition-colors duration-200">
                       {conditionHub.name}
                     </Link>
                   </>
@@ -228,7 +228,7 @@ export default function ConditionFlowPage({
                 </Link>
                 <Link
                   href="tel:+19056346000"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#B08D57] transition-colors"
+                  className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#B08D57] transition-colors"
                 >
                   <PhoneIcon className="h-4 w-4" aria-hidden="true" />
                   Call clinic
@@ -238,7 +238,7 @@ export default function ConditionFlowPage({
                     <span aria-hidden="true" className="hidden sm:inline h-4 w-px bg-slate-300" />
                     <Link
                       href={conditionHub.path}
-                      className="group inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors"
+                      className="group inline-flex min-h-[44px] items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors"
                     >
                       {conditionHub.name} guide
                       <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
@@ -557,7 +557,7 @@ export default function ConditionFlowPage({
                 )}
                 {condition.biomechanics && (
                   <details className="group mt-10">
-                    <summary className="flex items-center gap-2 cursor-pointer list-none text-lg font-medium text-slate-900 hover:text-[#8A6F0A] transition-colors">
+                    <summary className="flex min-h-[44px] items-center gap-2 cursor-pointer list-none text-lg font-medium text-slate-900 hover:text-[#8A6F0A] transition-colors">
                       Contributing factors
                       <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform" aria-hidden="true" />
                     </summary>

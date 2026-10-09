@@ -34,31 +34,63 @@ export default function FloatingButtons() {
   // The phone pill shows when no inline booking action is on screen, rather
   // than after a fixed scroll distance: the page's own Book buttons are the
   // primary action and the pill only stands in while none is visible. It also
-  // stays hidden while the menu or search has locked the body scroll.
+  // hides while a `[data-hide-floating]` zone (the pattern-matcher quiz, whose
+  // answers and result sit where the pill would) fills a good part of the
+  // screen, and while the menu or search has locked the body scroll.
+  // Booking links that mount later (a quiz result, a lazily rendered block)
+  // are picked up by a MutationObserver instead of a one-off re-scan.
   useEffect(() => {
     if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return;
     const onScreen = new Set<Element>();
+    const zonesOnScreen = new Set<Element>();
+    const watched = new WeakSet<Element>();
     let bodyLocked = false;
-    let observer: IntersectionObserver | null = null;
-    const recompute = () => setShowMobileCta(onScreen.size === 0 && !bodyLocked && window.pageYOffset > 80);
-    const observeAll = () => {
-      observer?.disconnect();
-      onScreen.clear();
-      observer = new IntersectionObserver((entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) onScreen.add(e.target);
-          else onScreen.delete(e.target);
-        }
-        recompute();
-      }, { threshold: 0.2 });
+    const recompute = () =>
+      setShowMobileCta(onScreen.size === 0 && zonesOnScreen.size === 0 && !bodyLocked && window.pageYOffset > 80);
+
+    const linkObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) onScreen.add(e.target);
+        else onScreen.delete(e.target);
+      }
+      recompute();
+    }, { threshold: 0.2 });
+
+    const zoneObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const covers = e.isIntersecting && e.intersectionRect.height >= window.innerHeight * 0.3;
+        if (covers) zonesOnScreen.add(e.target);
+        else zonesOnScreen.delete(e.target);
+      }
+      recompute();
+    }, { threshold: Array.from({ length: 21 }, (_, i) => i / 20) });
+
+    const scan = () => {
+      Array.from(onScreen).forEach((el) => { if (!el.isConnected) onScreen.delete(el); });
+      Array.from(zonesOnScreen).forEach((el) => { if (!el.isConnected) zonesOnScreen.delete(el); });
       document
         .querySelectorAll('a[href*="janeapp.com"]:not([data-booking-source^="floating"])')
-        .forEach((el) => observer!.observe(el));
+        .forEach((el) => {
+          if (watched.has(el)) return;
+          watched.add(el);
+          linkObserver.observe(el);
+        });
+      document.querySelectorAll('[data-hide-floating]').forEach((el) => {
+        if (watched.has(el)) return;
+        watched.add(el);
+        zoneObserver.observe(el);
+      });
       recompute();
     };
-    // Content mounts after navigation; observe once now and again shortly after.
-    observeAll();
-    const t = window.setTimeout(observeAll, 1200);
+    scan();
+
+    let scanTimer: number | undefined;
+    const content = new MutationObserver(() => {
+      window.clearTimeout(scanTimer);
+      scanTimer = window.setTimeout(scan, 150);
+    });
+    content.observe(document.body, { childList: true, subtree: true });
+
     const lock = new MutationObserver(() => {
       bodyLocked = document.body.style.overflow === 'hidden';
       recompute();
@@ -67,8 +99,10 @@ export default function FloatingButtons() {
     const onScroll = () => recompute();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      window.clearTimeout(t);
-      observer?.disconnect();
+      window.clearTimeout(scanTimer);
+      linkObserver.disconnect();
+      zoneObserver.disconnect();
+      content.disconnect();
       lock.disconnect();
       window.removeEventListener('scroll', onScroll);
     };

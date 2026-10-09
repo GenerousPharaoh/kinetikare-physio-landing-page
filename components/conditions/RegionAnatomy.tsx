@@ -30,13 +30,14 @@ function PlateImage({ slug }: { slug: string }) {
         height={600}
         alt=""
         sizes="(min-width: 1280px) 264px, (min-width: 640px) 230px, 200px"
-        // Eager: this sits in the first content block, it is ~46KB, and lazy
-        // loading is what left the circle empty for a beat after a
-        // client-side move from one condition to the next.
-        loading="eager"
+        // Priority (eager + fetchpriority high + preload): it sits in the
+        // first screen, it is ~46KB, it is often the LCP element, and lazy
+        // loading left the circle empty for a beat after a client-side move
+        // from one condition to the next.
+        priority
         onLoad={() => setLoaded(true)}
         className={`w-full h-full object-cover transition-[opacity,transform,filter] duration-700 ease-out motion-reduce:transition-none ${
-          loaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-[1.04] blur-[6px]'
+          loaded ? 'opacity-100 scale-100' : 'opacity-[0.01] scale-[1.04]'
         }`}
       />
     </div>
@@ -306,7 +307,8 @@ export default function RegionAnatomy({
           height={plate.height}
           alt=""
           sizes="300px"
-          loading="lazy"
+          // In the first screen beside the H1; often the LCP element.
+          priority
           // Serve the pre-optimized webp as-is: next/image would re-encode to
           // alpha-less JPEG for non-webp Accept headers, flattening the
           // transparent paper into a faint rectangle under mix-blend-multiply.

@@ -384,17 +384,22 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[min(22rem,100%)] bg-[#020617] border-l border-white/10 z-[80] xl:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[min(22rem,calc(100%-3.5rem))] bg-[#020617] border-l border-white/10 z-[80] xl:hidden overflow-y-auto"
             >
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(false)}
-                aria-label="Close navigation menu"
-                className="absolute right-4 top-3 flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10"
-              >
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <div className="p-6 pt-20 space-y-6">
+              {/* The close button stays pinned while the drawer scrolls (an
+                  expanded Conditions list scrolled it out of reach), and the
+                  drawer leaves at least 3.5rem of backdrop to tap on any phone. */}
+              <div className="sticky top-0 z-10 flex h-[68px] items-center justify-end bg-[#020617] px-4">
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10"
+                >
+                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+              <div className="p-6 pt-3 space-y-6">
                 {/* Mobile Search */}
                 {!isIntakePage ? (
                   <button

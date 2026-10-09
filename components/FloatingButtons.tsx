@@ -150,12 +150,12 @@ export default function FloatingButtons() {
   return (
     <>
       {/* Mobile: a compact pair in the corner rather than a full-width bar.
-          The old bar was an opaque white slab pinned over every page, it
-          duplicated the hero's own Book button on first paint, and its
-          `button-gold` (#B08D57) sat directly under the hero's #D4AF37, so two
-          different golds were on screen at once. This keeps one booking action
-          in the hero's gold, demotes Call to an icon, and drops the back-to-top
-          (the desktop stack still carries it). */}
+          The old bar was an opaque white slab pinned over every page and it
+          duplicated the hero's own Book button on first paint. The pill uses
+          the page booking gold (#B08D57, `button-gold`) so it matches the Book
+          buttons it stands in for; the brighter #D4AF37 stays on navy
+          surfaces (header, menu, footer). Call is a second pill, and there is
+          no back-to-top on phones. */}
       <AnimatePresence>
         {showMobileCta && (
           <motion.div
@@ -179,7 +179,7 @@ export default function FloatingButtons() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Book an appointment with Kareem Hassanein"
-              className="flex h-12 items-center gap-2 rounded-full bg-[#D4AF37] pl-4 pr-5 text-sm font-bold tracking-wide text-slate-900 shadow-lg shadow-[#D4AF37]/25"
+              className="flex h-12 items-center gap-2 rounded-full bg-[#B08D57] pl-4 pr-5 text-sm font-bold tracking-wide text-slate-950 shadow-lg shadow-[#B08D57]/30"
             >
               <CalendarDaysIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
               Book
@@ -199,7 +199,7 @@ export default function FloatingButtons() {
         data-booking-source="floating_desktop"
         target="_blank"
         rel="noopener noreferrer"
-        className="button-gold flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 bg-[#D4AF37] text-slate-900 rounded-full shadow-lg shadow-[#D4AF37]/30 transition-colors duration-300 hover:bg-[#E6C66A] hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-white"
+        className="button-gold flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 rounded-full shadow-lg shadow-[#B08D57]/30 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:ring-offset-white"
         aria-label="Book an appointment with Kareem Hassanein"
         variants={buttonVariants}
         whileHover="hover"

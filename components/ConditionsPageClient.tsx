@@ -52,6 +52,7 @@ interface ConditionCategory {
 interface AdditionalService {
   title: string;
   description: string;
+  links?: { name: string; href: string }[];
 }
 
 /**
@@ -115,7 +116,7 @@ function ConditionsPageWithParams({
   const quickNavItems = [
     { name: "Spine & Back", tab: 0 },
     { name: "Shoulder", tab: 1 },
-    { name: "Arm & Hand", tab: 2 },
+    { name: "Elbow, Wrist & Hand", tab: 2 },
     { name: "Hip & Pelvis", tab: 3 },
     { name: "Knee", tab: 4 },
     { name: "Foot & Ankle", tab: 5 },
@@ -240,7 +241,7 @@ function ConditionsPageWithParams({
             >
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-                Treatment <span className="font-semibold">Areas</span>
+                Treatment Areas
               </h1>
 
               {/* Decorative line */}
@@ -463,7 +464,7 @@ function ConditionsPageWithParams({
                                     {mainCondition}
                                   </h3>
                                   {details && (
-                                    <p className="text-sm text-slate-600 mt-0.5">
+                                    <p className="m-0 text-[15px] text-slate-600 mt-0.5">
                                       {details}
                                     </p>
                                   )}
@@ -566,8 +567,7 @@ function ConditionsPageWithParams({
       </section>
 
       {/* Additional Services - Premium Design */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50"></div>
+      <section className="py-20 relative overflow-hidden bg-slate-50/60">
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -580,7 +580,7 @@ function ConditionsPageWithParams({
             >
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-900 mb-4 leading-tight">
-                Additional Treatment <span className="text-[#B08D57]">Areas</span>
+                Additional Treatment Areas
               </h2>
               <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 Other reasons people come to see me
@@ -598,20 +598,29 @@ function ConditionsPageWithParams({
                   viewport={{ once: true }}
                   className="group h-full"
                 >
-                  <div className="relative bg-white rounded-xl p-8 border border-slate-200 hover:border-[#B08D57]/30 transition-all duration-300 h-full">
-                    {/* Number Badge */}
-                    <div className="relative">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-[#B08D57]/10 rounded-lg mb-4">
-                        <span className="text-[#8A6F0A] font-semibold text-lg">{index + 1}</span>
+                  {/* No numerals and no hover lift: the card itself is not a
+                      link; its links name where they go. */}
+                  <div className="flex h-full flex-col bg-white rounded-xl p-7 border border-slate-200">
+                    <h3 className="font-semibold text-lg text-slate-900 mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="m-0 text-base text-slate-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                    {service.links && service.links.length > 0 && (
+                      <div className="mt-auto flex flex-wrap gap-x-5 pt-4">
+                        {service.links.map((l) => (
+                          <Link
+                            key={l.href}
+                            href={l.href}
+                            className="group/link inline-flex min-h-[44px] items-center gap-1 text-[15px] font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors"
+                          >
+                            {l.name}
+                            <ArrowRightIcon className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5" aria-hidden="true" />
+                          </Link>
+                        ))}
                       </div>
-
-                      <h3 className="font-semibold text-lg text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
+                    )}
                   </div>
                 </motion.div>
               ))}

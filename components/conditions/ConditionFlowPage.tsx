@@ -4,19 +4,14 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import {
+  ArrowDownIcon,
   ArrowRightIcon,
-  BeakerIcon,
   CalendarIcon,
   CheckCircleIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  ClipboardDocumentListIcon,
-  ClockIcon,
   ExclamationTriangleIcon,
-  HeartIcon,
   PhoneIcon,
-  QuestionMarkCircleIcon,
-  ScaleIcon,
 } from '@heroicons/react/24/outline';
 import type { Condition } from '@/lib/conditions-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
@@ -42,7 +37,12 @@ import Print from '@/components/Print';
  * like me, what do you see in clinic, how is it treated, how long, when to see a
  * doctor, what else it could be, questions, then the science and the research.
  * No tabs and no fixed bars on phones; the site's floating Book and Call pills
- * carry booking there. Glossary underlines only in the science section.
+ * carry booking there, and an in-flow "On this page" list follows the hero.
+ * Since the 2026-10-09 mobile audit: "When to see a doctor first" sits before
+ * treatment, the rehab phases fold on phones, phones show two studies with a
+ * "Show all" button, running text is 16px, headings are a gold rule, eyebrow
+ * and light H2 (no icon tiles), and the hero, treatment, science and closing
+ * band sit on ivory grounds like the hubs.
  */
 
 const PatternMatcher = dynamic(() => import('./PatternMatcher'), {
@@ -68,20 +68,21 @@ interface Props {
 }
 
 function Heading({
-  icon: Icon,
+  eyebrow,
   children,
   id,
 }: {
-  icon: React.ElementType;
+  eyebrow: string;
   children: React.ReactNode;
   id?: string;
 }) {
   return (
-    <div className="flex items-center gap-3 mb-5">
-      <div className="p-2.5 bg-slate-900 rounded-xl flex-shrink-0">
-        <Icon className="h-5 w-5 text-[#B08D57]" aria-hidden="true" />
-      </div>
-      <h2 id={id} className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+    <div className="mb-7">
+      <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+        <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+        {eyebrow}
+      </p>
+      <h2 id={id} className="text-[28px] md:text-4xl font-light tracking-tight leading-[1.15] text-slate-900">
         {children}
       </h2>
     </div>
@@ -123,13 +124,14 @@ export default function ConditionFlowPage({
   const keyResearch = condition.keyResearch ?? [];
   const nameLower = inlineName(condition.name);
 
-  // "On this page" rail (desktop) with a light scrollspy.
+  // "On this page": a rail with a light scrollspy on desktop, an in-flow
+  // list on phones. Same order as the sections below.
   const sections = [
     { id: 'symptoms', label: 'Symptoms', show: Boolean(condition.clinicalPresentation || hasPatternMatcher) },
     { id: 'in-clinic', label: 'In clinic', show: Boolean(condition.clinicalObservations) },
+    { id: 'red-flags', label: 'See a doctor first', show: redFlags.length > 0 },
     { id: 'treatment', label: 'Treatment', show: Boolean(primary || showRehab || condition.selfManagement || condition.treatmentApproach) },
     { id: 'recovery', label: 'Recovery time', show: Boolean(condition.prognosis || condition.timeline) },
-    { id: 'red-flags', label: 'See a doctor first', show: redFlags.length > 0 },
     { id: 'similar', label: 'Similar conditions', show: Boolean(condition.differentialDiagnosis?.length) },
     { id: 'faqs', label: 'Questions', show: Boolean(condition.faqs?.length) },
     { id: 'science', label: 'The science', show: Boolean(scienceText || condition.biomechanics) },
@@ -173,8 +175,35 @@ export default function ConditionFlowPage({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conditionSlug]);
 
-  let band = 0;
-  const tone = () => (band++ % 2 === 0 ? 'bg-white' : 'bg-slate-50/60');
+  // Shared grounds. The hero and the closing band use the paper colour of the
+  // engraved prints, as the hubs do; the treatment and science sections use a
+  // lighter ivory that runs to the screen edges (html and body clip horizontal
+  // overflow), so the page alternates ivory and white from top to bottom.
+  // The ground is a real element, not ::before: global CSS (section-flow.css,
+  // globals.css) hides and restyles every section::before.
+  const IVORY = '#F5EFE3';
+  const bleed = 'relative isolate';
+  const ground = (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-y-0 -left-[100vw] -right-[100vw] -z-10 bg-[#F8F3EA]"
+    />
+  );
+
+  const bookLine = (source: string, className = '') => (
+    <a
+      href={JANE_BOOKING_URL}
+      data-booking-source={source}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group inline-flex min-h-[44px] items-center gap-1.5 text-base font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors ${className}`}
+    >
+      Book an assessment for {nameLower}
+      <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+    </a>
+  );
+
+  const [allResearch, setAllResearch] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -186,7 +215,7 @@ export default function ConditionFlowPage({
       </div>
 
       {/* Hero */}
-      <section className="pt-24 pb-10 bg-gradient-to-b from-slate-50 via-white to-transparent">
+      <section className="pt-24 pb-8 lg:pb-10 !bg-none" style={{ backgroundColor: IVORY }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-center">
             <div className="min-w-0">
@@ -215,35 +244,32 @@ export default function ConditionFlowPage({
 
               <AuthorByline lastReviewed={condition.lastReviewed} conditionName={condition.name} />
 
-              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
                 <Link
                   href={JANE_BOOKING_URL}
                   data-booking-source="condition_intro"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-gold inline-flex items-center gap-1.5 px-5 py-3 rounded-lg text-sm font-medium transition-colors"
+                  className="button-gold inline-flex min-h-[44px] items-center gap-1.5 px-5 py-3 rounded-lg text-sm font-medium transition-colors"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
                 </Link>
                 <Link
                   href="tel:+19056346000"
-                  className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#B08D57] transition-colors"
+                  className="inline-flex min-h-[44px] items-center gap-1.5 px-4 rounded-lg border border-slate-300 bg-white/70 text-sm font-medium text-slate-700 hover:border-[#B08D57] hover:text-[#8A6F0A] transition-colors"
                 >
                   <PhoneIcon className="h-4 w-4" aria-hidden="true" />
                   Call clinic
                 </Link>
                 {conditionHub && (
-                  <>
-                    <span aria-hidden="true" className="hidden sm:inline h-4 w-px bg-slate-300" />
-                    <Link
-                      href={conditionHub.path}
-                      className="group inline-flex min-h-[44px] items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors"
-                    >
-                      {conditionHub.name} guide
-                      <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
-                    </Link>
-                  </>
+                  <Link
+                    href={conditionHub.path}
+                    className="group inline-flex min-h-[44px] items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors"
+                  >
+                    {conditionHub.name} guide
+                    <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
                 )}
               </div>
             </div>
@@ -251,15 +277,36 @@ export default function ConditionFlowPage({
             <div className="flex justify-center lg:justify-end">
               <RegionAnatomy slug={condition.slug} category={condition.category} caption />
             </div>
+
+            {/* On this page (phones and tablets): at the foot of the hero, in
+                the flow rather than fixed. Desktop has the sticky rail. */}
+            {sections.length > 2 && (
+              <nav aria-label="On this page" className="lg:hidden border-t border-[#B08D57]/25 pt-6">
+                <p className="m-0 mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">On this page</p>
+                <ul className="grid grid-cols-2 gap-x-6">
+                  {sections.map((s) => (
+                    <li key={s.id}>
+                      <a
+                        href={`#${s.id}`}
+                        className="flex min-h-[44px] items-center justify-between gap-2 border-b border-[#B08D57]/20 text-[15px] text-slate-800 hover:text-[#8A6F0A] transition-colors"
+                      >
+                        {s.label}
+                        <ArrowDownIcon className="h-3.5 w-3.5 flex-shrink-0 text-[#B08D57]" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
           </div>
         </div>
       </section>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl lg:grid lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-12">
-          {/* On this page (desktop) */}
+          {/* On this page (desktop rail) */}
           <aside className="hidden lg:block">
-            <nav aria-label="On this page" className="sticky top-32 pt-12">
+            <nav aria-label="On this page" className="sticky top-32 z-10 pt-12">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-3">On this page</p>
               <ul className="space-y-1 border-l border-slate-200">
                 {sections.map((s) => (
@@ -284,8 +331,8 @@ export default function ConditionFlowPage({
           <main className="min-w-0">
             {/* Does this sound like you? */}
             {(condition.clinicalPresentation || hasPatternMatcher) && (
-              <section id="symptoms" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={ClipboardDocumentListIcon}>Does this sound like you?</Heading>
+              <section id="symptoms" className="scroll-mt-28 py-14">
+                <Heading eyebrow="Symptoms">Does this sound like you?</Heading>
                 {condition.clinicalPresentation?.primarySymptoms && (
                   <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-6">
                     {condition.clinicalPresentation.primarySymptoms.map((symptom) => (
@@ -298,11 +345,11 @@ export default function ConditionFlowPage({
                 )}
                 {condition.clinicalPresentation?.associatedSymptoms && (
                   <>
-                    <p className="text-sm font-semibold text-slate-900 mb-2">Often alongside it</p>
+                    <p className="m-0 text-base font-semibold text-slate-900 mb-2">Often alongside it</p>
                     <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2 mb-6">
                       {condition.clinicalPresentation.associatedSymptoms.map((symptom) => (
-                        <li key={symptom} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
-                          <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 rounded-full bg-slate-400 flex-shrink-0" />
+                        <li key={symptom} className="flex items-start gap-3 text-base text-slate-600 leading-relaxed">
+                          <span aria-hidden="true" className="mt-[11px] h-1.5 w-1.5 rounded-full bg-slate-400 flex-shrink-0" />
                           {symptom}
                         </li>
                       ))}
@@ -310,7 +357,7 @@ export default function ConditionFlowPage({
                   </>
                 )}
                 {condition.clinicalPresentation?.typicalPattern && (
-                  <blockquote className="my-8 border-l-4 border-[#B08D57] pl-5 !font-sans not-italic text-base md:text-lg text-slate-800 leading-relaxed max-w-[70ch]">
+                  <blockquote className="my-8 border-l-2 border-[#B08D57] pl-5 !font-sans not-italic text-base md:text-lg text-slate-800 leading-relaxed max-w-[70ch]">
                     {condition.clinicalPresentation.typicalPattern}
                   </blockquote>
                 )}
@@ -319,20 +366,46 @@ export default function ConditionFlowPage({
                     <PatternMatcher currentSlug={conditionSlug} cluster={patternCluster} conditionsBySlug={patternConditions} />
                   </div>
                 )}
+                {bookLine('condition_symptoms', 'mt-8')}
               </section>
             )}
 
             {/* His own notes */}
             {condition.clinicalObservations && (
-              <section id="in-clinic" className="scroll-mt-28 py-12">
+              <section id="in-clinic" className="scroll-mt-28 py-14">
                 <ClinicalObservations observations={condition.clinicalObservations} />
+              </section>
+            )}
+
+            {/* Red flags, once, before treatment: "see a doctor first" means
+                before starting, and on phones it used to sit 11 to 17 screens down. */}
+            {redFlags.length > 0 && (
+              <section id="red-flags" className="scroll-mt-28 py-10">
+                <div className="rounded-2xl border border-red-200 border-l-4 border-l-red-600 bg-white p-6 md:p-8">
+                  <div className="flex items-center gap-2.5 mb-5">
+                    <ExclamationTriangleIcon className="h-5 w-5 text-red-600" aria-hidden="true" />
+                    <h2 className="text-xl md:text-2xl font-medium text-slate-900">When to see a doctor first</h2>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-5">
+                    {redFlags.map((flag) => (
+                      <div key={flag.sign} className="flex items-start gap-2.5">
+                        <div className="mt-[9px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                        <div>
+                          <p className="m-0 text-base font-medium text-slate-900 leading-snug">{flag.sign}</p>
+                          {flag.action && <p className="m-0 text-base text-slate-600 mt-1 leading-snug">{flag.action}</p>}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </section>
             )}
 
             {/* Treatment */}
             {(primary || showRehab || condition.selfManagement || condition.treatmentApproach) && (
-              <section id="treatment" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={HeartIcon}>How it is treated</Heading>
+              <section id="treatment" className={`scroll-mt-28 py-14 mt-4 ${bleed}`}>
+                {ground}
+                <Heading eyebrow="Treatment">How it is treated</Heading>
                 {primary && (
                   <Para className="mb-4">
                     <strong className="text-slate-900">Main approach.</strong> {sentence(primary)}
@@ -350,7 +423,7 @@ export default function ConditionFlowPage({
                 )}
 
                 {showRehab && (
-                  <div className="my-8">
+                  <div className="my-10">
                     <ExerciseProgression
                       progression={condition.exerciseProgression}
                       conditionName={condition.name}
@@ -362,13 +435,13 @@ export default function ConditionFlowPage({
 
                 {condition.selfManagement && condition.selfManagement.length > 0 && (
                   <div className="mt-10">
-                    <h3 className="text-xl font-medium text-slate-900 mb-4">What you can do now</h3>
+                    <h3 className="text-2xl font-light tracking-tight text-slate-900 mb-4">What you can do now</h3>
                     <ul className="space-y-4 max-w-[70ch]">
                       {condition.selfManagement.map((item) => (
                         <li key={item.strategy} className="text-base text-slate-700 leading-relaxed">
                           <strong className="text-slate-900">{item.strategy}.</strong> {item.rationale}
                           {item.precautions && item.precautions.length > 0 && (
-                            <span className="block mt-1 text-sm text-slate-500">{item.precautions.map(sentence).join(' ')}</span>
+                            <span className="block mt-1 text-[15px] text-slate-600">{item.precautions.map(sentence).join(' ')}</span>
                           )}
                         </li>
                       ))}
@@ -378,7 +451,7 @@ export default function ConditionFlowPage({
 
                 {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                   <div className="mt-10">
-                    <h3 className="text-xl font-medium text-slate-900 mb-4">What I use in clinic</h3>
+                    <h3 className="text-2xl font-light tracking-tight text-slate-900 mb-4">What I use in clinic</h3>
                     {condition.treatmentApproach?.description && <Para className="mb-4">{condition.treatmentApproach.description}</Para>}
                     {condition.treatmentApproach?.techniques && (
                       <ul className="space-y-3 mb-6 max-w-[70ch]">
@@ -407,9 +480,9 @@ export default function ConditionFlowPage({
                           <Link
                             key={t.id}
                             href={`/treatments/${t.id}`}
-                            className="inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-sm text-slate-700 hover:border-[#B08D57] hover:text-[#8A6F0A] transition-colors"
+                            className="inline-flex min-h-[44px] items-center gap-1 rounded-full border border-slate-300 bg-white px-4 text-[15px] text-slate-700 hover:border-[#B08D57] hover:text-[#8A6F0A] transition-colors"
                           >
-                            {t.name}
+                            {t.shortName ?? t.name}
                             <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden="true" />
                           </Link>
                         ))}
@@ -418,23 +491,14 @@ export default function ConditionFlowPage({
                   </div>
                 )}
 
-                <a
-                  href={JANE_BOOKING_URL}
-                  data-booking-source="condition_management"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-10 group inline-flex items-center gap-1.5 text-sm font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors"
-                >
-                  Book an assessment for {nameLower}
-                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </a>
+                {bookLine('condition_management', 'mt-10')}
               </section>
             )}
 
             {/* Recovery time */}
             {(condition.prognosis || (condition.timeline && condition.timeline.length > 0)) && (
-              <section id="recovery" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={ClockIcon}>How long it takes</Heading>
+              <section id="recovery" className="scroll-mt-28 py-14">
+                <Heading eyebrow="Recovery">How long it takes</Heading>
                 {condition.prognosis?.timeline && <Para className="mb-4">{sentence(condition.prognosis.timeline)}</Para>}
                 {condition.prognosis?.naturalHistory && <Para className="mb-6">{sentence(condition.prognosis.naturalHistory)}</Para>}
                 {condition.timeline && condition.timeline.length > 0 && (
@@ -442,18 +506,18 @@ export default function ConditionFlowPage({
                     {condition.timeline.map((phase) => (
                       <li key={phase.phase} className="text-base text-slate-700 leading-relaxed">
                         <strong className="text-slate-900">{phase.phase}</strong>{' '}
-                        <span className="text-sm text-[#8A6F0A]">({phase.duration})</span>. {sentence(phase.description)}
+                        <span className="text-[#8A6F0A]">({phase.duration})</span>. {sentence(phase.description)}
                       </li>
                     ))}
                   </ol>
                 )}
                 {condition.prognosis?.factors && condition.prognosis.factors.length > 0 && (
                   <>
-                    <p className="text-sm font-semibold text-slate-900 mb-2">What changes the timeline</p>
+                    <p className="m-0 text-base font-semibold text-slate-900 mb-2">What changes the timeline</p>
                     <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2 max-w-3xl">
                       {condition.prognosis.factors.map((factor) => (
-                        <li key={factor} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
-                          <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#B08D57] flex-shrink-0" />
+                        <li key={factor} className="flex items-start gap-3 text-base text-slate-600 leading-relaxed">
+                          <span aria-hidden="true" className="mt-[11px] h-1.5 w-1.5 rounded-full bg-[#B08D57] flex-shrink-0" />
                           {factor}
                         </li>
                       ))}
@@ -461,45 +525,22 @@ export default function ConditionFlowPage({
                   </>
                 )}
                 {condition.measuringProgress?.dayToDay && (
-                  <Para className="mt-6 text-sm md:text-base text-slate-600">
+                  <Para className="mt-6 text-slate-600">
                     <strong className="text-slate-900">How I track it.</strong> {condition.measuringProgress.dayToDay}
                   </Para>
                 )}
               </section>
             )}
 
-            {/* Red flags, once */}
-            {redFlags.length > 0 && (
-              <section id="red-flags" className="scroll-mt-28 py-12">
-                <div className="rounded-2xl border border-red-200 border-l-4 border-l-red-600 bg-white p-6 md:p-8">
-                  <div className="flex items-center gap-2.5 mb-5">
-                    <ExclamationTriangleIcon className="h-5 w-5 text-red-600" aria-hidden="true" />
-                    <h2 className="text-xl md:text-2xl font-medium text-slate-900">When to see a doctor first</h2>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
-                    {redFlags.map((flag) => (
-                      <div key={flag.sign} className="flex items-start gap-2 text-sm">
-                        <div className="mt-[7px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div>
-                          <p className="font-medium text-slate-900 leading-snug">{flag.sign}</p>
-                          {flag.action && <p className="text-slate-600 mt-0.5 leading-snug">{flag.action}</p>}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            )}
-
             {/* Similar conditions */}
             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-              <section id="similar" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={ScaleIcon}>Conditions that can feel similar</Heading>
+              <section id="similar" className="scroll-mt-28 py-14 border-t border-slate-200">
+                <Heading eyebrow="Similar conditions">Conditions that can feel similar</Heading>
                 <dl className="grid md:grid-cols-2 gap-x-10 gap-y-6">
                   {condition.differentialDiagnosis.map((d) => (
                     <div key={d.condition}>
                       <dt className="text-base font-semibold text-slate-900 mb-1">{d.condition}</dt>
-                      <dd className="text-sm text-slate-600 leading-relaxed">{d.distinguishingFeatures}</dd>
+                      <dd className="text-base text-slate-600 leading-relaxed">{d.distinguishingFeatures}</dd>
                     </div>
                   ))}
                 </dl>
@@ -509,40 +550,32 @@ export default function ConditionFlowPage({
 
             {/* FAQ */}
             {condition.faqs && condition.faqs.length > 0 && (
-              <section id="faqs" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={QuestionMarkCircleIcon}>{condition.name} questions I hear most</Heading>
+              <section id="faqs" className="scroll-mt-28 py-14 border-t border-slate-200">
+                <Heading eyebrow="Questions">What patients ask me most</Heading>
                 <div className="space-y-3">
                   {condition.faqs.map((faq) => (
                     <details key={faq.question} className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-colors overflow-hidden">
-                      <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4">
-                        <h3 className="text-sm md:text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                      <summary className="flex min-h-[44px] items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 [&::-webkit-details-marker]:hidden">
+                        <h3 className="text-base font-semibold leading-snug text-slate-900 group-hover:text-[#8A6F0A] transition-colors">
                           {faq.question}
                         </h3>
                         <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform flex-shrink-0" />
                       </summary>
                       <div className="px-5 pb-5 pt-0">
-                        <p className="text-sm md:text-base text-slate-700 leading-relaxed">{faq.answer}</p>
+                        <p className="m-0 text-base text-slate-700 leading-relaxed">{faq.answer}</p>
                       </div>
                     </details>
                   ))}
                 </div>
-                <a
-                  href={JANE_BOOKING_URL}
-                  data-booking-source="condition_faq"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 group inline-flex items-center gap-1.5 text-sm font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors"
-                >
-                  Book an assessment for {nameLower}
-                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </a>
+                {bookLine('condition_faq', 'mt-8')}
               </section>
             )}
 
             {/* The science, for readers who want it */}
             {(scienceText || condition.biomechanics) && (
-              <section id="science" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={BeakerIcon}>The Science of {condition.name}</Heading>
+              <section id="science" className={`scroll-mt-28 py-14 ${bleed}`}>
+                {ground}
+                <Heading eyebrow="The science">The Science of {condition.name}</Heading>
                 {scienceText && (
                   <div className="space-y-5">
                     {(() => {
@@ -556,12 +589,12 @@ export default function ConditionFlowPage({
                   </div>
                 )}
                 {condition.biomechanics && (
-                  <details className="group mt-10">
-                    <summary className="flex min-h-[44px] items-center gap-2 cursor-pointer list-none text-lg font-medium text-slate-900 hover:text-[#8A6F0A] transition-colors">
+                  <details className="group mt-10 border-t border-[#B08D57]/30">
+                    <summary className="flex min-h-[44px] items-center justify-between gap-2 cursor-pointer list-none py-3 text-lg font-medium text-slate-900 hover:text-[#8A6F0A] transition-colors [&::-webkit-details-marker]:hidden">
                       Contributing factors
-                      <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform" aria-hidden="true" />
+                      <ChevronDownIcon className="h-5 w-5 text-slate-500 group-open:rotate-180 transition-transform" aria-hidden="true" />
                     </summary>
-                    <div className="mt-4 space-y-5">
+                    <div className="mt-2 space-y-5">
                       {(() => {
                         const used = new Set<string>();
                         return condition.biomechanics.split('\n\n').map((p, i) => (
@@ -576,30 +609,41 @@ export default function ConditionFlowPage({
               </section>
             )}
 
-            {/* Research */}
+            {/* Research. Phones show two studies and a button for the rest. */}
             {(keyResearch.length > 0 || researchInsights.length > 0) && (
-              <section id="research" className={`scroll-mt-28 py-12 ${tone()}`}>
-                <Heading icon={BeakerIcon}>Key research</Heading>
+              <section id="research" className="scroll-mt-28 py-14">
+                <Heading eyebrow="Research">What the studies show</Heading>
                 <div className="grid md:grid-cols-2 gap-5">
                   {keyResearch.map((r, i) => {
                     const title = r.finding || r.title;
                     const body = r.detail || r.findings;
                     const relevance = r.clinicalRelevance || r.relevance;
+                    const folded = !allResearch && i >= 2;
                     return (
-                      <div key={i} className="bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 border border-slate-200">
+                      <div key={i} className={`bg-white rounded-xl p-6 border border-slate-200 ${folded ? 'hidden md:block' : ''}`}>
                         {r.year && (
                           <span className="inline-flex px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#80650A] text-xs font-semibold mb-2">
                             {r.year}
                           </span>
                         )}
-                        {title && <h3 className="text-base font-semibold text-slate-900 leading-snug mb-2">{title}</h3>}
-                        {body && <p className="text-sm text-slate-700 leading-relaxed mb-3">{body}</p>}
-                        {relevance && <p className="text-sm text-slate-500 leading-relaxed">{relevance}</p>}
-                        {r.citation && <p className="mt-3 text-xs text-slate-500">{r.citation}</p>}
+                        {title && <h3 className="text-base md:text-lg font-semibold text-slate-900 leading-snug mb-2">{title}</h3>}
+                        {body && <p className="m-0 mb-3 text-base text-slate-700 leading-relaxed">{body}</p>}
+                        {relevance && <p className="m-0 text-[15px] text-slate-600 leading-relaxed">{relevance}</p>}
+                        {r.citation && <p className="m-0 mt-3 text-sm text-slate-500">{r.citation}</p>}
                       </div>
                     );
                   })}
                 </div>
+                {!allResearch && keyResearch.length > 2 && (
+                  <button
+                    type="button"
+                    onClick={() => setAllResearch(true)}
+                    className="md:hidden mt-5 inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-4 text-[15px] font-medium text-slate-800 hover:border-[#B08D57] hover:text-[#8A6F0A] transition-colors"
+                  >
+                    Show all {keyResearch.length} studies
+                    <ChevronDownIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                )}
                 {researchInsights.length > 0 && (
                   <ul className="mt-6 space-y-3 max-w-[70ch]">
                     {researchInsights.map((insight) => {
@@ -629,13 +673,14 @@ export default function ConditionFlowPage({
         </div>
       </div>
 
-      {/* Closing band, unchanged */}
-      <section className="mt-8 !bg-[#0f172a] !bg-none">
+      {/* Closing band: the prints' paper colour, so the page ends light and
+          the navy footer reads as the footer. */}
+      <section className="mt-8 !bg-none border-t border-[#B08D57]/25" style={{ backgroundColor: IVORY }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
           <div className="grid gap-10 md:grid-cols-[1fr_300px] md:items-center lg:grid-cols-[1fr_340px] lg:gap-16">
             <div>
-              <h2 className="font-playfair !text-white text-3xl md:text-4xl tracking-tight mb-3">Getting back to it</h2>
-              <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-[48ch]">
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-slate-900 mb-3">Getting back to it</h2>
+              <p className="text-lg text-slate-700 leading-relaxed mb-8 max-w-[48ch]">
                 Physiotherapy for {nameLower}, built around the activity you want back.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -644,14 +689,14 @@ export default function ConditionFlowPage({
                   data-booking-source="condition_footer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-gold inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 group"
+                  className="button-gold inline-flex min-h-[44px] items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 group"
                 >
                   Book Assessment
                   <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/25 text-white hover:bg-white/5 transition-colors"
+                  className="inline-flex min-h-[44px] items-center justify-center px-6 py-3 rounded-lg font-medium border border-slate-300 bg-white/60 text-slate-800 hover:border-[#B08D57] hover:text-[#8A6F0A] transition-colors"
                 >
                   Contact
                 </Link>

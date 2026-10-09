@@ -168,7 +168,7 @@ export default function PainGuidesIndexPage() {
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-5xl">
-              <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
+              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 mb-4">
                 <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
                   Home
                 </Link>

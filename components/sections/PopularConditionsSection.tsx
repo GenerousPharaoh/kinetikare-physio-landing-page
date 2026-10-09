@@ -19,7 +19,7 @@ const featuredConditionSlugs = [
 ];
 
 const categoryLabels: Record<string, string> = {
-  'spinal-health': 'Neck & Back',
+  'spinal-health': 'Spine & Back',
   shoulder: 'Shoulder',
   knee: 'Knee',
   'foot-ankle': 'Foot & Ankle',

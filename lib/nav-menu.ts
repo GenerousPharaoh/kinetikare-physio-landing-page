@@ -77,7 +77,7 @@ export const NAV_MENU: NavMenuColumn[] = [
   },
   {
     key: 'back',
-    title: 'Back & Sciatica',
+    title: 'Spine & Back',
     href: '/conditions?tab=0',
     links: [
       { name: 'Low Back Pain', href: '/conditions/low-back-pain' },
@@ -104,7 +104,7 @@ export const NAV_MENU: NavMenuColumn[] = [
 /** Wayfinding row under the columns, so nothing on the site becomes unreachable from the menu. */
 export const NAV_MENU_FOOTER_LINKS: NavMenuLink[] = [
   { name: 'All conditions', href: '/conditions' },
-  { name: 'Elbow, wrist & hand', href: '/conditions?tab=2' },
+  { name: 'Elbow, Wrist & Hand', href: '/conditions?tab=2' },
   { name: 'Pain guides', href: '/conditions/pain-guides' },
   { name: 'Compare conditions', href: '/conditions/compare' },
 ];

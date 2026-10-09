@@ -773,13 +773,13 @@ export default function FootAnklePainHubPage() {
                     className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-colors overflow-hidden"
                   >
                     <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4">
-                      <h3 className="text-sm md:text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                      <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
                         {faq.question}
                       </h3>
                       <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform flex-shrink-0" />
                     </summary>
                     <div className="px-5 pb-5 pt-0">
-                      <p className="text-sm text-slate-700 leading-relaxed">
+                      <p className="text-base text-slate-700 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -823,7 +823,7 @@ export default function FootAnklePainHubPage() {
                     <h3 className="text-base font-semibold text-slate-900 leading-snug mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
                   </div>
@@ -902,7 +902,7 @@ export default function FootAnklePainHubPage() {
                     <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
                       {treatment.name}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed flex-grow">
+                    <p className="text-base text-slate-600 leading-relaxed flex-grow">
                       {treatment.shortDescription}
                     </p>
                     <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">

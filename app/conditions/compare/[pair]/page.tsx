@@ -319,7 +319,7 @@ export default async function ConditionComparisonPage({
                     {comparison.conditionA.name}
                   </h2>
                   {conditionA?.description && (
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-base text-slate-600 leading-relaxed">
                       {conditionA.description}
                     </p>
                   )}
@@ -340,7 +340,7 @@ export default async function ConditionComparisonPage({
                     {comparison.conditionB.name}
                   </h2>
                   {conditionB?.description && (
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-base text-slate-600 leading-relaxed">
                       {conditionB.description}
                     </p>
                   )}
@@ -401,10 +401,10 @@ export default async function ConditionComparisonPage({
                         <td className="px-6 py-5 align-top text-sm font-semibold text-slate-900">
                           {row.aspect}
                         </td>
-                        <td className="px-6 py-5 align-top text-sm text-slate-700 leading-relaxed">
+                        <td className="px-6 py-5 align-top text-base text-slate-700 leading-relaxed">
                           {row.aForA}
                         </td>
-                        <td className="px-6 py-5 align-top text-sm text-slate-700 leading-relaxed">
+                        <td className="px-6 py-5 align-top text-base text-slate-700 leading-relaxed">
                           {row.aForB}
                         </td>
                       </tr>
@@ -428,7 +428,7 @@ export default async function ConditionComparisonPage({
                         <p className="text-xs font-semibold uppercase tracking-wider text-[#8A6F0A] mb-1">
                           {comparison.conditionA.shortName}
                         </p>
-                        <p className="text-sm text-slate-700 leading-relaxed">
+                        <p className="text-base text-slate-700 leading-relaxed">
                           {row.aForA}
                         </p>
                       </div>
@@ -436,7 +436,7 @@ export default async function ConditionComparisonPage({
                         <p className="text-xs font-semibold uppercase tracking-wider text-[#8A6F0A] mb-1">
                           {comparison.conditionB.shortName}
                         </p>
-                        <p className="text-sm text-slate-700 leading-relaxed">
+                        <p className="text-base text-slate-700 leading-relaxed">
                           {row.aForB}
                         </p>
                       </div>
@@ -481,7 +481,7 @@ export default async function ConditionComparisonPage({
                           <h3 className="text-base font-semibold text-slate-900 mb-1.5">
                             {test.test}
                           </h3>
-                          <p className="text-sm text-slate-700 leading-relaxed">
+                          <p className="text-base text-slate-700 leading-relaxed">
                             {test.whatItShows}
                           </p>
                         </div>
@@ -522,7 +522,7 @@ export default async function ConditionComparisonPage({
                       {comparison.conditionA.shortName}
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-700 leading-relaxed">
+                  <p className="text-base text-slate-700 leading-relaxed">
                     {comparison.whenItIsA}
                   </p>
                   <Link
@@ -543,7 +543,7 @@ export default async function ConditionComparisonPage({
                       {comparison.conditionB.shortName}
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-700 leading-relaxed">
+                  <p className="text-base text-slate-700 leading-relaxed">
                     {comparison.whenItIsB}
                   </p>
                   <Link
@@ -566,7 +566,7 @@ export default async function ConditionComparisonPage({
                     <h3 className="text-base font-semibold text-slate-900 mb-2">
                       If you still cannot tell
                     </h3>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {comparison.whenUncertain}
                     </p>
                   </div>
@@ -583,7 +583,7 @@ export default async function ConditionComparisonPage({
                     <h3 className="text-base font-semibold text-slate-900 mb-2">
                       When both are going on
                     </h3>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {comparison.overlap}
                     </p>
                   </div>
@@ -603,7 +603,7 @@ export default async function ConditionComparisonPage({
                       </h3>
                       <ul className="space-y-2">
                         {comparison.redFlags.map((flag) => (
-                          <li key={flag.sign} className="text-sm text-slate-700 leading-relaxed">
+                          <li key={flag.sign} className="text-base text-slate-700 leading-relaxed">
                             <span className="font-medium text-slate-900">{flag.sign}.</span>{' '}
                             {flag.action}
                           </li>
@@ -637,13 +637,13 @@ export default async function ConditionComparisonPage({
                     className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-colors overflow-hidden"
                   >
                     <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4">
-                      <h3 className="text-sm md:text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                      <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
                         {faq.question}
                       </h3>
                       <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform flex-shrink-0" />
                     </summary>
                     <div className="px-5 pb-5 pt-0">
-                      <p className="text-sm text-slate-700 leading-relaxed">
+                      <p className="text-base text-slate-700 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -677,7 +677,7 @@ export default async function ConditionComparisonPage({
                       key={index}
                       className="bg-white rounded-xl p-6 border border-slate-200"
                     >
-                      <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                      <p className="text-base text-slate-700 leading-relaxed mb-3">
                         {note.claim}
                       </p>
                       <p className="text-xs text-slate-500 italic">{note.source}</p>
@@ -717,7 +717,7 @@ export default async function ConditionComparisonPage({
                       <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
                         {treatment.name}
                       </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed flex-grow">
+                      <p className="text-base text-slate-600 leading-relaxed flex-grow">
                         {treatment.shortDescription}
                       </p>
                       <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">

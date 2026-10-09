@@ -18,7 +18,7 @@ export interface ConditionNavCategory {
 export const conditionNav: ConditionNavCategory[] = [
   {
     "slug": "spinal-health",
-    "title": "Neck & Back",
+    "title": "Spine & Back",
     "conditions": [
       {
         "slug": "low-back-pain",

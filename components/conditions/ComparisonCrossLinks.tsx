@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRightIcon, ArrowsRightLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import {
   ConditionComparison,
   getComparisonsForCondition,
@@ -34,17 +34,14 @@ export default function ComparisonCrossLinks({
   return (
     <section
       aria-label="Commonly confused with"
-      className="mt-6 bg-slate-50 rounded-xl p-6 border border-slate-200"
+      className="mt-10"
     >
-      <div className="mb-5 flex items-start gap-3">
-        <div className="flex-shrink-0 p-2 bg-slate-900 rounded-lg">
-          <ArrowsRightLeftIcon className="h-4 w-4 text-[#B08D57]" aria-hidden="true" />
-        </div>
+      <div className="mb-5">
         <div>
-          <h3 className="text-lg font-medium text-slate-900">
+          <h3 className="text-2xl font-light tracking-tight text-slate-900">
             Commonly confused with
           </h3>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="m-0 mt-1 text-[15px] text-slate-600">
             Side-by-side comparisons for patterns that often get mistaken for{' '}
             {inlineName(currentConditionName)}.
           </p>
@@ -65,7 +62,7 @@ export default function ComparisonCrossLinks({
                 className="group flex flex-col h-full bg-white rounded-lg border border-slate-200 hover:border-[#B08D57]/50 hover:shadow-sm transition-all duration-200 p-4"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm leading-snug">
+                  <p className="m-0 font-medium text-slate-900 group-hover:text-[#8A6F0A] transition-colors text-base leading-snug">
                     Is this {inlineName(currentConditionName)} or {inlineName(other.shortName)}?
                   </p>
                   <ArrowRightIcon
@@ -74,12 +71,12 @@ export default function ComparisonCrossLinks({
                   />
                 </div>
 
-                <span className="mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[10px] font-medium uppercase tracking-wide bg-slate-50 text-slate-600 border-slate-200">
+                <span className="mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[11px] font-medium uppercase tracking-wide bg-slate-50 text-slate-600 border-slate-200">
                   <span className="h-1 w-1 rounded-full bg-[#B08D57]" aria-hidden="true" />
                   Compare side by side
                 </span>
 
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+                <p className="m-0 mt-2 text-sm text-slate-600 leading-relaxed">
                   How I separate {inlineName(currentConditionName)} from{' '}
                   {inlineName(other.shortName)} by pattern, tests, and exam findings.
                 </p>

@@ -825,7 +825,7 @@ const footAnkleConditions: Condition[] = [
 
 export const conditionCategories: ConditionCategory[] = [
   {
-    title: "Neck & Back",
+    title: "Spine & Back",
     slug: "spinal-health",
     subtitle: "Neck, Mid-Back & Low Back",
     accent: "#B08D57",
@@ -1390,26 +1390,35 @@ export const getDetailedRelationships = (conditionSlug: string) => {
 export const additionalServices = [
   {
     title: "Post-Surgical Rehabilitation",
-    description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery."
+    description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery.",
+    links: [{ name: "Post-surgical rehab", href: "/treatments/post-surgical-rehabilitation" }]
   },
   {
     title: "Arthritis Management",
-    description: "Osteoarthritis, Rheumatoid Arthritis (focus on pain management, mobility, and function)."
+    description: "Osteoarthritis, Rheumatoid Arthritis (focus on pain management, mobility, and function).",
+    links: [
+      { name: "Knee osteoarthritis", href: "/conditions/knee-osteoarthritis" },
+      { name: "Hip osteoarthritis", href: "/conditions/hip-osteoarthritis" }
+    ]
   },
   {
     title: "Sports-Related Injuries",
-    description: "Muscle strains, ligament sprains, contusions, overuse injuries specific to various sports."
+    description: "Muscle strains, ligament sprains, contusions, overuse injuries specific to various sports.",
+    links: [{ name: "Sports rehab", href: "/treatments/sports-rehab-return-to-sport" }]
   },
   {
     title: "Chronic Pain Management",
-    description: "Multimodal approaches to help manage and reduce long-standing pain."
+    description: "Multimodal approaches to help manage and reduce long-standing pain.",
+    links: [{ name: "Pain education", href: "/treatments/pain-education" }]
   },
   {
     title: "Balance & Walking",
-    description: "Strength and balance work for unsteadiness or a change in walking after an injury or operation."
+    description: "Strength and balance work for unsteadiness or a change in walking after an injury or operation.",
+    links: [{ name: "Exercise therapy", href: "/treatments/exercise-therapy" }]
   },
   {
     title: "Pre-Operative Optimization",
-    description: "Strength and mobility work before a planned joint replacement or ligament surgery."
+    description: "Strength and mobility work before a planned joint replacement or ligament surgery.",
+    links: [{ name: "Exercise therapy", href: "/treatments/exercise-therapy" }]
   }
 ];

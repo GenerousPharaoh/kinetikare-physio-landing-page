@@ -74,13 +74,13 @@ export default function RelatedConditionsList({
   return (
     <section
       aria-label="Related conditions"
-      className="mt-12 bg-slate-50 rounded-xl p-6 border border-slate-200"
+      className="mt-4 border-t border-slate-200 pt-12"
     >
       <div className="mb-5">
-        <h3 id="related-conditions" className="text-lg font-medium text-slate-900">
+        <h3 id="related-conditions" className="text-2xl font-light tracking-tight text-slate-900">
           Related Conditions
         </h3>
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="m-0 mt-1 text-[15px] text-slate-600">
           Conditions I commonly see alongside, or confused with, this one.
         </p>
       </div>
@@ -97,7 +97,7 @@ export default function RelatedConditionsList({
                 className="group flex flex-col h-full bg-white rounded-lg border border-slate-200 hover:border-[#B08D57]/50 hover:shadow-sm transition-all duration-200 p-4"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm leading-snug">
+                  <p className="m-0 font-medium text-slate-900 group-hover:text-[#8A6F0A] transition-colors text-base leading-snug">
                     {related.name}
                   </p>
                   <ArrowRightIcon
@@ -108,7 +108,7 @@ export default function RelatedConditionsList({
 
                 {label && (
                   <span
-                    className={`mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[10px] font-medium uppercase tracking-wide ${RELATIONSHIP_PILL_CLASS}`}
+                    className={`mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[11px] font-medium uppercase tracking-wide ${RELATIONSHIP_PILL_CLASS}`}
                   >
                     <span
                       className="h-1 w-1 rounded-full bg-[#B08D57]"
@@ -119,7 +119,7 @@ export default function RelatedConditionsList({
                 )}
 
                 {meta?.explanation && (
-                  <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+                  <p className="m-0 mt-2 text-sm text-slate-600 leading-relaxed">
                     {meta.explanation}
                   </p>
                 )}

@@ -65,20 +65,45 @@ interface GuideCard {
   region: string;
 }
 
-const guides: GuideCard[] = [
+interface GuideGroup {
+  heading: string;
+  intro: string;
+  guides: GuideCard[];
+}
+
+const guideGroups: GuideGroup[] = [
   {
-    href: '/conditions/pain-guides/pain-below-kneecap',
-    title: 'Pain Right Below the Kneecap',
-    blurb:
-      'A single tender spot below the kneecap that flares with jumping, stairs, or deep squats. Most commonly patellar tendinopathy in active adults, and growth-plate conditions in young athletes.',
-    region: 'Knee',
+    heading: 'Where it hurts',
+    intro: 'Guides that start from where the pain is and how it behaves.',
+    guides: [
+      {
+        href: '/conditions/pain-guides/pain-below-kneecap',
+        title: 'Pain Right Below the Kneecap',
+        blurb:
+          'A single tender spot below the kneecap that flares with jumping, stairs, or deep squats. Most commonly patellar tendinopathy in active adults, and growth-plate conditions in young athletes.',
+        region: 'Knee',
+      },
+    ],
   },
   {
-    href: '/conditions/pain-guides/fluid-on-the-knee',
-    title: 'Fluid on the Knee (Knee Swelling)',
-    blurb:
-      'Swelling inside the knee joint, often called an effusion. Onset pattern, associated signs, and what to do first, with links to the underlying conditions.',
-    region: 'Knee',
+    heading: 'Words on a scan report',
+    intro: 'Guides to the wording on X-ray, ultrasound and MRI reports: what it means and what it does not.',
+    guides: [
+      {
+        href: '/conditions/pain-guides/fluid-on-the-knee',
+        title: 'Suprapatellar Effusion (Fluid on the Knee)',
+        blurb:
+          'Extra fluid inside the knee joint, seen in the pouch above the kneecap. What the size words on a report mean, the usual causes by how quickly the swelling came on, and when to see a doctor first.',
+        region: 'Knee',
+      },
+      {
+        href: '/conditions/pain-guides/joint-space-narrowing',
+        title: 'Joint Space Narrowing in the Knee',
+        blurb:
+          'The gap between the bones looks thinner than expected on an X-ray. What medial, tricompartmental and the severity words mean, how it relates to pain, and what the guidelines recommend.',
+        region: 'Knee',
+      },
+    ],
   },
 ];
 
@@ -202,34 +227,39 @@ export default function PainGuidesIndexPage() {
 
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-8">
-                Current guides
-              </h2>
+            <div className="max-w-5xl mx-auto space-y-12">
+              {guideGroups.map((group) => (
+                <div key={group.heading}>
+                  <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-2">
+                    {group.heading}
+                  </h2>
+                  <p className="text-slate-600 max-w-3xl mb-6">{group.intro}</p>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                {guides.map((guide) => (
-                  <Link
-                    key={guide.href}
-                    href={guide.href}
-                    className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-all flex flex-col"
-                  >
-                    <span className="text-xs uppercase tracking-wider text-[#8A6F0A] font-semibold mb-2">
-                      {guide.region}
-                    </span>
-                    <h3 className="text-xl font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
-                      {guide.title}
-                    </h3>
-                    <p className="text-sm text-slate-700 leading-relaxed flex-grow">
-                      {guide.blurb}
-                    </p>
-                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
-                      Read the guide
-                      <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {group.guides.map((guide) => (
+                      <Link
+                        key={guide.href}
+                        href={guide.href}
+                        className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-all flex flex-col"
+                      >
+                        <span className="text-xs uppercase tracking-wider text-[#8A6F0A] font-semibold mb-2">
+                          {guide.region}
+                        </span>
+                        <h3 className="text-xl font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
+                          {guide.title}
+                        </h3>
+                        <p className="text-sm text-slate-700 leading-relaxed flex-grow">
+                          {guide.blurb}
+                        </p>
+                        <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
+                          Read the guide
+                          <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

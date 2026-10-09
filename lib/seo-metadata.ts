@@ -1,25 +1,17 @@
-import fs from 'fs';
-import path from 'path';
+import contentDates from './content-dates.json';
 
 const SITE_URL = 'https://www.kinetikarephysio.com';
 
-function getFileMTime(relativePath: string): Date | undefined {
-  try {
-    return fs.statSync(path.join(process.cwd(), relativePath)).mtime;
-  } catch {
-    return undefined;
-  }
-}
+// Content dates come from lib/content-dates.json, written by
+// scripts/content-dates.mjs after each build from a fingerprint of what the
+// page shows. They replaced file modification times, which on Vercel were the
+// build time for every page.
+const CONTENT_DATES = contentDates as Record<string, { hash: string; date: string }>;
 
-function getLatestMTime(relativePaths: string[]): Date | undefined {
-  return relativePaths
-    .map((relativePath) => getFileMTime(relativePath))
-    .filter((value): value is Date => Boolean(value))
-    .sort((left, right) => right.getTime() - left.getTime())[0];
-}
-
-function toIsoString(date: Date | undefined): string | undefined {
-  return date?.toISOString();
+/** Date this page's content last changed (YYYY-MM-DD). Accepts a path or a full URL. */
+export function contentDateFor(routeOrUrl: string): string | undefined {
+  const route = routeOrUrl.replace(/^https?:\/\/[^/]+/, '').replace(/[?#].*$/, '').replace(/\/$/, '') || '/';
+  return CONTENT_DATES[route]?.date;
 }
 
 export const SEO_AUTHOR = {
@@ -32,46 +24,3 @@ export const SEO_PUBLISHER = 'Kareem Hassanein Physiotherapy';
 export const SEO_PERSON_ID = `${SITE_URL}/#person`;
 export const SEO_ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
-export const CONTENT_LAST_MODIFIED = {
-  home: getLatestMTime([
-    'app/page.tsx',
-    'app/layout.tsx',
-    'components/Header.tsx',
-    'components/Footer.tsx',
-  ]),
-  about: getLatestMTime([
-    'app/about/page.tsx',
-  ]),
-  services: getLatestMTime([
-    'app/services/page.tsx',
-  ]),
-  faq: getLatestMTime([
-    'app/faq/page.tsx',
-    'components/FAQPageClient.tsx',
-    'components/FAQAccordion.tsx',
-  ]),
-  conditions: getLatestMTime([
-    'app/conditions/[slug]/page.tsx',
-    'components/conditions/ConditionFlowPage.tsx',
-    'lib/conditions-data.ts',
-    'lib/detailed-conditions-content.ts',
-  ]),
-  treatments: getLatestMTime([
-    'app/treatments/[slug]/page.tsx',
-    'components/treatments/TreatmentHero.tsx',
-    'components/treatments/TreatmentContent.tsx',
-    'components/treatments/TreatmentInDepth.tsx',
-    'components/treatments/TreatmentProcess.tsx',
-    'components/treatments/TreatmentFAQ.tsx',
-    'lib/treatments-data.ts',
-  ]),
-};
-
-export const CONTENT_LAST_MODIFIED_ISO = {
-  home: toIsoString(CONTENT_LAST_MODIFIED.home),
-  about: toIsoString(CONTENT_LAST_MODIFIED.about),
-  services: toIsoString(CONTENT_LAST_MODIFIED.services),
-  faq: toIsoString(CONTENT_LAST_MODIFIED.faq),
-  conditions: toIsoString(CONTENT_LAST_MODIFIED.conditions),
-  treatments: toIsoString(CONTENT_LAST_MODIFIED.treatments),
-};

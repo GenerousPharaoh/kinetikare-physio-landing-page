@@ -9,7 +9,7 @@ import {
   CalendarIcon,
 } from '@heroicons/react/24/outline';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     type: 'article',
     siteName: 'Kinetikare',
     authors: [SEO_AUTHOR.name],
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/compare')
+      ? { modifiedTime: contentDateFor('/conditions/compare') }
       : {}),
     images: [
       {
@@ -111,8 +111,8 @@ export default function ComparisonIndexPage() {
     author: { '@id': SEO_PERSON_ID },
     publisher: { '@id': SEO_ORGANIZATION_ID },
     inLanguage: 'en-CA',
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/compare')
+      ? { dateModified: contentDateFor('/conditions/compare') }
       : {}),
   };
 

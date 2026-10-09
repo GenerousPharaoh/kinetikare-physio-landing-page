@@ -3,85 +3,20 @@ const path = require('path');
 
 const rootDir = process.cwd();
 
-const getFileMTime = (relativePath) => {
+// lastmod is the date the page's content last changed, from lib/content-dates.json
+// (written by scripts/content-dates.mjs, which runs just before this in
+// postbuild). File modification times were the build time on Vercel.
+const contentDates = (() => {
   try {
-    return fs.statSync(path.join(rootDir, relativePath)).mtime;
+    return JSON.parse(fs.readFileSync(path.join(rootDir, 'lib', 'content-dates.json'), 'utf8'));
   } catch {
-    return undefined;
+    return {};
   }
-};
-
-const getLatestMTime = (relativePaths) =>
-  relativePaths
-    .map((relativePath) => getFileMTime(relativePath))
-    .filter(Boolean)
-    .sort((left, right) => right.getTime() - left.getTime())[0];
-
-const contentLastModified = {
-  home: getLatestMTime([
-    'app/page.tsx',
-    'app/layout.tsx',
-    'components/Header.tsx',
-    'components/Footer.tsx',
-    'components/sections/HeroSectionModern.tsx',
-    'components/sections/PopularConditionsSection.tsx',
-    'components/sections/ServicesSection.tsx',
-    'components/sections/CareJourneySection.tsx',
-  ]),
-  about: getLatestMTime([
-    'app/about/page.tsx',
-    'components/about/AboutHero.tsx',
-    'components/CommitmentCarousel.tsx',
-  ]),
-  services: getLatestMTime([
-    'app/services/page.tsx',
-    'components/services/ServicesHero.tsx',
-  ]),
-  faq: getLatestMTime([
-    'app/faq/page.tsx',
-    'components/FAQPageClient.tsx',
-    'components/FAQAccordion.tsx',
-  ]),
-  conditions: getLatestMTime([
-    'app/conditions/[slug]/page.tsx',
-    'app/conditions/page.tsx',
-    'app/conditions/knee-pain/page.tsx',
-    'app/conditions/hip-pain/page.tsx',
-    'app/conditions/shoulder-pain/page.tsx',
-    'app/conditions/elbow-pain/page.tsx',
-    'app/conditions/compare/page.tsx',
-    'app/conditions/compare/[pair]/page.tsx',
-    'components/ConditionPageClient.tsx',
-    'components/ConditionsPageClient.tsx',
-    'components/conditions/Term.tsx',
-    'components/conditions/ComparisonCrossLinks.tsx',
-    'components/conditions/RelatedConditionsList.tsx',
-    'lib/conditions-data.ts',
-    'lib/detailed-conditions-content.ts',
-    'lib/condition-comparisons.ts',
-    'lib/glossary.ts',
-  ]),
-  treatments: getLatestMTime([
-    'app/treatments/[slug]/page.tsx',
-    'app/treatments/page.tsx',
-    'components/treatments/TreatmentHero.tsx',
-    'components/treatments/TreatmentContent.tsx',
-    'components/treatments/TreatmentProcess.tsx',
-    'components/treatments/TreatmentFAQ.tsx',
-    'lib/treatments-data.ts',
-  ]),
-  accessibility: getLatestMTime(['app/accessibility/page.tsx']),
-};
+})();
 
 const pathLastModified = (pathName) => {
-  if (pathName === '/') return contentLastModified.home;
-  if (pathName === '/about') return contentLastModified.about;
-  if (pathName === '/services') return contentLastModified.services;
-  if (pathName === '/faq') return contentLastModified.faq;
-  if (pathName === '/conditions' || pathName.startsWith('/conditions/')) return contentLastModified.conditions;
-  if (pathName === '/treatments' || pathName.startsWith('/treatments/')) return contentLastModified.treatments;
-  if (pathName === '/accessibility') return contentLastModified.accessibility;
-  return undefined;
+  const date = contentDates[pathName]?.date;
+  return date ? new Date(`${date}T12:00:00Z`) : undefined;
 };
 
 /** @type {import('next-sitemap').IConfig} */

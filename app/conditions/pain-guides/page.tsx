@@ -10,12 +10,13 @@ import {
   PhoneIcon,
 } from '@heroicons/react/24/outline';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
   SEO_PUBLISHER,
 } from '@/lib/seo-metadata';
+import { PAIN_GUIDE_GROUPS } from '@/lib/pain-guides';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides';
 const PAGE_TITLE = 'Symptom & Pain Guides | Kareem Hassanein Physiotherapy';
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
     type: 'article',
     siteName: 'Kinetikare',
     authors: [SEO_AUTHOR.name],
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/pain-guides')
+      ? { modifiedTime: contentDateFor('/conditions/pain-guides') }
       : {}),
     images: [
       {
@@ -57,55 +58,6 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
 };
-
-interface GuideCard {
-  href: string;
-  title: string;
-  blurb: string;
-  region: string;
-}
-
-interface GuideGroup {
-  heading: string;
-  intro: string;
-  guides: GuideCard[];
-}
-
-const guideGroups: GuideGroup[] = [
-  {
-    heading: 'Where it hurts',
-    intro: 'Guides that start from where the pain is and how it behaves.',
-    guides: [
-      {
-        href: '/conditions/pain-guides/pain-below-kneecap',
-        title: 'Pain Right Below the Kneecap',
-        blurb:
-          'A single tender spot below the kneecap that flares with jumping, stairs, or deep squats. Most commonly patellar tendinopathy in active adults, and growth-plate conditions in young athletes.',
-        region: 'Knee',
-      },
-    ],
-  },
-  {
-    heading: 'Words on a scan report',
-    intro: 'Guides to the wording on X-ray, ultrasound and MRI reports: what it means and what it does not.',
-    guides: [
-      {
-        href: '/conditions/pain-guides/fluid-on-the-knee',
-        title: 'Suprapatellar Effusion (Fluid on the Knee)',
-        blurb:
-          'Extra fluid inside the knee joint, seen in the pouch above the kneecap. What the size words on a report mean, the usual causes by how quickly the swelling came on, and when to see a doctor first.',
-        region: 'Knee',
-      },
-      {
-        href: '/conditions/pain-guides/joint-space-narrowing',
-        title: 'Joint Space Narrowing in the Knee',
-        blurb:
-          'The gap between the bones looks thinner than expected on an X-ray. What medial, tricompartmental and the severity words mean, how it relates to pain, and what the guidelines recommend.',
-        region: 'Knee',
-      },
-    ],
-  },
-];
 
 export default function PainGuidesIndexPage() {
   const breadcrumbSchema = {
@@ -147,8 +99,8 @@ export default function PainGuidesIndexPage() {
       '@id': SEO_ORGANIZATION_ID,
     },
     inLanguage: 'en-CA',
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/pain-guides')
+      ? { dateModified: contentDateFor('/conditions/pain-guides') }
       : {}),
   };
 
@@ -228,7 +180,7 @@ export default function PainGuidesIndexPage() {
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto space-y-12">
-              {guideGroups.map((group) => (
+              {PAIN_GUIDE_GROUPS.map((group) => (
                 <div key={group.heading}>
                   <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-2">
                     {group.heading}

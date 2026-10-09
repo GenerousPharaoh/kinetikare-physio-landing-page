@@ -7,7 +7,7 @@ import FAQPageClient from '@/components/FAQPageClient';
 import { FaqItem } from '@/components/FAQAccordion';
 import FAQHero from '@/components/faq/FAQHero';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -1011,7 +1011,7 @@ export default function FAQPage() {
     "publisher": {
       "@id": SEO_ORGANIZATION_ID
     },
-    ...(CONTENT_LAST_MODIFIED_ISO.faq ? { "dateModified": CONTENT_LAST_MODIFIED_ISO.faq } : {}),
+    ...(contentDateFor('/faq') ? { "dateModified": contentDateFor('/faq') } : {}),
     "mainEntity": faqCategories.flatMap(category =>
       category.questions.map(faq => ({
         "@type": "Question",

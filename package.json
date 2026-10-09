@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev --webpack -p 5001",
     "build": "next build --webpack",
     "build:analyze": "cross-env ANALYZE=true next build --webpack",
-    "postbuild": "next-sitemap",
+    "postbuild": "node scripts/content-dates.mjs && next-sitemap",
     "start": "next start",
     "lint": "eslint .",
     "clean": "rm -rf .next node_modules/.cache",

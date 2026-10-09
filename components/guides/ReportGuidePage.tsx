@@ -22,7 +22,7 @@ import {
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
 } from '@/lib/seo-metadata';
@@ -218,7 +218,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
       geographicArea: { '@type': 'AdministrativeArea', name: 'Burlington, Ontario' },
     },
     inLanguage: 'en-CA',
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions } : {}),
+    ...(contentDateFor(`/conditions/pain-guides/${guide.slug}`) ? { dateModified: contentDateFor(`/conditions/pain-guides/${guide.slug}`) } : {}),
   };
 
   const faqSchema = {

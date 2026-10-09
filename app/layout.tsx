@@ -59,11 +59,12 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: 'any' },
-      { url: '/images/kinetikare-logo-without-text.png', sizes: '32x32', type: 'image/png' }
+      // Small square icons (the old ones were the 473x587 logo PNG, 140 to 183 KB).
+      { url: '/favicon.ico', sizes: '32x32 48x48' },
+      { url: '/favicon.png', sizes: '192x192', type: 'image/png' }
     ],
-    shortcut: '/favicon.png',
-    apple: '/favicon.png'
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png'
   },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   other: {

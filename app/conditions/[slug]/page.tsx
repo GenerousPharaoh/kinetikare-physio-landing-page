@@ -11,7 +11,7 @@ import {
 import { getConditionHub } from '@/lib/condition-hubs';
 import { getDetailedCondition } from '@/lib/detailed-conditions-content';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -154,8 +154,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       siteName: 'Kinetikare',
       authors: [SEO_AUTHOR.name],
-      ...(CONTENT_LAST_MODIFIED_ISO.conditions
-        ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+      ...(contentDateFor(`/conditions/${slug}`)
+        ? { modifiedTime: contentDateFor(`/conditions/${slug}`) }
         : {}),
       images: [
         {
@@ -344,8 +344,8 @@ export default async function ConditionPage({ params }: PageProps) {
     mainEntity: {
       '@id': `https://www.kinetikarephysio.com/conditions/${slug}#condition`,
     },
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor(`/conditions/${slug}`)
+      ? { dateModified: contentDateFor(`/conditions/${slug}`) }
       : {}),
     inLanguage: 'en-CA',
   };

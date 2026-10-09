@@ -23,7 +23,7 @@ import {
   ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -82,8 +82,8 @@ export async function generateMetadata({
       type: 'article',
       siteName: 'Kinetikare',
       authors: [SEO_AUTHOR.name],
-      ...(CONTENT_LAST_MODIFIED_ISO.conditions
-        ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+      ...(contentDateFor(pageUrl)
+        ? { modifiedTime: contentDateFor(pageUrl) }
         : {}),
       images: [
         {
@@ -190,8 +190,8 @@ export default async function ConditionComparisonPage({
         url: `${SITE_URL}/conditions/${comparison.conditionB.slug}`,
       },
     ],
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor(pageUrl)
+      ? { dateModified: contentDateFor(pageUrl) }
       : {}),
   };
 

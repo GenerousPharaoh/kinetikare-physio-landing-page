@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ReportGuidePage from '@/components/guides/ReportGuidePage';
 import { getReportGuide, reportGuideUrl } from '@/lib/report-guides';
-import { CONTENT_LAST_MODIFIED_ISO, SEO_AUTHOR, SEO_PUBLISHER } from '@/lib/seo-metadata';
+import { contentDateFor, SEO_AUTHOR, SEO_PUBLISHER } from '@/lib/seo-metadata';
 
 const guide = getReportGuide('joint-space-narrowing')!;
 const PAGE_URL = reportGuideUrl(guide.slug);
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'article',
     siteName: 'Kinetikare',
     authors: [SEO_AUTHOR.name],
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions } : {}),
+    ...(contentDateFor('/conditions/pain-guides/joint-space-narrowing') ? { modifiedTime: contentDateFor('/conditions/pain-guides/joint-space-narrowing') } : {}),
     images: [
       {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',

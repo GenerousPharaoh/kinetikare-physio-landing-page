@@ -20,7 +20,7 @@ import {
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     type: 'article',
     siteName: 'Kinetikare',
     authors: [SEO_AUTHOR.name],
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/hip-pain')
+      ? { modifiedTime: contentDateFor('/conditions/hip-pain') }
       : {}),
     images: [
       {
@@ -391,8 +391,8 @@ export default function HipPainHubPage() {
       },
     },
     inLanguage: 'en-CA',
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/hip-pain')
+      ? { dateModified: contentDateFor('/conditions/hip-pain') }
       : {}),
   };
 

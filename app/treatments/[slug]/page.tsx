@@ -9,7 +9,7 @@ import TreatmentProcess from '@/components/treatments/TreatmentProcess';
 import TreatmentFAQ from '@/components/treatments/TreatmentFAQ';
 import TreatmentCTA from '@/components/treatments/TreatmentCTA';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
       siteName: 'Kinetikare',
       authors: [SEO_AUTHOR.name],
-      ...(CONTENT_LAST_MODIFIED_ISO.treatments
-        ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.treatments }
+      ...(contentDateFor(`/treatments/${treatment.id}`)
+        ? { modifiedTime: contentDateFor(`/treatments/${treatment.id}`) }
         : {}),
       images: [
         {
@@ -117,8 +117,8 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
     mainEntity: {
       '@id': `https://www.kinetikarephysio.com/treatments/${treatment.id}#procedure`,
     },
-    ...(CONTENT_LAST_MODIFIED_ISO.treatments
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.treatments }
+    ...(contentDateFor(`/treatments/${treatment.id}`)
+      ? { dateModified: contentDateFor(`/treatments/${treatment.id}`) }
       : {}),
     inLanguage: 'en-CA',
   };

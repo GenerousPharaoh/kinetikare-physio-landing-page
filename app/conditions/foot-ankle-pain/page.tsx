@@ -19,7 +19,7 @@ import {
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
 import {
-  CONTENT_LAST_MODIFIED_ISO,
+  contentDateFor,
   SEO_AUTHOR,
   SEO_ORGANIZATION_ID,
   SEO_PERSON_ID,
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     type: 'article',
     siteName: 'Kinetikare',
     authors: [SEO_AUTHOR.name],
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/foot-ankle-pain')
+      ? { modifiedTime: contentDateFor('/conditions/foot-ankle-pain') }
       : {}),
     images: [
       {
@@ -447,8 +447,8 @@ export default function FootAnklePainHubPage() {
       },
     },
     inLanguage: 'en-CA',
-    ...(CONTENT_LAST_MODIFIED_ISO.conditions
-      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+    ...(contentDateFor('/conditions/foot-ankle-pain')
+      ? { dateModified: contentDateFor('/conditions/foot-ankle-pain') }
       : {}),
   };
 

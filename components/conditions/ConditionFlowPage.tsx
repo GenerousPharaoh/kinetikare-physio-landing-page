@@ -20,6 +20,7 @@ import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import { REHAB_PROGRESSION_SLUGS, REHAB_SCOPE_NOTES } from '@/lib/rehab-progression';
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import { inlineName } from '@/lib/text';
+import { guidesForRegion } from '@/lib/pain-guides';
 import { CATEGORY_PRINT, ILLUSTRATIONS } from '@/lib/illustrations';
 import AuthorByline from './AuthorByline';
 import RegionAnatomy from './RegionAnatomy';
@@ -123,6 +124,9 @@ export default function ConditionFlowPage({
   const researchInsights = condition.researchInsights ?? [];
   const keyResearch = condition.keyResearch ?? [];
   const nameLower = inlineName(condition.name);
+  const GUIDE_REGION: Record<string, string> = { knee: 'Knee' };
+  const guideRegion = GUIDE_REGION[condition.category];
+  const regionGuides = guideRegion ? guidesForRegion(guideRegion) : [];
 
   // "On this page": a rail with a light scrollspy on desktop, an in-flow
   // list on phones. Same order as the sections below.
@@ -662,6 +666,35 @@ export default function ConditionFlowPage({
                     })}
                   </ul>
                 )}
+              </section>
+            )}
+
+            {regionGuides.length > 0 && (
+              <section aria-labelledby="region-guides" className="border-t border-slate-200 pt-12 pb-2">
+                <h3 id="region-guides" className="text-2xl font-light tracking-tight text-slate-900">
+                  Guides on {guideRegion.toLowerCase()} pain
+                </h3>
+                <p className="m-0 mt-1 mb-5 text-[15px] text-slate-600">
+                  Longer explanations of symptoms and scan-report wording.
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {regionGuides.map((g) => (
+                    <li key={g.href}>
+                      <Link
+                        href={g.href}
+                        className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-4 hover:border-[#B08D57]/50 transition-colors"
+                      >
+                        <span className="flex items-start justify-between gap-3">
+                          <span className="text-base font-medium leading-snug text-slate-900 group-hover:text-[#8A6F0A] transition-colors">
+                            {g.title}
+                          </span>
+                          <ArrowRightIcon className="mt-1 h-3.5 w-3.5 flex-shrink-0 text-slate-300 group-hover:text-[#B08D57] transition-colors" aria-hidden="true" />
+                        </span>
+                        <span className="mt-2 text-sm text-slate-600 leading-relaxed">{g.blurb}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </section>
             )}
 

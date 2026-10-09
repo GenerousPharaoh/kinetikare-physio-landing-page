@@ -52,7 +52,7 @@ export const CONTENT_LAST_MODIFIED = {
   ]),
   conditions: getLatestMTime([
     'app/conditions/[slug]/page.tsx',
-    'components/ConditionPageClient.tsx',
+    'components/conditions/ConditionFlowPage.tsx',
     'lib/conditions-data.ts',
     'lib/detailed-conditions-content.ts',
   ]),

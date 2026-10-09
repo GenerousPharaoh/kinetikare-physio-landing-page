@@ -6,7 +6,6 @@ import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/so
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
-import { HUB_PATHS } from '@/lib/condition-hubs';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
@@ -81,18 +80,6 @@ export default function FloatingButtons() {
     return null;
   }
 
-  // Condition detail pages own the bottom of the screen with their tab bar and
-  // sub-section chips, so the pill stays off them rather than stacking on top.
-  // Those pages carry their own booking links in content, including a Book
-  // Assessment band at the end. Hubs, compare and pain-guides have no bottom
-  // bar, so the pill stays on those.
-  const path = pathname || '';
-  const isConditionDetailPage =
-    path.startsWith('/conditions/') &&
-    !path.startsWith('/conditions/compare') &&
-    !path.startsWith('/conditions/pain-guides') &&
-    !HUB_PATHS.has(path);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: getScrollBehavior() });
   };
@@ -136,7 +123,7 @@ export default function FloatingButtons() {
           in the hero's gold, demotes Call to an icon, and drops the back-to-top
           (the desktop stack still carries it). */}
       <AnimatePresence>
-        {showMobileCta && !isConditionDetailPage && (
+        {showMobileCta && (
           <motion.div
             className="fixed right-4 z-40 flex items-center gap-2 lg:hidden"
             style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}

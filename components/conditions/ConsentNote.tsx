@@ -6,7 +6,7 @@ import { ShieldCheckIcon } from '@heroicons/react/24/outline';
  *   2. Makes clear that alternatives are available if something does not suit the patient
  *
  * Designed to be visible but unobtrusive. Mounted once per relevant page (hub pages,
- * pain guides, and a single placement on condition pages via ConditionPageClient).
+ * pain guides, and a single placement on condition pages via ConditionFlowPage).
  */
 export default function ConsentNote({ className = '' }: { className?: string }) {
   return (

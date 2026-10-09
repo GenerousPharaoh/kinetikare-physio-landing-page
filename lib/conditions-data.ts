@@ -93,6 +93,8 @@ export interface Condition {
     sign: string;
     action: string;
   }[];
+  /** Two or three plain sentences shown under the H1 on the single-page layout. */
+  summary?: string;
   /**
    * First-person "Patterns I see in clinic" note — Kareem's own clinical observations
    * on this condition: patterns he sees repeatedly, misdiagnoses he commonly untangles,

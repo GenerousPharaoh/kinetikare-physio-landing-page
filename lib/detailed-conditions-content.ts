@@ -8432,6 +8432,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
   },
 
   'patellar-tendinopathy': {
+    summary: `Patellar tendinopathy, often called jumper's knee, is pain in the tendon just below the kneecap that comes from loading it more than it can currently handle. It is most common in sports with jumping and landing. It usually responds to a gradual tendon-loading programme rather than rest, over three to six months.`,
     pathophysiology: `Patellar tendinopathy represents a complex degenerative condition affecting the patellar tendon, predominantly at its attachment to the inferior pole of the patella. The condition involves progressive collagen fiber disorganization and failed healing response rather than true inflammation, which fundamentally changes our approach to treatment.
 
 The pathology begins with repetitive microtrauma from jumping and landing activities that overwhelm the tendon's capacity to repair. This creates microscopic failures within the tendon structure, leading to alterations at the cellular level that undermine its mechanical properties. The normal parallel arrangement of type I collagen fibers becomes disrupted, replaced by areas of mucoid degeneration and increased ground substance that weakens the tendon's tensile strength.

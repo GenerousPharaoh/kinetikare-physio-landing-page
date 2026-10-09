@@ -1,7 +1,7 @@
 import { serializeJsonLd } from '@/lib/structured-data';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import ConditionPageClient from '@/components/ConditionPageClient';
+import ConditionFlowPage from '@/components/conditions/ConditionFlowPage';
 import {
   getAllConditions,
   getConditionBySlug,
@@ -290,7 +290,7 @@ export default async function ConditionPage({ params }: PageProps) {
     ]
   };
 
-  // Mirrors the visible breadcrumb in ConditionPageClient, including the
+  // Mirrors the visible breadcrumb in ConditionFlowPage, including the
   // optional regional hub level, so the schema matches what renders.
   const conditionHub = getConditionHub(slug, condition.category);
 
@@ -389,7 +389,7 @@ export default async function ConditionPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
         />
       )}
-      <ConditionPageClient
+      <ConditionFlowPage
         condition={condition}
         relatedConditions={relatedConditions}
         conditionSlug={slug}

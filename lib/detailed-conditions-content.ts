@@ -3629,7 +3629,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
         year: 2015,
         journal: "American Journal of Sports Medicine",
         sampleSize: "58 participants",
-        findings: "Heavy slow resistance training showed equivalent outcomes to traditional eccentric exercises at 52-week follow-up. Both groups demonstrated significant, lasting improvements in VISA-A scores and activity pain, with heavy slow resistance tending toward greater patient satisfaction at 12 weeks and higher training compliance across the programme.",
+        findings: "Heavy slow resistance and traditional eccentric exercises both improved outcomes, with no statistically significant difference between them at 52-week follow-up. Both groups demonstrated significant, lasting improvements in VISA-A scores and activity pain, with heavy slow resistance tending toward greater patient satisfaction at 12 weeks and higher training compliance across the programme.",
         relevance: "Provides evidence that multiple loading strategies are effective, allowing clinicians to individualize exercise prescription based on patient preference and adherence factors",
         citation: "Beyer R, Kongsgaard M, Hougs Kjær B, et al. Heavy slow resistance versus eccentric training as treatment for Achilles tendinopathy: a randomized controlled trial. Am J Sports Med. 2015;43(7):1704-1711. PMID: 26018970."
       },
@@ -3738,7 +3738,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       phase2: {
         title: "Phase 2: Heavy Slow Resistance or Eccentric Loading (Weeks 4 to 12)",
-        focus: "Rebuild tendon structural capacity. For mid-portion tendinopathy the choice is between Alfredson's heel-drop protocol (3 sets of 15 twice daily off a step, straight-knee and bent-knee versions, seven days a week) and the heavy slow resistance approach that Beyer and colleagues tested in AJSM 2015 (3 sets, 3 times per week, 3 seconds up and 3 seconds down, progressing from 15RM toward 6RM across the block). Outcomes at 52 weeks were equivalent in their trial. For insertional cases the heel stays on flat ground or a slight lift rather than dropping below level, in line with current clinical guidance on limiting compression at the insertion early in rehabilitation (Silbernagel et al., 2020).",
+        focus: "Rebuild tendon structural capacity. For mid-portion tendinopathy the choice is between Alfredson's heel-drop protocol (3 sets of 15 twice daily off a step, straight-knee and bent-knee versions, seven days a week) and the heavy slow resistance approach that Beyer and colleagues tested in AJSM 2015 (3 sets, 3 times per week, 3 seconds up and 3 seconds down, progressing from 15RM toward 6RM across the block). Both programmes improved outcomes in their trial, with no statistically significant difference between them at 52 weeks. For insertional cases the heel stays on flat ground or a slight lift rather than dropping below level, in line with current clinical guidance on limiting compression at the insertion early in rehabilitation (Silbernagel et al., 2020).",
         examples: [
           "Mid-portion: Alfredson heel drops off a step, straight-knee and bent-knee, 3 sets of 15 twice daily",
           "Alternative: Heavy slow resistance standing calf raise in a Smith machine or with a barbell, 3 sets of 6 to 15 reps, 3 times per week on non-consecutive days",

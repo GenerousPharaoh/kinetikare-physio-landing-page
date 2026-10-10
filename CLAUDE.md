@@ -168,7 +168,7 @@ First guide: `joint-space-narrowing` (live 2026-10-08). Planned, research done (
 
 ## Hours live in one file
 
-`lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted.
+`lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted. Since 2026-10-09 (commit ba30926) the footer, `ContactSection` and `HoursList` all render `HOURS_BY_CLINIC`, each clinic under its own name and street; keep those name and street lines as `div`s, because the global `p` rule's margin and font size beat their Tailwind classes.
 
 Three clinics, marked differently: Endorphins (plain; Mon/Thu 1:30-8:00 PM, Tue 3:30-8:00 PM), Headon Physio (asterisk; Wed/Fri 2:00-7:30 PM), PhysioMax Wellness (dagger; Tue 10:00 AM-2:30 PM, Sat 11:00 AM-3:00 PM). Two things are enforced by construction and must stay that way: the Palladium Way schema entity carries **Endorphins days only** (the builder filters by `site`), and `HOURS_SUMMARY` on the ads landing page omits PhysioMax because that page exists to convert Endorphins ad clicks.
 

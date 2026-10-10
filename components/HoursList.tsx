@@ -12,8 +12,8 @@ export default function HoursList() {
     <div className="space-y-5 text-sm">
       {HOURS_BY_CLINIC.map((clinic) => (
         <div key={clinic.name}>
-          <p className="font-medium text-slate-900">{clinic.name}</p>
-          <p className="mb-2 text-slate-600">{clinic.street}</p>
+          <div className="font-medium text-slate-900">{clinic.name}</div>
+          <div className="mb-2 text-slate-600">{clinic.street}</div>
           <dl className="space-y-2">
             {clinic.days.map((d, i) => (
               <div

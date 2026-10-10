@@ -143,8 +143,8 @@ export default function ContactSection({ hideHeading = false }: { hideHeading?: 
                       <div className="space-y-4">
                         {HOURS_BY_CLINIC.map((clinic, index) => (
                           <div key={clinic.name} className={index > 0 ? 'pt-3 border-t border-slate-200' : undefined}>
-                            <p className="text-sm text-[#8A6F0A] font-medium">{clinic.name}</p>
-                            <p className="text-sm text-slate-600 mb-2">{clinic.street}</p>
+                            <div className="text-sm text-[#8A6F0A] font-medium">{clinic.name}</div>
+                            <div className="text-sm text-slate-600 mb-2">{clinic.street}</div>
                             <dl className="space-y-1">
                               {clinic.days.map((d) => (
                                 <div key={dayKey(d)} className="flex items-start justify-between gap-3 text-sm sm:text-base">

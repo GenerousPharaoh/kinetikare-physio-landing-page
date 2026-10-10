@@ -1,35 +1,14 @@
 'use client';
 
-import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useEffect } from 'react';
-import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
+import { PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
 export default function FloatingButtons() {
-  const [isVisible, setIsVisible] = useState(false);
   const [showMobileCta, setShowMobileCta] = useState(false);
-  const [showTooltip, setShowTooltip] = useState<string | null>(null);
   const pathname = usePathname();
-
-  useEffect(() => {
-    let ticking = false;
-    const update = () => {
-      // Only the scroll-to-top utility is gated by scroll depth.
-      setIsVisible(window.pageYOffset > 500);
-      ticking = false;
-    };
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    update();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // The phone pill shows when no inline booking action is on screen, rather
   // than after a fixed scroll distance: the page's own Book buttons are the
@@ -114,10 +93,6 @@ export default function FloatingButtons() {
     return null;
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: getScrollBehavior() });
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -141,12 +116,6 @@ export default function FloatingButtons() {
     tap: { scale: 0.96 },
   };
 
-  const tooltipVariants = {
-    hidden: { opacity: 0, x: 10, scale: 0.9 },
-    visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.2, ease: 'easeOut' } },
-    exit: { opacity: 0, x: 10, scale: 0.9, transition: { duration: 0.2, ease: 'easeIn' } },
-  };
-
   return (
     <>
       {/* Mobile: a compact pair in the corner rather than a full-width bar.
@@ -154,8 +123,8 @@ export default function FloatingButtons() {
           duplicated the hero's own Book button on first paint. The pill uses
           the page booking gold (#B08D57, `button-gold`) so it matches the Book
           buttons it stands in for; the brighter #D4AF37 stays on navy
-          surfaces (header, menu, footer). Call is a second pill, and there is
-          no back-to-top on phones. */}
+          surfaces (header, menu, footer). Call is a second pill. There is no
+          back-to-top button at any width (Kareem, 2026-10-09). */}
       <AnimatePresence>
         {showMobileCta && (
           <motion.div
@@ -221,44 +190,6 @@ export default function FloatingButtons() {
         <PhoneIcon className="h-5 w-5 md:h-6 md:w-6 text-[#D4AF37]" />
         <span className="text-sm font-semibold tracking-wide">Call</span>
       </motion.a>
-
-      {/* Scroll to top - utility, appears after scrolling */}
-      <AnimatePresence mode="sync">
-        {isVisible && (
-          <motion.button
-            onClick={scrollToTop}
-            onMouseEnter={() => setShowTooltip('top')}
-            onMouseLeave={() => setShowTooltip(null)}
-            onFocus={() => setShowTooltip('top')}
-            onBlur={() => setShowTooltip(null)}
-            className="group relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white/90 backdrop-blur-md border border-slate-200 text-slate-700 rounded-full shadow-lg transition-colors duration-300 hover:text-[#B08D57] focus:outline-none focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:ring-offset-white"
-            aria-label="Scroll to top"
-            variants={buttonVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <ArrowUpIcon className="h-4 w-4 md:h-5 md:w-5" />
-            <AnimatePresence>
-              {showTooltip === 'top' && (
-                <motion.div
-                  className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={tooltipVariants}
-                >
-                  <span className="block px-3 py-1.5 bg-slate-900 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap">
-                    Back to Top
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        )}
-      </AnimatePresence>
     </motion.div>
     </>
   );

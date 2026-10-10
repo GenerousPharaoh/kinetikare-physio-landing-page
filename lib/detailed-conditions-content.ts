@@ -327,13 +327,13 @@ What does matter is variety and capacity. Long stretches in any one position ten
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
   'neck-pain': {
     summary: `Neck pain can involve an ache, stiffness or difficulty turning the head. It may spread toward the shoulder or occur with a headache, and long periods in one position can aggravate it. An assessment looks at your symptoms, movement and nerve function to help decide what care is appropriate.`,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     pathophysiology: `Neck pain involves interactions between the joints, muscles and nerves of the neck. In long-standing neck pain, the deep neck muscles often show less endurance, and the larger muscles near the surface can work harder.
 
 The upper part of your neck is responsible for half of all neck rotation and can refer pain to the head. This explains why neck problems often cause headaches.`,
@@ -541,7 +541,7 @@ Strength and fitness matter for recovery and for the next flare. A back and hips
       body: `Sciatica can be frightening, usually because the pain is severe and travels down the leg, and many people have read the worst online by the time I see them. The reassuring part is that sciatica from an irritated disc or nerve root often settles over time. Early on the goal is not to fix everything at once but to find the positions and movements that ease the leg symptoms. Once that direction is clear, it can guide much of the early recovery.
 
 Something I often see hold people back is the instinct to rest flat and wait it out. For most people, gentle, frequent movement and breaking up long periods of sitting help more than bed rest, even when that feels counterintuitive. I screen carefully for the signs that need a doctor rather than physiotherapy, but for many people I see in Burlington, sciatica is nerve irritation that can calm down with the right movement, some patience, and gradually rebuilding tolerance for sitting and loading.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
 
     evidenceSnapshot: {
@@ -762,7 +762,7 @@ Something I often see hold people back is the instinct to rest flat and wait it 
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -772,7 +772,7 @@ Something I often see hold people back is the instinct to rest flat and wait it 
       body: `With the gradual, wear-related cuff problems I see most often, early progress is usually a good sign: being able to build pain-free force on an isometric hold within a visit or two, and night pain easing over a couple of weeks. When that happens, the tendon is likely to respond to loading, whatever the scan named. Painless weakness after a sudden fall, where the arm will not lift, is a different problem, and one I refer on quickly for an orthopaedic opinion.
 
 A common setback is stopping once the shoulder feels mostly normal. Pain settles and reaching returns, but the heavier overhead and end-range work can get skipped, and the cuff may flare again the next time it is asked to do something demanding. Rebuilding overhead pressing, loaded carries, and end-range control is the part that tends to hold up. At each clinic I work from, I keep enough load on hand to finish that phase properly.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
     pathophysiology: `The rotator cuff consists of four muscles that stabilize and move your shoulder. These tendons can be injured through sudden trauma or gradual wear. The tendon tissue becomes disorganized and may develop tears.
 
@@ -1049,7 +1049,7 @@ Age plays a part, because tendons change over the decades and cuff changes are c
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -1059,7 +1059,7 @@ Age plays a part, because tendons change over the decades and cuff changes are c
       body: `A pattern I see often is people expecting this to clear up in a couple of weeks, then getting frustrated when it does not. For most people it is the dominant arm, so full rest rarely happens, and the elbow can stay irritated enough that it does not settle on its own. Flare-ups are often about the total grip load across a day rather than one bad movement. When someone in Burlington tells me it felt fine at work but flared while washing dishes that night, that is often the whole day's load showing up, not that one task.
 
 So I have people watch the trend rather than a single reading. If the elbow is no worse, or calmer, over a few mornings, the load is probably about right. Morning stiffness that eases quickly with movement is usually just that, not a sign you overdid it. A common stumbling point is stopping in the quieter middle stretch, when the pain has settled but strength has not caught up yet.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
     patternMatcher: {
       clusterKey: 'elbow',
@@ -1359,7 +1359,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
         progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: low pain during full work or sport demands, grip strength close to the other side, and a sustained return to full duties without a 24-hour symptom flare."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -1653,7 +1653,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -1662,7 +1662,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
 
   'whiplash': {
     summary: `Whiplash describes a neck injury after a sudden jolt moves the head rapidly. Pain and stiffness may start immediately or develop over the following hours or days. Symptoms can include headache, reduced neck movement and pain into the shoulders or upper back.`,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     pathophysiology: `Whiplash involves rapid acceleration-deceleration forces affecting neck structures. Multiple tissues can be injured including muscles, ligaments, joints, and discs. The initial inflammatory response is followed by muscle guarding and altered movement patterns.
 
 Central nervous system changes can occur, leading to heightened pain sensitivity and slower recovery in some cases.`,
@@ -2038,7 +2038,7 @@ Diabetes, thyroid conditions, and a recent period with the arm in a sling or aft
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2282,7 +2282,7 @@ The "position of no return" happens during cutting movements when your foot plan
         progressionCriteria: "Limb symmetry index of 90 percent or greater on quadriceps and hamstring strength plus all four hop tests, minimum 9 months post-reconstruction, ACL-RSI score supporting psychological readiness, and completion of unrestricted training without pain or effusion."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2519,7 +2519,7 @@ Once a disc is irritated, long spells of sitting and deep loaded bending tend to
     ],
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2796,7 +2796,7 @@ Previous knee injuries, such as an ACL injury or a meniscus tear, raise the risk
         progressionCriteria: "Return to desired recreational activity with pain 2 out of 10 or less and no 24-hour flare, KOOS or WOMAC scores at or above the patient's personal target, and a maintenance plan the patient can realistically sustain without supervision."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3021,7 +3021,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
         progressionCriteria: "Single-leg hop distance within 10 percent of the unaffected side, full sport-specific drills with pain 2 out of 10 or less and no 24-hour flare, and two consecutive weeks of return-to-training volume without symptom regression."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3248,7 +3248,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
         progressionCriteria: "Return to target weekly running volume with pain 2 out of 10 or less, tolerance for downhill and faster work without symptom return, and a sustainable maintenance plan of 2 strength sessions per week."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3500,7 +3500,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
         progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: ankle strength in all directions close to the uninjured side, hop tests close to the other side, completion of reactive cutting and sport-specific drills without apprehension, and no ongoing feeling of the ankle giving way (a short questionnaire such as the Cumberland Ankle Instability Tool can help track this)."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3510,7 +3510,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       body: `Something I see often is someone treating this as a tight calf and working on it with stretching and foam rolling for months. With insertional cases especially, aggressive stretching can make things worse, because deep dorsiflexion compresses the tendon where it is most sensitive. Another common assumption is a calf strain that will not heal. A simple calf strain usually settles over a few weeks. A tendon that hurts most on the first steps in the morning, eases with a warm-up, then aches again that evening usually points to a tendon load problem rather than tightness.
 
 What tends to help most is making the loading fit your real week so you actually do it, rather than a perfect program you abandon. With the people I see in Burlington, the work is finding the version of calf raises they will keep doing several times a week for months, because consistency usually matters more than intensity here. Expect good days and flare days. A flare the morning after is information to adjust the dose, not a sign you have failed. A sudden sharp pop with the sense of being kicked in the back of the ankle, or a new inability to push off, is a different problem and worth getting checked promptly rather than loaded through.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
     pathophysiology: `Achilles tendinopathy is a failed healing response characterized by degenerative changes rather than acute inflammation. The condition involves disorganized collagen, increased ground substance, and neovascularization within the tendon. This represents a chronic overuse injury where the cumulative load on the tendon exceeds its adaptive capacity.
 
@@ -3780,7 +3780,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4022,7 +4022,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4032,7 +4032,7 @@ Biomechanical factors significantly influence shin splint development. Overprona
       body: `Something I see often is people looking for the single moment that caused this, one heavy lift or one bad day, when the bigger contributor is often something quiet and constant: the forearm turned in and gripping for hours, whether that is the phone held at the bottom edge, the steering wheel, the mouse, a dog leash wound tight, or a toddler carried on one hip. None of it feels like an injury, so it is easy to overlook. The inner elbow can be slower to settle than people expect, which is why the all-day, low-grade load matters.
 
 What tends to help is finding that constant exposure and easing the grip force you use without noticing, then building load gradually on top of a calmer baseline. With the people I see in Burlington, I spend time mapping an ordinary day before loading starts. Progress is often uneven here, and a flare does not mean you have undone anything. Pins and needles or numbness into the ring and little fingers is a different signal, the ulnar nerve rather than the tendon, and worth getting assessed rather than worked through.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
     patternMatcher: {
       clusterKey: 'elbow',
@@ -4344,7 +4344,7 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
         progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: low pain during full work or sport demands, grip strength close to the other side, and a sustained return to full duties without a 24-hour symptom flare."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4682,7 +4682,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
         progressionCriteria: "Night symptoms no longer requiring splint for control, daytime symptoms minimal or absent during full work duties, BCTQ symptom score within the normal range, and two consecutive weeks of unrestricted activity without a return of constant numbness."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4976,7 +4976,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
         progressionCriteria: "Two consecutive weeks of full daily and occupational demand without pain, symmetrical thumb and grip strength, no need for the splint outside of heavy one-off tasks, and a clear plan for what to do if a flare appears."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5250,7 +5250,7 @@ Modern research (2024) emphasizes that discrepancies exist between external join
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5535,7 +5535,7 @@ Activity demands significantly influence symptom development. Athletes in sports
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5583,7 +5583,7 @@ Sleep positioning creates sustained compression that explains the characteristic
       body: `Many of the people I see for this have been told it is bursitis, and some have tried rest or had a cortisone injection that helped for a while before the pain returned. Research now suggests that most of this pain involves the gluteal tendons rather than the bursa alone, so I treat it as a tendon that needs its capacity rebuilt. Rest can settle the pain for a time, but it does not build that capacity.
 
 Early relief often comes from reducing pressure on the tendon before strengthening starts: avoiding sleeping with the top knee dropped across the body, not crossing the legs, and not standing with your weight hung onto one hip. I spend time on these details with people in Burlington, because they often ease the night pain, and a calmer tendon is easier to start loading. From there it is gradual, progressive hip strengthening. I usually advise against stretching across the outside of the hip, since that position compresses the tendon.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
 
     evidenceSnapshot: {
@@ -5830,7 +5830,7 @@ Early relief often comes from reducing pressure on the tendon before strengtheni
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6074,7 +6074,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6284,7 +6284,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
     ],
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6327,7 +6327,7 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
       body: `Many people I see with this have spent months treating it as a tight hamstring, stretching and rolling it, which tends to keep it irritated. The clues are the location and the behaviour: a deep, pinpoint ache right on the sitting bone that is often worst not during a run but on the drive home afterward, at a desk, or through a long dinner. Pain that is about sitting as much as sport points more toward the tendon where it attaches than toward the muscle.
 
 I am upfront with people that this one is usually slow. The early work is mostly settling the tendon by changing how you sit and loading it gently without deep stretching, and the strengthening that follows is measured in months rather than weeks. The runners I see in Burlington often developed it after adding hills or speed quickly, and they tend to do well when they rebuild just as gradually. There are no real shortcuts, but it usually responds when the loading is right.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
 
     evidenceSnapshot: {
@@ -6548,7 +6548,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6558,7 +6558,7 @@ I am upfront with people that this one is usually slow. The early work is mostly
       body: `Many people I see for this arrive thinking it is their back, because the pain runs down the leg, and some have had a spine MRI that did not explain it. One detail that makes me look more closely at the buttock is when the back itself feels fine but sitting through a meal, a drive or a movie is hard without shifting onto one side. When the chair is the main trigger rather than bending and lifting, the deep buttock moves up my list, though a disc that is sensitive to bending can behave the same way, so I still test for that before settling on a cause.
 
 What helps early is often simple. I look at what people sit on all day, and a thick wallet in the back pocket or a low, scooped car seat is a common contributor for people I see in Burlington who spend a lot of the day driving. Changing that can bring early relief, and it makes the gentle nerve gliding and gradual hip strengthening that follow easier. Progress here is usually measured by how long you can sit before it bothers you, and that tends to improve over weeks rather than days.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
     pathophysiology: `Piriformis syndrome, as traditionally understood, involves irritation of the sciatic nerve by the piriformis muscle deep in the buttock. However, this represents an outdated understanding of buttock and leg pain. For decades, "Piriformis Syndrome" was used as a catch-all term for buttock pain with leg symptoms. The piriformis muscle can be involved, but the picture is now understood to be more complex.
 
@@ -6816,7 +6816,7 @@ The relationship between pelvic positioning and piriformis length significantly 
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7087,7 +7087,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
     ],
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7305,7 +7305,7 @@ Strength differences between legs may also matter. When one hamstring is clearly
     ],
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7548,7 +7548,7 @@ Facet joints change with age, as discs do, and these changes become common on sc
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7759,7 +7759,7 @@ How the shoulder blades sit and move, how much the neck and upper chest muscles 
         progressionCriteria: "Full return to desired work, training, or sport demands without reproducible TOS symptoms, stable scapular and cervical posture under load, and self-directed maintenance programme established."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7769,7 +7769,7 @@ How the shoulder blades sit and move, how much the neck and upper chest muscles 
       body: `People I see in Burlington for this often cannot point to one spot. They wave a hand over the outer arm, around where the deltoid sits, and describe it as vague and deep. Some assume it is a biceps or triceps problem, because that is where the ache lands when they reach overhead. What I pay attention to is the pattern: reaching up and tucking the arm behind the back are often the sore movements, and some of the range people think they have lost is guarding rather than a stiff joint. That distinction matters, because guarding often eases once loading starts sensibly.
 
 I usually judge the dose by how the shoulder feels the next morning, not how it feels mid-session. Some soreness while loading is fine if it settles within a day. Watching that helps avoid overdoing it on good days and paying for it the next. Full recovery is usually months rather than weeks, though many people notice some change early. Sudden true weakness, or a shoulder too irritable to load, is worth getting checked first.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
     patternMatcher: {
       clusterKey: 'shoulder',
@@ -8056,7 +8056,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8290,7 +8290,7 @@ AC joint changes become common with age and may follow an injury. They are often
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8519,7 +8519,7 @@ A jump in training load is a common trigger: more overhead sport, more swimming,
     },
 
     measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8754,7 +8754,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
         progressionCriteria: "Limb symmetry index of 90 percent or greater on strength and hop testing, clean change-of-direction mechanics without valgus collapse, no effusion response to training, and subjective confidence in the knee during sport-specific tasks."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8810,7 +8810,7 @@ Body mass significantly influences absolute patellar tendon loading. Each kilogr
       body: `Many of the jumping athletes I see for this in Burlington, volleyball and basketball players especially, have been caught out by the warm-up effect. The knee loosens up a few minutes into training and feels fine, so they keep playing, then it hurts more that night and the next morning. That pattern, better during and worse after, often points to the tendon rather than the kneecap joint.
 
 Another thing I see often is the right exercise at the wrong dose. A patellar tendon tends to respond well to heavy, slow load but does not tolerate sudden spikes, so rest or more stretching on its own is usually not the answer. The work is finding the load the tendon can handle now and building from there. It can take patience, and people tend to do better when they commit to the progression rather than looking for a quick fix.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
 
     patternMatcher: {
@@ -9065,7 +9065,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
         progressionCriteria: "VISA-P score above 80, pain 2 out of 10 or less during sport-specific tasks, symmetrical single-leg hop distance within 10 percent of the unaffected side, and two consecutive weeks of full sport training without a 24-hour flare."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9106,7 +9106,7 @@ Training load matters too. A sudden increase in running, jumping, hills or stair
       body: `Many of the runners and desk workers I see in Burlington arrive worried because the pain sits right at the kneecap and nothing showed up on a scan. That is a common picture. Patellofemoral pain is usually a load and control problem rather than a sign of damage. When I assess it, I look beyond the kneecap, including how well you control the thigh during a single-leg squat and whether the knee drifts inward when you load it.
 
 Treatment that focuses only on the kneecap can stall. Plans that build hip and thigh strength and adjust how you load the knee on stairs and in squatting tend to do better, and that is what current guidelines recommend. Progress is usually gradual, and it tends to be steady when the strengthening matches where you are starting from.`,
-      lastReviewed: '2026-06-03',
+      lastReviewed: '2026-10-09',
     },
 
     patternMatcher: {
@@ -9356,7 +9356,7 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
         progressionCriteria: "Full return to desired sport or activity with pain 2 out of 10 or less and no 24-hour flare, single-leg hop tests within 10 to 15% of the unaffected side, and a maintenance strengthening plan the patient can sustain at least twice weekly."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9616,7 +9616,7 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
         answer: "Go to emergency now for new trouble starting to pass urine or feeling it pass, new loss of bladder or bowel control, new numbness between the legs or around the back passage, or severe or rapidly worsening weakness in both legs. New loss of genital sensation or sexual function with back or leg pain also needs emergency assessment. These can be signs of cauda equina syndrome. Contact a medical clinician today if pain suddenly starts down both legs or spreads from one leg to both, even without those signs. A new foot drop (the foot catches or slaps when you walk), worsening weakness in one leg, or fever with back pain needs a same-day medical assessment. Sudden unexplained weakness or numbness in an arm or leg, even if it improves, can be a stroke: call 911 now. Unexplained weight loss or severe, unrelenting night pain need a doctor's assessment before physiotherapy. None of these are typical DDD patterns."
       }
     ],
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9881,7 +9881,7 @@ Walking on an incline often feels easier than walking on flat ground because the
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10096,7 +10096,7 @@ Stress, poor sleep and a sudden increase in screen time make that end-of-day sor
         progressionCriteria: "Strength training twice per week sustained for at least 4 weeks, end-of-day neck and upper back symptoms minimal or absent on normal work days, and an honest self-report that position changes and movement breaks are automatic rather than effortful."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10343,7 +10343,7 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
         progressionCriteria: "Strength close to the other side, sport-specific load and volume managed without apprehension or the shoulder slipping, and confidence in the shoulder for full participation."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10597,7 +10597,7 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
         progressionCriteria: "Strength close to the other side on rotation, lifting and pressing, sport or work demands managed at the usual volume without pain, and confident overhead reaching in unplanned movements."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10844,7 +10844,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
         progressionCriteria: "Possible milestones, adapted to the person rather than treated as fixed cut-offs: full training or full work demands sustained without a flare, grip strength close to the uninjured side, confident weight-bearing through the palm, and no recurrence of catching, clunking, or giving-way."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -11108,7 +11108,7 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
         progressionCriteria: "Full work capacity for two consecutive weeks without a 24-hour symptom flare, DASH score within functional range, and a clear written plan for managing future load spikes before they become injuries."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -11379,7 +11379,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -11625,7 +11625,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
         progressionCriteria: "Limb symmetry index of 90 percent or greater on strength and hop testing, acceptable stability on clinical assessment (some laxity can remain after a PCL injury even when function is good), clean mechanics on change-of-direction work, no effusion response to training, and subjective confidence in the knee during sport-specific loads."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -11887,7 +11887,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12194,7 +12194,7 @@ Conservative treatment success depends heavily on early intervention and patient
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12497,7 +12497,7 @@ It's important to understand that once the nerve has thickened significantly, so
       ],
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12785,7 +12785,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -13108,7 +13108,7 @@ It's important for patients to understand that conservative treatment cannot cor
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -13429,7 +13429,7 @@ The progressive nature of the condition means that periodic reassessment and tre
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -13742,7 +13742,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -14058,13 +14058,13 @@ The condition serves as an important lesson in listening to the body's signals a
         progressionCriteria: "Two consecutive weeks of full team training and competition without heel pain, symmetrical calf strength (single-leg heel raise within 2 reps of the other side), and a family-level plan for managing the next growth spurt or season change."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
   'tarsal-tunnel-syndrome': {
     summary: `Tarsal tunnel syndrome is compression or irritation of the posterior tibial nerve as it passes through a narrow space on the inside of the ankle. It often causes burning, tingling or numbness in the sole of the foot and the toes, which can be worse at night or after long periods of standing or walking.`,
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     symptoms: [
       "Burning, tingling, or electric shock-like sensations in the sole of the foot",
       "Numbness affecting the plantar surface and toes",
@@ -14478,7 +14478,7 @@ Some sites carry more risk than others. Stress fractures of the femoral neck, th
         progressionCriteria: "Return to full sport or pre-injury running volume without focal bony pain, symmetrical single-leg hop and calf-raise capacity where applicable, and a training plan that limits weekly increases and includes scheduled recovery."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -14662,7 +14662,7 @@ Where reduced foot sensation is present, skin checks and footwear review become 
         progressionCriteria: "A training pattern the person can sustain independently, clear markers of when to check in with the physio or medical team, and function that matches the goals set at the start of care."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -14842,7 +14842,7 @@ Management in a growing athlete is therefore less about rest and more about cali
         progressionCriteria: "Full participation in sport without pain that limits performance, no recurrence on careful load progression, and a training structure the family can maintain independently."
       }
     },
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -14993,7 +14993,7 @@ Once the fracture has been managed and healing is confirmed, rehabilitation addr
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -15162,7 +15162,7 @@ Because the toes are working harder to stabilise you than most people realise, d
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   },
 
@@ -15307,7 +15307,7 @@ Because the toes are working harder to stabilise you than most people realise, d
       }
     },
 
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-10-09',
     accessAndHours: standardAccessAndHours
   }
 };

@@ -8,23 +8,22 @@
  * Wednesday and Friday rows to the Palladium Way entity even though those are
  * Headon Physio days at a different address.
  *
- * Two locations, and they must not be conflated:
+ * Three locations, and they must not be conflated:
  *
  * - Endorphins Health & Wellness Centre, 4631 Palladium Way. Kareem's last
  *   appointment ends at 8:00 PM. The facility itself advertises 7:00 PM
  *   because reception is not always staffed later; that is the facility's
  *   number to publish on its own site, not ours. Ours matches his own
  *   Business Profile, which also says 8:00 PM.
- * - Headon Physio, 1387 Walkers Line. Shown on the site with an asterisk and
- *   a footnote. Never included in the Palladium Way schema entity and never
+ * - Headon Physio, 1387 Walkers Line. Shown under its own clinic name and
+ *   street. Never included in the Palladium Way schema entity and never
  *   surfaced on the Business Profile (Kareem's decision).
  * - PhysioMax Wellness, 1035 Brant Street. Tuesday mornings and Saturdays.
- *   Shown with a dagger and its own footnote, same treatment as Headon.
+ *   Shown under its own clinic name and street, same treatment as Headon.
  *
- * Booking links on this site go to Endorphins only, whatever the day. Each
- * clinic runs its own Jane instance and Kareem does not want a visitor booking
- * into the wrong one from here. The hours say where he is; they are not a
- * booking route.
+ * General booking links go to Endorphins. The Contact page is the exception:
+ * it identifies each clinic's own Jane booking page. Hours lists say where
+ * Kareem is; they must not imply that a general Book button books at all sites.
  */
 
 export type ClinicSite = 'endorphins' | 'headon' | 'physiomax';
@@ -53,6 +52,14 @@ export const WEEKLY_HOURS: readonly DayHours[] = [
 export const ENDORPHINS_HOURS = WEEKLY_HOURS.filter((d) => d.site === 'endorphins');
 export const HEADON_HOURS = WEEKLY_HOURS.filter((d) => d.site === 'headon');
 export const PHYSIOMAX_HOURS = WEEKLY_HOURS.filter((d) => d.site === 'physiomax');
+
+/** Each clinic's hours travel with its name and street, avoiding ambiguous footnotes. */
+export const HOURS_BY_CLINIC: ReadonlyArray<{ name: string; street: string; days: readonly DayHours[] }> = [
+  { name: 'Endorphins Health & Wellness Centre', street: '4631 Palladium Way', days: ENDORPHINS_HOURS },
+  { name: 'Headon Physio', street: '1387 Walkers Line', days: HEADON_HOURS },
+  { name: 'PhysioMax Wellness', street: '1035 Brant Street', days: PHYSIOMAX_HOURS },
+];
+
 /** Every day not at Palladium Way, in week order, for the secondary list under the main one. */
 export const OTHER_SITE_HOURS = WEEKLY_HOURS.filter((d) => d.site !== 'endorphins');
 

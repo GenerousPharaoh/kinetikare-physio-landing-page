@@ -33,7 +33,7 @@ export default function AboutSection() {
                   <div className="aspect-[826/940] relative rounded-2xl overflow-hidden shadow-luxury-deep hover:shadow-luxury-float transition-all duration-700 bg-gradient-to-br from-gray-50 to-gray-100 image-luxury-frame group">
                     <Image
                       src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-                      alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
+                      alt="Kareem Hassanein, Registered Physiotherapist in Burlington"
                       fill
                       className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
                       quality={82}

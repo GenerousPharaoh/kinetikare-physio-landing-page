@@ -70,7 +70,7 @@ const link = 'text-slate-900 font-medium underline decoration-slate-300 underlin
 
 export default function FeesAndFirstVisitPage() {
   return (
-    <div data-booking-source="fees_page">
+    <main data-booking-source="fees_page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
 
       <section className="!bg-[#020617] !bg-none text-white pt-28 md:pt-36 pb-12 md:pb-16">
@@ -244,6 +244,6 @@ export default function FeesAndFirstVisitPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

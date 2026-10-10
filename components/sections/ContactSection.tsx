@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { m as motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ENDORPHINS_HOURS, OTHER_SITE_HOURS, SITE_FOOTNOTES, dayKey, dayLabel } from '@/lib/hours';
+import { HOURS_BY_CLINIC, dayKey } from '@/lib/hours';
 import { 
   MapPinIcon, 
   EnvelopeIcon, 
@@ -140,35 +140,25 @@ export default function ContactSection({ hideHeading = false }: { hideHeading?: 
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Hours</h4>
-                      <div className="space-y-3">
-                        {/* Endorphins Location */}
-                        <div>
-                          <p className="text-xs text-[#8A6F0A] font-medium mb-1">Endorphins Health & Wellness</p>
-                          <div className="space-y-1 pl-2">
-                            {ENDORPHINS_HOURS.map((d) => (
-                              <div key={d.day} className="flex justify-between text-sm sm:text-base">
-                                <span className="text-slate-700">{d.day}:</span>
-                                <span className="text-slate-800 font-normal">{d.label}</span>
-                              </div>
-                            ))}
+                      <div className="space-y-4">
+                        {HOURS_BY_CLINIC.map((clinic, index) => (
+                          <div key={clinic.name} className={index > 0 ? 'pt-3 border-t border-slate-200' : undefined}>
+                            <p className="text-sm text-[#8A6F0A] font-medium">{clinic.name}</p>
+                            <p className="text-sm text-slate-600 mb-2">{clinic.street}</p>
+                            <dl className="space-y-1">
+                              {clinic.days.map((d) => (
+                                <div key={dayKey(d)} className="flex items-start justify-between gap-3 text-sm sm:text-base">
+                                  <dt className="text-slate-700">{d.day}</dt>
+                                  <dd className="text-right text-slate-800 font-normal">{d.label}</dd>
+                                </div>
+                              ))}
+                            </dl>
                           </div>
-                        </div>
-                        
-                        {/* Additional availability - more subtle */}
-                        <div className="pt-2 border-t border-slate-100">
-                          <div className="space-y-1">
-                            {OTHER_SITE_HOURS.map((d) => (
-                              <div key={dayKey(d)} className="flex justify-between text-xs text-slate-500">
-                                <span>{dayLabel(d)}:</span>
-                                <span>{d.label}</span>
-                              </div>
-                            ))}
-                            {SITE_FOOTNOTES.map((f) => (
-                              <p key={f.mark} className="text-xs text-slate-500 italic mt-1">{f.mark}{f.text}</p>
-                            ))}
-                          </div>
-                        </div>
+                        ))}
                       </div>
+                      <Link href="/contact" className="inline-block mt-3 text-sm text-[#8A6F0A] underline underline-offset-4">
+                        Contact and booking at each clinic
+                      </Link>
                     </div>
                   </div>
                 </div>

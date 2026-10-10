@@ -21,7 +21,7 @@ import { PAIN_GUIDE_GROUPS } from '@/lib/pain-guides';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides';
 const PAGE_TITLE = 'Symptom & Pain Guides | Kareem Hassanein Physiotherapy';
 const PAGE_DESCRIPTION =
-  'Plain-language pain and symptom guides from a Burlington Registered Physiotherapist. Understand common explanations for symptoms and find the condition page to read next.';
+  'Plain-language pain and symptom guides from a Burlington Registered Physiotherapist. Explore possible explanations and find relevant condition pages.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

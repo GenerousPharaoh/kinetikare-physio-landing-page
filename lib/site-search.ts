@@ -3,12 +3,13 @@ import { treatments } from './treatments-data';
 import { getConditionHub } from './condition-hubs';
 import { bodyPartConditions, activityInjuries, symptomMappings } from './search-content';
 import { JANE_BOOKING_URL } from './booking';
+import { PAIN_GUIDE_GROUPS } from './pain-guides';
 
 export interface SearchResult {
   title: string;
   description: string;
   url: string;
-  kind: 'Condition' | 'Treatment' | 'Body region' | 'Clinic' | 'Booking';
+  kind: 'Condition' | 'Treatment' | 'Body region' | 'Guide' | 'Clinic' | 'Booking';
 }
 interface SearchEntry extends SearchResult {
   keywords: string[];
@@ -57,6 +58,15 @@ const entries: SearchEntry[] = [
       keywords: treatment.keywords,
     })
   ),
+  ...PAIN_GUIDE_GROUPS.flatMap((group) => group.guides).map(
+    (guide): SearchEntry => ({
+      title: guide.title,
+      description: guide.blurb,
+      url: guide.href,
+      kind: 'Guide',
+      keywords: [guide.region, guide.href.split('/').pop() || '', 'pain guide', 'symptom guide'],
+    })
+  ),
   ...Array.from(
     new Map(
       conditions
@@ -81,6 +91,20 @@ const entries: SearchEntry[] = [
     keywords: ['book', 'appointment', 'schedule', 'visit'],
   },
   {
+    title: 'Fees & first visit',
+    description: 'Assessment and follow-up prices, appointment lengths and what to expect at your first visit.',
+    url: '/fees-and-first-visit',
+    kind: 'Clinic',
+    keywords: ['fees', 'fee', 'cost', 'price', 'prices', 'pricing', 'first visit', 'first appointment', 'payment'],
+  },
+  {
+    title: 'Compare conditions',
+    description: 'Side-by-side guides to commonly confused conditions and their symptom patterns.',
+    url: '/conditions/compare',
+    kind: 'Guide',
+    keywords: ['compare', 'comparison', 'comparisons', 'difference', 'differences'],
+  },
+  {
     title: 'Insurance, fees & direct billing',
     description: 'Answers about coverage, payment and appointment fees.',
     url: '/faq#billing',
@@ -90,7 +114,7 @@ const entries: SearchEntry[] = [
   {
     title: 'Location & hours',
     description: 'Clinic address, contact details and appointment hours.',
-    url: '/#contact',
+    url: '/contact',
     kind: 'Clinic',
     keywords: [
       'location',

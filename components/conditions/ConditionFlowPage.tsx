@@ -246,7 +246,7 @@ export default function ConditionFlowPage({
   const [allResearch, setAllResearch] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen">
       {/* Reading progress */}
       <div aria-hidden="true" className="fixed top-[69px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
         <div className="h-0.5 bg-slate-200/70">
@@ -368,7 +368,7 @@ export default function ConditionFlowPage({
             </nav>
           </aside>
 
-          <main className="min-w-0">
+          <div className="min-w-0">
             {/* Does this sound like you? */}
             {(condition.clinicalPresentation || hasPatternMatcher) && (
               <section id="symptoms" className="scroll-mt-28 py-14">
@@ -747,7 +747,7 @@ export default function ConditionFlowPage({
               <RelatedConditionsList currentSlug={conditionSlug} relatedConditions={relatedConditions} limit={6} />
               <ConsentNote />
             </div>
-          </main>
+          </div>
         </div>
       </div>
 
@@ -789,6 +789,6 @@ export default function ConditionFlowPage({
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

@@ -8,16 +8,8 @@ import { ChevronDownIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import styles from './Footer.module.css';
 
-import { ENDORPHINS_HOURS, HEADON_HOURS, PHYSIOMAX_HOURS, type DayHours } from '@/lib/hours';
+import { HOURS_BY_CLINIC } from '@/lib/hours';
 const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
-// Hours grouped by clinic, each under its own name and street. The earlier
-// single list with asterisk and dagger footnotes sat beside the Palladium Way
-// address and read as that clinic's opening hours.
-const HOURS_BY_CLINIC: ReadonlyArray<{ name: string; street: string; days: readonly DayHours[] }> = [
-  { name: 'Endorphins Health & Wellness Centre', street: '4631 Palladium Way', days: ENDORPHINS_HOURS },
-  { name: 'Headon Physio', street: '1387 Walkers Line', days: HEADON_HOURS },
-  { name: 'PhysioMax Wellness', street: '1035 Brant Street', days: PHYSIOMAX_HOURS },
-];
 
 function FooterMap() {
   const [showMap, setShowMap] = useState(false);

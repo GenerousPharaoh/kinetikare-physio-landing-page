@@ -10,9 +10,9 @@ import { useState, type FormEvent } from 'react';
  * name and a phone number only, posts to /api/callback, which emails Kareem,
  * and reports `callback_request` to GA4 (event_label = source). If
  * NEXT_PUBLIC_ADS_CALLBACK_LABEL is set it also fires that Google Ads
- * conversion. No health information is collected: the "what is bothering
- * you" field is a short fixed list, there is no free text, and the request
- * goes straight to Kareem's inbox rather than being stored anywhere.
+ * conversion. The optional "what is bothering you" field is a short fixed
+ * list of body areas with no free text. The request goes straight to
+ * Kareem's inbox rather than being stored in the application.
  */
 
 const TIMES = ['Morning', 'Afternoon', 'Evening', 'Any time'] as const;
@@ -78,7 +78,7 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
   }
 
   const inputClass =
-    'w-full rounded-md border border-slate-300 bg-white px-3.5 py-3 text-[15px] text-slate-900 placeholder:text-slate-400 focus:border-[#B08D57] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40';
+    'w-full rounded-md border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-[#B08D57] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40';
   const labelClass = 'block text-[12px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-1.5';
 
   return (
@@ -113,7 +113,7 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
               </p>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="grid gap-4 sm:grid-cols-2">
+            <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2">
               {/* Honeypot: hidden from people, filled by bots. */}
               <div className="hidden" aria-hidden="true">
                 <label htmlFor={`${id}-company`}>Company</label>
@@ -126,7 +126,7 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
               </div>
               <div>
                 <label htmlFor={`${id}-phone`} className={labelClass}>Phone</label>
-                <input id={`${id}-phone`} name="phone" type="tel" required inputMode="tel" autoComplete="tel" maxLength={30} className={inputClass} placeholder="(905) 555-0123" />
+                <input id={`${id}-phone`} name="phone" type="tel" required inputMode="tel" autoComplete="tel" minLength={10} maxLength={30} className={inputClass} placeholder="(905) 555-0123" />
               </div>
               <div>
                 <label htmlFor={`${id}-time`} className={labelClass}>Best time to call</label>

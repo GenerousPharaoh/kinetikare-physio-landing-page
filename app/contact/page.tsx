@@ -136,7 +136,7 @@ export default function ContactPage() {
   return (
     // data-contact-page lets globals.css drop the floating-pill offset; the
     // pills are not rendered here (see FloatingButtons).
-    <div data-booking-source="contact_page" data-contact-page="">
+    <main data-booking-source="contact_page" data-contact-page="">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(contactSchema) }} />
 
       {/* Opening: intro and the week on the left, one contact-and-booking
@@ -324,6 +324,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

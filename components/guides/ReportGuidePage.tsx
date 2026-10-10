@@ -33,6 +33,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
 
 // Same visual language as the hand-built pain guides
 // (app/conditions/pain-guides/fluid-on-the-knee): hero, badge-headed sections
@@ -375,6 +376,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
                     </div>
                     <h3 className="text-base font-semibold text-slate-900 leading-snug mb-2">{item.title}</h3>
                     <p className="text-base text-slate-700 leading-relaxed">{item.summary}</p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

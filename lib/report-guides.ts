@@ -10,6 +10,8 @@
 // "is effective", every study named in the text appears in `research` or is a
 // guideline. Inline links use [text](/path).
 
+import type { SourceRef } from './source-refs';
+
 export type GuideIcon =
   | 'clipboard'
   | 'info'
@@ -54,7 +56,7 @@ export interface ReportGuide {
   sections: GuideSection[];
   faqHeading: string;
   faqs: Array<{ question: string; answer: string }>;
-  research: Array<{ title: string; source: string; year: number; summary: string }>;
+  research: Array<{ title: string; source: string; year: number; summary: string; refs?: SourceRef[] }>;
   relatedHeading: string;
   relatedIntro: string;
   relatedConditionSlugs: string[];
@@ -373,7 +375,8 @@ export const REPORT_GUIDES: ReportGuide[] = [
         source: 'National Institute for Health and Care Excellence (NICE)',
         year: 2022,
         summary:
-          'National guideline. Diagnose osteoarthritis clinically without routine imaging, offer exercise and education to everyone, support weight loss where relevant, and base surgical referral on symptoms and quality of life rather than X-ray scores.',
+          'National guideline. Diagnose osteoarthritis clinically without routine imaging in people aged 45 or over with typical symptoms, offer tailored therapeutic exercise to everyone with osteoarthritis along with information and support, support weight loss where relevant, and base referral for joint replacement on a clinical assessment of symptoms and quality of life rather than on numerical severity scores.',
+        refs: [{ href: 'https://www.nice.org.uk/guidance/ng226', label: 'NICE NG226' }],
       },
       {
         title: 'Association between radiographic features of knee osteoarthritis and pain: results from two cohort studies',
@@ -381,6 +384,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         year: 2009,
         summary:
           'Comparing each person’s two knees, X-ray severity was strongly linked to knee pain, and joint space narrowing more strongly than bony spurs.',
+        refs: [{ pmid: '19700505' }],
       },
       {
         title: 'The discordance between clinical and radiographic knee osteoarthritis: a systematic search and summary of the literature',
@@ -388,6 +392,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         year: 2008,
         summary:
           'Across studies, between 15 and 81 percent of people with X-ray knee osteoarthritis had pain. The authors advise against using knee X-ray results in isolation.',
+        refs: [{ pmid: '18764949' }],
       },
       {
         title: 'Impact of exercise type and dose on pain and disability in knee osteoarthritis',
@@ -395,13 +400,15 @@ export const REPORT_GUIDES: ReportGuide[] = [
         year: 2014,
         summary:
           'Systematic review and meta-regression of 48 trials. Exercise had a similar effect regardless of X-ray severity; quadriceps-focused and supervised programmes did better.',
+        refs: [{ pmid: '24574223' }],
       },
       {
         title: 'A randomized, controlled trial of total knee replacement',
         source: 'Skou ST et al., New England Journal of Medicine',
         year: 2015,
         summary:
-          'People eligible for knee replacement who had 12 weeks of non-surgical care improved, and at two years two in three had not had the operation (2-year follow-up, Osteoarthritis and Cartilage, 2018).',
+          'People eligible for knee replacement who had 12 weeks of non-surgical care improved, and at two years two in three had not had the operation (2-year follow-up, Osteoarthritis and Cartilage, 2018). Those who had the replacement followed by the same program improved more, with more serious adverse events.',
+        refs: [{ pmid: '26488691' }, { pmid: '29723634' }],
       },
       {
         title: 'Exercise for osteoarthritis of the knee',
@@ -409,6 +416,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         year: 2024,
         summary:
           'Review of 139 trials. Compared with usual care, exercise improved function and may improve pain; on average the benefits were modest.',
+        refs: [{ pmid: '39625083' }],
       },
     ],
     relatedHeading: 'Related knee conditions',

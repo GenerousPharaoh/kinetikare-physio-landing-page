@@ -33,6 +33,8 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/pain-below-kneecap';
 const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is';
 const PAGE_DESCRIPTION =
@@ -212,6 +214,7 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
@@ -221,27 +224,31 @@ const research: ResearchItem[] = [
     year: 2015,
     summary:
       'Narrative review and clinical commentary published in the Journal of Orthopaedic & Sports Physical Therapy. Describes pain localised to the inferior pole of the patella and load-related pain with knee-extensor demand as the hallmark features of patellar tendinopathy, and positions progressive load management as the core of care.',
+    refs: [{ pmid: '26390269' }],
   },
   {
     title: 'Is tendon pathology a continuum? A pathology model to explain the clinical presentation of load-induced tendinopathy',
     source: 'Cook & Purdam, British Journal of Sports Medicine',
     year: 2009,
     summary:
-      'Proposes a continuum model of tendon pathology (reactive, disrepair, degenerative) that has shaped current tendon rehabilitation. Reinforces why graded loading, rather than passive rest, is the foundation of patellar tendon care.',
+      'Proposes a continuum model of tendon pathology (reactive tendinopathy, tendon dysrepair, degenerative tendinopathy) to explain why tendon pain presents so differently from person to person, and to help match treatment to the stage of the tendon. The authors present it as a model for clinicians and researchers to test.',
+    refs: [{ pmid: '18812414' }],
   },
   {
     title: 'Patellofemoral pain: clinical practice guidelines',
     source: 'Willy et al., JOSPT',
     year: 2019,
     summary:
-      'APTA Academy of Orthopaedic Physical Therapy clinical practice guideline supporting combined hip and knee strengthening, patient education, gait retraining where appropriate, and activity modification as first-line management for patellofemoral pain, with manual therapy as an adjunct.',
+      'APTA Academy of Orthopaedic Physical Therapy guideline. It supports exercise therapy that combines hip and knee strengthening as the core of care for patellofemoral pain, with education on managing load, gait retraining for runners, and taping or foot orthoses as short-term add-ons. Manual therapy is not recommended on its own, but mobilizing the kneecap can be combined with exercise.',
+    refs: [{ pmid: '31475628' }],
   },
   {
     title: 'Activity modification and knee strengthening for Osgood-Schlatter disease: a prospective cohort study',
     source: 'Rathleff et al., Orthopaedic Journal of Sports Medicine',
     year: 2020,
     summary:
-      'Prospective cohort of 51 adolescents (ages 10 to 14) with Osgood-Schlatter disease. A 12-week program of activity modification and knee strengthening produced self-reported successful outcomes in 80 percent of participants at 12 weeks and 90 percent at one year, supporting structured conservative care.',
+      'Prospective cohort of 51 adolescents (ages 10 to 14) with Osgood-Schlatter disease. A 12-week program of activity modification and knee strengthening produced self-reported successful outcomes in 80 percent of participants at 12 weeks and 90 percent at one year. The study had no comparison group.',
+    refs: [{ pmid: '32284945' }],
   },
 ];
 
@@ -754,6 +761,7 @@ export default function PainBelowKneecapGuidePage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

@@ -34,6 +34,8 @@ import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['shoulder-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/shoulder-pain';
@@ -258,36 +260,41 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
   {
     title: 'Diagnosing, managing, and supporting return to work of adults with rotator cuff disorders: clinical practice guideline',
-    source: 'JOSPT (Lafrance, Desmeules et al.)',
+    source: 'JOSPT (Lafrance et al.)',
     year: 2022,
     summary:
       'International clinical practice guideline recommending active, task-oriented rehabilitation combining exercise and education as first-line care for rotator cuff disorders. The guideline specifically recommends against subacromial decompression for rotator cuff tendinopathy and positions surgery as appropriate only for selected full-thickness tears.',
+    refs: [{ pmid: '35881707' }],
   },
   {
     title: 'Shoulder pain and mobility deficits: adhesive capsulitis clinical practice guideline',
     source: 'JOSPT (Kelley et al.)',
     year: 2013,
     summary:
-      'APTA Orthopaedic Section guideline on frozen shoulder. Supports patient education on the natural course, stretching matched to the current irritability stage, joint mobilization, and modalities for pain modulation, with intra-articular corticosteroid injection considered for more severe pain in the inflammatory phase.',
+      'APTA Orthopaedic Section guideline on frozen shoulder. Supports patient education on the natural course of the condition, stretching matched to how irritable the shoulder currently is, joint mobilization, and modalities such as deep heat, ultrasound or electrical stimulation combined with exercise. A corticosteroid injection into the joint, combined with mobility and stretching exercises, gives better short-term (4 to 6 weeks) pain relief and function than exercise alone.',
+    refs: [{ pmid: '23636125' }],
   },
   {
     title: 'Management of adults with primary frozen shoulder in secondary care (UK FROST): a three-arm randomised trial',
     source: 'Rangan et al., The Lancet',
     year: 2020,
     summary:
-      'Multicentre pragmatic trial in 503 adults with primary frozen shoulder comparing early structured physiotherapy with steroid injection, manipulation under anaesthesia, and arthroscopic capsular release. None of the three treatments was clearly better on patient-reported outcomes at twelve months, supporting a physiotherapy-first pathway for most patients.',
+      'Multicentre pragmatic trial in 503 adults with primary frozen shoulder. It compared early structured physiotherapy (with a steroid injection) against manipulation under anaesthesia and arthroscopic capsular release. None of the three was clinically superior at twelve months; capsular release carried more risk, and manipulation was the most cost-effective.',
+    refs: [{ pmid: '33010843' }],
   },
   {
     title: 'Arthroscopic subacromial decompression for subacromial shoulder pain (CSAW): a placebo-controlled randomised trial',
     source: 'Beard et al., The Lancet',
     year: 2018,
     summary:
-      'Placebo-controlled trial of 313 adults with subacromial shoulder pain who had already completed non-operative care. Arthroscopic decompression was no better than placebo arthroscopy, questioning the added value of this surgery over conservative management for rotator cuff related shoulder pain.',
+      'Placebo-controlled trial of 313 adults with subacromial shoulder pain who had already tried exercise therapy and at least one steroid injection. Arthroscopic decompression was no better than placebo arthroscopy, and both operations were only slightly better than no treatment, a difference too small to matter clinically.',
+    refs: [{ pmid: '29169668' }],
   },
   {
     title: 'Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears (MOON cohort)',
@@ -295,6 +302,7 @@ const research: ResearchItem[] = [
     year: 2013,
     summary:
       'Multicenter prospective cohort study following a specific physical therapy protocol in 452 patients with atraumatic full-thickness rotator cuff tears. Approximately 75 percent avoided surgery at two years. The ten-year follow-up of the same cohort (Kuhn et al., Journal of Bone and Joint Surgery, 2024) reported physiotherapy successful in more than 70 percent.',
+    refs: [{ pmid: '23540577' }, { pmid: '38980920' }],
   },
 ];
 
@@ -736,6 +744,7 @@ export default function ShoulderPainHubPage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

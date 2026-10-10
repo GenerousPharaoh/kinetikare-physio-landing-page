@@ -34,6 +34,8 @@ import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['foot-ankle-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/foot-ankle-pain';
@@ -298,7 +300,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does plantar fasciitis take to settle?',
     answer:
-      'Longer than most people expect: it is usually measured in months rather than weeks. The 2023 JOSPT clinical practice guideline for plantar heel pain (Koc et al.) supports a combination of loading, manual therapy, stretching, taping, and footwear or orthotic advice rather than any single intervention. Rathleff et al. (Scandinavian Journal of Medicine & Science in Sports 2015) found that adding high-load strength training produced better function scores at three months than stretching alone, though the groups had converged by six and twelve months. The practical read is that loading can speed up the early part of the recovery, not that it changes the destination.',
+      'Longer than most people expect: it is usually measured in months rather than weeks. The 2023 JOSPT clinical practice guideline for plantar heel pain (Koc et al.) supports a combination of loading, manual therapy, stretching, taping, and footwear or orthotic advice rather than any single intervention. Rathleff et al. (Scandinavian Journal of Medicine & Science in Sports 2015) found that high-load strength training produced better function scores at three months than plantar-specific stretching (both groups also wore shoe inserts), though the groups did not differ at six and twelve months. The practical read is that loading can speed up the early part of the recovery, not that it changes the destination.',
   },
   {
     question: 'Should Achilles pain be treated with eccentric heel drops or heavy slow resistance?',
@@ -333,50 +335,57 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
   {
     title: 'Heel Pain (Plantar Fasciitis): Revision 2023',
-    source: 'JOSPT (Koc, Bise, Neville, Carreira, Martin)',
+    source: 'JOSPT (Koc et al.)',
     year: 2023,
     summary:
-      'APTA Academy of Orthopaedic Physical Therapy clinical practice guideline on plantar heel pain. Supports a combined approach of manual therapy, stretching, taping, foot orthoses, and progressive loading, with education on the expected timeline. Reinforces that plantar heel pain is typically a months-long recovery rather than a weeks-long one.',
+      'Clinical practice guideline from APTA\'s Academy of Orthopaedic Physical Therapy and American Academy of Sports Physical Therapy on heel pain and plantar fasciitis. It recommends manual therapy, calf and plantar fascia stretching, taping alongside other treatment, resistance exercise for the foot and ankle, and night splints for morning pain. Foot orthoses are not recommended on their own but can be combined with other treatment.',
+    refs: [{ pmid: '38037331' }],
   },
   {
     title: 'Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament Sprains Revision 2021',
     source: 'JOSPT (Martin et al.)',
     year: 2021,
     summary:
-      'Clinical practice guideline for lateral ankle sprains. Supports early mobilisation over immobilisation, with functional rehabilitation and balance training to reduce the development of chronic ankle instability. Neuromuscular training also reduces first-time sprains in higher-risk populations.',
+      'Clinical practice guideline for lateral ankle sprains. It recommends a brace or tape with progressive weight bearing early on, rather than prolonged immobilization (up to 10 days may help severe sprains), followed by structured exercise and balance training. Bracing and balance training lower the risk of spraining the ankle again, and bracing lowers the risk of a first sprain, particularly for people with risk factors.',
+    refs: [{ pmid: '33789434' }],
   },
   {
     title: 'Diagnosis, treatment and prevention of ankle sprains: update of an evidence-based clinical guideline',
     source: 'Vuurberg et al., British Journal of Sports Medicine',
     year: 2018,
     summary:
-      'International guideline update covering diagnosis, management, and prevention of lateral ankle sprains. Supports functional treatment over immobilisation, the use of exercise and bracing for prevention of recurrence, and the Ottawa Ankle Rules for deciding when radiography is indicated after acute injury.',
+      'International guideline update covering diagnosis, management, and prevention of lateral ankle sprains. Supports functional treatment and exercise over immobilisation, tape or a brace to prevent re-sprains, and the Ottawa Ankle Rules for deciding when an X-ray is needed after an acute injury.',
+    refs: [{ pmid: '29514819' }],
   },
   {
     title: 'High-load strength training improves outcome in patients with plantar fasciitis: a randomised controlled trial with 12-month follow-up',
     source: 'Rathleff et al., Scandinavian Journal of Medicine & Science in Sports',
     year: 2015,
     summary:
-      'Randomised trial comparing high-load strength training with plantar-specific stretching in adults with plantar fasciitis. The strength training group had better Foot Function Index scores at three months, with the groups converging at six and twelve months. This suggests loading may speed early recovery rather than change the eventual outcome.',
+      'Randomised trial of 48 adults with plantar fasciitis comparing high-load strength training with plantar-specific stretching; both groups also wore shoe inserts. The strength group had better Foot Function Index scores at three months, with no difference between the groups at one, six and twelve months. This suggests loading may speed early recovery rather than change the eventual outcome.',
+    refs: [{ pmid: '25145882' }],
   },
   {
     title: 'Heavy Slow Resistance Versus Eccentric Training as Treatment for Achilles Tendinopathy: a randomised controlled trial',
     source: 'Beyer et al., American Journal of Sports Medicine',
     year: 2015,
     summary:
-      'Randomised trial in adults with mid-portion Achilles tendinopathy. Both protocols produced comparable improvement at twelve months, with greater patient satisfaction in the heavy slow resistance group at twelve weeks. Supports choosing the loading protocol the patient can adhere to rather than insisting on one format.',
+      'Randomised trial of 58 adults with mid-portion Achilles tendinopathy. Heavy slow resistance and eccentric training gave equally good results at twelve weeks and at one year. Satisfaction tended to be higher with heavy slow resistance at twelve weeks (not statistically significant) and people completed more of its sessions (92 vs 78 percent), which makes adherence a reasonable way to choose between them.',
+    refs: [{ pmid: '26018970' }],
   },
   {
     title: 'Re-sprains during the first 3 months after initial ankle sprain are related to incomplete recovery: an observational study',
     source: 'van Middelkoop et al., Journal of Physiotherapy',
     year: 2012,
     summary:
-      'Observational study following adults after an acute lateral ankle sprain. Re-sprains in the first three months were associated with incomplete recovery from the original injury, supporting the case for completing rehabilitation rather than stopping once the pain settles.',
+      'Observational study of 102 adults seen in primary care after an acute ankle sprain. At twelve months more than half did not feel fully recovered and 55 percent still reported instability. Among those not recovered at three months, a re-sprain in the first three months and pain at rest were linked to incomplete recovery at twelve months.',
+    refs: [{ pmid: '22884185' }],
   },
 ];
 
@@ -834,6 +843,7 @@ export default function FootAnklePainHubPage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

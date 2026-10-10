@@ -4,6 +4,8 @@
 // replace a clinical exam; they explain the pattern differences between two
 // conditions that commonly get mistaken for each other.
 
+import type { SourceRef } from './source-refs';
+
 export interface ConditionRef {
   slug: string;
   name: string;
@@ -24,6 +26,7 @@ export interface SpecificTest {
 export interface EvidenceNote {
   claim: string;
   source: string;
+  refs?: SourceRef[];
 }
 
 export interface ComparisonFAQ {
@@ -207,18 +210,21 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
         claim:
           'Corticosteroid injection was worse than placebo at one year for lateral elbow pain, with a higher recurrence rate.',
         source: 'Coombes BK et al., JAMA 2013; 309(5): 461-469.',
+        refs: [{ pmid: '23385272' }],
       },
       {
         claim:
           'Therapeutic exercise, including progressive resistance exercise, is part of the recommended conservative care for lateral elbow pain.',
         source:
           'Lucado AM et al., "Lateral Elbow Pain and Muscle Function Impairments: Clinical Practice Guidelines." JOSPT 2022; 52(12): CPG1-CPG111.',
+        refs: [{ pmid: '36453071' }],
       },
       {
         claim:
-          'Lateral epicondyle tendinopathy affects roughly 1 to 3 percent of the general adult population and is several times more common than medial epicondyle tendinopathy.',
+          'Lateral epicondyle tendinopathy affects roughly 1 to 4 percent of the general adult population and is several times more common than medial epicondyle tendinopathy.',
         source:
           'Shiri R, Viikari-Juntura E. "Lateral and medial epicondylitis: role of occupational factors." Best Practice & Research Clinical Rheumatology 2011; 25(1): 43-57.',
+        refs: [{ pmid: '21663849' }],
       },
     ],
   },
@@ -376,21 +382,24 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     evidenceNotes: [
       {
         claim:
-          'Loss of passive external rotation with the arm at the side is the most useful clinical finding for identifying adhesive capsulitis.',
+          'Adhesive capsulitis typically causes a loss of both active and passive shoulder movement, most often turning the arm outward with the elbow at the side, followed by lifting the arm out to the side and turning it inward.',
         source:
           'Kelley MJ et al., "Shoulder Pain and Mobility Deficits: Adhesive Capsulitis" (JOSPT Clinical Practice Guideline), 2013.',
+        refs: [{ pmid: '23636125' }],
       },
       {
         claim:
           'In 223 people followed for a mean of 4.4 years after frozen shoulder began, 59 percent had normal or near-normal shoulders and 41 percent had some ongoing symptoms, mostly mild.',
         source:
           'Hand C, Clipsham K, Rees JL, Carr AJ. "Long-term outcome of frozen shoulder." Journal of Shoulder and Elbow Surgery 2008; 17(2): 231-236.',
+        refs: [{ pmid: '17993282' }],
       },
       {
         claim:
           'In 452 people with atraumatic full-thickness rotator cuff tears, a structured physiotherapy programme improved symptoms, and about 75 percent had not chosen surgery at two years.',
         source:
           'Kuhn JE et al., "Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears." Journal of Shoulder and Elbow Surgery 2013; 22(10): 1371-1379.',
+        refs: [{ pmid: '23540577' }],
       },
     ],
   },
@@ -559,18 +568,21 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
           'The guideline recommends combined hip and knee strengthening over knee strengthening alone to reduce pain and improve function in patellofemoral pain.',
         source:
           'Willy RW et al., "Patellofemoral Pain" (JOSPT Clinical Practice Guideline), 2019.',
+        refs: [{ pmid: '31475628' }],
       },
       {
         claim:
           'In a 12-week trial in 39 men with patellar tendinopathy, heavy slow resistance training and eccentric decline squats both improved symptoms and held at six months, with the most satisfied patients in the heavy slow resistance group. Steroid injection helped short term but deteriorated by six months.',
         source:
           "Kongsgaard M et al., \"Corticosteroid injections, eccentric decline squat training and heavy slow resistance training in patellar tendinopathy.\" Scandinavian Journal of Medicine & Science in Sports 2009; 19(6): 790-802.",
+        refs: [{ pmid: '19793213' }],
       },
       {
         claim:
           'The hallmark features of patellar tendinopathy are pain localised to the inferior pole of the patella and load-related pain that rises with demand on the knee extensors. The diagnosis is clinical, because tendon changes on imaging also occur in people without tendon pain.',
         source:
           'Malliaras P, Cook J, Purdam C, Rio E. "Patellar tendinopathy: clinical diagnosis, load management, and advice for challenging case presentations." JOSPT 2015; 45(11): 887-898.',
+        refs: [{ pmid: '26390269' }],
       },
     ],
   },
@@ -752,18 +764,21 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
           'Deep gluteal syndrome describes extrapelvic sciatic nerve entrapment in the posterior hip and is an important non-discogenic cause of sciatic-type pain. Piriformis syndrome is one pattern within this spectrum.',
         source:
           'Martin HD, Reddy M, Gomez-Hoyos J. "Deep gluteal syndrome." Journal of Hip Preservation Surgery 2015; 2(2): 99-107.',
+        refs: [{ pmid: '27011826' }],
       },
       {
         claim:
-          'For most people with low back pain and sciatica, imaging is not routinely required at first assessment. A structured history and physical examination guide management, and imaging is reserved for situations where it would change the plan.',
+          'In first-contact care, imaging is not routinely offered for low back pain with or without sciatica. Assessment focuses on ruling out serious causes and judging the risk of a slow recovery, and imaging is considered in hospital or musculoskeletal clinic settings only when the result is likely to change management.',
         source:
           'National Institute for Health and Care Excellence. "Low back pain and sciatica in over 16s: assessment and management." NICE Guideline NG59, 2016 (updated 2020).',
+        refs: [{ href: 'https://www.nice.org.uk/guidance/ng59', label: 'NICE NG59' }],
       },
       {
         claim:
           'A systematic review identified buttock pain, pain aggravated by sitting, tenderness near the greater sciatic notch, and pain with manoeuvres that tension the piriformis as the most consistent clinical features of piriformis syndrome.',
         source:
           'Hopayian K, Danielyan A. "Four symptoms define the piriformis syndrome: an updated systematic review of its clinical features." European Journal of Orthopaedic Surgery & Traumatology 2018; 28(2): 155-164.',
+        refs: [{ pmid: '28836092' }],
       },
     ],
   },
@@ -946,18 +961,21 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
           'The current physical therapy guideline for hip osteoarthritis covers patient education, exercise, manual therapy, and gait training as non-surgical management.',
         source:
           'Koc TA Jr, Cibulka M, Enseki KR, et al. "Hip Pain and Mobility Deficits - Hip Osteoarthritis: Revision 2025." JOSPT Clinical Practice Guideline. Journal of Orthopaedic & Sports Physical Therapy 2025; 55(11): CPG1-CPG31.',
+        refs: [{ pmid: '41165671' }],
       },
       {
         claim:
           'For gluteal tendinopathy, education plus a progressive loading program gave more people overall improvement than a corticosteroid injection or wait and see at 8 and 52 weeks. Pain was lower than with the injection at 8 weeks and similar at 52 weeks.',
         source:
           'Mellor R, Bennell K, Grimaldi A, et al. "Education plus exercise versus corticosteroid injection use versus a wait and see approach on global outcome and pain from gluteal tendinopathy: prospective, single blinded, randomised clinical trial." BMJ 2018; 361: k1662.',
+        refs: [{ pmid: '29720374' }],
       },
       {
         claim:
-          'Lateral hip pain traditionally labelled trochanteric bursitis is primarily driven by gluteal tendinopathy. Clinical diagnosis relies on localised tenderness, pain with single-leg loading, and pain on resisted abduction rather than on imaging.',
+          'Lateral hip pain once labelled trochanteric bursitis is now thought to come mainly from the gluteal tendons. Diagnosis is based on a careful clinical examination, including tenderness over the side of the hip and tests such as standing on one leg and resisted hip movements. Imaging is used when the picture is unclear, because tendon changes on scans are also common in people without pain.',
         source:
           'Grimaldi A, Fearon A. "Gluteal Tendinopathy: Integrating Pathomechanics and Clinical Features in Its Management." JOSPT 2015; 45(11): 910-922.',
+        refs: [{ pmid: '26381486' }],
       },
     ],
   },
@@ -1133,33 +1151,38 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     evidenceNotes: [
       {
         claim:
-          'Rehabilitation after ACL reconstruction should progress using objective criteria rather than time alone, with exercise therapy as the mainstay and psychological readiness assessed alongside physical milestones before return to sport.',
+          'Recommends that rehabilitation after ACL reconstruction progress using specific criteria, with time since surgery necessary but not enough on its own, and exercise as the mainstay. Proposed return-to-sport criteria include psychological readiness alongside physical tests. These points rest mainly on expert agreement, as research has not yet shown which criteria work best.',
         source:
           'Kotsifaki R, Korakakis V, King E, et al. "Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction." British Journal of Sports Medicine 2023; 57(9): 500-514.',
+        refs: [{ pmid: '36731908' }],
       },
       {
         claim:
           'In patients with a meniscal tear and mild to moderate knee osteoarthritis, arthroscopic partial meniscectomy plus physical therapy did not produce better functional outcomes at 6 or 12 months than a structured physical therapy program alone.',
         source:
           'Katz JN, Brophy RH, Chaisson CE, et al. "Surgery versus Physical Therapy for a Meniscal Tear and Osteoarthritis" (METEOR trial). New England Journal of Medicine 2013; 368(18): 1675-1684.',
+        refs: [{ pmid: '23506518' }],
       },
       {
         claim:
           'For patients with symptoms of a degenerative medial meniscus tear and no knee osteoarthritis, outcomes after arthroscopic partial meniscectomy were no better than after sham surgery.',
         source:
           'Sihvonen R, Paavola M, Malmivaara A, et al. "Arthroscopic Partial Meniscectomy versus Sham Surgery for a Degenerative Meniscal Tear" (FIDELITY trial). New England Journal of Medicine 2013; 369(26): 2515-2524.',
+        refs: [{ pmid: '24369076' }],
       },
       {
         claim:
           'For middle-aged patients with non-obstructive meniscal tears, exercise-based physical therapy was non-inferior to arthroscopic partial meniscectomy for patient-reported knee function at 24 months.',
         source:
           'van de Graaf VA, Noorduyn JCA, Willigenburg NW, et al. "Effect of Early Surgery vs Physical Therapy on Knee Function Among Patients With Nonobstructive Meniscal Tears" (ESCAPE trial). JAMA 2018; 320(13): 1328-1337.',
+        refs: [{ pmid: '30285177' }],
       },
       {
         claim:
           'At five years, exercise-based physical therapy remained non-inferior to arthroscopic partial meniscectomy for patient-reported knee function.',
         source:
           'Noorduyn JCA, van de Graaf VA, Willigenburg NW, et al. "Effect of Physical Therapy vs Arthroscopic Partial Meniscectomy in People With Degenerative Meniscal Tears: Five-Year Follow-up of the ESCAPE Randomized Clinical Trial." JAMA Network Open 2022; 5(7): e2220394.',
+        refs: [{ pmid: '35802374' }],
       },
     ],
   },
@@ -1319,24 +1342,28 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
           'Proximal hamstring tendinopathy typically presents as deep buttock pain where the hamstrings attach to the sitting bone, is load-related, and is commonly managed with education and progressive tendon loading rather than rest. Research has not established a single best program.',
         source:
           'Goom TS, Malliaras P, Reiman MP, Purdam CR. "Proximal Hamstring Tendinopathy: Clinical Aspects of Assessment and Management." J Orthop Sports Phys Ther 2016; 46(6): 483-493.',
+        refs: [{ pmid: '27084841' }],
       },
       {
         claim:
           'In a randomised trial of 100 people with proximal hamstring tendinopathy, six sessions of individualised physiotherapy and six sessions of shockwave therapy, both with standardised education, gave similar results on the main outcomes up to 52 weeks.',
         source:
           'Rich A, Ford J, Cook J, Hahne A. "Physiotherapy Compared With Shockwave Therapy for the Treatment of Proximal Hamstring Tendinopathy: A Randomized Controlled Trial." Am J Sports Med 2025; 53(14): 3396-3407.',
+        refs: [{ pmid: '41243328' }],
       },
       {
         claim:
           'Piriformis syndrome is characterised by a cluster of features: buttock pain, pain aggravated by sitting, tenderness near the greater sciatic notch, and pain on maneuvers that increase piriformis tension. A straight leg raise does not rule it out.',
         source:
           'Hopayian K, Danielyan A. "Four symptoms define the piriformis syndrome: an updated systematic review of its clinical features." Eur J Orthop Surg Traumatol 2018; 28(2): 155-164.',
+        refs: [{ pmid: '28836092' }],
       },
       {
         claim:
           'Deep gluteal syndrome is an umbrella for non-discogenic posterior hip pain from sciatic nerve entrapment and explicitly includes both piriformis syndrome and a proximal hamstring source, which is one reason these are frequently confused. Excluding spinal causes and imaging the pelvis aid diagnosis.',
         source:
           'Park JW, Lee YK, Lee YJ, et al. "Deep gluteal syndrome as a cause of posterior hip pain and sciatica-like pain." Bone Joint J 2020; 102-B(5): 556-567.',
+        refs: [{ pmid: '32349600' }],
       },
     ],
   },

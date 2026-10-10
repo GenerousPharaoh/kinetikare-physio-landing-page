@@ -34,6 +34,8 @@ import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['elbow-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/elbow-pain';
@@ -201,7 +203,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Is it really tennis elbow if I have never played tennis?',
     answer:
-      'Yes, tennis elbow can develop without playing tennis. The name sticks, but tennis elbow is a lateral elbow tendinopathy often associated with desk work, trades, gripping sports, or repetitive lifting. In population studies (Shiri et al., American Journal of Epidemiology 2006) prevalence sits around 1 to 1.3 percent in the general population, rising sharply in occupations that combine forceful gripping with repetition. What matters is the pattern on exam, not the sport.',
+      'Yes, tennis elbow can develop without playing tennis. The name sticks, but tennis elbow is a lateral elbow tendinopathy often associated with desk work, trades, gripping sports, or repetitive lifting. In a population study (Shiri et al., American Journal of Epidemiology 2006), definite lateral epicondylitis affected 1.3 percent of adults aged 30 to 64, and the odds were higher in people whose activities combined forceful work with repetitive arm movements. What matters is the pattern on exam, not the sport.',
   },
   {
     question: 'Are cortisone injections a good idea for tennis elbow?',
@@ -211,7 +213,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does tennis elbow take to get better?',
     answer:
-      'Many people improve over a few months of structured loading, though the timeline depends on how long the symptoms have been there and how well the load plan can sit alongside work and training demands. The 2022 JOSPT clinical practice guideline for lateral elbow pain (Lucado et al.) supports progressive exercise therapy combined with manual therapy and education as first-line care, with clear dosing rather than long avoidance.',
+      'Many people improve over a few months of structured loading, though the timeline depends on how long the symptoms have been there and how well the load plan can sit alongside work and training demands. The 2022 JOSPT clinical practice guideline for lateral elbow pain (Lucado et al.) recommends resistance exercise for the wrist extensors, often combined with manual therapy such as elbow joint mobilization.',
   },
   {
     question: 'Can I keep working or lifting with elbow pain?',
@@ -241,6 +243,7 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
@@ -249,28 +252,32 @@ const research: ResearchItem[] = [
     source: 'JOSPT (Lucado et al.)',
     year: 2022,
     summary:
-      'APTA Academy of Hand and Upper Extremity Physical Therapy and Academy of Orthopaedic Physical Therapy guideline on lateral elbow tendinopathy in adults aged 18 to 65. Supports progressive exercise therapy, manual therapy, patient education, and graded return to work and activity, with clear recommendations on dosing and against passive-only approaches.',
+      'Guideline from the APTA Academy of Hand and Upper Extremity Physical Therapy and Academy of Orthopaedic Physical Therapy on lateral elbow tendinopathy in adults. It recommends resistance exercise for the wrist extensors, often combined with manual therapy such as elbow joint mobilization, and suggests a phased return to demanding work, sport or hobbies.',
+    refs: [{ pmid: '36453071' }],
   },
   {
     title: 'Mobilisation with movement and exercise, corticosteroid injection, or wait and see for tennis elbow: randomised trial',
     source: 'Bisset et al., BMJ',
     year: 2006,
     summary:
-      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise did better than wait and see at six weeks. Corticosteroid injection gave the most relief at six weeks but produced significantly worse outcomes than physiotherapy at twelve months, with a recurrence rate of roughly 72 percent in the injection group.',
+      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise did better than wait and see at six weeks. Corticosteroid injection gave the most relief at six weeks, but 47 of the 65 people who did well after it (about 72 percent) relapsed, and long-term results were worse than with physiotherapy.',
+    refs: [{ pmid: '17012266' }],
   },
   {
     title: 'Effect of corticosteroid injection, physiotherapy, or both on clinical outcomes in lateral epicondylalgia',
     source: 'Coombes et al., JAMA',
     year: 2013,
     summary:
-      'Randomised 2x2 factorial trial in 165 adults with unilateral lateral epicondylalgia. Adding corticosteroid injection to physiotherapy did not improve outcomes and was associated with higher recurrence. Physiotherapy alone produced better longer-term results than injection alone, reinforcing a structured rehabilitation-first approach.',
+      'Randomised 2x2 factorial trial in 165 adults with unilateral lateral epicondylalgia. A corticosteroid injection led to worse results at one year than a placebo injection, with more recurrence (54 percent vs 12 percent). Physiotherapy helped more people improve by four weeks in those who had the placebo injection, but made no significant difference at one year.',
+    refs: [{ pmid: '23385272' }],
   },
   {
     title: 'Prevalence and determinants of lateral and medial epicondylitis: a population study',
     source: 'Shiri et al., American Journal of Epidemiology',
     year: 2006,
     summary:
-      'Population-based study reporting definite lateral epicondylitis prevalence of 1.3 percent and medial epicondylitis prevalence of 0.4 percent, peaking in adults aged 45 to 54. Smoking, obesity, repetitive work, and forceful activities were identified as independent risk factors, with rates substantially higher in occupational cohorts exposed to sustained gripping.',
+      'Population study of 4,783 Finnish adults aged 30 to 64. Definite lateral epicondylitis affected 1.3 percent and medial epicondylitis 0.4 percent, highest at ages 45 to 54. Smoking, and repetitive arm movements combined with forceful activities, were linked to lateral epicondylitis; smoking, obesity, repetitive movements and forceful activities were each linked to medial epicondylitis.',
+    refs: [{ pmid: '16968862' }],
   },
 ];
 
@@ -713,6 +720,7 @@ export default function ElbowPainHubPage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

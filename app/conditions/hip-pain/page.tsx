@@ -34,6 +34,8 @@ import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['hip-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
@@ -241,7 +243,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Can physiotherapy help hip pain without surgery?',
     answer:
-      'For many hip problems, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery can still be the right call for some labral tears and advanced arthritis, but a structured rehab block usually comes first.',
+      'For many hip problems, yes. NICE and OARSI guidelines put exercise and education at the core of care for hip osteoarthritis, and in the LEAP trial (BMJ 2018) more people with lateral hip pain reported overall improvement at one year with education plus exercise than with a corticosteroid injection. Surgery can still be the right call for some labral tears and advanced arthritis, but a structured rehab block usually comes first.',
   },
   {
     question: 'When should I worry about hip pain?',
@@ -281,6 +283,7 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
@@ -290,27 +293,31 @@ const research: ResearchItem[] = [
     year: 2018,
     summary:
       'In a randomised trial of 204 adults with gluteal tendinopathy, more people reported overall improvement with education plus a progressive exercise program than with a corticosteroid injection at both eight weeks and one year. Pain was lower with exercise at eight weeks; at one year pain was similar in the two groups, and both did better than wait and see.',
+    refs: [{ pmid: '29720374' }],
   },
   {
     title: 'OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis',
     source: 'OARSI (Bannuru et al.)',
     year: 2019,
     summary:
-      'International guideline recommending land-based exercise, education, and self-management as core treatments for hip osteoarthritis, with weight management and structured strengthening as strongly supported adjuncts.',
+      'International guideline. Its core treatments for hip osteoarthritis are arthritis education and a structured land-based exercise program.',
+    refs: [{ pmid: '31278997' }],
   },
   {
     title: 'Osteoarthritis in over 16s: diagnosis and management',
     source: 'NICE NG226',
     year: 2022,
     summary:
-      'UK national guidance identifying therapeutic exercise as a first-line intervention for people with osteoarthritis, alongside information and support, with surgery considered when conservative care has not produced adequate response.',
+      'UK national guidance naming therapeutic exercise and, where relevant, weight management, along with information and support, as the core treatments for osteoarthritis. Manual therapy is considered only alongside exercise for hip or knee osteoarthritis. Referral for joint replacement is considered when symptoms substantially affect quality of life and non-surgical care has not worked or is unsuitable.',
+    refs: [{ href: 'https://www.nice.org.uk/guidance/ng226', label: 'NICE NG226' }],
   },
   {
     title: 'Hip pain and mobility deficits: hip osteoarthritis clinical practice guideline (Revision 2025)',
     source: 'JOSPT (Koc, Cibulka et al.)',
     year: 2025,
     summary:
-      'Updated APTA Orthopedics guideline on physical therapy for hip osteoarthritis, covering progressive strengthening, manual therapy, patient education, and gait and functional training.',
+      'Updated guideline from APTA\'s Academy of Orthopaedic Physical Therapy and American Academy of Sports Physical Therapy on physical therapy for hip osteoarthritis. It recommends an individualized exercise program, manual therapy, patient education, and functional, gait and balance training.',
+    refs: [{ pmid: '41165671' }],
   },
   {
     title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
@@ -318,6 +325,7 @@ const research: ResearchItem[] = [
     year: 2020,
     summary:
       'Systematic review of 14 studies of physiotherapist-led exercise, manual therapy, and education for hip-related pain in young and middle-aged adults. Physiotherapist-led care might improve pain and function; one comparison showed a small effect in favour of hip arthroscopy. The authors call for larger, high-quality trials.',
+    refs: [{ pmid: '32376673' }],
   },
 ];
 
@@ -757,6 +765,7 @@ export default function HipPainHubPage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

@@ -34,6 +34,8 @@ import HoursList from '@/components/HoursList';
 import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['knee-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/knee-pain';
@@ -299,6 +301,7 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
@@ -308,27 +311,31 @@ const research: ResearchItem[] = [
     year: 1997,
     summary:
       'A validated clinical decision rule for when an acutely injured knee needs an X-ray to look for a fracture. It does not rule out ligament or cartilage injuries. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
+    refs: [{ pmid: '9403421' }],
   },
   {
     title: 'Osteoarthritis in over 16s: diagnosis and management',
     source: 'NICE NG226',
     year: 2022,
     summary:
-      'UK national guidance identifying therapeutic exercise as a first-line intervention for knee osteoarthritis, alongside information, weight management where relevant, and manual therapy as an adjunct. Surgery is reserved for people who have not responded to a structured course of non-surgical care.',
+      'UK national guidance naming therapeutic exercise and, where relevant, weight management, along with information and support, as the core treatments for osteoarthritis. Manual therapy is considered only alongside exercise for hip or knee osteoarthritis. Referral for joint replacement is considered when symptoms substantially affect quality of life and non-surgical care has not worked or is unsuitable.',
+    refs: [{ href: 'https://www.nice.org.uk/guidance/ng226', label: 'NICE NG226' }],
   },
   {
     title: 'OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis',
     source: 'OARSI (Bannuru et al.), Osteoarthritis and Cartilage',
     year: 2019,
     summary:
-      'International guideline that strongly recommends land-based exercise, structured education, and self-management as core treatments for knee osteoarthritis. Weight management and supervised strengthening programs are supported as high-value additions.',
+      'International guideline. Its core treatments for knee osteoarthritis are arthritis education and a structured land-based exercise program, with or without dietary weight management.',
+    refs: [{ pmid: '31278997' }],
   },
   {
     title: 'Surgery versus physical therapy for a meniscal tear and osteoarthritis',
     source: 'Katz et al., New England Journal of Medicine (METEOR trial)',
     year: 2013,
     summary:
-      'A randomised trial of 351 adults with degenerative meniscal tear and knee osteoarthritis. Structured physical therapy produced functional outcomes comparable to arthroscopic partial meniscectomy at six and twelve months, supporting a conservative-first approach for this population.',
+      'A randomised trial of 351 adults aged 45 or older with a meniscal tear and mild to moderate knee osteoarthritis. Function improved about as much with structured physical therapy as with arthroscopic partial meniscectomy at six and twelve months, supporting a conservative-first approach for this population. About 30 percent of the physical therapy group went on to have surgery within six months.',
+    refs: [{ pmid: '23506518' }],
   },
   {
     title: 'Effect of early surgery vs physical therapy on knee function among patients with nonobstructive meniscal tears: the ESCAPE randomized clinical trial',
@@ -336,13 +343,15 @@ const research: ResearchItem[] = [
     year: 2018,
     summary:
       'A non-inferiority randomised trial in adults aged 45 to 70 with non-obstructive meniscal tears. Exercise therapy was non-inferior to arthroscopic partial meniscectomy for knee function at 24 months, reinforcing a stepped-care model that prioritises structured rehabilitation first.',
+    refs: [{ pmid: '30285177' }],
   },
   {
     title: 'Patellofemoral pain: clinical practice guidelines',
     source: 'JOSPT (Willy et al.)',
     year: 2019,
     summary:
-      'APTA Academy of Orthopaedic Physical Therapy guideline supporting combined hip and knee strengthening, gait retraining where appropriate, patient education, and activity modification as first-line management for patellofemoral pain, with manual therapy considered as an adjunct.',
+      'APTA Academy of Orthopaedic Physical Therapy guideline. It supports exercise therapy that combines hip and knee strengthening as the core of care for patellofemoral pain, with education on managing load, gait retraining for runners, and taping or foot orthoses as short-term add-ons. Manual therapy is not recommended on its own, but mobilizing the kneecap can be combined with exercise.',
+    refs: [{ pmid: '31475628' }],
   },
 ];
 
@@ -784,6 +793,7 @@ export default function KneePainHubPage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

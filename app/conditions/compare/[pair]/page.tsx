@@ -32,6 +32,7 @@ import {
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
 import HoursList from '@/components/HoursList';
+import SourceLinks from '@/components/conditions/SourceLinks';
 import {
   CONDITION_COMPARISONS,
   getComparisonByPair,
@@ -681,6 +682,7 @@ export default async function ConditionComparisonPage({
                         {note.claim}
                       </p>
                       <p className="text-xs text-slate-500 italic">{note.source}</p>
+                      <SourceLinks refs={note.refs} title={note.source} className="text-xs" />
                     </div>
                   ))}
                 </div>

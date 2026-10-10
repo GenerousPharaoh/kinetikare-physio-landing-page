@@ -33,6 +33,8 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 import HoursList from '@/components/HoursList';
 import { inlineName } from '@/lib/text';
 import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
+import SourceLinks from '@/components/conditions/SourceLinks';
+import type { SourceRef } from '@/lib/source-refs';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
 const PAGE_TITLE = 'Suprapatellar Effusion (Fluid on the Knee) in Burlington';
 const PAGE_DESCRIPTION =
@@ -297,6 +299,7 @@ interface ResearchItem {
   source: string;
   year: number;
   summary: string;
+  refs?: SourceRef[];
 }
 
 const research: ResearchItem[] = [
@@ -305,21 +308,24 @@ const research: ResearchItem[] = [
     source: 'Johnson MW, American Family Physician',
     year: 2000,
     summary:
-      'Clinical review in American Family Physician describing a structured approach to acute knee effusion. Notes that effusion within a few hours of injury carries a high likelihood of significant osseous, ligamentous, or meniscal injury, while atraumatic effusions more often reflect arthritis, infection, or crystal disease.',
+      'Clinical review in American Family Physician describing a structured approach to acute knee effusion. Notes that swelling within about four hours of an injury carries a high likelihood of a major bone, ligament or meniscal injury, while swelling without an injury can reflect causes such as arthritis, infection or crystal deposits.',
+    refs: [{ pmid: '10794580' }],
   },
   {
     title: 'Bacterial septic arthritis in adults',
     source: 'Mathews et al., The Lancet',
     year: 2010,
     summary:
-      'Lancet review of native-joint septic arthritis in adults. Frames septic arthritis as a medical emergency with significant morbidity and mortality, emphasising the need for urgent assessment and joint aspiration in any hot, acutely swollen, systemically unwell joint.',
+      'Lancet review of septic arthritis in adults. Treats it as a medical emergency with high morbidity and mortality, and stresses prompt diagnostic joint aspiration and treatment.',
+    refs: [{ pmid: '20206778' }],
   },
   {
     title: 'OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis',
     source: 'OARSI (Bannuru et al.), Osteoarthritis and Cartilage',
     year: 2019,
     summary:
-      'International guideline strongly recommending land-based exercise, structured education, and self-management as core treatments for knee osteoarthritis, which is the most common driver of recurrent low-grade effusion in adults over 50.',
+      'International guideline. Its core treatments for knee osteoarthritis are arthritis education and a structured land-based exercise program, with or without dietary weight management.',
+    refs: [{ pmid: '31278997' }],
   },
   {
     title: 'Knee effusions, popliteal cysts, and synovial thickening: association with knee pain in osteoarthritis',
@@ -327,6 +333,7 @@ const research: ResearchItem[] = [
     year: 2001,
     summary:
       'MRI study of older adults with and without knee pain. Moderate or larger effusions were far more common in painful osteoarthritic knees, but about 1 in 10 people with no knee pain and a normal X-ray also had one, so an effusion on a scan is not always the source of pain.',
+    refs: [{ pmid: '11409127' }],
   },
   {
     title: 'Evaluation of a quantitative measurement of suprapatellar effusion by ultrasonography and its association with symptoms of radiographic knee osteoarthritis',
@@ -334,6 +341,7 @@ const research: ResearchItem[] = [
     year: 2016,
     summary:
       'Cross-sectional ultrasound study in knee osteoarthritis. Notes that a categorical cut-off, such as a suprapatellar pouch at least 4 mm deep, is the recommended way to call an effusion, and links a larger effusion area to worse pain and symptom scores.',
+    refs: [{ pmid: '27487832' }],
   },
   {
     title: 'Quadriceps arthrogenic muscle inhibition: neural mechanisms and treatment perspectives',
@@ -341,6 +349,7 @@ const research: ResearchItem[] = [
     year: 2010,
     summary:
       'Review of why the quadriceps switch off after knee injury or in arthritis. Joint swelling, inflammation, laxity and damage alter the signals from the joint and reflexively inhibit the muscle, which is why restoring quadriceps activation is an early rehabilitation goal.',
+    refs: [{ pmid: '19954822' }],
   },
   {
     title: 'Implementation of the Ottawa Knee Rule for the use of radiography in acute knee injuries',
@@ -348,6 +357,7 @@ const research: ResearchItem[] = [
     year: 1997,
     summary:
       'Validated clinical decision rule for when an acutely injured knee needs an X-ray to look for a fracture. It does not rule out ligament or cartilage injuries. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
+    refs: [{ pmid: '9403421' }],
   },
 ];
 
@@ -936,6 +946,7 @@ export default function FluidOnTheKneeGuidePage() {
                     <p className="text-base text-slate-700 leading-relaxed">
                       {item.summary}
                     </p>
+                    <SourceLinks refs={item.refs} title={item.title} />
                   </div>
                 ))}
               </div>

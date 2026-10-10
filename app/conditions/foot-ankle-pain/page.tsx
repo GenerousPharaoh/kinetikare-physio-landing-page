@@ -305,7 +305,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Should Achilles pain be treated with eccentric heel drops or heavy slow resistance?',
     answer:
-      'Either can work, and the better question is which one you will actually do. Beyer et al. (American Journal of Sports Medicine 2015) compared the two directly and found comparable outcomes at twelve months, with higher patient satisfaction in the heavy slow resistance group at twelve weeks. Murphy et al. (British Journal of Sports Medicine 2019) reached a similar conclusion about eccentric protocols for mid-portion pain. What matters more than the protocol label is whether the dose suits your tendon, whether pain during and after loading stays inside sensible limits, and whether the pain sits in the mid-portion or right at the heel bone, because insertional pain does not tolerate the same range.',
+      'Either can work, and the better question is which one you will actually do. Beyer et al. (American Journal of Sports Medicine 2015) compared the two directly: both improved, with no statistically significant difference between them. Satisfaction tended to be higher with heavy slow resistance at twelve weeks, but that difference was not statistically significant either. Murphy et al. (British Journal of Sports Medicine 2019) reached a similar conclusion about eccentric protocols for mid-portion pain. What matters more than the protocol label is whether the dose suits your tendon, whether pain during and after loading stays inside sensible limits, and whether the pain sits in the mid-portion or right at the heel bone, because insertional pain does not tolerate the same range.',
   },
   {
     question: 'Do I need custom orthotics?',
@@ -376,7 +376,7 @@ const research: ResearchItem[] = [
     source: 'Beyer et al., American Journal of Sports Medicine',
     year: 2015,
     summary:
-      'Randomised trial of 58 adults with mid-portion Achilles tendinopathy. Heavy slow resistance and eccentric training gave equally good results at twelve weeks and at one year. Satisfaction tended to be higher with heavy slow resistance at twelve weeks (not statistically significant) and people completed more of its sessions (92 vs 78 percent), which makes adherence a reasonable way to choose between them.',
+      'Randomised trial of 58 adults with mid-portion Achilles tendinopathy. Both heavy slow resistance and eccentric training improved symptoms, with no significant difference between them at twelve weeks or at one year. Satisfaction tended to be higher with heavy slow resistance at twelve weeks (not statistically significant) and people completed more of its sessions (92 vs 78 percent), which makes adherence a reasonable way to choose between them.',
     refs: [{ pmid: '26018970' }],
   },
   {

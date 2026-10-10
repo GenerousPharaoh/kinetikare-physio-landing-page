@@ -3302,7 +3302,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
         year: 2021,
         journal: "Journal of Orthopaedic and Sports Physical Therapy",
         sampleSize: "Systematic review and expert consensus",
-        findings: "Strong evidence supports early mobilization over immobilization, with functional rehabilitation reducing chronic ankle instability development. Balance training can reduce reinjury risk, and neuromuscular training can reduce first ankle sprains in higher-risk groups.",
+        findings: "Recommends a brace or tape with progressive weight bearing early on rather than prolonged immobilization, followed by structured exercise and balance training. Bracing and balance training lower the risk of spraining the ankle again. For a first sprain, the guideline recommends bracing, particularly for people with risk factors; evidence that balance training prevents a first sprain is limited, although clinicians may consider it.",
         relevance: "Establishes evidence-based framework for ankle sprain rehabilitation emphasizing early functional rehabilitation and proprioceptive training as essential components",
         citation: "Martin RL, Davenport TE, Fraser JJ, et al. Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament Sprains Revision 2021. J Orthop Sports Phys Ther. 2021;51(4):CPG1-CPG80. PMID: 33789434."
       },
@@ -3563,7 +3563,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       {
         approach: "Heavy, slow strength training (heavy slow resistance)",
-        evidence: "In a randomised trial, results matched the heel-drop program at one year, and people attended more of their sessions (Beyer et al., 2015)",
+        evidence: "In a randomised trial, results did not differ significantly from the heel-drop program at one year, and people attended more of their sessions (Beyer et al., 2015)",
         effectivenessLevel: "strong"
       }
     ],
@@ -3699,7 +3699,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       },
       {
         question: "Do eccentric heel drops still work, or is heavy slow resistance better?",
-        answer: "Both can help. Alfredson's 1998 study of 3 sets of 15 heel drops twice daily for 12 weeks was small, but it shaped how tendon rehab is done. Beyer and colleagues (AJSM 2015) compared heavy, slow strength training (heavy slow resistance) with heel-drop (eccentric) training at 12 and 52 weeks and found equivalent outcomes with higher patient satisfaction in the heavy slow resistance group at 12 weeks. I typically pick based on equipment access, schedule, and what the person will actually do three times a week."
+        answer: "Both can help. Alfredson's 1998 study of 3 sets of 15 heel drops twice daily for 12 weeks was small, but it shaped how tendon rehab is done. Beyer and colleagues (AJSM 2015) compared heavy, slow strength training (heavy slow resistance) with heel-drop (eccentric) training at 12 and 52 weeks. Both improved, with no statistically significant difference between them; satisfaction tended to be higher with heavy slow resistance at 12 weeks, but that difference was not statistically significant either. I typically pick based on equipment access, schedule, and what the person will actually do three times a week."
       },
       {
         question: "Why is my Achilles worst in the morning?",

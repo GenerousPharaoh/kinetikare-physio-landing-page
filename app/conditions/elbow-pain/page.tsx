@@ -208,7 +208,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Are cortisone injections a good idea for tennis elbow?',
     answer:
-      'Usually not as a first step. The Bisset BMJ 2006 trial compared physiotherapy, corticosteroid injection, and wait-and-see. Injections felt better at six weeks but produced worse outcomes at twelve months, with high recurrence. The Coombes JAMA 2013 trial reinforced this, showing that adding an injection to physiotherapy was no better than physiotherapy alone, and the injection group had higher recurrence. I usually start with structured rehabilitation, and any injection decision belongs with a physician.',
+      'Usually not as a first step. The Bisset BMJ 2006 trial compared physiotherapy, corticosteroid injection, and wait-and-see. Injections felt better at six weeks but produced worse outcomes at twelve months, with high recurrence. The Coombes JAMA 2013 trial found worse outcomes and more recurrence at one year after a corticosteroid injection than after a placebo injection, and physiotherapy made no significant difference at one year. I usually start with structured rehabilitation, and any injection decision belongs with a physician.',
   },
   {
     question: 'How long does tennis elbow take to get better?',
@@ -260,7 +260,7 @@ const research: ResearchItem[] = [
     source: 'Bisset et al., BMJ',
     year: 2006,
     summary:
-      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise did better than wait and see at six weeks. Corticosteroid injection gave the most relief at six weeks, but 47 of the 65 people who did well after it (about 72 percent) relapsed, and long-term results were worse than with physiotherapy.',
+      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise did better than wait and see at six weeks. Corticosteroid injection gave the most relief at six weeks, but 47 of the 65 people in the injection group (72 percent) later got worse after first improving, and long-term results were worse than with physiotherapy.',
     refs: [{ pmid: '17012266' }],
   },
   {

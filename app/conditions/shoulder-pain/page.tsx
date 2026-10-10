@@ -230,7 +230,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does frozen shoulder take to recover?',
     answer:
-      'Frozen shoulder often runs a long course. The older literature described three phases totalling up to two or three years. In practice recovery varies: many people improve sooner, and some still have mild symptoms years later. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found neither operation clearly better on patient-reported outcomes at twelve months. Physiotherapy with a steroid injection where appropriate is a reasonable first-line path for most people.',
+      'Frozen shoulder often runs a long course. The older literature described three phases totalling up to two or three years. In practice recovery varies: many people improve sooner, and some still have mild symptoms years later. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found none of the three clinically superior at twelve months. For most people, I see physiotherapy, with a steroid injection where appropriate, as a reasonable first step.',
   },
   {
     question: 'Is it safe to keep training at the gym with shoulder pain?',

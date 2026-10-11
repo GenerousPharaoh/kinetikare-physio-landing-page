@@ -21,6 +21,7 @@ import { REHAB_PROGRESSION_SLUGS, REHAB_SCOPE_NOTES } from '@/lib/rehab-progress
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import { inlineName } from '@/lib/text';
 import { guidesForRegion } from '@/lib/pain-guides';
+import { differentialHref, linkedDifferentialSlugs } from '@/lib/differential-links';
 import { CATEGORY_PRINT, ILLUSTRATIONS } from '@/lib/illustrations';
 import AuthorByline from './AuthorByline';
 import RegionAnatomy from './RegionAnatomy';
@@ -586,12 +587,30 @@ export default function ConditionFlowPage({
               <section id="similar" className="scroll-mt-28 py-14 border-t border-slate-200">
                 <Heading eyebrow={similarHeading.eyebrow}>{similarHeading.heading}</Heading>
                 <dl className="grid md:grid-cols-2 gap-x-10 gap-y-6">
-                  {condition.differentialDiagnosis.map((d) => (
-                    <div key={d.condition}>
-                      <dt className="text-base font-semibold text-slate-900 mb-1">{d.condition}</dt>
-                      <dd className="text-base text-slate-600 leading-relaxed">{d.distinguishingFeatures}</dd>
-                    </div>
-                  ))}
+                  {condition.differentialDiagnosis.map((d) => {
+                    // Link to that condition's own page where one exists
+                    // (lib/differential-links.ts), so "could it be this
+                    // instead?" is one tap away.
+                    const href = differentialHref(d.condition, conditionSlug);
+                    return (
+                      <div key={d.condition}>
+                        <dt className="text-base font-semibold text-slate-900 mb-1">
+                          {href ? (
+                            <Link
+                              href={href}
+                              className="text-[#8A6F0A] underline decoration-[#B08D57]/40 underline-offset-4 transition-colors hover:text-[#6F5908] hover:decoration-[#8A6F0A]"
+                            >
+                              {d.condition}
+                              <ArrowRightIcon className="ml-1.5 inline h-3.5 w-3.5 align-[-1px]" aria-hidden="true" />
+                            </Link>
+                          ) : (
+                            d.condition
+                          )}
+                        </dt>
+                        <dd className="text-base text-slate-600 leading-relaxed">{d.distinguishingFeatures}</dd>
+                      </div>
+                    );
+                  })}
                 </dl>
                 <ComparisonCrossLinks conditionSlug={conditionSlug} currentConditionName={condition.name} />
               </section>
@@ -744,7 +763,15 @@ export default function ConditionFlowPage({
             )}
 
             <div className="pb-4">
-              <RelatedConditionsList currentSlug={conditionSlug} relatedConditions={relatedConditions} limit={6} />
+              <RelatedConditionsList
+                currentSlug={conditionSlug}
+                relatedConditions={relatedConditions}
+                limit={6}
+                excludeSlugs={linkedDifferentialSlugs(
+                  (condition.differentialDiagnosis ?? []).map((d) => d.condition),
+                  conditionSlug,
+                )}
+              />
               <ConsentNote />
             </div>
           </div>

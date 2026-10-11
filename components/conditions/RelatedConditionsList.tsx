@@ -9,67 +9,45 @@ import {
 /**
  * RelatedConditionsList
  *
- * Enhanced related-conditions block. Instead of a name-only card grid, each
- * card now shows the relationship type (as a patient-friendly pill) plus a
- * one-line explanation sourced from the intelligentRelationships data map in
- * `lib/conditions-data.ts`.
+ * Related-conditions cards: the condition's name plus a one-line explanation
+ * from the intelligentRelationships map in `lib/conditions-data.ts`.
+ *
+ * Since 2026-10-11 the cards no longer carry relationship-type pills
+ * ("Anatomically related", "Biomechanically linked"); they told a patient
+ * nothing the explanation did not. Conditions already linked in the page's
+ * "Conditions that can feel similar" section are passed in `excludeSlugs` and
+ * skipped, so the same condition is not offered twice a few screens apart.
  *
  * Falls back gracefully when a related condition has no structured
  * relationship metadata (e.g. category-fallback picks from
  * `getRelatedConditions`).
  */
 
-type RelationshipType =
-  | 'anatomical'
-  | 'symptomatic'
-  | 'causal'
-  | 'biomechanical'
-  | 'treatment';
-
-interface RelationshipMeta {
-  relationshipType: RelationshipType;
-  explanation: string;
-}
-
-// Patient-friendly pill labels. Kept short so cards stay visually compact.
-const RELATIONSHIP_LABEL: Record<RelationshipType, string> = {
-  anatomical: 'Anatomically related',
-  symptomatic: 'Shares symptoms',
-  causal: 'Common co-occurrence',
-  biomechanical: 'Biomechanically linked',
-  treatment: 'Similar treatment approach',
-};
-
-// One understated pill style for every relationship type. The label text
-// carries all the meaning; colour does no work here and previously clashed
-// with the page's muted gold/slate language. A single small gold dot keeps
-// the editorial voice without turning the grid into a colour legend.
-const RELATIONSHIP_PILL_CLASS =
-  'bg-slate-50 text-slate-600 border-slate-200';
-
 interface RelatedConditionsListProps {
   currentSlug: string;
   relatedConditions: Condition[];
   /** Max cards shown. Defaults to 6. */
   limit?: number;
+  /** Slugs already linked elsewhere on the page. */
+  excludeSlugs?: ReadonlySet<string>;
 }
 
 export default function RelatedConditionsList({
   currentSlug,
   relatedConditions,
   limit = 6,
+  excludeSlugs,
 }: RelatedConditionsListProps) {
   if (!relatedConditions || relatedConditions.length === 0) return null;
 
-  const relationships = getDetailedRelationships(currentSlug);
-  const relationshipBySlug = new Map<string, RelationshipMeta>(
-    relationships.map((rel) => [
-      rel.slug,
-      { relationshipType: rel.relationshipType, explanation: rel.explanation },
-    ]),
+  const explanationBySlug = new Map<string, string>(
+    getDetailedRelationships(currentSlug).map((rel) => [rel.slug, rel.explanation]),
   );
 
-  const items = relatedConditions.slice(0, limit);
+  const items = relatedConditions
+    .filter((related) => !excludeSlugs?.has(related.slug))
+    .slice(0, limit);
+  if (items.length === 0) return null;
 
   return (
     <section
@@ -87,8 +65,7 @@ export default function RelatedConditionsList({
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {items.map((related) => {
-          const meta = relationshipBySlug.get(related.slug);
-          const label = meta ? RELATIONSHIP_LABEL[meta.relationshipType] : null;
+          const explanation = explanationBySlug.get(related.slug);
 
           return (
             <li key={related.slug}>
@@ -106,21 +83,9 @@ export default function RelatedConditionsList({
                   />
                 </div>
 
-                {label && (
-                  <span
-                    className={`mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[11px] font-medium uppercase tracking-wide ${RELATIONSHIP_PILL_CLASS}`}
-                  >
-                    <span
-                      className="h-1 w-1 rounded-full bg-[#B08D57]"
-                      aria-hidden="true"
-                    />
-                    {label}
-                  </span>
-                )}
-
-                {meta?.explanation && (
+                {explanation && (
                   <p className="m-0 mt-2 text-sm text-slate-600 leading-relaxed">
-                    {meta.explanation}
+                    {explanation}
                   </p>
                 )}
               </Link>

@@ -8827,7 +8827,8 @@ Another thing I see often is the right exercise at the wrong dose. A patellar te
         { questionId: 'morning_stiffness_short', signal: 'yes' },
         { questionId: 'specific_twist_or_injury_event', signal: 'no' },
         { questionId: 'worse_after_full_rest', signal: 'strong_yes' },
-        { questionId: 'age_over_45', signal: 'neutral' },
+        // Mostly younger jumping athletes; 45+ makes it less likely (2026-10-11).
+        { questionId: 'age_over_45', signal: 'no' },
       ],
     },
 
@@ -9123,7 +9124,9 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
         { questionId: 'morning_stiffness_short', signal: 'neutral' },
         { questionId: 'specific_twist_or_injury_event', signal: 'no' },
         { questionId: 'worse_after_full_rest', signal: 'neutral' },
-        { questionId: 'age_over_45', signal: 'neutral' },
+        // Most common in teens and younger adults; front-of-knee pain after 45
+        // is more often arthritis behind the kneecap (2026-10-11).
+        { questionId: 'age_over_45', signal: 'no' },
       ],
     },
 

@@ -86,7 +86,7 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
         </div>
 
         {/* Line 2: credentials + CPO registration, quieter. */}
-        <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-slate-500">
+        <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-slate-600">
           <span>{AUTHOR_CREDENTIALS}</span>
           <Divider />
           <span>
@@ -103,7 +103,7 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
         {/* Line 3: where + when, joined by a middot from sm up. Phones stack
             the two fragments and drop the middot, which otherwise wrapped
             onto a line of its own. */}
-        <div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline gap-x-2 gap-y-0.5 text-slate-500">
+        <div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline gap-x-2 gap-y-0.5 text-slate-600">
           <span>
             Practicing at{' '}
             <Link

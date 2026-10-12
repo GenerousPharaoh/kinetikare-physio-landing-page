@@ -186,10 +186,19 @@ export default function ConditionFlowPage({
     const els = sections
       .map((s) => document.getElementById(s.id))
       .filter((el): el is HTMLElement => el !== null);
-    // The active rail item is the last section whose top has passed the
-    // 120px line. Computed from every section on each scroll frame, so a
-    // jump of several sections (a rail click, a long fling) never leaves a
-    // stale highlight behind.
+    // The active rail item is the last section whose top has reached the
+    // line where an anchor jump puts it: the root's scroll-padding-top plus
+    // the section's scroll-margin-top (about 216px on desktop), with a little
+    // slack. A fixed 120px line left the previous section highlighted after
+    // every rail click (2026-10-11). Computed from every section on each
+    // scroll frame, so a jump of several sections never leaves a stale
+    // highlight behind.
+    const landingLine = () => {
+      const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      const margin = els[0] ? parseFloat(getComputedStyle(els[0]).scrollMarginTop) || 0 : 0;
+      return padding + margin + 24;
+    };
+    let line = landingLine();
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -199,19 +208,24 @@ export default function ConditionFlowPage({
         setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0);
         let current = els[0]?.id ?? '';
         for (const el of els) {
-          if (el.getBoundingClientRect().top <= 120) current = el.id;
+          if (el.getBoundingClientRect().top <= line) current = el.id;
           else break;
         }
         setActive(current);
         ticking = false;
       });
     };
+    // scroll-padding-top scales with the viewport width, so re-measure on resize.
+    const onResize = () => {
+      line = landingLine();
+      onScroll();
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    window.addEventListener('resize', onResize);
     onScroll();
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      window.removeEventListener('resize', onResize);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conditionSlug]);

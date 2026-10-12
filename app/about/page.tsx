@@ -1,4 +1,5 @@
 import { JANE_BOOKING_URL } from '@/lib/booking';
+import { CPO_REGISTER_URL } from '@/lib/registration';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
@@ -226,7 +227,7 @@ export default function About() {
                         <span className="text-xs font-normal text-green-700">Registration Verified</span>
                       </div>
                       <Link
-                        href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
+                        href={CPO_REGISTER_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
@@ -360,7 +361,7 @@ export default function About() {
                           <span className="text-sm font-normal text-green-700">Registration Verified</span>
                         </div>
                         <Link
-                          href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
+                          href={CPO_REGISTER_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"

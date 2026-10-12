@@ -1,14 +1,68 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
+// Anything a patient might tap that the phone pills must not sit on.
+const INTERACTIVE =
+  'a[href], button, summary, input, select, textarea, label, [role="button"], [role="link"], [role="tab"]';
+
 export default function FloatingButtons() {
   const [showMobileCta, setShowMobileCta] = useState(false);
+  const [overControl, setOverControl] = useState(false);
+  const pillRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
+
+  // The phone pills step aside when the page comes to rest with a link,
+  // button or accordion row under them, so a tap on the right end of a FAQ
+  // question or a condition card reaches that control instead of opening
+  // Jane (2026-10-11). Checked only after scrolling stops, so the pills do
+  // not flicker while the page moves, and by sampling points across the
+  // pills' own rectangle, so a control elsewhere on screen does not hide them.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let timer: number | undefined;
+    const check = () => {
+      if (window.innerWidth >= 1024) {
+        setOverControl(false);
+        return;
+      }
+      const pill = pillRef.current;
+      const rect = pill?.getBoundingClientRect();
+      const width = rect?.width || 168;
+      const height = rect?.height || 48;
+      const right = rect?.right || window.innerWidth - 16;
+      const bottom = rect?.bottom || window.innerHeight - 16;
+      let hit = false;
+      for (const fx of [0.05, 0.35, 0.65, 0.95]) {
+        for (const fy of [0.15, 0.5, 0.85]) {
+          const x = right - width + width * fx;
+          const y = bottom - height + height * fy;
+          const under = document.elementsFromPoint(x, y).find((el) => !pill?.contains(el));
+          if (under?.closest(INTERACTIVE)) hit = true;
+        }
+      }
+      setOverControl(hit);
+    };
+    const schedule = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(check, 140);
+    };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    // Opening an accordion moves rows under the pills without a scroll.
+    document.addEventListener('click', schedule);
+    schedule();
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      document.removeEventListener('click', schedule);
+    };
+  }, [pathname]);
 
   // The phone pill shows when no inline booking action is on screen, rather
   // than after a fixed scroll distance: the page's own Book buttons are the
@@ -126,8 +180,9 @@ export default function FloatingButtons() {
           surfaces (header, menu, footer). Call is a second pill. There is no
           back-to-top button at any width (Kareem, 2026-10-09). */}
       <AnimatePresence>
-        {showMobileCta && (
+        {showMobileCta && !overControl && (
           <motion.div
+            ref={pillRef}
             className="fixed right-4 z-40 flex items-center gap-2 lg:hidden"
             style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
             initial={{ opacity: 0, y: 12 }}

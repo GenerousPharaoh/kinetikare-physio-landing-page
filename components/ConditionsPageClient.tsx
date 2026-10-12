@@ -22,17 +22,8 @@ import ConditionBookingCTA from '@/components/conditions/ConditionBookingCTA';
 import ComparisonLinks, { type ComparisonLink } from '@/components/conditions/ComparisonLinks';
 import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
 
-// Everyday words that should find a condition whose name does not contain them.
-const SEARCH_SYNONYMS: Record<string, string[]> = {
-  stairs: ['knee-pain-patellofemoral', 'knee-osteoarthritis'],
-  kneecap: ['knee-pain-patellofemoral', 'patellar-tendinopathy'],
-  heel: ['plantar-fasciitis', 'achilles-tendinopathy', 'severs-disease'],
-  arch: ['plantar-fasciitis'],
-  buttock: ['piriformis-syndrome', 'proximal-hamstring-tendinopathy', 'sciatica'],
-  arthritis: ['knee-osteoarthritis', 'hip-osteoarthritis'],
-  runner: ['knee-pain-patellofemoral', 'it-band-syndrome', 'shin-splints', 'stress-fractures'],
-  running: ['knee-pain-patellofemoral', 'it-band-syndrome', 'shin-splints', 'stress-fractures'],
-};
+// Search matching is shared with the header search: lib/site-search.ts
+// (rankConditions), loaded on first focus of the box below.
 
 interface ConditionCategory {
   slug: string;
@@ -108,6 +99,15 @@ function ConditionsPageWithParams({
   // and Spine & Back led with neck pain and whiplash, which he does not want.
   const [activeTab, setActiveTab] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
+  const [rankConditions, setRankConditions] = useState<((q: string) => Map<string, number>) | null>(null);
+  const loadRanker = () => {
+    if (rankConditions) return;
+    void import('@/lib/site-search').then((m) => setRankConditions(() => m.rankConditions));
+  };
+  useEffect(() => {
+    if (searchQuery) loadRanker();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
   // The ?tab= query is read by a tiny child inside its own Suspense boundary
   // (see TabFromQuery) so the rest of this page still renders statically.
   const [queryTab, setQueryTab] = useState<number | null>(null);
@@ -164,49 +164,42 @@ function ConditionsPageWithParams({
     }
   };
 
-  // Filter conditions based on search query.
-  // Each query word must match the start of a word ("hip" finds hip
-  // osteoarthritis, not whiplash). Name matches rank above matches that only
-  // hit the description, and a few everyday words map to the conditions
-  // people mean by them.
+  // Filter conditions based on search query, with the same matcher as the
+  // header search (everyday wording, phrases, plurals; see lib/site-search.ts).
+  // Categories with a match are ordered by their best result, so the most
+  // likely page comes first. Until the matcher has loaded (a fraction of a
+  // second after the first focus), the full list stays on screen.
   const filteredCategories = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    if (!query) return conditionCategories;
-
-    const words = query.split(/\s+/).filter(Boolean);
-    const escape = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const patterns = words.map((w) => new RegExp(`(^|[^a-z0-9])${escape(w)}`, 'i'));
-    const matchesAll = (text: string) => patterns.every((re) => re.test(text));
-    const synonymSlugs = new Set(
-      words.flatMap((w) => SEARCH_SYNONYMS[w] ?? []),
-    );
+    const query = searchQuery.trim();
+    if (!query || !rankConditions) return conditionCategories;
+    const ranks = rankConditions(query);
 
     // Filter the display strings and the underlying records together. The
     // renderers below look a slug up by index, so filtering only one of the
     // two arrays showed one condition's name with another condition's link
     // (searching "sciatica" linked to low-back-pain).
-    return conditionCategories.map(category => {
-      const titleHit = matchesAll(category.title);
-      const ranked = category.conditions
-        .map((label, i) => {
-          const data = category.conditionsData?.[i];
-          const name = data?.name ?? label;
-          const rank = matchesAll(name) ? 0
-            : data && synonymSlugs.has(data.slug) ? 1
-            : matchesAll(label) ? 2
-            : titleHit ? 3
-            : -1;
-          return { label, data, rank, i };
-        })
-        .filter((r) => r.rank >= 0)
-        .sort((a, b) => a.rank - b.rank || a.i - b.i);
-      return {
-        ...category,
-        conditions: ranked.map((r) => r.label),
-        conditionsData: category.conditionsData ? ranked.map((r) => r.data!) : undefined,
-      };
-    }).filter(category => category.conditions.length > 0);
-  }, [searchQuery, conditionCategories]);
+    return conditionCategories
+      .map((category) => {
+        const ranked = category.conditions
+          .map((label, i) => {
+            const data = category.conditionsData?.[i];
+            return { label, data, score: data ? ranks.get(data.slug) ?? 0 : 0, i };
+          })
+          .filter((r) => r.score > 0)
+          .sort((a, b) => b.score - a.score || a.i - b.i);
+        return {
+          category: {
+            ...category,
+            conditions: ranked.map((r) => r.label),
+            conditionsData: category.conditionsData ? ranked.map((r) => r.data!) : undefined,
+          },
+          best: ranked[0]?.score ?? 0,
+        };
+      })
+      .filter((c) => c.category.conditions.length > 0)
+      .sort((a, b) => b.best - a.best)
+      .map((c) => c.category);
+  }, [searchQuery, conditionCategories, rankConditions]);
 
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
@@ -293,6 +286,7 @@ function ConditionsPageWithParams({
                 placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={loadRanker}
                 aria-label="Search conditions"
                 className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
               />

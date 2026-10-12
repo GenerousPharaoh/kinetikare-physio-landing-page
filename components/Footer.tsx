@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { CPO_REGISTER_URL } from '@/lib/registration';
 import { ChevronDownIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import styles from './Footer.module.css';
@@ -50,7 +51,7 @@ export default function Footer() {
             <p className={styles.practitioner}>Kareem Hassanein<span>Registered Physiotherapist</span></p>
             {!concise && <>
               <a href={JANE_BOOKING_URL} data-booking-source="footer" target="_blank" rel="noopener noreferrer" className={`button-gold ${styles.booking}`}><span>Book Online</span></a>
-              <a href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.registration}`}><ShieldCheckIcon aria-hidden="true" /><span>CPO Verified Registration</span></a>
+              <a href={CPO_REGISTER_URL} target="_blank" rel="noopener noreferrer" className={`text-white ${styles.registration}`}><ShieldCheckIcon aria-hidden="true" /><span>CPO Verified Registration</span></a>
             </>}
           </div>
 

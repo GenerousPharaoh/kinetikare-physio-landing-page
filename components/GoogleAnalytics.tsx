@@ -43,11 +43,12 @@ const GoogleAnalytics = () => {
       const status = (event as CustomEvent<{ status: string }>).detail?.status;
       if (status !== 'accepted' && status !== 'declined') return;
       const consent = status === 'accepted' ? 'granted' : 'denied';
+      // ad_personalization stays denied even on Accept: see the config below.
       window.gtag?.('consent', 'update', {
         analytics_storage: consent,
         ad_storage: consent,
         ad_user_data: consent,
-        ad_personalization: consent,
+        ad_personalization: 'denied',
       });
     };
     window.addEventListener('cookie-consent-updated', updateConsent);
@@ -75,12 +76,17 @@ const GoogleAnalytics = () => {
           try {
             if (localStorage.getItem('cookieConsentStatus') === 'declined') storedConsent = 'denied';
           } catch {}
+          // Condition pages reveal health interests, and Google does not allow
+          // remarketing audiences built from them, so ad personalisation is
+          // off for every visitor and every consent state (2026-10-11).
+          // Conversion measurement (bookings, calls, call-backs) is unaffected.
           gtag('consent', 'default', {
             analytics_storage: storedConsent,
             ad_storage: storedConsent,
             ad_user_data: storedConsent,
-            ad_personalization: storedConsent
+            ad_personalization: 'denied'
           });
+          gtag('set', 'allow_ad_personalization_signals', false);
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,

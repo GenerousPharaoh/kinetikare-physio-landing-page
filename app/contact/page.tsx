@@ -150,7 +150,7 @@ export default function ContactPage() {
             <span className="text-white" aria-current="page">Contact</span>
           </nav>
 
-          <div className="grid gap-y-10 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-16">
+          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-16">
             <div className="lg:col-span-7 lg:row-start-1">
               <h1 className="font-playfair !text-white text-4xl md:text-5xl tracking-tight leading-[1.05]">Contact</h1>
               <p className="mt-5 max-w-md text-lg text-slate-300 leading-relaxed">
@@ -257,7 +257,7 @@ export default function ContactPage() {
                 <article
                   key={clinic.site}
                   aria-labelledby={`clinic-${clinic.site}`}
-                  className="grid gap-x-8 gap-y-6 py-8 md:py-10 border-b border-slate-300 lg:grid-cols-12"
+                  className="grid grid-cols-1 gap-x-8 gap-y-6 py-8 md:py-10 border-b border-slate-300 lg:grid-cols-12"
                 >
                   <div className="lg:col-span-5">
                     <Image
@@ -288,7 +288,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="lg:col-span-3">
-                    <h4 className="text-sm font-medium text-slate-500 mb-2">My hours here</h4>
+                    <h4 className="text-sm font-medium text-slate-600 mb-2">My hours here</h4>
                     <ul className="divide-y divide-slate-200 border-y border-slate-200">
                       {days.map((d) => (
                         <li key={`${d.day}-${d.site}`} className="flex justify-between gap-4 py-2 text-[15px]">

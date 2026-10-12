@@ -22,8 +22,11 @@ function sendToGoogleAnalytics(metric: Metric) {
     }
 
     // Send to GA4 using the recommended event name pattern
-    // This allows GA4 to automatically track these metrics
+    // This allows GA4 to automatically track these metrics. send_to keeps
+    // these diagnostics out of the Google Ads tag, which receives every
+    // untargeted event otherwise.
     (window as any).gtag('event', metric.name, {
+      send_to: process.env.NEXT_PUBLIC_GA_ID,
       value: value,
       event_category: 'Web Vitals',
       event_label: metric.id,

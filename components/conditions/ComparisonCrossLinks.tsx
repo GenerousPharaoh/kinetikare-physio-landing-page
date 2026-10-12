@@ -25,10 +25,13 @@ interface ComparisonCrossLinksProps {
 
 // The question on each card ("Is this X or Y?") reads both conditions by their
 // singular short names. Three short names are table labels rather than words a
-// patient says, so the question uses a plain form for those (2026-10-11; the
-// page name gave "Is this meniscal injuries or ACL injury?").
+// patient says, so the question uses the wording of that comparison page's own
+// H1 for those ("Is it a rotator cuff problem or frozen shoulder?", "Is it hip
+// osteoarthritis or lateral hip pain (GTPS)?"), so the card and the page it
+// opens agree (2026-10-11; the page name gave "Is this meniscal injuries or
+// ACL injury?").
 const QUESTION_NAME: Record<string, string> = {
-  'rotator-cuff-injuries': 'a rotator cuff injury',
+  'rotator-cuff-injuries': 'a rotator cuff problem',
   'hip-osteoarthritis': 'hip osteoarthritis',
   'greater-trochanteric-pain-syndrome': 'lateral hip pain',
 };

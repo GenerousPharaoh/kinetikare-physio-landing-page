@@ -1,4 +1,4 @@
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -167,7 +167,7 @@ export default function ComparisonIndexPage() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href={JANE_BOOKING_URL} data-booking-source="compare_page"
+                  href={JANE_ASSESSMENT_URL} data-booking-source="compare_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"

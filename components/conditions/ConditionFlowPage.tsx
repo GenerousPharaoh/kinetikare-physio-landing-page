@@ -18,7 +18,7 @@ import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster'
 import { getConditionHub } from '@/lib/condition-hubs';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import { REHAB_PROGRESSION_SLUGS, REHAB_SCOPE_NOTES } from '@/lib/rehab-progression';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { inlineName } from '@/lib/text';
 import { guidesForRegion } from '@/lib/pain-guides';
 import { differentialHref, linkedDifferentialSlugs } from '@/lib/differential-links';
@@ -247,7 +247,7 @@ export default function ConditionFlowPage({
 
   const bookLine = (source: string, className = '') => (
     <a
-      href={JANE_BOOKING_URL}
+      href={JANE_ASSESSMENT_URL}
       data-booking-source={source}
       target="_blank"
       rel="noopener noreferrer"
@@ -301,7 +301,7 @@ export default function ConditionFlowPage({
 
               <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_ASSESSMENT_URL}
                   data-booking-source="condition_intro"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -804,7 +804,7 @@ export default function ConditionFlowPage({
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_ASSESSMENT_URL}
                   data-booking-source="condition_footer"
                   target="_blank"
                   rel="noopener noreferrer"

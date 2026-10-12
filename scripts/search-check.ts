@@ -56,7 +56,7 @@ const CASES: Case[] = [
   { q: 'dry needling', first: '/treatments/dry-needling' },
   { q: 'insurance', first: '/faq#billing' },
   { q: 'direct billing', first: '/faq#billing' },
-  { q: 'book appointment', within: ['https://endorphinshealth.janeapp.com/locations/endorphins-health-and-wellness-centre/book#/staff_member/42'], top: 2 },
+  { q: 'book appointment', within: ['https://endorphinshealth.janeapp.com/locations/endorphins-health-and-wellness-centre/book#/staff_member/42/treatment/133'], top: 2 },
   { q: 'plantar fasciits', first: '/conditions/plantar-fasciitis' }, // typo
   { q: 'neck pain', first: '/conditions/neck-pain' }, // not promoted, still found by name
   { q: 'xyzzy', none: true },

@@ -1,4 +1,4 @@
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import { SEO_ORGANIZATION_ID } from '@/lib/seo-metadata';
 import React from 'react';
@@ -574,7 +574,7 @@ export default function ServicesPage() {
               <h2 id="services-booking-heading">Book an Assessment</h2>
               <p>Book an initial assessment online. No referral is needed, and direct billing is available at Endorphins.</p>
             </div>
-            <a href={JANE_BOOKING_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
+            <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
           </div>
           <ul className={styles.trust}>
             {['Direct Insurance Billing', 'Evidence-Informed Treatment', 'Personalized Care'].map(item => <li key={item}><CheckIcon aria-hidden="true" />{item}</li>)}

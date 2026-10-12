@@ -1,6 +1,6 @@
 "use client";
 
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -235,7 +235,7 @@ export default function HeroSection() {
             {/* Buttons - Full width on mobile */}
             <div className="hero-rise flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-10" style={rise(4)}>
               <Link
-                href={JANE_BOOKING_URL}
+                href={JANE_ASSESSMENT_URL}
                 data-booking-source="hero"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -303,6 +303,31 @@ export default function HeroSection() {
               <span className="text-white/80 text-xs font-medium">5.0 on Google</span>
               <span className="text-white/70 text-xs">31 reviews</span>
             </motion.div>
+
+            {/* Straight to a body region (2026-10-11). On phones the page's own
+                "Where does it hurt?" section sits about halfway down, so the
+                menu was the only quick way in. Same heading as that section. */}
+            <nav aria-label="Conditions by body region" className="hero-rise mt-5 md:mt-6" style={rise(6)}>
+              <p className="text-white/70 text-[11px] md:text-xs font-medium tracking-wider uppercase mb-1">Where does it hurt?</p>
+              <ul className="flex flex-wrap gap-x-5 gap-y-0">
+                {[
+                  { label: 'Knee', href: '/conditions/knee-pain' },
+                  { label: 'Hip', href: '/conditions/hip-pain' },
+                  { label: 'Foot & ankle', href: '/conditions/foot-ankle-pain' },
+                  { label: 'Shoulder', href: '/conditions/shoulder-pain' },
+                  { label: 'All conditions', href: '/conditions' },
+                ].map((region) => (
+                  <li key={region.href}>
+                    <Link
+                      href={region.href}
+                      className="inline-flex min-h-[44px] items-center text-sm text-white underline decoration-white/30 underline-offset-4 transition-colors hover:text-[#D4AF37] hover:decoration-[#D4AF37]"
+                    >
+                      {region.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
           </div>
         </div>

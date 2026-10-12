@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import styles from './Services.module.css';
 
 export default function ServicesHero() {
@@ -12,7 +12,7 @@ export default function ServicesHero() {
           <h1 id="services-heading">Physiotherapy<br /><span>Services in Burlington</span></h1>
           <p className={styles.heroIntro}>Sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based care tailored to your goals</p>
           <div className={styles.heroActions}>
-            <a href={JANE_BOOKING_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}>
+            <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}>
               <span>Book Your Assessment</span>
             </a>
             <a href="#services-grid" className={styles.textLink}>Explore services <ArrowDownIcon aria-hidden="true" /></a>

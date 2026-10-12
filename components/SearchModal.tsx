@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useModalDialog } from '@/hooks/useModalDialog';
 import { searchSite } from '@/lib/site-search';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -268,7 +268,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         </div>
         <div className="grid shrink-0 grid-cols-2 gap-3 border-t border-slate-200 bg-slate-50 p-4">
           <a
-            href={JANE_BOOKING_URL} data-booking-source="search"
+            href={JANE_ASSESSMENT_URL} data-booking-source="search"
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}

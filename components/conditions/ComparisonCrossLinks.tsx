@@ -23,6 +23,18 @@ interface ComparisonCrossLinksProps {
   currentConditionName: string;
 }
 
+// The question on each card ("Is this X or Y?") reads both conditions by their
+// singular short names. Three short names are table labels rather than words a
+// patient says, so the question uses a plain form for those (2026-10-11; the
+// page name gave "Is this meniscal injuries or ACL injury?").
+const QUESTION_NAME: Record<string, string> = {
+  'rotator-cuff-injuries': 'a rotator cuff injury',
+  'hip-osteoarthritis': 'hip osteoarthritis',
+  'greater-trochanteric-pain-syndrome': 'lateral hip pain',
+};
+const questionName = (side: { slug: string; shortName: string }) =>
+  QUESTION_NAME[side.slug] ?? inlineName(side.shortName);
+
 export default function ComparisonCrossLinks({
   conditionSlug,
   currentConditionName,
@@ -50,10 +62,11 @@ export default function ComparisonCrossLinks({
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {comparisons.map((comparison: ConditionComparison) => {
-          const other =
+          const self =
             comparison.conditionA.slug === conditionSlug
-              ? comparison.conditionB
-              : comparison.conditionA;
+              ? comparison.conditionA
+              : comparison.conditionB;
+          const other = self === comparison.conditionA ? comparison.conditionB : comparison.conditionA;
 
           return (
             <li key={comparison.pair}>
@@ -63,7 +76,7 @@ export default function ComparisonCrossLinks({
               >
                 <div className="flex items-start justify-between gap-3">
                   <p className="m-0 font-medium text-slate-900 group-hover:text-[#8A6F0A] transition-colors text-base leading-snug">
-                    Is this {inlineName(currentConditionName)} or {inlineName(other.shortName)}?
+                    Is this {questionName(self)} or {questionName(other)}?
                   </p>
                   <ArrowRightIcon
                     className="h-3.5 w-3.5 text-slate-300 group-hover:text-[#B08D57] group-hover:translate-x-0.5 flex-shrink-0 mt-0.5 transition-all"
@@ -77,8 +90,7 @@ export default function ComparisonCrossLinks({
                 </span>
 
                 <p className="m-0 mt-2 text-sm text-slate-600 leading-relaxed">
-                  How I separate {inlineName(currentConditionName)} from{' '}
-                  {inlineName(other.shortName)} by pattern, tests, and exam findings.
+                  How I separate {questionName(self)} from {questionName(other)} by pattern, tests, and exam findings.
                 </p>
               </Link>
             </li>

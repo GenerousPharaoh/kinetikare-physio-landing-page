@@ -1,4 +1,4 @@
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_BOOKING_URL, JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import React from 'react';
 import { Metadata } from 'next';
@@ -130,7 +130,7 @@ const faqCategories: FAQCategory[] = [
             <strong>Plan:</strong> Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.
             {'\n\n'}
             Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and your agreed treatment plan.{' '}
-            <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Ready to book your first appointment?
             </Link>
             <div className="mt-4 pt-4 border-t border-gray-200">
@@ -142,7 +142,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   My Approach
                 </Link>
-                <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book First Visit
                 </Link>
               </div>
@@ -168,7 +168,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Assessment Details
                 </Link>
-                <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -194,7 +194,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/treatments/joint-mobilization" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Joint Mobilization
                 </Link>
-                <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -207,7 +207,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             No, you don't need X-rays or imaging before your first physiotherapy appointment. I can perform a thorough assessment without them. If imaging is necessary for your specific situation, I'll discuss this with you during your assessment and can provide guidance on next steps or communicate with your doctor.{' '}
-            <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book your assessment
             </Link>
             .
@@ -220,7 +220,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Conditions Treated
                 </Link>
-                <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -274,7 +274,7 @@ const faqCategories: FAQCategory[] = [
               Browse conditions I treat
             </Link>
             {' '}or{' '}
-            <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               book an assessment
             </Link>
             {' '}to discuss your specific situation.
@@ -287,7 +287,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Treatment Services
                 </Link>
-                <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -704,7 +704,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Conditions Treated
                 </Link>
-                <Link href={JANE_BOOKING_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="faq_page" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>

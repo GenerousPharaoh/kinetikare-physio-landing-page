@@ -19,7 +19,7 @@ import {
   ScaleIcon,
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import {
   contentDateFor,
@@ -267,7 +267,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href={JANE_BOOKING_URL}
+                  href={JANE_ASSESSMENT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-booking-source="guide_intro"
@@ -500,7 +500,7 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
                   <HoursList />
                   <div className="mt-6">
                     <Link
-                      href={JANE_BOOKING_URL}
+                      href={JANE_ASSESSMENT_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-booking-source="guide_footer"

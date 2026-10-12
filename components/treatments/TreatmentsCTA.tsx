@@ -1,6 +1,6 @@
 'use client';
 
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import React from 'react';
 import { m as motion } from 'framer-motion';
 import { CalendarIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
@@ -25,7 +25,7 @@ export default function TreatmentsCTA() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href={JANE_BOOKING_URL} data-booking-source="treatment_page"
+              href={JANE_ASSESSMENT_URL} data-booking-source="treatment_page"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

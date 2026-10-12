@@ -3,7 +3,7 @@
 // <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
 
 import { getScrollBehavior } from '@/lib/scroll';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import React, { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -233,6 +233,10 @@ function ConditionsPageWithParams({
               className="text-center"
             >
 
+              {/* The menu and breadcrumbs call this page "Conditions"; the
+                  eyebrow repeats that word over the "Treatment Areas" title
+                  (Kareem's term) so the two read as one page (2026-10-11). */}
+              <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#8A6F0A]">Conditions</p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
                 Treatment Areas
               </h1>
@@ -252,7 +256,7 @@ function ConditionsPageWithParams({
               <div className="text-center mb-4">
                 <p className="text-sm text-slate-500 mb-3">Not sure which condition applies to you?</p>
                 <Link
-                  href={JANE_BOOKING_URL} data-booking-source="conditions_index"
+                  href={JANE_ASSESSMENT_URL} data-booking-source="conditions_index"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-slate-950 text-sm font-semibold rounded hover:bg-[#E6C66A] transition-colors"

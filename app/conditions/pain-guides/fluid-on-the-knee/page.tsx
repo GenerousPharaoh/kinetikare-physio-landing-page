@@ -1,4 +1,4 @@
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -529,7 +529,7 @@ export default function FluidOnTheKneeGuidePage() {
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href={JANE_BOOKING_URL} data-booking-source="guide_page"
+                  href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
@@ -1087,7 +1087,7 @@ export default function FluidOnTheKneeGuidePage() {
 
                   <div className="mt-6">
                     <Link
-                      href={JANE_BOOKING_URL} data-booking-source="guide_page"
+                      href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="button-gold inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-colors"

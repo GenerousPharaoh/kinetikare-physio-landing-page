@@ -2,7 +2,7 @@ import { getAllConditions } from './conditions-data';
 import { treatments } from './treatments-data';
 import { getConditionHub } from './condition-hubs';
 import { bodyPartConditions, activityInjuries, symptomMappings } from './search-content';
-import { JANE_BOOKING_URL } from './booking';
+import { JANE_ASSESSMENT_URL } from './booking';
 import { PAIN_GUIDE_GROUPS } from './pain-guides';
 
 /**
@@ -242,7 +242,7 @@ const entries: SearchEntry[] = [
   {
     title: 'Book an assessment',
     description: 'Check appointment availability with Kareem on Jane.',
-    url: JANE_BOOKING_URL,
+    url: JANE_ASSESSMENT_URL,
     kind: 'Booking',
     keywords: ['book', 'booking', 'appointment', 'schedule', 'visit'],
   },

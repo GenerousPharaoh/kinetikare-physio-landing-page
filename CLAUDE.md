@@ -28,7 +28,8 @@ https://endorphinshealth.janeapp.com/locations/endorphins-health-and-wellness-ce
 ```
 
 Constants live in `lib/booking.ts`:
-- `JANE_BOOKING_URL` — use this for every internal booking CTA
+- `JANE_ASSESSMENT_URL` — for every CTA whose label promises an assessment or a first visit ("Book Initial Assessment", "Book an assessment for ...", "Book Your Assessment", "Book First Visit"). It opens the initial assessment's calendar directly (since 2026-10-11; 44 links switched).
+- `JANE_BOOKING_URL` — the general profile, for generic labels ("Book Now", "Book Online", "Book Appointment", the floating "Book") so returning patients can pick a follow-up
 - `BOOKING_PAGE_PATH = '/intake'` — **do not route booking CTAs through this**. It exists so `CookieBanner.tsx` can detect "user is on the ads landing page."
 
 The `/intake` page is reserved for **Google Ads traffic only**:
@@ -41,13 +42,13 @@ The `/intake` page is reserved for **Google Ads traffic only**:
 
 `BookingTracker.tsx` fires the Google Ads conversion sitewide on any Jane App or `tel:` link click. Attribution is handled by Google Ads via the `_gcl_aw` GCLID cookie — clicks from users without a recent ad interaction fire the event but are not credited to any campaign and do not push spend. Scoping conversion to `/intake` only was tried (commit `5efdeaa` on 2026-05-19, reverted 2026-05-26) and dropped legitimate multi-page ad-driven journeys (ad → /intake → another page → Book Now).
 
-When adding a new booking CTA anywhere, use `JANE_BOOKING_URL` + `target="_blank"` + `rel="noopener noreferrer"`. Never use `/intake` or `/book` as a booking destination.
+When adding a new booking CTA anywhere, use `JANE_ASSESSMENT_URL` if its label says assessment or first visit, otherwise `JANE_BOOKING_URL`, + `target="_blank"` + `rel="noopener noreferrer"`. Never use `/intake` or `/book` as a booking destination.
 
 Also give it a `data-booking-source="..."` attribute. `BookingTracker` reads it as the GA4 `event_label`; without it the click reports `site_link` and cannot be told apart from any other CTA. Existing labels: header, header_menu, hero, floating_mobile, floating_desktop, condition_intro, condition_management, condition_faq, condition_footer, intake_sticky_bar (added 2026-09-14, commit 3795feb; earlier weeks are all `site_link`).
 
 Kareem also practises at Headon Physio and PhysioMax Wellness, each with its own Jane instance. **Sitewide CTAs link to Endorphins' Jane only** (the ads, the schema and the Business Profile all point there). **The one exception is `/contact`** (Kareem's decision, 2026-09-14): it links all three booking pages, `PHYSIOMAX_BOOKING_URL` and `HEADON_BOOKING_URL` in `lib/booking.ts`, under a note that each clinic has its own Jane booking page. Do not add those two links anywhere else without asking. `BookingTracker` fires GA4 `booking_click` for any Jane host (labels `contact_endorphins` / `contact_physiomax` / `contact_headon` on that page) but the Google Ads conversion only for `endorphinshealth.janeapp.com`.
 
-The Business Profile appointment link is the deep link `https://endorphinshealth.janeapp.com/#/staff_member/42/treatment/133`, preferred (confirmed at the API 2026-09-14). It lands on the time picker for the initial assessment; `JANE_BOOKING_URL` deliberately stays the general entry for returning patients.
+The Business Profile appointment link is the deep link `https://endorphinshealth.janeapp.com/#/staff_member/42/treatment/133`, preferred (confirmed at the API 2026-09-14). It lands on the time picker for the initial assessment; `JANE_ASSESSMENT_URL` is the same link on the location path, and `JANE_BOOKING_URL` stays the general entry for generic labels.
 
 ## Contact page
 

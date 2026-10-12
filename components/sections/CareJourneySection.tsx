@@ -1,6 +1,6 @@
 "use client";
 
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
 import { m as motion } from 'framer-motion';
@@ -23,7 +23,7 @@ export default function CareJourneySection() {
       number: "01",
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
-      link: JANE_BOOKING_URL,
+      link: JANE_ASSESSMENT_URL,
       linkText: "Book an assessment",
       external: true
     },

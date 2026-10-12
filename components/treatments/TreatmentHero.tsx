@@ -1,6 +1,6 @@
 'use client';
 
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
 import { m as motion } from 'framer-motion';
@@ -68,7 +68,7 @@ export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
             className="flex flex-wrap gap-4"
           >
             <a
-              href={JANE_BOOKING_URL} data-booking-source="treatment_page"
+              href={JANE_ASSESSMENT_URL} data-booking-source="treatment_page"
               target="_blank"
               rel="noopener noreferrer"
               className="button-gold inline-flex items-center gap-2 px-8 py-4 font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"

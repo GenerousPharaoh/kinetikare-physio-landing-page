@@ -16,27 +16,27 @@
     "date": "2026-10-11"
   },
   "/conditions/ac-joint-injuries": {
-    "hash": "b83ae82e84444fb9",
+    "hash": "0682367acb4c34c5",
     "date": "2026-10-13"
   },
   "/conditions/achilles-tendinopathy": {
-    "hash": "96906ac8d8a48a95",
+    "hash": "38a3d8a1e38c3631",
     "date": "2026-10-13"
   },
   "/conditions/acl-injuries": {
-    "hash": "0c3611d7f210e088",
+    "hash": "80e4276b02d5141f",
     "date": "2026-10-13"
   },
   "/conditions/ankle-sprains": {
-    "hash": "04c61ef1d1f519b5",
+    "hash": "1a5dc1b1660376cf",
     "date": "2026-10-13"
   },
   "/conditions/biceps-tendinopathy": {
-    "hash": "046ba2c2f86c4200",
+    "hash": "5d33df2cd8a58d94",
     "date": "2026-10-13"
   },
   "/conditions/carpal-tunnel-syndrome": {
-    "hash": "b48cee4a7f664a16",
+    "hash": "21f6ed0ccd9ad84f",
     "date": "2026-10-13"
   },
   "/conditions/compare": {
@@ -60,8 +60,8 @@
     "date": "2026-10-10"
   },
   "/conditions/compare/rotator-cuff-vs-frozen-shoulder": {
-    "hash": "8a48429af0e4ac18",
-    "date": "2026-10-10"
+    "hash": "069adfbf5756a821",
+    "date": "2026-10-13"
   },
   "/conditions/compare/sciatica-vs-piriformis-syndrome": {
     "hash": "fa3f5f904dde3a37",
@@ -72,19 +72,19 @@
     "date": "2026-10-10"
   },
   "/conditions/de-quervains-tenosynovitis": {
-    "hash": "d0daac4f9958de19",
+    "hash": "e39311fbf06e87ee",
     "date": "2026-10-13"
   },
   "/conditions/degenerative-disc-disease": {
-    "hash": "ce543a3911b8afce",
+    "hash": "dd661cd64699a829",
     "date": "2026-10-13"
   },
   "/conditions/diabetes-related-conditions": {
-    "hash": "cd10c2d09e8cafe8",
+    "hash": "7265338591dd959e",
     "date": "2026-10-13"
   },
   "/conditions/disc-herniation": {
-    "hash": "df9f66847081b53a",
+    "hash": "063c806494cb59bb",
     "date": "2026-10-13"
   },
   "/conditions/elbow-pain": {
@@ -92,11 +92,11 @@
     "date": "2026-10-13"
   },
   "/conditions/facet-joint-syndrome": {
-    "hash": "bc53a75179c0b23b",
+    "hash": "f5d6eae268fd11ed",
     "date": "2026-10-13"
   },
   "/conditions/femoroacetabular-impingement": {
-    "hash": "9edcd2526c3b9c89",
+    "hash": "4dfce71b53344925",
     "date": "2026-10-13"
   },
   "/conditions/foot-ankle-pain": {
@@ -104,51 +104,51 @@
     "date": "2026-10-13"
   },
   "/conditions/frozen-shoulder": {
-    "hash": "0749e309e2d6003f",
+    "hash": "46ebc78182ecaadc",
     "date": "2026-10-13"
   },
   "/conditions/golfers-elbow": {
-    "hash": "644441e3c50ad433",
+    "hash": "01387cfddbf665ef",
     "date": "2026-10-13"
   },
   "/conditions/greater-trochanteric-pain-syndrome": {
-    "hash": "f4977bdec4531b02",
+    "hash": "144afc3a2c00d71a",
     "date": "2026-10-13"
   },
   "/conditions/groin-strains": {
-    "hash": "08ea3260feb1a5c0",
+    "hash": "d9edc58d56f21857",
     "date": "2026-10-13"
   },
   "/conditions/growth-plate-injuries": {
-    "hash": "f4a697107fe97da1",
+    "hash": "54e3afff74864aeb",
     "date": "2026-10-13"
   },
   "/conditions/hallux-rigidus": {
-    "hash": "f07ad574c57b2176",
+    "hash": "241f932529422f5a",
     "date": "2026-10-13"
   },
   "/conditions/hallux-valgus": {
-    "hash": "246bf76e4fb62c4e",
+    "hash": "b7aec3e390ab90fb",
     "date": "2026-10-13"
   },
   "/conditions/hammer-toe-deformities": {
-    "hash": "9d9dc492b9af38b3",
+    "hash": "d01f49994076fa6b",
     "date": "2026-10-13"
   },
   "/conditions/hamstring-strains": {
-    "hash": "490fa17a6ff78ae1",
+    "hash": "e653c606124e8ba8",
     "date": "2026-10-13"
   },
   "/conditions/hip-bursitis": {
-    "hash": "d569987535805fb6",
+    "hash": "6c6362ca9cd7b645",
     "date": "2026-10-13"
   },
   "/conditions/hip-labral-tears": {
-    "hash": "d21a568ecba40b33",
+    "hash": "1b657ece2ec638dd",
     "date": "2026-10-13"
   },
   "/conditions/hip-osteoarthritis": {
-    "hash": "f6f89b0cbc8c4427",
+    "hash": "5b2b89d5261acf5e",
     "date": "2026-10-13"
   },
   "/conditions/hip-pain": {
@@ -156,11 +156,11 @@
     "date": "2026-10-13"
   },
   "/conditions/it-band-syndrome": {
-    "hash": "f5e87010efe3e061",
+    "hash": "9812dbe2039210c9",
     "date": "2026-10-13"
   },
   "/conditions/knee-osteoarthritis": {
-    "hash": "b438b96b8b34b6e2",
+    "hash": "06b504b4a6456954",
     "date": "2026-10-13"
   },
   "/conditions/knee-pain": {
@@ -168,31 +168,31 @@
     "date": "2026-10-13"
   },
   "/conditions/knee-pain-patellofemoral": {
-    "hash": "6604502069542ca2",
+    "hash": "5c74007a5c850c58",
     "date": "2026-10-13"
   },
   "/conditions/low-back-pain": {
-    "hash": "e79cc4b02b56260d",
+    "hash": "4beff23c6a7624ee",
     "date": "2026-10-13"
   },
   "/conditions/mcl-lcl-sprains": {
-    "hash": "95c9aa33a14fdd39",
+    "hash": "782211da32bc95c5",
     "date": "2026-10-13"
   },
   "/conditions/meniscus-tears": {
-    "hash": "daa6329e58324ebc",
+    "hash": "f249999d75604313",
     "date": "2026-10-13"
   },
   "/conditions/metatarsalgia": {
-    "hash": "3f29fe3af32fa411",
+    "hash": "a14f484e7ad1c71e",
     "date": "2026-10-13"
   },
   "/conditions/mortons-neuroma": {
-    "hash": "1d19220a2e77cca6",
+    "hash": "fe7a95aa10ba380f",
     "date": "2026-10-13"
   },
   "/conditions/neck-pain": {
-    "hash": "088ee64abf6d2780",
+    "hash": "7746855ecab2887f",
     "date": "2026-10-13"
   },
   "/conditions/pain-guides": {
@@ -200,11 +200,11 @@
     "date": "2026-10-09"
   },
   "/conditions/pain-guides/fluid-on-the-knee": {
-    "hash": "fe2ff36f33cc2295",
+    "hash": "54e5bb93963a715f",
     "date": "2026-10-13"
   },
   "/conditions/pain-guides/joint-space-narrowing": {
-    "hash": "f9b20b065215f41d",
+    "hash": "676cf4b7668e3e6c",
     "date": "2026-10-13"
   },
   "/conditions/pain-guides/pain-below-kneecap": {
@@ -212,75 +212,75 @@
     "date": "2026-10-13"
   },
   "/conditions/patella-fractures": {
-    "hash": "9e1c062ffd5e0d8d",
+    "hash": "6dd6317de3604c74",
     "date": "2026-10-13"
   },
   "/conditions/patellar-tendinopathy": {
-    "hash": "1fa2afcea230162e",
+    "hash": "1b906ed09e0edb1f",
     "date": "2026-10-13"
   },
   "/conditions/pcl-injuries": {
-    "hash": "be68b71d4f61aa56",
+    "hash": "8a916493bb01c8ef",
     "date": "2026-10-13"
   },
   "/conditions/peroneal-tendinopathy": {
-    "hash": "9ee1ab53848f08c5",
+    "hash": "dd9e6f8f275cc4bd",
     "date": "2026-10-13"
   },
   "/conditions/piriformis-syndrome": {
-    "hash": "6a1d48a5dc1957da",
+    "hash": "6ca5b24a1046c6b8",
     "date": "2026-10-13"
   },
   "/conditions/plantar-fasciitis": {
-    "hash": "e8ef77de55ef428b",
+    "hash": "d44d67c70e935fb8",
     "date": "2026-10-13"
   },
   "/conditions/posterior-tibial-tendon-dysfunction": {
-    "hash": "4006969bb8f28afb",
+    "hash": "454facc4de8fd13a",
     "date": "2026-10-13"
   },
   "/conditions/postural-dysfunction": {
-    "hash": "93ba280c52c5fb7b",
+    "hash": "f1fd0f71f70300f5",
     "date": "2026-10-13"
   },
   "/conditions/proximal-hamstring-tendinopathy": {
-    "hash": "b8a685798328a182",
+    "hash": "325a53540b058727",
     "date": "2026-10-13"
   },
   "/conditions/repetitive-strain-injuries": {
-    "hash": "142b009fc0cf8dc6",
+    "hash": "949db6e01b8235d0",
     "date": "2026-10-13"
   },
   "/conditions/rotator-cuff-injuries": {
-    "hash": "6688db71cf9d4479",
+    "hash": "34801852c1bf7408",
     "date": "2026-10-13"
   },
   "/conditions/scaphoid-fractures": {
-    "hash": "5e850669005f0230",
+    "hash": "a6d34eb5eb906e17",
     "date": "2026-10-13"
   },
   "/conditions/sciatica": {
-    "hash": "d6e1121951d4f91c",
+    "hash": "e7999a78e12b990b",
     "date": "2026-10-13"
   },
   "/conditions/severs-disease": {
-    "hash": "f3055156ce0a5307",
+    "hash": "d632acb0edc9c401",
     "date": "2026-10-13"
   },
   "/conditions/shin-splints": {
-    "hash": "3669c53f7f0a346e",
+    "hash": "b6aac15e1c4497ef",
     "date": "2026-10-13"
   },
   "/conditions/shoulder-bursitis": {
-    "hash": "e25c6bcdcf509de6",
+    "hash": "0c220e933d82a037",
     "date": "2026-10-13"
   },
   "/conditions/shoulder-impingement": {
-    "hash": "323a3cb31681fe41",
+    "hash": "b3fdddec4d9b9d4a",
     "date": "2026-10-13"
   },
   "/conditions/shoulder-instability": {
-    "hash": "97e0c90b42dcd083",
+    "hash": "bb9ea14b90e21c9a",
     "date": "2026-10-13"
   },
   "/conditions/shoulder-pain": {
@@ -288,39 +288,39 @@
     "date": "2026-10-13"
   },
   "/conditions/si-joint-dysfunction": {
-    "hash": "ec4b50fed63fc198",
+    "hash": "e2fe2705bcbf485f",
     "date": "2026-10-13"
   },
   "/conditions/spinal-stenosis": {
-    "hash": "c1e31f4d6fdf5db9",
+    "hash": "28feba3143cbf7cc",
     "date": "2026-10-13"
   },
   "/conditions/stress-fractures": {
-    "hash": "a7e9097064c08957",
+    "hash": "8c4d50a0bb773d4c",
     "date": "2026-10-13"
   },
   "/conditions/tarsal-tunnel-syndrome": {
-    "hash": "7bdb37740509bb3b",
+    "hash": "4cdc3558b456d9cf",
     "date": "2026-10-13"
   },
   "/conditions/tennis-elbow": {
-    "hash": "b8c2a99864fb52bc",
+    "hash": "7ee5a4d6dcd5a82f",
     "date": "2026-10-13"
   },
   "/conditions/thoracic-outlet-syndrome": {
-    "hash": "de51bb94ab13153e",
+    "hash": "bd0cdcaf24bf9c4d",
     "date": "2026-10-13"
   },
   "/conditions/turf-toe": {
-    "hash": "138b77b0568dc010",
+    "hash": "7d9797eb20879461",
     "date": "2026-10-13"
   },
   "/conditions/whiplash": {
-    "hash": "61ee75f6a6050cf9",
+    "hash": "e1e15d0998db0763",
     "date": "2026-10-13"
   },
   "/conditions/wrist-sprains": {
-    "hash": "96704bcd5675d618",
+    "hash": "642452df8e4e9cc6",
     "date": "2026-10-13"
   },
   "/contact": {

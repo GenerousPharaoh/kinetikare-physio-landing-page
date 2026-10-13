@@ -234,11 +234,11 @@ export const REPORT_GUIDES: ReportGuide[] = [
             items: [
               {
                 lead: 'Exercise.',
-                text: 'Exercise had a similar effect whatever the X-ray grade, and programmes that focused on the quadriceps and were supervised at least three times a week did better (Juhl et al., 2014). Loading exercise did not harm cartilage on MRI (Bricca et al., 2019). Pain can rise a little when you start. Across trials the average benefit is modest, and people with more pain at the start tend to gain more (Lawford et al., 2024; Holden et al., 2023).',
+                text: 'Exercise had a similar effect whatever the X-ray grade, and programs that focused on the quadriceps and were supervised at least three times a week did better (Juhl et al., 2014). Loading exercise did not harm cartilage on MRI (Bricca et al., 2019). Pain can rise a little when you start. Across trials the average benefit is modest, and people with more pain at the start tend to gain more (Lawford et al., 2024; Holden et al., 2023).',
               },
               {
                 lead: 'Even with severe changes.',
-                text: 'In a trial of people already eligible for knee replacement, a 12-week programme of exercise, education and diet support improved pain and function, and two in three of them had not had the operation two years later (Skou et al., 2015 and 2018).',
+                text: 'In a trial of people already eligible for knee replacement, a 12-week program of exercise, education and diet support improved pain and function, and two in three of them had not had the operation two years later (Skou et al., 2015 and 2018).',
               },
               {
                 lead: 'Weight.',
@@ -399,7 +399,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         source: 'Juhl C et al., Arthritis & Rheumatology',
         year: 2014,
         summary:
-          'Systematic review and meta-regression of 48 trials. Exercise had a similar effect regardless of X-ray severity; quadriceps-focused and supervised programmes did better.',
+          'Systematic review and meta-regression of 48 trials. Exercise had a similar effect regardless of X-ray severity; quadriceps-focused and supervised programs did better.',
         refs: [{ pmid: '24574223' }],
       },
       {

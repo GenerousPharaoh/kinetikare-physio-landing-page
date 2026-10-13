@@ -259,7 +259,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How is a suprapatellar effusion treated?',
     answer:
-      'By treating what is causing it. The fluid usually settles as the underlying problem settles. For an osteoarthritis flare, that means adjusting load for a while and then a graded exercise programme, in line with the OARSI and NICE guidance. After an injury, it means a staged rehabilitation plan once a significant injury has been ruled out or managed. Compression, elevation and gentle movement help with comfort in the short term. Draining the knee is a medical decision, usually considered when the joint is very tense or the fluid needs testing. A newly hot or red knee needs same-day medical care, with or without a fever.',
+      'By treating what is causing it. The fluid usually settles as the underlying problem settles. For an osteoarthritis flare, that means adjusting load for a while and then a graded exercise program, in line with the OARSI and NICE guidance. After an injury, it means a staged rehabilitation plan once a significant injury has been ruled out or managed. Compression, elevation and gentle movement help with comfort in the short term. Draining the knee is a medical decision, usually considered when the joint is very tense or the fluid needs testing. A newly hot or red knee needs same-day medical care, with or without a fever.',
   },
   {
     question: 'Is fluid on the knee the same as a knee effusion?',

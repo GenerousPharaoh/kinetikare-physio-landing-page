@@ -396,7 +396,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
       {
         claim:
-          'In 452 people with atraumatic full-thickness rotator cuff tears, a structured physiotherapy programme improved symptoms, and about 75 percent had not chosen surgery at two years.',
+          'In 452 people with atraumatic full-thickness rotator cuff tears, a structured physiotherapy program improved symptoms, and about 75 percent had not chosen surgery at two years.',
         source:
           'Kuhn JE et al., "Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears." Journal of Shoulder and Elbow Surgery 2013; 22(10): 1371-1379.',
         refs: [{ pmid: '23540577' }],

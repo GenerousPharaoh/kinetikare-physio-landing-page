@@ -494,7 +494,7 @@ export default function ConditionFlowPage({
                     <ul className="space-y-4 max-w-[70ch]">
                       {condition.selfManagement.map((item) => (
                         <li key={item.strategy} className="text-base text-slate-700 leading-relaxed">
-                          <strong className="text-slate-900">{item.strategy}.</strong> {item.rationale}
+                          <strong className="text-slate-900">{item.strategy}.</strong> {sentence(item.rationale)}
                           {item.precautions && item.precautions.length > 0 && (
                             <span className="block mt-1 text-[15px] text-slate-600">{item.precautions.map(sentence).join(' ')}</span>
                           )}
@@ -700,8 +700,8 @@ export default function ConditionFlowPage({
                           </span>
                         )}
                         {title && <h3 className="text-base md:text-lg font-semibold text-slate-900 leading-snug mb-2">{title}</h3>}
-                        {body && <p className="m-0 mb-3 text-base text-slate-700 leading-relaxed">{body}</p>}
-                        {relevance && <p className="m-0 text-[15px] text-slate-600 leading-relaxed">{relevance}</p>}
+                        {body && <p className="m-0 mb-3 text-base text-slate-700 leading-relaxed">{sentence(body)}</p>}
+                        {relevance && <p className="m-0 text-[15px] text-slate-600 leading-relaxed">{sentence(relevance)}</p>}
                         <CitationLine research={r} />
                       </div>
                     );

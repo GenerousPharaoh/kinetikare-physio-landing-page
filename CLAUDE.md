@@ -19,6 +19,10 @@ Notes:
 - `npm run build` also runs `next-sitemap` and regenerates `public/sitemap.xml` **and** `public/robots.txt`. Do not hand-edit `robots.txt` — your changes will be wiped on the next build. Edit `next-sitemap.config.js` and let postbuild regenerate.
 - Local profiling artifacts are written under `output/` and are ignored by git.
 
+## Vercel firewall (2026-10-13)
+
+Bot Protection is set to **Challenge** (turned on in another session because of heavy ISR reads from bots). Anything that is not a real browser now gets `429` with `x-vercel-mitigated: challenge`: plain `curl`/`fetch` checks of the live site fail, so verify live pages with headless Chrome (Playwright passes the challenge). Verified crawlers (Googlebot, Bingbot, AdsBot) pass. Two custom rules, in this order, keep link previews working: **"Link previews: rate limit"** (60 requests per 60 s per IP, then deny) and **"Link previews: skip bot challenge"** (bypass), both for GET/HEAD with a user agent matching facebookexternalhit, Facebot, Twitterbot, WhatsApp, LinkedInBot, Slackbot, TelegramBot, Discordbot, SkypeUriPreview, Pinterestbot, redditbot, Embedly or Iframely. iMessage and WhatsApp build the preview card on the sender's phone, which Vercel cannot verify, so without the bypass the card was blank. Manage with `vercel --scope generouspharaohs-projects firewall rules list` (changes stage as drafts; `firewall diff`, then `firewall publish`).
+
 ## Booking Flow Architecture
 
 **All in-site "Book" CTAs go directly to Jane**, not through `/intake`:

@@ -171,6 +171,8 @@ From the hands-on UX audit and ChatGPT's review of it (`C:\Work\code\reports\Kin
 - **CPO register link** lives in `lib/registration.ts` (the College moved its register; the old portal URL ends on "Page Not Found").
 - **Ad personalisation is off** for every visitor and consent state (`ad_personalization: 'denied'`, `allow_ad_personalization_signals: false` in `GoogleAnalytics.tsx`); conversions are unaffected. Web Vitals events go to GA4 only (`send_to`).
 - Byline and /contact grey text moved from slate-500 to slate-600 (contrast). The /contact grids are `grid-cols-1` below lg so the email address wraps at 320px.
+- **"When to see a doctor first" is grouped by urgency** on condition pages, hubs and guides (`RedFlagBands` in `RedFlagsBox.tsx`, bands from `lib/red-flags.ts`): "Go to emergency", "Get seen today", "Check with your doctor". The band is the most urgent instruction anywhere in the action ("same-day; chest pain means go to emergency now" sits under emergency), and the action texts are unchanged. Run `node_modules/.bin/jiti scripts/red-flags-check.ts` after editing any `clinicalRedFlags` entry (`--all` prints every row).
+- **A symptom list must not present as normal what the same page's warning box flags.** Write the everyday version ("A brief feeling that the knee might give way, without it actually buckling", "Mild puffiness around the kneecap after activity") and leave fever, hot red swelling, arm swelling or colour change, and arm tingling on a posture page to the warning box only (fixed on 9 pages 2026-10-13). Related-condition blurbs do not claim kneecap "tracking" (the patellofemoral science section says that idea has not held up) or state causes as certainties.
 
 ## Research links on hubs, guides and comparisons (2026-10-10)
 

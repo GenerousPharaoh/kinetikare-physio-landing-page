@@ -31,6 +31,7 @@ import GlossaryText from './GlossaryText';
 import RelatedConditionsList from './RelatedConditionsList';
 import ComparisonCrossLinks from './ComparisonCrossLinks';
 import ConsentNote from './ConsentNote';
+import { RedFlagBands } from './RedFlagsBox';
 import Print from '@/components/Print';
 
 /**
@@ -450,17 +451,7 @@ export default function ConditionFlowPage({
                     <ExclamationTriangleIcon className="h-5 w-5 text-red-600" aria-hidden="true" />
                     <h2 className="text-xl md:text-2xl font-medium text-slate-900">When to see a doctor first</h2>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-5">
-                    {redFlags.map((flag) => (
-                      <div key={flag.sign} className="flex items-start gap-2.5">
-                        <div className="mt-[9px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                        <div>
-                          <p className="m-0 text-base font-medium text-slate-900 leading-snug">{flag.sign}</p>
-                          {flag.action && <p className="m-0 text-base text-slate-600 mt-1 leading-snug">{flag.action}</p>}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <RedFlagBands flags={redFlags} />
                 </div>
               </section>
             )}

@@ -103,7 +103,7 @@ const locationGuides: LocationGuide[] = [
     commonSources: [
       {
         slug: 'knee-pain-patellofemoral',
-        label: 'Patellofemoral pain (runner\'s knee)',
+        label: 'Patellofemoral pain (kneecap pain)',
         note: 'Diffuse pain around or under the kneecap, worse with stairs, squats, and sitting with bent knees.',
       },
       {

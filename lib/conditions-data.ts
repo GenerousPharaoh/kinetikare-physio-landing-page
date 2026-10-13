@@ -984,7 +984,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'hip-bursitis', relationshipType: 'symptomatic', explanation: 'Both cause hip pain; bursitis often secondary to altered mechanics from OA', relevanceScore: 6 }
   ],
   'femoroacetabular-impingement': [
-    { slug: 'hip-osteoarthritis', relationshipType: 'causal', explanation: 'FAI causes cartilage damage and predisposes to early hip arthritis', relevanceScore: 8 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'causal', explanation: 'FAI can wear the cartilage over time and is linked with earlier hip arthritis', relevanceScore: 8 },
     { slug: 'hip-labral-tears', relationshipType: 'causal', explanation: 'FAI is the primary cause of hip labral tears in young adults', relevanceScore: 9 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Hip impingement alters mechanics and can stress gluteal tendons', relevanceScore: 6 },
     { slug: 'groin-strains', relationshipType: 'symptomatic', explanation: 'Both cause groin/hip flexor pain; FAI can predispose to muscle strains', relevanceScore: 7 },
@@ -995,7 +995,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'hip-bursitis', relationshipType: 'symptomatic', explanation: 'GTPS was formerly called trochanteric bursitis; both cause lateral hip pain', relevanceScore: 8 },
     { slug: 'it-band-syndrome', relationshipType: 'anatomical', explanation: 'Both involve lateral hip/thigh structures; IT band tightness can contribute to GTPS', relevanceScore: 7 },
     { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Gluteal weakness from GTPS can contribute to back pain and instability', relevanceScore: 6 },
-    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Gluteal weakness affects knee mechanics and patellofemoral tracking', relevanceScore: 6 }
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Hip muscle weakness is common in both and can change how the knee is loaded', relevanceScore: 6 }
   ],
   'hip-labral-tears': [
     { slug: 'femoroacetabular-impingement', relationshipType: 'causal', explanation: 'FAI is the primary mechanism causing hip labral tears', relevanceScore: 9 },
@@ -1027,10 +1027,10 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'knee-pain-patellofemoral': [
     { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect the patellofemoral region; biomechanical factors often overlap', relevanceScore: 8 },
-    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both common in runners; IT band tightness can affect patellofemoral tracking', relevanceScore: 7 },
-    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Gluteal weakness contributes to both lateral hip pain and poor knee tracking', relevanceScore: 6 },
-    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Chronic patellofemoral dysfunction can lead to cartilage wear and arthritis', relevanceScore: 6 },
-    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters knee mechanics and patellofemoral joint stress', relevanceScore: 5 },
+    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both are common in runners and often flare after a sudden rise in mileage', relevanceScore: 7 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Hip muscle weakness is common in both, so rehab for either works on the hip', relevanceScore: 6 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Both cause pain at the front of the knee; after middle age, pain behind the kneecap is more often arthritis', relevanceScore: 6 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip arthritis can be felt in the knee, so the hip is checked in anyone with front-of-knee pain', relevanceScore: 5 },
     { slug: 'patella-fractures', relationshipType: 'anatomical', explanation: 'A healed kneecap fracture can leave patellofemoral pain and stiffness behind', relevanceScore: 5 }
   ],
   'acl-injuries': [
@@ -1107,7 +1107,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'severs-disease', relationshipType: 'causal', explanation: 'Both are common overuse injuries in young athletes with similar causes', relevanceScore: 6 }
   ],
   'peroneal-tendinopathy': [
-    { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Chronic ankle instability leads to peroneal tendon overuse and tendinopathy', relevanceScore: 8 },
+    { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Chronic ankle instability can overload the peroneal tendons', relevanceScore: 8 },
     { slug: 'achilles-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and treatment approaches', relevanceScore: 6 },
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve lateral structures; ankle dysfunction can affect entire lateral chain', relevanceScore: 5 },
     { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both involve lower leg overuse; shared biomechanical factors in athletes', relevanceScore: 5 },
@@ -1171,10 +1171,10 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'degenerative-disc-disease': [
     { slug: 'facet-joint-syndrome', relationshipType: 'causal', explanation: 'Disc degeneration increases load on facet joints leading to arthritis', relevanceScore: 7 },
-    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc degeneration predisposes to herniation and rupture', relevanceScore: 8 },
+    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Discs that are wearing can be more prone to herniation', relevanceScore: 8 },
     { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Disc degeneration contributes to spinal canal narrowing', relevanceScore: 7 },
     { slug: 'low-back-pain', relationshipType: 'causal', explanation: 'Degenerative disc disease is a common cause of chronic back pain', relevanceScore: 7 },
-    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Cervical disc degeneration commonly causes chronic neck pain', relevanceScore: 6 }
+    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Disc changes in the neck are common, with or without pain, and can be one source of it', relevanceScore: 6 }
   ],
   'spinal-stenosis': [
     { slug: 'degenerative-disc-disease', relationshipType: 'causal', explanation: 'Disc degeneration contributes to canal narrowing and stenosis', relevanceScore: 7 },
@@ -1254,7 +1254,7 @@ const intelligentRelationships: Record<string, Array<{
   'metatarsalgia': [
     { slug: 'mortons-neuroma', relationshipType: 'symptomatic', explanation: 'Both cause forefoot pain and can be confused diagnostically', relevanceScore: 8 },
     { slug: 'hallux-valgus', relationshipType: 'biomechanical', explanation: 'Bunions can cause transfer metatarsalgia due to altered weight distribution', relevanceScore: 8 },
-    { slug: 'hallux-rigidus', relationshipType: 'biomechanical', explanation: 'Stiff great toe causes transfer of forces to other metatarsals', relevanceScore: 7 },
+    { slug: 'hallux-rigidus', relationshipType: 'biomechanical', explanation: 'A stiff big toe can shift load onto the ball of the foot', relevanceScore: 7 },
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve forefoot loading and can share common biomechanical factors', relevanceScore: 6 },
     { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Toe deformities alter forefoot mechanics leading to metatarsalgia', relevanceScore: 7 },
     { slug: 'stress-fractures', relationshipType: 'symptomatic', explanation: 'Forefoot pain that does not settle with offloading needs a metatarsal stress fracture ruled out', relevanceScore: 7 }
@@ -1268,7 +1268,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'turf-toe', relationshipType: 'biomechanical', explanation: 'Both affect the big toe joint and change how the forefoot takes load when pushing off', relevanceScore: 6 }
   ],
   'hallux-rigidus': [
-    { slug: 'metatarsalgia', relationshipType: 'causal', explanation: 'Limited great toe motion causes increased loading of other metatarsals', relevanceScore: 7 },
+    { slug: 'metatarsalgia', relationshipType: 'causal', explanation: 'Limited big toe movement can increase the load on the ball of the foot', relevanceScore: 7 },
     { slug: 'hallux-valgus', relationshipType: 'anatomical', explanation: 'Both affect great toe joint; arthritis can develop in bunion joints', relevanceScore: 6 },
     { slug: 'severs-disease', relationshipType: 'biomechanical', explanation: 'Both involve altered toe function affecting push-off mechanics', relevanceScore: 5 },
     { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Limited toe extension can alter calf muscle function and Achilles loading', relevanceScore: 5 },

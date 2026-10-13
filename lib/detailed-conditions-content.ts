@@ -2543,7 +2543,7 @@ Previous knee injuries, such as an ACL injury or a meniscus tear, raise the risk
       ],
       associatedSymptoms: [
         "Reduced walking distance",
-        "Night pain in later stages",
+        "Aching at night in later stages",
         "The knee feeling unstable or buckling",
         "Muscle weakness",
         "A change in the way you walk"
@@ -5857,7 +5857,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
     clinicalPresentation: {
       primarySymptoms: [
         "Sharp, catching pain in the groin with certain movements",
-        "Clicking, catching, or locking sensations with hip movement",
+        "Clicking, catching, or a brief locking feeling with hip movement",
         "Deep aching pain in the groin or buttock region",
         "Pain when pivoting, twisting or turning on the leg",
         "Difficulty with movements that bend the hip deeply (squatting, sitting in low chairs)",
@@ -6105,15 +6105,13 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
         "Pain in one area over the irritated bursa (a small fluid-filled cushion)",
         "Pain when the area is pressed",
         "Pain with movements that squeeze or stretch the bursa",
-        "Swelling or warmth over the affected area (if severe)",
         "Pain that may spread down the outside of the thigh along the IT band (with bursitis on the side of the hip)"
       ],
       associatedSymptoms: [
         "Night pain, especially when lying on the painful side",
         "Pain with prolonged walking or stair climbing",
         "Stiffness in the hip region",
-        "Difficulty with activities that move the hip",
-        "Whole-body symptoms, such as fever, if the bursa is infected"
+        "Difficulty with activities that move the hip"
       ],
       typicalPattern: "It often develops after an injury or overuse, or as a result of another hip condition. Bursitis on the side of the hip (trochanteric bursitis) causes pain on the outer hip, while bursitis at the front (iliopsoas bursitis) causes pain at the front of the hip and in the groin."
     },
@@ -7571,8 +7569,6 @@ How the shoulder blades sit and move, how much the neck and upper chest muscles 
         "Symptoms along the inner forearm into the ring and little fingers (the ulnar nerve area)"
       ],
       associatedSymptoms: [
-        "Colour changes in the hand",
-        "Swelling in the arm",
         "Headaches",
         "Sensitivity to cold"
       ],
@@ -9090,12 +9086,12 @@ Training load matters too. A sudden increase in running, jumping, hills or stair
         "Dull, aching pain around or under the kneecap (often described as 'behind' the kneecap)",
         "Pain that gets worse when you bend the knee with weight on it, such as squatting or taking stairs",
         "Pain after sitting a long time with the knees bent, such as in a movie theatre (the \"theatre sign\")",
-        "Catching or grinding sensation with knee movement",
+        "A grinding or crackling feeling under the kneecap as the knee bends",
         "Pain during activities like running, jumping, or pivoting"
       ],
       associatedSymptoms: [
-        "Swelling around the kneecap area",
-        "A feeling that the knee is giving way or unstable",
+        "Mild puffiness around the kneecap after activity",
+        "A brief feeling that the knee might give way, without it actually buckling",
         "Stiffness after sitting still or resting for a long time",
         "Difficulty kneeling, or pain with direct pressure on the kneecap",
         "Pain on stairs, often worse going down"
@@ -9138,7 +9134,7 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
     },
 
     whatToExpect: {
-      firstVisit: "I'll assess your movement patterns during functional activities like squatting and single-leg tasks, identify factors contributing to poor patellar tracking, and start you with targeted exercises that address your specific impairments",
+      firstVisit: "I'll assess your movement patterns during functional activities like squatting and single-leg tasks, find out what is overloading the kneecap joint, and start you with targeted exercises that address your specific impairments",
       earlyPhase: "Initial focus is on pain management and beginning to address muscle imbalances, particularly hip and quadriceps strengthening",
       progression: "Exercise difficulty increases systematically based on your response - we progress from basic strengthening to functional movement patterns and sport-specific activities as appropriate"
     },
@@ -9228,7 +9224,7 @@ Treatment that focuses only on the kneecap can stall. Plans that build hip and t
         action: "Possible infection or inflammatory arthritis. Same-day medical assessment, even without a fever, or go to emergency if you feel unwell"
       },
       {
-        sign: "Locking or true giving way of the knee",
+        sign: "The knee locks, or truly gives way so that you stumble or fall",
         action: "Possible meniscus tear or other structural injury. See your family doctor or a sports medicine physician for assessment and imaging if needed"
       },
       {
@@ -9910,7 +9906,6 @@ Stress, poor sleep and a sudden increase in screen time make that end-of-day sor
         "Rounded shoulder appearance",
         "Forward head position when viewed from the side",
         "A hunched upper back (a larger curve in the upper back)",
-        "Occasional tingling or numbness in the arms",
         "Jaw tension or jaw joint problems (temporomandibular dysfunction)"
       ],
       typicalPattern: "I typically see people who work at computers or use devices frequently. They often describe feeling fine in the morning but developing neck and shoulder tension as the day progresses. Many notice their symptoms are worse during busy work periods and improve on weekends or vacations."
@@ -10378,8 +10373,7 @@ Resting posture has only a weak link with shoulder pain, so I spend more time bu
         "Shoulder weakness, especially when lifting the arm",
         "Clicking or grinding sensations during movement",
         "Less movement, especially overhead",
-        "Neck and upper back tension from working around the sore shoulder",
-        "Swelling or warmth over the shoulder (in a sudden, recent flare)"
+        "Neck and upper back tension from working around the sore shoulder"
       ],
       typicalPattern: "I typically see patients who describe a gradual onset of shoulder pain that started after a period of increased overhead activity or following a change in their usual routine. The pain is often worse at night and first thing in the morning, improving somewhat as they move around during the day."
     },
@@ -12543,7 +12537,7 @@ Intrinsic foot muscle weakness contributes to metatarsalgia by reducing the foot
         "Stiffness and reduced flexibility in the forefoot",
         "Hammer toes or claw toes developing over time",
         "Walking differently to avoid the painful areas",
-        "Swelling or inflammation around affected joints"
+        "Mild puffiness around the sore joints"
       ],
       typicalPattern: "Pain typically begins gradually. At first it comes only with high-impact activities, but later it affects normal walking too. Symptoms worsen throughout the day with activity and improve with rest. Morning stiffness may be present, and pain often increases toward evening after daily activities."
     },
@@ -12652,7 +12646,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
         action: "See your family doctor or urgent care for an X-ray to rule out a stress fracture, and limit weight-bearing until then"
       },
       {
-        sign: "Redness, heat, swelling, an open sore, or fever",
+        sign: "A red, hot, swollen forefoot, an open sore, or fever",
         action: "Same-day medical assessment for a possible infection, especially if you have diabetes"
       },
       {
@@ -13191,7 +13185,7 @@ Ground reaction forces during propulsion become redirected laterally toward the 
         "Walking differently to spare the toe, such as lifting the heel early or rolling onto the outer edge of the foot",
         "Pain under the ball of the foot behind the second and third toes, as load shifts there",
         "Shoes pressing painfully on the bump on top of the joint",
-        "Joint swelling and warmth during inflammatory flares",
+        "Some swelling around the joint during flare-ups",
         "Tired calf and forefoot muscles from the foot working differently",
         "Overuse injuries elsewhere in the foot, ankle or leg from moving differently"
       ],

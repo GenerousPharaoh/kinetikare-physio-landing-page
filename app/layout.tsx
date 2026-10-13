@@ -9,6 +9,7 @@ import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import CookieBanner from '@/components/CookieBanner';
 import BookingTracker from '@/components/BookingTracker';
+import VercelInsights from '@/components/VercelInsights';
 import FloatingButtons from '@/components/FloatingButtons';
 // MobileBottomNav removed — redundant with hamburger menu
 import { PerformanceProvider } from '@/context/PerformanceContext';
@@ -357,6 +358,8 @@ export default function RootLayout({
         <GoogleAnalytics />
         {/* Web Vitals tracking */}
         <WebVitals />
+        {/* Vercel Web Analytics + Speed Insights */}
+        <VercelInsights />
         
         {/* Schema.org structured data */}
         <script

@@ -21,7 +21,27 @@ import Script from 'next/script';
  * Initial `gtag('config', ...)` only fires the first pageview. Next.js App
  * Router client-side navigation does not retrigger it, so we manually fire
  * `page_view` on pathname/search changes to capture deeper-in-site views.
+ *
+ * Loading (2026-10-13): the small config script still runs right after
+ * hydration, so `gtag()` calls queue in dataLayer from the start, but the
+ * gtag.js library itself (about 150 KB) waits until the page has loaded and
+ * the browser is idle, so it does not compete with the first taps on the menu.
+ * Pressing a booking or phone link before then loads it at once, so the click
+ * is recorded and Jane links still get the cross-domain linker as soon as the
+ * library arrives. Queued events are sent when it loads; none are lost.
  */
+const GTAG_SRC = (id: string) => `https://www.googletagmanager.com/gtag/js?id=${id}`;
+
+function loadGtag(id: string) {
+  const w = window as Window & { __gtagRequested?: boolean };
+  if (w.__gtagRequested) return;
+  w.__gtagRequested = true;
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = GTAG_SRC(id);
+  document.head.appendChild(script);
+}
+
 const GoogleAnalytics = () => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
   const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
@@ -37,6 +57,30 @@ const GoogleAnalytics = () => {
       send_to: GA_MEASUREMENT_ID,
     });
   }, [pathname, GA_MEASUREMENT_ID]);
+
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID) return;
+    const load = () => loadGtag(GA_MEASUREMENT_ID);
+    const whenIdle = () => {
+      const ric = (window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback;
+      if (ric) ric(load, { timeout: 3000 });
+      else window.setTimeout(load, 1500);
+    };
+    if (document.readyState === 'complete') whenIdle();
+    else window.addEventListener('load', whenIdle, { once: true });
+    // A press on a booking or phone link loads it straight away.
+    const early = (event: Event) => {
+      const target = event.target as Element | null;
+      if (target?.closest?.('a[data-booking-source], a[href*="janeapp.com"], a[href^="tel:"]')) load();
+    };
+    document.addEventListener('pointerdown', early, { capture: true, passive: true });
+    document.addEventListener('keydown', early, { capture: true });
+    return () => {
+      window.removeEventListener('load', whenIdle);
+      document.removeEventListener('pointerdown', early, { capture: true });
+      document.removeEventListener('keydown', early, { capture: true });
+    };
+  }, [GA_MEASUREMENT_ID]);
 
   useEffect(() => {
     const updateConsent = (event: Event) => {
@@ -59,10 +103,6 @@ const GoogleAnalytics = () => {
 
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
       <Script id="google-analytics-config" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];

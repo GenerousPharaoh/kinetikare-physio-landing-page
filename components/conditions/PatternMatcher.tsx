@@ -189,7 +189,7 @@ export default function PatternMatcher({
             <ScaleIcon className="h-5 w-5" />
           </div>
           <div>
-            <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-900">
+            <h2 className="text-xl md:text-2xl font-medium tracking-tight text-slate-900">
               Is this my pattern?
             </h2>
             <p className="mt-1 text-sm md:text-base text-slate-600 leading-relaxed max-w-[58ch]">
@@ -355,13 +355,12 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
           <InformationCircleIcon className="h-6 w-6 text-[#B08D57] flex-shrink-0 mt-0.5" aria-hidden="true" />
           <div>
             <h3 className="text-xl font-semibold text-slate-900 tracking-tight">
-              Your answers don&rsquo;t line up with any single pattern.
+              Your answers don&rsquo;t point to one pattern.
             </h3>
             <p className="mt-2 text-base text-slate-700 leading-relaxed max-w-[62ch]">
-              That happens. {capitalize(cluster.regionNoun)} presentations overlap, and some
-              genuinely do not fit a tidy textbook pattern. This is where an in-person assessment
-              pulls its weight. I watch how the {cluster.regionNoun} moves, test specific
-              structures, and see how it behaves under load.
+              That is common. {capitalize(cluster.regionNoun)} problems overlap, and many do not
+              fit a textbook description. In an assessment I watch how the {cluster.regionNoun}{' '}
+              moves, test the structures that could be involved, and see how it responds to load.
             </p>
           </div>
         </div>
@@ -372,7 +371,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
 
   if (verdict.kind === 'lopsided') {
     const top = verdict.ranked[0];
-    const reasoning = buildLopsidedReasoning(top);
+    const reasoning = buildLopsidedReasoning(top, cluster.regionNoun);
     const isCurrent = top.slug === currentSlug;
     return (
       <div>
@@ -386,10 +385,9 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
 
         <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50/60 p-4">
           <p className="text-sm text-slate-600 leading-relaxed">
-            <span className="font-medium text-slate-800">Important:</span> this is a pattern match,
-            not a diagnosis. Several conditions share features, and this comparison cannot rule out
-            other causes. An assessment can help narrow the possibilities, and sometimes further
-            tests are needed.
+            <span className="font-medium text-slate-800">Important:</span> this compares patterns;
+            it is not a diagnosis. Other problems can share these features, and an assessment is
+            how to find out what is going on.
           </p>
         </div>
 
@@ -427,9 +425,9 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
         <span className="text-[#8A6F0A]">more than one pattern</span>.
       </h3>
       <p className="mt-3 text-base text-slate-700 leading-relaxed max-w-[64ch]">
-        Both of these match parts of what you described. An assessment can help tell them apart,
-        though some cases take more than one visit or further tests. Here is what lines up with
-        each, based on your answers.
+        Some of your answers point to each of these. Here is what lines up with each one. An
+        assessment can help tell them apart, and sometimes that takes more than one visit or a
+        scan arranged through your doctor.
       </p>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -440,7 +438,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
 
       <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50/60 p-4">
         <p className="text-sm text-slate-600 leading-relaxed">
-          <span className="font-medium text-slate-800">What typically distinguishes them:</span>{' '}
+          <span className="font-medium text-slate-800">Telling them apart:</span>{' '}
           {buildDistinguishingNote(candidates)}
         </p>
       </div>
@@ -474,7 +472,7 @@ function CandidateCard({ score, isCurrent }: { score: ConditionScore; isCurrent:
       <ul className="space-y-2">
         {supports.length === 0 && (
           <li className="text-sm text-slate-600">
-            No single answer strongly supported this, but your overall pattern still overlaps.
+            Your answers overlap with this pattern overall, without one standout feature.
           </li>
         )}
         {supports.map((d) => (
@@ -527,26 +525,26 @@ function BookCta({ onRestart }: { onRestart: () => void }) {
 // Reasoning text builders
 // ---------------------------------------------------------------------------
 
-function buildLopsidedReasoning(top: ConditionScore): string {
-  const supports = top.topDrivers.filter((d) => d.direction === 'supports');
-  if (supports.length === 0) {
-    return `Your answers line up more with ${top.name} than the other patterns in this cluster, though no single answer was decisive.`;
-  }
-  // Use up to the two strongest supports to build a one-paragraph reason.
-  const primary = supports[0];
-  const secondary = supports[1];
-  const lead = primary.phrase.replace(/^You answered "/, 'You said ').replace(/"/g, '').replace(/\.$/, '');
-  if (secondary) {
-    const follow = secondary.phrase.replace(/^You answered "/, 'you also said ').replace(/"/g, '').replace(/\.$/, '');
-    return `${lead}. ${capitalize(follow)}. Together, these lean toward ${top.name} more than the other patterns in this cluster.`;
-  }
-  return `${lead}. That pattern leans toward ${top.name} more than the other conditions on this page.`;
+function buildLopsidedReasoning(top: ConditionScore, regionNoun: string): string {
+  const name = inlineName(top.name);
+  const reasons = top.topDrivers
+    .filter((d) => d.direction === 'supports')
+    .slice(0, 2)
+    .map((d) => lowerFirst(d.phrase));
+  const fit = `Of the ${regionNoun} conditions compared here, it fits your answers best.`;
+  if (reasons.length === 0) return `Of the ${regionNoun} conditions compared here, your answers fit ${name} best, though no single answer stood out.`;
+  if (reasons.length === 1) return `One of your answers points toward ${name}: ${reasons[0]}. ${fit}`;
+  return `Two of your answers point toward ${name}: ${reasons[0]}, and ${reasons[1]}. ${fit}`;
 }
 
 function buildDistinguishingNote(candidates: ConditionScore[]): string {
   if (candidates.length < 2) return '';
   const [a, b] = candidates;
-  return `On exam, ${inlineName(a.name)} and ${inlineName(b.name)} usually separate by exactly where the pain sits, how it behaves under specific loads, and which movements or special tests reproduce it. That is what I work through during an assessment.`;
+  return `${capitalize(inlineName(a.name))} and ${inlineName(b.name)} are usually told apart by exactly where the pain sits, which movements and loads bring it on, and a few hands-on tests. That is what I check in an assessment.`;
+}
+
+function lowerFirst(s: string): string {
+  return s ? s.charAt(0).toLowerCase() + s.slice(1) : s;
 }
 
 function capitalize(s: string): string {

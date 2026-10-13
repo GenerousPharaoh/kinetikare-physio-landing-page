@@ -6,17 +6,11 @@ import {
   ChevronRightIcon,
   ExclamationTriangleIcon,
   ChevronDownIcon,
-  InformationCircleIcon,
   MapPinIcon,
-  AcademicCapIcon,
-  BeakerIcon,
-  QuestionMarkCircleIcon,
-  HeartIcon,
   CalendarIcon,
   PhoneIcon,
   ArrowRightIcon,
   ClockIcon,
-  ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
 import {
   contentDateFor,
@@ -601,11 +595,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-10 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-4">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  Overview
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Where it hurts helps guide the assessment
                 </h2>
               </div>
@@ -650,11 +645,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <MapPinIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-2">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  Location
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Where does it hurt?
                 </h2>
               </div>
@@ -717,11 +713,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-4">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  In clinic
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   How I approach foot and ankle pain in clinic
                 </h2>
               </div>
@@ -774,11 +771,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-4">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  Questions
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Foot and ankle questions I hear most
                 </h2>
               </div>
@@ -811,11 +809,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <BeakerIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-4">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  Research
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Evidence this page is built on
                 </h2>
               </div>
@@ -855,11 +854,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <HeartIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-4">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  Related conditions
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Related foot, ankle, and shin conditions
                 </h2>
               </div>
@@ -897,11 +897,12 @@ export default function FootAnklePainHubPage() {
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+              <div className="mb-4">
+                <p className="m-0 mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                  <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
+                  Treatments
+                </p>
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Treatments that commonly sit inside a foot and ankle plan
                 </h2>
               </div>
@@ -942,7 +943,7 @@ export default function FootAnklePainHubPage() {
                 <div className="p-2.5 bg-[#B08D57] rounded-xl">
                   <MapPinIcon className="h-5 w-5 text-white" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+                <h2 className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
                   Access, hours, and how to book
                 </h2>
               </div>

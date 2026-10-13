@@ -180,7 +180,7 @@ export default function Term({ termId, children }: TermProps) {
           <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
             {entry.term}
           </p>
-          <p className="mt-1.5 text-[13px] text-slate-700 leading-relaxed">
+          <p className="mt-1.5 text-sm text-slate-700 leading-relaxed">
             {entry.definition}
           </p>
         </span>

@@ -18,6 +18,7 @@ import { ELBOW_CLUSTER } from '../lib/pattern-matchers/elbow-cluster';
 import { FOOT_ANKLE_CLUSTER } from '../lib/pattern-matchers/foot-ankle-cluster';
 import { detailedConditionsContent } from '../lib/detailed-conditions-content';
 import { classify, scoreCluster, type ScoringConditions } from '../lib/pattern-matchers/scoring';
+import { QUESTION_FEATURES } from '../lib/pattern-matchers/features';
 
 const CLUSTERS: PatternMatcherCluster[] = [KNEE_CLUSTER, LOW_BACK_CLUSTER, SHOULDER_CLUSTER, HIP_CLUSTER, ELBOW_CLUSTER, FOOT_ANKLE_CLUSTER];
 
@@ -83,6 +84,16 @@ for (const p of KNEE_PERSONAS) {
     `  ${ok ? 'ok  ' : 'FAIL'} ${p.name.padEnd(38)} ${verdict.kind.padEnd(9)} shows: ${shown.join(' + ') || '(none)'}   ` +
       ranked.slice(0, 3).map((r) => `${r.slug} ${fmt(r.raw)}`).join(' | '),
   );
+}
+
+// Every question needs a plain result phrase (lib/pattern-matchers/features.ts).
+for (const cluster of CLUSTERS) {
+  for (const q of cluster.questions) {
+    if (!QUESTION_FEATURES[q.id]) {
+      console.log(`FAIL ${cluster.key}: no result phrase for question ${q.id}`);
+      failures++;
+    }
+  }
 }
 
 console.log(failures ? `\n${failures} failure(s)` : '\nAll checks passed');

@@ -494,7 +494,7 @@ What tends to help is variety and capacity: changing position often, moving the 
         year: 2024,
         journal: "Bulletin of Faculty of Physical Therapy",
         sampleSize: "60 participants",
-        findings: "In a trial of 60 adults with long-standing neck pain, adding training for the deep muscles at the front of the neck (deep cervical flexors) to usual physiotherapy improved pain and the sense of where the neck is positioned (proprioception) more than usual physiotherapy alone, after 4 weeks of treatment.",
+        findings: "In a trial of 60 adults with long-standing neck pain, adding training for the deep muscles at the front of the neck (deep cervical flexors) to usual physiotherapy improved pain and the sense of where the neck is positioned (proprioception) more than usual physiotherapy alone, after 4 weeks of treatment. A third group that added hands-on mobilization (Maitland) also did better than usual physiotherapy alone, but not as well as the neck flexor group.",
         relevance: "Suggests adding deep neck flexor training to usual physiotherapy may help pain and position sense in long-standing neck pain. It was a small trial (60 people) with results measured after four weeks of treatment",
         citation: "Amin FS, Abdel-Aal NM, El Shater BS. Effect of Maitland mobilization versus deep cervical flexors muscles training on proprioception in adults with chronic mechanical neck pain: a randomized controlled trial. Bull Fac Phys Ther. 2024;29:34. doi: 10.1186/s43161-024-00200-y."
       },
@@ -2160,7 +2160,7 @@ The "position of no return" happens during cutting movements when your foot plan
     evidenceSnapshot: {
       primaryStrategy: "For an ACL tear managed without surgery, training that builds up balance, landing and knee control step by step (neuromuscular training) can improve knee stability and function in a majority of cases, especially for recreational activities and straight-line sports.",
       secondaryStrategy: "Strengthening the front and back thigh muscles (quadriceps and hamstrings) restores strength and improves knee control, which is essential whether or not you have surgery.",
-      preventionStrategy: "Injury prevention programs that teach safer landing and better knee control can meaningfully reduce the risk of ACL injury in sports with cutting and pivoting. In groups who kept up the program, the risk fell by around 50%.",
+      preventionStrategy: "Injury prevention programs that teach safer landing and better knee control can meaningfully reduce the risk of ACL injury in sports with cutting and pivoting. A 2018 review that combined eight earlier reviews (Webster and Hewett) found these programs cut the risk of ACL injury by about half, mostly in studies of female athletes; there is too little data to say how well they work in male athletes.",
       sources: "JOSPT ACL Guidelines; British Journal of Sports Medicine Consensus"
     },
 
@@ -2349,7 +2349,7 @@ The "position of no return" happens during cutting movements when your foot plan
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Early Recovery After Surgery (Weeks 0 to 6 After ACL Reconstruction)",
-        focus: "Protect the new ligament (the graft), get the knee fully straight to match the other side, reduce swelling in the joint, and get the front thigh muscle (quadriceps) switching on again. The 2023 Aspetar clinical guideline on ACL rehab (Kotsifaki and colleagues) treats this as the phase for working on specific problems such as stiffness, swelling and weakness (the impairment-based phase). Not getting the knee fully straight in the early weeks is one of the strongest predictors of poor long-term results, so regaining it matters more than pushing the bend too fast.",
+        focus: "Protect the new ligament (the graft), get the knee fully straight to match the other side, reduce swelling in the joint, and get the front thigh muscle (quadriceps) switching on again. The 2023 Aspetar clinical guideline on ACL rehab (Kotsifaki and colleagues) treats this as the phase for working on specific problems such as stiffness, swelling and weakness (the impairment-based phase). Not getting the knee fully straight in the early weeks is linked with poorer long-term results, so regaining it matters more than pushing the bend too fast.",
         examples: [
           "Quad sets (tightening the thigh muscle with the leg straight) and straight leg raises without the knee sagging (extension lag), to get the thigh muscle contracting on command again",
           "Heel hangs lying face down and heel props lying on your back, to regain full straightening of the knee, matching the other side",
@@ -4849,7 +4849,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       },
       {
         question: "Do I need surgery for carpal tunnel syndrome?",
-        answer: "Not everyone. Mild to moderate cases respond to conservative care, including night splinting, activity modification, nerve gliding, and ergonomic changes. Shi and colleagues' 2020 systematic review comparing surgical and non-surgical treatment found surgery gave somewhat better function and symptom scores than splinting or injection at 6 months, while both approaches helped. I typically recommend surgical consultation when there is constant numbness, visible wasting of the muscle at the base of the thumb (thenar wasting), muscle weakness, or when 6 to 12 weeks of appropriate conservative care has not changed the picture."
+        answer: "Not everyone. Mild to moderate cases respond to non-surgical care, including night splinting, activity modification, nerve gliding, and ergonomic changes. Shi and colleagues' 2020 systematic review comparing surgical and non-surgical treatment found surgery gave somewhat better function and symptom scores than splinting or injection at 6 months, while both approaches helped. A 2024 Cochrane review (Lusa and colleagues) found more people improved with surgery than with a splint in the long term, but judged the differences in symptom and hand function scores too small to matter to most patients. I typically recommend surgical consultation when there is constant numbness, visible wasting of the muscle at the base of the thumb (thenar wasting), muscle weakness, or when 6 to 12 weeks of appropriate non-surgical care has not changed the picture."
       },
       {
         question: "How long should I try splints and therapy before considering surgery?",
@@ -8251,7 +8251,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     prognosis: {
       timeline: "Recovery is measured in months. Some improvement often comes within 2 weeks, with substantial progress by 6 to 8 weeks, and most people improve over 3 to 6 months.",
       factors: [
-        "Having symptoms for more than 3 months is the strongest predictor of a slower recovery",
+        "Having symptoms for more than 3 months is linked with a slower recovery",
         "Stress at work and little support from others (psychosocial factors) substantially affect how well you recover",
         "Middle age (45 to 54) is linked with a longer recovery",
         "The shape of the bony point of the shoulder (the acromion) does not predict how you will recover",

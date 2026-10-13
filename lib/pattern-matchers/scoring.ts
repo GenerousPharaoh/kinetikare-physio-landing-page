@@ -13,6 +13,7 @@ import type {
   PatternMatcherCluster,
   PatternMatcherQuestion,
 } from './knee-cluster';
+import { QUESTION_FEATURES } from './features';
 
 /** The slice of a condition the scorer reads. */
 export type ScoringConditions = Record<
@@ -108,34 +109,6 @@ export function markerUpperBound(marker: MarkerSignal): number {
   return 0;
 }
 
-function humanize(answer: MatcherAnswer): string {
-  switch (answer) {
-    case 'yes':
-      return 'yes';
-    case 'somewhat':
-      return 'somewhat';
-    case 'no':
-      return 'no';
-    case 'unsure':
-      return 'unsure';
-  }
-}
-
-function describeMarker(marker: MarkerSignal): string {
-  switch (marker) {
-    case 'strong_yes':
-      return 'characteristically yes';
-    case 'yes':
-      return 'usually yes';
-    case 'neutral':
-      return 'ambiguous';
-    case 'no':
-      return 'usually no';
-    case 'strong_no':
-      return 'characteristically no';
-  }
-}
-
 /**
  * Compute scores for each condition in the cluster. Questions the user marked
  * 'unsure' contribute nothing. Conditions without `patternMatcher` markers are
@@ -181,7 +154,7 @@ export function scoreCluster(
           markerSignal: marker.signal,
           contribution,
           direction: contribution > 0 ? 'supports' : 'argues_against',
-          phrase: buildDriverPhrase(question.text, answer, marker.signal, contribution > 0),
+          phrase: buildDriverPhrase(question, answer),
         });
       }
     }
@@ -203,22 +176,15 @@ export function scoreCluster(
 }
 
 /**
- * Render a short, plain-language phrase describing how a given answer
- * contributes to (or against) a condition. No percentages, no scores.
+ * The answer as a short plain phrase from `QUESTION_FEATURES` ("Going down
+ * stairs worse than going up"), shown in the result as a reason. The same
+ * phrase serves whether the answer supports or argues against a condition;
+ * `direction` says which.
  */
-function buildDriverPhrase(
-  questionText: string,
-  answer: MatcherAnswer,
-  marker: MarkerSignal,
-  supports: boolean,
-): string {
-  const trimmed = questionText.replace(/\?$/, '').toLowerCase();
-  const answerWord = humanize(answer);
-  const markerWord = describeMarker(marker);
-  if (supports) {
-    return `You answered "${answerWord}" to: "${trimmed}". That pattern is ${markerWord} for this condition.`;
-  }
-  return `You answered "${answerWord}" to: "${trimmed}". That pattern is ${markerWord} for this condition, which argues against it.`;
+function buildDriverPhrase(question: PatternMatcherQuestion, answer: MatcherAnswer): string {
+  const feature = QUESTION_FEATURES[question.id];
+  if (feature) return answer === 'no' ? feature[1] : feature[0];
+  return question.text.replace(/\?$/, '');
 }
 
 // ---------------------------------------------------------------------------

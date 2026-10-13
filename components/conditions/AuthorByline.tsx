@@ -71,7 +71,7 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
       aria-label={ariaLabel}
       className="mt-6 border-t border-slate-200/80 pt-3"
     >
-      <address className="not-italic text-[13px] leading-relaxed text-slate-600">
+      <address className="not-italic text-sm leading-relaxed text-slate-600">
         {/* Line 1: person. Name is the visual anchor; role follows on the
             same line. Credentials and CPO fall to a softer secondary line
             so the primary line never has to fight for room with 4 tokens. */}

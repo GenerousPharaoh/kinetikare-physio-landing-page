@@ -50,3 +50,15 @@ export function groupRedFlags<T extends RedFlag>(flags: ReadonlyArray<T>) {
     flags: flags.filter((f) => redFlagUrgency(f) === band.urgency),
   })).filter((band) => band.flags.length > 0);
 }
+
+/**
+ * One line for the "Key points" box, naming the most urgent kind of warning on
+ * the page, so the box never makes the list sound calmer than it is.
+ */
+export function redFlagSummary(flags: ReadonlyArray<RedFlag>): string | null {
+  if (flags.length === 0) return null;
+  const urgencies = new Set(flags.map(redFlagUrgency));
+  if (urgencies.has('emergency')) return 'Some signs need emergency care. Check the list before you start treatment.';
+  if (urgencies.has('today')) return 'Some signs need medical care the same day. Check the list before you start treatment.';
+  return 'Some signs need a visit to your doctor before physiotherapy. Check the list before you start.';
+}

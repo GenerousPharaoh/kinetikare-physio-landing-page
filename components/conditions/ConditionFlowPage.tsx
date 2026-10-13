@@ -32,6 +32,8 @@ import RelatedConditionsList from './RelatedConditionsList';
 import ComparisonCrossLinks from './ComparisonCrossLinks';
 import ConsentNote from './ConsentNote';
 import { RedFlagBands } from './RedFlagsBox';
+import { redFlagSummary } from '@/lib/red-flags';
+import { CONDITION_KEY_POINTS } from '@/lib/condition-key-points';
 import Print from '@/components/Print';
 
 /**
@@ -85,7 +87,7 @@ function Heading({
         <span aria-hidden="true" className="h-px w-8 bg-[#B08D57]/60" />
         {eyebrow}
       </p>
-      <h2 id={id} className="text-[28px] md:text-4xl font-light tracking-tight leading-[1.15] text-slate-900">
+      <h2 id={id} className="text-[28px] md:text-4xl font-normal tracking-tight leading-[1.15] text-slate-900">
         {children}
       </h2>
     </div>
@@ -126,7 +128,7 @@ function CitationLine({ research }: { research: NonNullable<Condition['keyResear
 const sentence = (s: string) => (/[.!?]$/.test(s.trim()) ? s.trim() : `${s.trim()}.`);
 
 const Para = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
-  <p className={`text-base md:text-[17px] text-slate-700 leading-relaxed max-w-[70ch] ${className}`}>{children}</p>
+  <p className={`text-base text-slate-700 leading-relaxed max-w-[70ch] ${className}`}>{children}</p>
 );
 
 export default function ConditionFlowPage({
@@ -153,6 +155,20 @@ export default function ConditionFlowPage({
       ? condition.clinicalRedFlags
       : (condition.redFlags && condition.redFlags.length > 0 ? condition.redFlags : condition.whenToSeek ?? []).map((sign) => ({ sign }));
   const scienceText = condition.pathophysiology || condition.overview;
+  // Key points: two lines condensed from this page (lib/condition-key-points.ts),
+  // the first two self-care items and the most urgent warning band. Each row
+  // links to the section that says it in full.
+  const keyPointText = CONDITION_KEY_POINTS[conditionSlug];
+  const firstSteps = (condition.selfManagement ?? []).slice(0, 2).map((item) => sentence(item.strategy)).join(' ');
+  const warningLine = redFlagSummary(redFlags);
+  const keyPoints = keyPointText
+    ? [
+        { label: 'What usually helps', text: keyPointText.helps, href: '#treatment' },
+        { label: 'What you can do now', text: firstSteps, href: '#self-care' },
+        { label: 'How long it takes', text: keyPointText.time, href: '#recovery' },
+        { label: 'When to see a doctor first', text: warningLine, href: '#red-flags' },
+      ].filter((row): row is { label: string; text: string; href: string } => Boolean(row.text))
+    : [];
   const researchInsights = condition.researchInsights ?? [];
   const keyResearch = condition.keyResearch ?? [];
   const nameLower = inlineName(condition.name);
@@ -363,7 +379,7 @@ export default function ConditionFlowPage({
           {/* On this page (desktop rail) */}
           <aside className="hidden lg:block">
             <nav aria-label="On this page" className="sticky top-32 z-10 pt-12">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-3">On this page</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 mb-3">On this page</p>
               <ul className="space-y-1 border-l border-slate-200">
                 {sections.map((s) => (
                   <li key={s.id}>
@@ -385,6 +401,33 @@ export default function ConditionFlowPage({
           </aside>
 
           <div className="min-w-0">
+            {/* Key points: the page in four lines, for someone reading for 30 seconds. */}
+            {keyPoints.length > 0 && (
+              <section aria-labelledby="key-points-heading" className="pt-12">
+                <div className="rounded-xl border border-[#B08D57]/35 bg-white px-5 py-6 sm:px-7">
+                  <h2 id="key-points-heading" className="m-0 mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+                    Key points
+                  </h2>
+                  <dl className="m-0 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+                    {keyPoints.map((row) => (
+                      <div key={row.label}>
+                        <dt>
+                          <a
+                            href={row.href}
+                            className="group inline-flex min-h-[24px] items-center gap-1.5 text-base font-semibold text-slate-900 hover:text-[#8A6F0A] transition-colors"
+                          >
+                            {row.label}
+                            <ArrowDownIcon className="h-3.5 w-3.5 text-[#B08D57]" aria-hidden="true" />
+                          </a>
+                        </dt>
+                        <dd className="m-0 mt-1 text-base leading-relaxed text-slate-700">{row.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </section>
+            )}
+
             {/* Does this sound like you? */}
             {(condition.clinicalPresentation || hasPatternMatcher) && (
               <section id="symptoms" className="scroll-mt-28 py-14">
@@ -463,17 +506,17 @@ export default function ConditionFlowPage({
                 <Heading eyebrow="Treatment">How it is treated</Heading>
                 {primary && (
                   <Para className="mb-4">
-                    <strong className="text-slate-900">Main approach.</strong> {sentence(primary)}
+                    <strong className="font-semibold text-slate-900">Main approach.</strong> {sentence(primary)}
                   </Para>
                 )}
                 {secondary && (
                   <Para className="mb-4">
-                    <strong className="text-slate-900">Alongside it.</strong> {sentence(secondary)}
+                    <strong className="font-semibold text-slate-900">Alongside it.</strong> {sentence(secondary)}
                   </Para>
                 )}
                 {prevention && (
                   <Para className="mb-8">
-                    <strong className="text-slate-900">Managing it over time.</strong> {sentence(prevention)}
+                    <strong className="font-semibold text-slate-900">Managing it over time.</strong> {sentence(prevention)}
                   </Para>
                 )}
 
@@ -490,11 +533,11 @@ export default function ConditionFlowPage({
 
                 {condition.selfManagement && condition.selfManagement.length > 0 && (
                   <div className="mt-10">
-                    <h3 className="text-2xl font-light tracking-tight text-slate-900 mb-4">What you can do now</h3>
+                    <h3 id="self-care" className="scroll-mt-28 text-2xl font-normal tracking-tight text-slate-900 mb-4">What you can do now</h3>
                     <ul className="space-y-4 max-w-[70ch]">
                       {condition.selfManagement.map((item) => (
                         <li key={item.strategy} className="text-base text-slate-700 leading-relaxed">
-                          <strong className="text-slate-900">{item.strategy}.</strong> {sentence(item.rationale)}
+                          <strong className="font-semibold text-slate-900">{item.strategy}.</strong> {sentence(item.rationale)}
                           {item.precautions && item.precautions.length > 0 && (
                             <span className="block mt-1 text-[15px] text-slate-600">{item.precautions.map(sentence).join(' ')}</span>
                           )}
@@ -506,7 +549,7 @@ export default function ConditionFlowPage({
 
                 {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                   <div className="mt-10">
-                    <h3 className="text-2xl font-light tracking-tight text-slate-900 mb-4">What I use in clinic</h3>
+                    <h3 className="text-2xl font-normal tracking-tight text-slate-900 mb-4">What I use in clinic</h3>
                     {condition.treatmentApproach?.description && <Para className="mb-4">{condition.treatmentApproach.description}</Para>}
                     {condition.treatmentApproach?.techniques && (
                       <ul className="space-y-3 mb-6 max-w-[70ch]">
@@ -518,7 +561,7 @@ export default function ConditionFlowPage({
                               <span>
                                 {rest.length > 0 ? (
                                   <>
-                                    <strong className="text-slate-900">{title}.</strong> {sentence(rest.join(': '))}
+                                    <strong className="font-semibold text-slate-900">{title}.</strong> {sentence(rest.join(': '))}
                                   </>
                                 ) : (
                                   title
@@ -560,7 +603,7 @@ export default function ConditionFlowPage({
                   <ol className="mb-6 space-y-4 max-w-[70ch]">
                     {condition.timeline.map((phase) => (
                       <li key={phase.phase} className="text-base text-slate-700 leading-relaxed">
-                        <strong className="text-slate-900">{phase.phase}</strong>{' '}
+                        <strong className="font-semibold text-slate-900">{phase.phase}</strong>{' '}
                         <span className="text-[#8A6F0A]">({phase.duration})</span>. {sentence(phase.description)}
                       </li>
                     ))}
@@ -581,7 +624,7 @@ export default function ConditionFlowPage({
                 )}
                 {condition.measuringProgress?.dayToDay && (
                   <Para className="mt-6 text-slate-600">
-                    <strong className="text-slate-900">How I track it.</strong> {condition.measuringProgress.dayToDay}
+                    <strong className="font-semibold text-slate-900">How I track it.</strong> {condition.measuringProgress.dayToDay}
                   </Para>
                 )}
               </section>
@@ -725,7 +768,7 @@ export default function ConditionFlowPage({
                         <li key={insight} className="text-base text-slate-700 leading-relaxed">
                           {colon > -1 ? (
                             <>
-                              <strong className="text-slate-900">{insight.slice(0, colon).trim()}.</strong> {insight.slice(colon + 1).trim()}
+                              <strong className="font-semibold text-slate-900">{insight.slice(0, colon).trim()}.</strong> {insight.slice(colon + 1).trim()}
                             </>
                           ) : (
                             insight
@@ -740,7 +783,7 @@ export default function ConditionFlowPage({
 
             {regionGuides.length > 0 && (
               <section aria-labelledby="region-guides" className="border-t border-slate-200 pt-12 pb-2">
-                <h3 id="region-guides" className="text-2xl font-light tracking-tight text-slate-900">
+                <h3 id="region-guides" className="text-2xl font-normal tracking-tight text-slate-900">
                   Guides on {guideRegion.toLowerCase()} pain
                 </h3>
                 <p className="m-0 mt-1 mb-5 text-[15px] text-slate-600">
@@ -789,7 +832,7 @@ export default function ConditionFlowPage({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
           <div className="grid gap-10 md:grid-cols-[1fr_300px] md:items-center lg:grid-cols-[1fr_340px] lg:gap-16">
             <div>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-slate-900 mb-3">Getting back to it</h2>
+              <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-slate-900 mb-3">Getting back to it</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-8 max-w-[48ch]">
                 Physiotherapy for {nameLower}, built around the activity you want back.
               </p>

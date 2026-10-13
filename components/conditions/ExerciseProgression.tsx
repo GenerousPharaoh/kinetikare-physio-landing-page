@@ -16,9 +16,10 @@ import type { ExerciseProgressionPhase } from '@/lib/conditions-data';
  * can actually see.
  *
  * The framing is deliberately educational, not prescriptive: an intro that
- * presents the phases as examples, a prominent "using these safely" note, and a
- * per-phase "Examples, not a prescription" label placed right at the specific
- * sets and reps. Renders nothing when no progression data is supplied.
+ * presents the phases as examples and one "using these safely" note. The
+ * "not individual advice" point is made once there; the intro, that note and a
+ * per-phase "Examples, not a prescription" label used to say it three times
+ * (cut 2026-10-13). Renders nothing when no progression data is supplied.
  *
  * Flat, not carded: it sits inside the treatment section's ivory ground, so a
  * hairline opens it and hairlines separate the phases. Each phase is a
@@ -96,7 +97,7 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
       data-section="rehab-progression"
       className="scroll-mt-40 border-t border-[#B08D57]/30 pt-8"
     >
-      <h3 className="text-2xl md:text-3xl font-light tracking-tight leading-tight text-slate-900">
+      <h3 className="text-2xl md:text-3xl font-normal tracking-tight leading-tight text-slate-900">
         A typical rehabilitation progression
       </h3>
       <p className="m-0 mt-2 text-base text-slate-600 max-w-[60ch]">
@@ -105,12 +106,10 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
 
       <div className="mt-6 space-y-6">
         {/* Intro framing */}
-        <p className="m-0 text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+        <p className="m-0 text-base text-slate-700 leading-relaxed max-w-[72ch]">
           Recovery from {name} is usually staged: calm the symptoms first, then rebuild the strength
-          and capacity of the area, then return to your full activities. The phases below are examples
-          of how rehabilitation may progress. The exercises, timing and milestones depend on the
-          diagnosis, your symptoms and any medical or surgical restrictions, so they are not a
-          personal program.
+          and capacity of the area, then return to your full activities. The phases below show how
+          that can progress.
         </p>
 
         {/* Condition-specific scope / clearance note (higher-stakes conditions only) */}
@@ -140,12 +139,10 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
             Using these safely
           </p>
           <p className="m-0 text-base text-slate-700 leading-relaxed max-w-[72ch]">
-            These are general examples, not individual advice. The right exercises, the right load,
-            and the right pace depend on an assessment of your specific situation, and two people
-            with the same diagnosis can need very different programs. Before you try anything here,
-            it is worth having your movement assessed so you know it suits you and that you can
-            perform it safely with good technique. Build up gradually, and back off if symptoms get
-            worse instead of settling.
+            These are general examples, not individual advice. The right exercises, load and pace
+            depend on your diagnosis, your symptoms and any medical or surgical restrictions, and an
+            assessment can tell you which of these suit you. Build up gradually, and back off if
+            symptoms get worse instead of settling.
             {hasWarningSigns && ' If any of the warning signs listed on this page apply to you, hold off and get assessed first.'}
           </p>
         </aside>
@@ -178,8 +175,8 @@ export default function ExerciseProgression({ progression, conditionName, scopeN
 
                   {phase.examples && phase.examples.length > 0 && (
                     <div>
-                      <p className="m-0 mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                        Examples, not a prescription
+                      <p className="m-0 mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+                        Example exercises
                       </p>
                       <ul className="space-y-2">
                         {phase.examples.map((ex, i) => (

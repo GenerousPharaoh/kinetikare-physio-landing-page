@@ -178,7 +178,7 @@ export default function ConditionFlowPage({
     conditionSlug === 'diabetes-related-conditions'
       ? { label: 'Related problems', eyebrow: 'Related problems', heading: 'Problems this page covers' }
       : { label: 'Similar conditions', eyebrow: 'Similar conditions', heading: 'Conditions that can feel similar' };
-  const GUIDE_REGION: Record<string, string> = { knee: 'Knee' };
+  const GUIDE_REGION: Record<string, string> = { knee: 'Knee', 'foot-ankle': 'Foot & Ankle' };
   const guideRegion = GUIDE_REGION[condition.category];
   const regionGuides = guideRegion ? guidesForRegion(guideRegion) : [];
 

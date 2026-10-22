@@ -426,6 +426,385 @@ export const REPORT_GUIDES: ReportGuide[] = [
     treatmentsIntro: 'None of these is a stand-alone fix. They are pieces that fit inside a plan built around exercise.',
     relatedTreatmentIds: ['exercise-therapy', 'joint-mobilization', 'post-surgical-rehabilitation'],
   },
+  {
+    slug: 'heel-spur',
+    title: 'Plantar Calcaneal Spur (Heel Spur) on X-Ray in Burlington',
+    description:
+      'A plantar calcaneal spur on a foot X-ray report: what the wording means, how it relates to heel pain, and physiotherapy in Burlington. Direct billing.',
+    h1: 'Plantar Calcaneal Spur (Heel Spur)',
+    lede:
+      'A plantar calcaneal spur is a small ledge of extra bone on the underside of the heel bone, seen on a side view X-ray. Heel spurs are common in people with no heel pain at all. The phrase describes the shape of the bone, not the cause of the pain or what to do about it. This guide covers what the wording on the report means, what it does and does not tell you, and what the treatment guidelines recommend.',
+    breadcrumbLabel: 'Heel Spur',
+    region: 'foot and ankle',
+    hub: { label: 'Foot & Ankle Pain', href: '/conditions/foot-ankle-pain' },
+    plate: { src: '/images/guides/heel-spur.webp', caption: 'Heel bone and sole' },
+    about: {
+      name: 'Plantar calcaneal spur',
+      alternateName: [
+        'Heel spur',
+        'Calcaneal spur',
+        'Calcaneal enthesophyte',
+        'Plantar calcaneal enthesophyte',
+        'Inferior calcaneal spur',
+      ],
+    },
+    redFlags: [
+      {
+        sign: 'Heel pain after a fall, a jump from a height or a snap or pop, or you cannot walk or stand on tiptoe',
+        action: 'Seek same-day medical assessment and keep weight off the foot until it is checked.',
+      },
+      {
+        sign: 'A newly hot, red or swollen heel or foot, with or without a fever, or feeling unwell',
+        action: 'Seek same-day medical assessment to rule out infection, or go to emergency if you feel unwell.',
+      },
+      {
+        sign: 'Diabetes and a new wound, blister or change in skin colour on the foot',
+        action: 'Get it seen today by your doctor or diabetes foot care team. Foot problems can be more serious with diabetes.',
+      },
+      {
+        sign: 'Pain that keeps building after more walking or running, or a move to harder ground, with pain when the sides of the heel are squeezed',
+        action: 'See your doctor to rule out a stress fracture of the heel bone before loading it further.',
+      },
+      {
+        sign: 'Burning, tingling or numbness in the heel or sole',
+        action: 'See your family doctor. A trapped nerve in the foot, or a nerve from the lower back, needs to be checked.',
+      },
+      {
+        sign: 'Pain in both heels with morning stiffness over half an hour, back pain at night, or other swollen joints',
+        action: 'See your family doctor to check for an inflammatory arthritis.',
+      },
+      {
+        sign: 'A history of cancer, unexplained weight loss, or constant pain at night that is not linked to activity',
+        action: 'See your family doctor for a medical workup before starting physiotherapy.',
+      },
+    ],
+    sections: [
+      {
+        id: 'report-wording',
+        heading: 'What “plantar calcaneal spur” means on an X-ray report',
+        icon: 'clipboard',
+        showPlate: true,
+        blocks: [
+          {
+            type: 'p',
+            lead: 'What it is.',
+            text: 'The calcaneus is the heel bone. A plantar calcaneal spur is a small outgrowth of bone on its underside, pointing forward toward the arch. It shows on a side view of the foot or ankle, usually taken standing. It grows roughly parallel to the ground rather than down into the sole.',
+          },
+          {
+            type: 'p',
+            lead: 'Where it sits.',
+            text: 'The common picture is a spur growing where the plantar fascia pulls on the heel. Anatomy studies found something different: most spurs sit just above the plantar fascia, among the attachments of the small muscles of the sole, and only a few sit inside the fascia itself (Abreu et al., 2003; Kumai and Benjamin, 2002). The internal structure of the bone lines up with the load of standing and walking rather than with the pull of the fascia, which has led researchers to read the spur as a response to load through the heel (Li and Muehleman, 2007; Menz et al., 2008). The samples were small, and the cause is still debated.',
+          },
+          {
+            type: 'p',
+            lead: 'The words that come with it.',
+            text: 'Reports name the same finding several ways and add a few standard words. These are the ones you are most likely to see.',
+          },
+          {
+            type: 'table',
+            columns: ['On the report', 'What it means'],
+            rows: [
+              {
+                term: 'Plantar calcaneal spur, plantar heel spur, inferior or subcalcaneal spur',
+                meaning: 'Bony outgrowth on the underside of the heel bone. All of these name the same finding.',
+              },
+              {
+                term: 'Calcaneal enthesophyte or plantar calcaneal enthesophyte',
+                meaning:
+                  'The same finding, named after where it grows. An enthesis is the place where a tendon, ligament or fascia attaches to bone.',
+              },
+              {
+                term: 'Calcaneal spurring',
+                meaning: 'The same finding. “Spurring” is the usual radiology wording.',
+              },
+              {
+                term: 'Is noted, is seen, is present, is evident',
+                meaning: 'The radiologist saw it. These words do not signal concern or urgency.',
+              },
+              {
+                term: 'Small, moderate or large',
+                meaning:
+                  'The reader’s own description of size. There is no standard cut-off. Research sometimes sorts spurs as under 5 mm, 5 to 10 mm and over 10 mm (Ahmad et al., 2016).',
+              },
+              {
+                term: 'A measurement in millimetres',
+                meaning: 'The length of the spur from its base to its tip on the side view.',
+              },
+              {
+                term: 'Bilateral',
+                meaning: 'Spurs on both heels. Common, especially with age.',
+              },
+              {
+                term: 'Degenerative or enthesopathic change',
+                meaning: 'Change at the attachment that comes with load and age. It is not a disease label.',
+              },
+              {
+                term: 'Posterior, dorsal or Achilles enthesophyte',
+                meaning:
+                  'A spur at the back of the heel, where the Achilles tendon attaches. A different place and a different problem, covered below.',
+              },
+              {
+                term: 'Plantar fascia thickening (ultrasound or MRI)',
+                meaning:
+                  'The fascia is thicker than usual where it attaches to the heel. More than 4 mm is the usual research threshold (McMillan et al., 2009). It often comes with a spur.',
+              },
+            ],
+          },
+          {
+            type: 'p',
+            lead: 'A spur at the back of the heel is a separate finding.',
+            text: 'A posterior, dorsal or Achilles enthesophyte sits where the Achilles tendon joins the heel bone. It is also common in people without symptoms, and when it hurts it goes with insertional Achilles tendinopathy, which has its own plan. The [Achilles tendinopathy page](/conditions/achilles-tendinopathy) covers it. Reports often mention spurs at both sites together.',
+          },
+        ],
+      },
+      {
+        id: 'what-it-tells-you',
+        heading: 'What it does and does not tell you',
+        icon: 'scale',
+        blocks: [
+          {
+            type: 'p',
+            lead: 'It is common without pain.',
+            text: 'How often spurs turn up depends on age and on who was X-rayed. In one study of people with pain in one heel, spurs were found in 85 percent of the painful feet and in 72 percent of the painless feet on the other side (Okcu et al., 2023). Spurs become more common with age and with higher body weight (Menz et al., 2008).',
+          },
+          {
+            type: 'p',
+            lead: 'It travels with heel pain, but is not shown to cause it.',
+            text: 'People with heel pain on the underside of the heel are more likely to have a spur. A review of the imaging studies judged this “an association only and unlikely to be the cause of pain”, and found the spur of limited relevance to treatment unless it is fractured (Drake et al., 2022).',
+          },
+          {
+            type: 'p',
+            lead: 'It rarely comes alone.',
+            text: 'In adults over 50 with foot pain, a spur on its own was found in 6 percent of feet. Much more often it sat alongside a thickened plantar fascia (Menz et al., 2019).',
+          },
+          {
+            type: 'p',
+            lead: 'Size is not a reliable guide.',
+            text: 'Some studies link longer spurs with more pain and others find no link, and in some treatment studies larger spurs improved more. Size has not shown a consistent link with how much it hurts or how well it recovers.',
+          },
+          {
+            type: 'p',
+            lead: 'It did not change the long-term outlook.',
+            text: 'In a study that followed people with plantar fasciitis for 5 to 15 years, having a spur at the start made no difference to how they recovered (Hansen et al., 2018).',
+          },
+          {
+            type: 'p',
+            lead: 'It usually stays on the X-ray.',
+            text: 'In treatment studies the spur mostly looked the same afterwards while the pain improved (Lee et al., 2003; Yalcin et al., 2012). Heel pain can improve without the spur changing.',
+          },
+        ],
+      },
+      {
+        id: 'guidelines',
+        heading: 'What the treatment guidelines recommend',
+        icon: 'shield',
+        intro:
+          'Treatment is aimed at the painful heel, most often plantar fasciitis, not at the spur. No guideline recommends a different plan because a spur is present (Koc et al., 2023; Morrissey et al., 2021).',
+        blocks: [
+          {
+            type: 'list',
+            items: [
+              {
+                lead: 'Education and load.',
+                text: 'Understanding what the spur is and is not, and adjusting how much standing, walking and running the heel takes for a while, are part of core care in a best practice guide built from trials, clinicians and patients (Morrissey et al., 2021).',
+              },
+              {
+                lead: 'Stretching and taping.',
+                text: 'Plantar fascia and calf stretching and taping of the foot carry the strongest grade in the physical therapy guideline for heel pain, taping for short-term relief alongside other care (Koc et al., 2023).',
+              },
+              {
+                lead: 'Strengthening.',
+                text: 'The guideline recommends resistance training for the foot and ankle muscles. In one trial, high-load heel raises improved function faster than stretching at three months, with no difference at one year (Rathleff et al., 2015).',
+              },
+              {
+                lead: 'Hands-on care.',
+                text: 'Joint mobilization and soft tissue work for the foot, ankle and calf are recommended alongside exercise to ease pain and restore movement (Koc et al., 2023).',
+              },
+              {
+                lead: 'Night splints and insoles.',
+                text: 'Night splints are recommended for people who keep getting pain with the first steps in the morning. Insoles and heel cups are not recommended on their own for short-term relief, but can be added to other care (Koc et al., 2023).',
+              },
+              {
+                lead: 'Shockwave.',
+                text: 'Shockwave can be effective for heel pain that has not improved with core care, on low to moderate certainty evidence (Morrissey et al., 2021). Results were similar with and without a spur in several studies, and it does not reliably remove the spur.',
+              },
+              {
+                lead: 'Injections.',
+                text: 'A steroid injection may slightly reduce heel pain for about a month, on low quality evidence, and rare risks include rupture of the plantar fascia (David et al., 2017). It is arranged through your doctor.',
+              },
+              {
+                lead: 'Surgery.',
+                text: 'Considered for a small number of people after a long period of well-run non-surgical care, and decided with a surgeon. Removing the spur is not usually the aim, and in one series adding spur removal to fascia surgery was linked with slower recovery (Cooperman et al., 2025).',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'closer-look',
+        heading: 'When the report deserves a closer look',
+        icon: 'warning',
+        blocks: [
+          {
+            type: 'list',
+            items: [
+              {
+                text: 'The report describes the spur as fractured or broken. That is rare, and it is managed as a fracture.',
+              },
+              {
+                text: 'It describes an ill-defined spur, erosions, or spurs at several attachments, or mentions an inflammatory arthritis. That pattern can point to a reactive or psoriatic arthritis and needs a doctor’s assessment.',
+              },
+              {
+                text: 'An MRI shows bone marrow oedema through the body of the heel bone, which can be a stress reaction, or a tear of the plantar fascia.',
+              },
+              {
+                text: 'An MRI mentions wasting of a small muscle on the outer side of the sole (abductor digiti minimi), which can go with irritation of a nerve under the heel (Chundru et al., 2008).',
+              },
+              {
+                text: 'The report flags something unrelated to the spur elsewhere in the bone. Ask the doctor who ordered the X-ray to go through it with you.',
+              },
+              {
+                text: 'The pain does not follow the usual pattern of first-step pain under the heel, or has not improved after a fair trial of well-run care. Imaging and other diagnoses are worth reconsidering then (Koc et al., 2023).',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'approach',
+        heading: 'How I approach a heel spur in clinic',
+        icon: 'academic',
+        consentNote: true,
+        blocks: [
+          {
+            type: 'p',
+            text: 'I start with the heel, not the report. Where exactly it hurts, whether the first steps in the morning or after sitting are the worst, how long you are on your feet in a day and on what surfaces, what shoes you wear, what changed before it started, and what you have already tried. I also ask what you were told about the spur, because the idea of a sharp bone point in the heel shapes what people feel safe doing.',
+          },
+          {
+            type: 'p',
+            text: 'On examination I check where the tenderness is, test ankle and big toe movement, calf strength with single-leg heel raises, balance and how you walk. I screen for a stress fracture, a trapped nerve and a problem at the back of the heel, and for the lower back when the symptoms suggest it. I record a few measures I can repeat so you can see whether the plan is working.',
+          },
+          {
+            type: 'p',
+            text: 'The plan is built around the painful heel: explaining what the spur means, adjusting load for a while, calf and plantar fascia stretching, taping for short-term relief, and progressive strengthening of the calf and foot. Joint mobilization, soft tissue work and dry needling to the calf sit alongside the exercise where they help. If the heel has not improved with that, shockwave is a reasonable next step, and I coordinate with your family doctor when an injection or a surgical opinion is worth discussing.',
+          },
+        ],
+      },
+    ],
+    faqHeading: 'Heel spur questions I hear most',
+    faqs: [
+      {
+        question: 'What does a plantar calcaneal spur mean on an X-ray?',
+        answer:
+          'A small outgrowth of bone on the underside of the heel bone, seen on the side view. It is common in people without heel pain, and it describes the shape of the bone rather than the cause of any pain.',
+      },
+      {
+        question: 'What does “small plantar calcaneal spur is noted” mean?',
+        answer:
+          '“Noted” means the radiologist saw it, and “small” is their own description of size. There is no standard cut-off. A small spur is a common finding and does not by itself mean anything needs to be done.',
+      },
+      {
+        question: 'Is a heel spur the same as plantar fasciitis?',
+        answer:
+          'No. They often turn up together, but a heel spur is a finding on the bone and plantar fasciitis is irritation of the thick band under the foot. People with heel pain are more likely to have a spur, but the spur is not shown to cause the pain.',
+      },
+      {
+        question: 'Do heel spurs cause pain?',
+        answer:
+          'Not on their own, as far as the evidence shows. Spurs are common in painless feet, and having one did not change long-term recovery in a 5 to 15 year study. The pain usually comes from the tissues around the heel.',
+      },
+      {
+        question: 'Can a heel spur go away?',
+        answer:
+          'The spur usually stays on the X-ray. In treatment studies it mostly looked the same afterwards while the pain improved, so the goal is a pain-free heel rather than a different X-ray.',
+      },
+      {
+        question: 'What is the difference between a calcaneal enthesophyte and a heel spur?',
+        answer:
+          'Nothing. “Enthesophyte” is the radiology word for bone growing where a tendon, ligament or fascia attaches. “Heel spur” is the everyday name for the same thing. An osteophyte is different: it forms at the edge of a joint.',
+      },
+      {
+        question: 'What is a posterior calcaneal enthesophyte?',
+        answer:
+          'A spur at the back of the heel, where the Achilles tendon attaches. It is common without symptoms, and when it hurts it goes with insertional Achilles tendinopathy, which is managed differently from heel pain under the foot.',
+      },
+      {
+        question: 'Does stretching help a heel spur?',
+        answer:
+          'Calf and plantar fascia stretching are recommended for heel pain under the foot. They treat the painful tissue, not the spur, which stays the same.',
+      },
+      {
+        question: 'Does shockwave therapy work for heel spurs?',
+        answer:
+          'Shockwave can be effective for heel pain that has not improved with core care. It does not reliably remove the spur, and results were similar with and without a spur in several studies.',
+      },
+      {
+        question: 'Do I need surgery to remove a heel spur?',
+        answer:
+          'Rarely. Removing the spur is not usually the aim of heel pain surgery, which is considered only after a long period of well-run non-surgical care, and decided with a surgeon.',
+      },
+      {
+        question: 'Do I need an MRI or ultrasound?',
+        answer:
+          'Usually not. Imaging is generally not needed when the symptoms fit plantar fasciitis, unless care is not working or something else is suspected, such as a stress fracture, a tear or a trapped nerve.',
+      },
+    ],
+    research: [
+      {
+        title: 'Heel Pain - Plantar Fasciitis: Revision 2023',
+        source: 'Koc TA Jr et al., Journal of Orthopaedic & Sports Physical Therapy',
+        year: 2023,
+        summary:
+          'Clinical practice guideline. Recommends manual therapy, plantar fascia and calf stretching and taping (strongest grade), resistance training for the foot and ankle, night splints for first-step pain, and orthoses only alongside other care. Imaging is usually not needed for typical plantar fasciitis unless care is not working.',
+        refs: [{ pmid: '38037331' }],
+      },
+      {
+        title: 'Management of plantar heel pain: a best practice guide informed by a systematic review, expert clinical reasoning and patient values',
+        source: 'Morrissey D et al., British Journal of Sports Medicine',
+        year: 2021,
+        summary:
+          'Core care is taping, stretching and individualised education, with footwear and load advice. People who do not improve may be offered shockwave, followed by custom orthoses. Imaging is confirmatory, not diagnostic.',
+        refs: [{ pmid: '33785535' }],
+      },
+      {
+        title: 'Medical imaging for plantar heel pain: a systematic review and meta-analysis',
+        source: 'Drake C et al., Journal of Foot and Ankle Research',
+        year: 2022,
+        summary:
+          'People with plantar heel pain were more likely to have a spur on X-ray, but the authors judged it an association only and unlikely to be the cause of pain, with limited relevance to treatment unless fractured.',
+        refs: [{ pmid: '35065676' }],
+      },
+      {
+        title: 'Coexistence of plantar calcaneal spurs and plantar fascial thickening in individuals with plantar heel pain',
+        source: 'Menz HB et al., Rheumatology',
+        year: 2019,
+        summary:
+          'In adults aged 50 and over with foot pain, spurs were usually found together with a thickened plantar fascia; a spur on its own was found in 6 percent of feet.',
+        refs: [{ pmid: '30204912' }],
+      },
+      {
+        title: 'Long-term prognosis of plantar fasciitis: a 5- to 15-year follow-up study of 174 patients with ultrasound examination',
+        source: 'Hansen L et al., Orthopaedic Journal of Sports Medicine',
+        year: 2018,
+        summary: 'Having a heel spur at the start had no effect on long-term recovery.',
+        refs: [{ pmid: '29536022' }],
+      },
+      {
+        title: 'High-load strength training improves outcome in patients with plantar fasciitis: a randomized controlled trial with 12-month follow-up',
+        source: 'Rathleff MS et al., Scandinavian Journal of Medicine & Science in Sports',
+        year: 2015,
+        summary:
+          'High-load heel raises plus shoe inserts improved function more than stretching plus shoe inserts at three months, with no difference between the groups at one, six and twelve months.',
+        refs: [{ pmid: '25145882' }],
+      },
+    ],
+    relatedHeading: 'Related foot and ankle conditions',
+    relatedIntro: 'Condition pages for the problems most often behind a report that mentions a heel spur.',
+    relatedConditionSlugs: ['plantar-fasciitis', 'achilles-tendinopathy', 'tarsal-tunnel-syndrome'],
+    treatmentsHeading: 'Treatments that commonly sit inside a plan for heel pain',
+    treatmentsIntro: 'None of these is a stand-alone fix. They are pieces that fit inside a plan built around load, stretching and strengthening.',
+    relatedTreatmentIds: ['exercise-therapy', 'joint-mobilization', 'dry-needling'],
+  },
 ];
 
 export function getReportGuide(slug: string): ReportGuide | undefined {

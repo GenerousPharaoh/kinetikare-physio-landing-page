@@ -20,16 +20,16 @@
     "date": "2026-10-13"
   },
   "/conditions/achilles-tendinopathy": {
-    "hash": "bb1f7aa12742afcd",
-    "date": "2026-10-13"
+    "hash": "2939fcdd0ffa5aff",
+    "date": "2026-10-22"
   },
   "/conditions/acl-injuries": {
     "hash": "3f790ef33fdfe2a5",
     "date": "2026-10-13"
   },
   "/conditions/ankle-sprains": {
-    "hash": "65461c39a71e22c9",
-    "date": "2026-10-13"
+    "hash": "2e9b96737c7b350a",
+    "date": "2026-10-22"
   },
   "/conditions/biceps-tendinopathy": {
     "hash": "5c25787eba4fa9b3",
@@ -120,20 +120,20 @@
     "date": "2026-10-13"
   },
   "/conditions/growth-plate-injuries": {
-    "hash": "f8f775ddfdf97753",
-    "date": "2026-10-13"
+    "hash": "99a54be639e409d4",
+    "date": "2026-10-22"
   },
   "/conditions/hallux-rigidus": {
-    "hash": "11a74413679570f0",
-    "date": "2026-10-13"
+    "hash": "e9b5e642e4d496a0",
+    "date": "2026-10-22"
   },
   "/conditions/hallux-valgus": {
-    "hash": "7ff25c01a75a6c54",
-    "date": "2026-10-13"
+    "hash": "489c7e22865dd843",
+    "date": "2026-10-22"
   },
   "/conditions/hammer-toe-deformities": {
-    "hash": "8dfa3c1bf963a127",
-    "date": "2026-10-13"
+    "hash": "0be7f30415436887",
+    "date": "2026-10-22"
   },
   "/conditions/hamstring-strains": {
     "hash": "0d0883db7a306b67",
@@ -184,24 +184,28 @@
     "date": "2026-10-13"
   },
   "/conditions/metatarsalgia": {
-    "hash": "e39581b101d8ffc2",
-    "date": "2026-10-13"
+    "hash": "0b52edc891a1a19c",
+    "date": "2026-10-22"
   },
   "/conditions/mortons-neuroma": {
-    "hash": "b59e5e6e19e8e6d3",
-    "date": "2026-10-13"
+    "hash": "78e41876959b193c",
+    "date": "2026-10-22"
   },
   "/conditions/neck-pain": {
     "hash": "6ef17895979d0390",
     "date": "2026-10-13"
   },
   "/conditions/pain-guides": {
-    "hash": "1956fc873f4ba5dc",
-    "date": "2026-10-09"
+    "hash": "e652007c65e89caf",
+    "date": "2026-10-22"
   },
   "/conditions/pain-guides/fluid-on-the-knee": {
     "hash": "54e5bb93963a715f",
     "date": "2026-10-13"
+  },
+  "/conditions/pain-guides/heel-spur": {
+    "hash": "5104c3b87a94aceb",
+    "date": "2026-10-22"
   },
   "/conditions/pain-guides/joint-space-narrowing": {
     "hash": "676cf4b7668e3e6c",
@@ -224,20 +228,20 @@
     "date": "2026-10-13"
   },
   "/conditions/peroneal-tendinopathy": {
-    "hash": "734363619fa4b1d2",
-    "date": "2026-10-13"
+    "hash": "2cb0e7ba7757663b",
+    "date": "2026-10-22"
   },
   "/conditions/piriformis-syndrome": {
     "hash": "bb6d1056794c15ab",
     "date": "2026-10-13"
   },
   "/conditions/plantar-fasciitis": {
-    "hash": "613d3ae3bc68586a",
-    "date": "2026-10-13"
+    "hash": "5714b4f0ea29acaa",
+    "date": "2026-10-22"
   },
   "/conditions/posterior-tibial-tendon-dysfunction": {
-    "hash": "de8ea1fb3c166e80",
-    "date": "2026-10-13"
+    "hash": "c1872818d71dbd21",
+    "date": "2026-10-22"
   },
   "/conditions/postural-dysfunction": {
     "hash": "649436e63419c440",
@@ -264,12 +268,12 @@
     "date": "2026-10-13"
   },
   "/conditions/severs-disease": {
-    "hash": "41b234210c9cb0d6",
-    "date": "2026-10-13"
+    "hash": "c80c3bb0a4e20f46",
+    "date": "2026-10-22"
   },
   "/conditions/shin-splints": {
-    "hash": "4ca4a70785bd7c99",
-    "date": "2026-10-13"
+    "hash": "43692bf43529dc7c",
+    "date": "2026-10-22"
   },
   "/conditions/shoulder-bursitis": {
     "hash": "2555d7bd07da2b86",
@@ -296,12 +300,12 @@
     "date": "2026-10-13"
   },
   "/conditions/stress-fractures": {
-    "hash": "306c36f1c6bbb38e",
-    "date": "2026-10-13"
+    "hash": "eaa4780d588d0085",
+    "date": "2026-10-22"
   },
   "/conditions/tarsal-tunnel-syndrome": {
-    "hash": "4ad44f9a74abda98",
-    "date": "2026-10-13"
+    "hash": "268ec6dc1f7e5dda",
+    "date": "2026-10-22"
   },
   "/conditions/tennis-elbow": {
     "hash": "ebedda61533bbc89",
@@ -312,8 +316,8 @@
     "date": "2026-10-13"
   },
   "/conditions/turf-toe": {
-    "hash": "460d22d73be7666b",
-    "date": "2026-10-13"
+    "hash": "32183dbb1acc8798",
+    "date": "2026-10-22"
   },
   "/conditions/whiplash": {
     "hash": "93be579c9e0ca8a8",

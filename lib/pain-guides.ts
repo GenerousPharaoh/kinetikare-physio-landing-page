@@ -48,6 +48,13 @@ export const PAIN_GUIDE_GROUPS: GuideGroup[] = [
           'The gap between the bones looks thinner than expected on an X-ray. What medial, tricompartmental and the severity words mean, how it relates to pain, and what the guidelines recommend.',
         region: 'Knee',
       },
+      {
+        href: '/conditions/pain-guides/heel-spur',
+        title: 'Plantar Calcaneal Spur (Heel Spur)',
+        blurb:
+          'A small ledge of bone under the heel bone on a foot X-ray. What the report wording means, why a spur is common without pain, and how heel pain is treated whether or not a spur is there.',
+        region: 'Foot & Ankle',
+      },
     ],
   },
 ];

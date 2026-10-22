@@ -253,6 +253,7 @@ const formatAnswer = (answer: string | React.ReactNode) => {
 const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(defaultOpen);
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const hashTarget = useRef<number | null>(null);
   const baseId = useId();
 
   useEffect(() => {
@@ -264,45 +265,28 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
         // Only try to find by ID if the items have an id property
         const index = items.findIndex(item => item.id && item.id === faqId);
         if (index !== -1) {
+          hashTarget.current = index;
           setActiveIndex(index);
-          // Scroll to the item after a delay to ensure rendering and animation
-          setTimeout(() => {
-            const element = triggerRefs.current[index];
-            if (element) {
-              const headerOffset = 180; // Account for fixed header and some padding
-              const elementPosition = element.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-              window.scrollTo({
-                top: Math.max(0, offsetPosition),
-                behavior: getScrollBehavior()
-              });
-            }
-          }, 600); // Longer delay for initial page load
         }
       }
     }
   }, [items]);
 
   const toggleQuestion = (index: number) => {
-    const wasActive = activeIndex === index;
+    hashTarget.current = null;
     setActiveIndex(activeIndex === index ? null : index);
+  };
 
-    // If opening a question, scroll to it after a delay to ensure animation completes
-    if (!wasActive) {
-      setTimeout(() => {
-        const element = triggerRefs.current[index]; // Use trigger ref for more accurate positioning
-        if (element) {
-          const headerOffset = 180; // Increased offset for better positioning
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: Math.max(0, offsetPosition), // Ensure we don't scroll above the page
-            behavior: getScrollBehavior()
-          });
-        }
-      }, 300); // Slightly longer delay for better animation timing
+  const keepQuestionVisible = (index: number) => {
+    const trigger = triggerRefs.current[index];
+    if (!trigger || trigger.getAttribute('aria-expanded') !== 'true') return;
+    const top = trigger.getBoundingClientRect().top;
+    const clearance = (document.querySelector('header')?.getBoundingClientRect().height ?? 80) + 16;
+    // Opening an answer already on screen should not move the page. Only
+    // recover a question covered by the header, or honour a direct FAQ link.
+    if (hashTarget.current === index || top < clearance) {
+      hashTarget.current = null;
+      window.scrollTo({ top: Math.max(0, window.scrollY + top - clearance), behavior: getScrollBehavior() });
     }
   };
 
@@ -373,6 +357,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                  onAnimationComplete={() => keepQuestionVisible(index)}
                   className="overflow-hidden"
                 >
                   <div className="pl-12 md:pl-14 pr-4 pb-2">

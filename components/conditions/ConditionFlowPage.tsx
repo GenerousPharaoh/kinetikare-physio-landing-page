@@ -189,7 +189,7 @@ export default function ConditionFlowPage({
     { id: 'in-clinic', label: 'In clinic', show: Boolean(condition.clinicalObservations) },
     { id: 'red-flags', label: 'See a doctor first', show: redFlags.length > 0 },
     { id: 'treatment', label: 'Treatment', show: Boolean(primary || showRehab || condition.selfManagement || condition.treatmentApproach) },
-    { id: 'recovery', label: 'Recovery time', show: Boolean(condition.prognosis || condition.timeline) },
+    { id: 'recovery', label: 'Recovery time', show: Boolean(condition.prognosis || condition.timeline?.length || keyPointText?.time) },
     { id: 'similar', label: similarHeading.label, show: Boolean(condition.differentialDiagnosis?.length) },
     { id: 'faqs', label: 'Questions', show: Boolean(condition.faqs?.length) },
     { id: 'science', label: 'The science', show: Boolean(scienceText || condition.biomechanics) },
@@ -594,9 +594,12 @@ export default function ConditionFlowPage({
             )}
 
             {/* Recovery time */}
-            {(condition.prognosis || (condition.timeline && condition.timeline.length > 0)) && (
+            {(condition.prognosis || condition.timeline?.length || keyPointText?.time) && (
               <section id="recovery" className="scroll-mt-28 py-14">
                 <Heading eyebrow="Recovery">How long it takes</Heading>
+                {!condition.prognosis && !condition.timeline?.length && keyPointText?.time && (
+                  <Para className="mb-4">{sentence(keyPointText.time)}</Para>
+                )}
                 {condition.prognosis?.timeline && <Para className="mb-4">{sentence(condition.prognosis.timeline)}</Para>}
                 {condition.prognosis?.naturalHistory && <Para className="mb-6">{sentence(condition.prognosis.naturalHistory)}</Para>}
                 {condition.timeline && condition.timeline.length > 0 && (

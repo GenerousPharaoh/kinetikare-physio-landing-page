@@ -247,7 +247,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
               {filteredQuestions.length === 0 && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="mt-6 px-6 py-2.5 bg-[#B08D57] hover:bg-[#9A7B4F] text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm tracking-wide"
+                  className="mt-6 px-6 py-2.5 bg-[#B08D57] hover:bg-[#C4A26A] text-slate-950 font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm tracking-wide"
                 >
                   Clear Search
                 </button>

@@ -66,7 +66,7 @@ const CookieBanner = () => {
           </button>
           <button
             onClick={() => handleConsent('accepted')}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-[#B08D57] px-3 py-1 text-[11px] font-medium text-slate-950 transition hover:bg-[#9a7747] sm:px-4 sm:py-1.5 sm:text-[12px]"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-[#B08D57] px-3 py-1 text-[11px] font-medium text-slate-950 transition hover:bg-[#C4A26A] sm:px-4 sm:py-1.5 sm:text-[12px]"
           >
             Accept
           </button>

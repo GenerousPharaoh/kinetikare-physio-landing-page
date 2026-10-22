@@ -13,8 +13,8 @@ import {
 } from '@heroicons/react/24/solid';
 import { CheckCircleIcon, MagnifyingGlassIcon, HandRaisedIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline';
 import {
-  AnimatePresence,
   m as motion,
+  useInView as useMotionInView,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -176,6 +176,7 @@ export default function IntakeLandingPage() {
   const heroOpacity = useTransform(heroProgress, [0.3, 1], [1, 0]);
 
   const reviewRef = useRef<HTMLDivElement | null>(null);
+  const reviewsInView = useMotionInView(reviewRef, { amount: 0.1 });
   const { scrollYProgress: reviewProgress } = useScroll({ target: reviewRef, offset: ['start end', 'end start'] });
   const reviewBgY = useTransform(reviewProgress, [0, 1], [-20, 20]);
 
@@ -183,10 +184,18 @@ export default function IntakeLandingPage() {
   const rise = (index: number): CSSProperties => ({ ['--rise' as string]: index } as CSSProperties);
 
   const [activeReview, setActiveReview] = useState(0);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [reviewsAutoPlaying, setReviewsAutoPlaying] = useState(false);
+  const [reviewsPaused, setReviewsPaused] = useState(false);
   const next = useCallback(() => setActiveReview((p) => (p + 1) % reviews.length), []);
-  useEffect(() => { timer.current = setInterval(next, 5500); return () => { if (timer.current) clearInterval(timer.current); }; }, [next]);
-  const go = (i: number) => { setActiveReview(i); if (timer.current) clearInterval(timer.current); timer.current = setInterval(next, 5500); };
+  useEffect(() => {
+    if (!reviewsAutoPlaying || reduced || !reviewsInView || reviewsPaused) return;
+    const timer = setInterval(next, 5500);
+    return () => clearInterval(timer);
+  }, [next, reviewsAutoPlaying, reduced, reviewsInView, reviewsPaused]);
+  const go = (i: number) => {
+    setActiveReview(i);
+    setReviewsAutoPlaying(false);
+  };
 
   // Touch swipe for the reviews carousel: advance on a clearly horizontal swipe,
   // ignore vertical movement so page scrolling is unaffected.
@@ -245,6 +254,7 @@ export default function IntakeLandingPage() {
         @keyframes intake-marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
         .intake-marquee-row { animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
         .intake-marquee-track:hover .intake-marquee-row,
+        .intake-marquee-track:focus-within .intake-marquee-row,
         .intake-marquee-track.is-paused .intake-marquee-row { animation-play-state: paused; }
         @media (prefers-reduced-motion: reduce) { .intake-marquee-row { animation: none !important; } }
         /* Hero entrance runs in CSS, not JavaScript. The H1 used to be
@@ -398,20 +408,35 @@ export default function IntakeLandingPage() {
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
               <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 31 Google Reviews</p>
 
-              <div onTouchStart={onReviewTouchStart} onTouchEnd={onReviewTouchEnd} style={{ position: 'relative', height: isMobile ? 440 : 'clamp(260px, 32vw, 280px)' }}>
-                <AnimatePresence mode="wait">
-                  <motion.div key={activeReview}
-                    initial={{ opacity: 0, y: 24, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -24, scale: 0.96 }}
-                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <div
+                role="group"
+                aria-roledescription="carousel"
+                aria-label="Patient reviews"
+                className="relative grid min-h-[28rem] sm:min-h-[17.5rem]"
+                onMouseEnter={() => setReviewsPaused(true)}
+                onMouseLeave={() => setReviewsPaused(false)}
+                onFocusCapture={() => setReviewsPaused(true)}
+                onBlurCapture={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setReviewsPaused(false);
+                }}
+                onTouchStart={onReviewTouchStart}
+                onTouchEnd={onReviewTouchEnd}
+              >
+                {reviews.map((review, index) => (
+                  <motion.div key={review.name}
+                    initial={false}
+                    animate={{ opacity: index === activeReview ? 1 : 0, y: reduced || index === activeReview ? 0 : 12 }}
+                    transition={{ duration: reduced ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    aria-hidden={index !== activeReview}
+                    inert={index !== activeReview}
+                    tabIndex={index === activeReview ? 0 : -1}
+                    style={{ gridArea: '1 / 1', minWidth: 0, pointerEvents: index === activeReview ? 'auto' : 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <p style={{ fontFamily: serif, fontSize: 'clamp(1.25rem, 2.4vw, 1.85rem)', fontWeight: 300, lineHeight: 1.65, color: '#FFFFFFEE', maxWidth: 620, margin: '0 auto 32px' }}>
-                      &ldquo;{reviews[activeReview].text}&rdquo;
+                      &ldquo;{review.text}&rdquo;
                     </p>
-                    <p style={{ fontSize: 13, fontWeight: 700, color: c.goldBright, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{reviews[activeReview].name}</p>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: c.goldBright, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{review.name}</p>
                   </motion.div>
-                </AnimatePresence>
+                ))}
               </div>
 
               {/* Review counter instead of overflow-prone dots */}
@@ -419,11 +444,20 @@ export default function IntakeLandingPage() {
                 <button onClick={() => go((activeReview - 1 + reviews.length) % reviews.length)} aria-label="Previous review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <span aria-live="polite" style={{ minWidth: 56, textAlign: 'center', fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.85)', fontVariantNumeric: 'tabular-nums' }}>
+                <span aria-live={reviewsAutoPlaying ? 'off' : 'polite'} aria-atomic="true" style={{ minWidth: 56, textAlign: 'center', fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.85)', fontVariantNumeric: 'tabular-nums' }}>
                   {activeReview + 1} <span style={{ color: 'rgba(255,255,255,0.4)' }}>/ {reviews.length}</span>
                 </span>
                 <button onClick={() => go((activeReview + 1) % reviews.length)} aria-label="Next review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+              <div className="mt-3 flex justify-center motion-reduce:hidden">
+                <button
+                  type="button"
+                  onClick={() => setReviewsAutoPlaying((playing) => !playing)}
+                  className="min-h-11 rounded-lg border border-white/30 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"
+                >
+                  {reviewsAutoPlaying ? 'Pause automatic reviews' : 'Play automatic reviews'}
                 </button>
               </div>
               <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.6)', fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 24, cursor: 'pointer', padding: '16px 8px' }}>

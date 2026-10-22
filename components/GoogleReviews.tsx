@@ -185,10 +185,6 @@ export default function GoogleReviews() {
     <section
       ref={sectionRef}
       className="section-luxury-spacing bg-gradient-to-b from-white to-gray-50 texture-luxury"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
     >
       {/* Review Schema */}
       <div className="container mx-auto px-5 sm:px-6">
@@ -228,6 +224,8 @@ export default function GoogleReviews() {
           aria-roledescription="carousel"
           aria-label="Patient reviews"
           onFocusCapture={() => setIsAutoPlaying(false)}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
           <div className="sr-only" aria-live={isAutoPlaying ? "off" : "polite"} aria-atomic="true">
             Review {currentIndex + 1} of {featuredReviewsCount}: {reviews[currentIndex]?.name}
@@ -235,7 +233,7 @@ export default function GoogleReviews() {
           {/* Edge fade (md+ only, where the neighbours show) so a clipped card dissolves rather than ending in a hard cut. */}
           <div className="overflow-hidden rounded-2xl md:[mask-image:linear-gradient(to_right,transparent,black_9%,black_91%,transparent)]" onTouchStart={onCarouselTouchStart} onTouchEnd={onCarouselTouchEnd}>
             <div className="relative h-[380px] sm:h-[480px] md:h-[550px]">
-              <AnimatePresence mode="wait">
+              <AnimatePresence initial={false} mode="sync">
                 {getVisibleReviews().map((review, index) => (
                   <motion.div
                     key={`${review.name}-${review.position}`}
@@ -312,8 +310,7 @@ export default function GoogleReviews() {
           <div className="absolute inset-0 pointer-events-none hidden md:block">
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none"
-              style={{ transform: 'translate(-3rem, -50%)' }}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none"
               aria-label="Previous review"
             >
               <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,8 +320,7 @@ export default function GoogleReviews() {
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none"
-              style={{ transform: 'translate(3rem, -50%)' }}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none"
               aria-label="Next review"
             >
               <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">

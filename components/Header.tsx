@@ -137,7 +137,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Logo Section */}
             <motion.div variants={headerItemVariants}>
               <Link href="/" className="flex items-center gap-2 group relative z-50">
-                <div className="relative w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105 flex-shrink-0">
+                <div className={`relative ${isIntakePage ? 'w-8 h-8 min-[360px]:w-10 min-[360px]:h-10' : 'w-10 h-10'} lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105 flex-shrink-0`}>
                   <Image
                     src="/images/kinetikare-logo-without-text.webp"
                     alt="Kinetikare Logo"
@@ -152,7 +152,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* One literal text node for the name. It used to be Kineti + K + are in
                       three spans, which parsers read as "KinetiKarePhysio" and re-split
                       as "Kinetika Rephysio". */}
-                  <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-none">
+                  <span className={`${isIntakePage ? 'text-xs min-[360px]:text-sm' : 'text-sm'} sm:text-lg lg:text-xl font-light !text-white uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-none`}>
                     Kinetikare
                   </span>
                   {' '}
@@ -160,7 +160,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* Desktop Separator */}
                   <div className="hidden lg:block h-4 w-[1px] bg-[#D4AF37] mx-3" />
 
-                  <span className="text-xs sm:text-[10px] lg:text-xl !text-white font-light tracking-[0.1em] sm:tracking-[0.15em] uppercase lg:mt-0 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
+                  <span className={`${isIntakePage ? 'text-[10px] min-[360px]:text-xs' : 'text-xs'} sm:text-[10px] lg:text-xl !text-white font-light tracking-[0.1em] sm:tracking-[0.15em] uppercase lg:mt-0 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap`}>
                     Physio
                   </span>
                 </div>

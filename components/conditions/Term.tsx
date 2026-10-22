@@ -6,7 +6,7 @@
  * Wraps a technical term inline with a subtle dotted gold underline and a
  * definition popover from lib/glossary.
  *
- * Behavior (unchanged across refactors):
+ * Behavior:
  *  - Opens on click, tap, keyboard focus. No hover-only dependency.
  *  - Escape closes and returns focus to the trigger.
  *  - Click / tap outside closes.
@@ -20,10 +20,10 @@
  */
 
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { GLOSSARY, type GlossaryEntry } from '@/lib/glossary';
-
-type Placement = 'bottom' | 'top';
+import { useModalDialog } from '@/hooks/useModalDialog';
 
 export interface TermProps {
   /** Glossary key (e.g. 'tendinopathy'). If missing from the glossary the
@@ -46,12 +46,23 @@ export default function Term({ termId, children }: TermProps) {
   const entry: GlossaryEntry | undefined = GLOSSARY[termId];
   const popoverId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const popoverRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLSpanElement>(null);
+  const restoringFocus = useRef(false);
   const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState<Placement>('bottom');
+  const [position, setPosition] = useState({ top: 0, left: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
   const close = useCallback(() => setOpen(false), []);
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    if (document.activeElement !== triggerRef.current) {
+      // A mobile dialog restores focus after removing inert from the page.
+      // That focus return must not open the definition again.
+      restoringFocus.current = true;
+      triggerRef.current?.focus({ preventScroll: true });
+    }
+  }, []);
+  useModalDialog(open && isMobile, popoverRef, handleClose);
 
   // When a different Term announces itself open, close this one.
   useEffect(() => {
@@ -97,12 +108,13 @@ export default function Term({ termId, children }: TermProps) {
       if (!target) return;
       if (popoverRef.current?.contains(target)) return;
       if (triggerRef.current?.contains(target)) return;
-      setOpen(false);
+      if (isMobile) handleClose();
+      else close();
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setOpen(false);
-        triggerRef.current?.focus();
+      if (e.key === 'Escape' && !isMobile) {
+        e.preventDefault();
+        handleClose();
       }
     };
     document.addEventListener('mousedown', onPointerDown);
@@ -113,32 +125,40 @@ export default function Term({ termId, children }: TermProps) {
       document.removeEventListener('touchstart', onPointerDown);
       document.removeEventListener('keydown', onKey);
     };
-  }, [open]);
+  }, [open, isMobile, close, handleClose]);
 
-  // Desktop placement: flip above if there isn't room below.
+  // Portals escape transformed sections. Clamp to both viewport edges and
+  // remeasure while scrolling so a definition stays beside its own term.
   useLayoutEffect(() => {
     if (!open || isMobile) return;
-    const trigger = triggerRef.current;
-    if (!trigger) return;
-    const rect = trigger.getBoundingClientRect();
-    const spaceBelow = window.innerHeight - rect.bottom;
-    const spaceAbove = rect.top;
-    if (spaceBelow < 180 && spaceAbove > spaceBelow) {
-      setPlacement('top');
-    } else {
-      setPlacement('bottom');
-    }
+    const update = () => {
+      const trigger = triggerRef.current;
+      const popover = popoverRef.current;
+      if (!trigger || !popover) return;
+      const rect = trigger.getBoundingClientRect();
+      const box = popover.getBoundingClientRect();
+      const below = window.innerHeight - rect.bottom;
+      const top = below < box.height + 8 && rect.top > below
+        ? rect.top - box.height - 8
+        : rect.bottom + 8;
+      setPosition({
+        top: Math.max(12, Math.min(top, window.innerHeight - box.height - 12)),
+        left: Math.max(12, Math.min(rect.left, window.innerWidth - box.width - 12)),
+      });
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true, capture: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update, true);
+      window.removeEventListener('resize', update);
+    };
   }, [open, isMobile]);
 
   if (!entry) {
     // Nothing to annotate - render children passthrough.
     return <>{children}</>;
   }
-
-  const handleClose = () => {
-    close();
-    triggerRef.current?.focus();
-  };
 
   return (
     <span className="relative inline">
@@ -147,12 +167,23 @@ export default function Term({ termId, children }: TermProps) {
         type="button"
         aria-describedby={open ? popoverId : undefined}
         aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        onClick={(event) => {
+          // Focus and hover can open a desktop tooltip before click fires.
+          // Keep that first activation open; touch can still toggle a sheet.
+          if (!isMobile || event.detail === 0) setOpen(true);
+          else setOpen((value) => !value);
+        }}
         onMouseEnter={() => {
           // Hover-open only on desktop; mobile opens via tap.
           if (!isMobile) setOpen(true);
         }}
-        onFocus={() => setOpen(true)}
+        onFocus={(event) => {
+          if (restoringFocus.current) {
+            restoringFocus.current = false;
+            return;
+          }
+          if (event.currentTarget.matches(':focus-visible')) setOpen(true);
+        }}
         onBlur={(e) => {
           const next = e.relatedTarget as Node | null;
           if (next && popoverRef.current?.contains(next)) return;
@@ -167,33 +198,33 @@ export default function Term({ termId, children }: TermProps) {
         />
       </button>
 
-      {open && !isMobile && (
+      {open && !isMobile && createPortal(
         <span
           ref={popoverRef}
           id={popoverId}
           role="tooltip"
           onMouseLeave={close}
-          className={`term-popover-desktop absolute z-40 ${
-            placement === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'
-          } left-0 w-[min(20rem,calc(100vw-2rem))] bg-white rounded-md border border-slate-200 shadow-lg shadow-slate-900/5 p-3.5 text-left normal-case`}
+          className="term-popover-desktop fixed z-[70] block w-[min(20rem,calc(100vw-2rem))] max-h-[calc(100dvh-2rem)] overflow-y-auto bg-white rounded-md border border-slate-200 shadow-lg shadow-slate-900/5 p-3.5 text-left normal-case"
+          style={position}
         >
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
             {entry.term}
           </p>
           <p className="mt-1.5 text-sm text-slate-700 leading-relaxed">
             {entry.definition}
           </p>
-        </span>
+        </span>, document.body
       )}
 
-      {open && isMobile && (
+      {open && isMobile && createPortal(
         <>
-          {/* Dim backdrop: a soft scrim, not a black wall. Renders in-flow
-              (position: fixed) so it escapes inline-flex parents. */}
+          {/* The portal keeps the sheet fixed to the viewport even inside
+              animated cards and expanded rehabilitation phases. */}
           <span
             aria-hidden="true"
-            onClick={close}
-            className="term-sheet-backdrop fixed inset-0 z-40 bg-slate-900/25 backdrop-blur-[1px]"
+            data-dialog-backdrop
+            onClick={handleClose}
+            className="term-sheet-backdrop fixed inset-0 z-[70] bg-slate-900/25 backdrop-blur-[1px]"
           />
           {/* Bottom-anchored sheet. Fixed to viewport, full-width minus a
               safe inset. Rounded top, subtle lift. Safe-area aware. */}
@@ -201,12 +232,13 @@ export default function Term({ termId, children }: TermProps) {
             ref={popoverRef}
             id={popoverId}
             role="dialog"
-            aria-modal="false"
+            aria-modal="true"
             aria-label={entry.term}
-            className="term-sheet fixed inset-x-3 bottom-3 z-50 mx-auto max-w-md rounded-2xl bg-white border border-slate-200 shadow-xl shadow-slate-900/10 p-4 pr-10 text-left normal-case"
+            tabIndex={-1}
+            className="term-sheet fixed inset-x-3 bottom-3 z-[80] block mx-auto max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-2xl bg-white border border-slate-200 shadow-xl shadow-slate-900/10 p-4 text-left normal-case"
             style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}
           >
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
+            <p className="pr-12 text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
               {entry.term}
             </p>
             <p className="mt-1.5 text-[14px] text-slate-700 leading-relaxed">
@@ -216,12 +248,12 @@ export default function Term({ termId, children }: TermProps) {
               type="button"
               aria-label="Close definition"
               onClick={handleClose}
-              className="absolute top-2.5 right-2.5 inline-flex h-7 w-7 items-center justify-center rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/60 transition-colors"
+              className="absolute top-1.5 right-1.5 inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-500 hover:text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/60 transition-colors"
             >
               <XMarkIcon className="h-4 w-4" aria-hidden="true" />
             </button>
           </span>
-        </>
+        </>, document.body
       )}
 
       {/* Scoped keyframes: subtle scale-fade for desktop popover, slide-up

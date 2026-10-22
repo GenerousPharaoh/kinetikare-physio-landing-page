@@ -9,6 +9,7 @@
     "postbuild": "node scripts/content-dates.mjs && next-sitemap",
     "start": "next start",
     "lint": "eslint .",
+    "check:ui-links": "node scripts/check-ui-links.mjs",
     "clean": "rm -rf .next node_modules/.cache",
     "reset": "rm -rf .next node_modules package-lock.json && npm cache clean --force && npm install --legacy-peer-deps",
     "convert-images": "node scripts/convert-images.js",

@@ -130,13 +130,14 @@ function ConditionsPageWithParams({
     if (queryTab !== null) {
       if (queryTab >= 0 && queryTab < conditionCategories.length) {
         setActiveTab(queryTab);
-        localStorage.setItem('conditionsActiveTab', queryTab.toString());
+        try { localStorage.setItem('conditionsActiveTab', queryTab.toString()); } catch { /* Optional remembered filter. */ }
         return;
       }
     }
 
     // No tab param: fall back to localStorage for returning users.
-    const savedTab = localStorage.getItem('conditionsActiveTab');
+    let savedTab: string | null = null;
+    try { savedTab = localStorage.getItem('conditionsActiveTab'); } catch { /* Browsing still works without storage. */ }
     if (savedTab && !isNaN(Number(savedTab))) {
       const tabNumber = Number(savedTab);
       if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
@@ -314,7 +315,7 @@ function ConditionsPageWithParams({
                     role="tab"
                     aria-selected={isActive}
                     aria-controls="conditions-filter-tabpanel"
-                    tabIndex={isActive ? 0 : -1}
+                    tabIndex={activeTab === item.tab ? 0 : -1}
                     onClick={() => handleTabChange(item.tab)}
                     onKeyDown={handleRovingTabKeyDown}
                     style={{ touchAction: 'manipulation' }}

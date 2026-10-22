@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { m as motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { m as motion, useReducedMotion } from 'framer-motion';
 import { 
   DocumentTextIcon, 
   ChatBubbleBottomCenterTextIcon,
@@ -113,33 +113,36 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="relative">
-          <AnimatePresence mode="wait">
+        {/* Overlapping grid cells reserve the tallest slide at every width. */}
+        <div className="relative grid">
+          {items.map((item, index) => (
             <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="flex items-center justify-center p-4 sm:p-6 md:p-8"
+              key={item.id}
+              initial={false}
+              animate={{ opacity: index === currentSlide ? 1 : 0, x: shouldReduceMotion || index === currentSlide ? 0 : 24 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: 'easeOut' }}
+              aria-hidden={index !== currentSlide}
+              inert={index !== currentSlide}
+              style={{ gridArea: '1 / 1', pointerEvents: index === currentSlide ? 'auto' : 'none' }}
+              className="flex min-w-0 items-center justify-center p-4 sm:p-6 md:p-8"
             >
               <div className="text-center max-w-2xl w-full">
                 <div className="inline-flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg sm:rounded-xl md:rounded-2xl mb-2 sm:mb-3 md:mb-4 shadow-md">
                   <div className="text-white scale-[0.6] sm:scale-[0.7] md:scale-[0.85]">
-                    {getIcon(items[currentSlide].iconType)}
+                    {getIcon(item.iconType)}
                   </div>
                 </div>
                 
                 <h4 className="text-base sm:text-lg md:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 md:mb-3 px-3 sm:px-2">
-                  {items[currentSlide].title}
+                  {item.title}
                 </h4>
                 
                 <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed px-3 sm:px-4 md:px-6">
-                  {items[currentSlide].description}
+                  {item.description}
                 </p>
               </div>
             </motion.div>
-          </AnimatePresence>
+          ))}
         </div>
 
         {/* Navigation arrows - Hidden on small mobile */}
@@ -173,7 +176,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
             onClick={() => goToSlide(index)}
             aria-label={`Show ${item.title}`}
             aria-current={index === currentSlide ? 'true' : undefined}
-            className="p-2 group shadow-none"
+            className="flex h-11 min-w-11 items-center justify-center p-2 group shadow-none"
           >
             <span
               className={`block h-2 rounded-full transition-all duration-300 ${

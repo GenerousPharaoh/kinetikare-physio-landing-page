@@ -37,6 +37,8 @@ export interface GuideSection {
   blocks: GuideBlock[];
   /** Float the guide's engraved plate beside this section's text. */
   showPlate?: boolean;
+  /** A plate of this section's own, used instead of the guide's plate. */
+  plate?: { src: string; caption: string };
   consentNote?: boolean;
 }
 
@@ -541,7 +543,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
               {
                 term: 'Posterior, dorsal or Achilles enthesophyte',
                 meaning:
-                  'A spur at the back of the heel, where the Achilles tendon attaches. A different place and a different problem, covered below.',
+                  'A spur at the back of the heel, where the Achilles tendon attaches. A different place and a different problem, covered in the next section.',
               },
               {
                 term: 'Plantar fascia thickening (ultrasound or MRI)',
@@ -550,10 +552,23 @@ export const REPORT_GUIDES: ReportGuide[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        id: 'back-of-heel',
+        heading: 'A spur at the back of the heel is a separate finding',
+        icon: 'info',
+        plate: { src: '/images/guides/posterior-heel-spur.webp', caption: 'Achilles attachment' },
+        blocks: [
           {
             type: 'p',
-            lead: 'A spur at the back of the heel is a separate finding.',
-            text: 'A posterior, dorsal or Achilles enthesophyte sits where the Achilles tendon joins the heel bone. It is also common in people without symptoms, and when it hurts it goes with insertional Achilles tendinopathy, which has its own plan. The [Achilles tendinopathy page](/conditions/achilles-tendinopathy) covers it. Reports often mention spurs at both sites together.',
+            lead: 'Where it sits.',
+            text: 'A posterior, dorsal or Achilles enthesophyte grows where the Achilles tendon attaches to the back of the heel bone, pointing up into the lowest fibres of the tendon. It is a different place from a spur under the heel, and a different problem.',
+          },
+          {
+            type: 'p',
+            lead: 'What it goes with.',
+            text: 'It is also common in people without symptoms. When the back of the heel hurts, it goes with insertional Achilles tendinopathy, which has its own plan. The [Achilles tendinopathy page](/conditions/achilles-tendinopathy) covers it. Reports often mention spurs at both sites together.',
           },
         ],
       },

@@ -301,9 +301,12 @@ export default function ReportGuidePage({ guide }: { guide: ReportGuide }) {
           <section id={section.id} className={`py-12 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto flow-root">
-                {section.showPlate && guide.plate && (
+                {(section.plate ?? (section.showPlate ? guide.plate : undefined)) && (
                   <div className="mb-8 flex justify-center lg:mb-6 lg:ml-8 lg:mt-1 lg:block lg:float-right">
-                    <Plate src={guide.plate.src} caption={guide.plate.caption} />
+                    <Plate
+                      src={(section.plate ?? guide.plate)!.src}
+                      caption={(section.plate ?? guide.plate)!.caption}
+                    />
                   </div>
                 )}
                 <SectionHeading icon={section.icon}>{section.heading}</SectionHeading>

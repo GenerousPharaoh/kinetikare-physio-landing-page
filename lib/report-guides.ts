@@ -300,7 +300,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         blocks: [
           {
             type: 'p',
-            text: 'I start with the knee, not the report. Where the pain sits and whether it matches the part of the joint the report names, how long the knee is stiff in the morning, whether it swells, gives way or locks, and what you have already tried. I also ask what you were told about the X-ray, because words like “bone on bone” shape what people feel safe doing.',
+            text: 'I begin with how the knee feels and behaves: where the pain sits and whether it matches the part of the joint the report names, how long the knee is stiff in the morning, whether it swells, gives way or locks, and what you have already tried. I also ask what you were told about the X-ray, because words like “bone on bone” can affect what people feel safe doing.',
           },
           {
             type: 'p',
@@ -308,7 +308,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
           },
           {
             type: 'p',
-            text: 'The plan is built around strengthening, especially the quadriceps, with walking or cycling and balance work, progressed as the knee tolerates it. Joint mobilization and soft tissue work sit alongside the exercise where they make it easier. I explain what to expect when the knee flares, and I coordinate with your family doctor when medication, an injection or a surgical opinion is worth discussing.',
+            text: 'The plan is usually built around strengthening, especially the quadriceps, with walking or cycling and balance work, progressed as the knee tolerates it. Joint mobilization and soft tissue work can sit alongside the exercise where they make it easier. I explain what to expect when the knee flares, and I coordinate with your family doctor when medication, an injection or a surgical opinion is worth discussing.',
           },
         ],
       },
@@ -435,7 +435,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
       'A plantar calcaneal spur on a foot X-ray report: what the wording means, how it relates to heel pain, and physiotherapy in Burlington. Direct billing.',
     h1: 'Plantar Calcaneal Spur (Heel Spur)',
     lede:
-      'A plantar calcaneal spur is a small ledge of extra bone on the underside of the heel bone, seen on a side view X-ray. Heel spurs are common in people with no heel pain at all. The phrase describes the shape of the bone, not the cause of the pain or what to do about it. This guide covers what the wording on the report means, what it does and does not tell you, and what the treatment guidelines recommend.',
+      'A plantar calcaneal spur is a small ledge of extra bone on the underside of the heel bone, seen on a side view X-ray. Heel spurs often show up in people who have no heel pain. The phrase describes the shape of the bone; on its own it does not explain the pain or decide the treatment. This guide covers what the wording on the report means, what it does and does not tell you, and what the treatment guidelines recommend.',
     breadcrumbLabel: 'Heel Spur',
     region: 'foot and ankle',
     hub: { label: 'Foot & Ankle Pain', href: '/conditions/foot-ankle-pain' },
@@ -490,12 +490,12 @@ export const REPORT_GUIDES: ReportGuide[] = [
           {
             type: 'p',
             lead: 'What it is.',
-            text: 'The calcaneus is the heel bone. A plantar calcaneal spur is a small outgrowth of bone on its underside, pointing forward toward the arch. It shows on a side view of the foot or ankle, usually taken standing. It grows roughly parallel to the ground rather than down into the sole.',
+            text: 'The calcaneus is the heel bone. A plantar calcaneal spur is a small outgrowth of bone on its underside, pointing forward toward the arch. It shows on a side view of the foot or ankle, usually taken standing. It usually grows roughly parallel to the ground rather than down into the sole.',
           },
           {
             type: 'p',
             lead: 'Where it sits.',
-            text: 'The common picture is a spur growing where the plantar fascia pulls on the heel. Anatomy studies found something different: most spurs sit just above the plantar fascia, among the attachments of the small muscles of the sole, and only a few sit inside the fascia itself (Abreu et al., 2003; Kumai and Benjamin, 2002). The internal structure of the bone lines up with the load of standing and walking rather than with the pull of the fascia, which has led researchers to read the spur as a response to load through the heel (Li and Muehleman, 2007; Menz et al., 2008). The samples were small, and the cause is still debated.',
+            text: 'A spur is often pictured growing where the plantar fascia pulls on the heel. In anatomy studies, most spurs sat just above the plantar fascia, among the attachments of the small muscles of the sole, and only a few sat inside the fascia itself (Abreu et al., 2003; Kumai and Benjamin, 2002). The internal structure of the bone lines up with the load of standing and walking rather than with the pull of the fascia, which has led researchers to read the spur as a response to load through the heel (Li and Muehleman, 2007; Menz et al., 2008). The samples were small, and the cause is still debated.',
           },
           {
             type: 'p',
@@ -521,7 +521,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
               },
               {
                 term: 'Is noted, is seen, is present, is evident',
-                meaning: 'The radiologist saw it. These words do not signal concern or urgency.',
+                meaning: 'The radiologist saw it. On their own, these words do not signal concern or urgency.',
               },
               {
                 term: 'Small, moderate or large',
@@ -538,7 +538,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
               },
               {
                 term: 'Degenerative or enthesopathic change',
-                meaning: 'Change at the attachment that comes with load and age. It is not a disease label.',
+                meaning: 'Change at the attachment that tends to come with load and age. It is not a diagnosis on its own.',
               },
               {
                 term: 'Posterior, dorsal or Achilles enthesophyte',
@@ -594,7 +594,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
           },
           {
             type: 'p',
-            lead: 'Size is not a reliable guide.',
+            lead: 'Size is not a reliable guide on its own.',
             text: 'Some studies link longer spurs with more pain and others find no link, and in some treatment studies larger spurs improved more. Size has not shown a consistent link with how much it hurts or how well it recovers.',
           },
           {
@@ -614,7 +614,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         heading: 'What the treatment guidelines recommend',
         icon: 'shield',
         intro:
-          'Treatment is aimed at the painful heel, most often plantar fasciitis, not at the spur. No guideline recommends a different plan because a spur is present (Koc et al., 2023; Morrissey et al., 2021).',
+          'Treatment is aimed at the painful heel, most often plantar fasciitis, not at the spur. The guidelines below do not change the plan because a spur is present (Koc et al., 2023; Morrissey et al., 2021).',
         blocks: [
           {
             type: 'list',
@@ -693,7 +693,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
         blocks: [
           {
             type: 'p',
-            text: 'I start with the heel, not the report. Where exactly it hurts, whether the first steps in the morning or after sitting are the worst, how long you are on your feet in a day and on what surfaces, what shoes you wear, what changed before it started, and what you have already tried. I also ask what you were told about the spur, because the idea of a sharp bone point in the heel shapes what people feel safe doing.',
+            text: 'I begin with the heel itself: where exactly it hurts, whether the first steps in the morning or after sitting are the worst, how long you are on your feet in a day and on what surfaces, what shoes you wear, what changed before it started, and what you have already tried. I also ask what you were told about the spur, because the picture of a sharp point of bone can make people wary of walking on or loading the foot.',
           },
           {
             type: 'p',
@@ -701,7 +701,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
           },
           {
             type: 'p',
-            text: 'The plan is built around the painful heel: explaining what the spur means, adjusting load for a while, calf and plantar fascia stretching, taping for short-term relief, and progressive strengthening of the calf and foot. Joint mobilization, soft tissue work and dry needling to the calf sit alongside the exercise where they help. If the heel has not improved with that, shockwave is a reasonable next step, and I coordinate with your family doctor when an injection or a surgical opinion is worth discussing.',
+            text: 'The plan usually centres on the painful heel and can include explaining what the spur means, adjusting load for a while, calf and plantar fascia stretching, taping for short-term relief, and progressive strengthening of the calf and foot. Joint mobilization, soft tissue work and dry needling to the calf can sit alongside the exercise when they help. If the heel has not improved with that, shockwave can be a reasonable next step, and I can coordinate with your family doctor when an injection or a surgical opinion is worth discussing.',
           },
         ],
       },
@@ -726,17 +726,17 @@ export const REPORT_GUIDES: ReportGuide[] = [
       {
         question: 'Do heel spurs cause pain?',
         answer:
-          'Not on their own, as far as the evidence shows. Spurs are common in painless feet, and having one did not change long-term recovery in a 5 to 15 year study. The pain usually comes from the tissues around the heel.',
+          'The evidence does not show that a spur causes pain on its own. Spurs are common in painless feet, and having one did not change long-term recovery in a 5 to 15 year study. The pain usually comes from the tissues around the heel.',
       },
       {
         question: 'Can a heel spur go away?',
         answer:
-          'The spur usually stays on the X-ray. In treatment studies it mostly looked the same afterwards while the pain improved, so the goal is a pain-free heel rather than a different X-ray.',
+          'The spur usually stays on the X-ray. In treatment studies it mostly looked the same afterwards while the pain improved, so the aim is a heel that hurts less and works better, rather than a different X-ray.',
       },
       {
         question: 'What is the difference between a calcaneal enthesophyte and a heel spur?',
         answer:
-          'Nothing. “Enthesophyte” is the radiology word for bone growing where a tendon, ligament or fascia attaches. “Heel spur” is the everyday name for the same thing. An osteophyte is different: it forms at the edge of a joint.',
+          'They are two names for the same thing. “Enthesophyte” is the radiology word for bone growing where a tendon, ligament or fascia attaches. “Heel spur” is the everyday name for the same thing. An osteophyte is different: it forms at the edge of a joint.',
       },
       {
         question: 'What is a posterior calcaneal enthesophyte?',
@@ -746,7 +746,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
       {
         question: 'Does stretching help a heel spur?',
         answer:
-          'Calf and plantar fascia stretching are recommended for heel pain under the foot. They treat the painful tissue, not the spur, which stays the same.',
+          'Calf and plantar fascia stretching are recommended for heel pain under the foot. They treat the painful tissue, not the spur, which usually stays the same.',
       },
       {
         question: 'Does shockwave therapy work for heel spurs?',
@@ -756,7 +756,7 @@ export const REPORT_GUIDES: ReportGuide[] = [
       {
         question: 'Do I need surgery to remove a heel spur?',
         answer:
-          'Rarely. Removing the spur is not usually the aim of heel pain surgery, which is considered only after a long period of well-run non-surgical care, and decided with a surgeon.',
+          'Usually not. Removing the spur is not usually the aim of heel pain surgery, which is considered only after a long period of well-run non-surgical care, and decided with a surgeon.',
       },
       {
         question: 'Do I need an MRI or ultrasound?',

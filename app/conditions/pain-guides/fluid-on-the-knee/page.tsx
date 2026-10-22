@@ -841,11 +841,9 @@ export default function FluidOnTheKneeGuidePage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. How
-                  quickly did it swell. Was there a twist, a pop, or a direct blow. Does it
-                  settle overnight or just stay full. Is the knee hot. Are any other joints
-                  involved. Is there fever or feeling systemically unwell. The pace of onset
-                  and the associated signs do most of the diagnostic work here.
+                  The first appointment starts with questions. How
+                  quickly did it swell. Was there a twist, a pop, or a direct blow. Does it go down overnight or stay full. Is the knee hot. Are any other joints
+                  involved. Is there fever or feeling systemically unwell. How quickly it swelled and the signs that came with it often do much of the diagnostic work.
                 </p>
                 <p>
                   On examination I look at the knee in standing and lying. I check for a true
@@ -854,17 +852,13 @@ export default function FluidOnTheKneeGuidePage() {
                   story points toward structural injury, I use targeted tests: Lachman and
                   anterior drawer for the ACL, McMurray and joint-line tenderness for the
                   meniscus, varus and valgus stress for the collaterals. After acute trauma I
-                  use the Ottawa Knee Rules to decide whether an X-ray for a fracture is worth chasing, and
-                  I am upfront when the picture warrants medical review before rehab.
+                  use the Ottawa Knee Rules to decide whether an X-ray for a fracture is needed, and I tell you when the picture calls for a medical review before rehab.
                 </p>
                 <p>
-                  The plan depends on the driver. For osteoarthritis-pattern effusions the
-                  backbone is graded exercise and self-management, in line with OARSI and
-                  NICE. For post-traumatic effusions the work is staged: settle the
-                  irritable tissue, restore range and gait, rebuild strength, and return to
+                  The plan depends on the driver. For osteoarthritis-pattern effusions the plan usually centres on graded exercise and self-management, in line with OARSI and
+                  NICE. For effusions after an injury the work is usually staged: ease the irritated tissue, restore range and gait, rebuild strength, and return to
                   function. For any picture that looks septic, crystal-related, or
-                  inflammatory in a new way, I route you to medical care first and come
-                  back to rehab in the right order afterwards. Joint mobilization, soft tissue therapy,
+                  inflammatory in a new way, I refer you for medical care first, and rehab follows after that. Joint mobilization, soft tissue therapy,
                   and cupping can sit alongside that work where they help.
                 </p>
               </div>

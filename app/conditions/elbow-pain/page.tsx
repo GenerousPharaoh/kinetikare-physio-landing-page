@@ -604,15 +604,12 @@ export default function ElbowPainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where does
-                  the pain sit, how did it start, what makes it worse, what makes it better. The
-                  small details matter. Whether a new role, sport, or gym block ramped up
+                  The first appointment starts with questions. Where does
+                  the pain sit, how did it start, what makes it worse, what makes it better. Whether a new role, sport, or gym block ramped up
                   gripping faster than the tendon could adapt. Whether it came on after a specific
                   lift or fall, or gradually over weeks. What your typical day actually looks like
                   in terms of grip, typing, and tool use. Whether symptoms travel into the hand
-                  or the fingers, and which fingers. By the time the history is done I usually
-                  have two or three working hypotheses, and the physical exam is about confirming
-                  or ruling them out.
+                  or the fingers, and which fingers. The answers usually narrow it down to a few likely causes, and the examination helps tell them apart.
                 </p>
                 <p>
                   From there, the exam goes region by region. I watch active elbow and wrist
@@ -627,7 +624,7 @@ export default function ElbowPainHubPage() {
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue by adjusting load rather than removing it,
+                  shape. Ease the irritated tissue by adjusting load rather than removing it,
                   which might include changing grip diameter, tool choice, desk setup, training
                   volume, or lifting technique. Build capacity with progressive strengthening
                   exercises dosed to your current tolerance, usually isometric first if the

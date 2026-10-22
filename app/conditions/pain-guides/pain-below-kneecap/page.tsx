@@ -655,12 +655,10 @@ export default function PainBelowKneecapGuidePage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Age, the
+                  The first appointment starts with questions. Age, the
                   activity the pain is tied to, how long it has been there, whether jumping and
-                  deep squatting are the main triggers, whether it warms up then resettles, and
-                  whether the pain is truly pinpoint or more spread out. By the time the history
-                  is done I usually have two working hypotheses, and the exam confirms or rules
-                  them out.
+                  deep squatting are the main triggers, whether it eases as you warm up and then comes back, and
+                  whether the pain is truly pinpoint or more spread out. The answers usually narrow it down to a few likely causes, and the examination helps tell them apart.
                 </p>
                 <p>
                   On examination I watch a double-leg squat, a single-leg squat, a step-down,
@@ -669,18 +667,16 @@ export default function PainBelowKneecapGuidePage() {
                   clinically indicated, it is directed by the working hypothesis from the
                   history and movement exam, not a routine sweep of every structure in the
                   region. A loaded knee-extension task, such as a decline squat, is useful for
-                  tendon pain: it typically reproduces the familiar spot pain in tendinopathy
-                  and not in most of the mimics.
+                  tendon pain: it often reproduces the familiar spot pain in tendinopathy, and less often in the conditions that look like it.
                 </p>
                 <p>
-                  The plan that comes out of that is individual. For patellar tendinopathy the
-                  backbone is progressive, well-dosed loading across isometric, heavy slow
+                  The plan that comes out of that is individual. For patellar tendinopathy the plan usually centres on progressive, well-dosed loading across isometric, heavy slow
                   resistance, and energy-storage work as tolerance grows, paired with realistic
                   training adjustments. For Osgood-Schlatter, and on the same lines for
                   Sinding-Larsen-Johansson, I follow the approach Rathleff and colleagues
-                  tested: modify load, rebuild strength, return to sport in stages. For fat pad irritation I settle the tissue, then rebuild tolerance for
+                  tested: modify load, rebuild strength, return to sport in stages. For fat pad irritation I first reduce the irritation, then rebuild tolerance for
                   extension loading. Joint mobilization, soft tissue therapy, dry needling, and
-                  cupping sit alongside the loading work where they help it progress.
+                  cupping can sit alongside the loading work where they help it progress.
                 </p>
               </div>
               <ConsentNote />

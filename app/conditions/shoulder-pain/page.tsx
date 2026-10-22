@@ -629,19 +629,15 @@ export default function ShoulderPainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where does
-                  the pain sit, how did it start, what makes it worse, what makes it better. The
-                  small details matter. Whether you can sleep on that side. Whether
+                  The first appointment starts with questions. Where does
+                  the pain sit, how did it start, what makes it worse, what makes it better. Whether you can sleep on that side. Whether
                   overhead work at the gym, painting a ceiling, or unloading a shelf flared it.
                   Whether there was a fall onto the shoulder or the tip of the shoulder. Whether
-                  range has been gradually closing down rather than just being painful. By the
-                  end of the history I usually have two or three working hypotheses, and the
-                  physical exam is about confirming or ruling them out.
+                  range has been gradually closing down rather than just being painful. The answers usually narrow it down to a few likely causes, and the examination helps tell them apart.
                 </p>
                 <p>
                   I look at how you move before I test what hurts. Watching you reach overhead,
-                  behind the back, and across the body tells me more than any single provocation
-                  test. From there I check shoulder range when you move it and when I move it,
+                  behind the back, and across the body often tells me more than a single provocation test does. From there I check shoulder range when you move it and when I move it,
                   strength through the rotator cuff and shoulder blade muscles, and a few targeted
                   tests that help tell the usual patterns apart: a painful arc and pressure tests
                   for subacromial pain, outward rotation strength for the cuff, tests that load the
@@ -652,7 +648,7 @@ export default function ShoulderPainHubPage() {
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue with a short list of things to stop doing
+                  shape. Ease the irritated tissue with a short list of things to stop doing
                   and a few things to add in, including adjusting training volume, press
                   variations, or overhead work at home. Build capacity with progressive
                   strengthening exercises dosed to your current tolerance, usually across the

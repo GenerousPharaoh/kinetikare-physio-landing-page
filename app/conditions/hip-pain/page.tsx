@@ -653,18 +653,16 @@ export default function HipPainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
+                  The first appointment starts with questions. Where
                   does it actually hurt, how did it start, what makes it worse, what makes it
-                  better. The small details matter here. How you cross your legs on the
+                  better. How you cross your legs on the
                   couch. Whether you can sleep on that side. Whether a recent running block
                   pushed weekly volume up faster than the tissue could adapt. Whether sitting,
-                  standing, or walking is the main trigger. By the end of the history I usually
-                  have two or three working hypotheses, and the physical exam is about
-                  confirming or ruling them out.
+                  standing, or walking is the main trigger. The answers usually narrow it down to a few likely causes, and the examination helps tell them apart.
                 </p>
                 <p>
                   I look at how you move before I test what hurts. Watching you walk, squat, and
-                  step tells me more than any single provocation test. From there I check hip
+                  step often tells me more than a single provocation test does. From there I check hip
                   range, strength through the key muscle groups, and the targeted tests that
                   separate lateral tendon pain from joint pain from posterior nerve-related
                   pain. Where palpation is clinically indicated, it is directed by the working
@@ -673,7 +671,7 @@ export default function HipPainHubPage() {
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue with a short list of things to stop doing
+                  shape. Ease the irritated tissue with a short list of things to stop doing
                   and a few things to add in. Build capacity with progressive strengthening
                   exercises dosed to your current tolerance, usually across hip abductors, deep
                   rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, or

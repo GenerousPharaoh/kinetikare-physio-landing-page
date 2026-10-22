@@ -678,14 +678,12 @@ export default function KneePainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
+                  The first appointment starts with questions. Where
                   does the pain sit, how did it start, what makes it worse, what makes it
-                  better. The small details matter. Whether a new running block pushed
+                  better. Whether a new running block pushed
                   weekly mileage up faster than the tissue could adapt. Whether this came on
                   after a specific twist or a direct blow. How stairs feel compared with flat
-                  ground. Whether the knee has been swelling, clicking, or giving way. By the
-                  time the history is done I usually have two or three working hypotheses, and
-                  the exam is about confirming or ruling them out.
+                  ground. Whether the knee has been swelling, clicking, or giving way. The answers usually narrow it down to a few likely causes, and the examination helps tell them apart.
                 </p>
                 <p>
                   From there, the exam goes region by region. I watch how you walk, squat, step
@@ -700,7 +698,7 @@ export default function KneePainHubPage() {
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it has a familiar shape.
-                  Settle the irritable tissue with a short list of things to stop doing and a
+                  Ease the irritated tissue with a short list of things to stop doing and a
                   few things to add in, which might include adjusting training surface, volume,
                   or footwear. Build capacity with progressive strengthening exercises dosed to
                   your current tolerance, usually across quadriceps, hip abductors, glutes,

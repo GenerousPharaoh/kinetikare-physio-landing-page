@@ -725,15 +725,14 @@ export default function FootAnklePainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
+                  The first appointment starts with questions. Where
                   exactly does it hurt, and can you put a finger on it. What does the first step
                   in the morning feel like. Does it ease as you warm up or build as you go. Was
                   there a single moment or did it creep in. What changed in the weeks before it
                   started, whether that is running volume, a new job on your feet, a different
                   shoe, or a return to sport after time off. For anyone with diabetes or reduced
                   sensation I ask a different set of questions, because pain is a less reliable
-                  guide there. By the time the history is done I usually have two or three working
-                  hypotheses, and the examination is about confirming or ruling them out.
+                  guide there. The answers usually narrow it down to a few likely causes, and the examination helps tell them apart.
                 </p>
                 <p>
                   The examination works from the ground up and outwards. I look at how you stand
@@ -750,7 +749,7 @@ export default function FootAnklePainHubPage() {
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue by adjusting load rather than removing it,
+                  shape. Ease the irritated tissue by adjusting load rather than removing it,
                   which might mean changing running volume or surface, footwear width or heel
                   height, standing breaks at work, or how push-off is loaded. Build capacity with
                   progressive strengthening exercises for the calf, foot, and hip, dosed to your

@@ -133,13 +133,8 @@ const locationGuides: LocationGuide[] = [
       },
       {
         slug: 'shoulder-impingement',
-        label: 'Shoulder impingement',
-        note: 'Subacromial pain with overhead reaching and reaching behind the back, often tied to scapular mechanics.',
-      },
-      {
-        slug: 'shoulder-bursitis',
-        label: 'Shoulder bursitis',
-        note: 'Subacromial bursal irritation that usually sits within a broader rotator cuff and impingement picture.',
+        label: 'Shoulder impingement and bursitis',
+        note: 'Subacromial pain with overhead reaching and reaching behind the back, often tied to scapular mechanics. Shoulder bursitis usually sits within this same picture.',
       },
     ],
   },
@@ -163,8 +158,8 @@ const locationGuides: LocationGuide[] = [
       'Pain that sits in the upper trap and top of the shoulder blade, sometimes with pins and needles into the arm or hand, often has a cervical driver rather than a shoulder one. Head position, neck movement, and certain loaded positions change the symptoms. A careful screen separates a true shoulder problem from referred neck pain or cervical radiculopathy.',
     commonSources: [
       {
-        slug: 'shoulder-bursitis',
-        label: 'Shoulder bursitis',
+        slug: 'shoulder-impingement',
+        label: 'Shoulder impingement',
         note: 'Sometimes sits alongside cervical pain and altered scapular mechanics in desk-based workers.',
       },
       {
@@ -308,7 +303,6 @@ const relatedConditionSlugs: string[] = [
   'shoulder-instability',
   'biceps-tendinopathy',
   'ac-joint-injuries',
-  'shoulder-bursitis',
 ];
 
 const relatedTreatmentIds: string[] = [

@@ -96,13 +96,11 @@ const SHOULDER: Record<string, string> = {
   'Rotator Cuff Related Shoulder Pain': '/conditions/rotator-cuff-injuries',
   'Rotator Cuff Tear (Full or High-Grade Partial)': '/conditions/rotator-cuff-injuries',
   'Rotator Cuff Tear or Tendinopathy': '/conditions/rotator-cuff-injuries',
-  'Rotator Cuff Tendinopathy or Partial Tear': '/conditions/rotator-cuff-injuries',
   'Rotator Cuff Tendinopathy or Tear': '/conditions/rotator-cuff-injuries',
   'Rotator Cuff Tendinopathy or Tear (Supraspinatus or Subscapularis)': '/conditions/rotator-cuff-injuries',
   'Calcific Tendinopathy of the Rotator Cuff': '/conditions/rotator-cuff-injuries',
-  // Both carried only by shoulder pages (frozen shoulder, shoulder bursitis).
+  // Carried only by the frozen shoulder page.
   'Calcific Tendinitis': '/conditions/rotator-cuff-injuries',
-  'Calcific Tendinopathy': '/conditions/rotator-cuff-injuries',
   'Subacromial Pain Syndrome': '/conditions/shoulder-impingement',
   'Subacromial Bursitis / Impingement Syndrome': '/conditions/shoulder-impingement',
   'Subacromial Pain Syndrome / Bursitis': '/conditions/shoulder-impingement',

@@ -8160,7 +8160,7 @@ How the shoulder blades sit and move, how much the neck and upper chest muscles 
   },
 
   'shoulder-impingement': {
-    summary: `Shoulder impingement, often called subacromial pain syndrome, describes pain commonly linked to the rotator cuff tendons and nearby bursa. Lifting the arm, reaching overhead and lying on that side often hurt. The name does not establish that bone is pinching a tendon, and symptoms overlap with other shoulder problems.`,
+    summary: `Shoulder impingement, often called subacromial pain syndrome, describes pain commonly linked to the rotator cuff tendons and the bursa above them, a small fluid-filled sac that helps the tendons glide. Shoulder bursitis usually describes this same problem. Lifting the arm, reaching overhead and lying on that side often hurt. The name does not establish that bone is pinching a tendon, and symptoms overlap with other shoulder problems.`,
     clinicalObservations: {
       body: `People I see in Burlington for this often cannot point to one spot. They wave a hand over the outer arm, around where the deltoid sits, and describe it as vague and deep. Some assume it is a biceps or triceps problem, because that is where the ache lands when they reach overhead. What I pay attention to is the pattern: reaching up and tucking the arm behind the back are often the sore movements, and some of the range people think they have lost is guarding rather than a stiff joint. That distinction matters, because guarding often eases once loading starts sensibly.
 
@@ -8186,7 +8186,9 @@ I usually judge the dose by how the shoulder feels the next morning, not how it 
 
     pathophysiology: `Shoulder impingement (subacromial pain syndrome) involves irritation of the rotator cuff tendons and bursa in the subacromial space. Despite the name, it's now understood as more than just mechanical compression. The tendons develop degenerative changes and the bursa becomes thickened, not from simple pinching but from a complex interaction of factors.
 
-Modern understanding shifts away from blaming the shape of your acromion (the 'hooked' acromion seen on X-rays is common in pain-free shoulders too). Instead, I treat it as a load-related irritation of the rotator cuff tendons and the bursa: the tendons are being asked to do more than they are ready for. That is why it overlaps so closely with rotator cuff tendinopathy and shoulder bursitis, and why all three respond to the same gradual loading.`,
+Modern understanding shifts away from blaming the shape of your acromion (the 'hooked' acromion seen on X-rays is common in pain-free shoulders too). Instead, I treat it as a load-related irritation of the rotator cuff tendons and the bursa: the tendons are being asked to do more than they are ready for. That is why it overlaps so closely with rotator cuff tendinopathy and shoulder bursitis, and why all three respond to the same gradual loading.
+
+When an ultrasound or MRI report says subacromial bursitis or a thickened bursa, it is usually describing this same problem. A thickened bursa is also common in shoulders without pain, so I read the report alongside your examination.`,
 
     biomechanics: `This is a capacity problem rather than a pinch. The common contributors are a rotator cuff that is weak or tires quickly, shoulder blade muscles that are not keeping up, and a recent jump in overhead work, training or lifting.
 
@@ -8299,6 +8301,10 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
         action: "See your family doctor within a few days. An early imaging and surgical opinion matters for a fresh tear"
       },
       {
+        sign: "Progressive weakness without pain improvement",
+        action: "See your family doctor. I flag it and refer you for imaging and an orthopaedic opinion when a tear is likely"
+      },
+      {
         sign: "Shoulder or arm pain with chest pain, shortness of breath, sweating or nausea, or pain that comes on with exertion and eases with rest",
         action: "Call 911. Heart problems can show up as shoulder pain"
       },
@@ -8356,6 +8362,15 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
         findings: "Across 16 randomised trials (1,162 people), the reviewers weighed the best available evidence and found strong evidence that exercise reduces pain and improves function in the short term, and moderate evidence that it improves function in the longer term. The six trials that could be pooled showed small effects on rotator cuff strength in the short term and on function in the long term. The exercise programs varied too much to say which type, intensity, frequency or duration is best.",
         relevance: "Supports exercise as a core part of care for shoulder impingement, with the type and dose chosen to suit the person, since the trials did not point to one best program",
         citation: "Hanratty CE, McVeigh JG, Kerr DP, et al. The effectiveness of physiotherapy exercises in subacromial impingement syndrome: a systematic review and meta-analysis. Semin Arthritis Rheum. 2012;42(3):297-316. PMID: 22607807."
+      },
+      {
+        title: "Injection gave faster relief, physiotherapy had the fewest recurrences",
+        authors: "Hsieh LF, Kuo YC, Huang YH, et al.",
+        year: 2023,
+        journal: "Clinical Rehabilitation",
+        findings: "A 2023 randomised trial in long-standing bursitis under the point of the shoulder (chronic subacromial bursitis) compared a steroid (corticosteroid) injection, physiotherapy, and both combined. Pain, raising the arm forward and turning it outward improved more in the injection and combined groups, but symptoms came back in 36.1% after the injection alone, 17.1% after the combination and 7.5% after physiotherapy.",
+        relevance: "In this trial an injection calmed pain sooner, and recurrence was lowest after physiotherapy alone. It is one trial, so I treat it as one piece of the picture",
+        citation: "Hsieh LF, Kuo YC, Huang YH, et al. Comparison of corticosteroid injection, physiotherapy and combined treatment for patients with chronic subacromial bursitis: a randomised controlled trial. Clin Rehabil. 2023;37(9):1189-1200. PMID: 37021475."
       }
     ],
 
@@ -8387,6 +8402,14 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       {
         question: "Can I keep lifting weights?",
         answer: "Usually yes, with modifications. Complete rest tends to backfire. Early on I cut the movements that flare you (often overhead pressing, upright rows, behind-the-neck work), keep loaded work below shoulder height, and add static cuff holds (isometrics) and shoulder blade work. As symptoms settle, overhead loading comes back in progressively. Keeping some modified training going is usually easier to build back from than stopping everything for a month and then jumping back to your previous program."
+      },
+      {
+        question: "My report says shoulder bursitis. Is that a different condition?",
+        answer: "Usually not. Inflammation of the bursa on its own, without the rotator cuff tendons beneath it being involved, is uncommon. Jeremy Lewis's 2016 Manual Therapy paper on rotator cuff related shoulder pain and the 2022 JOSPT rotator cuff disorders clinical practice guideline both frame this as a continuum: the bursa, the supraspinatus tendon, and the capsule share one small space and get irritated together. When a report says bursitis, what it usually means is that the whole area under the point of the shoulder is irritated, which is why bursitis is covered on this page. Treatment has to address how the shoulder is working and loaded, not just the bursa."
+      },
+      {
+        question: "Is this going to turn into frozen shoulder?",
+        answer: "Not usually. Frozen shoulder has a distinct clinical picture (stiffness in every direction even when someone else moves the arm, particularly turning the arm outward with the elbow at the side) that is quite different from subacromial pain, where the shoulder typically still moves fully when moved for you. That said, if someone guards their shoulder for months because of pain, stiffness can creep in, which is another reason I prefer not to let people rest into complete immobility."
       },
       {
         question: "Is bad posture causing this?",
@@ -10843,263 +10866,6 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
     accessAndHours: standardAccessAndHours
   },
 
-  'shoulder-bursitis': {
-    summary: `Shoulder bursitis is irritation of a small fluid-filled sac that helps the rotator cuff tendons glide under the bony roof of the shoulder. It often occurs alongside tendon problems. Symptoms can include an ache on the outer shoulder with reaching overhead or behind the back, or lying on that side.`,
-    pathophysiology: `Shoulder bursitis, specifically subacromial bursitis, involves inflammation of the small fluid-filled sac (bursa) that sits between your rotator cuff tendons and the bony roof of your shoulder (acromion). This bursa normally allows smooth gliding of the rotator cuff tendons beneath the acromion during arm movement.
-
-The bursa usually becomes irritated together with the rotator cuff tendons beneath it, when the shoulder is asked to do more than it is ready for, such as a jump in overhead work or training. On a scan this shows as a thickened bursa, which is also common in shoulders without pain.
-
-The condition often coexists with rotator cuff tendinopathy and shoulder impingement syndrome, as they share similar causes. The irritated bursa can contribute to pain and dysfunction, but it is usually part of a wider rotator cuff problem rather than the whole story. That is why treatment works on the cuff and shoulder blade muscles as well as settling the bursa.
-
-Acute bursitis may result from direct trauma or sudden overuse, while chronic bursitis typically develops gradually from repetitive microtrauma and sustained mechanical irritation.`,
-
-    biomechanics: `The older explanation was that the bursa is pinched in a narrowed space under the acromion. The research does not support that as the main cause: the space and the bone shape do not predict who has pain, and surgery to make more room did no better than placebo surgery (CSAW trial, Beard and colleagues, Lancet 2018).
-
-What matters more is load and capacity. A rotator cuff that tires quickly, shoulder blade muscles that are not keeping up, and a sudden increase in overhead work, lifting or sport are the common contributors.
-
-Resting posture has only a weak link with shoulder pain, so I spend more time building cuff and shoulder blade strength than correcting how you sit.`,
-
-    clinicalPresentation: {
-      primarySymptoms: [
-        "Deep, aching shoulder pain that worsens with overhead activities",
-        "Pain along the outside of the shoulder and upper arm",
-        "Difficulty sleeping on the sore side because lying on it presses on the bursa",
-        "Morning stiffness that improves with gentle movement",
-        "Pain with reaching behind the back or overhead"
-      ],
-      associatedSymptoms: [
-        "Shoulder weakness, especially when lifting the arm",
-        "Clicking or grinding sensations during movement",
-        "Less movement, especially overhead",
-        "Neck and upper back tension from working around the sore shoulder"
-      ],
-      typicalPattern: "I typically see patients who describe a gradual onset of shoulder pain that started after a period of increased overhead activity or following a change in their usual routine. The pain is often worse at night and first thing in the morning, improving somewhat as they move around during the day."
-    },
-
-    evidenceSnapshot: {
-      primaryStrategy: "Rotator cuff and shoulder blade exercise, built up over time, can help most people with shoulder bursitis and is the first treatment to try.",
-      secondaryStrategy: "Easing off the most aggravating activities for a while, and ice or heat for comfort, can settle symptoms while the exercises build up what the shoulder can handle.",
-      preventionStrategy: "Keeping up some shoulder strengthening and building overhead load gradually may lower the chance of a flare",
-      sources: "Cleveland Clinic guidelines; Mayo Clinic recommendations; Physiopedia systematic reviews"
-    },
-
-    whatToExpect: {
-      firstVisit: "I'll assess your shoulder mechanics, identify contributing postural and movement factors, and begin treatment to reduce pain while addressing the underlying causes of bursal irritation",
-      earlyPhase: "Initial focus on pain management and restoring normal scapular and rotator cuff function through targeted exercises",
-      progression: "Progressive strengthening and movement retraining to lower the chance of recurrence, with gradual return to aggravating activities"
-    },
-
-    evidenceBasedTreatment: [
-      {
-        approach: "Shoulder blade (scapular) exercises",
-        evidence: "Shoulder blade exercises can help reduce pain and improve function as part of a broader rehabilitation program",
-        effectivenessLevel: "strong"
-      },
-      {
-        approach: "Progressive rotator cuff strengthening",
-        evidence: "Gradually loading the rotator cuff builds how much it can handle (its capacity), which is the main aim of treatment",
-        effectivenessLevel: "moderate"
-      },
-      {
-        approach: "Hands-on treatment alongside exercise",
-        evidence: "Joint mobilization and soft tissue techniques may provide short-term pain relief when combined with exercise",
-        effectivenessLevel: "moderate"
-      }
-    ],
-
-    prognosis: {
-      timeline: "Many people see meaningful improvement within 6 to 12 weeks of a progressive program, and some keep improving toward three months or longer. Symptoms that were there a long time before treatment usually take longer to settle.",
-      factors: [
-        "Building cuff and shoulder blade strength matters for long-term success",
-        "Long-standing cases may take longer because the surrounding tissues have also changed",
-        "Keeping up the home exercises affects outcomes",
-        "A rotator cuff problem alongside it may lengthen recovery",
-        "Symptoms that have lasted longer before treatment often mean a longer recovery"
-      ],
-      naturalHistory: "Many people improve with a progressive loading program. Symptoms can come back, and if they do, I review the plan with you"
-    },
-
-    keyResearch: [
-      {
-        finding: "Injection gave faster relief, physiotherapy had the fewest recurrences",
-        detail: "A 2023 randomised trial in long-standing bursitis under the point of the shoulder (chronic subacromial bursitis) compared a steroid (corticosteroid) injection, physiotherapy, and both combined. Pain, raising the arm forward and turning it outward improved more in the injection and combined groups, but symptoms came back in 36.1% after the injection alone, 17.1% after the combination and 7.5% after physiotherapy.",
-        clinicalRelevance: "In this trial an injection calmed pain sooner, and recurrence was lowest after physiotherapy alone. It is one trial, so I treat it as one piece of the picture",
-        citation: "Hsieh LF, Kuo YC, Huang YH, et al. Comparison of corticosteroid injection, physiotherapy and combined treatment for patients with chronic subacromial bursitis: a randomised controlled trial. Clin Rehabil. 2023;37(9):1189-1200. PMID: 37021475."
-      },
-      {
-        finding: "Shoulder blade exercises were linked with less pain and better function",
-        detail: "A 2024 review pooled 8 randomised trials with 387 participants. Shoulder blade stabilising exercises were linked with lower pain scores, and lower scores on a shoulder pain and disability questionnaire, than the comparison treatments.",
-        clinicalRelevance: "Moderate evidence that shoulder blade exercises help pain and function in this group of shoulder conditions, so they are part of the program",
-        citation: "Zhong Z, Zang W, Tang Z, et al. Effect of scapular stabilization exercises on subacromial pain (impingement) syndrome: a systematic review and meta-analysis of randomized controlled trials. Front Neurol. 2024;15:1357763. PMID: 38497039."
-      },
-    ],
-
-    selfManagement: [
-      {
-        strategy: "Keep moving, adjust what aggravates it",
-        rationale: "Complete rest tends to make shoulder pain worse, because the rotator cuff quickly loses capacity and the joint stiffens. Adjust the activities that aggravate it, such as overhead work, reaching behind you and your sleeping position, rather than cutting down general movement.",
-        precautions: ["Stay within a comfortable range at first, and avoid forceful stretching."]
-      },
-      {
-        strategy: "Start light rotator cuff work now",
-        rationale: "Light loading of the rotator cuff, with static holds and light outward-turning exercises, is usually well tolerated from the start. Phase 1 uses static holds turning the arm outward and inward with the elbow at your side, 4 to 5 holds of 30 to 45 seconds, daily.",
-        precautions: [
-          "Ease off if the holds leave a flare that lasts into the next day.",
-          "If symptoms are not improving after 6 to 8 weeks of appropriate treatment, I refer you to your family doctor to discuss imaging or an injection."
-        ]
-      },
-      {
-        strategy: "Support the arm at night",
-        rationale: "Sleep on the other side with a pillow supporting the sore arm forward, or on your back with a small pillow under the elbow. Staying off the sore shoulder takes pressure off the irritated bursa, and night pain often eases over a few weeks.",
-        precautions: [
-          "Severe, constant pain that does not change with position needs a medical review: see the warning signs on this page."
-        ]
-      },
-      {
-        strategy: "Break up long spells with the arm raised",
-        rationale: "Breaking up long spells with the arm forward or overhead can ease symptoms, giving an irritated shoulder a rest without stopping you using it. Short, regular breaks matter more than a perfect posture, because resting posture has only a weak link with shoulder pain."
-      },
-      {
-        strategy: "Use ice for a flare",
-        rationale: "Ice can give short-term pain relief in a sudden flare-up. Limit each session to 15 to 20 minutes.",
-        precautions: ["Put a cloth between the ice and your skin."]
-      }
-    ],
-
-    clinicalRedFlags: [
-      {
-        sign: "A hot, red, swollen shoulder, or severe shoulder pain with fever or feeling unwell",
-        action: "Go to emergency now. This can be an infection"
-      },
-      {
-        sign: "Shoulder or arm pain with chest pain, shortness of breath, sweating or nausea, or pain that comes on with exertion and eases with rest",
-        action: "Call 911. Heart problems can show up as shoulder pain"
-      },
-      {
-        sign: "Shoulder pain with a history of cancer, unexplained weight loss, or constant pain at night",
-        action: "See your family doctor before starting physiotherapy"
-      },
-      {
-        sign: "Progressive weakness without pain improvement",
-        action: "See your family doctor. I flag it and refer you for imaging and an orthopaedic opinion when a tear is likely"
-      },
-      {
-        sign: "Significant shoulder deformity or inability to move arm",
-        action: "Same-day medical assessment to rule out a fracture or a complete tear"
-      },
-      {
-        sign: "Symptoms not improving after 6-8 weeks of appropriate treatment",
-        action: "I refer you to your family doctor to discuss imaging or an injection"
-      }
-    ],
-
-    measuringProgress: {
-      dayToDay: "I track your pain during specific activities like reaching overhead or sleeping, how far the shoulder moves, and whether you can do daily tasks without much discomfort",
-      questionnaires: "Shoulder Pain and Disability Index (SPADI) to monitor functional improvements and pain reduction over time",
-      activityTarget: "Return to full overhead activities and sleeping comfortably without recurring shoulder pain"
-    },
-    faqs: [
-      {
-        question: "Is shoulder bursitis actually its own condition?",
-        answer: "Not really, most of the time. Isolated inflammation of the subacromial bursa without involvement of the surrounding rotator cuff tendons is uncommon. Jeremy Lewis's 2016 Manual Therapy paper on rotator cuff related shoulder pain and the 2022 JOSPT rotator cuff disorders clinical practice guideline both frame this as a continuum: the bursa, the supraspinatus tendon, and the capsule share one small space and get irritated together. When a report says bursitis, what it usually means is that the whole area under the point of the shoulder is irritated. This matters because treatment has to address how the shoulder is working and loaded, not just the bursa."
-      },
-      {
-        question: "Will a cortisone injection fix it?",
-        answer: "It will probably help in the short term, and may not help in the long term. The Cochrane review of corticosteroid injections for shoulder pain found modest short-term benefit (roughly the first four to six weeks) compared to placebo, with limited evidence of benefit beyond that and no clear advantage over well-structured physiotherapy at three to six months. I do not object to injections when pain is disabling and someone cannot engage with exercise, but they are best used as a window to do the loading work, not a standalone solution. Injection is not something I do myself. When that route makes sense, I coordinate with a sports medicine physician who performs the procedure. A 2023 randomised trial in long-standing subacromial bursitis (Hsieh et al., Clinical Rehabilitation) reported a substantially higher recurrence rate in the injection-only group (around 36 percent) than in the physiotherapy group (around 8 percent)."
-      },
-      {
-        question: "Why does my shoulder hurt more at night?",
-        answer: "Night pain is common with shoulder bursitis. Lying on the sore side or holding the arm in one position for a long time can aggravate it, but position is not the whole explanation, and an irritated area can simply be more sensitive at rest. I usually suggest sleeping on the other side with a pillow supporting the sore arm forward, or on your back with a small pillow under the elbow. Night pain often eases over a few weeks, though how quickly varies. Severe, constant pain that does not change with position needs a medical review."
-      },
-      {
-        question: "Should I rest or keep moving?",
-        answer: "Keep moving within reasonable limits. Complete rest tends to make shoulder pain worse because the rotator cuff quickly loses capacity and the joint stiffens. What I usually adjust is the activity that aggravates it (overhead work, reaching behind, sleeping position) rather than general movement. Light loading of the rotator cuff with static holds (isometrics) and light outward-turning exercises is usually well tolerated from the start."
-      },
-      {
-        question: "How long will this take to settle?",
-        answer: "Realistic timelines are six to twelve weeks for meaningful improvement with a progressive program. Many people are noticeably better by six to eight weeks, and others keep improving toward three months or longer. How long symptoms were present before starting care is one of the clearest predictors of a slower recovery. Once pain has been present for over three months, I expect a longer road and set expectations accordingly."
-      },
-      {
-        question: "Do I need imaging?",
-        answer: "Not for most presentations. Shoulder ultrasound and MRI pick up a thickened bursa, partial cuff tears, and changes in the shape of the acromion in very high rates of pain-free shoulders, so they often add more uncertainty than clarity. I refer you for imaging through your family doctor when a significant rotator cuff tear is suspected, when there are warning signs in the history, like an injury after which you cannot lift the arm, or when symptoms are not responding to six to eight weeks of appropriate rehab."
-      },
-      {
-        question: "Is this going to turn into frozen shoulder?",
-        answer: "Not usually. Frozen shoulder has a distinct clinical picture (stiffness in every direction even when someone else moves the arm, particularly turning the arm outward with the elbow at the side) that is quite different from subacromial pain, where the shoulder typically still moves fully when moved for you. That said, if someone guards their shoulder for months because of pain, stiffness can creep in, which is another reason I prefer not to let people rest into complete immobility."
-      },
-      {
-        question: "What exercises actually make a difference?",
-        answer: "Three buckets, in this order: static holds and light rotator cuff work with the arm at the side to calm the shoulder down, shoulder blade control drills to rebuild the base the shoulder works from, and then progressive loading into ranges and positions that matter for your life and sport. The 2022 JOSPT guideline and Lewis's rotator cuff related shoulder pain framework both support active, task-oriented rehabilitation over passive treatments. The details, such as load, repetitions and how the program progresses, are set to your shoulder and adjusted as it responds."
-      }
-    ],
-    differentialDiagnosis: [
-      {
-        condition: "Rotator Cuff Tendinopathy or Partial Tear",
-        distinguishingFeatures: "Overlaps heavily with bursitis in the clinic, but weakness when one tendon is tested against resistance points more toward the tendon. These frequently occur together, and Lewis's rotator cuff related shoulder pain framework treats them as one continuum rather than separate labels."
-      },
-      {
-        condition: "Frozen Shoulder (Adhesive Capsulitis)",
-        distinguishingFeatures: "Stiffness in every direction even when someone else moves the arm, especially turning it outward with the elbow at the side, with the firm stop of a tight capsule. With bursitis the shoulder typically still moves fully when moved for you, and the sign is a painful arc rather than stiffness everywhere."
-      },
-      {
-        condition: "AC Joint Pathology",
-        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, which is tender to press and worse reaching across the body (cross-body adduction). Pain from the bursa and cuff more often spreads to the outer upper arm rather than sitting over the AC joint, although both can be present."
-      },
-      {
-        condition: "Calcific Tendinopathy",
-        distinguishingFeatures: "Often a more sudden start with pain far more severe than expected, sometimes with a calcium deposit visible on X-ray or ultrasound. The timeline and severity differ from typical bursitis, though the examination tests overlap."
-      },
-      {
-        condition: "Cervical Radiculopathy (C5-C6)",
-        distinguishingFeatures: "Arm symptoms along the path of one nerve, brought on by tilting the head and pressing down on it (Spurling's test) and by neck positions rather than by loading the shoulder. The shoulder still moves fully when moved for you."
-      },
-      {
-        condition: "Biceps Tendinopathy",
-        distinguishingFeatures: "Pain at the front of the shoulder over the groove the biceps tendon runs in (bicipital groove), and pain when bending the elbow or turning the palm up against resistance (Speed and Yergason tests). Pain from the cuff or bursa more often spreads to the outer upper arm, although the two can occur together."
-      }
-    ],
-    exerciseProgression: {
-      phase1: {
-        title: "Phase 1: Settle Irritability",
-        focus: "Settle pain enough for the bursa and surrounding cuff to tolerate exercise that loads them. A static hold, where the muscle works without the arm moving (an isometric), can be a manageable way to begin when movement is painful. It eases pain for some people, but not consistently, so I choose the effort and hold time by your response and use another option if it aggravates symptoms. The 2022 clinical guideline for rotator cuff problems recommends active rehabilitation over rest.",
-        examples: [
-          "Static holds turning the arm outward and inward (isometric external and internal rotation), elbow at your side, 4 to 5 holds of 30 to 45 seconds, daily",
-          "Pain-free pendulum swings and small movements of the arm done yourself",
-          "Shoulder blade setting drills (gently drawing the shoulder blade back and down) and supported low rows, to switch on the muscles at the back of the shoulder",
-          "Advice on sleep position and on pacing activities, to reduce flare-ups at night",
-          "A break from the particular tasks that provoke it (usually overhead reaching, lifting above shoulder height, and sleeping on the sore side), while staying active otherwise"
-        ],
-        progressionCriteria: "Night pain manageable, low pain at rest, and the static holds feeling comfortable without a flare that lasts into the next day."
-      },
-      phase2: {
-        title: "Phase 2: Restore Capacity",
-        focus: "Build rotator cuff and shoulder blade strength with resistance that gets steadily heavier, which is the main aim of rehabilitation. Jeremy Lewis's approach to rotator cuff related shoulder pain and the 2022 clinical guideline for rotator cuff problems both support building load beyond light bands once the shoulder is less irritable.",
-        examples: [
-          "Turning the arm outward against a dumbbell or cable, elbow at your side (external rotation), 3 sets of 8 to 12 reps, returning slowly under control (the eccentric phase)",
-          "Side-lying external rotation (lying on your side and turning the top arm outward with a dumbbell), increased weekly by small dumbbell increments",
-          "Y, T and W arm holds lying face down, and supported rows at chest height that draw the shoulder blades back",
-          "Cable or band face pulls (pulling toward your face with the elbows high), focusing on drawing the shoulder blades back and working the back of the rotator cuff",
-          "Loaded carries (walking with a weight in each hand, the farmer carry, or in one hand, the suitcase carry) to train the shoulder and shoulder blade to stay steady while moving under load"
-        ],
-        progressionCriteria: "Rotation strength getting closer to the other side, pain-free loading through the full range you can move yourself, and moderate overhead reaching in daily life tolerated."
-      },
-      phase3: {
-        title: "Phase 3: Return to Overhead and Sport",
-        focus: "Restore the shoulder's ability to handle overhead work, faster movements and the end of its reach. Later rehabilitation helps prepare the shoulder for the demands you want to return to, and I progress it on how the shoulder performs rather than on the calendar. Symptoms can still come back after a well-completed program; if they do, I review the plan with you.",
-        examples: [
-          "Overhead press progressions, starting with a landmine press (pressing up one end of a barbell whose other end is anchored at the floor) and moving on to full overhead dumbbell and barbell presses",
-          "Pulling work: lat pulldowns, progressions toward full pull-ups or assisted variations",
-          "Fast throw-and-catch work for the rotator cuff (plyometrics: medicine ball chest passes, overhead throws, rebounder drills), for throwing athletes",
-          "Practising the skills of your sport or job, with the amount built up gradually",
-          "Strength work at the end of the shoulder's reach, such as holding weight fully overhead, Turkish get-ups (getting up from lying to standing while holding a weight overhead) and bottoms-up kettlebell work (holding a kettlebell upside down by its handle), for steadiness with the arm at full stretch"
-        ],
-        progressionCriteria: "Strength close to the other side on rotation, lifting and pressing, sport or work demands managed at the usual volume without pain, and confident overhead reaching in unplanned movements."
-      }
-    },
-    lastReviewed: '2026-10-09',
-    accessAndHours: standardAccessAndHours
-  },
-
   'wrist-sprains': {
     summary: `A wrist sprain is an injury to the ligaments that hold the small wrist bones together, often from a fall on an outstretched hand. It causes pain, swelling and a weaker grip, and some sprains leave the wrist feeling unstable. Pain at the base of the thumb after a fall should be assessed promptly, to rule out a scaphoid fracture.`,
     pathophysiology: `Wrist sprains involve damage to the ligaments that connect the bones of your wrist, most commonly affecting the scapholunate ligament complex or the triangular fibrocartilage complex (TFCC). These structures are crucial for maintaining proper carpal bone alignment and allowing coordinated wrist movement.
@@ -12153,7 +11919,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries: 
 
 
   'peroneal-tendinopathy': {
-    summary: `Peroneal tendinopathy is pain in the tendons that run behind and below the bony bump on the outside of the ankle. These tendons help steady the ankle, and the problem often follows earlier ankle sprains. Pain usually builds gradually and is worse with activity, such as walking on uneven trails or pushing off when running.`,
+    summary: `Peroneal tendinopathy, often called peroneal tendonitis, is pain in the tendons that run behind and below the bony bump on the outside of the ankle. These tendons help steady the ankle, and the problem often follows earlier ankle sprains. Pain usually builds gradually and is worse with activity, such as walking on uneven trails or pushing off when running.`,
     pathophysiology: `Peroneal tendinopathy affects the fibularis longus and brevis tendons that run behind your lateral malleolus (outer ankle bone). These tendons are crucial for ankle stability, particularly during walking on uneven surfaces, and help prevent ankle sprains by providing lateral stability.
 
 The peroneal tendons are subject to significant mechanical stress as they navigate around the sharp posterior edge of the fibula, held in place by the superior peroneal retinaculum. This anatomical arrangement makes them vulnerable to friction and degenerative changes, particularly when the retinaculum is damaged or when there are underlying biomechanical issues.

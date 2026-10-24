@@ -316,10 +316,11 @@ const shoulderConditions: Condition[] = [
     slug: 'shoulder-impingement',
     name: 'Shoulder Impingement Syndrome',
     category: 'shoulder',
-    description: 'Rotator cuff and bursa irritation causing pain with overhead activities',
+    description: 'Rotator cuff and bursa irritation (often called shoulder bursitis) causing pain with overhead activities',
     featured: true,
     priority: 25,
-    metaDescription: 'Shoulder impingement treatment in Burlington by a Registered Physiotherapist. Hands-on care and targeted rehab. Direct billing, no referral, evening hours.',
+    seoTitle: 'Shoulder Impingement and Bursitis Treatment in Burlington',
+    metaDescription: 'Pain lifting the arm or lying on that side, from the rotator cuff and bursa (impingement or bursitis). Treatment in Burlington. Direct billing.',
   },
   {
     id: 'frozen-shoulder',
@@ -358,14 +359,6 @@ const shoulderConditions: Condition[] = [
     category: 'shoulder',
     description: 'Long head biceps tendon pain',
     metaDescription: 'Biceps tendinopathy physiotherapy in Burlington for pain at the front of the shoulder, with progressive loading. Kareem Hassanein, Registered Physiotherapist.',
-  },
-  {
-    id: 'shoulder-bursitis',
-    slug: 'shoulder-bursitis',
-    name: 'Shoulder Bursitis',
-    category: 'shoulder',
-    description: 'Irritation of the bursa and rotator cuff tendons at the top of the shoulder',
-    metaDescription: 'Shoulder bursitis physiotherapy in Burlington. Rotator cuff and shoulder blade loading with Kareem Hassanein, Registered Physiotherapist. Direct billing.',
   },
   {
     id: 'ac-joint',
@@ -710,7 +703,8 @@ const footAnkleConditions: Condition[] = [
     name: 'Peroneal Tendinopathy',
     category: 'foot-ankle',
     description: 'Lateral ankle tendon issues',
-    metaDescription: 'Peroneal tendinopathy treatment in Burlington. Personalized care for lateral ankle pain with targeted strengthening and balance training.',
+    seoTitle: 'Peroneal Tendonitis: Symptoms and Treatment in Burlington',
+    metaDescription: 'Pain behind and below the outer ankle bone, often after old ankle sprains. Peroneal tendonitis symptoms and treatment in Burlington. Direct billing.',
   },
   {
     id: 'posterior-tibial-tendon-dysfunction',
@@ -928,22 +922,19 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness; can develop sequentially', relevanceScore: 7 },
     { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon closely related to rotator cuff; injuries often coexist', relevanceScore: 7 },
     { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'AC joint dysfunction can alter shoulder mechanics and stress rotator cuff', relevanceScore: 6 },
-    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Neck posture affects shoulder blade position and rotator cuff function', relevanceScore: 5 },
-    { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'Bursitis often accompanies rotator cuff irritation and settles with the same loading approach', relevanceScore: 6 }
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Neck posture affects shoulder blade position and rotator cuff function', relevanceScore: 5 }
   ],
   'shoulder-impingement': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'anatomical', explanation: 'Both describe irritation of the rotator cuff tendons and often overlap', relevanceScore: 9 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both can limit overhead movement, and early frozen shoulder can look similar', relevanceScore: 7 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
     { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Forward head posture contributes to scapular dysfunction and impingement', relevanceScore: 6 },
-    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 },
-    { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'The subacromial bursa sits in the same space and is usually irritated alongside the tendons', relevanceScore: 7 }
+    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 }
   ],
   'frozen-shoulder': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and movement restriction; can coexist or develop sequentially', relevanceScore: 7 },
     { slug: 'shoulder-impingement', relationshipType: 'symptomatic', explanation: 'Early frozen shoulder can look like impingement until the stiffness becomes clear', relevanceScore: 7 },
     { slug: 'diabetes-related-conditions', relationshipType: 'causal', explanation: 'Diabetes significantly increases risk of developing adhesive capsulitis', relevanceScore: 8 },
-    { slug: 'shoulder-bursitis', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness with inflammatory components', relevanceScore: 6 },
     { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'Compensatory movements from frozen shoulder can stress AC joint', relevanceScore: 5 }
   ],
   'tennis-elbow': [
@@ -1152,8 +1143,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'shoulder-impingement', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause anterior shoulder pain and can develop sequentially', relevanceScore: 5 },
     { slug: 'ac-joint-injuries', relationshipType: 'anatomical', explanation: 'Biceps tendon proximity to AC joint can cause overlapping symptoms', relevanceScore: 5 },
-    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and loading protocols', relevanceScore: 5 },
-    { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'Both sit at the front of the shoulder and are often irritated together', relevanceScore: 5 }
+    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and loading protocols', relevanceScore: 5 }
   ],
   'mcl-lcl-sprains': [
     { slug: 'acl-injuries', relationshipType: 'anatomical', explanation: 'Multi-ligament knee injuries common; often occur together in trauma', relevanceScore: 7 },
@@ -1195,13 +1185,6 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'ac-joint-injuries', relationshipType: 'anatomical', explanation: 'Traumatic dislocations can involve both glenohumeral and AC joints', relevanceScore: 5 },
     { slug: 'biceps-tendinopathy', relationshipType: 'biomechanical', explanation: 'Shoulder instability can stress biceps tendon as secondary stabilizer', relevanceScore: 5 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Post-dislocation stiffness can develop into adhesive capsulitis', relevanceScore: 5 }
-  ],
-  'shoulder-bursitis': [
-    { slug: 'shoulder-impingement', relationshipType: 'anatomical', explanation: 'The bursa and the rotator cuff tendons sit in the same space and are usually irritated together', relevanceScore: 8 },
-    { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and can coexist with similar presentations', relevanceScore: 7 },
-    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness with inflammatory components', relevanceScore: 6 },
-    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Subacromial bursitis can affect nearby biceps tendon', relevanceScore: 5 },
-    { slug: 'ac-joint-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and can be confused diagnostically', relevanceScore: 5 }
   ],
   'wrist-sprains': [
     { slug: 'carpal-tunnel-syndrome', relationshipType: 'causal', explanation: 'Wrist trauma can lead to swelling and median nerve compression', relevanceScore: 6 },

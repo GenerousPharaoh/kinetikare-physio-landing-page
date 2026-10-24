@@ -87,10 +87,6 @@ export const conditionNav: ConditionNavCategory[] = [
         "name": "Biceps Tendinopathy"
       },
       {
-        "slug": "shoulder-bursitis",
-        "name": "Shoulder Bursitis"
-      },
-      {
         "slug": "ac-joint-injuries",
         "name": "AC Joint Sprains"
       },

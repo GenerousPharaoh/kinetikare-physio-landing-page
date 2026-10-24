@@ -75,7 +75,7 @@ export const NAV_MENU: NavMenuColumn[] = [
       { name: 'Frozen Shoulder', href: '/conditions/frozen-shoulder' },
       { name: 'Shoulder Instability', href: '/conditions/shoulder-instability' },
     ],
-    viewAll: { name: 'View all (9)', href: '/conditions?tab=1' },
+    viewAll: { name: 'View all (8)', href: '/conditions?tab=1' },
   },
   {
     key: 'back',

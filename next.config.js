@@ -46,6 +46,8 @@ const nextConfig = {
     return [
       // Merged into the piriformis page on 2026-10-08 (Google had dropped it as overlapping).
       { source: '/conditions/deep-gluteal-syndrome', destination: '/conditions/piriformis-syndrome', permanent: true },
+      // Merged into the impingement page on 2026-10-24 (Google had dropped it as crawled, not indexed; the two pages covered one problem).
+      { source: '/conditions/shoulder-bursitis', destination: '/conditions/shoulder-impingement', permanent: true },
     ];
   },
   async headers() {

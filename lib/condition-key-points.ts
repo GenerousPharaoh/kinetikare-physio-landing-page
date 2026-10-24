@@ -29,7 +29,6 @@ export const CONDITION_KEY_POINTS: Record<string, ConditionKeyPoints> = {
   'shoulder-instability': { helps: 'Structured exercise for a shoulder that became loose without an injury. After a first dislocation in a young athlete, an early surgical opinion.', time: 'Improvement is usually gradual; a loose shoulder usually gets about 6 months of rehab before surgery is considered.' },
   'thoracic-outlet-syndrome': { helps: 'A monitored trial of rehabilitation for the nerve type, when there is no significant weakness or wasting.', time: 'Improvement often takes 3 to 6 months.' },
   'biceps-tendinopathy': { helps: 'Loading the tendon with slow, heavy exercises built up over time.', time: 'Many cases improve within 6 to 12 weeks of the right loading.' },
-  'shoulder-bursitis': { helps: 'Rotator cuff and shoulder blade exercise, built up over time.', time: 'Many people improve within 6 to 12 weeks; long-standing cases take longer.' },
   'ac-joint-injuries': { helps: 'Rehab matched to the grade of the injury. Higher grades need a surgical opinion.', time: 'Depends on the grade and on what you are returning to; heavy lifting and contact sport come back last.' },
   'diabetes-related-conditions': { helps: 'Depends on the problem: movement work for a stiff shoulder, hand care for carpal tunnel, balance and foot protection for the feet.', time: 'No single timeline. A stiff shoulder can take many months with diabetes.' },
 

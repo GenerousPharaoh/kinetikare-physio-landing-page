@@ -137,7 +137,6 @@ const CONDITION_PLATES: Record<string, string> = {
   // Shoulder
   'shoulder-instability': 'Glenohumeral joint',
   'biceps-tendinopathy': 'Long head of biceps',
-  'shoulder-bursitis': 'Subacromial bursa',
   'ac-joint-injuries': 'Acromioclavicular joint',
   'thoracic-outlet-syndrome': 'Thoracic outlet',
   'diabetes-related-conditions': 'Hand and palmar fascia',

@@ -52,6 +52,9 @@ const CASES: Case[] = [
   { q: 'slipped disc', first: '/conditions/disc-herniation' },
   { q: 'pulled hamstring', first: '/conditions/hamstring-strains' },
   { q: 'frozen shoulder', first: '/conditions/frozen-shoulder' },
+  // Shoulder bursitis merged into impingement on 2026-10-24
+  { q: 'shoulder bursitis', first: '/conditions/shoulder-impingement' },
+  { q: 'peroneal tendonitis', first: '/conditions/peroneal-tendinopathy' },
   { q: 'rotator cuff tear', first: '/conditions/rotator-cuff-injuries' },
   { q: 'dry needling', first: '/treatments/dry-needling' },
   { q: 'insurance', first: '/faq#billing' },

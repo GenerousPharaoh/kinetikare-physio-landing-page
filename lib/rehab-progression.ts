@@ -55,7 +55,6 @@ export const REHAB_PROGRESSION_SLUGS = new Set<string>([
   // Shoulder, elbow, wrist + hand
   'rotator-cuff-injuries',
   'frozen-shoulder',
-  'shoulder-bursitis',
   'ac-joint-injuries',
   'biceps-tendinopathy',
   'thoracic-outlet-syndrome',

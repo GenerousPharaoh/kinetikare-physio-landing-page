@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { JANE_ASSESSMENT_URL } from '@/lib/booking';
-import { GOOGLE_REVIEW_TOTAL } from '@/lib/reviews';
 import Arrow from './Arrow';
 import styles from './Home.module.css';
 
@@ -21,11 +19,10 @@ export interface AtlasRegion {
 }
 
 /**
- * The opening screen and the "Where does it hurt?" atlas share one stage: the
- * anatomy plate stays in place (sticky) while the text scrolls past it. Each
- * region's text swaps the plate, and the gold ring on the measuring line
- * travels to the new joint. Without JavaScript the knee plate simply stays and
- * every link still works.
+ * "Where does it hurt?": the anatomy plate, mounted as a print, stays in place
+ * (sticky) while the text scrolls past it. Each region's text swaps the plate,
+ * and the gold ring on the measuring line travels to the new joint. Without
+ * JavaScript the knee plate simply stays and every link still works.
  */
 export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
   const [active, setActive] = useState(0);
@@ -78,27 +75,33 @@ export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
   const stageVars = { '--jx': current.joint[0], '--jy': current.joint[1] } as CSSProperties;
 
   return (
-    <section className={`${styles.sec} ${styles.atlas}`} aria-labelledby="home-title">
+    <section className={`${styles.sec} ${styles.atlas}`} aria-labelledby="atlas-title">
       <div ref={stageRef} className={styles.stage} aria-hidden="true">
         <div className={styles.plates} style={stageVars}>
-          {regions.map((region, i) => {
-            const state = i === active ? 'active' : i < active ? 'past' : 'next';
-            if (i > 0 && !loadRest) return null;
-            return (
-              <div key={region.key} className={`${styles.plate} ${i === 0 ? styles.plateIntro : ''}`} data-state={state}>
-                <div className={styles.plateInner}>
-                  <Image
-                    src={region.plate}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    quality={82}
-                    priority={i === 0}
-                  />
+          <div className={styles.card}>
+            {regions.map((region, i) => {
+              const state = i === active ? 'active' : i < active ? 'past' : 'next';
+              if (i > 0 && !loadRest) return null;
+              return (
+                <div
+                  key={region.key}
+                  className={`${styles.plate} ${i === 0 ? styles.plateIntro : ''}`}
+                  data-state={state}
+                >
+                  <div className={styles.plateInner}>
+                    <Image
+                      src={region.plate}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 44vw, 90vw"
+                      quality={82}
+                      priority={i === 0}
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
           <div className={styles.measure} />
           <div className={styles.ring}>
             <span key={active} className={styles.pulse} />
@@ -107,56 +110,24 @@ export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
       </div>
 
       <div ref={flowRef} className={styles.flow}>
-        <header className={styles.hero}>
-          <p className={styles.eyebrow}>Physiotherapy in Burlington</p>
-          <h1 id="home-title" className={styles.heroName}>
-            <span>Kareem</span>
-            <span>Hassanein</span>
-          </h1>
-          <p className={styles.slogan}>
-            The Science of Recovery.
-            <em>The Art of Care.</em>
-          </p>
-          <div className={styles.ctaRow}>
-            <a
-              href={JANE_ASSESSMENT_URL}
-              data-booking-source="hero"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btn}
-            >
-              Book an assessment
-              <Arrow />
-            </a>
-            <a href="#where-does-it-hurt" className={styles.textLink}>
-              Where does it hurt?
-            </a>
-          </div>
-          <p className={`${styles.bodyText} ${styles.heroLede}`}>
-            One-on-one physiotherapy in Burlington, built around finding the root cause of your pain and getting back to feeling your best.
-          </p>
-          <ul className={styles.facts}>
-            <li>Direct billing</li>
-            <li>No referral needed</li>
-            <li>Evening hours</li>
-            <li>
-              <a href="#reviews">5.0 on Google, {GOOGLE_REVIEW_TOTAL} reviews</a>
-            </li>
-          </ul>
-        </header>
-
         <div id="where-does-it-hurt" className={styles.intro} data-chapter="0">
           <p className={styles.eyebrow}>Start by body region</p>
-          <h2 className={styles.h2} style={{ marginTop: 18 }}>
+          <h2 id="atlas-title" className={styles.h2} style={{ marginTop: 18 }}>
             Where does it hurt?
           </h2>
           <p className={`${styles.bodyText} ${styles.introText}`}>
-            Region-level overviews that sort common patterns and point you to the right detailed condition page.
+            Region-level overviews that sort common patterns and point you to the right detailed
+            condition page.
           </p>
         </div>
 
         {regions.map((region, i) => (
-          <article key={region.key} className={styles.chapter} data-chapter={i} aria-labelledby={`region-${region.key}`}>
+          <article
+            key={region.key}
+            className={styles.chapter}
+            data-chapter={i}
+            aria-labelledby={`region-${region.key}`}
+          >
             <h3 id={`region-${region.key}`} className={styles.regionName}>
               {region.title}
             </h3>
@@ -171,7 +142,11 @@ export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
                 </li>
               ))}
             </ul>
-            <Link href={region.hub} prefetch={false} className={`${styles.textLink} ${styles.hubLink}`}>
+            <Link
+              href={region.hub}
+              prefetch={false}
+              className={`${styles.textLink} ${styles.hubLink}`}
+            >
               Explore {region.label.toLowerCase()}
               <Arrow />
             </Link>
@@ -198,8 +173,13 @@ export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
           </ul>
           <p className={styles.alsoLine}>
             Back pain:{' '}
-            <Link href="/conditions/low-back-pain" prefetch={false}>Low back pain</Link>,{' '}
-            <Link href="/conditions/sciatica" prefetch={false}>Sciatica</Link>
+            <Link href="/conditions/low-back-pain" prefetch={false}>
+              Low back pain
+            </Link>
+            ,{' '}
+            <Link href="/conditions/sciatica" prefetch={false}>
+              Sciatica
+            </Link>
           </p>
         </div>
       </div>

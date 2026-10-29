@@ -72,16 +72,14 @@ export function HomeAtlasSection() {
 export function HomeApproach() {
   return (
     <section className={`${styles.sec} ${styles.approach}`} aria-labelledby="approach-title">
-      <Reveal className={styles.portrait} variant="clip">
-        <div className={styles.portraitFigure}>
-          <Image
-            src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-            alt="Kareem Hassanein, Registered Physiotherapist in Burlington"
-            fill
-            sizes="(min-width: 1024px) 38vw, (min-width: 768px) 460px, 100vw"
-            quality={82}
-          />
-        </div>
+      <Reveal className={styles.roomPhoto} variant="clip">
+        <Image
+          src="/images/endorphins-treatment-room.webp"
+          alt="Kareem's treatment room at Endorphins Health and Wellness Centre, Burlington"
+          fill
+          sizes="(min-width: 1024px) 52vw, 100vw"
+          quality={82}
+        />
       </Reveal>
       <Reveal className={styles.approachText} delay={120}>
         <p className={styles.eyebrow}>Meet Kareem Hassanein</p>

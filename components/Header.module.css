@@ -1,0 +1,408 @@
+/*
+ * Desktop header (from 1180px; the phone number from 1536px): a slim night bar matching the home page,
+ * links in light Inter with a gold underline that draws on hover, and a
+ * full-width Conditions panel that drops from the bar.
+ *
+ * Class names here avoid the words the global stylesheets match by
+ * substring ("card", "container", "gold", "blur", "btn", "max-w-",
+ * "grid-cols-", "animate-"). Link colours use :not(#_) to beat
+ * color-harmony.css's 0,5,1 link rule.
+ */
+
+.bar {
+  --night: #0a1628;
+  --cream: #f3eee4;
+  --gold: #b08d57;
+  --gold-light: #d6bf8e;
+  --display: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* From 1180px the bar uses the full window width (Tailwind's container
+   caps it at 1024px until 1280px, which crowded the links). Not a max-w-*
+   utility: globals.css overrides every [class*="max-w-"] on small screens. */
+@media (min-width: 1180px) {
+  .bar .barInner {
+    max-width: 1640px;
+    padding-left: clamp(24px, 3vw, 56px);
+    padding-right: clamp(24px, 3vw, 56px);
+  }
+}
+
+/* Links */
+.nav {
+  display: none;
+  align-items: center;
+  gap: clamp(15px, 1.5vw, 34px);
+}
+
+@media (min-width: 1180px) {
+  .nav { display: flex; }
+}
+
+.nav a:not(#_),
+.trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 450 15px/1 var(--sans);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: rgba(243, 238, 228, 0.8);
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+
+/* The underline draws from the left on hover; it stays on the current page. */
+.nav a:not(#_)::after,
+.trigger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 1px;
+  background: var(--gold-light);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s var(--ease);
+}
+
+.nav a:not(#_)[aria-current='page'],
+.trigger[data-current='true'] {
+  color: var(--gold-light);
+}
+
+.nav a:not(#_)[aria-current='page']::after,
+.trigger[data-current='true']::after {
+  transform: scaleX(1);
+  background: var(--gold);
+}
+
+@media (hover: hover) {
+  .nav a:not(#_):hover,
+  .trigger:hover { color: var(--cream); }
+  .nav a:not(#_):hover::after,
+  .trigger:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+.trigger[aria-expanded='true'] { color: var(--cream); }
+.trigger[aria-expanded='true']::after { transform: scaleX(1); transform-origin: left center; }
+
+.chevron {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.4s var(--ease);
+}
+
+.trigger[aria-expanded='true'] .chevron { transform: rotate(180deg); }
+
+.nav a:focus-visible,
+.trigger:focus-visible,
+.panel a:focus-visible,
+.search:focus-visible,
+.book:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
+/* Right side */
+.search {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(243, 238, 228, 0.18);
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(243, 238, 228, 0.82);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.search svg { width: 18px; height: 18px; }
+
+@media (hover: hover) {
+  .search:hover { border-color: var(--gold-light); color: var(--gold-light); }
+}
+
+.phone:not(#_) {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  font: 450 15px/1 var(--sans);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: rgba(243, 238, 228, 0.82);
+  transition: color 0.3s var(--ease);
+}
+
+.phone svg { width: 16px; height: 16px; color: var(--gold-light); }
+
+@media (min-width: 1536px) {
+  .phone:not(#_) { display: inline-flex; }
+}
+
+@media (hover: hover) {
+  .phone:not(#_):hover { color: var(--cream); }
+}
+
+.book:not(#_) {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  padding: 0 20px 0 22px;
+  border-radius: 2px;
+  background: var(--gold-light);
+  color: var(--night);
+  font: 500 14.5px/1 var(--sans);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: background-color 0.3s var(--ease);
+}
+
+.book svg { width: 15px; height: 15px; transition: transform 0.4s var(--ease); }
+
+@media (hover: hover) {
+  .book:not(#_):hover { background: var(--cream); color: var(--night); }
+  .book:hover svg { transform: translateX(3px); }
+}
+
+/* The Conditions panel: full width under the bar, opaque, revealed from the
+   top. It stays in the page while closed (visibility and inert), so the
+   links are always in the HTML. */
+.panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  display: none;
+  background: var(--night);
+  border-top: 1px solid rgba(214, 191, 142, 0.16);
+  border-bottom: 1px solid rgba(214, 191, 142, 0.22);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path 0.55s var(--ease), visibility 0s linear 0.55s;
+}
+
+@media (min-width: 1180px) {
+  .panel { display: block; }
+}
+
+.panel[data-open='true'] {
+  clip-path: inset(0 0 -100px 0);
+  visibility: visible;
+  transition: clip-path 0.6s var(--ease), visibility 0s;
+}
+
+.panelInner {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 3.4fr);
+  gap: clamp(32px, 4vw, 72px);
+  max-height: calc(100svh - 84px);
+  margin: 0 auto;
+  padding: 28px clamp(32px, 4vw, 64px) 30px;
+  overflow-y: auto;
+  max-width: 1440px;
+}
+
+/* Everything inside rises in turn as the panel opens. */
+.panel [data-rise] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
+}
+
+.panel[data-open='true'] [data-rise] {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(80ms + var(--r, 0) * 45ms);
+}
+
+.feature {
+  padding-right: clamp(16px, 2vw, 40px);
+  border-right: 1px solid rgba(243, 238, 228, 0.1);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font: 500 12.5px/1.4 var(--sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.featureTitle {
+  margin: 16px 0 0;
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+
+.featureText {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(243, 238, 228, 0.66);
+}
+
+.featureLinks {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featureLinks li { margin: 0; }
+
+.panel .featureLinks a:not(#_) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid rgba(243, 238, 228, 0.1);
+  font-size: 15px;
+  color: var(--cream);
+  transition: color 0.3s var(--ease), padding 0.4s var(--ease);
+}
+
+.featureLinks svg { width: 14px; height: 14px; color: var(--gold-light); }
+
+.regions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px clamp(24px, 2.6vw, 48px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.regions > li { margin: 0; }
+
+.regionHead:not(#_) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(214, 191, 142, 0.35);
+  color: var(--cream);
+  transition: color 0.3s var(--ease);
+}
+
+.medal {
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #f7efdd;
+  box-shadow: 0 0 0 1px rgba(214, 191, 142, 0.55);
+}
+
+.medal img { object-fit: cover; }
+
+.regionName {
+  font-family: var(--display);
+  font-size: 21px;
+  line-height: 1.1;
+}
+
+.regionArrow {
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  color: var(--gold-light);
+  transition: transform 0.4s var(--ease);
+}
+
+.regionLinks {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.regionLinks li { margin: 0; }
+
+.panel .regionLinks a:not(#_) {
+  display: block;
+  padding: 5px 0;
+  font-size: 14.5px;
+  line-height: 1.35;
+  color: rgba(243, 238, 228, 0.76);
+  transition: color 0.25s var(--ease), transform 0.35s var(--ease);
+}
+
+.panel .regionLinks a.viewAll:not(#_) {
+  margin-top: 4px;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+@media (hover: hover) {
+  .panel .featureLinks a:not(#_):hover { color: var(--gold-light); padding-left: 6px; }
+  .regionHead:not(#_):hover { color: var(--gold-light); }
+  .regionHead:hover .regionArrow { transform: translateX(4px); }
+  .panel .regionLinks a:not(#_):hover { color: var(--cream); transform: translateX(4px); }
+  .panel .regionLinks a.viewAll:not(#_):hover { color: var(--cream); }
+}
+
+@media (min-width: 1600px) {
+  .regions { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .panelInner { grid-template-columns: minmax(240px, 1fr) minmax(0, 5fr); }
+}
+
+/* Dims the page under the open panel; a click on it closes the panel. */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(3, 9, 18, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+
+.scrim[data-open='true'] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 1179px) {
+  .scrim { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panel[data-open='true'],
+  .panel [data-rise],
+  .scrim,
+  .nav a::after,
+  .trigger::after { transition: none !important; }
+}

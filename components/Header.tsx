@@ -10,6 +10,7 @@ import {
   CalendarDaysIcon,
   MagnifyingGlassIcon,
   ChevronRightIcon,
+  ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import { NAV_MENU, NAV_MENU_FOOTER_LINKS } from '@/lib/nav-menu';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL, JANE_INTAKE_BOOKING_URL } from '@/lib/booking';
@@ -17,6 +18,17 @@ import Image from 'next/image';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { useModalDialog } from '@/hooks/useModalDialog';
+import styles from './Header.module.css';
+
+/** Small round pictures beside each column of the Conditions panel. */
+const MENU_MEDALS: Record<string, string> = {
+  knee: '/images/regions/knee.webp',
+  hip: '/images/regions/hip-pelvis.webp',
+  'foot-ankle': '/images/regions/foot-ankle.webp',
+  shoulder: '/images/regions/shoulder.webp',
+  back: '/images/regions/spinal-health.webp',
+  treatments: '/images/illustrations/step-ups.webp',
+};
 
 const loadSearchModal = () => import('./SearchModal');
 const SearchModal = dynamic(loadSearchModal, {
@@ -35,6 +47,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
   const [conditionsMenuOpen, setConditionsMenuOpen] = useState(false);
   const conditionsToggleRef = useRef<HTMLButtonElement>(null);
+  const hoverOpenedAt = useRef(0);
+  const closeTimer = useRef<number | undefined>(undefined);
+  const [menuEverOpened, setMenuEverOpened] = useState(false);
+  const openConditions = useCallback(() => {
+    window.clearTimeout(closeTimer.current);
+    setMenuEverOpened(true);
+    setConditionsMenuOpen(true);
+  }, []);
   const pathname = usePathname();
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
   // Always route the header Book button straight to Jane. The /intake page
@@ -60,7 +80,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280 && mobileMenuOpen) {
+      if (window.innerWidth >= 1180 && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
     };
@@ -121,18 +141,31 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         // Site chrome: scripts/content-dates.mjs leaves it out of each page's
         // fingerprint, so a menu change does not re-date every page.
         data-site-chrome=""
-        className={`fixed w-full top-0 z-50 border-b ${shouldTransition ? 'transition-all duration-200 ease-in-out' : ''} ${
-          // The navy bar is always on. It used to go transparent at the top of
-          // the home page over the photo hero; the illustrated hero puts cream
-          // paper under the right half of the header, where white links vanish.
-          scrolled || pathname !== '/' || mobileMenuOpen || true
-            ? `!bg-[#020617]/90 backdrop-blur-xl border-white/10 ${isIntakePage ? 'py-2.5 lg:py-5' : 'py-3 lg:py-6'} shadow-lg`
-            : '!bg-transparent border-transparent py-3 lg:py-6'
-        }`}
+        // The bar is always on, in the home page's night navy so it runs
+        // straight into the dark hero. Desktop is a fixed 84px.
+        className={`${styles.bar} fixed w-full top-0 z-50 border-b !bg-[#0a1628]/[0.94] backdrop-blur-xl border-[#d6bf8e]/[0.14] ${
+          shouldTransition ? 'transition-shadow duration-300' : ''
+        } ${isIntakePage ? 'py-2.5 lg:py-5' : 'py-3 lg:py-0 lg:h-[84px]'} ${scrolled ? 'shadow-[0_12px_32px_rgba(0,0,0,0.35)]' : ''}`}
+        onPointerLeave={(event) => {
+          if (event.pointerType !== 'mouse') return;
+          window.clearTimeout(closeTimer.current);
+          closeTimer.current = window.setTimeout(() => setConditionsMenuOpen(false), 140);
+        }}
+        onPointerEnter={() => window.clearTimeout(closeTimer.current)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node)) setConditionsMenuOpen(false);
+        }}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape' && conditionsMenuOpen) {
+            event.preventDefault();
+            setConditionsMenuOpen(false);
+            conditionsToggleRef.current?.focus();
+          }
+        }}
       >
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className={`container mx-auto px-4 lg:px-8 h-full ${styles.barInner}`}>
           <motion.div
-            className="flex items-center justify-between"
+            className="flex items-center justify-between h-full"
             initial={shouldAnimate ? 'hidden' : 'visible'}
             animate="visible"
             variants={headerContainerVariants}
@@ -155,7 +188,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* One literal text node for the name. It used to be Kineti + K + are in
                       three spans, which parsers read as "KinetiKarePhysio" and re-split
                       as "Kinetika Rephysio". */}
-                  <span className={`${isIntakePage ? 'text-xs min-[360px]:text-sm' : 'text-sm'} sm:text-lg lg:text-xl font-light !text-white uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-none`}>
+                  <span className={`${isIntakePage ? 'text-xs min-[360px]:text-sm' : 'text-sm'} sm:text-lg lg:text-[15px] font-light !text-white uppercase tracking-[0.1em] sm:tracking-[0.15em] lg:tracking-[0.22em] leading-none`}>
                     Kinetikare
                   </span>
                   {' '}
@@ -163,123 +196,57 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* Desktop Separator */}
                   <div className="hidden lg:block h-4 w-[1px] bg-[#D4AF37] mx-3" />
 
-                  <span className={`${isIntakePage ? 'text-[10px] min-[360px]:text-xs' : 'text-xs'} sm:text-[10px] lg:text-xl !text-white font-light tracking-[0.1em] sm:tracking-[0.15em] uppercase lg:mt-0 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap`}>
+                  <span className={`${isIntakePage ? 'text-[10px] min-[360px]:text-xs' : 'text-xs'} sm:text-[10px] lg:text-[15px] !text-white font-light tracking-[0.1em] sm:tracking-[0.15em] lg:tracking-[0.22em] uppercase lg:mt-0 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap`}>
                     Physio
                   </span>
                 </div>
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation (hidden on the ads landing page to reduce exits) */}
+            {/* Desktop navigation, from 1180px (hidden on the ads landing page to
+                reduce exits). Conditions opens a full-width panel under the bar. */}
             {!isIntakePage && (
-            <nav aria-label="Main navigation" className="hidden xl:flex items-center gap-1 2xl:gap-2">
-              {mainNavItems.map((item) => (
-                <motion.div
-                  key={item.name}
-                  className="relative group/nav flex items-center"
-                  variants={headerItemVariants}
-                  onMouseLeave={item.name === 'Conditions' ? (event) => {
-                    if (!event.currentTarget.contains(document.activeElement)) setConditionsMenuOpen(false);
-                  } : undefined}
-                  onBlur={(event) => {
-                    if (!event.currentTarget.contains(event.relatedTarget as Node)) setConditionsMenuOpen(false);
-                  }}
-                  onKeyDown={(event) => {
-                    if (item.name === 'Conditions' && event.key === 'Escape' && conditionsMenuOpen) {
-                      event.preventDefault();
-                      setConditionsMenuOpen(false);
-                      conditionsToggleRef.current?.focus();
-                    }
-                  }}
-                >
+            <nav aria-label="Main navigation" className={styles.nav}>
+              {mainNavItems.map((item) =>
+                item.name === 'Conditions' ? (
+                  <button
+                    key={item.name}
+                    ref={conditionsToggleRef}
+                    type="button"
+                    className={styles.trigger}
+                    aria-expanded={conditionsMenuOpen}
+                    aria-controls="desktop-conditions-menu"
+                    data-current={isCurrentPath(item.href)}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType !== 'mouse') return;
+                      hoverOpenedAt.current = Date.now();
+                      openConditions();
+                    }}
+                    onClick={() => {
+                      // A mouse that has just opened the panel by hovering
+                      // should not close it again with the same gesture.
+                      if (conditionsMenuOpen && Date.now() - hoverOpenedAt.current < 700) return;
+                      if (conditionsMenuOpen) setConditionsMenuOpen(false);
+                      else openConditions();
+                    }}
+                  >
+                    {item.name}
+                    <ChevronDownIcon aria-hidden="true" className={styles.chevron} />
+                  </button>
+                ) : (
                   <Link
+                    key={item.name}
                     href={item.href}
                     prefetch={false}
-                    onMouseEnter={item.name === 'Conditions' ? () => setConditionsMenuOpen(true) : undefined}
                     aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-                    className={`relative px-3 2xl:px-4 py-3 rounded-full text-sm font-medium tracking-wide whitespace-nowrap transition-all duration-300 ${
-                      isCurrentPath(item.href)
-                        ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
-                        : '!text-white/80 hover:!text-white hover:bg-white/5'
-                    }`}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType === 'mouse') setConditionsMenuOpen(false);
+                    }}
                   >
                     {item.name}
                   </Link>
-
-                  {item.name === 'Conditions' && (
-                    <button
-                      ref={conditionsToggleRef}
-                      type="button"
-                      aria-label="Show condition categories"
-                      aria-expanded={conditionsMenuOpen}
-                      aria-controls="desktop-conditions-menu"
-                      onClick={() => setConditionsMenuOpen((value) => !value)}
-                      className="flex h-11 w-11 items-center justify-center rounded-md text-white/80 hover:bg-white/10 hover:text-white"
-                    >
-                      <ChevronRightIcon aria-hidden="true" className={`h-3.5 w-3.5 transition-transform ${conditionsMenuOpen ? '-rotate-90' : 'rotate-90'}`} />
-                    </button>
-                  )}
-                  {item.name === 'Conditions' && (
-                    <div
-                      id="desktop-conditions-menu"
-                      hidden={!conditionsMenuOpen}
-                      onClick={() => setConditionsMenuOpen(false)}
-                      className="absolute left-1/2 -translate-x-1/2 top-full pt-3"
-                    >
-                      <div className="w-[600px] max-h-[calc(100dvh-7rem)] overflow-y-auto bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                        {NAV_MENU.map((column) => (
-                          <div key={column.key} className="group/category">
-                            <Link
-                              href={column.href}
-                              prefetch={false}
-                              className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors hover:!text-white"
-                            >
-                              <span className="text-[#D4AF37] font-medium text-sm tracking-wide group-hover/category:text-[#F5E6B3] transition-colors">
-                                {column.title}
-                              </span>
-                              <ChevronRightIcon
-                                aria-hidden="true"
-                                className="w-3.5 h-3.5 text-[#D4AF37]/50 group-hover/category:text-[#D4AF37] group-hover/category:translate-x-0.5 transition-all"
-                              />
-                            </Link>
-                            <div className="mt-2 space-y-1">
-                              {column.links.map((link) => (
-                                <Link
-                                  key={link.href}
-                                  href={link.href}
-                                  prefetch={false}
-                                  className="block text-xs text-white/75 hover:text-white hover:translate-x-1 transition-all duration-200 py-1"
-                                >
-                                  {link.name}
-                                </Link>
-                              ))}
-                              <Link
-                                href={column.viewAll.href}
-                                prefetch={false}
-                                className="block text-[11px] text-[#F5E6B3] hover:text-white uppercase tracking-wider font-bold pt-1"
-                              >
-                                {column.viewAll.name}
-                              </Link>
-                            </div>
-                          </div>
-                        ))}
-                        <div className="col-span-2 mt-1 pt-4 border-t border-white/10 flex flex-wrap gap-x-5 gap-y-2">
-                          {NAV_MENU_FOOTER_LINKS.map((link) => (
-                            <Link
-                              key={link.href}
-                              href={link.href}
-                              prefetch={false}
-                              className="text-[11px] uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-                            >
-                              {link.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
+                )
+              )}
             </nav>
             )}
 
@@ -296,25 +263,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       setSearchModalOpen(true);
                     }}
                     aria-label="Open search"
-                    className="hidden sm:flex items-center justify-center w-11 h-11 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
+                    className={styles.search}
                   >
                     <MagnifyingGlassIcon className="w-5 h-5" />
                   </button>
                 </motion.div>
               ) : null}
 
-              {/* Phone */}
-              <motion.div className="hidden 3xl:block" variants={headerItemVariants}>
-                <Link
-                  href="tel:+19056346000"
-                  className="flex items-center gap-2 !text-white/70 hover:!text-white transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:!text-slate-900 transition-all duration-300">
-                    <PhoneIcon className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm font-medium tracking-wide">905-634-6000</span>
-                </Link>
-              </motion.div>
+              {/* Phone, from 1440px */}
+              {!isIntakePage && (
+                <a href="tel:+19056346000" className={styles.phone}>
+                  <PhoneIcon aria-hidden="true" />
+                  905-634-6000
+                </a>
+              )}
 
               {/* Book Now Button */}
               <motion.div className={isIntakePage ? "block" : "hidden sm:block"} variants={headerItemVariants}>
@@ -324,20 +286,26 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   target="_blank"
                   rel="noopener noreferrer"
                   prefetch={false}
-                  className={`${isIntakePage ? 'flex px-4 py-2 sm:px-6 sm:py-2.5' : 'hidden sm:flex px-6 py-2.5'} group relative bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105`}
+                  className={
+                    isIntakePage
+                      ? 'flex px-4 py-2 sm:px-6 sm:py-2.5 group relative bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105'
+                      : styles.book
+                  }
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                  <span className="relative flex items-center gap-2 text-slate-900 font-bold text-xs tracking-[0.1em] uppercase">
-                    <CalendarDaysIcon className="w-4 h-4" />
-                    {isIntakePage ? (
-                      <>
-                        <span className="sm:hidden">Book</span>
-                        <span className="hidden sm:inline">Book Assessment</span>
-                      </>
-                    ) : (
-                      'Book Now'
-                    )}
-                  </span>
+                  {isIntakePage ? (
+                    <span className="relative flex items-center gap-2 text-slate-900 font-bold text-xs tracking-[0.1em] uppercase">
+                      <CalendarDaysIcon className="w-4 h-4" />
+                      <span className="sm:hidden">Book</span>
+                      <span className="hidden sm:inline">Book Assessment</span>
+                    </span>
+                  ) : (
+                    <>
+                      Book Now
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" strokeWidth="1.3" />
+                      </svg>
+                    </>
+                  )}
                 </Link>
               </motion.div>
 
@@ -346,7 +314,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <button
                 ref={mobileMenuButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="xl:hidden relative z-50 w-11 h-11 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
+                className="min-[1180px]:hidden relative z-50 w-11 h-11 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-menu-panel"
@@ -361,7 +329,80 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </div>
           </motion.div>
         </div>
+
+        {/* The Conditions panel (desktop). Always in the HTML; closed it is
+            hidden from view and from the keyboard (inert). The region medallions
+            only load once the panel has been opened. */}
+        {!isIntakePage && (
+          <div
+            id="desktop-conditions-menu"
+            className={styles.panel}
+            data-open={conditionsMenuOpen}
+            inert={!conditionsMenuOpen}
+            onClick={(event) => {
+              if ((event.target as HTMLElement).closest('a')) setConditionsMenuOpen(false);
+            }}
+          >
+            <div className={styles.panelInner}>
+              <div className={styles.feature}>
+                <p className={styles.eyebrow} data-rise="" style={{ '--r': 0 } as React.CSSProperties}>
+                  Conditions
+                </p>
+                <p className={styles.featureTitle} data-rise="" style={{ '--r': 1 } as React.CSSProperties}>
+                  Where does it hurt?
+                </p>
+                <p className={styles.featureText} data-rise="" style={{ '--r': 2 } as React.CSSProperties}>
+                  Region-level overviews that sort common patterns and point you to the right detailed condition page.
+                </p>
+                <ul className={styles.featureLinks} data-rise="" style={{ '--r': 3 } as React.CSSProperties}>
+                  {NAV_MENU_FOOTER_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} prefetch={false}>
+                        {link.name}
+                        <ChevronRightIcon aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <ul className={styles.regions}>
+                {NAV_MENU.map((column, i) => (
+                  <li key={column.key} data-rise="" style={{ '--r': i + 1 } as React.CSSProperties}>
+                    <Link href={column.href} prefetch={false} className={styles.regionHead}>
+                      <span className={styles.medal} aria-hidden="true">
+                        {menuEverOpened && MENU_MEDALS[column.key] && (
+                          <Image src={MENU_MEDALS[column.key]} alt="" fill sizes="40px" quality={70} />
+                        )}
+                      </span>
+                      <span className={styles.regionName}>{column.title}</span>
+                      <ChevronRightIcon aria-hidden="true" className={styles.regionArrow} />
+                    </Link>
+                    <ul className={styles.regionLinks}>
+                      {column.links.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} prefetch={false}>
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link href={column.viewAll.href} prefetch={false} className={styles.viewAll}>
+                          {column.viewAll.name}
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </header>
+
+      {/* Dims the page while the Conditions panel is open (desktop). */}
+      {!isIntakePage && (
+        <div className={styles.scrim} data-open={conditionsMenuOpen} aria-hidden="true" onClick={() => setConditionsMenuOpen(false)} />
+      )}
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -371,7 +412,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[75] xl:hidden"
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[75] min-[1180px]:hidden"
               data-dialog-backdrop
               aria-hidden="true"
               onClick={() => setMobileMenuOpen(false)}
@@ -387,7 +428,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[min(22rem,calc(100%-3.5rem))] bg-[#020617] border-l border-white/10 z-[80] xl:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[min(22rem,calc(100%-3.5rem))] bg-[#020617] border-l border-white/10 z-[80] min-[1180px]:hidden overflow-y-auto"
             >
               {/* The close button stays pinned while the drawer scrolls (an
                   expanded Conditions list scrolled it out of reach), and the

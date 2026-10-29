@@ -40,11 +40,11 @@
 }
 
 @media (min-width: 1024px) {
-  .home { --hh: 93px; --gutter: clamp(32px, 5.5vw, 96px); }
+  .home { --hh: 84px; --gutter: clamp(32px, 5.5vw, 96px); }
 }
 
 @media (min-width: 1280px) {
-  .home { --hh: 95px; }
+  .home { --hh: 84px; }
 }
 
 /* Element resets inside the home only. */

@@ -12,10 +12,10 @@ import styles from './Home.module.css';
  * edit to lib/reviews.ts can never leave a misquote on the page.
  */
 const PULL_QUOTES = [
-  { name: 'Ryan Darkwah', quote: 'He found that the problem came from weakness in my hip and tension in my quads that was putting extra strain on my patellar tendon.' },
-  { name: 'Marko Vasilic', quote: 'Kareem did a full movement analysis and tested all of the surrounding joints and muscles, which really showed me where the extra stress was coming from.' },
-  { name: 'Serhiy Sidey', quote: "When the surgeon's office sent the wrong post-op protocol, he caught it and built me the right one." },
-  { name: 'Sean Vandenbarselaar', quote: 'He figured out the thigh pain was coming from a nerve in my lower back rather than the thigh itself, and walked me through why it had been moving around the way it was.' },
+  { name: 'Ryan Darkwah', region: 'Knee', quote: 'He found that the problem came from weakness in my hip and tension in my quads that was putting extra strain on my patellar tendon.' },
+  { name: 'Marko Vasilic', region: 'Foot & ankle', quote: 'Kareem did a full movement analysis and tested all of the surrounding joints and muscles, which really showed me where the extra stress was coming from.' },
+  { name: 'Serhiy Sidey', region: 'Shoulder', quote: "When the surgeon's office sent the wrong post-op protocol, he caught it and built me the right one." },
+  { name: 'Sean Vandenbarselaar', region: 'Back', quote: 'He figured out the thigh pain was coming from a nerve in my lower back rather than the thigh itself, and walked me through why it had been moving around the way it was.' },
 ];
 
 const SPOTLIGHT = PULL_QUOTES.filter((p) => reviews.some((r) => r.name === p.name && r.text.includes(p.quote)));
@@ -31,6 +31,12 @@ function excerpt(text: string) {
   }
   out = out.trim();
   return { text: out, cut: out.length < text.trim().length };
+}
+
+/** "Dr. Fel Rocci" -> "FR", "Mustafa" -> "M". */
+function initials(name: string) {
+  const parts = name.replace(/^Dr\.\s+/, '').split(/\s+/).filter(Boolean);
+  return (parts[0][0] + (parts.length > 1 ? parts[parts.length - 1][0] : '')).toUpperCase();
 }
 
 const Stars = () => (
@@ -53,6 +59,7 @@ const Stars = () => (
 export default function HomeReviews() {
   const spotRef = useRef<HTMLDivElement>(null);
   const quoteRefs = useRef<(HTMLElement | null)[]>([]);
+  const stepRefs = useRef<(HTMLElement | null)[]>([]);
   const trackRef = useRef<HTMLUListElement>(null);
   const reduce = useReducedMotion();
   const [pinned, setPinned] = useState(false);
@@ -70,7 +77,9 @@ export default function HomeReviews() {
     const index = Math.floor(at);
     // Light the words over the first 80% of a quote's stretch, then hold it.
     const lit = Math.min(1, (at - index) / 0.8);
-    quoteRefs.current.forEach((el, i) => el?.style.setProperty('--q', String(i < index ? 1 : i > index ? 0 : lit)));
+    const fill = (i: number) => String(i < index ? 1 : i > index ? 0 : lit);
+    quoteRefs.current.forEach((el, i) => el?.style.setProperty('--q', fill(i)));
+    stepRefs.current.forEach((el, i) => el?.style.setProperty('--q', fill(i)));
     setActive(index);
   });
 
@@ -96,7 +105,9 @@ export default function HomeReviews() {
   return (
     <section id="reviews" className={`${styles.sec} ${styles.reviews} ${styles.onDark}`} aria-labelledby="reviews-title">
       <div ref={spotRef} className={styles.spot} data-pinned={pinned} style={{ '--n': SPOTLIGHT.length } as CSSProperties}>
-        <div className={styles.spotStage}>
+        {/* data-hide-floating: the phone Book/Call pills stand aside while the
+            spotlight fills the screen (they covered the region steps). */}
+        <div className={styles.spotStage} data-hide-floating="">
           <div className={styles.spotHead}>
             <p className={styles.eyebrow}>Patient reviews</p>
             <h2 id="reviews-title" className={styles.spotRating}>
@@ -122,6 +133,9 @@ export default function HomeReviews() {
                   data-state={i === active ? 'active' : i < active ? 'past' : 'next'}
                   style={{ '--w': words.length } as CSSProperties}
                 >
+                  <span className={styles.spotMark} aria-hidden="true">
+                    &ldquo;
+                  </span>
                   <blockquote>
                     <p>
                       {words.map((word, w) => (
@@ -131,7 +145,15 @@ export default function HomeReviews() {
                       ))}
                     </p>
                   </blockquote>
-                  <figcaption>{p.name}</figcaption>
+                  <figcaption className={styles.spotBy}>
+                    <span className={styles.monogram} aria-hidden="true">
+                      {initials(p.name)}
+                    </span>
+                    <span>
+                      <span className={styles.byName}>{p.name}</span>
+                      <span className={styles.bySource}>Google review</span>
+                    </span>
+                  </figcaption>
                 </figure>
               );
             })}
@@ -139,7 +161,15 @@ export default function HomeReviews() {
 
           <ol className={styles.spotSteps} aria-hidden="true">
             {SPOTLIGHT.map((p, i) => (
-              <li key={p.name} data-on={i <= active} />
+              <li
+                key={p.name}
+                ref={(el) => {
+                  stepRefs.current[i] = el;
+                }}
+                data-on={i <= active}
+              >
+                <span>{p.region}</span>
+              </li>
             ))}
           </ol>
         </div>
@@ -167,12 +197,20 @@ export default function HomeReviews() {
           const isOpen = open === i;
           return (
             <li key={review.name} className={styles.reviewCard}>
-              <Stars />
               <figure>
+                <figcaption className={styles.reviewBy}>
+                  <span className={styles.monogram} aria-hidden="true">
+                    {initials(review.name)}
+                  </span>
+                  <span>
+                    <span className={styles.byName}>{review.name}</span>
+                    <span className={styles.bySource}>Google review</span>
+                  </span>
+                  <Stars />
+                </figcaption>
                 <blockquote>
                   <p>{isOpen || !short.cut ? review.text : short.text}</p>
                 </blockquote>
-                <figcaption>{review.name}</figcaption>
               </figure>
               {short.cut && (
                 <button type="button" className={styles.moreBtn} onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen}>

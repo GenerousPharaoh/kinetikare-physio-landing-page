@@ -78,7 +78,7 @@ export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
     <section className={`${styles.sec} ${styles.atlas}`} aria-labelledby="atlas-title">
       <div ref={stageRef} className={styles.stage} aria-hidden="true">
         <div className={styles.plates} style={stageVars}>
-          <div className={styles.card}>
+          <div className={styles.mount}>
             {regions.map((region, i) => {
               const state = i === active ? 'active' : i < active ? 'past' : 'next';
               if (i > 0 && !loadRest) return null;

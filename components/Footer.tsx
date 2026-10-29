@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
+import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CPO_REGISTER_URL } from '@/lib/registration';
@@ -66,11 +67,20 @@ export default function Footer() {
   const concise = isIntakePage || pathname === '/contact';
   const hideDetails = concise || pathname === '/';
 
+  // The reveal: as the footer scrolls in, its contents start a little higher
+  // and settle into place, so the page reads as lifting off a footer that was
+  // waiting underneath. Works at any footer height, so every page gets it.
+  const footerRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: footerRef, offset: ['start end', 'end end'] });
+  const lift = useTransform(scrollYProgress, [0, 1], [reduce ? '0%' : '-22%', '0%']);
+  const signoffY = useTransform(scrollYProgress, [0.55, 1], [reduce ? '0%' : '40%', '0%']);
+
   return (
     // data-site-chrome: scripts/content-dates.mjs leaves the footer out of each
     // page's fingerprint, so a footer change does not re-date every page.
-    <footer className={`site-footer ${styles.footer}`} data-compact={hideDetails || undefined} data-site-chrome="">
-      <div className={styles.inner}>
+    <footer ref={footerRef} className={`site-footer ${styles.footer}`} data-compact={hideDetails || undefined} data-site-chrome="">
+      <motion.div className={styles.inner} style={{ y: lift }}>
         <div className={styles.top}>
           <div className={styles.identity}>
             <Link href="/" className={`text-white ${styles.brand}`} aria-label="Kinetikare Physiotherapy home">
@@ -88,8 +98,13 @@ export default function Footer() {
             </p>
             {!concise && (
               <div className={styles.actions}>
-                <a href={JANE_BOOKING_URL} data-booking-source="footer" target="_blank" rel="noopener noreferrer" className={`button-gold ${styles.booking}`}>
-                  <span>Book Online</span>
+                <a href={JANE_BOOKING_URL} data-booking-source="footer" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.bigBook}`}>
+                  <span>Book an assessment</span>
+                  <span className={styles.bigBookArrow} aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" strokeWidth="1.3" />
+                    </svg>
+                  </span>
                 </a>
                 <a href={CPO_REGISTER_URL} target="_blank" rel="noopener noreferrer" className={`text-white ${styles.registration}`}>
                   <ShieldCheckIcon aria-hidden="true" />
@@ -188,9 +203,16 @@ export default function Footer() {
           </div>
         )}
 
-        <p className={styles.signoff} aria-hidden="true">
-          Kareem Hassanein
-        </p>
+        {/* The measuring line from the home page's atlas, then his name rising
+            out of a mask as the footer settles. Both decorative. */}
+        <div className={styles.measure} aria-hidden="true">
+          <span className={styles.measureRing} />
+        </div>
+        <div className={styles.signoffMask} aria-hidden="true">
+          <motion.p className={styles.signoff} style={{ y: signoffY }}>
+            Kareem Hassanein
+          </motion.p>
+        </div>
 
         <div className={styles.bottom}>
           <p>© {new Date().getFullYear()} Kinetikare Physiotherapy. All rights reserved.</p>
@@ -206,7 +228,7 @@ export default function Footer() {
             </Link>
           </nav>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

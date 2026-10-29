@@ -16,6 +16,22 @@ export default function FloatingButtons() {
   const pillRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
 
+  // Desktop pills on the home page wait until the hero has been scrolled past:
+  // the hero carries its own Book button and the pills sat on top of it and
+  // its "Where does it hurt?" link (Kareem, 2026-10-29). Elsewhere they show
+  // from the start, as before.
+  const [pastHero, setPastHero] = useState(true);
+  useEffect(() => {
+    if (pathname !== '/') {
+      setPastHero(true);
+      return;
+    }
+    const update = () => setPastHero(window.scrollY > window.innerHeight * 0.85);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, [pathname]);
+
   // The phone pills step aside when the page comes to rest with a link,
   // button or accordion row under them, so a tap on the right end of a FAQ
   // question or a condition card reaches that control instead of opening
@@ -211,6 +227,7 @@ export default function FloatingButtons() {
           </motion.div>
         )}
       </AnimatePresence>
+    {pastHero && (
     <motion.div
       className={`hidden lg:flex fixed bottom-5 right-5 z-40 flex-col items-end space-y-2.5 md:space-y-3`}
       initial="hidden"
@@ -246,6 +263,7 @@ export default function FloatingButtons() {
         <span className="text-sm font-semibold tracking-wide">Call</span>
       </motion.a>
     </motion.div>
+    )}
     </>
   );
 }

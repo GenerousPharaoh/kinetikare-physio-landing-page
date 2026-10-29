@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
@@ -8,78 +7,77 @@ import { GOOGLE_REVIEW_TOTAL } from '@/lib/reviews';
 import Arrow from './Arrow';
 import styles from './Home.module.css';
 
+const FIRST = 'Kareem';
+
 /**
- * The opening screen: Kareem's name set very large, his portrait standing in
- * front of the end of it. The hero is sticky, so the atlas below rises over it
- * like a curtain; while that happens the two lines of the name drift apart and
- * the portrait recedes. The entrance itself is CSS (it runs before
- * hydration); only the scroll-linked part needs JavaScript.
+ * The opening screen, set like a magazine cover: the first name in capitals
+ * behind Kareem (his hair just overlaps the letters), the surname in gold
+ * italic in front of him, his treatment room blurred into the dark behind.
+ *
+ * The entrance is CSS, so it runs before hydration: the letters rise one by
+ * one, the portrait comes into focus, the surname wipes across. The hero is
+ * sticky, so the atlas below rises over it like a curtain; while it does, the
+ * camera pushes in on the portrait and the two names part.
  */
 export default function HomeHero() {
-  const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
-  // Measured against one screen of scroll: the atlas covers the hero in that distance.
+  // One screen of scroll is the distance in which the atlas covers the hero.
   const span = typeof window === 'undefined' ? 800 : window.innerHeight;
-  const firstX = useTransform(scrollY, [0, span], ['0vw', reduce ? '0vw' : '-14vw']);
-  const secondX = useTransform(scrollY, [0, span], ['0vw', reduce ? '0vw' : '10vw']);
-  const figureY = useTransform(scrollY, [0, span], ['0%', reduce ? '0%' : '-6%']);
-  const figureScale = useTransform(scrollY, [0, span], [1, reduce ? 1 : 0.92]);
-  const shade = useTransform(scrollY, [0, span], [0, 0.55]);
+  const to = (value: number | string, still: number | string) => (reduce ? still : value);
+  const firstY = useTransform(scrollY, [0, span], ['0%', to('-30%', '0%')]);
+  const lastY = useTransform(scrollY, [0, span], ['0%', to('60%', '0%')]);
+  const figureScale = useTransform(scrollY, [0, span], [1, to(1.12, 1) as number]);
+  const shade = useTransform(scrollY, [0, span], [0, 0.6]);
 
   return (
-    <section ref={ref} className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
-      <div className={styles.heroGlow} aria-hidden="true" />
+    <section className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
+      <div className={styles.heroRoom} aria-hidden="true">
+        <Image src="/images/home-hero-room-blur.webp" alt="" fill sizes="100vw" quality={60} />
+      </div>
+      <div className={styles.heroLight} aria-hidden="true" />
 
+      {/* One h1 for both names; each is placed on its own layer, the first
+          behind the portrait and the surname in front of it. */}
       <h1 id="home-title" className={styles.heroName}>
-        <motion.span className={styles.heroLine} style={{ x: firstX }}>
-          <span>Kareem</span>
+        <motion.span className={styles.heroFirst} style={{ y: firstY }}>
+          <span className={styles.heroLetters} aria-hidden="true">
+            {FIRST.split('').map((letter, i) => (
+              <span key={i} style={{ animationDelay: `${120 + i * 55}ms` }}>
+                {letter}
+              </span>
+            ))}
+          </span>
+          <span className="sr-only">{FIRST} </span>
         </motion.span>
-        <motion.span className={`${styles.heroLine} ${styles.heroLineTwo}`} style={{ x: secondX }}>
+        <motion.span className={styles.heroLast} style={{ y: lastY }}>
           <span>Hassanein</span>
         </motion.span>
       </h1>
 
-      <motion.div className={styles.heroFigure} style={{ y: figureY, scale: figureScale }}>
+      <motion.div className={styles.heroFigure} style={{ scale: figureScale }}>
         <div className={styles.heroFigureInner}>
-          <Image
-            src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-            alt="Kareem Hassanein, Registered Physiotherapist in Burlington"
-            fill
-            priority
-            quality={85}
-            sizes="(min-width: 1024px) 34vw, 86vw"
-          />
+          <div className={styles.heroFigureGlow}>
+            <Image
+              src="/images/kareem-hassanein-portrait-cutout.webp"
+              alt="Kareem Hassanein, Registered Physiotherapist in Burlington"
+              fill
+              priority
+              quality={85}
+              sizes="(min-width: 1024px) 52vw, 120vw"
+            />
+          </div>
         </div>
       </motion.div>
 
       <div className={styles.heroScrim} aria-hidden="true" />
 
       <div className={styles.heroCopy}>
-        <p className={`${styles.eyebrow} ${styles.heroEyebrow}`}>Physiotherapy in Burlington</p>
-        <div className={styles.heroBottom}>
+        <div className={styles.heroCopyText}>
           <p className={styles.slogan}>
             The Science of Recovery.
             <em>The Art of Care.</em>
           </p>
-          <p className={styles.heroLede}>
-            One-on-one physiotherapy in Burlington, built around finding the root cause of your pain and getting back to feeling your best.
-          </p>
-          <div className={styles.ctaRow}>
-            <a
-              href={JANE_ASSESSMENT_URL}
-              data-booking-source="hero"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.btn} ${styles.btnLight}`}
-            >
-              Book an assessment
-              <Arrow />
-            </a>
-            <a href="#where-does-it-hurt" className={styles.textLink}>
-              Where does it hurt?
-            </a>
-          </div>
           <ul className={styles.facts}>
             <li>Direct billing</li>
             <li>No referral needed</li>
@@ -88,6 +86,21 @@ export default function HomeHero() {
               <a href="#reviews">5.0 on Google, {GOOGLE_REVIEW_TOTAL} reviews</a>
             </li>
           </ul>
+        </div>
+        <div className={styles.ctaRow}>
+          <a
+            href={JANE_ASSESSMENT_URL}
+            data-booking-source="hero"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.btn} ${styles.btnLight}`}
+          >
+            Book an assessment
+            <Arrow />
+          </a>
+          <a href="#where-does-it-hurt" className={styles.textLink}>
+            Where does it hurt?
+          </a>
         </div>
       </div>
 

@@ -86,6 +86,9 @@ export function HomeApproach() {
         <h2 id="approach-title" className={styles.h2}>
           A Physiotherapist Who Has Been There
         </h2>
+        <p className={`${styles.bodyText} ${styles.approachLede}`}>
+          One-on-one physiotherapy in Burlington, built around finding the root cause of your pain and getting back to feeling your best.
+        </p>
         <p className={styles.bodyText}>
           Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
         </p>

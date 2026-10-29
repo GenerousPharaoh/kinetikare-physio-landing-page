@@ -1,7 +1,8 @@
 /*
- * Home page (October 2026 redesign). Grounds are taken from Kareem's own
- * artwork: the anatomy plates' paper, the navy and teal grounds of his
- * engraved prints, and a pale tint of the walking print's slate teal.
+ * Home page (October 2026 redesign). Two grounds only, night (--night) and
+ * light (--ivory), with gold as the one accent; sections alternate between
+ * them in chapters. Do not add a third ground (Kareem: the earlier sage,
+ * stone and teal "make no sense").
  *
  * Specificity: the global stylesheets style bare elements (p, li, h1-h3,
  * section backgrounds through section:nth-child at 0,1,1, and links through a
@@ -117,8 +118,8 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  font: 500 12px/1.4 var(--sans);
-  letter-spacing: 0.22em;
+  font: 500 13px/1.4 var(--sans);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-ink);
 }
@@ -146,13 +147,13 @@
 }
 
 .home .bodyText {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
   color: var(--ink-soft);
 }
 
 @media (min-width: 1024px) {
-  .home .bodyText { font-size: 17px; }
+  .home .bodyText { font-size: 19px; }
 }
 
 .home a.btn:not(#_) {
@@ -160,11 +161,11 @@
   align-items: center;
   justify-content: center;
   gap: 14px;
-  min-height: 54px;
-  padding: 0 28px;
+  min-height: 58px;
+  padding: 0 30px;
   background: var(--ink);
   color: var(--paper);
-  font: 500 15px/1 var(--sans);
+  font: 500 16px/1 var(--sans);
   letter-spacing: 0.01em;
   border-radius: 1px;
   transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
@@ -198,7 +199,7 @@
   gap: 10px;
   min-height: 44px;
   color: var(--ink);
-  font: 500 15px/1.3 var(--sans);
+  font: 500 16px/1.3 var(--sans);
   text-decoration: underline;
   text-decoration-color: var(--gold);
   text-decoration-thickness: 1px;
@@ -406,6 +407,25 @@
   position: absolute;
   inset: 0;
   filter: drop-shadow(0 0 1px rgba(170, 200, 240, 0.55)) drop-shadow(0 -12px 46px rgba(110, 150, 210, 0.3));
+  animation: drift 18s 2.2s ease-in-out infinite alternate;
+}
+
+/* At rest the portrait drifts very slowly, so the cover is never quite still. */
+@keyframes drift {
+  from { scale: 1; translate: 0 0; }
+  to { scale: 1.035; translate: 0 -1%; }
+}
+
+/* The pointer-depth wrappers (HomeHero): transforms need a box. */
+.home .heroDepth {
+  display: inline-block;
+  position: relative;
+}
+
+.home .heroFigureDepth {
+  position: absolute;
+  inset: 0;
+  max-width: none;
 }
 
 /* The photo stops at his chest; fade that edge into the dark. */
@@ -451,7 +471,7 @@
   pointer-events: none;
 }
 
-.home .heroLast > span {
+.home .heroSurname {
   display: inline-block;
   padding: 0 0.12em;
   animation: wipe 1.3s 0.75s var(--ease-io) both;
@@ -462,6 +482,23 @@
   to { clip-path: inset(0 0 0 0); }
 }
 
+/* A gold line draws out from the centre under the surname once it is in. */
+.home .heroLast .heroDepth::after {
+  content: '';
+  position: absolute;
+  left: 40%;
+  right: 40%;
+  bottom: -0.1em;
+  height: 1px;
+  background: var(--gold);
+  animation: ruleIn 1.2s 1.7s var(--ease) both;
+}
+
+@keyframes ruleIn {
+  from { scale: 0 1; }
+  to { scale: 1 1; }
+}
+
 .home .heroCopy {
   position: absolute;
   z-index: 5;
@@ -470,8 +507,19 @@
   bottom: 22px;
   display: grid;
   gap: 18px;
-  animation: riseIn 1.1s 0.9s var(--ease) both;
 }
+
+/* The copy arrives in turn: slogan, its second line, the facts, the buttons. */
+.home .sloganLine,
+.home .hero .facts,
+.home .hero .ctaRow {
+  animation: riseIn 0.9s var(--ease) both;
+}
+
+.home .sloganLine { animation-delay: 0.85s; }
+.home .sloganLine + .sloganLine { animation-delay: 0.97s; }
+.home .hero .facts { animation-delay: 1.1s; }
+.home .hero .ctaRow { animation-delay: 1.2s; }
 
 @keyframes riseIn {
   from { opacity: 0.01; translate: 0 18px; }
@@ -479,8 +527,12 @@
 }
 
 .home .slogan {
-  font: 300 17px/1.4 var(--sans);
-  color: rgba(243, 238, 228, 0.82);
+  font: 300 20px/1.35 var(--sans);
+  color: rgba(243, 238, 228, 0.86);
+}
+
+.home .sloganLine {
+  display: block;
 }
 
 .home .slogan em {
@@ -488,8 +540,8 @@
   font-family: var(--display-italic);
   font-style: italic;
   font-weight: 400;
-  font-size: 1.3em;
-  line-height: 1.25;
+  font-size: 1.32em;
+  line-height: 1.2;
   color: var(--gold-light);
 }
 
@@ -510,9 +562,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px 0;
-  margin-top: 10px;
-  font: 400 13px/1.5 var(--sans);
-  color: rgba(243, 238, 228, 0.64);
+  margin-top: 12px;
+  font: 400 14.5px/1.5 var(--sans);
+  color: rgba(243, 238, 228, 0.7);
 }
 
 .home .facts li {
@@ -589,7 +641,8 @@
   }
   .home .facts li:last-child { flex-basis: auto; }
   .home .facts li:last-child::before { display: block; }
-  .home .slogan { font-size: 18px; }
+  .home .facts { font-size: 15px; }
+  .home .slogan { font-size: 24px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -845,7 +898,7 @@
   padding: 10px 0;
   border-bottom: 1px solid rgba(243, 238, 228, 0.14);
   color: var(--cream);
-  font: 400 16.5px/1.35 var(--sans);
+  font: 400 18px/1.35 var(--sans);
   transition: color 0.3s var(--ease), padding 0.45s var(--ease);
 }
 
@@ -881,7 +934,7 @@
 
 .home .alsoLine {
   margin-top: 18px;
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(243, 238, 228, 0.66);
 }
 
@@ -989,7 +1042,7 @@
 }
 
 .home .approachText .approachLede {
-  font-size: 19px;
+  font-size: 21px;
   line-height: 1.5;
   color: var(--ink);
 }
@@ -1263,7 +1316,7 @@
 
 .home .features {
   margin-top: 14px;
-  font: 500 12px/1.6 var(--sans);
+  font: 500 13px/1.6 var(--sans);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-ink);
@@ -1276,7 +1329,7 @@
 }
 
 .home .othersTitle {
-  font: 500 12px/1.4 var(--sans);
+  font: 500 13px/1.4 var(--sans);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold-ink);
@@ -1287,7 +1340,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px 24px;
   margin-top: 14px;
-  font-size: 15.5px;
+  font-size: 17px;
   color: var(--ink);
 }
 
@@ -1310,7 +1363,7 @@
 
 .home .insurers {
   margin-top: 22px;
-  font: 500 12px/2 var(--sans);
+  font: 500 13px/2 var(--sans);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -1321,7 +1374,7 @@
   flex-wrap: wrap;
   gap: 8px 28px;
   margin-top: 18px;
-  font-size: 15px;
+  font-size: 16.5px;
   color: var(--ink-soft);
 }
 
@@ -1467,7 +1520,7 @@
   align-items: center;
   gap: 14px;
   margin-top: 26px;
-  font: 500 13px/1.4 var(--sans);
+  font: 500 14px/1.4 var(--sans);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold-light);
@@ -1508,7 +1561,7 @@
 }
 
 .home .rowLabel {
-  font: 500 12px/1.4 var(--sans);
+  font: 500 13px/1.4 var(--sans);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold-light);
@@ -1573,14 +1626,14 @@
 
 .home .reviewCard blockquote p {
   font-family: var(--display);
-  font-size: 19px;
+  font-size: 21px;
   line-height: 1.5;
   color: rgba(243, 238, 228, 0.92);
 }
 
 .home .reviewCard figcaption {
   margin-top: 18px;
-  font: 500 12.5px/1.4 var(--sans);
+  font: 500 13.5px/1.4 var(--sans);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-light);
@@ -1592,7 +1645,7 @@
   padding: 0;
   background: none;
   border: 0;
-  font: 500 14.5px/1.3 var(--sans);
+  font: 500 15.5px/1.3 var(--sans);
   color: var(--cream);
   text-decoration: underline;
   text-decoration-color: var(--gold);
@@ -1635,7 +1688,7 @@
   .home .controls { display: flex; }
   .home .reviewTrack { gap: 48px; margin-top: 40px; }
   .home .reviewCard { width: calc((100vw - 2 * var(--gutter) - 96px) / 3); }
-  .home .reviewCard blockquote p { font-size: 20px; }
+  .home .reviewCard blockquote p { font-size: 22px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1658,10 +1711,10 @@
 
 .home .visitLede {
   margin-top: 20px;
-  max-width: 38ch;
-  font-size: 17px;
-  line-height: 1.6;
-  color: rgba(243, 238, 228, 0.8);
+  max-width: 36ch;
+  font-size: 19px;
+  line-height: 1.55;
+  color: rgba(243, 238, 228, 0.84);
 }
 
 /* Three ways in, each its own tile; booking is the gold one. */
@@ -1702,7 +1755,7 @@
 
 .home .tileLabel {
   margin-top: 22px;
-  font: 500 12px/1.4 var(--sans);
+  font: 500 13px/1.4 var(--sans);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(243, 238, 228, 0.6);
@@ -1730,9 +1783,9 @@
 .home .tileNote {
   margin-top: auto;
   padding-top: 18px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.5;
-  color: rgba(243, 238, 228, 0.68);
+  color: rgba(243, 238, 228, 0.74);
 }
 
 .home .tileBook .tileNote { color: rgba(10, 22, 40, 0.75); }
@@ -1771,7 +1824,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px 28px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
@@ -1789,7 +1842,7 @@
 
 .home .legendStreet {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(243, 238, 228, 0.58);
 }
 
@@ -1816,7 +1869,7 @@
   top: 0;
   left: calc(var(--at) * 100%);
   translate: calc(var(--at) * -100%) 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   white-space: nowrap;
   color: rgba(243, 238, 228, 0.5);
@@ -1863,11 +1916,11 @@
 }
 
 .home .slotClinic {
-  font: 600 12.5px/1.25 var(--sans);
+  font: 600 13.5px/1.25 var(--sans);
 }
 
 .home .slotTime {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.25;
 }
 
@@ -1882,7 +1935,7 @@
 
 .home .areas {
   max-width: 62ch;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(243, 238, 228, 0.66);
 }
@@ -1898,7 +1951,7 @@
     align-items: end;
   }
   .home .visitTitle { font-size: clamp(120px, 12vw, 220px); }
-  .home .visitLede { margin-top: 0; }
+  .home .visitLede { margin-top: 0; font-size: 21px; }
   .home .tiles {
     grid-template-columns: 1.2fr 1fr 1.1fr;
     gap: 20px;
@@ -1956,8 +2009,8 @@
     justify-content: flex-start;
     padding: 12px 14px;
   }
-  .home .slotClinic { font-size: 14px; }
-  .home .slotTime { margin-top: 4px; font-size: 13.5px; }
+  .home .slotClinic { font-size: 15.5px; }
+  .home .slotTime { margin-top: 4px; font-size: 15px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1969,9 +2022,13 @@
   .home .spotQuote,
   .home .heroLetters > span,
   .home .heroFigureInner,
-  .home .heroLast > span,
+  .home .heroFigureGlow,
+  .home .heroSurname,
+  .home .heroLast .heroDepth::after,
   .home .heroLight,
-  .home .heroCopy,
+  .home .sloganLine,
+  .home .hero .facts,
+  .home .hero .ctaRow,
   .home .plate,
   .home .plateInner,
   .home .ring,

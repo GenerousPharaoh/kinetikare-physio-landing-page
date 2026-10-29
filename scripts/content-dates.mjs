@@ -35,6 +35,10 @@ function fingerprint(html) {
   const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
   const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
   const body = (html.match(/<body[\s\S]*<\/body>/) || [''])[0]
+    // The site header and footer (marked data-site-chrome) are the same on
+    // every page; counting them re-dated all pages whenever the menu or the
+    // footer changed (2026-10-24 menu count, 2026-10-29 footer redesign).
+    .replace(/<(header|footer)\b[^>]*data-site-chrome[^>]*>[\s\S]*?<\/\1>/g, ' ')
     .replace(/<script[\s\S]*?<\/script>/g, ' ')
     .replace(/<style[\s\S]*?<\/style>/g, ' ')
     .replace(/<svg[\s\S]*?<\/svg>/g, ' ')

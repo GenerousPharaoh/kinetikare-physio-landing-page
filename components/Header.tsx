@@ -118,6 +118,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     <>
       <header
         ref={ref}
+        // Site chrome: scripts/content-dates.mjs leaves it out of each page's
+        // fingerprint, so a menu change does not re-date every page.
+        data-site-chrome=""
         className={`fixed w-full top-0 z-50 border-b ${shouldTransition ? 'transition-all duration-200 ease-in-out' : ''} ${
           // The navy bar is always on. It used to go transparent at the top of
           // the home page over the photo hero; the illustrated hero puts cream

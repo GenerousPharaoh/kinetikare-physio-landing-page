@@ -67,7 +67,9 @@ export default function Footer() {
   const hideDetails = concise || pathname === '/';
 
   return (
-    <footer className={`site-footer ${styles.footer}`} data-compact={hideDetails || undefined}>
+    // data-site-chrome: scripts/content-dates.mjs leaves the footer out of each
+    // page's fingerprint, so a footer change does not re-date every page.
+    <footer className={`site-footer ${styles.footer}`} data-compact={hideDetails || undefined} data-site-chrome="">
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.identity}>

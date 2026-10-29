@@ -1,9 +1,9 @@
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { JANE_ASSESSMENT_URL, JANE_BOOKING_URL } from '@/lib/booking';
 import { getConditionBySlug } from '@/lib/conditions-data';
-import { HOURS_BY_CLINIC, dayKey } from '@/lib/hours';
-import Print from '@/components/Print';
+import { WEEKLY_HOURS, dayKey, type ClinicSite } from '@/lib/hours';
 import { CARE_JOURNEY, ILLUSTRATIONS } from '@/lib/illustrations';
 import HomeAtlas, { type AtlasRegion } from './HomeAtlas';
 import Reveal from './Reveal';
@@ -145,34 +145,38 @@ export function HomeJourney() {
         <p className={styles.bodyText}>Four steps, from the first assessment to staying well, with goals you and I track together.</p>
       </Reveal>
 
-      <div className={styles.steps}>
-        <Reveal className={styles.path} variant="rule" />
-        <ol className={styles.stepList}>
-        {STEPS.map((step, i) => (
-          <Reveal as="li" key={step.title} className={styles.step} delay={180 + i * 140}>
-            <Print {...ILLUSTRATIONS[CARE_JOURNEY[i]]} sizes="(min-width: 1024px) 22vw, (min-width: 768px) 180px, 104px" />
-            <div className={styles.stepBody}>
-              <span className={styles.stepNum} aria-hidden="true">
-                0{i + 1}
-              </span>
-              <h3 className={styles.stepTitle}>
-                <span className="sr-only">Step {i + 1}: </span>
-                {step.title}
-              </h3>
-              <p className={styles.stepText}>{step.description}</p>
-              <Link
-                href={step.link}
-                className={styles.textLink}
-                {...(step.external ? { target: '_blank', rel: 'noopener noreferrer', 'data-booking-source': 'home_care_journey' } : {})}
-              >
-                {step.linkText}
-                <Arrow />
-              </Link>
-            </div>
-          </Reveal>
-        ))}
-        </ol>
-      </div>
+      {/* Each step is a spread (text one side, his drawing the other) that sticks
+          a little lower than the one before, so the four stack as you scroll. */}
+      <ol className={styles.stack}>
+        {STEPS.map((step, i) => {
+          const art = ILLUSTRATIONS[CARE_JOURNEY[i]];
+          return (
+            <li key={step.title} className={styles.stackCard} style={{ '--i': i } as CSSProperties}>
+              <div className={styles.stackText}>
+                <span className={styles.stackNum} aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <h3 className={styles.stackTitle}>
+                  <span className="sr-only">Step {i + 1}: </span>
+                  {step.title}
+                </h3>
+                <p className={styles.bodyText}>{step.description}</p>
+                <Link
+                  href={step.link}
+                  className={styles.textLink}
+                  {...(step.external ? { target: '_blank', rel: 'noopener noreferrer', 'data-booking-source': 'home_care_journey' } : {})}
+                >
+                  {step.linkText}
+                  <Arrow />
+                </Link>
+              </div>
+              <div className={styles.stackArt} style={{ backgroundColor: art.paper }}>
+                <Image src={art.src} alt="" fill sizes="(min-width: 1024px) 40vw, 92vw" quality={82} />
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </section>
   );
 }
@@ -289,55 +293,82 @@ export function HomeServices() {
 
 const SERVICE_AREAS = ['Waterdown', 'Oakville', 'Hamilton', 'Flamborough', 'Carlisle'];
 
+const CLINIC: Record<ClinicSite, { name: string; street: string }> = {
+  endorphins: { name: 'Endorphins Health & Wellness Centre', street: '4631 Palladium Way' },
+  headon: { name: 'Headon Physio', street: '1387 Walkers Line' },
+  physiomax: { name: 'PhysioMax Wellness', street: '1035 Brant Street' },
+};
+
+/**
+ * The close: the big title, then three ways in (book, call or email, visit),
+ * then the week as one timetable that says which clinic he is at each day.
+ * The Book button goes to the Endorphins Jane only (see lib/hours.ts).
+ */
 export function HomeVisit() {
   return (
     <section id="contact" className={`${styles.sec} ${styles.visit} ${styles.onDark}`} aria-labelledby="visit-title" data-booking-source="home_contact">
-      <Reveal className={styles.visitMain}>
-        <p className={styles.eyebrow}>Burlington</p>
+      <Reveal className={styles.visitHead}>
         <h2 id="visit-title" className={styles.visitTitle}>
           Get in Touch
         </h2>
         <p className={styles.visitLede}>Book online, call reception at Endorphins, or email me with a question first.</p>
-        <div className={styles.ctaRow}>
+      </Reveal>
+
+      <div className={styles.ways}>
+        <Reveal className={styles.way}>
+          <p className={styles.wayLabel}>Book</p>
           <a href={JANE_BOOKING_URL} data-booking-source="home" target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnLight}`}>
             Book Appointment
             <Arrow />
           </a>
-        </div>
-        <div className={styles.contactLines}>
-          <a href="tel:+19056346000">(905) 634-6000</a>
-          <a href="mailto:kareem.hassanein@gmail.com">kareem.hassanein@gmail.com</a>
-        </div>
-        <p className={styles.address}>
-          <strong>Endorphins Health and Wellness Centre</strong>
-          4631 Palladium Way, Unit 6
-          <br />
-          Burlington, ON L7M 0W9
-        </p>
-        <p className={styles.areas}>Based in Burlington, welcoming patients from nearby communities: {SERVICE_AREAS.join(', ')}.</p>
-      </Reveal>
+        </Reveal>
+        <Reveal className={styles.way} delay={90}>
+          <p className={styles.wayLabel}>Call or email</p>
+          <a href="tel:+19056346000" className={styles.wayBig}>
+            (905) 634-6000
+          </a>
+          <a href="mailto:kareem.hassanein@gmail.com" className={styles.waySmall}>
+            kareem.hassanein@gmail.com
+          </a>
+        </Reveal>
+        <Reveal className={styles.way} delay={180}>
+          <p className={styles.wayLabel}>Visit</p>
+          <p className={styles.wayAddress}>
+            Endorphins Health and Wellness Centre
+            <br />
+            4631 Palladium Way, Unit 6
+            <br />
+            Burlington, ON L7M 0W9
+          </p>
+        </Reveal>
+      </div>
 
-      <Reveal className={styles.visitSide} delay={120}>
-        <div className={styles.hours}>
-          {HOURS_BY_CLINIC.map((clinic) => (
-            <div key={clinic.name} className={styles.clinic}>
-              <p className={styles.clinicName}>{clinic.name}</p>
-              <p className={styles.clinicStreet}>{clinic.street}</p>
-              <dl>
-                {clinic.days.map((d) => (
-                  <div key={dayKey(d)}>
-                    <dt>{d.day}</dt>
-                    <dd>{d.label}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          ))}
+      <Reveal className={styles.week}>
+        <p className={styles.wayLabel}>Hours</p>
+        <table className={styles.weekTable}>
+          <tbody>
+            {WEEKLY_HOURS.map((d, i) => {
+              const firstOfDay = i === 0 || WEEKLY_HOURS[i - 1].day !== d.day;
+              return (
+                <tr key={dayKey(d)} data-first={firstOfDay}>
+                  <th scope="row">{firstOfDay ? d.day : <span className="sr-only">{d.day}</span>}</th>
+                  <td className={styles.weekTime}>{d.label}</td>
+                  <td>
+                    {CLINIC[d.site].name}
+                    <span className={styles.weekStreet}>{CLINIC[d.site].street}</span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className={styles.weekFoot}>
+          <p className={styles.areas}>Based in Burlington, welcoming patients from nearby communities: {SERVICE_AREAS.join(', ')}.</p>
+          <Link href="/contact" className={styles.textLink}>
+            Contact and booking at each clinic
+            <Arrow />
+          </Link>
         </div>
-        <Link href="/contact" className={styles.textLink}>
-          Contact and booking at each clinic
-          <Arrow />
-        </Link>
       </Reveal>
     </section>
   );

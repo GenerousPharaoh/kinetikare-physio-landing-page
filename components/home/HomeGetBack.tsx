@@ -1,55 +1,67 @@
 'use client';
 
-import { useRef } from 'react';
-import { m as motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion';
-import Print from '@/components/Print';
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { GET_BACK_ROW, ILLUSTRATIONS } from '@/lib/illustrations';
 import styles from './Home.module.css';
 
 /**
- * Six of Kareem's life prints on navy, no captions (his instruction). Hung in
- * two sizes, bottoms aligned, in the order GET_BACK_ROW sets so similar
- * figures never sit side by side. While the section crosses the screen each
- * print drifts at its own rate, so the shelf has depth without moving out of
- * line at rest.
+ * "Get back to it." and six of Kareem's life prints, no captions (his
+ * instruction), hung along one wall. The section holds while the wall slides
+ * sideways, so scrolling down walks you past the prints. GET_BACK_ROW sets the
+ * order so similar figures are never side by side.
+ *
+ * Without JavaScript, or with reduced motion, the wall is an ordinary
+ * horizontal scroller and nothing is pinned.
  */
-
-// Pixels of travel across the section's pass through the viewport.
-const DRIFT = [-36, 44, -18, 56, -42, 26];
-
-function phoneSpan(i: number) {
-  const row = Math.floor(i / 2);
-  const first = i % 2 === 0;
-  const large = row % 2 === 0 ? first : !first;
-  return large ? 'col-span-5 sm:col-span-1' : 'col-span-4 sm:col-span-1';
-}
-
-function Drift({ progress, distance, children, className }: { progress: MotionValue<number>; distance: number; children: React.ReactNode; className: string }) {
-  const y = useTransform(progress, [0, 1], [distance, -distance]);
-  return (
-    <motion.li className={className} style={{ y }}>
-      {children}
-    </motion.li>
-  );
-}
-
 export default function HomeGetBack() {
-  const ref = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLUListElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const [travel, setTravel] = useState(0);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || reduce) return;
+    const measure = () => setTravel(Math.max(0, track.scrollWidth - window.innerWidth));
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(track);
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, [reduce]);
+
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -travel]);
+  const pinned = travel > 0;
 
   return (
-    <section ref={ref} className={`${styles.sec} ${styles.getBack} ${styles.onDark}`} aria-labelledby="get-back-heading">
-      <h2 id="get-back-heading" className={styles.getBackTitle}>
-        Get back to it.
-      </h2>
-      <ul className={styles.shelf}>
-        {GET_BACK_ROW.map((key, i) => (
-          <Drift key={key} progress={scrollYProgress} distance={reduce ? 0 : DRIFT[i]} className={phoneSpan(i)}>
-            <Print {...ILLUSTRATIONS[key]} sizes="(min-width: 1024px) 15vw, (min-width: 640px) 32vw, 54vw" />
-          </Drift>
-        ))}
-      </ul>
+    <section
+      ref={sectionRef}
+      className={`${styles.sec} ${styles.getBack} ${styles.onDark}`}
+      aria-labelledby="get-back-heading"
+      data-pinned={pinned}
+      style={pinned ? { height: `calc(100svh - var(--hh) + ${travel}px)` } : undefined}
+    >
+      <div className={styles.wallFrame}>
+        <motion.ul ref={trackRef} className={styles.wall} style={pinned ? { x } : undefined}>
+          <li className={styles.wallTitle}>
+            <h2 id="get-back-heading">Get back to it.</h2>
+          </li>
+          {GET_BACK_ROW.map((key, i) => {
+            const art = ILLUSTRATIONS[key];
+            return (
+              <li key={key} className={styles.wallPrint} data-hang={i % 2 === 0 ? 'high' : 'low'} style={{ backgroundColor: art.paper }}>
+                <Image src={art.src} alt="" fill sizes="(min-width: 1024px) 30vw, 66vw" quality={82} />
+              </li>
+            );
+          })}
+        </motion.ul>
+      </div>
     </section>
   );
 }

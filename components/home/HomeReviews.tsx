@@ -1,83 +1,111 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GOOGLE_REVIEW_TOTAL, GOOGLE_REVIEWS_URL, reviews } from '@/lib/reviews';
 import styles from './Home.module.css';
 
+/** The review's own opening sentences, about two hundred characters' worth.
+ *  It always ends on a whole sentence, so no ellipsis is added. */
+function excerpt(text: string) {
+  const sentences = text.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [text];
+  let out = '';
+  for (const sentence of sentences) {
+    if (out && (out + sentence).length > 240) break;
+    out += sentence;
+  }
+  out = out.trim();
+  return { text: out, cut: out.length < text.trim().length };
+}
+
 /**
- * One review at a time, set large. Long reviews are clamped with a "Read the
- * full review" control. Position shows as a line rather than "3 / 26", as on
- * the previous carousel: a running count turns the reviews into a list to get
- * through.
+ * A row of reviews in his patients' own words, swiped on phones and stepped
+ * with the arrows on desktop. Each shows its opening sentences and can open to
+ * the full review. Position is a line, not "3 / 26" (a count turns reviews
+ * into a list to get through).
  */
 export default function HomeReviews() {
-  const [index, setIndex] = useState(0);
-  const [open, setOpen] = useState(false);
-  const review = reviews[index];
-  const long = review.text.length > 360;
+  const trackRef = useRef<HTMLUListElement>(null);
+  const [open, setOpen] = useState<number | null>(null);
+  const [progress, setProgress] = useState(0);
 
-  const go = (step: number) => {
-    setOpen(false);
-    setIndex((i) => (i + step + reviews.length) % reviews.length);
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      setProgress(max > 0 ? track.scrollLeft / max : 0);
+    };
+    update();
+    track.addEventListener('scroll', update, { passive: true });
+    return () => track.removeEventListener('scroll', update);
+  }, []);
+
+  const step = (dir: number) => {
+    const track = trackRef.current;
+    const card = track?.querySelector('li');
+    if (!track || !card) return;
+    track.scrollBy({ left: dir * (card.getBoundingClientRect().width + 40), behavior: 'smooth' });
   };
 
   return (
-    <section id="reviews" className={`${styles.sec} ${styles.reviews}`} aria-labelledby="reviews-title">
+    <section id="reviews" className={`${styles.sec} ${styles.reviews} ${styles.onDark}`} aria-labelledby="reviews-title">
       <div className={styles.reviewsHead}>
-        <p className={styles.eyebrow}>Patient reviews</p>
-        <h2 id="reviews-title" className="sr-only">
-          Google Reviews
-        </h2>
-        <div className={styles.rating}>
-          <span className={styles.ratingValue}>5.0</span>
-          <span className={styles.stars} aria-label="5 out of 5 stars">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <svg key={i} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path d="M10 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8z" />
-              </svg>
-            ))}
-          </span>
-        </div>
-        <p className={styles.ratingMeta}>
-          <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
+        <div>
+          <p className={styles.eyebrow}>Patient reviews</p>
+          <h2 id="reviews-title" className={styles.reviewsTitle}>
+            <span className={styles.ratingValue}>5.0</span>
+            <span className={styles.stars} aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <svg key={i} viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8z" />
+                </svg>
+              ))}
+            </span>
+            <span className="sr-only"> out of 5 on Google</span>
+          </h2>
+          <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className={styles.textLink}>
             {GOOGLE_REVIEW_TOTAL} reviews on Google
           </a>
-        </p>
-      </div>
-
-      <div className={styles.reviewsBody}>
-        <div className={styles.quoteWrap} aria-live="polite">
-          <figure key={index} className={styles.quote} data-open={open}>
-            <span className={styles.quoteMark} aria-hidden="true">
-              &ldquo;
-            </span>
-            <blockquote>
-              <p>{review.text}</p>
-            </blockquote>
-            {long && (
-              <button type="button" className={styles.moreBtn} onClick={() => setOpen((o) => !o)} aria-expanded={open}>
-                {open ? 'Show less' : 'Read the full review'}
-              </button>
-            )}
-            <figcaption className={styles.reviewer}>{review.name}</figcaption>
-          </figure>
         </div>
         <div className={styles.controls}>
-          <button type="button" onClick={() => go(-1)} aria-label="Previous review">
+          <button type="button" onClick={() => step(-1)} aria-label="Previous reviews">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M15 8H2M7 3L2 8l5 5" stroke="currentColor" strokeWidth="1.3" />
             </svg>
           </button>
-          <button type="button" onClick={() => go(1)} aria-label="Next review">
+          <button type="button" onClick={() => step(1)} aria-label="Next reviews">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" strokeWidth="1.3" />
             </svg>
           </button>
-          <span className={styles.progress} aria-hidden="true">
-            <span style={{ width: `${((index + 1) / reviews.length) * 100}%` }} />
-          </span>
         </div>
       </div>
+
+      <ul ref={trackRef} className={styles.reviewTrack} aria-label="Reviews from Google">
+        {reviews.map((review, i) => {
+          const short = excerpt(review.text);
+          const isOpen = open === i;
+          return (
+            <li key={review.name} className={styles.reviewCard}>
+              <figure>
+                <blockquote>
+                  <p>{isOpen || !short.cut ? review.text : short.text}</p>
+                </blockquote>
+                <figcaption>{review.name}</figcaption>
+              </figure>
+              {short.cut && (
+                <button type="button" className={styles.moreBtn} onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen}>
+                  {isOpen ? 'Show less' : 'Read the full review'}
+                </button>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+
+      <span className={styles.progress} aria-hidden="true">
+        <span style={{ width: `${Math.max(8, progress * 100)}%` }} />
+      </span>
     </section>
   );
 }

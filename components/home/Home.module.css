@@ -18,10 +18,6 @@
   --night: #0a1628;
   --cream: #f3eee4;
   --gold-light: #d6bf8e;
-  --stone: #e8ecea;
-  --sage: #e5ebe7;
-  --navy: #082844;
-  --teal: #0d4e5d;
   --ink: #0e1a2b;
   --ink-soft: #46526b;
   --gold: #b08d57;
@@ -963,7 +959,7 @@
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: var(--stone);
+  background: rgba(14, 26, 43, 0.06);
 }
 
 .home .roomPhoto img {
@@ -1021,157 +1017,198 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Care journey                                                        */
+/* Care journey: four spreads that stack as you scroll                 */
 /* ------------------------------------------------------------------ */
 
+/* Same light ground as About: the person, then how care with him works. */
 .home .journey {
-  background: var(--sage);
-  padding: 88px var(--gutter) 96px;
+  background: var(--ivory);
+  padding: 24px var(--gutter) 96px;
 }
 
-.home .journeyHead .bodyText {
-  margin-top: 18px;
-  max-width: 44ch;
+.home .journeyHead {
+  padding-top: 64px;
+  border-top: 1px solid var(--rule);
 }
 
-.home .journeyHead .h2 {
-  margin-top: 18px;
-}
+.home .journeyHead .h2 { margin-top: 18px; }
+.home .journeyHead .bodyText { margin-top: 18px; max-width: 44ch; }
 
-.home .steps {
-  position: relative;
-  margin-top: 44px;
-}
-
-.home .path {
-  display: none;
-}
-
-.home .step {
+.home .stack {
   display: grid;
-  grid-template-columns: 104px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  padding: 24px 0;
-  border-top: 1px solid rgba(14, 26, 43, 0.16);
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.home .stepNum {
-  display: block;
+/* Each card sticks a little lower than the one before, so they stack. */
+.home .stackCard {
+  position: sticky;
+  top: calc(var(--hh) + 14px + var(--i) * 12px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(14, 26, 43, 0.08);
+  box-shadow: 0 -20px 44px -28px rgba(14, 26, 43, 0.35);
+}
+
+.home .stackArt {
+  position: relative;
+  order: -1;
+  height: 210px;
+}
+
+.home .stackArt img {
+  object-fit: cover;
+  object-position: 50% 32%;
+}
+
+.home .stackArt::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(176, 141, 87, 0.75);
+  pointer-events: none;
+}
+
+.home .stackText {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 26px;
+}
+
+.home .stackNum {
   font-family: var(--display-italic);
   font-style: italic;
-  font-size: 18px;
+  font-size: 40px;
   line-height: 1;
   color: var(--gold-ink);
 }
 
-.home .stepTitle {
-  margin-top: 8px;
-  font-size: 24px;
-  line-height: 1.1;
+.home .stackTitle {
+  margin-top: 12px;
+  font-size: 30px;
+  line-height: 1.05;
 }
 
-.home .stepText {
+.home .stackText .bodyText {
+  margin-top: 12px;
+  max-width: 46ch;
+}
+
+.home .stackText .textLink {
   margin-top: 10px;
-  font-size: 15.5px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-}
-
-.home .step .textLink {
-  margin-top: 6px;
-  min-height: 40px;
-  font-size: 14.5px;
 }
 
 @media (min-width: 768px) {
-  .home .step { grid-template-columns: 180px minmax(0, 1fr); gap: 28px; }
+  .home .stackCard { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); }
+  .home .stackArt { order: 0; height: auto; min-height: 380px; }
+  .home .stackText { padding: 44px 40px; justify-content: center; }
 }
 
 @media (min-width: 1024px) {
-  .home .journey { padding: 140px var(--gutter) 150px; }
+  .home .journey { padding: 24px var(--gutter) 150px; }
   .home .journeyHead {
     display: grid;
     grid-template-columns: 6fr 5fr;
     gap: 6vw;
     align-items: end;
+    padding-top: 120px;
   }
   .home .journeyHead .bodyText { margin-top: 0; }
-  .home .steps {
-    margin-top: 72px;
-    padding-top: 44px;
+  .home .stack { margin-top: 64px; gap: 40px; }
+  .home .stackCard {
+    top: calc(var(--hh) + 24px + var(--i) * 16px);
+    height: max(440px, min(66svh, 600px));
   }
-  .home .stepList {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 32px;
-  }
-  .home .path {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 1px;
-    background: var(--gold);
-    transform-origin: 0 50%;
-  }
-  .home .step {
-    position: relative;
-    display: block;
-    padding: 0;
-    border-top: 0;
-  }
-  .home .step::before {
-    content: '';
-    position: absolute;
-    top: -48px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-  .home .stepBody { margin-top: 26px; }
-  .home .stepTitle { font-size: 28px; margin-top: 10px; }
+  .home .stackArt { min-height: 0; }
+  .home .stackText { padding: 56px 64px; }
+  .home .stackNum { font-size: 64px; }
+  .home .stackTitle { margin-top: 18px; font-size: clamp(40px, 3.6vw, 60px); }
+  .home .stackText .textLink { margin-top: 18px; }
 }
 
 /* ------------------------------------------------------------------ */
-/* Get back to it                                                      */
+/* Get back to it: a wall of prints that slides past                   */
 /* ------------------------------------------------------------------ */
 
 .home .getBack {
-  background: var(--navy);
-  color: var(--paper);
-  padding: 88px var(--gutter) 104px;
+  background: var(--night);
+  color: var(--cream);
+}
+
+/* Pinned (HomeGetBack sets the height and data-pinned once it has measured
+   the wall): the frame holds and the wall moves sideways. */
+.home .wallFrame {
+  position: sticky;
+  top: var(--hh);
+  height: calc(100svh - var(--hh));
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
-.home .getBackTitle {
-  font-size: clamp(56px, 17vw, 84px);
-  line-height: 0.92;
-  color: var(--paper);
+/* Not pinned (no JavaScript, reduced motion): a plain horizontal scroller. */
+.home .getBack:not([data-pinned='true']) .wallFrame {
+  position: relative;
+  height: auto;
+  padding: 88px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-.home .shelf {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  gap: 12px;
-  align-items: end;
-  margin-top: 40px;
+.home .wall {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  max-width: none;
+  padding: 0 var(--gutter);
+  will-change: transform;
 }
 
-@media (min-width: 640px) {
-  .home .shelf { grid-template-columns: 5fr 4fr 5fr; gap: 16px; }
+.home .wallTitle {
+  flex: none;
+  width: min(80vw, 420px);
+  max-width: none;
+}
+
+.home .wallTitle h2 {
+  font-size: clamp(64px, 19vw, 92px);
+  line-height: 0.9;
+  color: var(--cream);
+}
+
+.home .wallPrint {
+  position: relative;
+  flex: none;
+  height: clamp(300px, 50svh, 640px);
+  aspect-ratio: 4 / 5;
+  max-width: none;
+}
+
+.home .wallPrint[data-hang='high'] { translate: 0 -6svh; }
+.home .wallPrint[data-hang='low'] { translate: 0 6svh; }
+
+.home .wallPrint img {
+  object-fit: cover;
+}
+
+.home .wallPrint::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(214, 191, 142, 0.85);
+  pointer-events: none;
 }
 
 @media (min-width: 1024px) {
-  .home .getBack { padding: 140px var(--gutter) 170px; }
-  .home .getBackTitle { font-size: clamp(96px, 11.5vw, 190px); }
-  .home .shelf {
-    grid-template-columns: 5fr 4fr 5fr 4fr 5fr 4fr;
-    gap: 22px;
-    margin-top: 72px;
-  }
+  .home .wall { gap: 48px; padding-right: 9vw; }
+  .home .wallTitle { width: 40vw; }
+  .home .wallTitle h2 { font-size: clamp(110px, 10.5vw, 200px); }
+  .home .wallPrint { height: clamp(320px, 62svh, 700px); }
+  .home .wallPrint[data-hang='high'] { translate: 0 -8svh; }
+  .home .wallPrint[data-hang='low'] { translate: 0 8svh; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1316,130 +1353,68 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Reviews                                                             */
+/* Reviews: a row of his patients' words                               */
 /* ------------------------------------------------------------------ */
 
 .home .reviews {
-  background: var(--stone);
-  padding: 88px var(--gutter) 96px;
+  background: var(--night);
+  color: var(--cream);
+  padding: 96px 0 104px;
 }
 
-.home .rating {
+.home .reviewsHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 var(--gutter);
+}
+
+.home .reviews .eyebrow { color: var(--gold-light); }
+
+.home .reviewsTitle {
   display: flex;
   align-items: baseline;
   gap: 16px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .home .ratingValue {
   font-family: var(--display);
-  font-size: 88px;
-  line-height: 0.85;
+  font-size: 96px;
+  line-height: 0.82;
   letter-spacing: -0.03em;
+  color: var(--cream);
 }
 
 .home .stars {
-  display: flex;
-  gap: 3px;
-  color: var(--gold);
-}
-
-.home .stars svg { width: 16px; height: 16px; }
-
-.home .ratingMeta {
-  font-size: 14.5px;
-  color: var(--ink-soft);
-}
-
-.home .ratingMeta a:not(#_) {
   display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 5px;
-}
-
-.home .quoteWrap {
-  margin-top: 40px;
-  min-height: 300px;
-}
-
-.home .quote {
-  font-family: var(--display);
-  font-size: 23px;
-  line-height: 1.38;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  animation: quoteIn 0.75s var(--ease) both;
-}
-
-.home .quote p {
-  font: inherit;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 8;
-  overflow: hidden;
-}
-
-.home .quote[data-open='true'] p {
-  display: block;
-  -webkit-line-clamp: unset;
-}
-
-.home .quoteMark {
-  display: block;
-  height: 40px;
-  font-size: 72px;
-  line-height: 1;
+  gap: 4px;
   color: var(--gold);
 }
 
-.home .reviewer {
-  margin-top: 20px;
-  font: 500 13px/1.4 var(--sans);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
+.home .stars svg { width: 17px; height: 17px; }
 
-.home .moreBtn {
-  margin-top: 10px;
-  min-height: 40px;
-  padding: 0;
-  background: none;
-  border: 0;
-  font: 500 14.5px/1.3 var(--sans);
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 5px;
-  cursor: pointer;
-}
-
-@keyframes quoteIn {
-  from { opacity: 0; translate: 0 14px; }
-  to { opacity: 1; translate: 0 0; }
+.home .reviews a.textLink:not(#_) {
+  margin-top: 12px;
+  color: var(--cream);
 }
 
 .home .controls {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 30px;
+  display: none;
+  gap: 12px;
 }
 
 .home .controls button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: 1px solid rgba(14, 26, 43, 0.3);
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(243, 238, 228, 0.3);
   border-radius: 50%;
   background: transparent;
-  color: var(--ink);
+  color: var(--cream);
   cursor: pointer;
   transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
 }
@@ -1448,17 +1423,84 @@
 
 @media (hover: hover) {
   .home .controls button:hover {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--paper);
+    background: var(--cream);
+    border-color: var(--cream);
+    color: var(--night);
   }
+}
+
+.home .reviewTrack {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  margin-top: 52px;
+  padding: 0 var(--gutter) 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 var(--gutter);
+  scrollbar-width: none;
+  max-width: none;
+}
+
+.home .reviewTrack::-webkit-scrollbar { display: none; }
+
+.home .reviewCard {
+  flex: none;
+  width: 82vw;
+  max-width: none;
+  padding-top: 22px;
+  border-top: 1px solid rgba(176, 141, 87, 0.65);
+  scroll-snap-align: start;
+}
+
+.home .reviewCard blockquote::before {
+  content: '\201C';
+  display: block;
+  height: 24px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 54px;
+  line-height: 0.95;
+  color: var(--gold);
+}
+
+.home .reviewCard blockquote p {
+  font-family: var(--display);
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--cream);
+}
+
+.home .reviewCard figcaption {
+  margin-top: 20px;
+  font: 500 12.5px/1.4 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.home .moreBtn {
+  margin-top: 8px;
+  min-height: 40px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: 500 14.5px/1.3 var(--sans);
+  color: var(--cream);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 5px;
+  cursor: pointer;
 }
 
 .home .progress {
   position: relative;
-  width: 120px;
+  display: block;
   height: 1px;
-  background: rgba(14, 26, 43, 0.18);
+  margin: 40px var(--gutter) 0;
+  max-width: 360px;
+  background: rgba(243, 238, 228, 0.16);
 }
 
 .home .progress span {
@@ -1467,140 +1509,205 @@
   top: 0;
   height: 1px;
   background: var(--gold);
-  transition: width 0.6s var(--ease);
+  transition: width 0.4s var(--ease);
+}
+
+@media (min-width: 768px) {
+  .home .reviewCard { width: calc((100vw - 2 * var(--gutter) - 32px) / 2); }
 }
 
 @media (min-width: 1024px) {
-  .home .reviews {
-    display: grid;
-    grid-template-columns: 4fr 1fr 7fr;
-    padding: 140px var(--gutter) 150px;
-  }
-  .home .reviewsHead { grid-column: 1; }
-  .home .reviewsBody { grid-column: 3; }
-  .home .ratingValue { font-size: 120px; }
-  .home .quoteWrap { margin-top: 0; min-height: 360px; }
-  .home .quote { font-size: 30px; }
-  .home .quote p { -webkit-line-clamp: 7; }
+  .home .reviews { padding: 140px 0 150px; }
+  .home .ratingValue { font-size: 140px; }
+  .home .controls { display: flex; }
+  .home .reviewTrack { gap: 48px; margin-top: 72px; }
+  .home .reviewCard { width: calc((100vw - 2 * var(--gutter) - 96px) / 3); }
+  .home .reviewCard blockquote p { font-size: 23px; }
 }
 
 /* ------------------------------------------------------------------ */
-/* Visit                                                               */
+/* Get in Touch                                                        */
 /* ------------------------------------------------------------------ */
 
 .home .visit {
-  background: var(--teal);
-  color: var(--paper);
-  padding: 88px var(--gutter) 104px;
+  background: var(--night);
+  color: var(--cream);
+  padding: 96px var(--gutter) 104px;
+  border-top: 1px solid rgba(243, 238, 228, 0.1);
 }
 
 .home .visitTitle {
-  margin-top: 18px;
-  font-size: clamp(56px, 16vw, 84px);
-  line-height: 0.92;
-  color: var(--paper);
+  font-size: clamp(64px, 19vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--cream);
 }
 
 .home .visitLede {
-  margin-top: 18px;
+  margin-top: 20px;
   max-width: 38ch;
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(247, 239, 221, 0.86);
+  color: rgba(243, 238, 228, 0.8);
 }
 
-.home .visit .ctaRow { margin-top: 30px; }
-
-.home .contactLines {
-  margin-top: 30px;
+.home .ways {
   display: grid;
-  gap: 4px;
-  font-size: 16px;
+  gap: 36px;
+  margin-top: 56px;
 }
 
-.home .contactLines a:not(#_) {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: var(--paper);
+.home .way {
+  padding-top: 20px;
+  border-top: 1px solid rgba(176, 141, 87, 0.6);
+}
+
+.home .wayLabel {
+  margin-bottom: 18px;
+  font: 500 12px/1.4 var(--sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.home a.wayBig:not(#_) {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--cream);
+}
+
+.home a.waySmall:not(#_) {
+  display: block;
+  margin-top: 10px;
+  width: fit-content;
+  color: rgba(243, 238, 228, 0.82);
   text-decoration: underline;
-  text-decoration-color: rgba(216, 196, 154, 0.7);
+  text-decoration-color: rgba(176, 141, 87, 0.7);
   text-underline-offset: 5px;
   overflow-wrap: anywhere;
 }
 
-.home .address {
-  margin-top: 20px;
-  font-size: 15.5px;
-  line-height: 1.6;
-  color: rgba(247, 239, 221, 0.86);
+@media (hover: hover) {
+  .home a.wayBig:not(#_):hover,
+  .home a.waySmall:not(#_):hover { color: var(--gold-light); }
 }
 
-.home .address strong {
-  display: block;
-  font-weight: 500;
-  color: var(--paper);
+.home .wayAddress {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(243, 238, 228, 0.82);
 }
 
-.home .hours {
-  margin-top: 48px;
+.home .week {
+  margin-top: 72px;
+}
+
+.home .weekTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 1px solid rgba(243, 238, 228, 0.14);
+}
+
+/* Phones: day on its own line, then the time and the clinic. */
+.home .weekTable tr {
   display: grid;
-  gap: 28px;
+  grid-template-columns: auto 1fr;
+  gap: 2px 18px;
+  padding: 14px 0;
 }
 
-.home .clinic {
-  padding-top: 18px;
-  border-top: 1px solid rgba(216, 196, 154, 0.45);
+.home .weekTable tr[data-first='true'] {
+  border-top: 1px solid rgba(243, 238, 228, 0.14);
 }
 
-.home .clinicName {
+.home .weekTable tr[data-first='false'] {
+  padding-top: 0;
+}
+
+.home .weekTable th {
+  grid-column: 1 / -1;
+  padding: 0;
+  text-align: left;
   font-family: var(--display);
-  font-size: 22px;
-  line-height: 1.2;
-  color: var(--paper);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--cream);
 }
 
-.home .clinicStreet {
-  margin-top: 4px;
-  font-size: 14px;
-  color: rgba(247, 239, 221, 0.75);
-}
+.home .weekTable tr[data-first='false'] th { display: none; }
 
-.home .clinic dl {
-  margin: 12px 0 0;
-  display: grid;
-  gap: 4px;
+.home .weekTable td {
+  padding: 0;
   font-size: 15px;
+  line-height: 1.5;
+  color: rgba(243, 238, 228, 0.86);
+  vertical-align: top;
 }
 
-.home .clinic dl div {
+.home .weekTime {
+  white-space: nowrap;
+  color: var(--cream);
+}
+
+.home .weekStreet {
+  display: block;
+  font-size: 13.5px;
+  color: rgba(243, 238, 228, 0.58);
+}
+
+.home .weekFoot {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px 32px;
+  margin-top: 28px;
 }
-
-.home .clinic dt { color: rgba(247, 239, 221, 0.78); }
-.home .clinic dd { margin: 0; color: var(--paper); text-align: right; }
 
 .home .areas {
-  margin-top: 36px;
+  max-width: 62ch;
   font-size: 14.5px;
   line-height: 1.6;
-  color: rgba(247, 239, 221, 0.78);
+  color: rgba(243, 238, 228, 0.66);
 }
 
-.home .visit .textLink { margin-top: 10px; }
+.home .visit a.textLink:not(#_) { color: var(--cream); }
 
 @media (min-width: 1024px) {
-  .home .visit {
+  .home .visit { padding: 140px var(--gutter) 150px; }
+  .home .visitHead {
     display: grid;
-    grid-template-columns: 6fr 1fr 5fr;
-    padding: 140px var(--gutter) 150px;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: 6vw;
+    align-items: end;
   }
-  .home .visitMain { grid-column: 1; }
-  .home .visitSide { grid-column: 3; }
-  .home .visitTitle { font-size: clamp(88px, 9vw, 150px); }
-  .home .hours { margin-top: 0; }
+  .home .visitTitle { font-size: clamp(120px, 12vw, 220px); }
+  .home .visitLede { margin-top: 0; }
+  .home .ways {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px;
+    margin-top: 96px;
+  }
+  .home a.wayBig:not(#_) { font-size: 40px; }
+  .home .week { margin-top: 104px; }
+  .home .weekTable tr {
+    display: table-row;
+    padding: 0;
+  }
+  .home .weekTable th,
+  .home .weekTable td {
+    padding: 18px 0;
+    border-top: 1px solid rgba(243, 238, 228, 0.14);
+  }
+  .home .weekTable tr[data-first='false'] th,
+  .home .weekTable tr[data-first='false'] td { border-top: 0; padding-top: 0; }
+  .home .weekTable tr[data-first='false'] th { display: table-cell; }
+  .home .weekTable th { width: 28%; font-size: 24px; }
+  .home .weekTime { width: 28%; font-size: 16px; }
+  .home .weekTable td { font-size: 16px; }
+  .home .weekStreet { display: inline; margin-left: 12px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1617,7 +1724,6 @@
   .home .plateInner,
   .home .ring,
   .home .measure,
-  .home .quote,
   .home [data-reveal] {
     animation: none !important;
     transition: none !important;

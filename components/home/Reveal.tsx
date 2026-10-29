@@ -29,13 +29,16 @@ export default function Reveal({
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
     el.dataset.reveal = 'armed';
+    // Fire a little before the element reaches the screen, so the movement is
+    // already under way as it appears. Firing once it was 10% inside (the first
+    // version) left an empty gap that filled in late.
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         el.dataset.reveal = 'in';
         io.disconnect();
       },
-      { rootMargin: '0px 0px -10% 0px' },
+      { rootMargin: '0px 0px 12% 0px' },
     );
     io.observe(el);
     return () => io.disconnect();

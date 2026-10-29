@@ -5,6 +5,7 @@ import { JANE_ASSESSMENT_URL, JANE_BOOKING_URL } from '@/lib/booking';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { WEEKLY_HOURS, dayKey, type ClinicSite } from '@/lib/hours';
 import { CARE_JOURNEY, ILLUSTRATIONS } from '@/lib/illustrations';
+import { CalendarDaysIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import HomeAtlas, { type AtlasRegion } from './HomeAtlas';
 import Reveal from './Reveal';
 import Arrow from './Arrow';
@@ -293,18 +294,35 @@ export function HomeServices() {
 
 const SERVICE_AREAS = ['Waterdown', 'Oakville', 'Hamilton', 'Flamborough', 'Carlisle'];
 
-const CLINIC: Record<ClinicSite, { name: string; street: string }> = {
-  endorphins: { name: 'Endorphins Health & Wellness Centre', street: '4631 Palladium Way' },
-  headon: { name: 'Headon Physio', street: '1387 Walkers Line' },
-  physiomax: { name: 'PhysioMax Wellness', street: '1035 Brant Street' },
+/** Each clinic gets one colour, used on its timetable blocks and its legend entry. */
+const CLINIC: Record<ClinicSite, { name: string; short: string; street: string; tone: string }> = {
+  endorphins: { name: 'Endorphins Health & Wellness Centre', short: 'Endorphins', street: '4631 Palladium Way, Unit 6', tone: 'gold' },
+  headon: { name: 'Headon Physio', short: 'Headon Physio', street: '1387 Walkers Line', tone: 'cream' },
+  physiomax: { name: 'PhysioMax Wellness', short: 'PhysioMax', street: '1035 Brant Street', tone: 'blue' },
+};
+
+const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const;
+const AXIS_START = 10;
+const AXIS_END = 20;
+const hours = (hhmm: string) => {
+  const [h, m] = hhmm.split(':').map(Number);
+  return h + m / 60;
 };
 
 /**
- * The close: the big title, then three ways in (book, call or email, visit),
- * then the week as one timetable that says which clinic he is at each day.
- * The Book button goes to the Endorphins Jane only (see lib/hours.ts).
+ * The close. Three ways in, each its own tile (booking is the one gold tile),
+ * then the week drawn as a timetable from 10 AM to 8 PM with each clinic in its
+ * own colour, so where he is on a given day reads at a glance. The Book tile
+ * goes to the Endorphins Jane only (see lib/hours.ts); /contact links each
+ * clinic's own booking page.
  */
 export function HomeVisit() {
+  const clinicsInWeek = (Object.keys(CLINIC) as ClinicSite[]).map((site) => ({
+    site,
+    ...CLINIC[site],
+    days: WEEKLY_HOURS.filter((d) => d.site === site),
+  }));
+
   return (
     <section id="contact" className={`${styles.sec} ${styles.visit} ${styles.onDark}`} aria-labelledby="visit-title" data-booking-source="home_contact">
       <Reveal className={styles.visitHead}>
@@ -314,54 +332,92 @@ export function HomeVisit() {
         <p className={styles.visitLede}>Book online, call reception at Endorphins, or email me with a question first.</p>
       </Reveal>
 
-      <div className={styles.ways}>
-        <Reveal className={styles.way}>
-          <p className={styles.wayLabel}>Book</p>
-          <a href={JANE_BOOKING_URL} data-booking-source="home" target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnLight}`}>
-            Book Appointment
-            <Arrow />
+      <div className={styles.tiles}>
+        <Reveal className={styles.tileWrap}>
+          <a href={JANE_BOOKING_URL} data-booking-source="home" target="_blank" rel="noopener noreferrer" className={`${styles.tile} ${styles.tileBook}`}>
+            <CalendarDaysIcon className={styles.tileIcon} aria-hidden="true" />
+            <span className={styles.tileLabel}>Book online</span>
+            <span className={styles.tileValue}>
+              Book Appointment <Arrow />
+            </span>
+            <span className={styles.tileNote}>Book an initial assessment online with Kareem at Endorphins in Burlington.</span>
           </a>
         </Reveal>
-        <Reveal className={styles.way} delay={90}>
-          <p className={styles.wayLabel}>Call or email</p>
-          <a href="tel:+19056346000" className={styles.wayBig}>
-            (905) 634-6000
-          </a>
-          <a href="mailto:kareem.hassanein@gmail.com" className={styles.waySmall}>
-            kareem.hassanein@gmail.com
+        <Reveal className={styles.tileWrap} delay={80}>
+          <a href="tel:+19056346000" className={styles.tile}>
+            <PhoneIcon className={styles.tileIcon} aria-hidden="true" />
+            <span className={styles.tileLabel}>Call</span>
+            <span className={styles.tileValue}>(905) 634-6000</span>
+            <span className={styles.tileNote}>Call reception at Endorphins.</span>
           </a>
         </Reveal>
-        <Reveal className={styles.way} delay={180}>
-          <p className={styles.wayLabel}>Visit</p>
-          <p className={styles.wayAddress}>
-            Endorphins Health and Wellness Centre
-            <br />
-            4631 Palladium Way, Unit 6
-            <br />
-            Burlington, ON L7M 0W9
-          </p>
+        <Reveal className={styles.tileWrap} delay={160}>
+          <a href="mailto:kareem.hassanein@gmail.com" className={styles.tile}>
+            <EnvelopeIcon className={styles.tileIcon} aria-hidden="true" />
+            <span className={styles.tileLabel}>Email</span>
+            <span className={`${styles.tileValue} ${styles.tileEmail}`}>kareem.hassanein@gmail.com</span>
+            <span className={styles.tileNote}>Email me with a question first.</span>
+          </a>
         </Reveal>
       </div>
 
-      <Reveal className={styles.week}>
-        <p className={styles.wayLabel}>Hours</p>
-        <table className={styles.weekTable}>
-          <tbody>
-            {WEEKLY_HOURS.map((d, i) => {
-              const firstOfDay = i === 0 || WEEKLY_HOURS[i - 1].day !== d.day;
-              return (
-                <tr key={dayKey(d)} data-first={firstOfDay}>
-                  <th scope="row">{firstOfDay ? d.day : <span className="sr-only">{d.day}</span>}</th>
-                  <td className={styles.weekTime}>{d.label}</td>
-                  <td>
-                    {CLINIC[d.site].name}
-                    <span className={styles.weekStreet}>{CLINIC[d.site].street}</span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <Reveal className={styles.schedule}>
+        <div className={styles.scheduleHead}>
+          <h3 className={styles.scheduleTitle}>Hours</h3>
+          <ul className={styles.legend}>
+            {clinicsInWeek.map((c) => (
+              <li key={c.site} data-tone={c.tone}>
+                <span className={styles.swatch} aria-hidden="true" />
+                <span>
+                  <strong>{c.name}</strong>
+                  <span className={styles.legendStreet}>{c.street}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.timetable}>
+          <ol className={styles.axis} aria-hidden="true">
+            {[10, 12, 14, 16, 18, 20].map((h) => (
+              <li key={h} style={{ '--at': (h - AXIS_START) / (AXIS_END - AXIS_START) } as CSSProperties}>
+                {h === 12 ? '12 PM' : h > 12 ? `${h - 12} PM` : `${h} AM`}
+              </li>
+            ))}
+          </ol>
+          <ol className={styles.days}>
+            {DAYS.map((day) => (
+              <li key={day} className={styles.day}>
+                <span className={styles.dayName}>
+                  <span className={styles.dayShort} aria-hidden="true">
+                    {day.slice(0, 3)}
+                  </span>
+                  <span className="sr-only">{day}</span>
+                </span>
+                <ul className={styles.dayTrack}>
+                  {WEEKLY_HOURS.filter((d) => d.day === day).map((d) => (
+                    <li
+                      key={dayKey(d)}
+                      className={styles.slot}
+                      data-tone={CLINIC[d.site].tone}
+                      style={
+                        {
+                          '--from': (hours(d.opens) - AXIS_START) / (AXIS_END - AXIS_START),
+                          '--to': (hours(d.closes) - AXIS_START) / (AXIS_END - AXIS_START),
+                        } as CSSProperties
+                      }
+                    >
+                      <span className={styles.slotClinic}>{CLINIC[d.site].short}</span>
+                      {/* Keep "3:00 PM" together when a narrow block wraps. */}
+                      <span className={styles.slotTime}>{d.label.replace(/ (AM|PM)/g, ' $1')}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </div>
+
         <div className={styles.weekFoot}>
           <p className={styles.areas}>Based in Burlington, welcoming patients from nearby communities: {SERVICE_AREAS.join(', ')}.</p>
           <Link href="/contact" className={styles.textLink}>

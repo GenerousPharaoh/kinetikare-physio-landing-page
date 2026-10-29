@@ -20,6 +20,22 @@ export default function HomeGetBack() {
   const trackRef = useRef<HTMLUListElement>(null);
   const reduce = useReducedMotion();
   const [travel, setTravel] = useState(0);
+  // The prints sit off to the side and arrive by transform, which the
+  // browser's lazy loading does not anticipate, so they start loading once the
+  // section is within two screens instead.
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setNear(true);
+      io.disconnect();
+    }, { rootMargin: '200% 0px' });
+    io.observe(section);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -56,7 +72,7 @@ export default function HomeGetBack() {
             const art = ILLUSTRATIONS[key];
             return (
               <li key={key} className={styles.wallPrint} data-hang={i % 2 === 0 ? 'high' : 'low'} style={{ backgroundColor: art.paper }}>
-                <Image src={art.src} alt="" fill sizes="(min-width: 1024px) 30vw, 66vw" quality={82} />
+                <Image src={art.src} alt="" fill sizes="(min-width: 1024px) 30vw, 66vw" quality={82} loading={near ? 'eager' : 'lazy'} />
               </li>
             );
           })}

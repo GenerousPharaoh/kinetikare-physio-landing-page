@@ -1435,15 +1435,23 @@
   height: calc(100svh - var(--hh) + var(--n) * 70svh);
 }
 
+/* Phones: the rating on top, the quote in the middle, the steps at the foot.
+   Laptops (below): two columns, the rating and the region steps on the left,
+   the quote alone on the right, so the two never meet at any window height. */
 .home .spot[data-pinned='true'] .spotStage {
   position: sticky;
   top: var(--hh);
   height: calc(100svh - var(--hh));
+  grid-template-areas: 'head' 'quotes' 'steps';
   grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 0;
-  padding: 36px var(--gutter) 32px;
+  padding: 28px var(--gutter) 26px;
   overflow: hidden;
 }
+
+.home .spotHead { grid-area: head; }
+.home .spotQuotes { grid-area: quotes; }
+.home .spotSteps { grid-area: steps; }
 
 .home .spotHead {
   display: flex;
@@ -1507,7 +1515,9 @@
 .home .spotQuote blockquote p {
   max-width: 24ch;
   font-family: var(--display);
-  font-size: clamp(28px, 7.6vw, 38px);
+  /* Sized by the screen's height as well as its width, so five lines and the
+     byline always fit between the rating and the steps. */
+  font-size: clamp(24px, min(7.4vw, 4.3svh), 38px);
   line-height: 1.2;
   letter-spacing: -0.012em;
   color: var(--cream);
@@ -1747,13 +1757,33 @@
 @media (min-width: 1024px) {
   .home .reviews { padding-bottom: 150px; }
   .home .spotStage { padding: 140px var(--gutter) 80px; }
-  .home .spot[data-pinned='true'] .spotStage { padding: 44px var(--gutter) 40px; }
-  .home .ratingValue { font-size: 72px; }
-  .home .spotMark { font-size: 240px; }
+  .home .spot[data-pinned='true'] .spotStage {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    grid-template-areas: 'head quotes' 'steps quotes';
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: 6vw;
+    padding: 40px var(--gutter);
+  }
+  .home .spotHead {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+  .home .spotHead .eyebrow { flex-basis: auto; }
+  .home .spotRating { margin-top: 10px; }
+  .home .ratingValue { font-size: min(104px, 15svh); }
+  .home .spotSteps {
+    flex-direction: column;
+    gap: 14px;
+    align-self: end;
+  }
+  .home .spotSteps li { flex: none; max-width: 300px; }
+  .home .spotMark { font-size: 200px; }
   .home .spotQuote blockquote p {
-    max-width: 26ch;
-    font-size: max(34px, min(4.4vw, 7svh, 76px));
-    line-height: 1.12;
+    max-width: 24ch;
+    font-size: max(28px, min(3.6vw, 6.2svh, 66px));
+    line-height: 1.14;
   }
   .home .controls { display: flex; }
   .home .reviewTrack { gap: 48px; margin-top: 40px; }

@@ -10,6 +10,28 @@ import styles from './Home.module.css';
 
 const BRAND = 'Kinetikare';
 
+/** REVIEW ONLY: the illustrated alternatives (see the note in the markup). */
+const HERO_ART = [
+  {
+    key: 'coaching',
+    className: styles.heroArtCoaching,
+    src: '/images/hero-art/kareem-coaching-squat.webp',
+    alt: 'Illustration of Kareem Hassanein coaching a patient through a squat to a bench',
+  },
+  {
+    key: 'laptop',
+    className: styles.heroArtLaptop,
+    src: '/images/hero-art/kareem-laptop-table.webp',
+    alt: 'Illustration of Kareem Hassanein seated on a treatment table, working on a laptop',
+  },
+  {
+    key: 'kettlebell',
+    className: styles.heroArtKettlebell,
+    src: '/images/hero-art/kareem-kettlebell-deadlift.webp',
+    alt: 'Illustration of Kareem Hassanein lifting a kettlebell from the floor',
+  },
+];
+
 /** How strongly each echo of the masthead shows, nearest first. */
 const ECHOES = [0.5, 0.32, 0.18];
 
@@ -114,6 +136,24 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
           </div>
         </div>
       </motion.div>
+
+      {/* REVIEW ONLY (2026-10-30): three illustrated alternatives to the
+          portrait, shown with ?art=coaching, ?art=laptop or ?art=kettlebell
+          (the inline script sets data-art on the section before first
+          paint). Remove the losers and the script once Kareem has chosen. */}
+      {HERO_ART.map((art) => (
+        <motion.div key={art.key} className={`${styles.heroArt} ${art.className}`} style={{ scale: figureScale }}>
+          <div className={styles.heroArtInner}>
+            <Image src={art.src} alt={art.alt} fill quality={86} sizes="(min-width: 1024px) 45vw, 90vw" />
+          </div>
+        </motion.div>
+      ))}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "(function(s){var a=new URLSearchParams(location.search).get('art');if(a==='coaching'||a==='laptop'||a==='kettlebell')s.setAttribute('data-art',a)})(document.currentScript.parentNode)",
+        }}
+      />
 
       <div className={styles.heroScrim} aria-hidden="true" />
 

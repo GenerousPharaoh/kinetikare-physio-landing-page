@@ -826,6 +826,129 @@
   .home .heroCredential { font-size: 11px; }
 }
 
+/* REVIEW ONLY (2026-10-30): the illustrated alternatives to the portrait,
+   ?art=coaching, ?art=laptop or ?art=kettlebell (HomeHero sets data-art).
+   Desktop: the illustration stands on the left, facing into the copy, his
+   head in front of the masthead; the copy takes the right. Phones: the
+   illustration under the masthead, the copy below it. */
+.home .heroArt {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 10.5%;
+  height: 42%;
+  max-width: none;
+  translate: -50% 0;
+  transform-origin: 50% 40%;
+}
+
+.home .heroArtCoaching { aspect-ratio: 1062 / 1240; }
+.home .heroArtLaptop { aspect-ratio: 925 / 1100; }
+.home .heroArtKettlebell { aspect-ratio: 762 / 1100; }
+
+.home .hero[data-art='coaching'] .heroArtCoaching,
+.home .hero[data-art='laptop'] .heroArtLaptop,
+.home .hero[data-art='kettlebell'] .heroArtKettlebell {
+  display: block;
+}
+
+.home .hero[data-art] .heroRoom,
+.home .hero[data-art] .heroFigure,
+.home .hero[data-art] .heroScrim {
+  display: none;
+}
+
+.home .heroArtInner,
+.home .heroArtInner img {
+  max-width: none;
+}
+
+.home .heroArtInner {
+  position: absolute;
+  inset: 0;
+  animation: develop 1.5s 0.1s var(--ease) both;
+}
+
+.home .heroArtInner img {
+  object-fit: contain;
+  object-position: 50% 100%;
+}
+
+/* A pool of light behind the figures instead of the room. */
+.home .hero[data-art] .heroLight {
+  background:
+    radial-gradient(46% 52% at 50% 36%, rgba(96, 135, 190, 0.34), rgba(96, 135, 190, 0) 72%),
+    radial-gradient(80% 90% at 50% 40%, rgba(10, 22, 40, 0), rgba(10, 22, 40, 0.9) 82%);
+}
+
+@media (max-width: 1023px) {
+  .home .hero[data-art] .heroFacts { display: none; }
+}
+
+@media (max-width: 639px) and (max-height: 760px) {
+  .home .hero[data-art] .heroArt { top: 11%; height: 31%; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .home .heroArt { top: 12%; height: 50%; }
+}
+
+@media (min-width: 1024px) {
+  .home .heroArt {
+    left: calc(var(--gutter) + 1vw);
+    top: auto;
+    bottom: 0;
+    height: 86%;
+    translate: none;
+    transform-origin: 40% 60%;
+  }
+  .home .hero[data-art] .heroLight {
+    background:
+      radial-gradient(34% 56% at 27% 52%, rgba(96, 135, 190, 0.34), rgba(96, 135, 190, 0) 72%),
+      radial-gradient(90% 100% at 40% 45%, rgba(10, 22, 40, 0), rgba(10, 22, 40, 0.9) 80%);
+  }
+  .home .hero[data-art] .heroCopy {
+    left: 52%;
+    bottom: max(28px, 5%);
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: 22px;
+  }
+  .home .hero[data-art] .heroCover,
+  .home .hero[data-art] .heroLockup,
+  .home .hero[data-art] .heroAction {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+  .home .hero[data-art] .heroAction { order: 2; }
+  .home .hero[data-art] .heroLockup { order: 3; gap: 8px; }
+  .home .hero[data-art] .heroCover,
+  .home .hero[data-art] .slogan,
+  .home .hero[data-art] .heroSigned {
+    justify-items: start;
+  }
+  .home .hero[data-art] .sloganScience::after { display: none; }
+  .home .hero[data-art] .sloganArt {
+    padding-left: 0;
+    font-size: min(5.4vw, 11svh, 104px);
+  }
+  .home .hero[data-art] .ctaRow {
+    flex-direction: row;
+    align-items: center;
+  }
+  .home .hero[data-art] .heroFacts {
+    display: flex;
+    gap: 6px 22px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 720px) {
+  .home .hero[data-art] .heroFacts { display: none; }
+}
+
 /* ------------------------------------------------------------------ */
 /* Atlas                                                               */
 /* ------------------------------------------------------------------ */
@@ -2307,6 +2430,7 @@
   .home .signaturePen path,
   .home .heroCredential,
   .home .heroFigureInner,
+  .home .heroArtInner,
   .home .heroFigureGlow,
   .home .heroRoom,
   .home .sloganArt,

@@ -301,7 +301,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-white/80 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/70 text-xs">31 reviews</span>
+              <span className="text-white/70 text-xs">32 reviews</span>
             </motion.div>
 
             {/* Straight to a body region (2026-10-11). On phones the page's own

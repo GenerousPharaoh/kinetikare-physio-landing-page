@@ -12,7 +12,7 @@ export interface GoogleReview {
 /** Kareem's practitioner listing, by CID (not the Endorphins place page). */
 export const GOOGLE_REVIEWS_URL = 'https://maps.google.com/maps?cid=12525727525636452787';
 
-export const GOOGLE_REVIEW_TOTAL = 31;
+export const GOOGLE_REVIEW_TOTAL = 32;
 
 export const reviews: GoogleReview[] = [
   {
@@ -118,5 +118,9 @@ export const reviews: GoogleReview[] = [
   {
     name: "Mike Hauser",
     text: "Kareem has been treating my right shoulder for the past 3 years, frozen shoulder, limited range … and pain. Using a multitude of techniques, results have been amazing. I would totally recommend Kareem."
+  },
+  {
+    name: "Linda Thornton",
+    text: "I have been going to physio sessions with Kareem for the past 9 months and I am very happy with the results. I can now do all the activities I like to do with very little to no discomfort. Kareem provided me with an individualized program of physio exercises to strengthen the areas of muscle weakness and combined with regular treatment sessions, I am now confident that I can remain active and healthy for as long as possible. Consistency of care has meant that my exercise program has been fine tuned over the duration of my treatment and has provided me with the tools I need to keep my body strong. I was skeptical at first that physiotherapy would help as a past experience with a much larger clinic many years ago was very disappointing. I rarely saw the same physiotherapist two weeks in a row, got contradictory advice and a large portion of each session was spent alone with a hot pack on my back. Kareem changed my mind. He listens well to any concerns that come up from week to week and is very easy to talk to. I highly recommend Kareem as a physiotherapist."
   }
 ];

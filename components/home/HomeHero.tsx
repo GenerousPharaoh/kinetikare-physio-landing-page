@@ -1,8 +1,8 @@
 'use client';
 
-import type { CSSProperties, ReactNode } from 'react';
-import Image from 'next/image';
-import { m as motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { preload } from 'react-dom';
+import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { GOOGLE_REVIEW_TOTAL } from '@/lib/reviews';
 import Arrow from './Arrow';
@@ -10,46 +10,88 @@ import styles from './Home.module.css';
 
 const BRAND = 'Kinetikare';
 
-/** REVIEW ONLY: the illustrated alternatives (see the note in the markup). */
-const HERO_ART = [
-  {
-    key: 'coaching',
-    className: styles.heroArtCoaching,
-    src: '/images/hero-art/kareem-coaching-squat.webp',
-    alt: 'Illustration of Kareem Hassanein coaching a patient through a squat to a bench',
-  },
-  {
-    key: 'laptop',
-    className: styles.heroArtLaptop,
-    src: '/images/hero-art/kareem-laptop-table.webp',
-    alt: 'Illustration of Kareem Hassanein seated on a treatment table, working on a laptop',
-  },
-  {
-    key: 'kettlebell',
-    className: styles.heroArtKettlebell,
-    src: '/images/hero-art/kareem-kettlebell-deadlift.webp',
-    alt: 'Illustration of Kareem Hassanein lifting a kettlebell from the floor',
-  },
+/**
+ * Kareem's three illustrations (his own, made in ChatGPT, October 2026), in
+ * the order they play: the coaching, the plan, the strength. Each sits
+ * bottom-centre in the same box. The coaching one goes first because it is
+ * the widest: a later figure that painted larger than the first would be
+ * counted as the page's largest paint, seconds after load.
+ *
+ * Served through the image optimizer at one width (SVG <image> has no
+ * srcset): AVIF or WebP, about 45 to 75 KB each.
+ */
+const optimized = (src: string) => `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=75`;
+const ART = [
+  { src: optimized('/images/hero-art/kareem-coaching-squat.webp'), label: 'coaching a patient through a squat to a bench' },
+  { src: optimized('/images/hero-art/kareem-laptop-table.webp'), label: 'reviewing a plan on a laptop, seated on a treatment table' },
+  { src: optimized('/images/hero-art/kareem-kettlebell-deadlift.webp'), label: 'lifting a kettlebell from the floor' },
 ];
 
-/** How strongly each echo of the masthead shows, nearest first. */
-const ECHOES = [0.5, 0.32, 0.18];
+/** The art box, in viewBox units (about the widest illustration's shape). */
+const BOX_W = 860;
+const BOX_H = 1000;
 
 /**
- * One echo of the masthead on scroll: as the masthead rises, copies of it
- * stay behind at even steps, like a chronophotograph of something moving
- * (Marey's motion studies, where movement analysis began).
+ * The facets: the box cut into an irregular mesh of triangles, like the
+ * low-poly illustrations themselves (a grid whose inner points are nudged at
+ * random; neighbours share corners, so the mesh has no gaps). Each figure
+ * assembles facet by facet in a sweep from the floor up (bottom left to top
+ * right), and breaks apart the same way when the next one arrives. Seeded,
+ * so the server and the browser agree.
  */
-function Trail({ index, progress }: { index: number; progress: MotionValue<number> }) {
-  // Fixed steps below the word (a strobe, not a smear), faint at first and
-  // stronger as the masthead lifts; the word itself rises (mastY), so the
-  // steps open up as it goes.
-  const y = `${(index + 1) * 34}%`;
-  const opacity = useTransform(progress, [0, 0.5], [0, ECHOES[index]]);
+const FACETS = (() => {
+  const cols = 8;
+  const rows = 10;
+  const cw = BOX_W / cols;
+  const rh = BOX_H / rows;
+  let seed = 11;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const pt: [number, number][][] = [];
+  for (let r = 0; r <= rows; r++) {
+    pt.push([]);
+    for (let c = 0; c <= cols; c++) {
+      const inner = r > 0 && r < rows && c > 0 && c < cols;
+      const jx = inner ? (rnd() - 0.5) * cw * 0.7 : 0;
+      const jy = inner ? (rnd() - 0.5) * rh * 0.7 : 0;
+      pt[r].push([Math.round(c * cw + jx), Math.round(r * rh + jy)]);
+    }
+  }
+  const p = ([x, y]: [number, number]) => `${x},${y}`;
+  const out: { points: string; delay: number }[] = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const [a, b, d, e] = [pt[r][c], pt[r][c + 1], pt[r + 1][c], pt[r + 1][c + 1]];
+      const tris = (r + c) % 2 === 0 ? [[a, b, d], [b, e, d]] : [[a, b, e], [a, e, d]];
+      const sweep = (c / (cols - 1)) * 0.5 + ((rows - 1 - r) / (rows - 1)) * 0.5;
+      for (const t of tris) out.push({ points: t.map(p).join(' '), delay: Math.round(sweep * 640 + rnd() * 160) });
+    }
+  }
+  return out;
+})();
+
+/** How long each figure holds before the next assembles, after the first. */
+const HOLD_MS = 5200;
+const FIRST_HOLD_MS = 5600;
+
+/** One illustration, drawn through its own mask of facets. */
+function ArtLayer({ index, state }: { index: number; state?: 'first' | 'in' | 'out' }) {
+  const id = `hero-facets-${index}`;
   return (
-    <motion.span className={styles.mastTrail} style={{ y, opacity }}>
-      {BRAND}
-    </motion.span>
+    <div className={styles.artLayer} data-state={state} aria-hidden="true">
+      <svg viewBox={`0 0 ${BOX_W} ${BOX_H}`} preserveAspectRatio="xMidYMax meet">
+        <defs>
+          <mask id={id} maskUnits="userSpaceOnUse" x="-40" y="-40" width={BOX_W + 80} height={BOX_H + 80}>
+            {/* Once the facets are in place this fills the mask, so no seam
+                shows between them while the figure holds. */}
+            <rect className={styles.facetFill} x="-40" y="-40" width={BOX_W + 80} height={BOX_H + 80} />
+            {FACETS.map((f, i) => (
+              <polygon key={i} className={styles.facet} points={f.points} style={{ '--d': `${f.delay}ms` } as CSSProperties} />
+            ))}
+          </mask>
+        </defs>
+        <image href={ART[index].src} width={BOX_W} height={BOX_H} preserveAspectRatio="xMidYMax meet" mask={`url(#${id})`} />
+      </svg>
+    </div>
   );
 }
 
@@ -64,24 +106,22 @@ const Stars = () => (
 );
 
 /**
- * The opening screen, set like a magazine cover: the masthead, KINETIKARE,
- * in capitals behind Kareem (his hair overlaps the letters), with PHYSIO
- * under its end; across his chest the slogan, the science in precise small
- * capitals and the art in gold italic; under it his name, signed. The
- * corners carry the practical lines: the rating and the facts on the left,
- * the booking on the right (on phones everything stacks, centred).
+ * The opening screen: KINETIKARE | PHYSIO across the top in front of the
+ * art; his three illustrations taking turns on the left (centre on phones);
+ * on the right the slogan, the science in tracked capitals and the art in
+ * gold italic, then his name signed, the booking and the rating.
  *
  * Motion (load and scroll only; Kareem did not want anything moving with the
  * mouse, 2026-10-29):
- * - Entrance (CSS, runs before hydration): the room and light come up; the
- *   portrait rises and is solid before anything behind it moves; the
- *   masthead sweeps in from the left trailing echoes of itself, which close
- *   up as it settles; PHYSIO tracks in; the science line rises and the art
- *   line wipes across; the signature writes itself in, stroke by stroke
- *   (Signature.tsx); the corners arrive.
+ * - Entrance (CSS, runs before hydration): the light comes up; the first
+ *   figure assembles facet by facet from the floor up; the masthead's
+ *   letters rise in turn; the slogan, the signature (Signature.tsx) and the
+ *   rest follow.
+ * - Then every few seconds the figure breaks into facets and the next one
+ *   assembles in its place (paused while the hero is off screen or the tab
+ *   is hidden; never with reduced motion, which shows the first figure).
  * - Scroll: the hero is sticky and the atlas rises over it like a curtain;
- *   meanwhile the camera pushes in, and the masthead lifts away leaving the
- *   same echoes behind it.
+ *   meanwhile the art pushes in and the masthead lifts away.
  */
 export default function HomeHero({ signature }: { signature?: ReactNode }) {
   const reduce = useReducedMotion();
@@ -89,73 +129,82 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
   // One screen of scroll is the distance in which the atlas covers the hero.
   const span = typeof window === 'undefined' ? 800 : window.innerHeight;
   const still = Boolean(reduce);
-  const progress = useTransform(scrollY, [0, span], [0, still ? 0 : 1]);
-  const mastY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '-38%']);
+  const mastY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '-60%']);
   const coverY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '30%']);
-  const figureScale = useTransform(scrollY, [0, span], [1, still ? 1 : 1.12]);
+  const artScale = useTransform(scrollY, [0, span], [1, still ? 1 : 1.1]);
   const shade = useTransform(scrollY, [0, span], [0, 0.6]);
+
+  preload(ART[0].src, { as: 'image', fetchPriority: 'high' });
+
+  // The sequence: which figure is showing, which is leaving, and whether the
+  // first has handed over yet (until then it plays its entrance).
+  const [seq, setSeq] = useState({ cur: 0, prev: -1, started: false });
+  // The other two figures are fetched once the page has settled, and join
+  // the sequence only when loaded.
+  const [later, setLater] = useState(false);
+  const loaded = useRef<boolean[]>([true, false, false]);
+
+  useEffect(() => {
+    if (reduce) return;
+    const fetchTimer = window.setTimeout(() => {
+      setLater(true);
+      ART.forEach((art, i) => {
+        if (i === 0) return;
+        const img = new window.Image();
+        img.onload = () => (loaded.current[i] = true);
+        img.src = art.src;
+      });
+    }, 2200);
+    let timer = 0;
+    const tick = () => {
+      const onScreen = window.scrollY < window.innerHeight * 0.9;
+      setSeq((s) => {
+        const next = (s.cur + 1) % ART.length;
+        if (document.hidden || !onScreen || !loaded.current[next]) return s;
+        return { cur: next, prev: s.cur, started: true };
+      });
+      timer = window.setTimeout(tick, HOLD_MS);
+    };
+    timer = window.setTimeout(tick, FIRST_HOLD_MS);
+    return () => {
+      window.clearTimeout(fetchTimer);
+      window.clearTimeout(timer);
+    };
+  }, [reduce]);
+
+  const stateOf = (i: number) =>
+    i === seq.cur ? (seq.started ? 'in' : 'first') : i === seq.prev ? 'out' : undefined;
 
   return (
     <section className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
-      <div className={styles.heroRoom} aria-hidden="true">
-        <Image src="/images/home-hero-room-blur.webp" alt="" fill sizes="100vw" quality={60} />
-      </div>
       <div className={styles.heroLight} aria-hidden="true" />
 
-      {/* The masthead sits behind the portrait. The h1 reads as text: the
-          brand, then his name and title (shown in the signature below). */}
+      <motion.div
+        className={styles.heroArt}
+        style={{ scale: artScale }}
+        role="img"
+        aria-label={`Illustrations of Kareem Hassanein: ${ART.map((a) => a.label).join('; ')}`}
+      >
+        {ART.map((_, i) => (i === 0 || later ? <ArtLayer key={i} index={i} state={stateOf(i)} /> : null))}
+      </motion.div>
+
+      {/* The masthead, in front of the art. The h1 reads as text: the brand,
+          then his name and title (shown in the signature). */}
       <h1 id="home-title" className={styles.heroName}>
         <motion.span className={styles.heroMast} style={{ y: mastY }}>
           <span className={styles.mastWord} aria-hidden="true">
-            {ECHOES.map((_, i) => (
-              <Trail key={i} index={i} progress={progress} />
-            ))}
-            {ECHOES.map((a, i) => (
-              <span key={i} className={styles.mastEcho} style={{ '--i': i + 1, '--a': a } as CSSProperties}>
-                {BRAND}
-              </span>
-            ))}
-            <span className={styles.mastInk}>{BRAND}</span>
+            <span className={styles.mastBrand}>
+              {BRAND.split('').map((ch, i) => (
+                <span key={i} style={{ '--i': i } as CSSProperties}>
+                  {ch}
+                </span>
+              ))}
+            </span>
             <span className={styles.mastSub}>Physio</span>
           </span>
           <span className="sr-only">Kinetikare Physio: Kareem Hassanein, Registered Physiotherapist</span>
         </motion.span>
       </h1>
-
-      <motion.div className={styles.heroFigure} style={{ scale: figureScale }}>
-        <div className={styles.heroFigureInner}>
-          <div className={styles.heroFigureGlow}>
-            <Image
-              src="/images/kareem-hassanein-portrait-cutout.webp"
-              alt="Kareem Hassanein, Registered Physiotherapist in Burlington"
-              fill
-              priority
-              quality={85}
-              sizes="(min-width: 1024px) 52vw, 120vw"
-            />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* REVIEW ONLY (2026-10-30): three illustrated alternatives to the
-          portrait, shown with ?art=coaching, ?art=laptop or ?art=kettlebell
-          (the inline script sets data-art on the section before first
-          paint). Remove the losers and the script once Kareem has chosen. */}
-      {HERO_ART.map((art) => (
-        <motion.div key={art.key} className={`${styles.heroArt} ${art.className}`} style={{ scale: figureScale }}>
-          <div className={styles.heroArtInner}>
-            <Image src={art.src} alt={art.alt} fill quality={86} sizes="(min-width: 1024px) 45vw, 90vw" />
-          </div>
-        </motion.div>
-      ))}
-      <script
-        dangerouslySetInnerHTML={{
-          __html:
-            "(function(s){var a=new URLSearchParams(location.search).get('art');if(a==='coaching'||a==='laptop'||a==='kettlebell')s.setAttribute('data-art',a)})(document.currentScript.parentNode)",
-        }}
-      />
-
-      <div className={styles.heroScrim} aria-hidden="true" />
 
       <div className={styles.heroCopy}>
         <motion.div className={styles.heroCover} style={{ y: coverY }}>
@@ -172,19 +221,6 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
             </span>
           </div>
         </motion.div>
-        <div className={styles.heroLockup}>
-          <a href="#reviews" className={styles.heroRating}>
-            <Stars />
-            <span>
-              5.0 on Google, {GOOGLE_REVIEW_TOTAL} reviews
-            </span>
-          </a>
-          <ul className={styles.heroFacts}>
-            <li>Direct billing</li>
-            <li>No referral needed</li>
-            <li>Evening hours</li>
-          </ul>
-        </div>
         <div className={styles.heroAction}>
           <div className={styles.ctaRow}>
             <a
@@ -201,6 +237,19 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
               Where does it hurt?
             </a>
           </div>
+        </div>
+        <div className={styles.heroLockup}>
+          <a href="#reviews" className={styles.heroRating}>
+            <Stars />
+            <span>
+              5.0 on Google, {GOOGLE_REVIEW_TOTAL} reviews
+            </span>
+          </a>
+          <ul className={styles.heroFacts}>
+            <li>Direct billing</li>
+            <li>No referral needed</li>
+            <li>Evening hours</li>
+          </ul>
         </div>
       </div>
 

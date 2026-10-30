@@ -295,10 +295,21 @@
 }
 
 /* His room, blurred into the dark: only ever a texture behind him. */
+/* The entrance, in order: the room and the back light come up from black;
+   the portrait rises and is solid by about 0.6s, then sharpens; only then do
+   the letters of the first name rise, from the centre (behind his head)
+   outward, so they never show through him; the surname wipes across; the
+   copy arrives last. */
 .home .heroRoom {
   position: absolute;
   inset: -3%;
   opacity: 0.85;
+  animation: roomIn 1.4s ease-out both;
+}
+
+@keyframes roomIn {
+  from { opacity: 0; scale: 1.06; }
+  to { opacity: 0.85; scale: 1; }
 }
 
 .home .heroRoom img {
@@ -313,7 +324,7 @@
   background:
     radial-gradient(70% 90% at 50% 40%, rgba(10, 22, 40, 0.15), rgba(10, 22, 40, 0.9) 78%),
     radial-gradient(34% 50% at 50% 42%, rgba(96, 135, 190, 0.5), rgba(96, 135, 190, 0) 72%);
-  animation: lightIn 2.2s 0.2s var(--ease) both, breathe 9s 2.4s ease-in-out infinite alternate;
+  animation: lightIn 1.6s 0.1s var(--ease) both, breathe 9s 2.4s ease-in-out infinite alternate;
 }
 
 .home .heroLight::after {
@@ -326,7 +337,7 @@
 }
 
 @keyframes lightIn {
-  from { opacity: 0.2; }
+  from { opacity: 0; }
   to { opacity: 1; }
 }
 
@@ -398,7 +409,7 @@
 .home .heroFigureInner {
   position: absolute;
   inset: 0;
-  animation: develop 1.6s 0.15s var(--ease) both;
+  animation: develop 1.5s 0.1s var(--ease) both;
 }
 
 /* Three layers so no effect clips another: the entrance (blur) on the
@@ -424,11 +435,14 @@
   mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
 }
 
-/* The portrait comes into focus: from soft and low to sharp. It starts at
-   0.01, not 0, so it still counts as painted for LCP. */
+/* The portrait rises and comes into focus. Its opacity is complete by 35%
+   (about 0.6s), before any letter of the first name has started, so the
+   letters behind him cannot show through. It starts at 0.01, not 0, so it
+   still counts as painted for LCP. */
 @keyframes develop {
-  from { opacity: 0.01; translate: 0 4%; scale: 1.04; filter: blur(14px); }
-  to { opacity: 1; translate: 0 0; scale: 1; filter: blur(0); }
+  0% { opacity: 0.01; translate: 0 5%; scale: 1.03; filter: blur(10px); }
+  35% { opacity: 1; }
+  100% { opacity: 1; translate: 0 0; scale: 1; filter: blur(0); }
 }
 
 /* Darkens the shirt so the surname and the copy read over it. */
@@ -462,7 +476,7 @@
 .home .heroSurname {
   display: inline-block;
   padding: 0 0.12em;
-  animation: wipe 1.3s 0.75s var(--ease-io) both;
+  animation: wipe 1.2s 1.05s var(--ease-io) both;
 }
 
 @keyframes wipe {
@@ -488,11 +502,11 @@
   animation: riseIn 0.9s var(--ease) both;
 }
 
-.home .sloganLine { animation-delay: 0.85s; }
-.home .sloganLine + .sloganLine { animation-delay: 0.97s; }
-.home .heroRating { animation-delay: 1.08s; }
-.home .heroFacts { animation-delay: 1.12s; }
-.home .hero .ctaRow { animation-delay: 1.22s; }
+.home .sloganLine { animation-delay: 1.15s; }
+.home .sloganLine + .sloganLine { animation-delay: 1.25s; }
+.home .heroRating { animation-delay: 1.35s; }
+.home .heroFacts { animation-delay: 1.4s; }
+.home .hero .ctaRow { animation-delay: 1.45s; }
 
 @keyframes riseIn {
   from { opacity: 0.01; translate: 0 18px; }
@@ -2123,6 +2137,7 @@
   .home .heroLetters > span,
   .home .heroFigureInner,
   .home .heroFigureGlow,
+  .home .heroRoom,
   .home .heroSurname,
   .home .heroLight,
   .home .sloganLine,

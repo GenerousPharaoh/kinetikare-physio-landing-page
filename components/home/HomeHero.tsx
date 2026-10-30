@@ -9,11 +9,16 @@ import styles from './Home.module.css';
 
 const FIRST = 'Kareem';
 
-/** One letter of the first name: it fans out from the centre as the page scrolls. */
+/**
+ * One letter of the first name. On load the letters rise from the centre
+ * outward, starting at 0.6s, once the portrait in front of them is solid (see
+ * the develop keyframes). On scroll they fan out from the centre.
+ */
 function Letter({ letter, index, spread }: { letter: string; index: number; spread: MotionValue<number> }) {
   const offset = index - (FIRST.length - 1) / 2;
   const x = useTransform(spread, (v) => `${offset * v}vw`);
-  return <motion.span style={{ x, animationDelay: `${120 + index * 55}ms` }}>{letter}</motion.span>;
+  const delay = 600 + (Math.abs(offset) - 0.5) * 70;
+  return <motion.span style={{ x, animationDelay: `${delay}ms` }}>{letter}</motion.span>;
 }
 
 const Stars = () => (
@@ -36,9 +41,11 @@ const Stars = () => (
  *
  * Motion (no pointer effects: Kareem did not want the text moving with the
  * mouse, 2026-10-29):
- * - Entrance (CSS, runs before hydration): the letters rise one by one, the
- *   portrait comes into focus, the surname wipes across, then the copy
- *   arrives in turn. At rest the portrait drifts very slowly.
+ * - Entrance (CSS, runs before hydration): the room and light come up, the
+ *   portrait rises and is solid before the letters behind it start (they
+ *   showed through him at first, 2026-10-29), the letters rise from the
+ *   centre outward, the surname wipes across, then the copy arrives in turn.
+ *   At rest the portrait drifts very slowly.
  * - Scroll: the hero is sticky and the atlas rises over it like a curtain;
  *   meanwhile the camera pushes in, the letters fan out and the names part.
  */

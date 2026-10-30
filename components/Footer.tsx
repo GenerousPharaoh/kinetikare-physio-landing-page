@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
@@ -38,7 +38,6 @@ const CLINIC: Record<ClinicSite, { short: string; tone: string }> = {
 };
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const;
-const NAME = 'Kareem Hassanein';
 
 /**
  * The usual hours for today's weekday in Burlington, worded as the weekday
@@ -68,8 +67,8 @@ function TodayLine() {
 /**
  * The site footer, set as a closing cover: the slogan large with a booking
  * badge that turns as you scroll, the usual hours for today's weekday, the
- * week (where a page does not already show it), four columns, and his name
- * across the bottom, cropped by the edge, its letters rising into place.
+ * week (where a page does not already show it), four columns and the legal
+ * line. (A large sign-off of his name was removed at his request.)
  *
  * /intake (the ads landing page) and /contact get the concise version (no
  * booking badge); the home page carries the full timetable right above, so
@@ -88,26 +87,6 @@ export default function Footer() {
   // page reads as lifting off it; the badge turns half a revolution meanwhile.
   const lift = useTransform(scrollYProgress, [0, 1], [reduce ? '0%' : '-18%', '0%']);
   const turn = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 200]);
-
-  // The name's letters rise once the footer is in view. Armed only when the
-  // footer starts off screen, so without JavaScript the name simply shows.
-  const [nameState, setNameState] = useState<'idle' | 'armed' | 'in'>('idle');
-  useEffect(() => {
-    const el = footerRef.current;
-    if (!el || reduce) return;
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
-    setNameState('armed');
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setNameState('in');
-        io.disconnect();
-      },
-      { rootMargin: '0px 0px -15% 0px' },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [reduce, pathname]);
 
   return (
     // data-site-chrome: scripts/content-dates.mjs leaves the footer out of each
@@ -267,16 +246,6 @@ export default function Footer() {
             </Link>
           </nav>
         </div>
-
-        {/* His name across the bottom, cropped by the footer's edge. Decorative:
-            the name is in the line above. */}
-        <p className={styles.signoff} data-state={nameState} aria-hidden="true">
-          {NAME.split('').map((ch, i) => (
-            <span key={i} style={{ '--i': i } as CSSProperties}>
-              {ch === ' ' ? ' ' : ch}
-            </span>
-          ))}
-        </p>
       </motion.div>
     </footer>
   );

@@ -11,17 +11,26 @@ import styles from './Home.module.css';
 const BRAND = 'Kinetikare';
 
 /**
- * Kareem's four illustrations (his own, made in ChatGPT, October 2026), in
- * the order they play: the coaching, the plan, the step-up, the strength.
- * Each sits bottom-centre in the same box. The coaching one goes first
- * because it is the widest: a later figure that painted larger than the
- * first would be counted as the page's largest paint, seconds after load.
+ * Kareem's illustrations (his own, made in ChatGPT, October 2026), in the
+ * order they play, treatment scenes alternating with his own exercises. Each
+ * sits bottom-centre in the same box. The coaching one goes first because it
+ * is the widest: a later figure that painted larger than the first would be
+ * counted as the page's largest paint, seconds after load. In the box (0.86
+ * wide to tall) the coaching one (0.856) draws largest; a new one must be
+ * narrower than 0.856 or wider than 0.864 to draw smaller. `cropped`: the
+ * scene runs off its bottom edge, so it fades out there instead of ending
+ * in a hard line.
  */
-const ART = [
+const ART: { src: string; label: string; cropped?: boolean }[] = [
   { src: '/images/hero-art/kareem-coaching-squat.webp', label: 'coaching a patient through a squat to a bench' },
+  { src: '/images/hero-art/kareem-shoulder-assessment.webp', label: 'assessing a seated patient’s shoulder', cropped: true },
   { src: '/images/hero-art/kareem-laptop-table.webp', label: 'reviewing a plan on a laptop, seated on a treatment table' },
+  { src: '/images/hero-art/kareem-leg-assessment.webp', label: 'assessing the hip and knee of a patient lying on the table', cropped: true },
   { src: '/images/hero-art/kareem-step-up.webp', label: 'stepping up onto a box' },
+  { src: '/images/hero-art/kareem-shoulder-stretch.webp', label: 'guiding a patient through a shoulder stretch', cropped: true },
   { src: '/images/hero-art/kareem-kettlebell-deadlift.webp', label: 'lifting a kettlebell from the floor' },
+  { src: '/images/hero-art/kareem-shoulder-mobility.webp', label: 'moving a patient’s arm overhead', cropped: true },
+  { src: '/images/hero-art/kareem-hip-flexion.webp', label: 'bending the hip and knee of a patient lying on the table', cropped: true },
 ];
 
 /**
@@ -50,23 +59,6 @@ const FIRST_HOLD_MS = 5600;
 /** The opening's extra time on a full page load (--shift in the CSS). */
 const INTRO_SHIFT_MS = 1000;
 
-/**
- * The opening's sun, at the centre: a gold dot with the logo's rays drawing
- * out of it, before it bursts outward and the hero arrives.
- */
-const INTRO_RAYS = (() => {
-  const n = 11;
-  return Array.from({ length: n }, (_, i) => {
-    const a = (Math.PI * (i + 0.5)) / n + Math.PI;
-    const r2 = i % 2 === 0 ? 58 : 46;
-    const f = (v: number) => Math.round(v * 10) / 10;
-    return {
-      d: `M${f(100 + 22 * Math.cos(a))} ${f(104 + 22 * Math.sin(a))}L${f(100 + r2 * Math.cos(a))} ${f(104 + r2 * Math.sin(a))}`,
-      delay: Math.round(Math.abs(i - (n - 1) / 2) * 40),
-    };
-  });
-})();
-
 const Stars = () => (
   <span className={styles.heroStars} aria-hidden="true">
     {[0, 1, 2, 3, 4].map((i) => (
@@ -80,20 +72,19 @@ const Stars = () => (
 /**
  * The opening screen, set like a poster: KINETIKARE in black condensed
  * capitals running up the left edge (across the top on phones), PHYSIO in a
- * gold outline beside it, both in front of the art; his four illustrations
+ * gold outline beside it, both in front of the art; his illustrations
  * taking turns in front of the logo's sun; on the right the slogan, the
  * science in tracked capitals and the art in gold italic, then his name
  * signed, the booking and the rating.
  *
  * Motion (load and scroll only; Kareem did not want anything moving with the
  * mouse, 2026-10-29):
- * - Opening, on a full page load (CSS, runs before hydration): a gold dot
- *   at the centre with the logo's rays drawing out of it; KINETIKARE rises
- *   under it like a title card; the sun bursts outward like light opening
- *   the room while the word swings into its place (a quarter turn onto the
- *   left edge; up to the top on phones) and the first figure rises from the
- *   floor; then the slogan, the signature (Signature.tsx), the booking and
- *   the rating. Arriving from another page of the site, the same entrance
+ * - Opening, on a full page load (CSS, runs before hydration): in the dark
+ *   room KINETIKARE rises letter by letter at the centre, large, like a
+ *   title card; then it swings into its place (a quarter turn onto the left
+ *   edge; up to the top on phones) as the light comes up and the first
+ *   figure rises from the floor; then the slogan, the signature
+ *   (Signature.tsx), the booking and the rating. Arriving from another page of the site, the same entrance
  *   plays without the opening.
  * - Then every few seconds the next figure rises in behind a soft edge while
  *   the last fades away (paused while the hero is off screen or the tab is
@@ -117,8 +108,9 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
   // The sequence: which figure is showing, which is leaving, and whether the
   // first has handed over yet (until then it plays its entrance).
   const [seq, setSeq] = useState({ cur: 0, prev: -1, started: false });
-  // The other figures are mounted (and so fetched) once the page has
-  // settled, and join the sequence only when loaded.
+  // Only the figure showing, the one leaving and the next are mounted; the
+  // next is fetched a turn ahead (from the moment the page has settled),
+  // and joins the sequence only once loaded.
   const [later, setLater] = useState(false);
   const loaded = useRef<boolean[]>(ART.map((_, i) => i === 0));
   const sectionRef = useRef<HTMLElement>(null);
@@ -146,6 +138,8 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
 
   const stateOf = (i: number) =>
     i === seq.cur ? (seq.started ? 'in' : 'first') : i === seq.prev ? 'out' : undefined;
+  const mounted = (i: number) =>
+    i === seq.cur || i === seq.prev || (later && i === (seq.cur + 1) % ART.length);
 
   return (
     <section ref={sectionRef} className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
@@ -158,12 +152,6 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
         }}
       />
       <div className={styles.heroLight} aria-hidden="true" />
-      <svg className={styles.introSun} viewBox="0 0 200 120" aria-hidden="true">
-        {INTRO_RAYS.map((r, i) => (
-          <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
-        ))}
-        <circle cx="100" cy="104" r="10" />
-      </svg>
 
       <motion.div
         className={styles.heroArt}
@@ -177,8 +165,13 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
           ))}
         </svg>
         {ART.map((art, i) =>
-          i === 0 || later ? (
-            <div key={i} className={styles.artLayer} data-state={stateOf(i)} aria-hidden="true">
+          mounted(i) ? (
+            <div
+              key={i}
+              className={`${styles.artLayer} ${art.cropped ? styles.artCropped : ''}`}
+              data-state={stateOf(i)}
+              aria-hidden="true"
+            >
               <Image
                 src={art.src}
                 alt=""

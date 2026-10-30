@@ -42,7 +42,6 @@ interface HeaderProps {
 
 const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkClick }, ref) {
   const [scrolled, setScrolled] = useState(false);
-  const [pastMasthead, setPastMasthead] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
@@ -65,9 +64,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // (initial assessment preselected), so the header does not send a paid
   // visitor to a different Jane screen than the page's own buttons.
   const bookingHref = isIntakePage ? JANE_INTAKE_BOOKING_URL : JANE_BOOKING_URL;
-  // On the home page the hero's masthead (KINETIKARE, PHYSIO) is the brand,
-  // so the wordmark beside the logo waits until the masthead has scrolled away.
-  const wordmarkTucked = pathname === '/' && !pastMasthead;
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuPanelRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +71,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      setPastMasthead(window.scrollY > window.innerHeight * 0.5);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -189,10 +184,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   />
                 </div>
                 {/* Text Container - Moved down slightly (mt-1) */}
-                <div
-                  className={`flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-row lg:items-center lg:gap-0 ${styles.wordmark}`}
-                  data-tucked={wordmarkTucked ? 'true' : undefined}
-                >
+                <div className="flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-row lg:items-center lg:gap-0">
                   {/* One literal text node for the name. It used to be Kineti + K + are in
                       three spans, which parsers read as "KinetiKarePhysio" and re-split
                       as "Kinetika Rephysio". */}

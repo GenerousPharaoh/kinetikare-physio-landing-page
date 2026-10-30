@@ -11,15 +11,16 @@ import styles from './Home.module.css';
 const BRAND = 'Kinetikare';
 
 /**
- * Kareem's three illustrations (his own, made in ChatGPT, October 2026), in
- * the order they play: the coaching, the plan, the strength. Each sits
- * bottom-centre in the same box. The coaching one goes first because it is
- * the widest: a later figure that painted larger than the first would be
- * counted as the page's largest paint, seconds after load.
+ * Kareem's four illustrations (his own, made in ChatGPT, October 2026), in
+ * the order they play: the coaching, the plan, the step-up, the strength.
+ * Each sits bottom-centre in the same box. The coaching one goes first
+ * because it is the widest: a later figure that painted larger than the
+ * first would be counted as the page's largest paint, seconds after load.
  */
 const ART = [
   { src: '/images/hero-art/kareem-coaching-squat.webp', label: 'coaching a patient through a squat to a bench' },
   { src: '/images/hero-art/kareem-laptop-table.webp', label: 'reviewing a plan on a laptop, seated on a treatment table' },
+  { src: '/images/hero-art/kareem-step-up.webp', label: 'stepping up onto a box' },
   { src: '/images/hero-art/kareem-kettlebell-deadlift.webp', label: 'lifting a kettlebell from the floor' },
 ];
 
@@ -60,7 +61,7 @@ const Stars = () => (
 /**
  * The opening screen, set like a poster: KINETIKARE in black condensed
  * capitals running up the left edge (across the top on phones), PHYSIO in a
- * gold outline beside it, both in front of the art; his three illustrations
+ * gold outline beside it, both in front of the art; his four illustrations
  * taking turns in front of the logo's sun; on the right the slogan, the
  * science in tracked capitals and the art in gold italic, then his name
  * signed, the booking and the rating.
@@ -79,7 +80,7 @@ const Stars = () => (
  * - Scroll: the hero is sticky and the atlas rises over it like a curtain;
  *   meanwhile the art pushes in and the masthead lifts away.
  */
-export default function HomeHero({ signature }: { signature?: ReactNode }) {
+export default function HomeHero({ signature, reviewers = [] }: { signature?: ReactNode; reviewers?: string[] }) {
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
   // One screen of scroll is the distance in which the atlas covers the hero.
@@ -93,10 +94,10 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
   // The sequence: which figure is showing, which is leaving, and whether the
   // first has handed over yet (until then it plays its entrance).
   const [seq, setSeq] = useState({ cur: 0, prev: -1, started: false });
-  // The other two figures are mounted (and so fetched) once the page has
+  // The other figures are mounted (and so fetched) once the page has
   // settled, and join the sequence only when loaded.
   const [later, setLater] = useState(false);
-  const loaded = useRef<boolean[]>([true, false, false]);
+  const loaded = useRef<boolean[]>(ART.map((_, i) => i === 0));
 
   useEffect(() => {
     if (reduce) return;
@@ -205,10 +206,22 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
           </div>
         </div>
         <div className={styles.heroLockup}>
-          <a href="#reviews" className={styles.heroRating}>
-            <Stars />
-            <span>
-              5.0 on Google, {GOOGLE_REVIEW_TOTAL} reviews
+          {/* The rating as a badge: the initials of his most recent reviewers,
+              then the score in gold stars and the count. */}
+          <a href="#reviews" className={styles.heroRating} aria-label={`Rated 5.0 out of 5 from ${GOOGLE_REVIEW_TOTAL} reviews on Google`}>
+            {reviewers.length > 0 && (
+              <span className={styles.ratingFaces} aria-hidden="true">
+                {reviewers.map((initials, i) => (
+                  <span key={i}>{initials}</span>
+                ))}
+              </span>
+            )}
+            <span className={styles.ratingText} aria-hidden="true">
+              <span className={styles.ratingScore}>
+                <strong>5.0</strong>
+                <Stars />
+              </span>
+              <span className={styles.ratingCount}>{GOOGLE_REVIEW_TOTAL} reviews on Google</span>
             </span>
           </a>
           <ul className={styles.heroFacts}>

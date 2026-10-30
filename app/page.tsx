@@ -6,6 +6,23 @@ import Signature from '@/components/home/Signature';
 import HomeGetBack from '@/components/home/HomeGetBack';
 import HomeReviews from '@/components/home/HomeReviews';
 import styles from '@/components/home/Home.module.css';
+import { reviews } from '@/lib/reviews';
+
+// Initials of the four most recent reviewers (the list runs oldest to
+// newest), for the rating badge in the hero. Worked out here so the review
+// texts stay out of the hero's JavaScript.
+const recentReviewers = reviews
+  .slice(-4)
+  .reverse()
+  .map((r) =>
+    r.name
+      .replace(/^Dr\.\s+/, '')
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0].toUpperCase())
+      .join(''),
+  );
 
 // The slogan's "The Art of Care." is set in true Playfair italic, which the
 // site-wide font setup does not load. Loaded here so only the home page pays for it.
@@ -73,7 +90,7 @@ export default function Home() {
   return (
     <main className={`${styles.home} ${playfairItalic.variable} ${archivo.variable}`}>
       <div className={styles.opening}>
-        <HomeHero signature={<Signature />} />
+        <HomeHero signature={<Signature />} reviewers={recentReviewers} />
         <HomeAtlasSection />
       </div>
       <HomeApproach />

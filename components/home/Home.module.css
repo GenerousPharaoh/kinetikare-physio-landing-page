@@ -402,7 +402,8 @@
 }
 
 /* The logo's sun behind the figures: a fan of thin gold rays, drawn outward
-   from the centre on load, swaying very slowly. */
+   from the centre on load, then glowing very slowly brighter and softer.
+   No rotation: thin lines turning shimmer (Kareem saw it as a glitch). */
 .home .heroSun {
   position: absolute;
   z-index: 0;
@@ -412,8 +413,7 @@
   height: auto;
   max-width: none;
   overflow: visible;
-  transform-origin: 50% 93%;
-  animation: sway 16s 2s ease-in-out infinite alternate;
+  animation: glow 7s 2.6s ease-in-out infinite alternate;
 }
 
 .home .heroSun path {
@@ -422,18 +422,19 @@
   stroke-width: 2.2;
   stroke-linecap: round;
   stroke-dasharray: 1 2;
-  opacity: 0.32;
-  animation: rayIn 1.1s var(--ease) calc(0.35s + var(--d)) both;
+  opacity: 0.3;
+  animation: rayIn 1.6s var(--ease) calc(0.3s + var(--d)) both;
 }
 
+/* From just past 1, so no round cap shows as a dot before a ray draws. */
 @keyframes rayIn {
-  from { stroke-dashoffset: 1; }
+  from { stroke-dashoffset: 1.05; }
   to { stroke-dashoffset: 0; }
 }
 
-@keyframes sway {
-  from { rotate: -3deg; }
-  to { rotate: 3deg; }
+@keyframes glow {
+  from { opacity: 1; }
+  to { opacity: 0.55; }
 }
 
 /* The masthead, in front of the art: KINETIKARE in Archivo (the face
@@ -666,35 +667,91 @@
   to { opacity: 1; translate: 0 0; }
 }
 
-/* The rating: gold stars and the count. */
+/* The rating as a badge: a slim gold-edged pill holding the initials of his
+   most recent reviewers (overlapping monograms, as on the review cards), the
+   score with gold stars, and the count. */
 .home a.heroRating:not(#_) {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   width: fit-content;
-  min-height: 32px;
-  color: rgba(243, 238, 228, 0.8);
-  font-size: 14.5px;
-  letter-spacing: 0.01em;
+  padding: 6px 18px 6px 6px;
+  border: 1px solid rgba(214, 191, 142, 0.3);
+  border-radius: 999px;
+  background: rgba(10, 22, 40, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--cream);
   text-decoration: none;
-  transition: color 0.3s var(--ease);
+  transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease);
 }
 
-.home .heroRating span:last-child {
-  padding-bottom: 2px;
-  border-bottom: 1px solid rgba(176, 141, 87, 0.6);
+.home .ratingFaces {
+  display: flex;
+  flex: none;
+}
+
+.home .ratingFaces > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: #15294a;
+  box-shadow: inset 0 0 0 1px rgba(214, 191, 142, 0.75), 0 0 0 2px var(--night);
+  font: 600 10px/1 var(--sans);
+  letter-spacing: 0.02em;
+  color: var(--cream);
+}
+
+.home .ratingFaces > span:first-child { margin-left: 0; }
+
+.home .ratingText {
+  display: grid;
+  gap: 3px;
+  text-align: left;
+}
+
+.home .ratingScore {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home .ratingScore strong {
+  font-family: var(--font-archivo), 'Archivo', var(--sans);
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.home .ratingCount {
+  font: 500 10.5px/1.2 var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 238, 228, 0.66);
 }
 
 .home .heroStars {
   display: inline-flex;
-  gap: 3px;
-  color: var(--gold);
+  gap: 2px;
+  color: var(--gold-light);
 }
 
-.home .heroStars svg { width: 14px; height: 14px; }
+.home .heroStars svg { width: 13px; height: 13px; }
 
 @media (hover: hover) {
-  .home a.heroRating:not(#_):hover { color: var(--cream); }
+  .home a.heroRating:not(#_):hover {
+    border-color: rgba(214, 191, 142, 0.7);
+    background: rgba(214, 191, 142, 0.08);
+  }
+}
+
+.home a.heroRating:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 4px;
 }
 
 /* The facts in small capitals, each after a short gold rule (desktop only). */

@@ -47,6 +47,25 @@ const SUN_RAYS = (() => {
 /** How long each figure holds before the next rises in, after the first. */
 const HOLD_MS = 5200;
 const FIRST_HOLD_MS = 5600;
+/** The opening's extra time on a full page load (--shift in the CSS). */
+const INTRO_SHIFT_MS = 1000;
+
+/**
+ * The opening's sun, at the centre: a gold dot with the logo's rays drawing
+ * out of it, before it bursts outward and the hero arrives.
+ */
+const INTRO_RAYS = (() => {
+  const n = 11;
+  return Array.from({ length: n }, (_, i) => {
+    const a = (Math.PI * (i + 0.5)) / n + Math.PI;
+    const r2 = i % 2 === 0 ? 58 : 46;
+    const f = (v: number) => Math.round(v * 10) / 10;
+    return {
+      d: `M${f(100 + 22 * Math.cos(a))} ${f(104 + 22 * Math.sin(a))}L${f(100 + r2 * Math.cos(a))} ${f(104 + r2 * Math.sin(a))}`,
+      delay: Math.round(Math.abs(i - (n - 1) / 2) * 40),
+    };
+  });
+})();
 
 const Stars = () => (
   <span className={styles.heroStars} aria-hidden="true">
@@ -68,10 +87,14 @@ const Stars = () => (
  *
  * Motion (load and scroll only; Kareem did not want anything moving with the
  * mouse, 2026-10-29):
- * - Entrance (CSS, runs before hydration): the light comes up; the sun's
- *   rays draw outward; the first figure rises in from the floor; the
- *   masthead's letters rise in turn; the slogan, the signature
- *   (Signature.tsx) and the rest follow.
+ * - Opening, on a full page load (CSS, runs before hydration): a gold dot
+ *   at the centre with the logo's rays drawing out of it; KINETIKARE rises
+ *   under it like a title card; the sun bursts outward like light opening
+ *   the room while the word swings into its place (a quarter turn onto the
+ *   left edge; up to the top on phones) and the first figure rises from the
+ *   floor; then the slogan, the signature (Signature.tsx), the booking and
+ *   the rating. Arriving from another page of the site, the same entrance
+ *   plays without the opening.
  * - Then every few seconds the next figure rises in behind a soft edge while
  *   the last fades away (paused while the hero is off screen or the tab is
  *   hidden; never with reduced motion, which shows the first figure). Only
@@ -98,6 +121,7 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
   // settled, and join the sequence only when loaded.
   const [later, setLater] = useState(false);
   const loaded = useRef<boolean[]>(ART.map((_, i) => i === 0));
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (reduce) return;
@@ -112,7 +136,8 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
       });
       timer = window.setTimeout(tick, HOLD_MS);
     };
-    timer = window.setTimeout(tick, FIRST_HOLD_MS);
+    const full = sectionRef.current?.getAttribute('data-intro') === 'full';
+    timer = window.setTimeout(tick, FIRST_HOLD_MS + (full ? INTRO_SHIFT_MS : 0));
     return () => {
       window.clearTimeout(mountTimer);
       window.clearTimeout(timer);
@@ -123,8 +148,22 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
     i === seq.cur ? (seq.started ? 'in' : 'first') : i === seq.prev ? 'out' : undefined;
 
   return (
-    <section className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
+    <section ref={sectionRef} className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
+      {/* A full page load gets the opening (data-intro="full"). The script
+          runs only from the server HTML, so arriving from another page of
+          the site (a client-side navigation) skips it. */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: "document.currentScript.parentNode.setAttribute('data-intro','full')",
+        }}
+      />
       <div className={styles.heroLight} aria-hidden="true" />
+      <svg className={styles.introSun} viewBox="0 0 200 120" aria-hidden="true">
+        {INTRO_RAYS.map((r, i) => (
+          <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
+        ))}
+        <circle cx="100" cy="104" r="10" />
+      </svg>
 
       <motion.div
         className={styles.heroArt}

@@ -296,10 +296,9 @@
 
 /* His room, blurred into the dark: only ever a texture behind him. */
 /* The entrance, in order: the room and the back light come up from black;
-   the portrait rises and is solid by about 0.6s, then sharpens; only then do
-   the letters of the first name rise, from the centre (behind his head)
-   outward, so they never show through him; the surname wipes across; the
-   copy arrives last. */
+   the portrait rises and is solid by about 0.6s, then sharpens; only then
+   does the masthead behind him move, so it never shows through him; then
+   PHYSIO, the slogan, the signature and the corners. */
 .home .heroRoom {
   position: absolute;
   inset: -3%;
@@ -346,23 +345,25 @@
   to { opacity: 0.82; }
 }
 
-/* The h1 holds both names but is not a layer itself, so each name can sit
-   on its own side of the portrait. */
+/* The h1 holds the masthead but is not a layer itself. */
 .home .heroName {
   position: static;
   margin: 0;
   font-weight: 400;
 }
 
-.home .heroFirst {
+/* The masthead: KINETIKARE in capitals behind the portrait (his hair
+   overlaps the letters), PHYSIO under its end. */
+.home .heroMast {
   position: absolute;
   z-index: 1;
   left: 0;
   right: 0;
-  top: 3.5%;
-  text-align: center;
+  top: 4.5%;
+  display: flex;
+  justify-content: center;
   font-family: var(--display);
-  font-size: 22vw;
+  font-size: 15.2vw;
   line-height: 0.8;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -370,20 +371,81 @@
   pointer-events: none;
 }
 
-.home .heroLetters {
-  display: inline-flex;
-  overflow: hidden;
-  padding: 0.04em 0.02em 0.02em;
-}
-
-.home .heroLetters > span {
+.home .mastWord {
+  position: relative;
   display: block;
-  animation: letterUp 1.1s var(--ease) both;
 }
 
-@keyframes letterUp {
-  from { translate: 0 105%; }
-  to { translate: 0 0; }
+/* The word sweeps in from the left and settles. It starts at 0.01, not 0,
+   so it still counts as painted. */
+.home .mastInk {
+  display: block;
+  animation: sweepIn 1.3s 0.6s var(--ease) both;
+}
+
+@keyframes sweepIn {
+  from { opacity: 0.01; translate: -9vw 0; }
+  25% { opacity: 1; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* Echoes: the same word in a gold outline. On load (mastEcho) each follows
+   the word a beat behind, so while it moves fast they trail at wide steps,
+   then close up on it and fade as it settles. On scroll (mastTrail,
+   HomeHero) they trail below as the masthead lifts away. */
+.home .mastEcho,
+.home .mastTrail {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold-light);
+}
+
+.home .mastEcho {
+  opacity: 0;
+  animation: sweepEcho 1.3s calc(0.6s + var(--i) * 75ms) var(--ease) both;
+}
+
+.home .mastTrail {
+  opacity: 0;
+}
+
+@keyframes sweepEcho {
+  from { opacity: 0; translate: -9vw 0; }
+  10% { opacity: var(--a); }
+  55% { opacity: calc(var(--a) * 0.7); }
+  to { opacity: 0; translate: 0 0; }
+}
+
+/* PHYSIO, in tracked capitals after a gold rule, under the end of the word;
+   it slides in once the word has settled (a transform, not letter-spacing,
+   so nothing reflows). */
+.home .mastSub {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  margin-right: -0.5em;
+  font: 500 12px/1 var(--sans);
+  font-size: clamp(12px, 0.075em, 22px);
+  letter-spacing: 0.5em;
+  color: var(--gold-light);
+  animation: trackIn 1.3s 1.05s var(--ease) both;
+}
+
+.home .mastSub::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+
+@keyframes trackIn {
+  from { opacity: 0; translate: -1.4em 0; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 /* Wider than a phone on purpose (his shoulders run off the sides), so it opts
@@ -457,33 +519,10 @@
   pointer-events: none;
 }
 
-.home .heroLast {
-  position: absolute;
-  z-index: 4;
-  left: 0;
-  right: 0;
-  top: 55%;
-  text-align: center;
-  font-family: var(--display-italic);
-  font-style: italic;
-  font-size: 16.5vw;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--gold-light);
-  pointer-events: none;
-}
-
-.home .heroSurname {
-  display: inline-block;
-  padding: 0 0.12em;
-  animation: wipe 1.2s 1.05s var(--ease-io) both;
-}
-
-@keyframes wipe {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
+/* The copy, anchored to the bottom. Phones and tablets: one centred column,
+   the slogan and signature first, then the rating and facts, then the
+   booking. Desktop: the slogan and signature centred across his chest, the
+   rating and facts in the left corner, the booking in the right. */
 .home .heroCopy {
   position: absolute;
   z-index: 5;
@@ -491,56 +530,148 @@
   right: var(--gutter);
   bottom: 22px;
   display: grid;
-  gap: 18px;
+  justify-items: center;
+  gap: 20px;
+  text-align: center;
 }
 
-/* The copy arrives in turn: the slogan's two lines, the rating, the facts, the buttons. */
-.home .sloganLine,
+.home .heroCover {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.home .slogan {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+/* The science, in precise small capitals between two gold rules that draw
+   outward as the line rises into place. */
+.home .sloganScience {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font: 500 11.5px/1.4 var(--sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(243, 238, 228, 0.9);
+}
+
+.home .sloganScience > span {
+  display: block;
+  margin-right: -0.3em;
+  animation: riseIn 0.9s 1.2s var(--ease) both;
+}
+
+.home .sloganScience::before,
+.home .sloganScience::after {
+  content: '';
+  flex: none;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  animation: ruleOut 0.9s 1.3s var(--ease) both;
+}
+
+.home .sloganScience::before { transform-origin: right center; }
+.home .sloganScience::after { transform-origin: left center; }
+
+@keyframes ruleOut {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* The art, in gold italic, wiping across like a stroke of ink. */
+.home .sloganArt {
+  display: block;
+  padding: 0 0.12em;
+  font-family: var(--display-italic);
+  font-style: italic;
+  font-weight: 400;
+  font-size: min(10.4vw, 60px);
+  line-height: 1.04;
+  white-space: nowrap;
+  letter-spacing: -0.015em;
+  color: var(--gold-light);
+  animation: wipe 1.2s 1.3s var(--ease-io) both;
+}
+
+@keyframes wipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+/* His name, signed (Signature.tsx), with his title under it. */
+.home .heroSigned {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+}
+
+.home .signature {
+  --sig-start: 1.75s;
+  display: block;
+  width: min(62vw, 250px);
+  height: auto;
+  overflow: visible;
+}
+
+.home .signaturePen path {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 0;
+  animation: write var(--ms) linear calc(var(--sig-start) + var(--at)) both;
+}
+
+@keyframes write {
+  from { stroke-dashoffset: 1.05; }
+  to { stroke-dashoffset: 0; }
+}
+
+.home .heroCredential {
+  margin-right: -0.3em;
+  font: 500 10.5px/1.4 var(--sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(243, 238, 228, 0.66);
+  animation: riseIn 0.9s 3.2s var(--ease) both;
+}
+
+.home .heroLockup {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+/* The corners arrive while the name is being signed. */
 .home .heroRating,
 .home .heroFacts,
 .home .hero .ctaRow {
   animation: riseIn 0.9s var(--ease) both;
 }
 
-.home .sloganLine { animation-delay: 1.15s; }
-.home .sloganLine + .sloganLine { animation-delay: 1.25s; }
-.home .heroRating { animation-delay: 1.35s; }
-.home .heroFacts { animation-delay: 1.4s; }
-.home .hero .ctaRow { animation-delay: 1.45s; }
+.home .heroRating { animation-delay: 1.55s; }
+.home .heroFacts { animation-delay: 1.65s; }
+.home .hero .ctaRow { animation-delay: 1.7s; }
 
 @keyframes riseIn {
   from { opacity: 0.01; translate: 0 18px; }
   to { opacity: 1; translate: 0 0; }
 }
 
-.home .slogan {
-  font: 300 19px/1.3 var(--sans);
-  letter-spacing: 0.005em;
-  color: rgba(243, 238, 228, 0.88);
-}
-
-.home .sloganLine {
-  display: block;
-}
-
-.home .slogan em {
-  margin-top: 2px;
-  font-family: var(--display-italic);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.45em;
-  line-height: 1.15;
-  color: var(--gold-light);
-}
-
-/* The rating: gold stars and the count, under the slogan. */
+/* The rating: gold stars and the count. */
 .home a.heroRating:not(#_) {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   width: fit-content;
   min-height: 32px;
-  margin-top: 12px;
   color: rgba(243, 238, 228, 0.8);
   font-size: 14.5px;
   letter-spacing: 0.01em;
@@ -565,12 +696,14 @@
   .home a.heroRating:not(#_):hover { color: var(--cream); }
 }
 
-/* The facts, listed in small capitals, each after a short gold rule. */
+/* The facts in small capitals, each after a short gold rule; in a row on
+   phones, a column in the desktop corner. */
 .home .heroFacts {
-  display: grid;
-  gap: 6px;
-  margin-top: 16px;
-  font: 500 12.5px/1.4 var(--sans);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  font: 500 11.5px/1.4 var(--sans);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(243, 238, 228, 0.76);
@@ -579,19 +712,20 @@
 .home .heroFacts li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .home .heroFacts li::before {
   content: '';
   flex: none;
-  width: 18px;
+  width: 14px;
   height: 1px;
   background: var(--gold);
 }
 
 .home .hero .ctaRow {
   margin-top: 0;
+  justify-content: center;
   gap: 4px 24px;
 }
 
@@ -612,54 +746,84 @@
   pointer-events: none;
 }
 
-/* Phones: a slightly smaller portrait, and the surname a little higher, so the
-   copy below (slogan, rating, facts, booking) never meets it. */
+/* Phones: a slightly smaller portrait, so the copy below never meets his face. */
 @media (max-width: 639px) {
   .home .heroFigure { height: 60%; bottom: 27%; }
-  .home .heroLast { top: 47%; }
-  .home .heroFacts { gap: 4px; }
 }
 
 /* Short phones (after the rule above, so it wins): the facts give way. */
 @media (max-width: 639px) and (max-height: 760px) {
-  .home .heroLast { top: 45%; }
   .home .heroFacts { display: none; }
+  .home .heroCopy { gap: 16px; }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-  .home .heroFirst { font-size: 19vw; }
-  .home .heroFigure { height: 62%; bottom: 24%; }
-  .home .heroLast { font-size: 12vw; top: 57%; }
+  .home .heroFigure { height: 62%; bottom: 26%; }
+  .home .sloganArt { font-size: 9vw; }
+  .home .sloganScience { font-size: 13px; }
+  .home .signature { width: 300px; }
 }
 
 @media (min-width: 1024px) {
   .home .hero { min-height: 520px; }
-  .home .heroFirst {
-    top: 3%;
-    font-size: min(15.5vw, 30svh, 300px);
+  .home .heroMast {
+    top: 3.5%;
+    font-size: min(15vw, 30svh, 300px);
   }
+  .home .mastEcho,
+  .home .mastTrail { -webkit-text-stroke-width: 1.2px; }
+  .home .mastSub {
+    margin-top: 16px;
+    gap: 16px;
+  }
+  .home .mastSub::before { width: 44px; }
   .home .heroFigure {
     bottom: -3%;
     height: 84%;
   }
   .home .heroScrim { height: 46%; }
-  .home .heroLast {
-    top: 59%;
-    font-size: min(8.6vw, 17svh, 170px);
-  }
   .home .heroCopy {
-    bottom: 32px;
-    grid-template-columns: minmax(0, 1fr) auto;
+    bottom: 30px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: end;
-    gap: 32px;
+    justify-items: stretch;
+    gap: 0 24px;
+    text-align: left;
+  }
+  .home .heroCover {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    gap: 8px;
+  }
+  .home .heroLockup {
+    grid-column: 1;
+    grid-row: 1;
+    justify-items: start;
+    justify-self: start;
   }
   .home .heroAction {
-    display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .home .hero .ctaRow {
     flex-direction: column;
     align-items: flex-end;
   }
-  .home .heroFacts { font-size: 13px; }
-  .home .slogan { font-size: 23px; }
+  .home .heroFacts {
+    display: grid;
+    justify-content: start;
+    gap: 6px;
+    font-size: 12.5px;
+  }
+  .home .heroFacts li::before { width: 18px; }
+  .home .sloganScience { font-size: 13px; }
+  .home .sloganScience::before,
+  .home .sloganScience::after { width: 40px; }
+  .home .sloganArt { font-size: min(6.4vw, 12svh, 124px); }
+  .home .signature { width: clamp(230px, min(21vw, 42svh), 360px); }
+  .home .heroCredential { font-size: 11px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -2134,13 +2298,19 @@
 @media (prefers-reduced-motion: reduce) {
   .home .word,
   .home .spotQuote,
-  .home .heroLetters > span,
+  .home .mastInk,
+  .home .mastEcho,
+  .home .mastSub,
+  .home .sloganScience > span,
+  .home .sloganScience::before,
+  .home .sloganScience::after,
+  .home .signaturePen path,
+  .home .heroCredential,
   .home .heroFigureInner,
   .home .heroFigureGlow,
   .home .heroRoom,
-  .home .heroSurname,
+  .home .sloganArt,
   .home .heroLight,
-  .home .sloganLine,
   .home .heroRating,
   .home .heroFacts,
   .home .hero .ctaRow,

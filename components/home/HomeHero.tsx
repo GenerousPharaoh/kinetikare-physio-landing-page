@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties, ReactNode } from 'react';
 import Image from 'next/image';
 import { m as motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
@@ -7,18 +8,27 @@ import { GOOGLE_REVIEW_TOTAL } from '@/lib/reviews';
 import Arrow from './Arrow';
 import styles from './Home.module.css';
 
-const FIRST = 'Kareem';
+const BRAND = 'Kinetikare';
+
+/** How strongly each echo of the masthead shows, nearest first. */
+const ECHOES = [0.5, 0.32, 0.18];
 
 /**
- * One letter of the first name. On load the letters rise from the centre
- * outward, starting at 0.6s, once the portrait in front of them is solid (see
- * the develop keyframes). On scroll they fan out from the centre.
+ * One echo of the masthead on scroll: as the masthead rises, copies of it
+ * stay behind at even steps, like a chronophotograph of something moving
+ * (Marey's motion studies, where movement analysis began).
  */
-function Letter({ letter, index, spread }: { letter: string; index: number; spread: MotionValue<number> }) {
-  const offset = index - (FIRST.length - 1) / 2;
-  const x = useTransform(spread, (v) => `${offset * v}vw`);
-  const delay = 600 + (Math.abs(offset) - 0.5) * 70;
-  return <motion.span style={{ x, animationDelay: `${delay}ms` }}>{letter}</motion.span>;
+function Trail({ index, progress }: { index: number; progress: MotionValue<number> }) {
+  // Fixed steps below the word (a strobe, not a smear), faint at first and
+  // stronger as the masthead lifts; the word itself rises (mastY), so the
+  // steps open up as it goes.
+  const y = `${(index + 1) * 34}%`;
+  const opacity = useTransform(progress, [0, 0.5], [0, ECHOES[index]]);
+  return (
+    <motion.span className={styles.mastTrail} style={{ y, opacity }}>
+      {BRAND}
+    </motion.span>
+  );
 }
 
 const Stars = () => (
@@ -32,32 +42,34 @@ const Stars = () => (
 );
 
 /**
- * The opening screen, set like a magazine cover: the first name in capitals
- * behind Kareem (his hair just overlaps the letters), the surname in gold
- * italic in front of him, his treatment room blurred into the dark behind.
- * Along the bottom, like a cover's lines: the slogan, the rating and the
- * practical facts on the left, the booking on the right, the centre left to
- * the surname.
+ * The opening screen, set like a magazine cover: the masthead, KINETIKARE,
+ * in capitals behind Kareem (his hair overlaps the letters), with PHYSIO
+ * under its end; across his chest the slogan, the science in precise small
+ * capitals and the art in gold italic; under it his name, signed. The
+ * corners carry the practical lines: the rating and the facts on the left,
+ * the booking on the right (on phones everything stacks, centred).
  *
- * Motion (no pointer effects: Kareem did not want the text moving with the
+ * Motion (load and scroll only; Kareem did not want anything moving with the
  * mouse, 2026-10-29):
- * - Entrance (CSS, runs before hydration): the room and light come up, the
- *   portrait rises and is solid before the letters behind it start (they
- *   showed through him at first, 2026-10-29), the letters rise from the
- *   centre outward, the surname wipes across, then the copy arrives in turn.
- *   At rest the portrait drifts very slowly.
+ * - Entrance (CSS, runs before hydration): the room and light come up; the
+ *   portrait rises and is solid before anything behind it moves; the
+ *   masthead sweeps in from the left trailing echoes of itself, which close
+ *   up as it settles; PHYSIO tracks in; the science line rises and the art
+ *   line wipes across; the signature writes itself in, stroke by stroke
+ *   (Signature.tsx); the corners arrive.
  * - Scroll: the hero is sticky and the atlas rises over it like a curtain;
- *   meanwhile the camera pushes in, the letters fan out and the names part.
+ *   meanwhile the camera pushes in, and the masthead lifts away leaving the
+ *   same echoes behind it.
  */
-export default function HomeHero() {
+export default function HomeHero({ signature }: { signature?: ReactNode }) {
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
   // One screen of scroll is the distance in which the atlas covers the hero.
   const span = typeof window === 'undefined' ? 800 : window.innerHeight;
   const still = Boolean(reduce);
-  const firstY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '-30%']);
-  const spread = useTransform(scrollY, [0, span], [0, still ? 0 : 2.6]);
-  const lastY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '60%']);
+  const progress = useTransform(scrollY, [0, span], [0, still ? 0 : 1]);
+  const mastY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '-38%']);
+  const coverY = useTransform(scrollY, [0, span], ['0%', still ? '0%' : '30%']);
   const figureScale = useTransform(scrollY, [0, span], [1, still ? 1 : 1.12]);
   const shade = useTransform(scrollY, [0, span], [0, 0.6]);
 
@@ -68,19 +80,23 @@ export default function HomeHero() {
       </div>
       <div className={styles.heroLight} aria-hidden="true" />
 
-      {/* One h1 for both names; each is placed on its own layer, the first
-          behind the portrait and the surname in front of it. */}
+      {/* The masthead sits behind the portrait. The h1 reads as text: the
+          brand, then his name and title (shown in the signature below). */}
       <h1 id="home-title" className={styles.heroName}>
-        <motion.span className={styles.heroFirst} style={{ y: firstY }}>
-          <span className={styles.heroLetters} aria-hidden="true">
-            {FIRST.split('').map((letter, i) => (
-              <Letter key={i} letter={letter} index={i} spread={spread} />
+        <motion.span className={styles.heroMast} style={{ y: mastY }}>
+          <span className={styles.mastWord} aria-hidden="true">
+            {ECHOES.map((_, i) => (
+              <Trail key={i} index={i} progress={progress} />
             ))}
+            {ECHOES.map((a, i) => (
+              <span key={i} className={styles.mastEcho} style={{ '--i': i + 1, '--a': a } as CSSProperties}>
+                {BRAND}
+              </span>
+            ))}
+            <span className={styles.mastInk}>{BRAND}</span>
+            <span className={styles.mastSub}>Physio</span>
           </span>
-          <span className="sr-only">{FIRST} </span>
-        </motion.span>
-        <motion.span className={styles.heroLast} style={{ y: lastY }}>
-          <span className={styles.heroSurname}>Hassanein</span>
+          <span className="sr-only">Kinetikare Physio: Kareem Hassanein, Registered Physiotherapist</span>
         </motion.span>
       </h1>
 
@@ -102,11 +118,21 @@ export default function HomeHero() {
       <div className={styles.heroScrim} aria-hidden="true" />
 
       <div className={styles.heroCopy}>
-        <div className={styles.heroLockup}>
+        <motion.div className={styles.heroCover} style={{ y: coverY }}>
           <p className={styles.slogan}>
-            <span className={styles.sloganLine}>The Science of Recovery.</span>
-            <em className={styles.sloganLine}>The Art of Care.</em>
+            <span className={styles.sloganScience}>
+              <span>The Science of Recovery.</span>
+            </span>
+            <em className={styles.sloganArt}>The Art of Care.</em>
           </p>
+          <div className={styles.heroSigned}>
+            {signature}
+            <span className={styles.heroCredential} aria-hidden="true">
+              Registered Physiotherapist
+            </span>
+          </div>
+        </motion.div>
+        <div className={styles.heroLockup}>
           <a href="#reviews" className={styles.heroRating}>
             <Stars />
             <span>

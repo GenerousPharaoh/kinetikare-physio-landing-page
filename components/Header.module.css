@@ -406,3 +406,18 @@
   .nav a::after,
   .trigger::after { transition: none !important; }
 }
+
+/* The wordmark beside the logo. On the home page it waits, tucked, until the
+   hero's masthead has scrolled away (Header.tsx sets data-tucked). */
+.wordmark {
+  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+}
+
+.wordmark[data-tucked='true'] {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark { transition: none; }
+}

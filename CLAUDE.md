@@ -240,7 +240,7 @@ grep -rn "reviewCount\|totalGoogleReviews\|[0-9]\+ reviews\|from [0-9]\+ Google"
 
 The `/intake` hits are easy to miss, and that page is the Google Ads landing page, so a stale count there is the one that costs money.
 
-As of 2026-09-11: **31** total, **26** featured in the carousel.
+As of 2026-10-29: **32** total, **27** featured in the carousel (Linda Thornton added that day).
 
 The displayed count reflects the **actual Google total**. The carousel itself shows a curated subset, not all reviews — this mismatch is intentional, not a bug.
 

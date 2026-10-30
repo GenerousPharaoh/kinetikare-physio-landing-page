@@ -156,13 +156,16 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
       <motion.div
         className={styles.heroArt}
         style={{ scale: artScale }}
+        data-turn={seq.started ? seq.cur % 2 : undefined}
         role="img"
         aria-label={`Illustrations of Kareem Hassanein: ${ART.map((a) => a.label).join('; ')}`}
       >
         <svg className={styles.heroSun} viewBox="0 0 1000 600" aria-hidden="true">
-          {SUN_RAYS.map((r, i) => (
-            <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
-          ))}
+          <g className={styles.sunRays}>
+            {SUN_RAYS.map((r, i) => (
+              <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
+            ))}
+          </g>
         </svg>
         {ART.map((art, i) =>
           mounted(i) ? (

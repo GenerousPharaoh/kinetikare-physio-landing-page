@@ -99,7 +99,7 @@ Kareem accepted a three-release plan (record in memory: `kinetikare-hero-directi
 - **Home footer**: the concise variant with the identity block (Book Online + CPO registration) and navigation but no repeated phone, email, address or hours; the home page's own contact section carries those.
 - **Header**: nav links are `whitespace-nowrap`; the phone number moved from the 1440 to the 1600 breakpoint because the wider nav clipped Book Now at 1440.
 
-## Home page redesign "the atlas" (branch `design/home-atlas`, 2026-10-29, preview only)
+## Home page redesign "the atlas" (built on branch `design/home-atlas` 2026-10-29 to 10-30; **live since 2026-10-30**, merged to main at his request)
 
 Kareem said the home page and hero were boring "especially on mobile", named Techniques Combat and the David & Daria travel site as the bar, opened up the hero image ("Open it up") and said "you decide, show it running". Built on the branch, not on `main`; nothing is live until he approves. Files: `app/page.tsx` (same metadata) composes `components/home/` (`Home.module.css`, `HomeSections.tsx` server sections, `HomeHero.tsx`, `HomeAtlas.tsx`, `HomeGetBack.tsx`, `HomeReviews.tsx`, `Reveal.tsx`, `Arrow.tsx`).
 - **Round 2 (same day), his feedback:** "pretty cool but the knee in the hero section is ugly ... the hero section can be cooler and then it can start with those motions ... more dynamic ... the backdrop ... looks a bit dated". Round 2 put his name large on the left and the full-length portrait cutout on the right; the curtain (hero sticky inside `.opening`, the atlas panel rising over it) stays from that round. The atlas is on the same night navy (#0a1628) with the plates mounted like his prints (paper, gold hairline) and the measuring line glowing across the dark. Cream grounds below became cooler (white #f5f5f1, stone #e8ecea); About shows the sunlit treatment room photo since the portrait opens the page.
@@ -119,11 +119,12 @@ Kareem said the home page and hero were boring "especially on mobile", named Tec
 - **Round 15 (2026-10-30):** the opening first had a gold dot and the logo's rays drawing at the centre and bursting outward; he said it "doesnt make too much sense with the dot and sun thing", so it was removed (the rays behind the figures stay). He sent five more illustrations (all low-poly, his palette, cut out): a seated shoulder assessment, a guided shoulder stretch, an overhead shoulder mobility, a leg assessment and a hip flexion on the table, all `cropped` (the scene runs off its bottom edge; the image fades out over its bottom 18% so it does not end in a hard line mid-screen on phones). Nine figures now, treatment scenes alternating with his exercises: coaching, shoulder assessment, laptop, leg assessment, step-up, shoulder stretch, kettlebell, shoulder mobility, hip flexion. Only the figure showing, the one leaving and the next are mounted, the next fetched a turn ahead. Coaching stays first: in the 0.86 box it draws largest, and a new figure must be narrower than 0.856 or wider than 0.864 (wide to tall) to draw smaller, or it registers as a later LCP.
 - **Wording is the old home page's**, rearranged. New small labels need his OK: eyebrows "How care works", "Services", "Patient reviews"; Get in Touch labels "Book online", "Call", "Email", "Hours"; reviews row label "More from Google"; footer column labels "Explore", "Treatment Areas", "Connect"; "Explore knee pain" etc. on the hub links; "Back pain: Low back pain, Sciatica" under the atlas; "Fees and first visit" link; "Read the full review". Dropped: the "Treatment Approach" bullets and the four-item booking checklist.
 - Global CSS fights components (section backgrounds at 0,1,1 via nth-child, `a:not(...)` at 0,5,1, blockquote panels, `p` font family, phone `img` radius); the module scopes everything under `.home` and link colours use `:not(#_)`. The first section pads by the header height (`--hh`: 69 / 93 / 95px) because the header is fixed.
-- Reviews moved to `lib/reviews.ts` (`reviews`, `GOOGLE_REVIEW_TOTAL`, `GOOGLE_REVIEWS_URL`); `GoogleReviews.tsx` imports it. The old home sections (`components/sections/*`, `GoogleReviews`) are unused on this branch and should be deleted when it merges.
+- **Round 16 (2026-10-30), before going live:** a sweep of 19 viewports (phones 360 to 430 wide, landscape phones, tablets, laptops to 2560) for overflow, overlaps and things off screen. Fixes: on phones and upright tablets the figure fills the room between the masthead's foot (`4.5% + 1.39 * min(21vw, 96px)`) and the copy's head (372px from the bottom; the copy measured 320 to 341px tall); short phones (max-height 760) drop the hero's min-height, shrink the masthead and hide the credential and "Where does it hurt?"; on desktop the figure is also capped by the room left of the copy column, so taller screens (1440x900, 1024x768) no longer push it under the copy; the side-by-side layout applies only to screens at least as wide as tall (`min-aspect-ratio: 1/1`; a 1024x1366 iPad Pro gets the stacked layout) and to landscape phones (`(min-width: 640px) and (max-height: 520px) and (orientation: landscape)`, with the hero at screen height). Transitions: a change of figure drifts like a slow camera pan (`artArrive` from 2.5% right, `artFade` 2.5% left) and the rays dim and swell back with each change (`raysBreathA/B`, alternated by `data-turn` so the animation restarts). `qa.cjs`-style checks: all 19 sizes clean; key pages load without overflow or script errors at 390 and 1280.
+- Reviews live in `lib/reviews.ts` (`reviews`, `GOOGLE_REVIEW_TOTAL`, `GOOGLE_REVIEWS_URL`). The old home sections (`components/sections/*`) and `components/GoogleReviews.tsx` were deleted when the redesign went live (nothing imported them).
 
-## Home hero (state as of 2026-09-15, evening)
+## Home hero before the redesign (state as of 2026-09-15; replaced 2026-10-30)
 
-`components/sections/HeroSectionModern.tsx` is the **treatment-room split**: the newer Endorphins photo (`/images/endorphins-treatment-room.webp`) on the right behind the diagonal clip at scale 1 with a faint drift, text left, no review marquee, the "Accepting new patients" badge at `right-[15%]`. This is commit `0b18b91`'s file, restored after the illustrated hero.
+The old `components/sections/HeroSectionModern.tsx` (deleted 2026-10-30) was the **treatment-room split**: the newer Endorphins photo (`/images/endorphins-treatment-room.webp`) on the right behind the diagonal clip at scale 1 with a faint drift, text left, no review marquee, the "Accepting new patients" badge at `right-[15%]`. This is commit `0b18b91`'s file, restored after the illustrated hero.
 
 Everything tried for the hero on 2026-09-14/15 and rejected, in order: a canvas gait constellation ("I hate it"), Codex cutaway figures, an AI-adapted room, anything interactive ("I dont want it to be interactive in that way"), the runner and golf illustrations in the seam layout, and finally the basketball dunk in the seam layout, which he picked from a sheet, saw live, and reversed ("the basketball stuff isnt good; I would switch it back to the treatment room for that section"). **The hero stays the room photo. His illustrations go elsewhere on the site.** Header: the navy bar is always on (`|| true` in the scrolled condition), kept because it does no harm and the transparent state only existed for the photo.
 
@@ -249,17 +250,16 @@ Three clinics, marked differently: Endorphins (plain; Mon/Thu 1:30-8:00 PM, Tue 
 
 ## The review count is multi-sourced
 
-The Google review count now appears in **four** UI surfaces across three files:
-- `components/GoogleReviews.tsx` (`totalGoogleReviews` constant)
-- `components/sections/HeroSectionModern.tsx` (the mobile hero trust badge)
-- `components/intake/IntakeLandingPage.tsx` (twice: the star-rating line and the testimonial section heading)
+Since the home redesign went live (2026-10-30) the Google review count lives in two places:
+- `lib/reviews.ts` (`GOOGLE_REVIEW_TOTAL`), read by the home hero's rating badge and the home reviews section
+- `components/intake/IntakeLandingPage.tsx` (typed twice: the star-rating line and the testimonial section heading; left typed so the ads page does not import the review texts)
 
 It used to appear in 13 places. The other nine were JSON-LD `aggregateRating` blocks, all removed on 2026-09-05 in commit `5d4582a` because self-serving review markup on your own site is not eligible for rich results and risked a structured-data penalty. Do not reintroduce them.
 
 Before changing the count, run this and confirm you have every hit:
 
 ```bash
-grep -rn "reviewCount\|totalGoogleReviews\|[0-9]\+ reviews\|from [0-9]\+ Google" app components
+grep -rn "GOOGLE_REVIEW_TOTAL = \|[0-9]\+ reviews\|from [0-9]\+ Google" app components lib
 ```
 
 The `/intake` hits are easy to miss, and that page is the Google Ads landing page, so a stale count there is the one that costs money.

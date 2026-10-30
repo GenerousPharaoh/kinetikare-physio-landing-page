@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
-import { preload } from 'react-dom';
+import Image from 'next/image';
 import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { GOOGLE_REVIEW_TOTAL } from '@/lib/reviews';
@@ -16,58 +16,12 @@ const BRAND = 'Kinetikare';
  * bottom-centre in the same box. The coaching one goes first because it is
  * the widest: a later figure that painted larger than the first would be
  * counted as the page's largest paint, seconds after load.
- *
- * Served through the image optimizer at one width (SVG <image> has no
- * srcset): AVIF or WebP, about 45 to 75 KB each.
  */
-const optimized = (src: string) => `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=75`;
 const ART = [
-  { src: optimized('/images/hero-art/kareem-coaching-squat.webp'), label: 'coaching a patient through a squat to a bench' },
-  { src: optimized('/images/hero-art/kareem-laptop-table.webp'), label: 'reviewing a plan on a laptop, seated on a treatment table' },
-  { src: optimized('/images/hero-art/kareem-kettlebell-deadlift.webp'), label: 'lifting a kettlebell from the floor' },
+  { src: '/images/hero-art/kareem-coaching-squat.webp', label: 'coaching a patient through a squat to a bench' },
+  { src: '/images/hero-art/kareem-laptop-table.webp', label: 'reviewing a plan on a laptop, seated on a treatment table' },
+  { src: '/images/hero-art/kareem-kettlebell-deadlift.webp', label: 'lifting a kettlebell from the floor' },
 ];
-
-/** The art box, in viewBox units (about the widest illustration's shape). */
-const BOX_W = 860;
-const BOX_H = 1000;
-
-/**
- * The facets: the box cut into an irregular mesh of triangles, like the
- * low-poly illustrations themselves (a grid whose inner points are nudged at
- * random; neighbours share corners, so the mesh has no gaps). Each figure
- * assembles facet by facet in a sweep from the floor up (bottom left to top
- * right), and breaks apart the same way when the next one arrives. Seeded,
- * so the server and the browser agree.
- */
-const FACETS = (() => {
-  const cols = 8;
-  const rows = 10;
-  const cw = BOX_W / cols;
-  const rh = BOX_H / rows;
-  let seed = 11;
-  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const pt: [number, number][][] = [];
-  for (let r = 0; r <= rows; r++) {
-    pt.push([]);
-    for (let c = 0; c <= cols; c++) {
-      const inner = r > 0 && r < rows && c > 0 && c < cols;
-      const jx = inner ? (rnd() - 0.5) * cw * 0.7 : 0;
-      const jy = inner ? (rnd() - 0.5) * rh * 0.7 : 0;
-      pt[r].push([Math.round(c * cw + jx), Math.round(r * rh + jy)]);
-    }
-  }
-  const p = ([x, y]: [number, number]) => `${x},${y}`;
-  const out: { points: string; delay: number }[] = [];
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const [a, b, d, e] = [pt[r][c], pt[r][c + 1], pt[r + 1][c], pt[r + 1][c + 1]];
-      const tris = (r + c) % 2 === 0 ? [[a, b, d], [b, e, d]] : [[a, b, e], [a, e, d]];
-      const sweep = (c / (cols - 1)) * 0.5 + ((rows - 1 - r) / (rows - 1)) * 0.5;
-      for (const t of tris) out.push({ points: t.map(p).join(' '), delay: Math.round(sweep * 640 + rnd() * 160) });
-    }
-  }
-  return out;
-})();
 
 /**
  * The rays of the logo's sun, fanned behind the figures: thin gold lines,
@@ -89,31 +43,9 @@ const SUN_RAYS = (() => {
   });
 })();
 
-/** How long each figure holds before the next assembles, after the first. */
+/** How long each figure holds before the next rises in, after the first. */
 const HOLD_MS = 5200;
 const FIRST_HOLD_MS = 5600;
-
-/** One illustration, drawn through its own mask of facets. */
-function ArtLayer({ index, state }: { index: number; state?: 'first' | 'in' | 'out' }) {
-  const id = `hero-facets-${index}`;
-  return (
-    <div className={styles.artLayer} data-state={state} aria-hidden="true">
-      <svg viewBox={`0 0 ${BOX_W} ${BOX_H}`} preserveAspectRatio="xMidYMax meet">
-        <defs>
-          <mask id={id} maskUnits="userSpaceOnUse" x="-40" y="-40" width={BOX_W + 80} height={BOX_H + 80}>
-            {/* Once the facets are in place this fills the mask, so no seam
-                shows between them while the figure holds. */}
-            <rect className={styles.facetFill} x="-40" y="-40" width={BOX_W + 80} height={BOX_H + 80} />
-            {FACETS.map((f, i) => (
-              <polygon key={i} className={styles.facet} points={f.points} style={{ '--d': `${f.delay}ms` } as CSSProperties} />
-            ))}
-          </mask>
-        </defs>
-        <image href={ART[index].src} width={BOX_W} height={BOX_H} preserveAspectRatio="xMidYMax meet" mask={`url(#${id})`} />
-      </svg>
-    </div>
-  );
-}
 
 const Stars = () => (
   <span className={styles.heroStars} aria-hidden="true">
@@ -126,20 +58,24 @@ const Stars = () => (
 );
 
 /**
- * The opening screen: KINETIKARE | PHYSIO across the top in front of the
- * art; his three illustrations taking turns on the left (centre on phones);
- * on the right the slogan, the science in tracked capitals and the art in
- * gold italic, then his name signed, the booking and the rating.
+ * The opening screen, set like a poster: KINETIKARE in black condensed
+ * capitals running up the left edge (across the top on phones), PHYSIO in a
+ * gold outline beside it, both in front of the art; his three illustrations
+ * taking turns in front of the logo's sun; on the right the slogan, the
+ * science in tracked capitals and the art in gold italic, then his name
+ * signed, the booking and the rating.
  *
  * Motion (load and scroll only; Kareem did not want anything moving with the
  * mouse, 2026-10-29):
- * - Entrance (CSS, runs before hydration): the light comes up; the first
- *   figure assembles facet by facet from the floor up; the masthead's
- *   letters rise in turn; the slogan, the signature (Signature.tsx) and the
- *   rest follow.
- * - Then every few seconds the figure breaks into facets and the next one
- *   assembles in its place (paused while the hero is off screen or the tab
- *   is hidden; never with reduced motion, which shows the first figure).
+ * - Entrance (CSS, runs before hydration): the light comes up; the sun's
+ *   rays draw outward; the first figure rises in from the floor; the
+ *   masthead's letters rise in turn; the slogan, the signature
+ *   (Signature.tsx) and the rest follow.
+ * - Then every few seconds the next figure rises in behind a soft edge while
+ *   the last fades away (paused while the hero is off screen or the tab is
+ *   hidden; never with reduced motion, which shows the first figure). Only
+ *   opacity, blur, a small shift and a mask move: a smoother change than the
+ *   triangle facets of round 11, which he found glitchy.
  * - Scroll: the hero is sticky and the atlas rises over it like a curtain;
  *   meanwhile the art pushes in and the masthead lifts away.
  */
@@ -154,27 +90,17 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
   const artScale = useTransform(scrollY, [0, span], [1, still ? 1 : 1.1]);
   const shade = useTransform(scrollY, [0, span], [0, 0.6]);
 
-  preload(ART[0].src, { as: 'image', fetchPriority: 'high' });
-
   // The sequence: which figure is showing, which is leaving, and whether the
   // first has handed over yet (until then it plays its entrance).
   const [seq, setSeq] = useState({ cur: 0, prev: -1, started: false });
-  // The other two figures are fetched once the page has settled, and join
-  // the sequence only when loaded.
+  // The other two figures are mounted (and so fetched) once the page has
+  // settled, and join the sequence only when loaded.
   const [later, setLater] = useState(false);
   const loaded = useRef<boolean[]>([true, false, false]);
 
   useEffect(() => {
     if (reduce) return;
-    const fetchTimer = window.setTimeout(() => {
-      setLater(true);
-      ART.forEach((art, i) => {
-        if (i === 0) return;
-        const img = new window.Image();
-        img.onload = () => (loaded.current[i] = true);
-        img.src = art.src;
-      });
-    }, 2200);
+    const mountTimer = window.setTimeout(() => setLater(true), 2200);
     let timer = 0;
     const tick = () => {
       const onScreen = window.scrollY < window.innerHeight * 0.9;
@@ -187,7 +113,7 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
     };
     timer = window.setTimeout(tick, FIRST_HOLD_MS);
     return () => {
-      window.clearTimeout(fetchTimer);
+      window.clearTimeout(mountTimer);
       window.clearTimeout(timer);
     };
   }, [reduce]);
@@ -197,15 +123,6 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
 
   return (
     <section className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
-      {/* REVIEW ONLY (2026-10-30): three masthead directions, ?look=lockup
-          or ?look=poster (none = the masthead). The script sets data-look on
-          the section before first paint. Remove the losers once he picks. */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html:
-            "(function(s){var l=new URLSearchParams(location.search).get('look');if(l==='lockup'||l==='poster')s.setAttribute('data-look',l)})(document.currentScript.parentNode)",
-        }}
-      />
       <div className={styles.heroLight} aria-hidden="true" />
 
       <motion.div
@@ -219,7 +136,22 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
             <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
           ))}
         </svg>
-        {ART.map((_, i) => (i === 0 || later ? <ArtLayer key={i} index={i} state={stateOf(i)} /> : null))}
+        {ART.map((art, i) =>
+          i === 0 || later ? (
+            <div key={i} className={styles.artLayer} data-state={stateOf(i)} aria-hidden="true">
+              <Image
+                src={art.src}
+                alt=""
+                fill
+                priority={i === 0}
+                loading={i === 0 ? undefined : 'eager'}
+                quality={75}
+                sizes="(min-width: 1024px) 40vw, 70vw"
+                onLoad={() => (loaded.current[i] = true)}
+              />
+            </div>
+          ) : null,
+        )}
       </motion.div>
 
       {/* The masthead, in front of the art. The h1 reads as text: the brand,
@@ -227,8 +159,6 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
       <h1 id="home-title" className={styles.heroName}>
         <motion.span className={styles.heroMast} style={{ y: mastY }}>
           <span className={styles.mastWord} aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element -- a 54px mark, shown only in the lockup look */}
-            <img className={styles.mastLogo} src="/images/kinetikare-logo-without-text.webp" alt="" width={56} height={70} />
             <span className={styles.mastBrand}>
               {BRAND.split('').map((ch, i) => (
                 <span key={i} style={{ '--i': i } as CSSProperties}>

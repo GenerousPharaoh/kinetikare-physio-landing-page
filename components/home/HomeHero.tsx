@@ -69,6 +69,26 @@ const FACETS = (() => {
   return out;
 })();
 
+/**
+ * The rays of the logo's sun, fanned behind the figures: thin gold lines,
+ * alternately long and short, drawn outward from the centre on load.
+ */
+const SUN_RAYS = (() => {
+  const n = 25;
+  const cx = 500;
+  const cy = 560;
+  return Array.from({ length: n }, (_, i) => {
+    const a = (Math.PI * (i + 0.5)) / n + Math.PI; // the upper half, left to right
+    const r1 = 250;
+    const r2 = i % 2 === 0 ? 540 : 440;
+    const f = (v: number) => Math.round(v * 10) / 10;
+    return {
+      d: `M${f(cx + r1 * Math.cos(a))} ${f(cy + r1 * Math.sin(a))}L${f(cx + r2 * Math.cos(a))} ${f(cy + r2 * Math.sin(a))}`,
+      delay: Math.round(Math.abs(i - (n - 1) / 2) * 38),
+    };
+  });
+})();
+
 /** How long each figure holds before the next assembles, after the first. */
 const HOLD_MS = 5200;
 const FIRST_HOLD_MS = 5600;
@@ -177,6 +197,15 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
 
   return (
     <section className={`${styles.sec} ${styles.hero}`} aria-labelledby="home-title">
+      {/* REVIEW ONLY (2026-10-30): three masthead directions, ?look=lockup
+          or ?look=poster (none = the masthead). The script sets data-look on
+          the section before first paint. Remove the losers once he picks. */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "(function(s){var l=new URLSearchParams(location.search).get('look');if(l==='lockup'||l==='poster')s.setAttribute('data-look',l)})(document.currentScript.parentNode)",
+        }}
+      />
       <div className={styles.heroLight} aria-hidden="true" />
 
       <motion.div
@@ -185,6 +214,11 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
         role="img"
         aria-label={`Illustrations of Kareem Hassanein: ${ART.map((a) => a.label).join('; ')}`}
       >
+        <svg className={styles.heroSun} viewBox="0 0 1000 600" aria-hidden="true">
+          {SUN_RAYS.map((r, i) => (
+            <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
+          ))}
+        </svg>
         {ART.map((_, i) => (i === 0 || later ? <ArtLayer key={i} index={i} state={stateOf(i)} /> : null))}
       </motion.div>
 
@@ -193,6 +227,8 @@ export default function HomeHero({ signature }: { signature?: ReactNode }) {
       <h1 id="home-title" className={styles.heroName}>
         <motion.span className={styles.heroMast} style={{ y: mastY }}>
           <span className={styles.mastWord} aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element -- a 54px mark, shown only in the lockup look */}
+            <img className={styles.mastLogo} src="/images/kinetikare-logo-without-text.webp" alt="" width={56} height={70} />
             <span className={styles.mastBrand}>
               {BRAND.split('').map((ch, i) => (
                 <span key={i} style={{ '--i': i } as CSSProperties}>

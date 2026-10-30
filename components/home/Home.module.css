@@ -406,9 +406,47 @@
   to { transform: scale(0) rotate(30deg); }
 }
 
-/* The masthead, in front of the art: KINETIKARE | PHYSIO in the wordmark's
-   light tracked capitals. Phones: two lines, PHYSIO in gold between rules;
-   desktop: one line with a gold divider, as in the header. */
+/* The logo's sun behind the figures: a fan of thin gold rays, drawn outward
+   from the centre on load, swaying very slowly. */
+.home .heroSun {
+  position: absolute;
+  z-index: 0;
+  left: -30%;
+  top: -16%;
+  width: 160%;
+  height: auto;
+  max-width: none;
+  overflow: visible;
+  transform-origin: 50% 93%;
+  animation: sway 16s 2s ease-in-out infinite alternate;
+}
+
+.home .heroSun path {
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1 2;
+  opacity: 0.32;
+  animation: rayIn 1.1s var(--ease) calc(0.35s + var(--d)) both;
+}
+
+@keyframes rayIn {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes sway {
+  from { rotate: -3deg; }
+  to { rotate: 3deg; }
+}
+
+.home .artLayer { z-index: 1; }
+
+/* The masthead, in front of the art, in Archivo (the face Techniques Combat
+   uses), heavy and wide. Three directions are on review (data-look):
+   the masthead (default), a gold lockup with the logo mark (lockup), and
+   a condensed poster word running up the left edge (poster). */
 .home .heroName {
   position: static;
   margin: 0;
@@ -418,8 +456,8 @@
 .home .heroMast {
   position: absolute;
   z-index: 4;
-  left: 0;
-  right: 0;
+  left: var(--gutter);
+  right: var(--gutter);
   top: 4.5%;
   display: flex;
   justify-content: center;
@@ -430,24 +468,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  font: 300 min(9.6vw, 46px)/1 var(--sans);
-  letter-spacing: 0.2em;
+  gap: 4px;
+  font-family: var(--font-archivo), 'Archivo', var(--sans);
+  font-weight: 900;
+  font-variation-settings: 'wdth' 125;
+  font-size: min(11vw, 52px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--cream);
-  text-shadow: 0 2px 24px rgba(10, 22, 40, 0.55);
 }
+
+.home .mastLogo { display: none; }
 
 .home .mastBrand {
   display: flex;
-  margin-right: -0.2em;
-  padding: 0.08em 0;
+  padding: 0.06em 0 0.02em;
   overflow: hidden;
 }
 
 .home .mastBrand > span {
   display: block;
-  animation: letterUp 1s var(--ease) calc(0.5s + var(--i) * 45ms) both;
+  animation: letterUp 0.9s var(--ease) calc(0.45s + var(--i) * 40ms) both;
 }
 
 @keyframes letterUp {
@@ -456,26 +498,145 @@
 }
 
 .home .mastSub {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-right: -0.55em;
-  font-size: 0.36em;
-  font-weight: 500;
-  letter-spacing: 0.55em;
+  font-size: 0.6em;
+  letter-spacing: 0.34em;
+  margin-right: -0.34em;
   color: var(--gold-light);
-  animation: riseIn 0.9s 1s var(--ease) both;
+  animation: riseIn 0.9s 0.95s var(--ease) both;
 }
 
-.home .mastSub::before,
-.home .mastSub::after {
-  content: '';
-  width: 26px;
-  height: 1px;
-  background: var(--gold);
+/* Lockup: the logo mark over the name in metallic gold (his lockups). */
+.home .hero[data-look='lockup'] .mastLogo {
+  display: block;
+  width: 46px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: riseIn 0.9s 0.35s var(--ease) both;
 }
 
-.home .mastSub::after { margin-left: -0.55em; }
+.home .hero[data-look='lockup'] .mastWord {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.home .hero[data-look='lockup'] .mastBrand > span,
+.home .hero[data-look='lockup'] .mastSub {
+  background: linear-gradient(180deg, #f6e7bf 0%, #d6bf8e 48%, #a8834c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Poster: KINETIKARE condensed and tall, PHYSIO in a gold outline. */
+.home .hero[data-look='poster'] .mastWord {
+  font-variation-settings: 'wdth' 62;
+  font-size: min(21vw, 96px);
+  line-height: 0.86;
+  gap: 2px;
+}
+
+.home .hero[data-look='poster'] .mastSub {
+  font-size: 0.5em;
+  letter-spacing: 0.06em;
+  margin-right: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--gold-light);
+}
+
+/* Phones: the art sits lower under the taller mastheads. */
+@media (max-width: 1023px) {
+  .home .hero[data-look='lockup'] .heroArt { top: 23%; height: 31%; }
+  .home .hero[data-look='poster'] .heroArt { top: 25%; height: 30%; }
+}
+
+@media (max-width: 639px) and (max-height: 760px) {
+  .home .hero[data-look] .heroArt { top: 26%; height: 25%; }
+  .home .hero[data-look='poster'] .mastWord { font-size: min(18vw, 80px); }
+}
+
+@media (min-width: 1024px) {
+  .home .heroMast { top: 4%; }
+  .home .mastWord {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.3em;
+    font-size: min(6.5vw, 13svh, 128px);
+  }
+  .home .mastSub {
+    font-size: 1em;
+    letter-spacing: -0.01em;
+    margin-right: 0;
+  }
+
+  /* Lockup: centred; the figure in the middle, the slogan and signature in
+     the left corner, the booking and rating in the right. */
+  .home .hero[data-look='lockup'] .mastWord {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    font-size: min(4.6vw, 9svh, 88px);
+  }
+  .home .hero[data-look='lockup'] .mastBrand { gap: 0; }
+  .home .hero[data-look='lockup'] .mastWord {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    column-gap: 0.32em;
+  }
+  .home .hero[data-look='lockup'] .mastLogo {
+    grid-column: 1 / -1;
+    width: 52px;
+  }
+  .home .hero[data-look='lockup'] .heroArt {
+    left: 50%;
+    translate: -50% 0;
+    height: 74%;
+    transform-origin: 50% 60%;
+  }
+  .home .hero[data-look='lockup'] .heroLight {
+    background:
+      radial-gradient(30% 50% at 50% 58%, rgba(96, 135, 190, 0.34), rgba(96, 135, 190, 0) 72%),
+      radial-gradient(90% 100% at 50% 45%, rgba(10, 22, 40, 0), rgba(10, 22, 40, 0.9) 80%);
+  }
+  .home .hero[data-look='lockup'] .heroCopy {
+    left: var(--gutter);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: end;
+  }
+  .home .hero[data-look='lockup'] .heroCover { grid-column: 1; grid-row: 1 / 3; }
+  .home .hero[data-look='lockup'] .heroAction { grid-column: 2; grid-row: 1; justify-self: end; }
+  .home .hero[data-look='lockup'] .heroLockup { grid-column: 2; grid-row: 2; justify-self: end; justify-items: end; }
+  .home .hero[data-look='lockup'] .sloganArt { font-size: min(4.2vw, 9svh, 84px); }
+  .home .hero[data-look='lockup'] .heroFacts { display: none; }
+  .home .hero[data-look='lockup'] .ctaRow {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* Poster: the name runs up the left edge, reading upward (rotated about
+     its bottom left corner, then moved right by its own height), the
+     figure beside it. */
+  .home .hero[data-look='poster'] .heroMast {
+    font-size: min(17svh, 12vw, 190px);
+    left: calc(var(--gutter) + 1.3em);
+    right: auto;
+    top: auto;
+    bottom: 5%;
+    display: block;
+    transform-origin: 0 100%;
+    rotate: -90deg;
+  }
+  .home .hero[data-look='poster'] .mastWord {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.04em;
+    font-size: 1em;
+    line-height: 0.84;
+  }
+  .home .hero[data-look='poster'] .mastSub { font-size: 0.42em; }
+  .home .hero[data-look='poster'] .heroArt { left: calc(var(--gutter) + min(22svh, 15.6vw, 247px) + 2vw); }
+  .home .hero[data-look='poster'] .heroCopy { left: 56%; }
+}
 
 /* The copy, anchored to the bottom. Phones and tablets: one centred column
    under the art, the slogan and signature first, then the booking and the
@@ -716,25 +877,6 @@
 
 @media (min-width: 1024px) {
   .home .hero { min-height: 520px; }
-  .home .heroMast { top: 5.5%; }
-  .home .mastWord {
-    flex-direction: row;
-    gap: 0;
-    font-size: min(4.6vw, 9svh, 86px);
-  }
-  .home .mastSub {
-    gap: 0.5em;
-    margin-right: -0.2em;
-    font-size: 1em;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-  }
-  .home .mastSub::before {
-    width: 1px;
-    height: 0.8em;
-    margin: 0 0.15em 0 0.35em;
-  }
-  .home .mastSub::after { display: none; }
   .home .heroArt {
     left: calc(var(--gutter) + 2vw);
     top: auto;
@@ -2260,6 +2402,9 @@
   .home .mastBrand > span,
   .home .mastSub,
   .home .facet,
+  .home .heroSun,
+  .home .heroSun path,
+  .home .mastLogo,
   .home .facetFill,
   .home .sloganScience > span,
   .home .sloganScience::before,

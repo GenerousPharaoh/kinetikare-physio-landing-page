@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { Archivo, Playfair_Display } from 'next/font/google';
 import { HomeAtlasSection, HomeApproach, HomeJourney, HomeServices, HomeVisit } from '@/components/home/HomeSections';
 import HomeHero from '@/components/home/HomeHero';
-import Signature from '@/components/home/Signature';
 import HomeGetBack from '@/components/home/HomeGetBack';
 import HomeReviews from '@/components/home/HomeReviews';
 import styles from '@/components/home/Home.module.css';
@@ -90,7 +89,7 @@ export default function Home() {
   return (
     <main className={`${styles.home} ${playfairItalic.variable} ${archivo.variable}`}>
       <div className={styles.opening}>
-        <HomeHero signature={<Signature />} reviewers={recentReviewers} />
+        <HomeHero reviewers={recentReviewers} />
         <HomeAtlasSection />
       </div>
       <HomeApproach />

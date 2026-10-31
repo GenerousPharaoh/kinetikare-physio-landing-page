@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
@@ -12,7 +12,8 @@ const BRAND = 'Kinetikare';
 
 /**
  * Kareem's illustrations (his own, made in ChatGPT, October 2026), in the
- * order they play, treatment scenes alternating with his own exercises. Each
+ * order they play: never two shoulder scenes in a row (five of the twelve
+ * are), the loop included. Each
  * sits bottom-centre in the same box. The first must draw largest in the box
  * (0.86 wide to tall): a later figure that painted larger would be counted as
  * the page's largest paint, seconds after load. The seated shoulder
@@ -23,17 +24,17 @@ const BRAND = 'Kinetikare';
  */
 const ART: { src: string; aspect: number; label: string; fade?: string }[] = [
   { src: '/images/hero-art/kareem-shoulder-assessment.webp', aspect: 0.849, label: 'assessing a seated patient’s shoulder', fade: 'br' },
-  { src: '/images/hero-art/kareem-laptop-table.webp', aspect: 0.841, label: 'reviewing a plan on a laptop, seated on a treatment table' },
   { src: '/images/hero-art/kareem-hip-flexion.webp', aspect: 0.875, label: 'bending the hip and knee of a patient lying on the table', fade: 'blr' },
   { src: '/images/hero-art/kareem-band-row.webp', aspect: 0.743, label: 'pulling a resistance band in a split stance', fade: 'r' },
   { src: '/images/hero-art/kareem-shoulder-stretch.webp', aspect: 0.82, label: 'guiding a patient through a shoulder stretch', fade: 'br' },
   { src: '/images/hero-art/kareem-consultation.webp', aspect: 0.815, label: 'going over a plan with a patient on a tablet', fade: 'lr' },
+  { src: '/images/hero-art/kareem-shoulder-elevation.webp', aspect: 0.569, label: 'raising a standing patient’s arm while feeling the shoulder blade' },
   { src: '/images/hero-art/kareem-step-up.webp', aspect: 0.522, label: 'stepping up onto a box' },
-  { src: '/images/hero-art/kareem-shoulder-check-standing.webp', aspect: 0.598, label: 'checking a standing patient’s shoulder movement' },
   { src: '/images/hero-art/kareem-kettlebell-deadlift.webp', aspect: 0.693, label: 'lifting a kettlebell from the floor' },
+  { src: '/images/hero-art/kareem-shoulder-check-standing.webp', aspect: 0.598, label: 'checking a standing patient’s shoulder movement' },
   { src: '/images/hero-art/kareem-leg-assessment.webp', aspect: 0.841, label: 'assessing the hip and knee of a patient lying on the table', fade: 'blr' },
-  { src: '/images/hero-art/kareem-sit-to-stand.webp', aspect: 0.805, label: 'helping a patient stand up from the table', fade: 'r' },
   { src: '/images/hero-art/kareem-shoulder-mobility.webp', aspect: 0.8, label: 'moving a patient’s arm overhead', fade: 'br' },
+  { src: '/images/hero-art/kareem-sit-to-stand.webp', aspect: 0.805, label: 'helping a patient stand up from the table', fade: 'r' },
 ];
 
 /** The mask that fades a figure's cut edges (see `fade` above). */
@@ -53,22 +54,83 @@ const edgeFade = (fade?: string): CSSProperties | undefined => {
 };
 
 /**
- * The rays of the logo's sun, fanned behind the figures: thin gold lines,
- * alternately long and short, drawn outward from the centre on load.
+ * The halo behind the figures: the logo's sun as a low-poly disc, cut in
+ * facets like the illustrations (jittered rings of points, each ring joined
+ * to the next by a strip of triangles). Warm gold at the centre, cooling to
+ * the night's blue at the rim, each facet a touch lighter or darker, lit a
+ * little more from the upper left. The facets are grouped by distance from
+ * the centre into five bands, each drawn as its own layer: the ripple
+ * outward on load and the wave of light at each change are then only the
+ * bands' opacity, which the compositor runs (animating each facet repainted
+ * the whole disc every frame). `size`: a band's box, as a share of the
+ * disc's (its farthest corner from the centre). Seeded, so server and
+ * browser agree. Replaced the rays, round 18 ("looks a little tacky").
  */
-const SUN_RAYS = (() => {
-  const n = 25;
-  const cx = 500;
-  const cy = 560;
-  return Array.from({ length: n }, (_, i) => {
-    const a = (Math.PI * (i + 0.5)) / n + Math.PI; // the upper half, left to right
-    const r1 = 250;
-    const r2 = i % 2 === 0 ? 540 : 440;
-    const f = (v: number) => Math.round(v * 10) / 10;
-    return {
-      d: `M${f(cx + r1 * Math.cos(a))} ${f(cy + r1 * Math.sin(a))}L${f(cx + r2 * Math.cos(a))} ${f(cy + r2 * Math.sin(a))}`,
-      delay: Math.round(Math.abs(i - (n - 1) / 2) * 38),
-    };
+const HALO = (() => {
+  const R = 500;
+  let seed = 11;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const tau = Math.PI * 2;
+  const rings: [number, number][][] = [[[0, 0]]];
+  for (const [r, n] of [[70, 7], [150, 13], [240, 19], [335, 25], [430, 31], [520, 37]]) {
+    const off = rnd() * tau;
+    const ring: [number, number][] = [];
+    for (let k = 0; k < n; k++) {
+      const ang = off + (k / n) * tau + (rnd() - 0.5) * (tau / n) * 0.55;
+      const rr = r * (1 + (rnd() - 0.5) * 0.22);
+      ring.push([rr * Math.cos(ang), rr * Math.sin(ang)]);
+    }
+    rings.push(ring);
+  }
+  // The first ring fans out from the centre (its points are already in
+  // order of angle: the jitter is under half a step).
+  const tris: [number, number][][] = rings[1].map((p, k) => [[0, 0], p, rings[1][(k + 1) % rings[1].length]]);
+  for (let i = 2; i < rings.length; i++) {
+    // Walk the inner and outer rings together by angle, from the inner
+    // ring's first point, closing a strip of triangles between them.
+    const start = Math.atan2(rings[i - 1][0][1], rings[i - 1][0][0]);
+    const rel = (p: [number, number]) => (Math.atan2(p[1], p[0]) - start + 3 * tau) % tau;
+    const inner = [...rings[i - 1]].sort((p, q) => rel(p) - rel(q));
+    const outer = [...rings[i]].sort((p, q) => rel(p) - rel(q));
+    const nA = inner.length;
+    const nB = outer.length;
+    const angA = (k: number) => (k === nA ? tau : rel(inner[k]));
+    const angB = (k: number) => (k === nB ? tau + rel(outer[0]) : rel(outer[k]));
+    let p = 0;
+    let q = 0;
+    while (p < nA || q < nB) {
+      if (q >= nB || (p < nA && angA(p + 1) <= angB(q + 1))) {
+        tris.push([inner[p % nA], outer[q % nB], inner[(p + 1) % nA]]);
+        p++;
+      } else {
+        tris.push([inner[p % nA], outer[q % nB], outer[(q + 1) % nB]]);
+        q++;
+      }
+    }
+  }
+  const BANDS = [0.3, 0.5, 0.68, 0.84, 1];
+  const bands = BANDS.map(() => ({ polys: [] as { points: string; fill: string; a: number }[], reach: 0 }));
+  for (const t of tris) {
+    const cx = (t[0][0] + t[1][0] + t[2][0]) / 3;
+    const cy = (t[0][1] + t[1][1] + t[2][1]) / 3;
+    const d = Math.hypot(cx, cy) / R;
+    if (d > 1) continue;
+    const lift = 1 - (0.18 * (cx + cy)) / (R * 1.4);
+    const v = Math.pow(1 - d, 1.6) * lift * (0.78 + rnd() * 0.44);
+    const w = Math.max(0, 1 - d * 1.6);
+    const mix = (from: number, to: number) => Math.round(from + (to - from) * w);
+    const band = bands[BANDS.findIndex((edge) => d < edge)];
+    band.polys.push({
+      points: t.map(([x, y]) => `${Math.round(x + R)},${Math.round(y + R)}`).join(' '),
+      fill: `rgb(${mix(96, 232)},${mix(135, 208)},${mix(190, 156)})`,
+      // Drawn at rest at 0.6 opacity (the wave lifts a band to 1).
+      a: Math.round(Math.min(1, (0.04 + 0.4 * v) / 0.6) * 1000) / 1000,
+    });
+    for (const [x, y] of t) band.reach = Math.max(band.reach, Math.abs(x), Math.abs(y));
+  }
+  return bands.map((b) => {
+    const r = Math.ceil(b.reach);
+    return { polys: b.polys, viewBox: `${R - r} ${R - r} ${2 * r} ${2 * r}`, size: `${(r / R) * 100}%` };
   });
 })();
 
@@ -200,24 +262,25 @@ const Stars = () => (
 );
 
 /**
- * The opening screen, set like a poster: KINETIKARE in black condensed
- * capitals running up the left edge (across the top on phones), PHYSIO in a
- * gold outline beside it, both in front of the art; his illustrations
- * taking turns in front of the logo's sun; on the right the slogan, the
- * science in tracked capitals and the art in gold italic, then his name
- * signed, the booking and the rating.
+ * The opening screen, set like a poster: KINETIKARE in wide bold capitals
+ * running up the left edge (on phones across the figure's feet), PHYSIO in
+ * small spaced gold capitals beside it, both in front of the art; his
+ * illustrations taking turns in front of a low-poly halo; on the right the
+ * slogan, the science in tracked capitals and the art in gold italic, then
+ * his name and title, the booking and the rating.
  *
  * Motion (load and scroll only; Kareem did not want anything moving with the
  * mouse, 2026-10-29):
  * - Opening, on a full page load (CSS, runs before hydration): in the dark
  *   room KINETIKARE rises letter by letter at the centre, large, like a
- *   title card; then it swings into its place (a quarter turn onto the left
- *   edge; up to the top on phones) as the light comes up and the first
- *   figure rises from the floor; then the slogan, the signature
- *   (Signature.tsx), the booking and the rating. Arriving from another
- *   page of the site, the same entrance plays without the opening.
+ *   title card; then it moves into its place (a quarter turn onto the left
+ *   edge; down to the figure's feet on phones) as the halo lights up and
+ *   the first figure rises from the floor; then the slogan, his name, the
+ *   booking and the rating. Arriving from another page of the site, the
+ *   same entrance plays without the opening.
  * - Then every few seconds the next figure assembles from low-poly facets,
- *   sweeping up from the floor, while the last fades away beneath it
+ *   sweeping up from the floor, while the last fades away beneath it and a
+ *   wave of light runs out across the halo
  *   (paused while the hero is off screen or the tab is hidden; never with
  *   reduced motion, which shows the first figure). Round 11's facets
  *   glitched (seams flashed as a figure left, shards spun); these overlap,
@@ -225,7 +288,7 @@ const Stars = () => (
  * - Scroll: the hero is sticky and the atlas rises over it like a curtain;
  *   meanwhile the art pushes in and the masthead lifts away.
  */
-export default function HomeHero({ signature, reviewers = [] }: { signature?: ReactNode; reviewers?: string[] }) {
+export default function HomeHero({ reviewers = [] }: { reviewers?: string[] }) {
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
   // One screen of scroll is the distance in which the atlas covers the hero.
@@ -299,13 +362,15 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
         role="img"
         aria-label={`Illustrations of Kareem Hassanein: ${ART.map((a) => a.label).join('; ')}`}
       >
-        <svg className={styles.heroSun} viewBox="0 0 1000 600" aria-hidden="true">
-          <g className={styles.sunRays}>
-            {SUN_RAYS.map((r, i) => (
-              <path key={i} d={r.d} pathLength={1} style={{ '--d': `${r.delay}ms` } as CSSProperties} />
-            ))}
-          </g>
-        </svg>
+        <div className={styles.heroHalo} aria-hidden="true">
+          {HALO.map((band, k) => (
+            <svg key={k} className={styles.haloBand} viewBox={band.viewBox} style={{ width: band.size, '--k': k } as CSSProperties}>
+              {band.polys.map((f, i) => (
+                <polygon key={i} points={f.points} fill={f.fill} fillOpacity={f.a} />
+              ))}
+            </svg>
+          ))}
+        </div>
         {introState && (
           <div className={styles.artLayer} data-state={introState} aria-hidden="true">
             <Image src={ART[0].src} alt="" fill priority quality={75} sizes="(min-width: 1024px) 40vw, 70vw" style={edgeFade(ART[0].fade)} />
@@ -325,7 +390,7 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
       </motion.div>
 
       {/* The masthead, in front of the art. The h1 reads as text: the brand,
-          then his name and title (shown in the signature). */}
+          then his name and title (shown under the slogan). */}
       <h1 id="home-title" className={styles.heroName}>
         <motion.span className={styles.heroMast} style={{ y: mastY }}>
           <span className={styles.mastWord} aria-hidden="true">
@@ -351,7 +416,9 @@ export default function HomeHero({ signature, reviewers = [] }: { signature?: Re
             <em className={styles.sloganArt}>The Art of Care.</em>
           </p>
           <div className={styles.heroSigned}>
-            {signature}
+            <span className={styles.heroByline} aria-hidden="true">
+              Kareem Hassanein
+            </span>
             <span className={styles.heroCredential} aria-hidden="true">
               Registered Physiotherapist
             </span>

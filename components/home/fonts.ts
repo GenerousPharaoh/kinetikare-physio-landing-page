@@ -1,12 +1,12 @@
 import { Archivo, Playfair_Display } from 'next/font/google';
 
 /*
- * The redesign's two extra faces, loaded only by the pages that use them (the
- * home page and About), on top of the site-wide Inter and Playfair.
+ * The home redesign's two extra faces, loaded only by the pages that use
+ * them, on top of the site-wide Inter and Playfair.
  */
 
-// The gold italic ("The Art of Care.", the About page's accents) is true
-// Playfair italic, which the site-wide font setup does not load.
+// The gold italic ("The Art of Care.") is true Playfair italic, which the
+// site-wide font setup does not load.
 export const playfairItalic = Playfair_Display({
   subsets: ['latin'],
   weight: ['400'],

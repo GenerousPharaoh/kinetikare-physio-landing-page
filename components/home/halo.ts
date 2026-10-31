@@ -1,7 +1,7 @@
 /**
- * The halo behind his figures (home hero) and his portrait (About): the
- * logo's sun as a low-poly disc, cut in facets like the illustrations (jittered rings of points, each ring joined
- * to the next by a strip of triangles). Warm gold at the centre, cooling to
+ * The halo behind his figures in the home hero: the logo's sun as a
+ * low-poly disc, cut in facets like the illustrations (jittered rings of
+ * points, each ring joined to the next by a strip of triangles). Warm gold at the centre, cooling to
  * the night's blue at the rim, each facet a touch lighter or darker, lit a
  * little more from the upper left. The facets are grouped by distance from
  * the centre into five bands, each drawn as its own layer: the ripple

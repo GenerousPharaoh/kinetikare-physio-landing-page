@@ -1,0 +1,206 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
+import { m as motion, useReducedMotion } from 'framer-motion';
+import { 
+  DocumentTextIcon, 
+  ChatBubbleBottomCenterTextIcon,
+  AdjustmentsHorizontalIcon as AdjustmentsIcon,
+  UserIcon,
+  BeakerIcon,
+  UserGroupIcon as UserGroupIconSolid
+} from '@heroicons/react/24/solid';
+
+interface CommitmentItem {
+  id: string;
+  title: string;
+  description: string;
+  iconType: string;
+}
+
+interface CommitmentCarouselProps {
+  items: CommitmentItem[];
+}
+
+// Helper function to get icon component based on type
+const getIcon = (iconType: string) => {
+  const iconProps = { className: "w-8 h-8" };
+  
+  switch (iconType) {
+    case 'document':
+      return <DocumentTextIcon {...iconProps} />;
+    case 'chat':
+      return <ChatBubbleBottomCenterTextIcon {...iconProps} />;
+    case 'adjustments':
+      return <AdjustmentsIcon {...iconProps} />;
+    case 'user':
+      return <UserIcon {...iconProps} />;
+    case 'beaker':
+      return <BeakerIcon {...iconProps} />;
+    case 'userGroup':
+      return <UserGroupIconSolid {...iconProps} />;
+    default:
+      return <DocumentTextIcon {...iconProps} />;
+  }
+};
+
+export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Auto-play functionality (disabled when the user prefers reduced motion)
+  useEffect(() => {
+    if (!isAutoPlaying || shouldReduceMotion) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % items.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, shouldReduceMotion, items.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % items.length);
+    setIsAutoPlaying(false);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + items.length) % items.length);
+    setIsAutoPlaying(false);
+  };
+
+  // Touch swipe: advance only on a clearly horizontal swipe so vertical page
+  // scrolling is left untouched. Reuses next/prevSlide (which pause auto-play).
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    swipeStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!swipeStart.current) return;
+    const dx = e.changedTouches[0].clientX - swipeStart.current.x;
+    const dy = e.changedTouches[0].clientY - swipeStart.current.y;
+    swipeStart.current = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) nextSlide();
+      else prevSlide();
+    }
+  };
+
+  return (
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-3 flex justify-center motion-reduce:hidden">
+        <button type="button" onClick={() => setIsAutoPlaying((playing) => !playing)} className="min-h-11 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">
+          {isAutoPlaying ? 'Pause automatic commitments' : 'Play automatic commitments'}
+        </button>
+      </div>
+      <div className="sr-only" aria-live={isAutoPlaying ? "off" : "polite"} aria-atomic="true">
+        {items[currentSlide].title} ({currentSlide + 1} of {items.length})
+      </div>
+      {/* Main carousel */}
+      <div
+        role="group"
+        aria-roledescription="carousel"
+        aria-label="Care commitments"
+        onFocusCapture={() => setIsAutoPlaying(false)}
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Overlapping grid cells reserve the tallest slide at every width. */}
+        <div className="relative grid">
+          {items.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={false}
+              animate={{ opacity: index === currentSlide ? 1 : 0, x: shouldReduceMotion || index === currentSlide ? 0 : 24 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: 'easeOut' }}
+              aria-hidden={index !== currentSlide}
+              inert={index !== currentSlide}
+              style={{ gridArea: '1 / 1', pointerEvents: index === currentSlide ? 'auto' : 'none' }}
+              className="flex min-w-0 items-center justify-center p-4 sm:p-6 md:p-8"
+            >
+              <div className="text-center max-w-2xl w-full">
+                <div className="inline-flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg sm:rounded-xl md:rounded-2xl mb-2 sm:mb-3 md:mb-4 shadow-md">
+                  <div className="text-white scale-[0.6] sm:scale-[0.7] md:scale-[0.85]">
+                    {getIcon(item.iconType)}
+                  </div>
+                </div>
+                
+                <h4 className="text-base sm:text-lg md:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 md:mb-3 px-3 sm:px-2">
+                  {item.title}
+                </h4>
+                
+                <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed px-3 sm:px-4 md:px-6">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Navigation arrows - Hidden on small mobile */}
+        <button
+          onClick={prevSlide}
+          className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 items-center justify-center group z-10"
+          aria-label="Previous commitment"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 group-hover:text-[#B08D57] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 items-center justify-center group z-10"
+          aria-label="Next commitment"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 group-hover:text-[#B08D57] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile dot navigation (arrows are hidden below sm) */}
+      <div className="flex sm:hidden items-center justify-center gap-1 mt-4">
+        {items.map((item, index) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => goToSlide(index)}
+            aria-label={`Show ${item.title}`}
+            aria-current={index === currentSlide ? 'true' : undefined}
+            className="flex h-11 min-w-11 items-center justify-center p-2 group shadow-none"
+          >
+            <span
+              className={`block h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'w-6 bg-[#B08D57]' : 'w-2 bg-slate-300 group-hover:bg-slate-400'
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+
+      {/* Progress bar - Minimal spacing */}
+      <div className="mt-3 sm:mt-4 md:mt-6 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
+        <div className="h-0.5 bg-slate-200 rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"
+            initial={{ width: "0%" }}
+            animate={{ width: `${((currentSlide + 1) / items.length) * 100}%` }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          />
+        </div>
+        <div className="flex justify-center mt-1.5 text-xs text-slate-500">
+          <span>{currentSlide + 1} of {items.length}</span>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { Archivo, Playfair_Display } from 'next/font/google';
 import { HomeAtlasSection, HomeApproach, HomeJourney, HomeServices, HomeVisit } from '@/components/home/HomeSections';
 import HomeHero from '@/components/home/HomeHero';
-import HomeGetBack from '@/components/home/HomeGetBack';
 import HomeReviews from '@/components/home/HomeReviews';
 import styles from '@/components/home/Home.module.css';
 import { reviews } from '@/lib/reviews';
@@ -83,7 +82,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Hero with the atlas rising over it, about, care journey, the prints, services, reviews, visit.
+// Hero with the atlas rising over it, about, care journey, services, reviews, visit.
 // Person schema is provided site-wide via app/layout.tsx.
 export default function Home() {
   return (
@@ -94,7 +93,6 @@ export default function Home() {
       </div>
       <HomeApproach />
       <HomeJourney />
-      <HomeGetBack />
       <HomeServices />
       <HomeReviews />
       <HomeVisit />

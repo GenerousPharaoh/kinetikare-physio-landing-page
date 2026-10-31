@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { JANE_ASSESSMENT_URL, JANE_BOOKING_URL } from '@/lib/booking';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { WEEKLY_HOURS, dayKey, type ClinicSite } from '@/lib/hours';
-import { CARE_JOURNEY, ILLUSTRATIONS } from '@/lib/illustrations';
 import { CalendarDaysIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import HomeAtlas, { type AtlasRegion } from './HomeAtlas';
 import Reveal from './Reveal';
@@ -133,9 +132,14 @@ const STEPS = [
   },
 ];
 
+/*
+ * Four steps on one gold line (across on laptops, down the side on phones),
+ * on the night between the two light sections. Its four drawings came out in
+ * round 19 (the page had too many pictures below the hero).
+ */
 export function HomeJourney() {
   return (
-    <section className={`${styles.sec} ${styles.journey}`} aria-labelledby="care-journey-heading">
+    <section className={`${styles.sec} ${styles.journey} ${styles.onDark}`} aria-labelledby="care-journey-heading">
       <Reveal className={styles.journeyHead}>
         <div>
           <p className={styles.eyebrow}>How care works</p>
@@ -146,37 +150,27 @@ export function HomeJourney() {
         <p className={styles.bodyText}>Four steps, from the first assessment to staying well, with goals you and I track together.</p>
       </Reveal>
 
-      {/* Each step is a spread (text one side, his drawing the other) that sticks
-          a little lower than the one before, so the four stack as you scroll. */}
-      <ol className={styles.stack}>
-        {STEPS.map((step, i) => {
-          const art = ILLUSTRATIONS[CARE_JOURNEY[i]];
-          return (
-            <li key={step.title} className={styles.stackCard} style={{ '--i': i } as CSSProperties}>
-              <div className={styles.stackText}>
-                <span className={styles.stackNum} aria-hidden="true">
-                  0{i + 1}
-                </span>
-                <h3 className={styles.stackTitle}>
-                  <span className="sr-only">Step {i + 1}: </span>
-                  {step.title}
-                </h3>
-                <p className={styles.bodyText}>{step.description}</p>
-                <Link
-                  href={step.link}
-                  className={styles.textLink}
-                  {...(step.external ? { target: '_blank', rel: 'noopener noreferrer', 'data-booking-source': 'home_care_journey' } : {})}
-                >
-                  {step.linkText}
-                  <Arrow />
-                </Link>
-              </div>
-              <div className={styles.stackArt} style={{ backgroundColor: art.paper }}>
-                <Image src={art.src} alt="" fill sizes="(min-width: 1024px) 40vw, 92vw" quality={82} />
-              </div>
-            </li>
-          );
-        })}
+      <ol className={styles.journeySteps}>
+        {STEPS.map((step, i) => (
+          <Reveal as="li" key={step.title} className={styles.journeyStep} delay={i * 110}>
+            <span className={styles.journeyNum} aria-hidden="true">
+              0{i + 1}
+            </span>
+            <h3 className={styles.journeyTitle}>
+              <span className="sr-only">Step {i + 1}: </span>
+              {step.title}
+            </h3>
+            <p className={styles.bodyText}>{step.description}</p>
+            <Link
+              href={step.link}
+              className={styles.textLink}
+              {...(step.external ? { target: '_blank', rel: 'noopener noreferrer', 'data-booking-source': 'home_care_journey' } : {})}
+            >
+              {step.linkText}
+              <Arrow />
+            </Link>
+          </Reveal>
+        ))}
       </ol>
     </section>
   );
@@ -229,15 +223,6 @@ export function HomeServices() {
           <p className={styles.bodyText}>
             Sports rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based care tailored to your recovery goals.
           </p>
-        </Reveal>
-        <Reveal className={styles.servicePhoto} variant="clip" delay={100}>
-          <Image
-            src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy-v2.jpg"
-            alt="Manual therapy treatment - knee mobilization and stretching technique"
-            fill
-            sizes="(min-width: 1024px) 36vw, 100vw"
-            quality={82}
-          />
         </Reveal>
       </div>
 

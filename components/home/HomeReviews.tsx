@@ -1,24 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { GOOGLE_REVIEW_TOTAL, GOOGLE_REVIEWS_URL, reviews } from '@/lib/reviews';
 import styles from './Home.module.css';
-
-/**
- * Pull quotes: one sentence each, word for word from the review it names, and
- * about how he assesses and explains rather than outcome claims. A quote that
- * is not found verbatim in its review is dropped (see SPOTLIGHT below), so an
- * edit to lib/reviews.ts can never leave a misquote on the page.
- */
-const PULL_QUOTES = [
-  { name: 'Ryan Darkwah', region: 'Knee', quote: 'He found that the problem came from weakness in my hip and tension in my quads that was putting extra strain on my patellar tendon.' },
-  { name: 'Marko Vasilic', region: 'Foot & ankle', quote: 'Kareem did a full movement analysis and tested all of the surrounding joints and muscles, which really showed me where the extra stress was coming from.' },
-  { name: 'Serhiy Sidey', region: 'Shoulder', quote: "When the surgeon's office sent the wrong post-op protocol, he caught it and built me the right one." },
-  { name: 'Sean Vandenbarselaar', region: 'Back', quote: 'He figured out the thigh pain was coming from a nerve in my lower back rather than the thigh itself, and walked me through why it had been moving around the way it was.' },
-];
-
-const SPOTLIGHT = PULL_QUOTES.filter((p) => reviews.some((r) => r.name === p.name && r.text.includes(p.quote)));
 
 /** The review's own opening sentences, about two hundred characters' worth.
  *  It always ends on a whole sentence, so no ellipsis is added. */
@@ -50,38 +34,14 @@ const Stars = () => (
 );
 
 /**
- * Two parts. First the spotlight: the section holds while four pull quotes
- * take the screen one at a time, each lighting up word by word as you scroll.
- * Then the row of every review on the site, to swipe or step through, each
- * opening to the full text. Without JavaScript or with reduced motion the
- * pull quotes are simply listed, fully lit.
+ * The rating, then the row of every review on the site, to swipe or step
+ * through, each opening to the full text. (Until round 19 a scroll-pinned
+ * spotlight of four pull quotes came first; Kareem kept the row.)
  */
 export default function HomeReviews() {
-  const spotRef = useRef<HTMLDivElement>(null);
-  const quoteRefs = useRef<(HTMLElement | null)[]>([]);
-  const stepRefs = useRef<(HTMLElement | null)[]>([]);
   const trackRef = useRef<HTMLUListElement>(null);
-  const reduce = useReducedMotion();
-  const [pinned, setPinned] = useState(false);
-  const [active, setActive] = useState(0);
   const [open, setOpen] = useState<number | null>(null);
   const [progress, setProgress] = useState(0);
-
-  useEffect(() => setPinned(!reduce), [reduce]);
-
-  const { scrollYProgress } = useScroll({ target: spotRef, offset: ['start start', 'end end'] });
-  useMotionValueEvent(scrollYProgress, 'change', (p) => {
-    if (!pinned) return;
-    const n = SPOTLIGHT.length;
-    const at = Math.min(n - 0.0001, p * n);
-    const index = Math.floor(at);
-    // Light the words over the first 80% of a quote's stretch, then hold it.
-    const lit = Math.min(1, (at - index) / 0.8);
-    const fill = (i: number) => String(i < index ? 1 : i > index ? 0 : lit);
-    quoteRefs.current.forEach((el, i) => el?.style.setProperty('--q', fill(i)));
-    stepRefs.current.forEach((el, i) => el?.style.setProperty('--q', fill(i)));
-    setActive(index);
-  });
 
   useEffect(() => {
     const track = trackRef.current;
@@ -104,79 +64,18 @@ export default function HomeReviews() {
 
   return (
     <section id="reviews" className={`${styles.sec} ${styles.reviews} ${styles.onDark}`} aria-labelledby="reviews-title">
-      <div ref={spotRef} className={styles.spot} data-pinned={pinned} style={{ '--n': SPOTLIGHT.length } as CSSProperties}>
-        {/* data-hide-floating: the phone Book/Call pills stand aside while the
-            spotlight fills the screen (they covered the region steps). */}
-        <div className={styles.spotStage} data-hide-floating="">
-          <div className={styles.spotHead}>
-            <p className={styles.eyebrow}>Patient reviews</p>
-            <h2 id="reviews-title" className={styles.spotRating}>
-              <span className={styles.ratingValue}>5.0</span>
-              <Stars />
-              <span className="sr-only"> out of 5 on Google</span>
-            </h2>
-            <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className={styles.textLink}>
-              {GOOGLE_REVIEW_TOTAL} reviews on Google
-            </a>
-          </div>
-
-          <div className={styles.spotQuotes}>
-            {SPOTLIGHT.map((p, i) => {
-              const words = p.quote.split(' ');
-              return (
-                <figure
-                  key={p.name}
-                  ref={(el) => {
-                    quoteRefs.current[i] = el;
-                  }}
-                  className={styles.spotQuote}
-                  data-state={i === active ? 'active' : i < active ? 'past' : 'next'}
-                  style={{ '--w': words.length } as CSSProperties}
-                >
-                  <span className={styles.spotMark} aria-hidden="true">
-                    &ldquo;
-                  </span>
-                  <blockquote>
-                    <p>
-                      {words.map((word, w) => (
-                        <span key={w} className={styles.word} style={{ '--i': w } as CSSProperties}>
-                          {word}{' '}
-                        </span>
-                      ))}
-                    </p>
-                  </blockquote>
-                  <figcaption className={styles.spotBy}>
-                    <span className={styles.monogram} aria-hidden="true">
-                      {initials(p.name)}
-                    </span>
-                    <span>
-                      <span className={styles.byName}>{p.name}</span>
-                      <span className={styles.bySource}>Google review</span>
-                    </span>
-                  </figcaption>
-                </figure>
-              );
-            })}
-          </div>
-
-          <ol className={styles.spotSteps} aria-hidden="true">
-            {SPOTLIGHT.map((p, i) => (
-              <li
-                key={p.name}
-                ref={(el) => {
-                  stepRefs.current[i] = el;
-                }}
-                data-on={i <= active}
-              >
-                <span>{p.region}</span>
-              </li>
-            ))}
-          </ol>
+      <div className={styles.reviewsHead}>
+        <div className={styles.spotHead}>
+          <p className={styles.eyebrow}>Patient reviews</p>
+          <h2 id="reviews-title" className={styles.spotRating}>
+            <span className={styles.ratingValue}>5.0</span>
+            <Stars />
+            <span className="sr-only"> out of 5 on Google</span>
+          </h2>
+          <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className={styles.textLink}>
+            {GOOGLE_REVIEW_TOTAL} reviews on Google
+          </a>
         </div>
-      </div>
-
-      <div className={styles.rowHead}>
-        <p className={styles.rowLabel}>More from Google</p>
         <div className={styles.controls}>
           <button type="button" onClick={() => step(-1)} aria-label="Previous reviews">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">

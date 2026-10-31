@@ -12,9 +12,9 @@ const BRAND = 'Kinetikare';
 
 /**
  * Kareem's illustrations (his own, made in ChatGPT, October 2026), in the
- * order they play: never two shoulder scenes in a row (five of the twelve
- * are), the loop included. Each
- * sits bottom-centre in the same box. The first must draw largest in the box
+ * order they play: never two shoulder scenes in a row (five of the
+ * thirteen are), and the three with a patient lying on the table four or
+ * five apart, the loop included. Each sits bottom-centre in the same box. The first must draw largest in the box
  * (0.86 wide to tall): a later figure that painted larger would be counted as
  * the page's largest paint, seconds after load. The seated shoulder
  * assessment (0.849) does; a new one must be narrower than 0.849 or wider
@@ -28,8 +28,9 @@ const ART: { src: string; aspect: number; label: string; fade?: string }[] = [
   { src: '/images/hero-art/kareem-band-row.webp', aspect: 0.743, label: 'pulling a resistance band in a split stance', fade: 'r' },
   { src: '/images/hero-art/kareem-shoulder-stretch.webp', aspect: 0.82, label: 'guiding a patient through a shoulder stretch', fade: 'br' },
   { src: '/images/hero-art/kareem-consultation.webp', aspect: 0.815, label: 'going over a plan with a patient on a tablet', fade: 'lr' },
-  { src: '/images/hero-art/kareem-shoulder-elevation.webp', aspect: 0.569, label: 'raising a standing patient’s arm while feeling the shoulder blade' },
   { src: '/images/hero-art/kareem-step-up.webp', aspect: 0.522, label: 'stepping up onto a box' },
+  { src: '/images/hero-art/kareem-knee-flexion.webp', aspect: 0.839, label: 'holding a patient’s knee and ankle to bend the leg on the table', fade: 'blr' },
+  { src: '/images/hero-art/kareem-shoulder-elevation.webp', aspect: 0.569, label: 'raising a standing patient’s arm while feeling the shoulder blade' },
   { src: '/images/hero-art/kareem-kettlebell-deadlift.webp', aspect: 0.693, label: 'lifting a kettlebell from the floor' },
   { src: '/images/hero-art/kareem-shoulder-check-standing.webp', aspect: 0.598, label: 'checking a standing patient’s shoulder movement' },
   { src: '/images/hero-art/kareem-leg-assessment.webp', aspect: 0.841, label: 'assessing the hip and knee of a patient lying on the table', fade: 'blr' },

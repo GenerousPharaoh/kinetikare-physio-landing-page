@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import { Archivo, Playfair_Display } from 'next/font/google';
 import { HomeAtlasSection, HomeApproach, HomeJourney, HomeServices, HomeVisit } from '@/components/home/HomeSections';
 import HomeHero from '@/components/home/HomeHero';
+import { archivo, playfairItalic } from '@/components/home/fonts';
 import HomeReviews from '@/components/home/HomeReviews';
 import styles from '@/components/home/Home.module.css';
 import { reviews } from '@/lib/reviews';
@@ -21,25 +21,6 @@ const recentReviewers = reviews
       .map((w) => w[0].toUpperCase())
       .join(''),
   );
-
-// The slogan's "The Art of Care." is set in true Playfair italic, which the
-// site-wide font setup does not load. Loaded here so only the home page pays for it.
-const playfairItalic = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['italic'],
-  display: 'swap',
-  variable: '--font-playfair-italic',
-});
-
-// The hero masthead (KINETIKARE PHYSIO) in Archivo, variable in weight and
-// width (the face Techniques Combat uses). Home page only.
-const archivo = Archivo({
-  subsets: ['latin'],
-  axes: ['wdth'],
-  display: 'swap',
-  variable: '--font-archivo',
-});
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {

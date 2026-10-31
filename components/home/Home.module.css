@@ -450,13 +450,16 @@
 .home .artLayer[data-state='first'] { animation: artRise 1.6s var(--ease) calc(var(--shift) + 0.15s) both; }
 .home .artLayer[data-state='out'] { animation: artFade 1.1s var(--ease-io) both; }
 
-/* Starts at 0.01, not 0, so the first figure still counts as painted. */
+/* Starts at 0.01, not 0, so the first figure still counts as painted, and
+   in place (no downward offset): on laptops its box meets the screen's foot,
+   and a figure first painted 3% low was recorded as a smaller largest paint
+   that a later figure then overtook. The mask's sweep up from the floor
+   carries the rise. */
 @keyframes artRise {
   from {
     -webkit-mask-position: 0 0%;
     mask-position: 0 0%;
     opacity: 0.01;
-    translate: 0 3%;
     filter: blur(6px);
   }
   35% { opacity: 1; }
@@ -464,7 +467,6 @@
     -webkit-mask-position: 0 100%;
     mask-position: 0 100%;
     opacity: 1;
-    translate: 0 0;
     filter: blur(0);
   }
 }

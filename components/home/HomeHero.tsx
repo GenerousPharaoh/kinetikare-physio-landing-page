@@ -13,19 +13,22 @@ const BRAND = 'Kinetikare';
 
 /**
  * Kareem's illustrations (his own, made in ChatGPT, October 2026), in the
- * order they play: never two shoulder scenes in a row (five of the
- * thirteen are), and the three with a patient lying on the table four or
- * five apart, the loop included. Each sits bottom-centre in the same box. The first must draw largest in the box
- * (0.86 wide to tall): a later figure that painted larger would be counted as
- * the page's largest paint, seconds after load. The seated shoulder
- * assessment (0.849) does; a new one must be narrower than 0.849 or wider
- * than 0.871. `fade`: the edges where the scene runs off its picture (b, l,
- * r), which fade out instead of ending in a hard line. `aspect`: the exported
- * picture's width over height (it places the fades on the picture).
+ * order they play: never two shoulder scenes in a row (four of the twelve
+ * are), and the three with a patient lying on the table at least three
+ * apart, the loop included. Each sits bottom-centre in the same box. The
+ * first must draw largest in the box (0.86 wide to tall): a later figure
+ * that painted larger would be counted as the page's largest paint, seconds
+ * after load (measured: a leg scene at 0.84 overtook a 0.875 opener 20s in).
+ * The hip flexion is cut to exactly 0.86, so it fills the box; keep every
+ * other figure at least 2% smaller, narrower than 0.843 or wider than
+ * 0.877. (The seated shoulder assessment that opened until 2026-10-31 came
+ * out: Kareem saw what looked like an extra hand.) `fade`: the edges where the scene runs off its
+ * picture (b, l, r), which fade out instead of ending in a hard line.
+ * `aspect`: the exported picture's width over height (it places the fades
+ * on the picture).
  */
 const ART: { src: string; aspect: number; label: string; fade?: string }[] = [
-  { src: '/images/hero-art/kareem-shoulder-assessment.webp', aspect: 0.849, label: 'assessing a seated patient’s shoulder', fade: 'br' },
-  { src: '/images/hero-art/kareem-hip-flexion.webp', aspect: 0.875, label: 'bending the hip and knee of a patient lying on the table', fade: 'blr' },
+  { src: '/images/hero-art/kareem-hip-flexion.webp', aspect: 0.86, label: 'bending the hip and knee of a patient lying on the table', fade: 'blr' },
   { src: '/images/hero-art/kareem-band-row.webp', aspect: 0.743, label: 'pulling a resistance band in a split stance', fade: 'r' },
   { src: '/images/hero-art/kareem-shoulder-stretch.webp', aspect: 0.82, label: 'guiding a patient through a shoulder stretch', fade: 'br' },
   { src: '/images/hero-art/kareem-consultation.webp', aspect: 0.815, label: 'going over a plan with a patient on a tablet', fade: 'lr' },
@@ -116,10 +119,14 @@ function FacetLayer({ index, state, width, onLoad }: { index: number; state?: 'i
   const id = `hero-facets-${index}`;
   const { src, aspect, fade = '' } = ART[index];
   // The figure's own rectangle, bottom-centre in the box, so the edge fades
-  // sit exactly on its picture's cut edges.
+  // sit exactly on its picture's cut edges. Drawn at 97.5%, too small to see,
+  // so no figure after the first ever paints larger than it (the first
+  // figure is the page's largest paint; even its own copy coming round
+  // again a minute later measured a little larger at full size).
   const tall = aspect <= BOX_W / BOX_H;
-  const w = tall ? BOX_H * aspect : BOX_W;
-  const h = tall ? BOX_H : BOX_W / aspect;
+  const fit = 0.975;
+  const w = (tall ? BOX_H * aspect : BOX_W) * fit;
+  const h = (tall ? BOX_H : BOX_W / aspect) * fit;
   const l = fade.includes('l');
   const r = fade.includes('r');
   const image = (

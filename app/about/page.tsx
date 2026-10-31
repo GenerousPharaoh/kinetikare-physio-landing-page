@@ -3,21 +3,13 @@ import { CPO_REGISTER_URL } from '@/lib/registration';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
-import { CheckBadgeIcon } from '@heroicons/react/24/solid';
-import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon, UserCircleIcon } from '@heroicons/react/24/outline';
-import {
-  DocumentTextIcon,
-  ChatBubbleBottomCenterTextIcon,
-  AdjustmentsHorizontalIcon as AdjustmentsIcon,
-  UserIcon,
-  BeakerIcon,
-  UserGroupIcon as UserGroupIconSolid
-} from '@heroicons/react/24/solid';
+import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
+import { DocumentTextIcon, UserIcon, BeakerIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import Image from 'next/image';
 import { Metadata } from 'next';
-import CommitmentCarousel from '@/components/CommitmentCarousel';
 import AboutHero from '@/components/about/AboutHero';
+import Reveal from '@/components/home/Reveal';
+import styles from '@/components/about/About.module.css';
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -110,19 +102,19 @@ export default function About() {
       id: 'assessment',
       title: 'Thorough Assessment',
       description: 'A comprehensive evaluation in a comfortable, judgment-free environment',
-      iconType: 'document'
+      Icon: DocumentTextIcon
     },
     {
       id: 'attention',
       title: 'Dedicated Attention',
       description: 'One-on-one, unhurried focus during every treatment session',
-      iconType: 'user'
+      Icon: UserIcon
     },
     {
       id: 'evidence',
       title: 'Evidence-Based Care',
       description: 'Proven interventions combining manual therapy, movement retraining, and self-management',
-      iconType: 'beaker'
+      Icon: BeakerIcon
     }
   ];
 
@@ -134,7 +126,7 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personSchema) }}
       />
 
-      <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+      <main className={`min-h-screen flex flex-col text-primary-700 bg-white ${styles.page}`}>
       {/* Hero Section */}
       <AboutHero />
 
@@ -142,171 +134,11 @@ export default function About() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           
-          {/* Mobile-First Layout - Stack everything vertically on mobile */}
-          <div className="lg:hidden space-y-8 mb-12">
-            {/* Mobile Profile Section */}
-            <div className="text-center">
-              <div className="w-48 aspect-[826/940] mx-auto rounded-2xl overflow-hidden shadow-lg border border-neutral-200 mb-6">
-                <ClientImage
-                  src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-                  alt="Kareem Hassanein, Physiotherapist"
-                  width={826}
-                  height={1169}
-                  sizes="192px"
-                  quality={82}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              
-              {/* Professional Highlights - Mobile */}
-              <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg mb-6">
-                <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">MSc Physiotherapy</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">Manual Therapy Training</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">5+ Years Clinical Practice</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">Personal Training Background</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Mobile CTA - Prominent placement */}
-              <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
-                <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
-                <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
-                <Link
-                  href={JANE_BOOKING_URL} data-booking-source="about_page"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
-                >
-                  <span className="relative z-10">Book Appointment</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </Link>
-              </div>
-
-              {/* Professional Affiliations - Mobile */}
-              <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg mt-6">
-                <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  
-                  {/* Enhanced CPO section - simplified for mobile */}
-                  <div className="flex flex-col bg-white rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto overflow-hidden">
-                    <Link 
-                      href="https://collegept.org/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center flex-1 p-4"
-                    >
-                      <ClientImage
-                        src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                        alt="College of Physiotherapists of Ontario"
-                        width={140}
-                        height={70}
-                        className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
-                      />
-                    </Link>
-                    
-                    {/* Hide verification on mobile, show on desktop */}
-                    <div className="hidden sm:block mt-3 pt-3 px-4 pb-4 border-t border-neutral-100">
-                      <div className="flex items-center justify-center gap-1.5 mb-2">
-                        <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span className="text-xs font-normal text-green-700">Registration Verified</span>
-                      </div>
-                      <Link
-                        href={CPO_REGISTER_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
-                      >
-                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        Verify Registration
-                      </Link>
-                    </div>
-                  </div>
-                  
-                  <Link 
-                    href="https://endorphinshealth.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                  >
-                    <ClientImage
-                      src="/images/endorphins-health-and-wellness-centre-logo.png"
-                      alt="Endorphins Health & Wellness Centre"
-                      width={140}
-                      height={70}
-                      className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
-                    />
-                  </Link>
-                  
-                  <Link 
-                    href="https://headonphysio.ca/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                  >
-                    <ClientImage
-                      src="/images/headon-physio-logo-affiliations.png"
-                      alt="Headon Physio"
-                      width={140}
-                      height={70}
-                      className="object-contain h-auto max-h-12 mx-auto"
-                    />
-                  </Link>
-                  
-                  <Link 
-                    href="https://physiomaxwellness.ca/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                  >
-                    <ClientImage
-                      src="/images/physiomax-wellness-logo.png"
-                      alt="PhysioMax Wellness"
-                      width={140}
-                      height={40}
-                      className="object-contain h-auto max-h-12 mx-auto"
-                    />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Desktop + Mobile Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
             {/* Desktop Sidebar - Hidden on mobile */}
             <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 space-y-6">
-                {/* Profile Image */}
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-[826/940]">
-                  <ClientImage
-                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-                    alt="Kareem Hassanein, Physiotherapist"
-                    width={826}
-                    height={1169}
-                    sizes="(min-width: 1024px) calc(25vw - 44px), 192px"
-                    quality={82}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                
                 {/* Professional Highlights */}
                 <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg">
                   <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
@@ -442,7 +274,7 @@ export default function About() {
             <div className="lg:col-span-3">
               
               {/* Hero Section with Story */}
-              <div className="relative mb-20">
+              <Reveal className="relative mb-20">
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/10 rounded-full blur-2xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tl from-[#B08D57]/15 to-transparent rounded-full blur-3xl"></div>
                 
@@ -459,7 +291,7 @@ export default function About() {
                   {/* Journey Story - Clean Design with better mobile spacing */}
                   <div className="space-y-8 sm:space-y-12">
                     {/* First Story Block */}
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
@@ -470,7 +302,7 @@ export default function About() {
                     </div>
 
                     {/* Second Story Block */}
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
                       <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 -translate-x-12 sm:-translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
@@ -481,7 +313,7 @@ export default function About() {
                     </div>
 
                     {/* Powerful Quote Section - Mobile Optimized */}
-                    <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+                    <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="absolute bottom-0 left-0 w-20 sm:w-24 h-20 sm:h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-10 sm:translate-y-12 -translate-x-10 sm:-translate-x-12"></div>
                       
@@ -502,10 +334,10 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
-              </div>
-                
+              </Reveal>
+
                 {/* Philosophy of Practice Section */}
                 <div className="py-16">
                   <h3 className="text-3xl lg:text-4xl font-light text-primary-800 mb-12 text-center relative pb-4 tracking-[-0.02em]">
@@ -514,29 +346,35 @@ export default function About() {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                     {/* Card 1: Root Cause Resolution */}
-                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <Reveal delay={0} className="h-full">
+                    <div className="h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
                       <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
                       <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
                       <p className="text-primary-600 leading-relaxed">
                         I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
                       </p>
                     </div>
+                    </Reveal>
                     {/* Card 2: Collaborative Partnership */}
-                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <Reveal delay={110} className="h-full">
+                    <div className="h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
                       <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
                       <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
                       <p className="text-primary-600 leading-relaxed">
                         Your input is key. I listen, explain clearly, and involve you in every treatment decision.
                       </p>
                     </div>
+                    </Reveal>
                     {/* Card 3: Personalized Progression */}
-                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <Reveal delay={220} className="h-full">
+                    <div className="h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
                       <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
                       <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
                       <p className="text-primary-600 leading-relaxed">
                         Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
                       </p>
                     </div>
+                    </Reveal>
                   </div>
                 </div>
                 
@@ -555,9 +393,9 @@ export default function About() {
                 {/* Three Core Principles in Elegant Cards - Mobile Optimized */}
                 <div className="space-y-6 sm:space-y-8">
                   {/* Principle 1: Lived Experience */}
-                  <div className="relative group">
+                  <Reveal className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
                       <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
@@ -568,19 +406,19 @@ export default function About() {
                           </div>
                         </div>
                         <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Lived Experience</h4>
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 mb-3 sm:mb-4">Lived Experience</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                             My practice is grounded in firsthand experience, both as a clinician and as someone who has personally worked through recovery. That perspective gives me a deep understanding of what meaningful care requires: attentiveness, respect, and a commitment to walking beside you every step of the way.
                           </p>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Reveal>
 
                   {/* Principle 2: Thoughtful, Individualized Care */}
-                  <div className="relative group">
+                  <Reveal className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
                       <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
@@ -590,19 +428,19 @@ export default function About() {
                           </div>
                         </div>
                         <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Thoughtful, Individualized Care</h4>
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 mb-3 sm:mb-4">Thoughtful, Individualized Care</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                             Every treatment plan is shaped by close observation, clinical insight, and a deep appreciation for your unique needs. I combine manual therapy and movement science with precision and care, ensuring your progress is always intentional, responsive, and clearly guided.
                           </p>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Reveal>
 
                   {/* Principle 3: Your Healthcare Advocate */}
-                  <div className="relative group">
+                  <Reveal className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
                       <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
@@ -612,15 +450,124 @@ export default function About() {
                           </div>
                         </div>
                         <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Your Healthcare Advocate</h4>
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 mb-3 sm:mb-4">Your Healthcare Advocate</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                             I approach care with the same rigour I would expect for myself or my loved ones. Whether it's explaining options, coordinating next steps, or thinking beyond the treatment table, I work to ensure you feel supported, informed, and genuinely cared for at every stage of the process.
                           </p>
                         </div>
                       </div>
                     </div>
+                  </Reveal>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Phones: the booking and the affiliations after the story (the
+              sidebar holds them on laptops). */}
+          <div className="lg:hidden space-y-6 mt-4 text-center">
+            {/* Mobile CTA - Prominent placement */}
+            <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
+              <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
+              <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
+              <Link
+                href={JANE_BOOKING_URL} data-booking-source="about_page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
+              >
+                <span className="relative z-10">Book Appointment</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </Link>
+            </div>
+
+            {/* Professional Affiliations - Mobile */}
+            <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg">
+              <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                
+                {/* Enhanced CPO section - simplified for mobile */}
+                <div className="flex flex-col bg-white rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto overflow-hidden">
+                  <Link 
+                    href="https://collegept.org/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center flex-1 p-4"
+                  >
+                    <ClientImage
+                      src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                      alt="College of Physiotherapists of Ontario"
+                      width={140}
+                      height={70}
+                      className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
+                    />
+                  </Link>
+                  
+                  {/* Hide verification on mobile, show on desktop */}
+                  <div className="hidden sm:block mt-3 pt-3 px-4 pb-4 border-t border-neutral-100">
+                    <div className="flex items-center justify-center gap-1.5 mb-2">
+                      <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-xs font-normal text-green-700">Registration Verified</span>
+                    </div>
+                    <Link
+                      href={CPO_REGISTER_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
+                    >
+                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Verify Registration
+                    </Link>
                   </div>
                 </div>
+                
+                <Link 
+                  href="https://endorphinshealth.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
+                >
+                  <ClientImage
+                    src="/images/endorphins-health-and-wellness-centre-logo.png"
+                    alt="Endorphins Health & Wellness Centre"
+                    width={140}
+                    height={70}
+                    className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
+                  />
+                </Link>
+                
+                <Link 
+                  href="https://headonphysio.ca/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
+                >
+                  <ClientImage
+                    src="/images/headon-physio-logo-affiliations.png"
+                    alt="Headon Physio"
+                    width={140}
+                    height={70}
+                    className="object-contain h-auto max-h-12 mx-auto"
+                  />
+                </Link>
+                
+                <Link 
+                  href="https://physiomaxwellness.ca/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
+                >
+                  <ClientImage
+                    src="/images/physiomax-wellness-logo.png"
+                    alt="PhysioMax Wellness"
+                    width={140}
+                    height={40}
+                    className="object-contain h-auto max-h-12 mx-auto"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -641,8 +588,8 @@ export default function About() {
           {/* Education & Certifications Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 max-w-6xl mx-auto">
             {/* Education */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+            <Reveal className="group h-full">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -733,11 +680,11 @@ export default function About() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Certifications */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+            <Reveal className="group h-full">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -782,14 +729,14 @@ export default function About() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
 
           {/* Experience & Athletic Background Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {/* Experience */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+            <Reveal className="group h-full">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -834,11 +781,11 @@ export default function About() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Athletic Background */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+            <Reveal className="group h-full">
+              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -883,7 +830,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -906,14 +853,26 @@ export default function About() {
             </p>
           </div>
 
-          <CommitmentCarousel items={commitmentItems} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            {commitmentItems.map(({ id, title, description, Icon }, i) => (
+              <Reveal key={id} delay={i * 110} className="h-full">
+                <div className="h-full bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-md mb-6 text-white">
+                    <Icon className="w-7 h-7" aria-hidden="true" />
+                  </div>
+                  <h4 className="font-semibold text-xl text-primary-800 mb-3">{title}</h4>
+                  <p className="text-primary-600 leading-relaxed">{description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
       
       {/* CTA Section */}
       <section className="py-16 bg-primary-50 text-primary-800 border-t border-neutral-200">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
+          <Reveal className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-light mb-5 text-primary-800 tracking-[-0.02em]">
               Take the Next Step
             </h2>
@@ -936,7 +895,7 @@ export default function About() {
                 Explore Services
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </main>

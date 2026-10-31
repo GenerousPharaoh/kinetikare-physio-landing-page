@@ -9,6 +9,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import AboutHero from '@/components/about/AboutHero';
 import Reveal from '@/components/home/Reveal';
+import { CardFan, Drift, StackDeck } from '@/components/about/Deck';
 import styles from '@/components/about/About.module.css';
 
 // SEO Metadata
@@ -344,10 +345,11 @@ export default function About() {
                     Philosophy of Practice
                     <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                  <CardFan className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                     {/* Card 1: Root Cause Resolution */}
                     <Reveal delay={0} className="h-full">
-                    <div className="h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <div className="relative overflow-hidden h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <span className={styles.edge} aria-hidden="true" />
                       <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
                       <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
                       <p className="text-primary-600 leading-relaxed">
@@ -357,7 +359,8 @@ export default function About() {
                     </Reveal>
                     {/* Card 2: Collaborative Partnership */}
                     <Reveal delay={110} className="h-full">
-                    <div className="h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <div className="relative overflow-hidden h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <span className={styles.edge} aria-hidden="true" />
                       <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
                       <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
                       <p className="text-primary-600 leading-relaxed">
@@ -367,7 +370,8 @@ export default function About() {
                     </Reveal>
                     {/* Card 3: Personalized Progression */}
                     <Reveal delay={220} className="h-full">
-                    <div className="h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <div className="relative overflow-hidden h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <span className={styles.edge} aria-hidden="true" />
                       <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
                       <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
                       <p className="text-primary-600 leading-relaxed">
@@ -375,9 +379,9 @@ export default function About() {
                       </p>
                     </div>
                     </Reveal>
-                  </div>
+                  </CardFan>
                 </div>
-                
+
               {/* What Drives My Practice - Enhanced Design */}
               <div className="py-16">
                 <div className="text-center mb-12 sm:mb-16">
@@ -390,12 +394,12 @@ export default function About() {
                   <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
                 </div>
 
-                {/* Three Core Principles in Elegant Cards - Mobile Optimized */}
-                <div className="space-y-6 sm:space-y-8">
+                {/* Three Core Principles, stacking as a deck as you scroll */}
+                <StackDeck>
                   {/* Principle 1: Lived Experience */}
-                  <Reveal className="relative group">
+                  <div className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                    <div className="relative bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
                       <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
@@ -413,12 +417,12 @@ export default function About() {
                         </div>
                       </div>
                     </div>
-                  </Reveal>
+                  </div>
 
                   {/* Principle 2: Thoughtful, Individualized Care */}
-                  <Reveal className="relative group">
+                  <div className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                    <div className="relative bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
                       <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
@@ -435,12 +439,12 @@ export default function About() {
                         </div>
                       </div>
                     </div>
-                  </Reveal>
+                  </div>
 
                   {/* Principle 3: Your Healthcare Advocate */}
-                  <Reveal className="relative group">
+                  <div className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                    <div className="relative bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
                       <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
@@ -457,8 +461,8 @@ export default function About() {
                         </div>
                       </div>
                     </div>
-                  </Reveal>
-                </div>
+                  </div>
+                </StackDeck>
               </div>
             </div>
           </div>
@@ -588,8 +592,10 @@ export default function About() {
           {/* Education & Certifications Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 max-w-6xl mx-auto">
             {/* Education */}
+            <Drift distance={16} className="h-full">
             <Reveal className="group h-full">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
+                <span className={styles.edge} aria-hidden="true" />
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -681,10 +687,13 @@ export default function About() {
                 </div>
               </div>
             </Reveal>
+            </Drift>
 
             {/* Certifications */}
+            <Drift distance={44} className="h-full">
             <Reveal className="group h-full">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
+                <span className={styles.edge} aria-hidden="true" />
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -730,13 +739,16 @@ export default function About() {
                 </div>
               </div>
             </Reveal>
+            </Drift>
           </div>
 
           {/* Experience & Athletic Background Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {/* Experience */}
+            <Drift distance={16} className="h-full">
             <Reveal className="group h-full">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
+                <span className={styles.edge} aria-hidden="true" />
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -782,10 +794,13 @@ export default function About() {
                 </div>
               </div>
             </Reveal>
+            </Drift>
 
             {/* Athletic Background */}
+            <Drift distance={44} className="h-full">
             <Reveal className="group h-full">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
+                <span className={styles.edge} aria-hidden="true" />
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
@@ -831,6 +846,7 @@ export default function About() {
                 </div>
               </div>
             </Reveal>
+            </Drift>
           </div>
         </div>
       </section>
@@ -853,10 +869,11 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <CardFan className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {commitmentItems.map(({ id, title, description, Icon }, i) => (
               <Reveal key={id} delay={i * 110} className="h-full">
-                <div className="h-full bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                <div className="relative overflow-hidden h-full bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                  <span className={styles.edge} aria-hidden="true" />
                   <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-md mb-6 text-white">
                     <Icon className="w-7 h-7" aria-hidden="true" />
                   </div>
@@ -865,7 +882,7 @@ export default function About() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </CardFan>
         </div>
       </section>
       

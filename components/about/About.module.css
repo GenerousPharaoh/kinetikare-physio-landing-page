@@ -1,7 +1,8 @@
 /*
- * About: scroll reveals for its cards. Reveal.tsx (components/home) arms an
- * element only when it starts below the fold, so nothing on screen at load
- * is ever hidden, and it does nothing with reduced motion.
+ * About: scroll reveals for its cards, their gold edges, and the stacking
+ * deck (Deck.tsx). Reveal.tsx (components/home) arms an element only when it
+ * starts below the fold, so nothing on screen at load is ever hidden, and it
+ * does nothing with reduced motion.
  */
 
 .page [data-reveal='armed'] {
@@ -15,4 +16,71 @@
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms),
     translate 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms);
+}
+
+/* A gold edge along a card's top that draws across as the card arrives. */
+.edge {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #b08d57, #e8c872 50%, #b08d57);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.page [data-reveal='armed'] .edge { transform: scaleX(0); }
+
+.page [data-reveal='in'] .edge {
+  transform: scaleX(1);
+  transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0ms) + 200ms);
+}
+
+/* The stacking deck: each card sticks a little lower than the one before,
+   clear of the fixed header (69px, 84px on laptops); the space after each
+   is the scroll it takes for the next to arrive. */
+.deck { position: relative; }
+
+.deckSlot {
+  position: sticky;
+  top: calc(88px + var(--i) * 18px);
+  margin-bottom: 26svh;
+}
+
+.deckSlot:last-child { margin-bottom: 0; }
+
+.deckCard {
+  position: relative;
+  transform-origin: 50% 0;
+}
+
+.deckEdge {
+  position: absolute;
+  z-index: 3;
+  left: 28px;
+  right: 28px;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(176, 141, 87, 0), #b08d57 18%, #e8c872 50%, #b08d57 82%, rgba(176, 141, 87, 0));
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.55);
+  pointer-events: none;
+}
+
+.deckShade {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: 1rem;
+  background: #0f172a;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .deckSlot {
+    top: calc(108px + var(--i) * 24px);
+    margin-bottom: 32svh;
+  }
 }

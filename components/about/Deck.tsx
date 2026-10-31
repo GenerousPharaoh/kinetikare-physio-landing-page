@@ -98,6 +98,20 @@ function DeckCard({ i, n, progress, still, children }: { i: number; n: number; p
   );
 }
 
+/** A card that grows into place as it scrolls into view (the story's quote). */
+export function GrowIn({ children, className = '' }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start 0.5'] });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.88, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
+  return (
+    <motion.div ref={ref} className={className} style={reduce ? undefined : { scale, y, willChange: 'transform' }}>
+      {children}
+    </motion.div>
+  );
+}
+
 /** A card that drifts against the scroll, for a layered feel (laptops only). */
 export function Drift({ children, distance = 24, className = '' }: { children: ReactNode; distance?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);

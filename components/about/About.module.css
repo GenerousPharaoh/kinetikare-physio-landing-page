@@ -54,6 +54,7 @@
 .deckCard {
   position: relative;
   transform-origin: 50% 0;
+  will-change: transform;
 }
 
 .deckEdge {
@@ -83,4 +84,40 @@
     top: calc(108px + var(--i) * 24px);
     margin-bottom: 32svh;
   }
+}
+
+/* The home hero's faceted halo, behind the portrait card in the opening:
+   its bands light in a ripple from the centre on load. */
+.heroHalo {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 46%;
+  width: 165%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.heroHaloBand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  aspect-ratio: 1;
+  max-width: none;
+  translate: -50% -50%;
+  overflow: visible;
+  opacity: 0.85;
+  animation: haloIn 1.3s cubic-bezier(0.16, 1, 0.3, 1) calc(0.25s + var(--k) * 0.16s) both;
+}
+
+@keyframes haloIn {
+  from { opacity: 0; }
+  to { opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroHaloBand { animation: none; }
 }

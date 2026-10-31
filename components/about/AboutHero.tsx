@@ -1,24 +1,32 @@
 'use client';
 
-import React from 'react';
+import React, { type CSSProperties } from 'react';
 import Image from 'next/image';
-import { m as motion } from 'framer-motion';
+import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
+import { HALO } from '@/components/home/halo';
+import styles from './About.module.css';
 
 const PORTRAIT = '/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png';
 
 /**
  * The About page's opening: who he is beside his portrait card on laptops
  * (until 2026-10-30 the portrait only appeared further down, in the
- * sidebar), the portrait under the text on phones.
+ * sidebar), the portrait under the text on phones. Behind the portrait, the
+ * gold faceted halo from the home hero; as the page starts to scroll the
+ * portrait eases a little slower than the page, for depth.
  */
 export default function AboutHero() {
+  const reduce = useReducedMotion();
+  const { scrollY } = useScroll();
+  const lag = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 70]);
+  const haloLag = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 120]);
   return (
-    <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-24 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+    <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-24 bg-gradient-to-br from-white via-[#faf7f1] to-[#f4efe4] overflow-hidden">
       {/* Premium background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-[32rem] h-[32rem] bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* Subtle pattern overlay */}
@@ -82,28 +90,39 @@ export default function AboutHero() {
             </div>
           </motion.div>
 
-          {/* His portrait, in the same card as the rest of the page: a gold
-              glow behind it and a hairline frame. */}
+          {/* His portrait, in the same card as the rest of the page: the
+              faceted halo and a gold glow behind it, a hairline frame. */}
           <motion.div
             initial={{ opacity: 0.01, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative lg:col-span-5 w-64 sm:w-72 lg:w-full max-w-sm mx-auto"
           >
-            <div className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/25 via-[#B08D57]/10 to-transparent rounded-[2rem] blur-2xl" aria-hidden="true"></div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/70 bg-gradient-to-b from-slate-100 to-slate-200 aspect-[826/1000]">
-              <Image
-                src={PORTRAIT}
-                alt="Kareem Hassanein, Registered Physiotherapist"
-                width={826}
-                height={1169}
-                priority
-                quality={82}
-                sizes="(min-width: 1024px) 384px, 288px"
-                className="w-full h-full object-cover object-top"
-              />
-              <div className="absolute inset-3 rounded-xl border border-white/50 pointer-events-none" aria-hidden="true"></div>
-            </div>
+            <motion.div className={styles.heroHalo} style={{ y: haloLag }} aria-hidden="true">
+              {HALO.map((band, k) => (
+                <svg key={k} className={styles.heroHaloBand} viewBox={band.viewBox} style={{ width: band.size, '--k': k } as CSSProperties}>
+                  {band.polys.map((f, i) => (
+                    <polygon key={i} points={f.points} fill={f.fill} fillOpacity={f.a} />
+                  ))}
+                </svg>
+              ))}
+            </motion.div>
+            <motion.div className="relative will-change-transform" style={{ y: lag }}>
+              <div className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/25 via-[#B08D57]/10 to-transparent rounded-[2rem] blur-2xl" aria-hidden="true"></div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/70 bg-gradient-to-b from-slate-100 to-slate-200 aspect-[826/1000]">
+                <Image
+                  src={PORTRAIT}
+                  alt="Kareem Hassanein, Registered Physiotherapist"
+                  width={826}
+                  height={1169}
+                  priority
+                  quality={82}
+                  sizes="(min-width: 1024px) 384px, 288px"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-3 rounded-xl border border-white/50 pointer-events-none" aria-hidden="true"></div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

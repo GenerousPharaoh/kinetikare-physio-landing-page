@@ -9,7 +9,10 @@ import React from 'react';
 import { Metadata } from 'next';
 import AboutHero from '@/components/about/AboutHero';
 import Reveal from '@/components/home/Reveal';
-import { CardFan, Drift, StackDeck } from '@/components/about/Deck';
+import { CardFan, Drift, GrowIn, StackDeck } from '@/components/about/Deck';
+import Image from 'next/image';
+
+const PORTRAIT = '/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png';
 import styles from '@/components/about/About.module.css';
 
 // SEO Metadata
@@ -138,126 +141,64 @@ export default function About() {
           {/* Desktop + Mobile Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
             {/* Desktop Sidebar - Hidden on mobile */}
-            <div className="hidden lg:block lg:col-span-1">
+            <div className="hidden lg:block lg:col-span-1 lg:self-stretch">
               <div className="sticky top-24 space-y-6">
-                {/* Professional Highlights */}
-                <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg">
-                  <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">MSc Physiotherapy</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">Manual Therapy Training</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">5+ Years Clinical Practice</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">Personal Training Background</span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Professional Affiliations */}
-                <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg">
-                  <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3">Professional Affiliations</h3>
-                  <div className="space-y-5">
-                    
-                    {/* Enhanced CPO section with verification link */}
-                    <div className="bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
-                      <Link 
-                        href="https://collegept.org/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="block mb-3"
-                      >
-                        <ClientImage
-                          src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                          alt="College of Physiotherapists of Ontario"
-                          width={140}
-                          height={70}
-                          className="object-contain h-auto max-h-14 mx-auto"
-                        />
-                      </Link>
-                      
-                      {/* Professional Verification Badge */}
-                      <div className="mt-4 pt-4 border-t border-neutral-100">
-                        <div className="flex items-center justify-center gap-2 mb-2">
-                          <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          <span className="text-sm font-normal text-green-700">Registration Verified</span>
-                        </div>
-                        <Link
-                          href={CPO_REGISTER_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
-                        >
-                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                          Verify Professional Registration
-                        </Link>
+                {/* Professional Affiliations: the College, then the three clinics in
+                    a small grid, compact so the sidebar stays on screen */}
+                <div className="bg-gradient-to-br from-slate-50 to-white p-5 rounded-2xl border border-neutral-200 shadow-lg">
+                  <h3 className="text-base font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Affiliations</h3>
+                  <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
+                    <Link href="https://collegept.org/" target="_blank" rel="noopener noreferrer" className="block">
+                      <ClientImage
+                        src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                        alt="College of Physiotherapists of Ontario"
+                        width={140}
+                        height={70}
+                        className="object-contain h-auto max-h-11 mx-auto"
+                      />
+                    </Link>
+                    <div className="mt-3 pt-3 border-t border-neutral-100">
+                      <div className="flex items-center justify-center gap-1.5 mb-2">
+                        <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs font-normal text-green-700">Registration Verified</span>
                       </div>
+                      <Link
+                        href={CPO_REGISTER_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
+                      >
+                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Verify Professional Registration
+                      </Link>
                     </div>
-                    
-                    <Link 
-                      href="https://endorphinshealth.com/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
-                    >
-                      <ClientImage
-                        src="/images/endorphins-health-and-wellness-centre-logo.png"
-                        alt="Endorphins Health & Wellness Centre"
-                        width={140}
-                        height={70}
-                        className="object-contain h-auto max-h-14 mx-auto"
-                      />
-                    </Link>
-                    
-                    <Link 
-                      href="https://headonphysio.ca/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
-                    >
-                      <ClientImage
-                        src="/images/headon-physio-logo-affiliations.png"
-                        alt="Headon Physio"
-                        width={140}
-                        height={70}
-                        className="object-contain h-auto max-h-14 mx-auto"
-                      />
-                    </Link>
-                    
-                    <Link 
-                      href="https://physiomaxwellness.ca/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
-                    >
-                      <ClientImage
-                        src="/images/physiomax-wellness-logo.png"
-                        alt="PhysioMax Wellness"
-                        width={140}
-                        height={40}
-                        className="object-contain h-auto max-h-14 mx-auto"
-                      />
-                    </Link>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 mt-3">
+                    {[
+                      { href: 'https://endorphinshealth.com/', src: '/images/endorphins-health-and-wellness-centre-logo.png', alt: 'Endorphins Health & Wellness Centre', w: 140, h: 70 },
+                      { href: 'https://headonphysio.ca/', src: '/images/headon-physio-logo-affiliations.png', alt: 'Headon Physio', w: 140, h: 70 },
+                      { href: 'https://physiomaxwellness.ca/', src: '/images/physiomax-wellness-logo.png', alt: 'PhysioMax Wellness', w: 140, h: 40 },
+                    ].map((c) => (
+                      <Link
+                        key={c.alt}
+                        href={c.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center bg-white p-3 h-16 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 last:col-span-2"
+                      >
+                        <ClientImage src={c.src} alt={c.alt} width={c.w} height={c.h} className="object-contain h-auto max-h-9 w-auto mx-auto" />
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
                 {/* CTA */}
-                <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
-                  <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
-                  <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
+                <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-5 rounded-2xl text-white shadow-lg">
+                  <h3 className="text-base font-normal mb-3 text-white">Take the Next Step</h3>
                   <Link
                     href={JANE_BOOKING_URL} data-booking-source="about_page"
                     target="_blank"
@@ -292,7 +233,7 @@ export default function About() {
                   {/* Journey Story - Clean Design with better mobile spacing */}
                   <div className="space-y-8 sm:space-y-12">
                     {/* First Story Block */}
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
+                    <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
@@ -303,7 +244,7 @@ export default function About() {
                     </div>
 
                     {/* Second Story Block */}
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
+                    <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
                       <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 -translate-x-12 sm:-translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
@@ -313,7 +254,8 @@ export default function About() {
                       </div>
                     </div>
 
-                    {/* Powerful Quote Section - Mobile Optimized */}
+                    {/* Powerful Quote Section: grows into place as it arrives */}
+                    <GrowIn>
                     <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="absolute bottom-0 left-0 w-20 sm:w-24 h-20 sm:h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-10 sm:translate-y-12 -translate-x-10 sm:-translate-x-12"></div>
@@ -334,6 +276,7 @@ export default function About() {
                         </div>
                       </div>
                     </div>
+                    </GrowIn>
                   </div>
 
                 </div>
@@ -469,21 +412,6 @@ export default function About() {
           {/* Phones: the booking and the affiliations after the story (the
               sidebar holds them on laptops). */}
           <div className="lg:hidden space-y-6 mt-4 text-center">
-            {/* Mobile CTA - Prominent placement */}
-            <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
-              <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
-              <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
-              <Link
-                href={JANE_BOOKING_URL} data-booking-source="about_page"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
-              >
-                <span className="relative z-10">Book Appointment</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </Link>
-            </div>
-
             {/* Professional Affiliations - Mobile */}
             <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg">
               <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
@@ -611,7 +539,7 @@ export default function About() {
                         href="https://www.rgu.ac.uk/study/courses/pgcert-pgdip-msc-physiotherapy-pre-registration"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 backdrop-blur-sm hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
+                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
                       >
                         <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
                           <div className="flex-shrink-0">
@@ -649,7 +577,7 @@ export default function About() {
                         href="https://kinesiology.mcmaster.ca/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 backdrop-blur-sm hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
+                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
                       >
                         <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
                           <div className="flex-shrink-0">
@@ -703,7 +631,7 @@ export default function About() {
                   </div>
                   
                   <div className="space-y-6 flex-1">
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -714,7 +642,7 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -725,7 +653,7 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -758,7 +686,7 @@ export default function About() {
                   </div>
                   
                   <div className="space-y-6 flex-1">
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -769,7 +697,7 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -780,7 +708,7 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -810,7 +738,7 @@ export default function About() {
                   </div>
                   
                   <div className="space-y-5 flex-1">
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -821,7 +749,7 @@ export default function About() {
                       </div>
                     </div>
                     
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -832,7 +760,7 @@ export default function About() {
                 </div>
               </div>
 
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
@@ -886,31 +814,41 @@ export default function About() {
         </div>
       </section>
       
-      {/* CTA Section */}
-      <section className="py-16 bg-primary-50 text-primary-800 border-t border-neutral-200">
+      {/* CTA Section: a dark card with a gold edge to end on */}
+      <section className="py-16 sm:py-20 bg-primary-50 text-primary-800 border-t border-neutral-200">
         <div className="container mx-auto px-4">
-          <Reveal className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-heading font-light mb-5 text-primary-800 tracking-[-0.02em]">
-              Take the Next Step
-            </h2>
-            <p className="text-lg text-primary-600 mb-10 leading-relaxed">
-              Book your appointment today or contact me with any questions.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
-              <Link
-                href={JANE_BOOKING_URL} data-booking-source="about_page"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-gold py-3.5 px-8 font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
-              >
-                Book an Appointment
-              </Link>
-              <Link
-                href="/services"
-                className="py-3.5 px-8 bg-white text-primary-700 hover:bg-neutral-100 border border-neutral-300 font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
-              >
-                Explore Services
-              </Link>
+          <Reveal className="max-w-4xl mx-auto">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 py-12 sm:px-12 sm:py-16 shadow-2xl text-center">
+              <span className={styles.edge} aria-hidden="true" />
+              <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#D4AF37]/15 rounded-full blur-3xl" aria-hidden="true"></div>
+              <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#B08D57]/15 rounded-full blur-3xl" aria-hidden="true"></div>
+              <div className="relative">
+                <div className="relative mx-auto mb-7 w-20 h-20 rounded-full overflow-hidden ring-2 ring-[#B08D57] ring-offset-4 ring-offset-slate-900 bg-gradient-to-b from-slate-100 to-slate-300">
+                  <Image src={PORTRAIT} alt="" fill sizes="80px" className="object-cover object-top scale-[1.8] origin-top" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-heading font-light mb-5 !text-white tracking-[-0.02em]">
+                  Take the Next Step
+                </h2>
+                <p className="text-lg !text-white/80 mb-10 leading-relaxed">
+                  Book your appointment today or contact me with any questions.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
+                  <Link
+                    href={JANE_BOOKING_URL} data-booking-source="about_page"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button-gold py-3.5 px-8 font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
+                  >
+                    Book an Appointment
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="py-3.5 px-8 bg-white/5 !text-white border border-white/30 hover:border-white/70 hover:bg-white/10 font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                  >
+                    Explore Services
+                  </Link>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

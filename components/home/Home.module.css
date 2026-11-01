@@ -2388,27 +2388,11 @@
   .home .service { padding: 28px 26px 26px; }
 }
 
-/* The hero's words follow the rest of the page into Geist (2026-11-01,
-   Kareem: "you decide"): the slogan upright and heavy, his name in normal
-   case, the credential quiet. The figures, halo and Archivo masthead stay. */
-.home .sloganScience {
-  gap: 0;
-  font: 600 12px/1.4 var(--sans);
-  letter-spacing: 0.08em;
-  color: rgba(243, 238, 228, 0.78);
-}
-.home .sloganScience::before,
-.home .sloganScience::after { display: none; }
-.home .sloganArt {
-  padding: 0;
-  font-family: var(--font-geist), 'Geist', var(--sans);
-  font-style: normal;
-  font-weight: 600;
-  font-size: min(11.5vw, 54px);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  color: var(--cream);
-}
+/* His name and credential follow the rest of the page into Geist
+   (2026-11-01, Kareem: "you decide"). The slogan keeps its original
+   treatment, the science in tracked capitals between gold rules and the
+   art in gold Playfair italic: Kareem liked it and asked for it back the
+   same day. The figures, halo and Archivo masthead stay. */
 .home .heroByline {
   margin-right: 0;
   font: 600 17px/1.25 var(--sans);
@@ -2423,10 +2407,8 @@
   color: rgba(243, 238, 228, 0.7);
 }
 @media (min-width: 640px) and (max-width: 1023px) and (min-height: 521px) {
-  .home .sloganArt { font-size: 8vw; }
   .home .heroByline { font-size: 19px; }
 }
 @media (min-width: 1024px) and (min-aspect-ratio: 1/1), (min-width: 640px) and (max-height: 520px) and (orientation: landscape) {
-  .home .sloganArt { font-size: min(4.8vw, 10svh, 92px); }
   .home .heroByline { font-size: clamp(16px, 1.4vw, 19px); }
 }

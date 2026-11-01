@@ -87,6 +87,31 @@ export default function CaseInstrument({
   // focus returns to the strip button.
   useModalDialog(open, sheetRef, () => setOpen(false));
 
+  // Every in-page link on the sheet (the glance panel, "check when these
+  // symptoms need a doctor first") scrolls smoothly and moves focus, the same
+  // as the index. The site sets scroll-behavior: auto, so this is the only
+  // place that animates.
+  useEffect(() => {
+    const page = document.querySelector<HTMLElement>('[data-case-page]');
+    if (!page) return;
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element).closest('a[href^="#"]');
+      if (!a || !page.contains(a) || a.closest('[data-case-index]')) return;
+      const id = decodeURIComponent(a.getAttribute('href')!.slice(1));
+      const el = id ? document.getElementById(id) : null;
+      if (!el) return;
+      e.preventDefault();
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      history.replaceState(null, '', `#${id}`);
+      if (!el.hasAttribute('tabindex')) el.tabIndex = -1;
+      el.focus({ preventScroll: true });
+    };
+    page.addEventListener('click', onClick);
+    return () => page.removeEventListener('click', onClick);
+  }, [slug]);
+
   const current = active === 'top' ? 'Overview' : sections.find((s) => s.id === active)?.label ?? '';
   const zoom = active === 'science';
 
@@ -150,7 +175,7 @@ export default function CaseInstrument({
         <div className={styles.instProgress} aria-hidden="true" style={{ '--p': `${Math.round(progress * 100)}%` } as CSSProperties}>
           <i />
         </div>
-        <nav aria-label="On this page">
+        <nav aria-label="On this page" data-case-index="">
           <div ref={listRef} className={styles.index}>
             <span aria-hidden="true" className={styles.indicator} style={{ '--it': `${marker.top}px`, height: marker.height } as CSSProperties} />
             {index}
@@ -189,7 +214,7 @@ export default function CaseInstrument({
                 <XMarkIcon aria-hidden="true" />
               </button>
             </div>
-            <nav aria-label="On this page">{index}</nav>
+            <nav aria-label="On this page" data-case-index="">{index}</nav>
           </div>
         </>
       )}

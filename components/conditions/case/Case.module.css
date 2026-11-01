@@ -644,6 +644,19 @@
   font-weight: 500;
 }
 
+.case a.btnInk:not(#_):active,
+.case a.btnLine:not(#_):active,
+.case a.btnLight:not(#_):active,
+.case a.btnDark:not(#_):active,
+.case .pager:active,
+.case .step:active .node { scale: 0.98; }
+
+.case a.btnInk:not(#_),
+.case a.btnLine:not(#_),
+.case a.btnLight:not(#_),
+.case a.btnDark:not(#_),
+.case .pager { transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease), scale 0.15s var(--ease); }
+
 @media (hover: hover) {
   .case a.btnInk:not(#_):hover { background: #1c2430; }
   .case a.btnInk:not(#_):hover svg { translate: 3px 0; }
@@ -1211,7 +1224,7 @@
 .case .discBody > div { overflow: hidden; }
 .case .discItem[data-open='true'] .discBody { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows 0.45s var(--ease), visibility 0s; }
 .case .discInner { padding: 0 0 20px; }
-.case .discInner p { font-size: 16px; line-height: 1.65; color: var(--read); max-width: 64ch; }
+.case .discInner p { font-size: 16.5px; line-height: 1.65; color: var(--read); max-width: 62ch; }
 .case .discInner p + p { margin-top: 14px; }
 
 @media (hover: hover) {
@@ -1348,7 +1361,7 @@
   transition: border-color 0.25s var(--ease), translate 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-.case .tileTitle { display: block; font-size: 15.5px; font-weight: 500; line-height: 1.35; }
+.case .tileTitle { display: block; font-size: 16px; font-weight: 500; line-height: 1.35; color: var(--ink); }
 
 .case .tiles a:not(#_):has(.tileThumb) {
   display: grid;

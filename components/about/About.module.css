@@ -279,18 +279,21 @@
 }
 
 .page .viewer img {
+  /* Taller than its frame so the crop ends above his belt (Kareem,
+     2026-11-01: "it should cut off a bit above the belt"). next/image sets
+     height: 100% inline, hence the !important. */
+  height: 122% !important;
   object-fit: cover;
   object-position: 50% 0;
 }
 
 .page .panelFoot { display: none; }
 
-/* Tablets: the panel runs the width of the column and he stands in it,
-   the whole figure shown from the foot of the frame. */
+/* Tablets: the panel runs the width of the column, the portrait cropped
+   from the top like everywhere else. */
 @media (min-width: 640px) and (max-width: 1023px) {
   .page .panel { max-width: 700px; }
   .page .viewer { aspect-ratio: 4 / 3; }
-  .page .viewer img { object-fit: contain; object-position: 50% 100%; }
 }
 
 @media (min-width: 1024px) {

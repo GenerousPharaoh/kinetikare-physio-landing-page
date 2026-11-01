@@ -1,0 +1,126 @@
+/*
+ * The 404 page in the condition pages' language: Geist, ink and one cobalt
+ * accent, the case template's buttons. Link colours use :not(#_) to beat
+ * the global link rule (0,5,1).
+ */
+
+.nf {
+  --ink: #0b1017;
+  --read: #262e3b;
+  --soft: #5b6574;
+  --line: #e5e8ed;
+  --line2: #cfd4dc;
+  --accent: #2f6bff;
+  --accent-ink: #1d4fd8;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78vh;
+  padding: 120px 20px 72px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nf .box { width: 100%; max-width: 620px; }
+
+.nf .bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.nf .code {
+  margin: 18px 0 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.nf .h1 {
+  margin: 12px 0 0;
+  font-family: inherit;
+  font-size: clamp(36px, 9vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.nf .text {
+  margin: 16px 0 0;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--read);
+}
+
+.nf .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.nf .actions a:not(#_) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.nf .actions a.primary:not(#_) {
+  padding: 0 20px;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.nf .actions svg { width: 15px; height: 15px; transition: translate 0.3s var(--ease); }
+
+@media (hover: hover) {
+  .nf .actions a:not(#_):hover { border-color: var(--ink); }
+  .nf .actions a.primary:not(#_):hover { background: #1c2430; }
+  .nf .actions a:hover svg { translate: 3px 0; }
+}
+
+@media (max-width: 639px) {
+  .nf .actions a:not(#_) { flex: 1 1 auto; }
+}
+
+.nf .call {
+  margin: 36px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--soft);
+}
+
+.nf .call a:not(#_) {
+  color: var(--accent-ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 107, 255, 0.35);
+  text-underline-offset: 3px;
+}
+
+.nf .call a:not(#_):hover { text-decoration-color: currentColor; }
+
+.nf a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

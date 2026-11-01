@@ -1,10 +1,13 @@
 /*
- * Services, in the condition pages' "case" language (November 2026): a
- * white opening with the treatment photo in a dark frame, the six services
- * as bordered tiles with cobalt links to each treatment page, the treatment
- * process on a dark band as a track of four stops, insurance and fees as
- * tiles, and a dark closing band. Geist only, one cobalt accent, hairline
- * borders, one 16px radius, no shadows or gradients.
+ * Services (November 2026). The page is built around Kareem's own
+ * illustrations of himself at work (lib/figures.ts, the set the home hero
+ * plays): a dark opening with one of them beside the title; the six
+ * services read as chapters beside a dark stage that stays in place and
+ * shows the illustration for the one being read (on phones each chapter
+ * carries its own picture); the treatment process on a dark band beside
+ * another figure; insurance and fees on the white sheet; a dark closing
+ * band. Geist only, one cobalt accent, hairline rules, no shadows, no
+ * gradients, nothing follows the pointer.
  *
  * Specificity: the global stylesheets style bare elements (p, h1 to h6,
  * section padding, backgrounds and ::before, links through a 0,5,1
@@ -21,6 +24,7 @@
   --line-d: rgba(255, 255, 255, 0.09);
   --line-d2: rgba(255, 255, 255, 0.16);
   --txt-d: #eef1f5;
+  --read-d: #c3cad5;
   --mut-d: #8d97a7;
   --sheet: #ffffff;
   --ink: #0b1017;
@@ -59,7 +63,8 @@
   overflow: visible;
 }
 
-.page section::before { content: none; display: none; }
+.page section::before,
+.page section::after { content: none; display: none; }
 
 .page p,
 .page ul,
@@ -159,7 +164,8 @@
 /* Buttons (anchors). */
 .page a.goInk:not(#_),
 .page a.goLine:not(#_),
-.page a.goLight:not(#_) {
+.page a.goLight:not(#_),
+.page a.goGhost:not(#_) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -176,10 +182,12 @@
 .page a.goInk:not(#_) { background: var(--ink); color: #fff; }
 .page a.goLine:not(#_) { padding: 0 18px; border: 1px solid var(--line2); color: var(--ink); }
 .page a.goLight:not(#_) { background: var(--txt-d); color: var(--ink); }
+.page a.goGhost:not(#_) { padding: 0 18px; border: 1px solid var(--line-d2); color: var(--txt-d); }
 
 .page .goInk svg,
 .page .goLine svg,
-.page .goLight svg {
+.page .goLight svg,
+.page .goGhost svg {
   width: 15px;
   height: 15px;
   flex: none;
@@ -188,16 +196,23 @@
 
 .page a.goInk:not(#_):active,
 .page a.goLine:not(#_):active,
-.page a.goLight:not(#_):active { scale: 0.98; }
+.page a.goLight:not(#_):active,
+.page a.goGhost:not(#_):active { scale: 0.98; }
 
 @media (hover: hover) {
   .page a.goInk:not(#_):hover { background: #1c2430; }
   .page a.goInk:not(#_):hover svg,
   .page a.goLight:not(#_):hover svg { translate: 3px 0; }
   .page a.goLine:not(#_):hover { border-color: var(--ink); }
-  .page a.goLine:not(#_):hover svg { translate: 0 2px; }
+  .page a.goLine:not(#_):hover svg,
+  .page a.goGhost:not(#_):hover svg { translate: 0 2px; }
   .page a.goLight:not(#_):hover { background: #fff; }
+  .page a.goGhost:not(#_):hover { border-color: rgba(255, 255, 255, 0.45); background: var(--bg2); }
 }
+
+.page .opening a:focus-visible,
+.page .process a:focus-visible,
+.page .closing a:focus-visible { outline-color: #8fb0ff; }
 
 /* Section heads: the short cobalt bar, a label, the title, a stand. */
 .page .secHead { margin-bottom: 28px; max-width: 760px; }
@@ -222,7 +237,7 @@
   font-size: clamp(28px, 7vw, 32px);
   line-height: 1.12;
   letter-spacing: -0.024em;
-  font-weight: 500;
+  font-weight: 600;
   text-wrap: balance;
 }
 
@@ -238,30 +253,46 @@
   .page .h2 { font-size: 36px; }
 }
 
+/* A figure: his illustration standing on the bottom edge of its box, the
+   picture's cut edges faded by an inline mask (lib/figures.ts). */
+.page .fig {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100%;
+  aspect-ratio: var(--ar, 0.8);
+  max-width: 100%;
+  translate: -50% 0;
+}
+
+.page .fig img {
+  object-fit: contain;
+  object-position: 50% 100%;
+  border-radius: 0;
+}
+
 /* ------------------------------------------------------------------ */
-/* Opening                                                              */
-.page .opening { padding: calc(var(--hh) + 28px) 0 0; }
+/* Opening: dark, the title beside one of his figures.                 */
+.page .opening {
+  background: var(--bg);
+  color: var(--txt-d);
+  padding-top: var(--hh);
+  overflow: hidden;
+}
 
 .page .openGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 32px;
-  align-items: center;
 }
 
-@media (min-width: 900px) {
-  .page .openGrid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; }
-}
-
-@media (min-width: 1024px) {
-  .page .opening { padding-top: calc(var(--hh) + 48px); }
-}
+.page .openText { padding: 44px 0 40px; }
 
 .page .kicker {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--soft);
+  color: var(--mut-d);
+  animation: textIn 0.9s var(--ease) both;
 }
 
 .page .kicker i {
@@ -277,27 +308,57 @@
   line-height: 1.03;
   letter-spacing: -0.032em;
   font-weight: 600;
+  color: #fff;
   text-wrap: balance;
+  animation: textIn 0.9s var(--ease) 0.08s both;
 }
 
 .page .summary {
   margin-top: 20px;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--read);
-  max-width: 50ch;
+  color: var(--read-d);
+  max-width: 48ch;
   text-wrap: pretty;
+  animation: textIn 0.9s var(--ease) 0.16s both;
 }
 
 .page .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 30px;
+  animation: textIn 0.9s var(--ease) 0.24s both;
 }
 
 @media (max-width: 479px) {
   .page .actions a:not(#_) { flex: 1 1 100%; }
+}
+
+.page .openArt {
+  position: relative;
+  height: 300px;
+  margin-top: 8px;
+}
+
+.page .openFig {
+  height: 94%;
+  animation: figRise 1.2s var(--ease) 0.1s both;
+}
+
+@media (min-width: 640px) {
+  .page .openArt { height: 360px; }
+}
+
+@media (min-width: 900px) {
+  .page .openGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    column-gap: 40px;
+    min-height: min(calc(100svh - var(--hh)), 660px);
+  }
+  .page .openText { align-self: center; padding: 48px 0 56px; }
+  .page .openArt { align-self: end; height: 100%; min-height: 420px; margin: 0; }
+  .page .openFig { height: 91%; max-height: 620px; }
 }
 
 @media (min-width: 1024px) {
@@ -305,42 +366,23 @@
   .page .summary { font-size: 19px; line-height: 1.62; }
 }
 
-/* The photo, framed like a condition page's plate. */
-.page .photo {
-  padding: 12px;
-  border-radius: 18px;
-  background: var(--bg);
-  display: grid;
-  gap: 12px;
+@keyframes textIn {
+  from { opacity: 0; translate: 0 12px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
-.page .photoImg {
-  position: relative;
-  aspect-ratio: 5 / 4;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--bg2);
-}
-
-.page .photoImg img { object-fit: cover; object-position: 50% 65%; border-radius: 0; }
-
-.page .photo figcaption { padding: 0 4px 2px; color: var(--mut-d); }
-
-@media (min-width: 640px) and (max-width: 899px) {
-  .page .photoImg { aspect-ratio: 16 / 10; }
-}
-
-@media (min-width: 900px) {
-  /* Short enough that the frame and its caption sit inside 1280x680. */
-  .page .photoImg { aspect-ratio: 16 / 15; }
+/* The figure rises from the floor behind a soft edge, as on the home page. */
+@keyframes figRise {
+  from { opacity: 0; translate: -50% 4%; filter: blur(6px); }
+  to { opacity: 1; translate: -50% 0; filter: blur(0); }
 }
 
 /* ------------------------------------------------------------------ */
-/* The services                                                         */
-.page .directory { padding: 72px 0 0; }
+/* The services: six chapters beside a stage.                          */
+.page .directory { padding: 56px 0 0; }
 
 @media (min-width: 1024px) {
-  .page .directory { padding-top: 96px; }
+  .page .directory { padding-top: 72px; }
 }
 
 .page .navLabel {
@@ -391,77 +433,109 @@
   .page .chips a:not(#_):hover svg { translate: 0 2px; color: var(--ink); }
 }
 
-.page .services {
-  margin-top: 32px;
+.page .sequence {
+  margin-top: 40px;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
 }
 
-@media (min-width: 900px) {
-  .page .services { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+/* The stage: desktop only. */
+.page .stage { display: none; }
+
+.page .stageInner {
+  position: absolute;
+  inset: 0;
 }
 
-/* Each tile fills its row, so the two in a row end level. */
-.page .services > * { display: grid; }
+.page .figure {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 84%;
+  aspect-ratio: var(--ar, 0.8);
+  max-width: 92%;
+  translate: -50% 28px;
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 0.6s var(--ease-io), translate 0.9s var(--ease), filter 0.6s var(--ease-io);
+}
 
-.page .service {
-  display: flex;
-  flex-direction: column;
-  padding: 24px 22px 24px;
-  border: 1px solid var(--line);
+.page .figure img {
+  object-fit: contain;
+  object-position: 50% 100%;
+  border-radius: 0;
+}
+
+.page .figure[data-state='active'] {
+  opacity: 1;
+  translate: -50% 0;
+  filter: blur(0);
+}
+
+.page .figure[data-state='past'] { translate: -50% -18px; }
+
+/* The chapters. */
+.page .chapter {
+  padding: 36px 0 40px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--hh) + 16px);
+  outline: none;
+}
+
+.page .chapter:first-child { border-top: 0; padding-top: 0; }
+
+/* The picture at the head of a chapter, phones and tablets. */
+.page .chapterPic {
+  position: relative;
+  height: 260px;
+  margin-bottom: 26px;
   border-radius: 16px;
-  scroll-margin-top: 16px;
-  transition: border-color 0.3s var(--ease);
+  background: var(--bg);
+  overflow: hidden;
 }
 
-.page .service:target { border-color: var(--accent); }
+.page .chapterPic .fig { height: 88%; }
 
 @media (min-width: 640px) {
-  .page .service { padding: 28px 30px 30px; }
+  .page .chapterPic { height: 320px; }
 }
 
 .page .serviceTitle {
-  font-size: 24px;
-  line-height: 1.2;
-  letter-spacing: -0.018em;
-  font-weight: 500;
+  font-size: clamp(28px, 7vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.026em;
+  font-weight: 600;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .page .serviceBody {
-  margin-top: 12px;
-  font-size: 16px;
+  margin-top: 14px;
+  font-size: 17px;
   line-height: 1.62;
   color: var(--read);
+  max-width: 58ch;
+  text-wrap: pretty;
 }
 
-.page .includes { padding-top: 22px; }
-
-.page .includesInner {
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
+.page .includes { margin-top: 28px; }
 
 .page .includesLabel {
   display: block;
   color: var(--soft);
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
 .page .features {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 8px 24px;
-}
-
-@media (min-width: 560px) {
-  .page .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  column-gap: 28px;
 }
 
 .page .features li {
   position: relative;
-  padding-left: 16px;
+  padding: 11px 0 11px 18px;
+  border-bottom: 1px solid var(--line);
   font-size: 16px;
   line-height: 1.5;
   color: var(--read);
@@ -471,7 +545,7 @@
   content: '';
   position: absolute;
   left: 1px;
-  top: 10px;
+  top: 20px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -479,74 +553,157 @@
   opacity: 0.55;
 }
 
-/* ------------------------------------------------------------------ */
-/* The treatment process: a dark band, four stops on a line.           */
-.page .process {
-  margin-top: 88px;
-  padding: 64px 0 72px;
-  background: var(--bg);
-  color: var(--txt-d);
+@media (min-width: 560px) {
+  .page .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page .features li:nth-child(-n + 2) { border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 559px) {
+  .page .features li:first-child { border-top: 1px solid var(--line); }
 }
 
 @media (min-width: 1024px) {
-  .page .process { margin-top: 112px; padding: 88px 0 96px; }
+  .page .sequence {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    column-gap: clamp(32px, 4.5vw, 72px);
+    align-items: start;
+  }
+
+  .page .stage {
+    display: block;
+    order: 2;
+    position: sticky;
+    top: calc(var(--hh) + 20px);
+    height: calc(100svh - var(--hh) - 40px);
+    max-height: 760px;
+    border-radius: 20px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .page .flow { order: 1; }
+
+  .page .chapter {
+    min-height: calc(100svh - var(--hh) - 40px);
+    max-height: 760px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+    border-top: 0;
+    scroll-margin-top: calc(var(--hh) + 20px);
+    transition: opacity 0.55s var(--ease);
+  }
+
+  /* The chapter on the stage reads at full strength; the others wait. */
+  .page .chapter[data-active='false'] { opacity: 0.42; }
+
+  .page .chapter:first-child { padding-top: 0; }
+  .page .chapterPic { display: none; }
+  .page .serviceTitle { font-size: 38px; }
+  .page .serviceBody { max-width: 54ch; }
 }
 
-.page .process .secLabel { color: var(--mut-d); }
-.page .process .stand { color: var(--mut-d); }
+@media (min-width: 1360px) {
+  .page .serviceTitle { font-size: 42px; }
+}
 
-.page .track {
+/* ------------------------------------------------------------------ */
+/* The treatment process: a dark band, the steps beside a figure.      */
+.page .process {
+  margin-top: 72px;
+  background: var(--bg);
+  color: var(--txt-d);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .page .process { margin-top: 96px; }
+}
+
+.page .processGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
 }
 
-.page .track > li {
-  position: relative;
-  padding: 0 0 30px 26px;
-  border-left: 1px solid var(--line-d2);
+.page .processText { padding: 64px 0 72px; }
+
+.page .process .secLabel { color: var(--mut-d); }
+.page .process .stand { color: var(--read-d); }
+.page .process .h2 { color: #fff; }
+
+.page .processArt { display: none; }
+
+.page .track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 36px;
 }
 
-.page .track > li:last-child { padding-bottom: 4px; border-left-color: transparent; }
+.page .track > li {
+  position: relative;
+  padding: 0 0 30px 30px;
+}
+
+.page .track > li:last-child { padding-bottom: 0; }
 
 .page .track > li::before {
   content: '';
   position: absolute;
-  left: -6px;
-  top: 3px;
-  width: 11px;
-  height: 11px;
+  left: 0;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
   border-radius: 50%;
-  border: 1.5px solid var(--txt-d);
+  border: 2px solid var(--accent);
   background: var(--bg);
+  z-index: 1;
 }
 
-.page .track > li:first-child::before { background: var(--accent); border-color: var(--accent); }
+.page .track > li:first-child::before { background: var(--accent); }
+
+.page .track > li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 23px;
+  bottom: 5px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--line-d2);
+}
 
 .page .stepTitle {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 19px;
+  font-weight: 600;
   line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--txt-d);
+  letter-spacing: -0.012em;
+  color: #fff;
 }
 
 .page .stepBody {
-  margin-top: 8px;
-  font-size: 16px;
+  margin-top: 6px;
+  font-size: 16.5px;
   line-height: 1.6;
-  color: var(--mut-d);
-  max-width: 44ch;
+  color: var(--read-d);
+  max-width: 52ch;
 }
 
 @media (min-width: 900px) {
-  .page .track { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 8px; }
-  .page .track > li {
-    padding: 28px 28px 0 0;
-    border-left: 0;
-    border-top: 1px solid var(--line-d2);
+  .page .processGrid {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    column-gap: 48px;
+    align-items: end;
   }
-  .page .track > li:last-child { padding-bottom: 0; border-top-color: var(--line-d2); }
-  .page .track > li::before { left: 0; top: -6px; }
+  .page .processArt {
+    display: block;
+    position: relative;
+    align-self: stretch;
+    min-height: 460px;
+  }
+  .page .processFig { height: 86%; }
+  .page .processText { padding: 80px 0 88px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -560,56 +717,74 @@
 .page .billing {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 32px;
+  gap: 36px;
 }
 
 @media (min-width: 1024px) {
-  .page .billing { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  .page .billing { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 56px; align-items: start; }
 }
 
 .page .h3 {
   font-size: 21px;
   line-height: 1.25;
   letter-spacing: -0.012em;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--ink);
 }
 
 .page .billingIntro {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 16.5px;
   line-height: 1.6;
   color: var(--read);
 }
 
+/* The insurers, as hairline rows in two columns. */
 .page .providers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 28px;
   margin-top: 18px;
 }
 
 .page .providers li {
-  display: inline-flex;
-  align-items: center;
-  min-height: 38px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: var(--tint);
-  font-size: 14.5px;
+  position: relative;
+  padding: 11px 0 11px 18px;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.5;
   font-weight: 500;
   color: var(--ink);
 }
 
+.page .providers li::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 20px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
+.page .providers li:first-child { border-top: 1px solid var(--line); }
+
+@media (min-width: 560px) {
+  .page .providers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page .providers li:nth-child(2) { border-top: 1px solid var(--line); }
+}
+
 .page .providerNote {
   margin-top: 12px;
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--soft);
 }
 
 .page .feesLabel {
   display: block;
-  margin-top: 32px;
+  margin-top: 36px;
   margin-bottom: 12px;
   color: var(--soft);
 }
@@ -683,7 +858,7 @@
 
 .page .coverage > p {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 16.5px;
   line-height: 1.6;
   color: var(--read);
 }
@@ -722,11 +897,11 @@
   margin-top: 96px;
   background: var(--bg);
   color: var(--txt-d);
-  padding: 56px 0;
+  padding: 64px 0;
 }
 
 @media (min-width: 1024px) {
-  .page .closing { margin-top: 120px; padding: 80px 0; }
+  .page .closing { margin-top: 120px; padding: 88px 0; }
 }
 
 .page .closingGrid {
@@ -745,15 +920,15 @@
   font-size: clamp(30px, 8vw, 36px);
   line-height: 1.08;
   letter-spacing: -0.025em;
-  font-weight: 500;
-  color: var(--txt-d);
+  font-weight: 600;
+  color: #fff;
 }
 
 .page .closingText {
   margin-top: 14px;
   font-size: 17px;
   line-height: 1.6;
-  color: var(--mut-d);
+  color: var(--read-d);
   max-width: 54ch;
 }
 
@@ -769,8 +944,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px 28px;
-  margin-top: 36px;
-  padding-top: 22px;
+  margin-top: 40px;
+  padding-top: 24px;
   border-top: 1px solid var(--line-d);
 }
 
@@ -792,8 +967,10 @@
     transition: none !important;
     animation: none !important;
   }
+  .page .chapter[data-active='false'] { opacity: 1; }
 }
 
 @media print {
   .page [data-reveal] { opacity: 1 !important; translate: 0 0 !important; scale: 1 !important; }
+  .page .chapter[data-active='false'] { opacity: 1; }
 }

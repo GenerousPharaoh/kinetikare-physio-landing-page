@@ -5,6 +5,10 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import ServicesHero from '@/components/services/ServicesHero';
+import ServicesStage from '@/components/services/ServicesStage';
+import Image from 'next/image';
+import type { CSSProperties } from 'react';
+import { FIGURES, figureMask, type FigureKey } from '@/lib/figures';
 import { ArrowDownIcon, ArrowRightIcon, CheckIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import Reveal from '@/components/home/Reveal';
 import { geist } from '@/components/conditions/case/fonts';
@@ -46,6 +50,7 @@ export const metadata: Metadata = {
 const services = [
   {
     id: 'manual-therapy',
+    figure: 'kneeFlexion' as FigureKey,
     title: 'Manual Therapy',
     description: (
       <>
@@ -69,6 +74,7 @@ const services = [
   },
   {
     id: 'sports-rehab',
+    figure: 'stepUp' as FigureKey,
     title: 'Sports Rehabilitation',
     description: (
       <>
@@ -88,6 +94,7 @@ const services = [
   },
   {
     id: 'dry-needling',
+    figure: 'shoulderMobility' as FigureKey,
     title: 'Dry Needling',
     description: (
       <>
@@ -111,6 +118,7 @@ const services = [
   },
   {
     id: 'exercise-therapy',
+    figure: 'bandRow' as FigureKey,
     title: 'Exercise Therapy',
     description: (
       <>
@@ -134,6 +142,7 @@ const services = [
   },
   {
     id: 'postural-assessment',
+    figure: 'shoulderCheckStanding' as FigureKey,
     title: 'Posture & Ergonomic Assessment',
     description: (
       <>
@@ -157,6 +166,7 @@ const services = [
   },
   {
     id: 'pain-management',
+    figure: 'consultation' as FigureKey,
     title: 'Pain Management',
     description: (
       <>
@@ -384,42 +394,55 @@ export default function ServicesPage() {
               ))}
             </ul>
           </nav>
-          <div className={styles.services}>
-            {services.map((service, index) => (
-              <Reveal as="div" key={service.id} delay={(index % 2) * 80}>
-                <article id={service.id} className={styles.service} tabIndex={-1} aria-labelledby={`${service.id}-heading`}>
-                  <h2 id={`${service.id}-heading`} className={styles.serviceTitle}>{service.title}</h2>
-                  <p className={styles.serviceBody}>{service.description}</p>
-                  <div className={styles.includes}>
-                    <div className={styles.includesInner}>
+          <ServicesStage items={services.map((service) => ({ id: service.id, figure: service.figure }))}>
+            {services.map((service, index) => {
+              const figure = FIGURES[service.figure];
+              return (
+                <article key={service.id} id={service.id} className={styles.chapter} data-chapter={index} tabIndex={-1} aria-labelledby={`${service.id}-heading`}>
+                  <div className={styles.chapterPic} aria-hidden="true">
+                    <div className={styles.fig} style={{ '--ar': figure.aspect } as CSSProperties}>
+                      <Image src={figure.src} alt="" fill sizes="(min-width: 640px) 60vw, 100vw" quality={82} style={figureMask(figure.fade)} />
+                    </div>
+                  </div>
+                  <Reveal as="div">
+                    <h2 id={`${service.id}-heading`} className={styles.serviceTitle}>{service.title}</h2>
+                    <p className={styles.serviceBody}>{service.description}</p>
+                    <div className={styles.includes}>
                       <h3 className={`${styles.includesLabel} ${styles.mono}`}>Includes</h3>
                       <ul className={styles.features}>{service.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
                     </div>
-                  </div>
+                  </Reveal>
                 </article>
-              </Reveal>
-            ))}
-          </div>
+              );
+            })}
+          </ServicesStage>
         </div>
       </section>
 
       {/* The treatment process */}
       <section data-treatment-process className={styles.process} aria-labelledby="process-heading">
-        <div className={styles.wrap}>
-          <Reveal as="div" className={styles.secHead}>
-            <Reveal as="span" variant="rule" className={styles.accentBar} />
-            <span className={`${styles.secLabel} ${styles.mono}`}>Treatment Journey</span>
-            <h2 id="process-heading" className={styles.h2}>The Treatment Process</h2>
-            <p className={styles.stand}>What to expect when you see me</p>
-          </Reveal>
-          <ol className={styles.track}>
-            {processSteps.map((step, index) => (
-              <Reveal as="li" key={step.title} delay={index * 90}>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepBody}>{step.description}</p>
-              </Reveal>
-            ))}
-          </ol>
+        <div className={`${styles.wrap} ${styles.processGrid}`}>
+          <div className={styles.processArt} aria-hidden="true">
+            <div className={`${styles.fig} ${styles.processFig}`} style={{ '--ar': FIGURES.legAssessment.aspect } as CSSProperties}>
+              <Image src={FIGURES.legAssessment.src} alt="" fill sizes="(min-width: 1360px) 440px, 36vw" quality={82} style={figureMask(FIGURES.legAssessment.fade)} />
+            </div>
+          </div>
+          <div className={styles.processText}>
+            <Reveal as="div" className={styles.secHead}>
+              <Reveal as="span" variant="rule" className={styles.accentBar} />
+              <span className={`${styles.secLabel} ${styles.mono}`}>Treatment Journey</span>
+              <h2 id="process-heading" className={styles.h2}>The Treatment Process</h2>
+              <p className={styles.stand}>What to expect when you see me</p>
+            </Reveal>
+            <ol className={styles.track}>
+              {processSteps.map((step, index) => (
+                <Reveal as="li" key={step.title} delay={index * 90}>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepBody}>{step.description}</p>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 

@@ -1,14 +1,22 @@
 import Image from 'next/image';
+import type { CSSProperties } from 'react';
 import { ArrowDownIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
+import { FIGURES, figureMask } from '@/lib/figures';
 import styles from './Services.module.css';
 
-/** The Services opening: title, intro and booking, the photo in a dark frame. */
+const FIGURE = FIGURES.sitToStand;
+
+/**
+ * The Services opening: dark, the title, the line and the booking beside
+ * one of Kareem's illustrations of himself, which rises in as the page
+ * loads.
+ */
 export default function ServicesHero() {
   return (
     <section className={styles.opening} aria-labelledby="services-heading">
       <div className={`${styles.wrap} ${styles.openGrid}`}>
-        <div>
+        <div className={styles.openText}>
           <p className={`${styles.kicker} ${styles.mono}`}>
             <i aria-hidden="true" />
             Burlington Physiotherapy
@@ -20,28 +28,29 @@ export default function ServicesHero() {
             Sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based care tailored to your goals
           </p>
           <div className={styles.actions}>
-            <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={styles.goInk}>
+            <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={styles.goLight}>
               Book Your Assessment
               <ArrowRightIcon aria-hidden="true" />
             </a>
-            <a href="#services-grid" className={styles.goLine}>
+            <a href="#services-grid" className={styles.goGhost}>
               Explore services
               <ArrowDownIcon aria-hidden="true" />
             </a>
           </div>
         </div>
-        <figure className={styles.photo}>
-          <div className={styles.photoImg}>
+        <div className={styles.openArt}>
+          <div className={`${styles.fig} ${styles.openFig}`} style={{ '--ar': FIGURE.aspect } as CSSProperties}>
             <Image
-              src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy-v2.jpg"
-              alt="Hands-on knee mobilization and stretching during physiotherapy treatment"
+              src={FIGURE.src}
+              alt={FIGURE.label}
               fill
-              sizes="(min-width: 1280px) 500px, (min-width: 900px) 40vw, 100vw"
+              sizes="(min-width: 1360px) 540px, (min-width: 900px) 44vw, 100vw"
+              quality={82}
               priority
+              style={figureMask(FIGURE.fade)}
             />
           </div>
-          <figcaption className={styles.mono}>Individualized care</figcaption>
-        </figure>
+        </div>
       </div>
     </section>
   );

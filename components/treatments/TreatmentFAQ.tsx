@@ -30,7 +30,7 @@ export default function TreatmentFAQ({ treatment }: TreatmentFAQProps) {
   };
 
   return (
-    <section className={s.sec}>
+    <section id="questions" className={s.sec}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
       <SectionHead title="Frequently Asked Questions" stand={`Common questions about ${treatment.shortName ?? treatment.name}`} />
       <div className={s.disc}>

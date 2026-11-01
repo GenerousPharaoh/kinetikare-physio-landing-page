@@ -7,6 +7,8 @@ import { KeepHyphens } from '@/components/sheet/text';
 
 interface TreatmentHeroProps {
   treatment: Treatment;
+  /** Extra classes on the header (the shell's column, on treatment pages). */
+  className?: string;
 }
 
 /**
@@ -14,10 +16,10 @@ interface TreatmentHeroProps {
  * the name, what it is, the booking action, then the first three benefits
  * in one hairline panel.
  */
-export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
+export default function TreatmentHero({ treatment, className }: TreatmentHeroProps) {
   const name = treatment.shortName ?? treatment.name;
   return (
-    <header className={`${s.column} ${s.opening}`}>
+    <header className={`${s.column} ${s.opening}${className ? ` ${className}` : ''}`}>
       <nav aria-label="Breadcrumb" className={`${s.crumbs} ${s.label}`}>
         <Link href="/" aria-label="Home">
           <HomeIcon aria-hidden="true" />

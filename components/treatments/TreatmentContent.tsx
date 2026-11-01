@@ -26,7 +26,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
 
   return (
     <>
-      <section className={s.sec}>
+      <section id="about" className={s.sec}>
         <SectionHead title="About This Treatment" />
         <div className={s.prose}>
           <p>{treatment.description}</p>
@@ -47,7 +47,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
         </ul>
       </section>
 
-      <section className={s.sec}>
+      <section id="conditions" className={s.sec}>
         <SectionHead title="Conditions Treated" stand="Conditions where I use this treatment, usually alongside exercise." />
         <div className={`${s.tiles} ${s.compact}`}>
           {relatedConditions.map((condition, index) => (

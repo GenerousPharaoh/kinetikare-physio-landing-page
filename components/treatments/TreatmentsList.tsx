@@ -2,11 +2,11 @@
 
 import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { getAllTreatments } from '@/lib/treatments-data';
+import { ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { getAllTreatments, type Treatment } from '@/lib/treatments-data';
 import Reveal from '@/components/home/Reveal';
-import { ActionLabel } from '@/components/sheet/text';
 import s from '@/components/sheet/Sheet.module.css';
+import tx from './Treatment.module.css';
 
 const categories = [
   {
@@ -23,10 +23,33 @@ const categories = [
   },
 ];
 
+/** One treatment as a row: its name, its line, and the arrow. */
+function Row({ treatment, tags }: { treatment: Treatment; tags?: boolean }) {
+  return (
+    <Link href={`/treatments/${treatment.id}`} className={tx.row}>
+      <span>
+        <span className={tx.rowName}>{treatment.name}</span>
+        <span className={tx.rowLine}>{treatment.shortDescription}</span>
+        {tags && (
+          <span className={s.chips}>
+            {treatment.conditions.slice(0, 3).map((condition) => (
+              <span key={condition}>{condition}</span>
+            ))}
+          </span>
+        )}
+      </span>
+      <span className={tx.rowGo} aria-hidden="true">
+        <ArrowRightIcon />
+      </span>
+    </Link>
+  );
+}
+
 /**
  * The treatments index: the title (passed in, server rendered) with the
- * search beside it, then the treatments grouped as tiles of a name and one
- * line, then the shared disclaimer as a quiet note.
+ * search beside it, then the treatments as hairline rows beside their
+ * group's title (which stays in view on laptops as the group scrolls),
+ * then the shared disclaimer as a quiet note.
  */
 export default function TreatmentsList({ intro, note }: { intro: ReactNode; note?: ReactNode }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -74,47 +97,33 @@ export default function TreatmentsList({ intro, note }: { intro: ReactNode; note
           )}
 
           {query ? (
-            <div className={s.grid} data-count={filteredTreatments.length}>
+            <ul className={tx.rows} role="list">
               {filteredTreatments.map((treatment) => (
-                <div key={treatment.id}>
-                  <Link href={`/treatments/${treatment.id}`}>
-                    <span className={s.tileTitle}>{treatment.name}</span>
-                    <span className={s.tileBlurb}>{treatment.shortDescription}</span>
-                    <span className={s.chips}>
-                      {treatment.conditions.slice(0, 3).map((condition) => (
-                        <span key={condition}>{condition}</span>
-                      ))}
-                    </span>
-                    <span className={s.tileAction}>
-                      <ActionLabel text="View treatment" />
-                    </span>
-                  </Link>
-                </div>
+                <li key={treatment.id}>
+                  <Row treatment={treatment} tags />
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
             categories.map((category) => {
               const items = category.treatments
                 .map((id) => treatments.find((t) => t.id === id))
                 .filter((t): t is NonNullable<typeof t> => Boolean(t));
               return (
-                <section key={category.name} className={s.set}>
-                  <Reveal as="h2" className={s.setTitle}>
-                    {category.name}
+                <section key={category.name} className={tx.set} aria-labelledby={`set-${category.treatments[0]}`}>
+                  <Reveal as="div" className={tx.setHead}>
+                    <Reveal as="span" variant="rule" className={s.bar} />
+                    <h2 id={`set-${category.treatments[0]}`} className={tx.setTitle}>
+                      {category.name}
+                    </h2>
                   </Reveal>
-                  <div className={s.grid} data-count={items.length}>
+                  <ul className={tx.rows} role="list">
                     {items.map((treatment, index) => (
-                      <Reveal as="div" key={treatment.id} delay={index * 60}>
-                        <Link href={`/treatments/${treatment.id}`}>
-                          <span className={s.tileTitle}>{treatment.name}</span>
-                          <span className={s.tileBlurb}>{treatment.shortDescription}</span>
-                          <span className={s.tileAction}>
-                            <ActionLabel text="Explore Treatment" />
-                          </span>
-                        </Link>
+                      <Reveal as="li" key={treatment.id} delay={index * 60}>
+                        <Row treatment={treatment} />
                       </Reveal>
                     ))}
-                  </div>
+                  </ul>
                 </section>
               );
             })

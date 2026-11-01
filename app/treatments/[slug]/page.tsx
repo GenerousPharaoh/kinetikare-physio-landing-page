@@ -8,6 +8,10 @@ import TreatmentInDepth from '@/components/treatments/TreatmentInDepth';
 import TreatmentProcess from '@/components/treatments/TreatmentProcess';
 import TreatmentFAQ from '@/components/treatments/TreatmentFAQ';
 import TreatmentCTA from '@/components/treatments/TreatmentCTA';
+import TreatmentInstrument, { type TreatmentSection } from '@/components/treatments/TreatmentInstrument';
+import { getConditionBySlug } from '@/lib/conditions-data';
+import { CONDITION_PLATES } from '@/lib/condition-plates';
+import tx from '@/components/treatments/Treatment.module.css';
 import { geist } from '@/components/conditions/case/fonts';
 import sheet from '@/components/sheet/Sheet.module.css';
 import {
@@ -125,8 +129,24 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
     inLanguage: 'en-CA',
   };
 
+  // The instrument's index: the sections this treatment's data fills.
+  const sections: TreatmentSection[] = [
+    { id: 'about', label: 'About' },
+    { id: 'conditions', label: 'Conditions treated' },
+    ...((treatment.inDepth ?? []).length > 0 ? [{ id: 'closer-look', label: 'A closer look' }] : []),
+    ...((treatment.redFlags ?? []).length > 0 ? [{ id: 'warning-signs', label: 'Medical help' }] : []),
+    { id: 'process', label: 'How it progresses' },
+    { id: 'questions', label: 'Questions' },
+  ];
+
+  // The conditions it is used for that have a plate, for the instrument's mosaic.
+  const plates = treatment.relatedConditions
+    .filter((s) => CONDITION_PLATES[s])
+    .slice(0, 6)
+    .map((s) => ({ slug: s, name: getConditionBySlug(s)?.name ?? s }));
+
   return (
-    <main className={`${sheet.root} ${geist.variable}`}>
+    <main className={`${sheet.root} ${tx.tx} ${geist.variable}`} data-case-page="" data-tx-page="">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(medicalProcedureSchema) }}
@@ -135,12 +155,19 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageSchema) }}
       />
-      <TreatmentHero treatment={treatment} />
-      <div className={`${sheet.column} ${sheet.body}`}>
-        <TreatmentContent treatment={treatment} />
-        <TreatmentInDepth treatment={treatment} />
-        <TreatmentProcess treatment={treatment} />
-        <TreatmentFAQ treatment={treatment} />
+      <div className={tx.shell}>
+        <TreatmentInstrument sections={sections} pagePath={`/treatments/${treatment.id}`} name={treatment.shortName ?? treatment.name} plates={plates} />
+        <div className={tx.sheet}>
+          <div data-tx-column="">
+            <TreatmentHero treatment={treatment} className={tx.col} />
+            <div className={`${sheet.column} ${sheet.body} ${tx.col}`}>
+              <TreatmentContent treatment={treatment} />
+              <TreatmentInDepth treatment={treatment} />
+              <TreatmentProcess treatment={treatment} />
+              <TreatmentFAQ treatment={treatment} />
+            </div>
+          </div>
+        </div>
       </div>
       <TreatmentCTA treatmentName={treatment.shortName ?? treatment.name} />
     </main>

@@ -19,7 +19,7 @@ export default function TreatmentInDepth({ treatment }: TreatmentInDepthProps) {
   return (
     <>
       {inDepth.length > 0 && (
-        <section className={s.sec}>
+        <section id="closer-look" className={s.sec}>
           <SectionHead title="A Closer Look" />
           {inDepth.map((block) => (
             <Reveal as="div" key={block.heading} className={s.block}>

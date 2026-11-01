@@ -5,6 +5,7 @@ import TreatmentsCTA from '@/components/treatments/TreatmentsCTA';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { geist } from '@/components/conditions/case/fonts';
 import sheet from '@/components/sheet/Sheet.module.css';
+import tx from '@/components/treatments/Treatment.module.css';
 
 export const metadata: Metadata = {
   title: 'Physiotherapy Treatments in Burlington | Kareem Hassanein',
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function TreatmentsPage() {
   return (
-    <main className={`${sheet.root} ${geist.variable}`}>
+    <main className={`${sheet.root} ${tx.tx} ${geist.variable}`}>
       <TreatmentsList intro={<TreatmentsHero />} note={<MedicalDisclaimer />} />
       <TreatmentsCTA />
     </main>

@@ -223,6 +223,22 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
     { id: 'research', label: 'Research', show: keyResearch.length > 0 || researchInsights.length > 0 },
   ].filter((s) => s.show);
 
+  // The link to the following section, shown at the foot of each on phones.
+  const nextLink = (id: string) => {
+    const i = sections.findIndex((s) => s.id === id);
+    const n = i >= 0 ? sections[i + 1] : undefined;
+    if (!n) return null;
+    return (
+      <a href={`#${n.id}`} className={styles.nextLink}>
+        <span>
+          <span className={styles.mono}>Next</span>
+          {n.label}
+        </span>
+        <ArrowDownIcon aria-hidden="true" />
+      </a>
+    );
+  };
+
   const bookLine = (source: string) => (
     <a href={JANE_ASSESSMENT_URL} data-booking-source={source} target="_blank" rel="noopener noreferrer" className={styles.bookLine}>
       Book an assessment for {nameLower}
@@ -353,6 +369,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   </div>
                 )}
                 {bookLine('condition_symptoms')}
+                {nextLink('symptoms')}
               </section>
             )}
 
@@ -376,6 +393,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     ))}
                   </div>
                 </Reveal>
+                {nextLink('in-clinic')}
               </section>
             )}
 
@@ -402,6 +420,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     }),
                   )}
                 </div>
+                {nextLink('red-flags')}
               </section>
             )}
 
@@ -514,6 +533,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   </>
                 )}
                 {bookLine('condition_management')}
+                {nextLink('treatment')}
               </section>
             )}
 
@@ -569,6 +589,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     </p>
                   </div>
                 )}
+                {nextLink('recovery')}
               </section>
             )}
 
@@ -610,6 +631,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     </div>
                   </>
                 )}
+                {nextLink('similar')}
               </section>
             )}
 
@@ -625,6 +647,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   ))}
                 </div>
                 {bookLine('condition_faq')}
+                {nextLink('faqs')}
               </section>
             )}
 
@@ -650,6 +673,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     </CaseDisclosure>
                   </div>
                 )}
+                {nextLink('science')}
               </section>
             )}
 
@@ -694,6 +718,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     })}
                   </ul>
                 )}
+                {nextLink('research')}
               </section>
             )}
 

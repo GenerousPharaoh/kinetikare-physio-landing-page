@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { ArrowRightIcon, ChevronDownIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ListBulletIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { useModalDialog } from '@/hooks/useModalDialog';
 import CasePlate from './CasePlate';
@@ -43,6 +43,7 @@ export default function CaseInstrument({
   const [open, setOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
   const ids = sections.map((s) => s.id).join(',');
 
   useEffect(() => {
@@ -86,6 +87,15 @@ export default function CaseInstrument({
   // The site's dialog model: inert outside, Tab trapped, Escape closes,
   // focus returns to the strip button.
   useModalDialog(open, sheetRef, () => setOpen(false));
+
+  // Keep the active tab in view in the phone strip as the reader scrolls.
+  useEffect(() => {
+    const row = tabsRef.current;
+    const tab = row?.querySelector<HTMLElement>('[aria-current]');
+    if (!row || !tab) return;
+    const left = tab.offsetLeft - 10;
+    if (Math.abs(row.scrollLeft - left) > 2) row.scrollTo({ left, behavior: 'smooth' });
+  }, [active]);
 
   // Every in-page link on the sheet (the glance panel, "check when these
   // symptoms need a doctor first") scrolls smoothly and moves focus, the same
@@ -194,12 +204,15 @@ export default function CaseInstrument({
 
       <div className={styles.strip} style={{ '--p': `${Math.round(progress * 100)}%` } as CSSProperties}>
         <CasePlate key={`${slug}-thumb`} slug={slug} className={styles.thumb} sizes="34px" />
-        <button type="button" className={`${styles.plain} ${styles.stripBtn}`} aria-haspopup="dialog" aria-expanded={open} aria-label={`On this page: ${current}. Open the section list`} onClick={() => setOpen(true)}>
-          <span className={styles.stripText}>
-            <span className={styles.stripName}>{name}</span>
-            <span className={`${styles.stripCurrent} ${styles.mono}`}>{current}</span>
-          </span>
-          <ChevronDownIcon aria-hidden="true" />
+        <nav ref={tabsRef} className={styles.secTabs} aria-label="Sections" data-case-index="">
+          {entries.map((s) => (
+            <a key={s.id} href={s.id === 'top' ? pagePath : `#${s.id}`} className={styles.secTab} aria-current={active === s.id ? 'location' : undefined} onClick={(e) => go(e, s.id)}>
+              {s.label}
+            </a>
+          ))}
+        </nav>
+        <button type="button" className={`${styles.plain} ${styles.stripList}`} aria-haspopup="dialog" aria-expanded={open} aria-label={`All sections. Reading: ${current}`} onClick={() => setOpen(true)}>
+          <ListBulletIcon aria-hidden="true" />
         </button>
         <span aria-hidden="true" className={styles.stripProgress} />
       </div>
@@ -209,7 +222,7 @@ export default function CaseInstrument({
           <div className={styles.backdrop} data-dialog-backdrop onClick={() => setOpen(false)} aria-hidden="true" />
           <div ref={sheetRef} className={styles.sheetNav} role="dialog" aria-modal="true" aria-label="On this page" tabIndex={-1}>
             <div className={styles.sheetHead}>
-              <span className={styles.mono}>On this page</span>
+              <span className={styles.sheetName}>{name}</span>
               <button type="button" className={`${styles.plain} ${styles.sheetClose}`} aria-label="Close" onClick={() => setOpen(false)}>
                 <XMarkIcon aria-hidden="true" />
               </button>

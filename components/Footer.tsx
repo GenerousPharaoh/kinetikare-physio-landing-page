@@ -83,9 +83,10 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: footerRef, offset: ['start end', 'end end'] });
-  // Contents start a little higher and settle as the footer scrolls in, so the
-  // page reads as lifting off it; the badge turns half a revolution meanwhile.
-  const lift = useTransform(scrollYProgress, [0, 1], [reduce ? '0%' : '-18%', '0%']);
+  // The badge turns half a revolution as the footer scrolls in. The contents
+  // used to start 18% higher and settle, but with the footer clipping its own
+  // overflow the statement arrived cut off at the top edge (Kareem,
+  // 2026-11-01), so they now stay put.
   const turn = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 200]);
 
   return (
@@ -93,7 +94,7 @@ export default function Footer() {
     // page's fingerprint, so a footer change does not re-date every page.
     <footer ref={footerRef} className={`site-footer ${styles.footer}`} data-site-chrome="">
       <div className={styles.glow} aria-hidden="true" />
-      <motion.div className={styles.inner} style={{ y: lift }}>
+      <div className={styles.inner}>
         <div className={styles.topBar}>
           <Link href="/" className={`text-white ${styles.brand}`} aria-label="Kinetikare Physiotherapy home">
             <Image src="/images/kinetikare-logo-without-text.webp" alt="" width={56} height={70} className={styles.logo} />
@@ -246,7 +247,7 @@ export default function Footer() {
             </Link>
           </nav>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

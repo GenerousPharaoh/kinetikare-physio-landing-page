@@ -1,8 +1,11 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type TouchEvent } from 'react';
 import { GOOGLE_REVIEW_TOTAL, GOOGLE_REVIEWS_URL, reviews } from '@/lib/reviews';
 import styles from './Home.module.css';
+
+/** How long each review holds before the next one comes forward. */
+const HOLD_MS = 4800;
 
 /** The review's own opening sentences, about two hundred characters' worth.
  *  It always ends on a whole sentence, so no ellipsis is added. */
@@ -34,32 +37,63 @@ const Stars = () => (
 );
 
 /**
- * The rating, then the row of every review on the site, to swipe or step
- * through, each opening to the full text. (Until round 19 a scroll-pinned
- * spotlight of four pull quotes came first; Kareem kept the row.)
+ * The rating, then the reviews as a carousel: the current one whole in the
+ * centre, the ones either side showing faded at the edges. It moves on by
+ * itself every few seconds (the gold line under it fills while it waits),
+ * and rests while the pointer or focus is on it, while a review is opened
+ * to its full text, while the tab is hidden, when paused with the button,
+ * or when the reader prefers reduced motion. Arrows and a swipe step it.
+ * Without JavaScript every review is in the HTML in a row.
  */
 export default function HomeReviews() {
-  const trackRef = useRef<HTMLUListElement>(null);
+  const [active, setActive] = useState(0);
   const [open, setOpen] = useState<number | null>(null);
-  const [progress, setProgress] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [resting, setResting] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [reduce, setReduce] = useState(false);
+  const touch = useRef<{ x: number; y: number } | null>(null);
+  const count = reviews.length;
+
+  const go = useCallback(
+    (dir: number) => {
+      setOpen(null);
+      setActive((i) => (i + dir + count) % count);
+    },
+    [count],
+  );
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const update = () => {
-      const max = track.scrollWidth - track.clientWidth;
-      setProgress(max > 0 ? track.scrollLeft / max : 0);
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => setReduce(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    const onVis = () => setHidden(document.hidden);
+    document.addEventListener('visibilitychange', onVis);
+    return () => {
+      mq.removeEventListener('change', sync);
+      document.removeEventListener('visibilitychange', onVis);
     };
-    update();
-    track.addEventListener('scroll', update, { passive: true });
-    return () => track.removeEventListener('scroll', update);
   }, []);
 
-  const step = (dir: number) => {
-    const track = trackRef.current;
-    const card = track?.querySelector('li');
-    if (!track || !card) return;
-    track.scrollBy({ left: dir * (card.getBoundingClientRect().width + 40), behavior: 'smooth' });
+  const playing = !paused && !resting && !hidden && !reduce && open === null;
+
+  useEffect(() => {
+    if (!playing) return;
+    const t = window.setTimeout(() => go(1), HOLD_MS);
+    return () => window.clearTimeout(t);
+  }, [playing, active, go]);
+
+  const onTouchStart = (e: TouchEvent) => {
+    touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const onTouchEnd = (e: TouchEvent) => {
+    const start = touch.current;
+    touch.current = null;
+    if (!start) return;
+    const dx = e.changedTouches[0].clientX - start.x;
+    const dy = e.changedTouches[0].clientY - start.y;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
   };
 
   return (
@@ -77,12 +111,23 @@ export default function HomeReviews() {
           </a>
         </div>
         <div className={styles.controls}>
-          <button type="button" onClick={() => step(-1)} aria-label="Previous reviews">
+          <button type="button" onClick={() => go(-1)} aria-label="Previous review">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M15 8H2M7 3L2 8l5 5" stroke="currentColor" strokeWidth="1.3" />
             </svg>
           </button>
-          <button type="button" onClick={() => step(1)} aria-label="Next reviews">
+          <button type="button" onClick={() => setPaused((p) => !p)} aria-pressed={paused} aria-label={paused ? 'Play the reviews' : 'Pause the reviews'}>
+            {paused ? (
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M4 2.5v11l9-5.5z" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" />
+              </svg>
+            )}
+          </button>
+          <button type="button" onClick={() => go(1)} aria-label="Next review">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" strokeWidth="1.3" />
             </svg>
@@ -90,39 +135,62 @@ export default function HomeReviews() {
         </div>
       </div>
 
-      <ul ref={trackRef} className={styles.reviewTrack} aria-label="Reviews from Google">
-        {reviews.map((review, i) => {
-          const short = excerpt(review.text);
-          const isOpen = open === i;
-          return (
-            <li key={review.name} className={styles.reviewCard}>
-              <figure>
-                <figcaption className={styles.reviewBy}>
-                  <span className={styles.monogram} aria-hidden="true">
-                    {initials(review.name)}
-                  </span>
-                  <span>
-                    <span className={styles.byName}>{review.name}</span>
-                    <span className={styles.bySource}>Google review</span>
-                  </span>
+      <div
+        className={styles.stage}
+        aria-roledescription="carousel"
+        aria-label="Reviews from Google"
+        onMouseEnter={() => setResting(true)}
+        onMouseLeave={() => setResting(false)}
+        onFocus={() => setResting(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setResting(false);
+        }}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <ul className={styles.track} style={{ '--i': active } as CSSProperties}>
+          {reviews.map((review, i) => {
+            const short = excerpt(review.text);
+            const isActive = i === active;
+            const isOpen = open === i;
+            return (
+              <li
+                key={review.name}
+                className={styles.slide}
+                data-pos={isActive ? 0 : i < active ? -1 : 1}
+                aria-hidden={!isActive}
+                inert={!isActive}
+                aria-roledescription="slide"
+                aria-label={`Review by ${review.name}`}
+              >
+                <figure className={styles.review}>
                   <Stars />
-                </figcaption>
-                <blockquote>
-                  <p>{isOpen || !short.cut ? review.text : short.text}</p>
-                </blockquote>
-              </figure>
-              {short.cut && (
-                <button type="button" className={styles.moreBtn} onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen}>
-                  {isOpen ? 'Show less' : 'Read the full review'}
-                </button>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+                  <blockquote>
+                    <p>{isOpen || !short.cut ? review.text : short.text}</p>
+                  </blockquote>
+                  {short.cut && (
+                    <button type="button" className={styles.moreBtn} onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen}>
+                      {isOpen ? 'Show less' : 'Read the full review'}
+                    </button>
+                  )}
+                  <figcaption className={styles.reviewBy}>
+                    <span className={styles.monogram} aria-hidden="true">
+                      {initials(review.name)}
+                    </span>
+                    <span>
+                      <span className={styles.byName}>{review.name}</span>
+                      <span className={styles.bySource}>Google review</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
-      <span className={styles.progress} aria-hidden="true">
-        <span style={{ width: `${Math.max(8, progress * 100)}%` }} />
+      <span key={active} className={styles.timer} data-play={playing} aria-hidden="true" style={{ '--dur': `${HOLD_MS}ms` } as CSSProperties}>
+        <i />
       </span>
     </section>
   );

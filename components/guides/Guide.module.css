@@ -699,7 +699,10 @@
 }
 
 @media (min-width: 1024px) {
-  /* Side by side: aspect, then one column per condition. The header row
+  .guide .pairName { font-size: 24px; }
+}
+
+/* Side by side: aspect, then one column per condition. The header row
    stays under the site header while the rows scroll past. */
 .guide .vsTable {
   display: none;

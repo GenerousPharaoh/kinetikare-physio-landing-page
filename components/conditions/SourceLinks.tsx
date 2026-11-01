@@ -25,7 +25,7 @@ export default function SourceLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${sourceRefLabel(ref)}: ${title} (opens in a new tab)`}
-            className="underline underline-offset-2 hover:text-[#8A6F0A]"
+            className="underline underline-offset-2 hover:text-[#1d4fd8]"
           >
             {sourceRefLabel(ref)}
           </a>

@@ -13,7 +13,7 @@ export default function ConditionBookingCTA() {
             <p>If you are not sure which condition fits, book an assessment or send a question first.</p>
           </div>
           <div className={styles.actions}>
-            <a href={JANE_ASSESSMENT_URL} data-booking-source="conditions_index" target="_blank" rel="noopener noreferrer" className={`button-gold ${styles.booking}`}>
+            <a href={JANE_ASSESSMENT_URL} data-booking-source="conditions_index" target="_blank" rel="noopener noreferrer" className={styles.booking}>
               <CalendarDaysIcon aria-hidden="true" />
               <span>Book Your Assessment</span>
             </a>

@@ -468,11 +468,11 @@ button[class*="btn"]:hover {
   transition: opacity 180ms ease-in, transform 180ms ease-in;
 }
 
-/* Focus styling - modern */
+/* Focus styling: the site's cobalt accent, as on the condition pages */
 *:focus-visible {
-  outline: 2px solid #8A6F0A;
+  outline: 2px solid #2f6bff;
   outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.15);
 }
 
 /* Section styling - more minimal */
@@ -652,8 +652,8 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+  border-color: rgba(47, 107, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.12);
   outline: none;
   background-color: rgba(255, 255, 255, 1);
 }

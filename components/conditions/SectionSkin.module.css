@@ -307,12 +307,18 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 32px;
+  min-height: 44px;
   font-weight: 500;
   color: var(--accent-ink);
 }
 
 .skin .indexHelp a svg { width: 14px; height: 14px; }
+
+/* Two-column tile grids with an odd count: the last tile spans the row
+   instead of leaving an empty half row (the index's topic guides, the
+   hubs' location cards). */
+.skin [aria-labelledby="topic-hubs-heading"] [class~="sm:grid-cols-2"] > a:last-child:nth-child(odd),
+.skin [class~="md:grid-cols-2"][class~="gap-6"] > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
 /* Region filter chips: a plain segmented row, no gradient pill. */
 .skin button[role="tab"] {

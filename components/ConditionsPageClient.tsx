@@ -488,7 +488,7 @@ function ConditionsPageWithParams({
                     <h2 id="pain-guides-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Start with the symptom
                     </h2>
-                    <Link href="/conditions/pain-guides" className="text-xs text-[#8A6F0A] hover:underline">
+                    <Link href="/conditions/pain-guides" className="inline-flex min-h-11 items-center text-xs text-[#8A6F0A] hover:underline">
                       View all guides
                     </Link>
                   </div>

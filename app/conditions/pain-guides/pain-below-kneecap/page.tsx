@@ -2,23 +2,7 @@ import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import {
-  ChevronRightIcon,
-  ExclamationTriangleIcon,
-  ChevronDownIcon,
-  InformationCircleIcon,
-  MapPinIcon,
-  AcademicCapIcon,
-  BeakerIcon,
-  QuestionMarkCircleIcon,
-  HeartIcon,
-  CalendarIcon,
-  PhoneIcon,
-  ArrowRightIcon,
-  ClockIcon,
-  ShieldCheckIcon,
-  HandRaisedIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowRightIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import {
   contentDateFor,
   SEO_AUTHOR,
@@ -28,13 +12,25 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
-import ConsentNote from '@/components/conditions/ConsentNote';
-
-import HoursList from '@/components/HoursList';
-import { inlineName } from '@/lib/text';
-import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
-import SourceLinks from '@/components/conditions/SourceLinks';
+import {
+  AccessClosing,
+  Consent,
+  Crumbs,
+  cs,
+  Evidence,
+  Faqs,
+  FlagsLink,
+  g,
+  GuideMain,
+  Head,
+  PlateFigure,
+  RelatedConditions,
+  RelatedTreatments,
+  Thumb,
+  WarningPanel,
+} from '@/components/guides/GuideKit';
 import type { SourceRef } from '@/lib/source-refs';
+import { inlineName } from '@/lib/text';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/pain-below-kneecap';
 const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is';
 const PAGE_DESCRIPTION =
@@ -380,33 +376,22 @@ export default function PainBelowKneecapGuidePage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
 
-      <main className="min-h-screen">
-        {/* Hero */}
-        <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-5xl">
-              {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 mb-4">
-                <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
-                  Home
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <Link href="/conditions" className="hover:text-[#B08D57] transition-colors duration-200">
-                  Conditions
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <Link href="/conditions/knee-pain" className="hover:text-[#B08D57] transition-colors duration-200">
-                  Knee Pain
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Pain Below the Kneecap</span>
-              </nav>
+      <GuideMain>
+        <div className={g.frame}>
+          <div className={g.layout} data-rail="true">
+            <header className={g.opening}>
+              <Crumbs
+                items={[
+                  { href: '/', label: 'Home' },
+                  { href: '/conditions', label: 'Conditions' },
+                  { href: '/conditions/knee-pain', label: 'Knee Pain' },
+                  { label: 'Pain Below the Kneecap' },
+                ]}
+              />
 
-              <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Pain Right Below the Kneecap: What It Usually Is
-              </h1>
+              <h1 className={cs.h1}>Pain Right Below the Kneecap: What It Usually Is</h1>
 
-              <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
+              <p className={cs.summary}>
                 Patients describe this one very consistently: a tender spot right at the bottom
                 tip of the kneecap that flares with running, jumping, stairs, or deep squats.
                 In most active adults that pattern points toward patellar tendinopathy, but a
@@ -414,57 +399,41 @@ export default function PainBelowKneecapGuidePage() {
                 them out and which condition page to read next.
               </p>
 
-              <p className="text-xs text-slate-600 mt-3">
+              <p className={g.local}>
                 Assessing and treating knee pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              <RedFlagsLink className="mt-3" />
+              <FlagsLink />
 
-              {/* Primary actions */}
-              <div className="mt-5 flex flex-wrap items-center gap-2">
+              <div className={`${cs.actions} ${g.acts}`}>
                 <Link
                   href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+                  className={cs.btnInk}
                 >
-                  <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
+                  <ArrowRightIcon aria-hidden="true" />
                 </Link>
-                <Link
-                  href="tel:+19056346000"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                >
-                  <PhoneIcon className="h-4 w-4" />
+                <Link href="tel:+19056346000" className={cs.btnLine}>
+                  <PhoneIcon aria-hidden="true" />
                   Call Clinic
                 </Link>
-                <Link
-                  href="/conditions/knee-pain"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                >
-                  Broader Knee Pain Guide
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
               </div>
-            </div>
-          </div>
-        </section>
+              <Link href="/conditions/knee-pain" className={g.more}>
+                Broader Knee Pain Guide
+                <ArrowRightIcon aria-hidden="true" />
+              </Link>
+            </header>
 
-        {/* Opening primer */}
-        <section className="py-10 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  A small anatomical area, a short list of likely causes
-                </h2>
-              </div>
+            {/* The patellar tendon plate (no caption on this guide). */}
+            <PlateFigure src="/images/conditions/patellar-tendinopathy.webp" priority />
 
-              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+            {/* Opening primer */}
+            <section className={g.sec}>
+              <Head title="A small anatomical area, a short list of likely causes" />
+              <div className={`${cs.prose} ${g.prose}`}>
                 <p>
                   When patients say the pain sits right below the kneecap, they are usually
                   pointing at the lower tip of the patella or the tendon that runs from there
@@ -495,26 +464,14 @@ export default function PainBelowKneecapGuidePage() {
                   Sorting between these is what the next section is about.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <RedFlagsBox flags={redFlags} />
+            <WarningPanel flags={redFlags} />
 
-        {/* One-finger test */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <HandRaisedIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  The one-finger test
-                </h2>
-              </div>
-
-              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+            {/* One-finger test */}
+            <section className={g.sec}>
+              <Head title="The one-finger test" />
+              <div className={`${cs.prose} ${g.prose}`}>
                 <p>
                   A simple thing I ask patients to do in the first visit: sit with the knee
                   comfortably bent and try to point to the single most tender spot with one
@@ -557,103 +514,62 @@ export default function PainBelowKneecapGuidePage() {
                   down before an assessment.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* Likely causes with links */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <MapPinIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Likely causes of pain below the kneecap
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                The scenarios below cover most of what I see in clinic for this specific
-                complaint. Where a deeper condition page exists on this site, the card links
-                straight to it.
-              </p>
+            {/* Likely causes with links */}
+            <section className={g.sec}>
+              <Head
+                title="Likely causes of pain below the kneecap"
+                stand={
+                  <>
+                    The scenarios below cover most of what I see in clinic for this specific
+                    complaint. Where a deeper condition page exists on this site, the card links
+                    straight to it.
+                  </>
+                }
+              />
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className={g.tileGrid}>
                 {linkedScenarios.map((scenario) => (
-                  <Link
-                    key={scenario.slug}
-                    href={`/conditions/${scenario.slug}`}
-                    className="group relative bg-white rounded-2xl shadow-sm border border-slate-100 hover:border-[#B08D57] hover:shadow-md transition-all overflow-hidden"
-                  >
-                    <div className="bg-gradient-to-r from-slate-900 to-slate-800 px-6 py-4">
-                      <h3 className="text-lg font-semibold text-white tracking-tight group-hover:text-[#B08D57] transition-colors">
-                        {scenario.label}
-                      </h3>
+                  <Link key={scenario.slug} href={`/conditions/${scenario.slug}`} className={g.tile}>
+                    <div className={g.tileTop}>
+                      <Thumb slug={scenario.slug} />
+                      <h3 className={g.tileName}>{scenario.label}</h3>
                     </div>
-                    <div className="p-6">
-                      <p className="text-sm font-semibold text-slate-900 mb-1">Pattern</p>
-                      <p className="text-slate-700 text-sm leading-relaxed mb-4">
-                        {scenario.pattern}
-                      </p>
-                      <p className="text-sm font-semibold text-slate-900 mb-1">Why it fits</p>
-                      <p className="text-slate-700 text-sm leading-relaxed">
-                        {scenario.note}
-                      </p>
-                      <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
-                        Read the {inlineName(scenario.conditionName)} guide
-                        <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                      </div>
-                    </div>
+                    <span className={`${g.label} ${cs.mono}`}>Pattern</span>
+                    <span className={g.tileText}>{scenario.pattern}</span>
+                    <span className={`${g.label} ${cs.mono}`}>Why it fits</span>
+                    <span className={g.tileText}>{scenario.note}</span>
+                    <span className={g.tileMore}>
+                      Read the {inlineName(scenario.conditionName)} guide
+                      <ArrowRightIcon aria-hidden="true" />
+                    </span>
                   </Link>
                 ))}
               </div>
 
               {unlinkedScenarios.length > 0 && (
-                <div className="mt-10">
-                  <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                    Also worth considering (assessed in clinic, no standalone page yet)
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-5">
+                <>
+                  <h3 className={g.sub}>Also worth considering (assessed in clinic, no standalone page yet)</h3>
+                  <ul className={g.rows} data-cols="2">
                     {unlinkedScenarios.map((scenario) => (
-                      <div
-                        key={scenario.label}
-                        className="bg-slate-50 rounded-xl p-5 border border-slate-200"
-                      >
-                        <h4 className="text-base font-semibold text-slate-900 mb-2">
-                          {scenario.label}
-                        </h4>
-                        <p className="text-sm font-semibold text-slate-700 mb-1">Pattern</p>
-                        <p className="text-base text-slate-700 leading-relaxed mb-3">
-                          {scenario.pattern}
-                        </p>
-                        <p className="text-sm font-semibold text-slate-700 mb-1">Why it fits</p>
-                        <p className="text-base text-slate-700 leading-relaxed">
-                          {scenario.note}
-                        </p>
-                      </div>
+                      <li key={scenario.label}>
+                        <h4 className={g.rowName}>{scenario.label}</h4>
+                        <span className={`${g.label} ${cs.mono}`}>Pattern</span>
+                        <p className={g.rowText}>{scenario.pattern}</p>
+                        <span className={`${g.label} ${cs.mono}`}>Why it fits</span>
+                        <p className={g.rowText}>{scenario.note}</p>
+                      </li>
                     ))}
-                  </div>
-                </div>
+                  </ul>
+                </>
               )}
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* How I approach it */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  How I approach pain below the kneecap in clinic
-                </h2>
-              </div>
-
-              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+            {/* How I approach it */}
+            <section className={g.sec}>
+              <Head title="How I approach pain below the kneecap in clinic" />
+              <div className={`${cs.prose} ${g.prose}`}>
                 <p>
                   The first appointment starts with questions. Age, the
                   activity the pain is tied to, how long it has been there, whether jumping and
@@ -679,241 +595,84 @@ export default function PainBelowKneecapGuidePage() {
                   cupping can sit alongside the loading work where they help it progress.
                 </p>
               </div>
-              <ConsentNote />
-            </div>
+              <Consent />
+            </section>
+
+            {/* FAQ */}
+            <section className={g.sec}>
+              <Head title="Pain-below-kneecap questions I hear most" />
+              <Faqs faqs={faqs} />
+            </section>
+
+            {/* Evidence */}
+            <section className={g.sec}>
+              <Head
+                title="Evidence this page is built on"
+                stand={
+                  <>
+                    Published sources that underpin the recommendations above. Research evolves,
+                    but these are the anchor references I rely on when I plan care for pain below
+                    the kneecap.
+                  </>
+                }
+              />
+              <Evidence items={research} />
+            </section>
+
+            {/* Related conditions */}
+            <section className={g.sec}>
+              <Head
+                title="Related knee conditions"
+                stand={
+                  <>
+                    Deeper pages for the specific conditions that most often explain pain below
+                    the kneecap, plus a few neighbours worth knowing about.
+                  </>
+                }
+              />
+              <RelatedConditions conditions={relatedConditions} />
+            </section>
+
+            {/* Related treatments */}
+            <section className={g.sec}>
+              <Head
+                title="Treatments that commonly sit inside a plan for pain below the kneecap"
+                stand={
+                  <>
+                    None of these are stand-alone fixes. They are pieces that fit inside a plan
+                    built around your specific diagnosis and goals.
+                  </>
+                }
+              />
+              <RelatedTreatments treatments={relatedTreatments} />
+            </section>
           </div>
-        </section>
+        </div>
 
-        {/* FAQ */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Pain-below-kneecap questions I hear most
-                </h2>
-              </div>
-
-              <div className="space-y-3">
-                {faqs.map((faq, index) => (
-                  <details
-                    key={index}
-                    className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-colors overflow-hidden"
-                  >
-                    <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4">
-                      <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                        {faq.question}
-                      </h3>
-                      <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform flex-shrink-0" />
-                    </summary>
-                    <div className="px-5 pb-5 pt-0">
-                      <p className="text-base text-slate-700 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Evidence */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <BeakerIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Evidence this page is built on
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                Published sources that underpin the recommendations above. Research evolves,
-                but these are the anchor references I rely on when I plan care for pain below
-                the kneecap.
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-5">
-                {research.map((item) => (
-                  <div
-                    key={item.title}
-                    className="bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 border border-slate-200"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#80650A] text-xs font-semibold uppercase tracking-wider">
-                        {item.year}
-                      </span>
-                      <span className="text-xs text-slate-500">{item.source}</span>
-                    </div>
-                    <h3 className="text-base font-semibold text-slate-900 leading-snug mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-slate-700 leading-relaxed">
-                      {item.summary}
-                    </p>
-                    <SourceLinks refs={item.refs} title={item.title} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Related conditions */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <HeartIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Related knee conditions
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                Deeper pages for the specific conditions that most often explain pain below
-                the kneecap, plus a few neighbours worth knowing about.
-              </p>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {relatedConditions.map((condition) => (
-                  <Link
-                    key={condition.slug}
-                    href={`/conditions/${condition.slug}`}
-                    className="group bg-white rounded-xl p-5 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-all flex flex-col"
-                  >
-                    <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-1">
-                      {condition.name}
-                    </h3>
-                    {condition.description && (
-                      <p className="text-xs text-slate-600 leading-relaxed flex-grow">
-                        {condition.description}
-                      </p>
-                    )}
-                    <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#8A6F0A]">
-                      Read the {inlineName(condition.name)} guide
-                      <ArrowRightIcon className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Related treatments */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Treatments that commonly sit inside a plan for pain below the kneecap
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                None of these are stand-alone fixes. They are pieces that fit inside a plan
-                built around your specific diagnosis and goals.
-              </p>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {relatedTreatments.map((treatment) => (
-                  <Link
-                    key={treatment.id}
-                    href={`/treatments/${treatment.id}`}
-                    className="group bg-gradient-to-br from-white to-amber-50/30 rounded-xl p-6 border border-amber-100 hover:border-[#B08D57] hover:shadow-lg transition-all flex flex-col"
-                  >
-                    <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
-                      {treatment.name}
-                    </h3>
-                    <p className="text-base text-slate-600 leading-relaxed flex-grow">
-                      {treatment.shortDescription}
-                    </p>
-                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
-                      Explore {treatment.name}
-                      <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Access and hours */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-[#B08D57] rounded-xl">
-                  <MapPinIcon className="h-5 w-5 text-white" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Access, hours, and how to book
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p className="text-slate-600 leading-relaxed">
-                    I see patients for knee pain at Endorphins Health & Wellness Centre in
-                    Burlington. The clinic serves people coming in from Burlington, Waterdown,
-                    Oakville, Hamilton, Flamborough, and Carlisle, with free parking on site
-                    and a ground-floor entrance.
-                  </p>
-                  <div className="mt-6 space-y-3 text-sm">
-                    <div className="flex items-start gap-3">
-                      <MapPinIcon className="h-5 w-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium text-slate-900">4631 Palladium Way, Unit 6</p>
-                        <p className="text-slate-600">Burlington, ON L7M 0W9</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <PhoneIcon className="h-5 w-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <a href="tel:+19056346000" className="font-medium text-slate-900 hover:text-[#B08D57] transition-colors">
-                          (905) 634-6000
-                        </a>
-                        <p className="text-slate-500 text-xs">Direct insurance billing available. No physician referral needed.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2 mb-3 text-sm text-[#8A6F0A] font-semibold uppercase tracking-wider">
-                    <ClockIcon className="h-4 w-4" />
-                    Burlington hours
-                  </div>
-                  <HoursList />
-
-                  <div className="mt-6">
-                    <Link
-                      href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="button-gold inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-colors"
-                    >
-                      <CalendarIcon className="h-4 w-4" />
-                      Book an Initial Knee Assessment
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+        <AccessClosing
+          title="Access, hours, and how to book"
+          text={
+            <>
+              I see patients for knee pain at Endorphins Health & Wellness Centre in
+              Burlington. The clinic serves people coming in from Burlington, Waterdown,
+              Oakville, Hamilton, Flamborough, and Carlisle, with free parking on site
+              and a ground-floor entrance.
+            </>
+          }
+          phoneNote="Direct insurance billing available. No physician referral needed."
+          book={
+            <Link
+              href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cs.btnLight}
+            >
+              Book an Initial Knee Assessment
+              <ArrowRightIcon aria-hidden="true" />
+            </Link>
+          }
+        />
+      </GuideMain>
     </>
   );
 }

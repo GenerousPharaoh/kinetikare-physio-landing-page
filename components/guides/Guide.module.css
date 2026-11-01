@@ -1,0 +1,969 @@
+/*
+ * Pain guides, scan-report guides and the comparison pages, set in the
+ * condition pages' language. Every page root carries the case template's
+ * root class (Case.module.css: tokens, element resets, headings, buttons,
+ * reveals, the closing band) plus `.guide` from this sheet for what those
+ * pages need beyond the case template: the reading layout with the plate
+ * beside it, the report-wording table, hairline disclosures built on
+ * <details> (they open without JavaScript), tiles, the warnings panel, the
+ * side-by-side comparison and the hours on the dark closing band.
+ *
+ * Specificity: rules are `.guide .x` (0,2,0); link colours add :not(#_) to
+ * beat the global link rule (0,5,1). No class name contains "card" or "btn"
+ * (globals.css restyles those substrings).
+ */
+
+.guide {
+  interpolate-size: allow-keywords;
+}
+
+/* ------------------------------------------------------------------ */
+/* Frame and layout                                                     */
+.guide .frame {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--hh) var(--gutter) 88px;
+}
+
+@media (min-width: 1024px) {
+  .guide .frame { padding: var(--hh) clamp(40px, 5vw, 72px) 112px; }
+}
+
+.guide .narrow { max-width: 1120px; }
+
+/* With a plate: the reading column and, on laptops, the plate beside it,
+   held in view while the page is read (the case template's viewer). The
+   plate's aside comes right after the opening in the HTML, so on phones it
+   sits under the opening and its caption keeps its place in the text. */
+@media (min-width: 1024px) {
+  .guide .layout[data-rail='true'] {
+    display: grid;
+    grid-template-columns: minmax(0, 720px) clamp(240px, 23vw, 300px);
+    justify-content: space-between;
+    column-gap: 48px;
+  }
+
+  .guide .layout[data-rail='true'] > * { grid-column: 1; }
+
+  .guide .layout[data-rail='true'] > .rail {
+    grid-column: 2;
+    grid-row: 1 / span 40;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--hh) + 40px);
+  }
+}
+
+.guide [id] { scroll-margin-top: calc(var(--hh) + 24px); }
+
+.guide .sec { margin-top: 64px; }
+
+@media (min-width: 1024px) {
+  .guide .sec { margin-top: 88px; }
+}
+
+.guide .read { max-width: 760px; }
+
+/* ------------------------------------------------------------------ */
+/* Opening                                                              */
+.guide .opening { padding-top: 28px; }
+
+@media (min-width: 1024px) {
+  .guide .opening { padding-top: 48px; }
+}
+
+.guide .opening h1 { max-width: 18ch; }
+
+.guide .local {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--soft);
+  max-width: 62ch;
+}
+
+@media (min-width: 1024px) {
+  .guide .local { font-size: 15px; }
+}
+
+.guide a.flagLink:not(#_) {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  margin-top: 10px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-color: rgba(200, 50, 43, 0.35);
+  text-underline-offset: 4px;
+}
+
+.guide a.flagLink:not(#_):hover { text-decoration-color: currentColor; }
+.guide .flagLink svg { width: 17px; height: 17px; flex: none; }
+
+/* Book and Call fill their row on phones; the third link is a quiet line. */
+@media (max-width: 639px) {
+  .guide .acts > a:not(#_) { flex: 1 1 auto; }
+}
+
+.guide a.more:not(#_) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 10px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--accent-ink);
+}
+
+.guide .more svg { width: 15px; height: 15px; transition: translate 0.3s var(--ease); }
+
+@media (hover: hover) {
+  .guide a.more:not(#_):hover svg { translate: 3px 0; }
+}
+
+/* The plate: a dark mount with the engraving on its paper. */
+.guide .rail {
+  margin-top: 28px;
+  padding: 12px;
+  border-radius: 18px;
+  background: var(--bg);
+}
+
+.guide .railImg {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.guide .railImg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.guide .railCap {
+  margin: 0;
+  padding: 12px 6px 4px;
+  color: var(--mut-d);
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .guide .rail { max-width: 420px; }
+}
+
+@media (min-width: 1024px) {
+  .guide .rail { margin-top: 56px; }
+}
+
+/* A section's own plate, floated beside its text from tablets up. */
+.guide .figure {
+  margin: 0 0 24px;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--bg);
+  max-width: 320px;
+}
+
+.guide .figure .railImg { border-radius: 9px; }
+.guide .figure .railCap { padding: 10px 4px 2px; }
+
+@media (min-width: 700px) {
+  .guide .figure { float: right; width: 260px; margin: 4px 0 20px 32px; }
+}
+
+.guide .clear::after { content: ''; display: block; clear: both; }
+
+/* ------------------------------------------------------------------ */
+/* Section heads and running text                                       */
+.guide .head { margin-bottom: 24px; }
+
+.guide .head .stand {
+  margin-top: 12px;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--soft);
+  max-width: 62ch;
+}
+
+.guide .intro {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--read);
+  max-width: 68ch;
+}
+
+.guide .prose { max-width: 720px; }
+
+.guide .prose > * + * { margin-top: 16px; }
+
+.guide .prose ul,
+.guide .points {
+  margin: 20px 0 24px;
+  border-top: 1px solid var(--line2);
+}
+
+.guide .prose ul > li,
+.guide .points > li {
+  position: relative;
+  margin: 0;
+  padding: 13px 0 13px 22px;
+  border-bottom: 1px solid var(--line);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--read);
+}
+
+.guide .prose ul > li::before,
+.guide .points > li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 23px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
+.guide .prose a:not(#_),
+.guide a.inline:not(#_) {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 107, 255, 0.35);
+  text-underline-offset: 3px;
+}
+
+.guide .prose a:not(#_):hover,
+.guide a.inline:not(#_):hover { text-decoration-color: currentColor; }
+
+.guide .sub {
+  margin: 40px 0 16px;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.guide .label {
+  display: block;
+  color: var(--soft);
+}
+
+/* ------------------------------------------------------------------ */
+/* Report wording: a hairline table on laptops, stacked rows on phones. */
+.guide .wording { margin: 26px 0 30px; clear: both; }
+
+.guide .wordTable {
+  display: none;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.guide .wordTable th {
+  padding: 0 24px 12px 0;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid var(--line2);
+  color: var(--soft);
+  font: 600 12px/1.4 var(--sans);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.guide .wordTable td {
+  padding: 16px 24px 16px 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--read);
+}
+
+.guide .wordTable td:first-child {
+  width: 32%;
+  font-size: 15.5px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.guide .wordTable tr > :last-child { padding-right: 0; }
+
+.guide .wordList { margin: 0; border-top: 1px solid var(--line2); }
+.guide .wordList > div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.guide .wordList dt { font-size: 16px; line-height: 1.45; font-weight: 600; color: var(--ink); }
+.guide .wordList dd { margin: 5px 0 0; font-size: 16px; line-height: 1.6; color: var(--read); }
+
+@media (min-width: 768px) {
+  .guide .wordTable { display: table; }
+  .guide .wordList { display: none; }
+}
+
+/* ------------------------------------------------------------------ */
+/* When to see a doctor first: one bordered panel, bands by urgency.    */
+.guide .warn {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line2);
+  border-radius: 16px;
+  padding: 6px 20px;
+}
+
+.guide .warn[data-top='emergency'] { border-left-color: var(--red); }
+.guide .warn[data-top='today'] { border-left-color: #c98a1e; }
+
+.guide .band { padding: 20px 0 8px; }
+.guide .band + .band { border-top: 1px solid var(--line2); }
+
+.guide .urg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.guide .urg i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.guide .urg[data-u='emergency'] { background: var(--red-soft); color: var(--red); }
+.guide .urg[data-u='today'] { background: var(--amber-soft); color: var(--amber); }
+.guide .urg[data-u='doctor'] { background: var(--tint); color: var(--soft); }
+
+.guide .bandList {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 32px;
+}
+
+.guide .bandList > li {
+  margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.guide .bandList > li:first-child { border-top: 0; }
+
+.guide .sign { font-size: 16px; line-height: 1.45; font-weight: 600; color: var(--ink); }
+.guide .action { margin-top: 5px; font-size: 16px; line-height: 1.55; color: var(--read); }
+
+@media (min-width: 640px) {
+  .guide .warn { padding: 8px 28px; }
+}
+
+@media (min-width: 768px) {
+  .guide .bandList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guide .bandList > li:nth-child(2) { border-top: 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Questions: hairline rows on <details>, so they open without
+   JavaScript and the browser's find-in-page reaches the answers. Where
+   the browser can animate the details content, the height eases.     */
+.guide .faq { border-top: 1px solid var(--line2); max-width: 760px; }
+
+.guide .disc { border-bottom: 1px solid var(--line); }
+
+.guide .disc::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.45s var(--ease), content-visibility 0.45s allow-discrete;
+}
+
+.guide .disc[open]::details-content { block-size: auto; }
+
+.guide .discSum {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 44px;
+  padding: 17px 0;
+  list-style: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.guide .discSum::-webkit-details-marker { display: none; }
+.guide .discSum::marker { content: ''; }
+
+.guide .discQ {
+  font-size: 16.5px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color 0.25s var(--ease);
+}
+
+.guide .discSum svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  color: var(--soft);
+  transition: rotate 0.4s var(--ease);
+}
+
+.guide .disc[open] .discSum svg { rotate: 45deg; }
+
+.guide .discSum:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.guide .discBody { padding: 0 0 22px; }
+.guide .discBody p { font-size: 16.5px; line-height: 1.65; color: var(--read); max-width: 64ch; }
+
+@media (hover: hover) {
+  .guide .discSum:hover .discQ { color: var(--accent-ink); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Tiles (evidence, related pages, scenarios)                           */
+.guide .tileGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+@media (min-width: 700px) {
+  .guide .tileGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1180px) {
+  .guide .layout:not([data-rail='true']) .tileGrid[data-cols='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.guide .tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.guide a.tile:not(#_) {
+  color: inherit;
+  transition: border-color 0.25s var(--ease), translate 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+@media (hover: hover) {
+  .guide a.tile:not(#_):hover {
+    border-color: var(--line2);
+    translate: 0 -2px;
+    box-shadow: 0 10px 30px rgba(11, 16, 23, 0.06);
+  }
+  .guide a.tile:not(#_):hover .tileMore svg { translate: 3px 0; }
+  .guide a.tile:not(#_):hover .tileName { color: var(--accent-ink); }
+}
+
+.guide .tileTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.guide .thumb {
+  position: relative;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.guide .thumb img { object-fit: cover; border-radius: 0; }
+
+.guide .tileMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-bottom: 10px;
+}
+
+.guide .tileMeta > span:first-child { color: var(--accent-ink); }
+.guide .tileSource { font-size: 14px; line-height: 1.45; color: var(--soft); }
+
+.guide .tileName {
+  text-wrap: pretty;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.25s var(--ease);
+}
+
+.guide .tileText {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--read);
+}
+
+.guide .tileText + .label { margin-top: 16px; }
+.guide .label + .tileText { margin-top: 4px; }
+
+.guide .tileMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--accent-ink);
+}
+
+.guide .tileMore svg { width: 15px; height: 15px; flex: none; transition: translate 0.3s var(--ease); }
+
+.guide .tileText:has(+ .refs) { margin-bottom: 16px; }
+
+.guide .refs {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.guide .refs a:not(#_),
+.guide .refs a:not(#_):hover {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 107, 255, 0.35);
+  text-underline-offset: 3px;
+}
+
+.guide .refs a:not(#_):hover { text-decoration-color: currentColor; }
+
+@media (min-width: 1024px) {
+  .guide .tileText { font-size: 15.5px; }
+}
+
+/* Hairline rows with a title (scenarios without a page, tests). */
+.guide .rows { border-top: 1px solid var(--line2); }
+
+.guide .rows > li {
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide .rowName { font-size: 17px; line-height: 1.4; font-weight: 600; color: var(--ink); }
+.guide .rowText { margin-top: 6px; font-size: 16px; line-height: 1.6; color: var(--read); }
+.guide .rowName + .label { margin-top: 12px; }
+.guide .rowText + .label { margin-top: 12px; }
+.guide .label + .rowText { margin-top: 4px; }
+
+@media (min-width: 900px) {
+  .guide .rows[data-cols='2'] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    border-top: 0;
+  }
+  .guide .rows[data-cols='2'] > li { border-top: 1px solid var(--line); border-bottom: 0; }
+  .guide .rows[data-cols='2'] > li:nth-child(-n + 2) { border-top-color: var(--line2); }
+  .guide .rows[data-cols='2'] > li:last-child,
+  .guide .rows[data-cols='2'] > li:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--line); }
+}
+
+/* Onset groups (fluid on the knee): a panel per group, causes as rows. */
+.guide .groups { display: grid; gap: 16px; }
+
+.guide .group {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 22px 8px;
+}
+
+.guide .group[data-tone='emergency'] { border-left: 3px solid var(--red); }
+
+.guide .groupName { font-size: 21px; line-height: 1.25; letter-spacing: -0.012em; font-weight: 600; color: var(--ink); }
+.guide .groupSub { margin-top: 6px; font-size: 16px; line-height: 1.5; color: var(--soft); }
+
+@media (min-width: 1024px) {
+  .guide .groupSub { font-size: 15.5px; }
+}
+.guide .groupText { margin-top: 14px; font-size: 16.5px; line-height: 1.65; color: var(--read); max-width: 68ch; }
+
+.guide .causes { margin-top: 18px; border-top: 1px solid var(--line2); }
+.guide .causes > li { margin: 0; border-bottom: 1px solid var(--line); }
+.guide .causes > li:last-child { border-bottom: 0; }
+
+.guide .cause {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 16px;
+  padding: 15px 0;
+}
+
+.guide a.cause:not(#_) { color: inherit; }
+.guide .causeName { font-size: 16.5px; line-height: 1.4; font-weight: 600; color: var(--ink); transition: color 0.25s var(--ease); }
+.guide .causeNote { grid-column: 1; margin-top: 4px; font-size: 16px; line-height: 1.6; color: var(--read); }
+.guide .cause svg { grid-column: 2; grid-row: 1; align-self: center; width: 16px; height: 16px; color: var(--soft); transition: translate 0.3s var(--ease), color 0.25s var(--ease); }
+
+.guide .causeFlag {
+  grid-column: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.guide .causeFlag i { flex: none; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.guide .causeFlag[data-u='emergency'] { background: var(--red-soft); color: var(--red); }
+.guide .causeFlag[data-u='medical'] { background: var(--amber-soft); color: var(--amber); }
+
+@media (hover: hover) {
+  .guide a.cause:not(#_):hover .causeName { color: var(--accent-ink); }
+  .guide a.cause:not(#_):hover svg { translate: 3px 0; color: var(--accent-ink); }
+}
+
+@media (min-width: 640px) {
+  .guide .group { padding: 28px 30px 10px; }
+}
+
+/* A quiet note panel. */
+.guide .note {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.guide .note[data-line='true'] { background: #fff; border: 1px solid var(--line); }
+.guide .note + .note,
+.guide .note + .warn,
+.guide .fitGrid + .note { margin-top: 12px; }
+
+.guide .noteName { font-size: 17px; line-height: 1.35; font-weight: 600; color: var(--ink); }
+.guide .noteText { margin-top: 8px; font-size: 16.5px; line-height: 1.65; color: var(--read); max-width: 72ch; }
+
+@media (min-width: 640px) {
+  .guide .note { padding: 26px 30px; }
+}
+
+/* Consent line. */
+.guide .consent {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line2);
+  display: flex;
+  gap: 12px;
+  max-width: 68ch;
+}
+
+.guide .consent p { font-size: 16px; line-height: 1.55; color: var(--soft); }
+.guide .consent svg { flex: none; width: 18px; height: 18px; color: var(--soft); margin-top: 3px; }
+
+@media (min-width: 1024px) {
+  .guide .consent p { font-size: 15px; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Comparison pages                                                     */
+.guide .pairGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .guide .pairGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+
+.guide .pairName { margin-top: 6px; font-size: 22px; line-height: 1.2; letter-spacing: -0.018em; font-weight: 600; color: var(--ink); transition: color 0.25s var(--ease); }
+
+@media (hover: hover) {
+  .guide a.tile:not(#_):hover .pairName { color: var(--accent-ink); }
+}
+
+@media (min-width: 1024px) {
+  /* Side by side: aspect, then one column per condition. The header row
+   stays under the site header while the rows scroll past. */
+.guide .vsTable {
+  display: none;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.guide .vsTable th {
+  position: sticky;
+  top: var(--hh);
+  z-index: 2;
+  padding: 14px 24px 12px 0;
+  background: #fff;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid var(--line2);
+  color: var(--soft);
+  font: 600 12px/1.4 var(--sans);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.guide .vsTable th .thumb { width: 32px; height: 32px; border-radius: 8px; }
+.guide .vsTable th > span:not(.thumb) { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); }
+
+.guide .vsTable td {
+  padding: 18px 24px 18px 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--read);
+}
+
+.guide .vsTable td:first-child {
+  width: 20%;
+  font-size: 15.5px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.guide .vsTable tr > :nth-child(3) { padding-left: 24px; border-left: 1px solid var(--line); }
+.guide .vsTable tr > :last-child { padding-right: 0; }
+
+.guide .vsList { border-top: 1px solid var(--line2); }
+.guide .vsList > div { padding: 18px 0 6px; border-bottom: 1px solid var(--line); }
+.guide .vsList dt { font-size: 17px; line-height: 1.4; font-weight: 600; color: var(--ink); }
+.guide .vsList dd { margin: 12px 0; }
+.guide .vsList dd > span { display: block; color: var(--accent-ink); }
+.guide .vsList dd p { margin-top: 4px; font-size: 16px; line-height: 1.6; color: var(--read); }
+.guide .vsList dd + dd { padding-top: 12px; border-top: 1px dashed var(--line); }
+
+@media (min-width: 768px) {
+  .guide .vsTable { display: table; }
+  .guide .vsList { display: none; }
+}
+
+/* Which pattern fits. */
+.guide .fitGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .guide .fitGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+
+.guide .fitHead { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+
+.guide .likely {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.guide .fitName { font-size: 20px; line-height: 1.25; letter-spacing: -0.014em; font-weight: 600; color: var(--ink); }
+
+/* Compare index: one row per pair, the two plates overlapping. */
+.guide .pairs { border-top: 1px solid var(--line2); }
+.guide .pairs > li { margin: 0; border-bottom: 1px solid var(--line); }
+
+.guide a.pairRow:not(#_) {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  column-gap: 18px;
+  padding: 22px 0;
+  color: inherit;
+}
+
+.guide .duo { position: relative; width: 76px; height: 48px; }
+.guide .duo .thumb { position: absolute; top: 0; box-shadow: 0 0 0 2px #fff; }
+.guide .duo .thumb + .thumb { left: 28px; }
+
+.guide .pairTitle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 19px;
+  line-height: 1.3;
+  letter-spacing: -0.014em;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.25s var(--ease);
+}
+
+.guide .pairTitle .vs { font-weight: 400; color: var(--soft); }
+.guide .pairTitle svg { flex: none; width: 18px; height: 18px; margin-top: 3px; color: var(--soft); transition: translate 0.3s var(--ease), color 0.25s var(--ease); }
+.guide .pairText { margin-top: 8px; font-size: 16px; line-height: 1.6; color: var(--read); max-width: 72ch; }
+
+@media (hover: hover) {
+  .guide a.pairRow:not(#_):hover .pairTitle { color: var(--accent-ink); }
+  .guide a.pairRow:not(#_):hover .pairTitle svg { translate: 3px 0; color: var(--accent-ink); }
+}
+
+@media (min-width: 768px) {
+  .guide a.pairRow:not(#_) { grid-template-columns: 96px minmax(0, 1fr); column-gap: 28px; padding: 26px 0; }
+  .guide .duo { width: 96px; height: 60px; }
+  .guide .duo .thumb { width: 60px; height: 60px; border-radius: 12px; }
+  .guide .duo .thumb + .thumb { left: 36px; }
+  .guide .pairTitle { font-size: 21px; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Closing band: access, hours and booking on the dark ground.          */
+.guide .access { margin-top: 0; }
+
+.guide .accessGrid {
+  max-width: 1056px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+}
+
+@media (min-width: 900px) {
+  .guide .accessGrid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 72px; }
+}
+
+.guide .contact { margin-top: 28px; display: grid; gap: 18px; }
+.guide .contact > li { display: flex; gap: 14px; margin: 0; }
+.guide .contact svg { flex: none; width: 20px; height: 20px; margin-top: 2px; color: var(--txt-d); opacity: 0.7; }
+.guide .contact b { display: block; font-size: 16px; line-height: 1.45; font-weight: 500; color: var(--txt-d); }
+.guide .contact span { display: block; font-size: 15px; line-height: 1.55; color: var(--mut-d); }
+.guide .contact a:not(#_) { font-size: 16px; font-weight: 500; color: var(--txt-d); text-decoration: underline; text-decoration-color: rgba(238, 241, 245, 0.3); text-underline-offset: 4px; }
+.guide .contact a:not(#_):hover { text-decoration-color: currentColor; }
+
+.guide .hoursHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--mut-d);
+  margin-bottom: 18px;
+}
+
+.guide .hoursHead svg { width: 16px; height: 16px; }
+
+.guide .hours { display: grid; gap: 26px; }
+.guide .clinicName { font-size: 16px; line-height: 1.4; font-weight: 600; color: var(--txt-d); }
+.guide .clinicStreet { margin-top: 2px; font-size: 14.5px; line-height: 1.5; color: var(--mut-d); }
+.guide .hours dl { margin: 10px 0 0; border-top: 1px solid var(--line-d); }
+
+.guide .hours dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line-d);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.guide .hours dt { color: var(--mut-d); }
+.guide .hours dd { margin: 0; text-align: right; font-weight: 500; color: var(--txt-d); font-variant-numeric: tabular-nums; }
+
+.guide .accessBook { margin-top: 28px; display: flex; }
+.guide .accessBook > a:not(#_) { flex: 1 1 auto; }
+
+@media (min-width: 640px) {
+  .guide .accessBook > a:not(#_) { flex: 0 1 auto; }
+}
+
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .guide .disc::details-content { transition: none; }
+}
+
+@media print {
+  .guide .disc::details-content { block-size: auto; content-visibility: visible; }
+  .guide .vsTable th { position: static; }
+  .guide .layout[data-rail='true'] > .rail { position: static; }
+}
+
+/* The closing band's paragraph runs wider than the case template's. */
+.guide p.accessText { max-width: 54ch; }
+
+/* Comparison opening: the text, and the two plates side by side. */
+.guide .diptych {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 10px;
+  border-radius: 18px;
+  background: var(--bg);
+  max-width: 460px;
+}
+
+.guide .diptych .railImg { border-radius: 9px; }
+
+@media (min-width: 1024px) {
+  .guide .openGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+    column-gap: clamp(48px, 6vw, 96px);
+    align-items: start;
+  }
+  .guide .openGrid .diptych { margin-top: 64px; max-width: none; }
+}
+
+.guide .sideLabel { color: var(--accent-ink); margin-bottom: 8px; }
+.guide .pairGrid .pairName { margin-top: 0; }
+
+/* The comparison's warnings: one bordered panel, sign then action. */
+.guide .warnNote { padding: 24px 22px 10px; }
+.guide .fitGrid + .noteGrid,
+.guide .noteGrid + .warnNote { margin-top: 12px; }
+
+/* "If you still cannot tell" and "When both are going on", side by side. */
+.guide .noteGrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+
+@media (min-width: 1024px) {
+  .guide .noteGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+
+.guide .noteGrid .note + .note { margin-top: 0; }
+
+.guide .flagRows { margin-top: 12px; }
+
+.guide .flagRows > li {
+  margin: 0;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--read);
+}
+
+.guide .flagRows .sign { font-weight: 600; color: var(--ink); }
+
+@media (min-width: 640px) {
+  .guide .warnNote { padding: 26px 30px 12px; }
+}
+
+.guide .claim { font-size: 16px; line-height: 1.6; color: var(--read); }
+.guide .claim + .tileSource { margin-top: 12px; margin-bottom: 14px; font-style: italic; }
+
+.guide .thumbLarge { width: 64px; height: 64px; border-radius: 12px; }
+.guide .tileTop .sideLabel { margin-bottom: 0; }
+.guide .fitGrid .more { margin-top: auto; padding-top: 12px; }
+.guide .fitHead + .noteText { margin-top: 14px; }

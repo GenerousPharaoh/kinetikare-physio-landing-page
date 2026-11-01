@@ -5,7 +5,9 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import ServicesHero from '@/components/services/ServicesHero';
-import { CheckIcon } from '@heroicons/react/24/outline';
+import { ArrowDownIcon, ArrowRightIcon, CheckIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import Reveal from '@/components/home/Reveal';
+import { geist } from '@/components/conditions/case/fonts';
 import styles from '@/components/services/Services.module.css';
 
 // Force static generation for better SEO
@@ -48,11 +50,11 @@ const services = [
     description: (
       <>
         Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted soft tissue techniques.{' '}
-        <Link href="/treatments/joint-mobilization" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/joint-mobilization" className={styles.link}>
           Learn about joint mobilization
         </Link>
         {' '}or{' '}
-        <Link href="/treatments/soft-tissue-myofascial-release" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/soft-tissue-myofascial-release" className={styles.link}>
           myofascial release techniques
         </Link>
         .
@@ -71,7 +73,7 @@ const services = [
     description: (
       <>
         Rehabilitation for active people recovering from injury, with a planned, tested return to their sport.{' '}
-        <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/sports-rehab-return-to-sport" className={styles.link}>
           Read about my sports rehabilitation approach
         </Link>
         .
@@ -90,11 +92,11 @@ const services = [
     description: (
       <>
         Thin filiform needles placed in tight or tender muscle; it can help ease muscular pain and tension alongside exercise.{' '}
-        <Link href="/treatments/dry-needling" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/dry-needling" className={styles.link}>
           Learn about dry needling
         </Link>
         {' '}or{' '}
-        <Link href="/faq" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className={styles.link}>
           read common questions
         </Link>
         .
@@ -113,11 +115,11 @@ const services = [
     description: (
       <>
         Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.{' '}
-        <Link href="/treatments/exercise-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/exercise-therapy" className={styles.link}>
           Explore exercise therapy
         </Link>
         {' '}or{' '}
-        <Link href="/faq" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className={styles.link}>
           read common questions
         </Link>
         .
@@ -136,11 +138,11 @@ const services = [
     description: (
       <>
         A look at how you sit, stand, move and work, with changes that can ease pain and lower the load on sore areas.{' '}
-        <Link href="/treatments/postural-assessment" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/postural-assessment" className={styles.link}>
           Learn about postural assessment
         </Link>
         {' '}or{' '}
-        <Link href="/faq" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className={styles.link}>
           read common questions
         </Link>
         .
@@ -159,15 +161,15 @@ const services = [
     description: (
       <>
         Pain education, exercise, and hands-on options such as cupping and IASTM, which can help with short-term pain relief.{' '}
-        <Link href="/treatments/cupping-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/cupping-therapy" className={styles.link}>
           Learn about cupping
         </Link>
         ,{' '}
-        <Link href="/treatments/iastm" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/iastm" className={styles.link}>
           IASTM
         </Link>
         , or{' '}
-        <Link href="/treatments/pain-education" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/pain-education" className={styles.link}>
           pain education
         </Link>
         .
@@ -179,6 +181,25 @@ const services = [
       'Cupping',
       'Pain education and self-management'
     ],
+  },
+];
+
+const processSteps = [
+  {
+    title: "Patient-Led Discovery",
+    description: "You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.",
+  },
+  {
+    title: "Assessment",
+    description: "A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.",
+  },
+  {
+    title: "Treatment",
+    description: "Manual therapy, exercise and education, chosen from current evidence and your assessment findings.",
+  },
+  {
+    title: "Adaptive Progress",
+    description: "Your program changes as you respond to it, and you and I agree on each change.",
   },
 ];
 
@@ -321,7 +342,7 @@ export default function ServicesPage() {
   };
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${geist.variable}`}>
       {/* Breadcrumb Schema Markup */}
       <script
         type="application/ld+json"
@@ -348,205 +369,77 @@ export default function ServicesPage() {
       <ServicesHero />
 
       <section id="services-grid" className={styles.directory} aria-label="Physiotherapy services">
-        <div className={styles.directoryInner}>
-          <nav className={styles.serviceNav} aria-label="Explore services">
-            <p className={styles.eyebrow}>Explore services</p>
-            <ul>
-              {services.map((service, index) => (
+        <div className={styles.wrap}>
+          <nav aria-label="Explore services">
+            <Reveal as="span" variant="rule" className={styles.accentBar} />
+            <p className={`${styles.navLabel} ${styles.mono}`}>Explore services</p>
+            <ul className={styles.chips}>
+              {services.map((service) => (
                 <li key={service.id}>
-                  <a href={`#${service.id}`}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{service.title}</span></a>
+                  <a href={`#${service.id}`}>
+                    {service.title}
+                    <ArrowDownIcon aria-hidden="true" />
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
-          <div>
+          <div className={styles.services}>
             {services.map((service, index) => (
-              <article key={service.id} id={service.id} className={styles.service} tabIndex={-1} aria-labelledby={`${service.id}-heading`}>
-                <div className={styles.serviceHeading}>
-                  <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                  <h2 id={`${service.id}-heading`}>{service.title}</h2>
-                </div>
-                <div className={styles.serviceBody}>
-                  <p>{service.description}</p>
-                  <div>
-                    <h3>Includes</h3>
-                    <ul className={styles.features}>{service.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+              <Reveal as="div" key={service.id} delay={(index % 2) * 80}>
+                <article id={service.id} className={styles.service} tabIndex={-1} aria-labelledby={`${service.id}-heading`}>
+                  <h2 id={`${service.id}-heading`} className={styles.serviceTitle}>{service.title}</h2>
+                  <p className={styles.serviceBody}>{service.description}</p>
+                  <div className={styles.includes}>
+                    <div className={styles.includesInner}>
+                      <h3 className={`${styles.includesLabel} ${styles.mono}`}>Includes</h3>
+                      <ul className={styles.features}>{service.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section - Refined */}
-      <section data-treatment-process className="py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
-        {/* Premium Background Effects */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(176, 141, 87, 0.05) 0%, transparent 50%)',
-        }}></div>
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-[#B08D57]/3 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tl from-[#D4AF37]/3 to-transparent rounded-full blur-3xl"></div>
-        
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#B08D57]/20 rounded-full"></div>
-          <div className="absolute top-3/4 right-1/3 w-3 h-3 bg-[#D4AF37]/20 rounded-full"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-[#B08D57]/20 rounded-full"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-20">
-            {/* Badge */}
-            <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#8A6F0A] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
-              <span className="uppercase tracking-wider">Treatment Journey</span>
-            </div>
-            
-            {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-medium mb-8 text-primary-800">
-              The Treatment <span className="text-[#B08D57]">Process</span>
-            </h2>
-            
-            {/* Elegant Divider */}
-            <div className="flex items-center justify-center gap-4 mb-10">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-              <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent"></div>
-            </div>
-            
-            <p className="text-lg md:text-xl text-primary-600 leading-relaxed font-light max-w-3xl mx-auto" style={{lineHeight: '1.8'}}>
-              What to expect when you see me
-            </p>
-          </div>
-          
-          {/* Sophisticated Treatment Flow */}
-          <div className="max-w-7xl mx-auto">
-            {/* Flow Container */}
-            <div className="relative">
-              {/* Premium Connection Line with Animation */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-0">
-                <div className="h-0.5 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent"></div>
-                <div className="h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent absolute inset-0"></div>
-              </div>
-              
-              {/* Process Steps */}
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-4">
-                {[
-                  {
-                    title: "Patient-Led Discovery",
-                    description: "You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.",
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                      </svg>
-                    ),
-                    gradient: "from-[#B08D57] to-[#D4AF37]"
-                  },
-                  {
-                    title: "Assessment",
-                    description: "A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.",
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                    ),
-                    gradient: "from-[#B08D57] to-[#D4AF37]"
-                  },
-                  {
-                    title: "Treatment",
-                    description: "Manual therapy, exercise and education, chosen from current evidence and your assessment findings.",
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                      </svg>
-                    ),
-                    gradient: "from-[#B08D57] to-[#D4AF37]"
-                  },
-                  {
-                    title: "Adaptive Progress",
-                    description: "Your program changes as you respond to it, and you and I agree on each change.",
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    ),
-                    gradient: "from-[#B08D57] to-[#D4AF37]"
-                  }
-                ].map((step, index) => (
-                  <div key={index} className="group relative">
-                    {/* Process Card */}
-                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-premium-1 hover:shadow-premium-2 border border-slate-200/60 hover:border-[#B08D57]/40 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-[340px] flex flex-col group cursor-default" style={{
-                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                      animationDelay: `${index * 0.1}s`
-                    }}>
-                      {/* Premium Background Effects - Removed tacky colored overlay */}
-                      
-                      {/* Subtle Background */}
-                      <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500"></div>
-                      
-                      {/* Content */}
-                      <div className="relative z-10 text-center flex flex-col h-full">
-                        {/* Icon Container */}
-                        <div className="relative mx-auto mb-6 w-20 h-20 flex items-center justify-center">
-                          {/* Icon Background */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl group-hover:scale-105 transition-all duration-500"></div>
-                          
-                          {/* Icon */}
-                          <div className="relative z-10 text-white transition-transform duration-300">
-                            {step.icon}
-                          </div>
-            </div>
-            
-                        {/* Title */}
-                        <h3 className="text-xl font-medium mb-4 text-primary-800 group-hover:text-[#B08D57] transition-all duration-500 leading-tight">
-                          {step.title}
-                        </h3>
-                        
-                        {/* Description */}
-                        <p className="text-primary-600 leading-relaxed text-sm font-light group-hover:text-primary-700 transition-colors duration-300 flex-1">
-                          {step.description}
-                        </p>
-                        
-                        {/* Premium Accent Line */}
-                        <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-20 transition-all duration-500"></div>
-            </div>
-            
-                      {/* Premium Hover Effects */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none"></div>
-                      
-                      {/* Shimmer Effect */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-2xl overflow-hidden">
-                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[3000ms] ease-in-out" style={{
-                          background: 'linear-gradient(105deg, transparent 40%, rgba(212, 175, 55, 0.1) 50%, transparent 60%)',
-                          transform: 'skewX(-25deg)'
-                        }}></div>
-                      </div>
-            </div>
-            
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* The treatment process */}
+      <section data-treatment-process className={styles.process} aria-labelledby="process-heading">
+        <div className={styles.wrap}>
+          <Reveal as="div" className={styles.secHead}>
+            <Reveal as="span" variant="rule" className={styles.accentBar} />
+            <span className={`${styles.secLabel} ${styles.mono}`}>Treatment Journey</span>
+            <h2 id="process-heading" className={styles.h2}>The Treatment Process</h2>
+            <p className={styles.stand}>What to expect when you see me</p>
+          </Reveal>
+          <ol className={styles.track}>
+            {processSteps.map((step, index) => (
+              <Reveal as="li" key={step.title} delay={index * 90}>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepBody}>{step.description}</p>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </section>
 
       <section className={styles.insurance} aria-labelledby="insurance-heading">
-        <div className={styles.sectionInner}>
-          <div className={styles.sectionHeading}>
-            <div><p className={styles.eyebrow}>Insurance &amp; Billing</p><h2 id="insurance-heading">Insurance Coverage</h2></div>
-            <p>Physiotherapy services are covered by most extended health insurance plans</p>
-          </div>
-          <div className={styles.billingGrid}>
+        <div className={styles.wrap}>
+          <Reveal as="div" className={styles.secHead}>
+            <Reveal as="span" variant="rule" className={styles.accentBar} />
+            <p className={`${styles.secLabel} ${styles.mono}`}>Insurance &amp; Billing</p>
+            <h2 id="insurance-heading" className={styles.h2}>Insurance Coverage</h2>
+            <p className={styles.stand}>Physiotherapy services are covered by most extended health insurance plans</p>
+          </Reveal>
+          <div className={styles.billing}>
             <div>
-              <h3>Direct Billing Available</h3>
+              <h3 className={styles.h3}>Direct Billing Available</h3>
               <p className={styles.billingIntro}>Direct billing available with major insurance providers:</p>
               <ul className={styles.providers}>
                 {['Canada Life', 'Sun Life', 'Manulife', 'Green Shield Canada', 'Blue Cross', 'Desjardins', 'TELUS Health'].map(provider => <li key={provider}>{provider}</li>)}
               </ul>
               <p className={styles.providerNote}>and many more providers</p>
-              <p className={styles.eyebrow}>Session Fees</p>
+              <p className={`${styles.feesLabel} ${styles.mono}`}>Session Fees</p>
               <dl className={styles.fees}>
                 <div><dt>Initial Assessment (45 min)</dt><dd>$110</dd></div>
                 <div><dt>Follow-up (30 min)</dt><dd>$90</dd></div>
@@ -555,26 +448,34 @@ export default function ServicesPage() {
               </dl>
             </div>
             <aside className={styles.coverage} aria-labelledby="coverage-help-heading">
-              <h3 id="coverage-help-heading">Need Coverage Help?</h3>
-              <p>If you're unsure whether direct billing is available for your plan, reception at Endorphins can check what your plan covers.</p>
-              <ul className={styles.features}>
+              <h3 id="coverage-help-heading" className={styles.h3}>Need Coverage Help?</h3>
+              <p>If you&apos;re unsure whether direct billing is available for your plan, reception at Endorphins can check what your plan covers.</p>
+              <ul className={styles.rows}>
                 <li>Coverage questions answered by reception</li><li>Direct billing at Endorphins when your plan allows it</li>
               </ul>
-              <a href="tel:+19056346000" className={styles.textLink}>Call reception, (905) 634-6000</a>
+              <a href="tel:+19056346000" className={styles.goLine}>
+                <PhoneIcon aria-hidden="true" />
+                Call reception, (905) 634-6000
+              </a>
             </aside>
           </div>
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="services-booking-heading">
-        <div className={styles.ctaInner}>
-          <div className={styles.ctaContent}>
+      <section className={styles.closing} aria-labelledby="services-booking-heading">
+        <div className={styles.wrap}>
+          <div className={styles.closingGrid}>
             <div>
-              <p className={styles.eyebrow}>Next Steps</p>
-              <h2 id="services-booking-heading">Book an Assessment</h2>
-              <p>Book an initial assessment online. No referral is needed, and direct billing is available at Endorphins.</p>
+              <p className={`${styles.closingLabel} ${styles.mono}`}>Next Steps</p>
+              <h2 id="services-booking-heading" className={styles.closingTitle}>Book an Assessment</h2>
+              <p className={styles.closingText}>Book an initial assessment online. No referral is needed, and direct billing is available at Endorphins.</p>
             </div>
-            <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
+            <div>
+              <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={styles.goLight}>
+                Book Your Assessment
+                <ArrowRightIcon aria-hidden="true" />
+              </a>
+            </div>
           </div>
           <ul className={styles.trust}>
             {['Direct Insurance Billing', 'Evidence-Informed Treatment', 'Personalized Care'].map(item => <li key={item}><CheckIcon aria-hidden="true" />{item}</li>)}

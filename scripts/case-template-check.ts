@@ -54,7 +54,7 @@ async function main() {
     for (const s of c.clinicalPresentation?.primarySymptoms ?? []) if (!has(html, s)) problems.push(`symptom missing: ${s.slice(0, 40)}`);
     for (const f of c.clinicalRedFlags ?? []) if (!has(html, f.sign)) problems.push(`red flag missing: ${f.sign.slice(0, 40)}`);
     const sources: string[] = html.match(/data-booking-source="[a-z_]+"/g) ?? [];
-    for (const s of ['condition_intro', 'condition_footer', 'condition_rail', 'condition_bar']) {
+    for (const s of ['condition_intro', 'condition_footer', 'condition_rail']) {
       if (!sources.includes(`data-booking-source="${s}"`)) problems.push(`booking source ${s} missing`);
     }
     if (problems.length) failures.push(`${c.slug}: ${problems.join('; ')}`);

@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowRightIcon, ListBulletIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
-import { useModalDialog } from '@/hooks/useModalDialog';
 import CasePlate from './CasePlate';
 import styles from './Case.module.css';
 
@@ -84,16 +83,40 @@ export default function CaseInstrument({
     };
   }, [ids, slug]);
 
-  // The site's dialog model: inert outside, Tab trapped, Escape closes,
-  // focus returns to the strip button.
-  useModalDialog(open, sheetRef, () => setOpen(false));
+  // The section panel drops down from the strip (the strip stays visible, so
+  // its button both opens and closes). Escape or a tap outside closes it;
+  // focus moves to the first link and back to the button on close; the page
+  // behind does not scroll meanwhile (locked on the root, not the body, so
+  // the sticky strip keeps its place).
+  const listBtnRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const root = document.documentElement;
+    const btn = listBtnRef.current;
+    const panel = sheetRef.current;
+    const prev = root.style.overflow;
+    root.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    const first = sheetRef.current?.querySelector<HTMLElement>('a');
+    requestAnimationFrame(() => first?.focus({ preventScroll: true }));
+    return () => {
+      root.style.overflow = prev;
+      document.removeEventListener('keydown', onKey);
+      // Back to the button unless a chosen section already took focus.
+      const a = document.activeElement;
+      if (!a || a === document.body || panel?.contains(a)) btn?.focus({ preventScroll: true });
+    };
+  }, [open]);
 
   // Keep the active tab in view in the phone strip as the reader scrolls.
   useEffect(() => {
     const row = tabsRef.current;
     const tab = row?.querySelector<HTMLElement>('[aria-current]');
     if (!row || !tab) return;
-    const left = tab.offsetLeft - 10;
+    const left = tab.getBoundingClientRect().left - row.getBoundingClientRect().left + row.scrollLeft - 10;
     if (Math.abs(row.scrollLeft - left) > 2) row.scrollTo({ left, behavior: 'smooth' });
   }, [active]);
 
@@ -211,22 +234,16 @@ export default function CaseInstrument({
             </a>
           ))}
         </nav>
-        <button type="button" className={`${styles.plain} ${styles.stripList}`} aria-haspopup="dialog" aria-expanded={open} aria-label={`All sections. Reading: ${current}`} onClick={() => setOpen(true)}>
-          <ListBulletIcon aria-hidden="true" />
+        <button ref={listBtnRef} type="button" className={`${styles.plain} ${styles.stripList}`} aria-expanded={open} aria-controls="case-section-panel" aria-label={open ? 'Close the section list' : `All sections. Reading: ${current}`} onClick={() => setOpen((v) => !v)}>
+          {open ? <XMarkIcon aria-hidden="true" /> : <ListBulletIcon aria-hidden="true" />}
         </button>
         <span aria-hidden="true" className={styles.stripProgress} />
       </div>
 
       {open && (
         <>
-          <div className={styles.backdrop} data-dialog-backdrop onClick={() => setOpen(false)} aria-hidden="true" />
-          <div ref={sheetRef} className={styles.sheetNav} role="dialog" aria-modal="true" aria-label="On this page" tabIndex={-1}>
-            <div className={styles.sheetHead}>
-              <span className={styles.sheetName}>{name}</span>
-              <button type="button" className={`${styles.plain} ${styles.sheetClose}`} aria-label="Close" onClick={() => setOpen(false)}>
-                <XMarkIcon aria-hidden="true" />
-              </button>
-            </div>
+          <div className={styles.backdrop} onClick={() => setOpen(false)} aria-hidden="true" />
+          <div ref={sheetRef} id="case-section-panel" className={styles.panelNav}>
             <nav aria-label="On this page" data-case-index="">{index}</nav>
           </div>
         </>

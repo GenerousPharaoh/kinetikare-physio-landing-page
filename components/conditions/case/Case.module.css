@@ -529,67 +529,74 @@
   transition: width 0.3s var(--ease);
 }
 
+/* The section panel: continues the strip downward, over a dimmed page. */
 .case .backdrop {
   position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: rgba(11, 16, 23, 0.55);
+  inset: calc(var(--hh) + var(--bar-h)) 0 0;
+  z-index: 25;
+  background: rgba(11, 16, 23, 0.5);
   animation: fadeIn 0.25s var(--ease);
 }
 
-.case .sheetNav {
+.case .panelNav {
   position: fixed;
-  inset: auto 0 0;
-  z-index: 70;
-  background: var(--sheet);
-  border-radius: 16px 16px 0 0;
-  padding: 16px var(--gutter) calc(14px + env(safe-area-inset-bottom));
-  max-height: calc(100dvh - var(--hh) - 24px);
+  left: 0;
+  right: 0;
+  top: calc(var(--hh) + var(--bar-h));
+  z-index: 28;
+  max-height: calc(100dvh - var(--hh) - var(--bar-h));
   overflow: auto;
-  animation: sheetIn 0.32s var(--ease);
+  padding: 6px var(--gutter) 18px;
+  background: var(--bg);
+  color: var(--txt-d);
+  border-top: 1px solid var(--line-d);
+  border-bottom: 1px solid var(--line-d2);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35);
+  animation: dropIn 0.28s var(--ease);
+  transform-origin: top center;
 }
 
-.case .sheetHead {
+.case .panelNav nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 8px;
+  padding-top: 10px;
+}
+
+.case .panelNav a:not(#_) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 6px;
-  color: var(--soft);
-}
-
-.case .sheetClose {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--soft);
-}
-
-.case .sheetClose svg { width: 18px; height: 18px; }
-
-.case .sheetNav a:not(#_) {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 50px;
-  border-top: 1px solid var(--line);
-  font-size: 16px;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 12px 0 14px;
+  border: 1px solid var(--line-d);
+  border-radius: 10px;
+  font-size: 14.5px;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--txt-d);
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
-.case .sheetNav a:not(#_) .mono { color: var(--soft); }
-.case .sheetNav a:not(#_)[aria-current] { color: var(--accent-ink); }
-.case .sheetNav a svg { width: 14px; height: 14px; color: var(--soft); }
+.case .panelNav a:not(#_)[aria-current] {
+  background: var(--txt-d);
+  border-color: var(--txt-d);
+  color: var(--bg);
+}
+
+.case .panelNav a:not(#_):active { background: var(--bg2); }
+.case .panelNav a svg { width: 13px; height: 13px; color: currentColor; opacity: 0.6; flex: none; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes sheetIn { from { translate: 0 24px; opacity: 0; } to { translate: 0 0; opacity: 1; } }
+@keyframes dropIn { from { translate: 0 -10px; opacity: 0; } to { translate: 0 0; opacity: 1; } }
+
+@media (max-width: 359px) {
+  .case .panelNav nav { grid-template-columns: 1fr; }
+}
 
 @media (min-width: 1024px) {
   .case .strip,
-  .case .sheetNav,
+  .case .panelNav,
   .case .backdrop { display: none; }
 }
 
@@ -1505,41 +1512,6 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* The site's floating Book/Call pills are not needed here (the template
-   has its own); hide them before hydration too. */
-:global(body):has(.case) :global([data-floating-pills]) { display: none !important; }
-
-/* Phone action bar                                                     */
-.case .actionBar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 40;
-  display: flex;
-  gap: 10px;
-  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
-  background: rgba(11, 16, 23, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid var(--line-d);
-  translate: 0 110%;
-  transition: translate 0.45s var(--ease);
-}
-
-.case .actionBar[data-show='true'] { translate: 0 0; }
-.case .actionBar a.btnLight:not(#_) { min-height: 48px; }
-.case .actionBar a.btnDark:not(#_) { width: 48px; min-height: 48px; padding: 0; }
-
-@media (min-width: 1024px) {
-  .case .actionBar { display: none; }
-}
-
-@media (max-width: 1023px) {
-  .case .sheet { padding-bottom: 104px; }
-}
-
-/* ------------------------------------------------------------------ */
 /* Closing band                                                         */
 .case .closing {
   background: var(--bg);
@@ -1658,9 +1630,8 @@
   .case .discBody { visibility: visible !important; grid-template-rows: 1fr !important; }
   .case .instrument,
   .case .strip,
-  .case .sheetNav,
-  .case .backdrop,
-  .case .actionBar { display: none !important; }
+  .case .panelNav,
+  .case .backdrop { display: none !important; }
   .case .shell { grid-template-columns: 1fr; }
   .case .discBody { grid-template-rows: 1fr !important; }
 }

@@ -31,7 +31,6 @@ import { CONDITION_PLATES } from '@/lib/condition-plates';
 import { geist } from './fonts';
 import CasePlate from './CasePlate';
 import CaseInstrument from './CaseInstrument';
-import CaseActionBar from './CaseActionBar';
 import CasePhases from './CasePhases';
 import CaseDisclosure from './CaseDisclosure';
 import CaseQuiz from './CaseQuiz';
@@ -815,7 +814,6 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
         )}
       </section>
 
-      <CaseActionBar />
     </main>
   );
 }

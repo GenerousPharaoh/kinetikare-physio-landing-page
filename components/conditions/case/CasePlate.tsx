@@ -2,28 +2,28 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import styles from './Atlas.module.css';
 
 /**
- * A condition's engraved plate, mounted as a print (paper, a gold hairline
- * inset) and faded in over its paper once the file arrives, so a move from
- * one condition to the next reads as ink appearing on the page. Keyed on the
- * slug by the caller so the fade plays per condition.
+ * A condition's engraved plate, faded in over its paper once the file
+ * arrives. The caller supplies the frame (viewer, thumb, figure) through
+ * `className`; the stylesheet styles the image by that frame.
  */
-export default function AtlasPlate({
+export default function CasePlate({
   slug,
   sizes,
   priority = false,
   className = '',
+  zoom = false,
 }: {
   slug: string;
   sizes: string;
   priority?: boolean;
   className?: string;
+  zoom?: boolean;
 }) {
   const [loaded, setLoaded] = useState(false);
   return (
-    <div className={`${styles.mount} ${className}`} data-loaded={loaded ? 'true' : 'false'} aria-hidden="true">
+    <div className={className} data-loaded={loaded ? 'true' : 'false'} data-zoom={zoom ? 'true' : 'false'} aria-hidden="true">
       <Image
         src={`/images/conditions/${slug}.webp`}
         width={600}

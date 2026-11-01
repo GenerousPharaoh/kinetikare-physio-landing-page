@@ -1,14 +1,11 @@
 'use client';
 
 import { useId, useState, type ReactNode } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import styles from './Atlas.module.css';
+import { PlusIcon } from '@heroicons/react/24/outline';
+import styles from './Case.module.css';
 
-/**
- * A hairline disclosure (a question, "Contributing factors") whose body opens
- * with an eased height. The body is always in the HTML.
- */
-export default function AtlasDisclosure({
+/** A row that opens with an eased height; the body is always in the HTML. */
+export default function CaseDisclosure({
   title,
   children,
   headingLevel = 3,
@@ -23,9 +20,9 @@ export default function AtlasDisclosure({
   return (
     <div className={styles.discItem} data-open={open ? 'true' : 'false'}>
       <Tag>
-        <button type="button" className={styles.discBtn} aria-expanded={open} aria-controls={id} onClick={() => setOpen((v) => !v)}>
+        <button type="button" className={`${styles.plain} ${styles.discBtn}`} aria-expanded={open} aria-controls={id} onClick={() => setOpen((v) => !v)}>
           <span>{title}</span>
-          <ChevronDownIcon aria-hidden="true" />
+          <PlusIcon aria-hidden="true" />
         </button>
       </Tag>
       <div className={styles.discBody} id={id}>

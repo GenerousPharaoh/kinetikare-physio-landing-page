@@ -1,9 +1,9 @@
 /**
- * Which condition pages render with the atlas template
- * (components/conditions/atlas/ConditionAtlasPage.tsx) while it is piloted.
- * Everything else keeps ConditionFlowPage. Remove the switch once the atlas
+ * Which condition pages render with the "case" template
+ * (components/conditions/case/ConditionCasePage.tsx) while it is piloted.
+ * Everything else keeps ConditionFlowPage. Remove the switch once the new
  * template has rolled out to every page.
  */
-export const ATLAS_SLUGS = new Set<string>(['patellar-tendinopathy']);
+export const CASE_SLUGS = new Set<string>(['patellar-tendinopathy']);
 
-export const usesAtlasLayout = (slug: string) => ATLAS_SLUGS.has(slug);
+export const usesCaseLayout = (slug: string) => CASE_SLUGS.has(slug);

@@ -22,10 +22,10 @@ export default function FloatingButtons() {
   // from the start, as before.
   const [pastHero, setPastHero] = useState(true);
 
-  // Atlas condition pages carry their own booking bar and rail link.
-  const [atlasPage, setAtlasPage] = useState(false);
+  // Condition pages on the case template carry their own booking bar.
+  const [casePage, setCasePage] = useState(false);
   useEffect(() => {
-    setAtlasPage(document.querySelector('[data-atlas-page]') !== null);
+    setCasePage(document.querySelector('[data-case-page]') !== null);
   }, [pathname]);
   useEffect(() => {
     if (pathname !== '/') {
@@ -165,7 +165,7 @@ export default function FloatingButtons() {
 
   // The /intake ads landing page has its own sticky Book/Call bar, and
   // /contact is the contact surface itself, so neither gets the pills.
-  if (pathname === BOOKING_PAGE_PATH || pathname === '/contact' || atlasPage) {
+  if (pathname === BOOKING_PAGE_PATH || pathname === '/contact' || casePage) {
     return null;
   }
 

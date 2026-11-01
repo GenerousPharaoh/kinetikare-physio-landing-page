@@ -5,7 +5,6 @@ import {
   ArrowDownIcon,
   ArrowRightIcon,
   ChevronRightIcon,
-  ExclamationTriangleIcon,
   PhoneIcon,
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
@@ -21,32 +20,34 @@ import { guidesForRegion } from '@/lib/pain-guides';
 import { differentialHref, linkedDifferentialSlugs } from '@/lib/differential-links';
 import { CATEGORY_PRINT, ILLUSTRATIONS } from '@/lib/illustrations';
 import { getComparisonsForCondition } from '@/lib/condition-comparisons';
-import { groupRedFlags, redFlagSummary, type RedFlagUrgency } from '@/lib/red-flags';
+import { groupRedFlags, redFlagSummary, redFlagUrgency, type RedFlagUrgency } from '@/lib/red-flags';
 import { CONDITION_KEY_POINTS } from '@/lib/condition-key-points';
+import { splitPhaseTitle } from '@/lib/phase-title';
 import Print from '@/components/Print';
 import Reveal from '@/components/home/Reveal';
-import { playfairItalic } from '@/components/home/fonts';
 import GlossaryText from '../GlossaryText';
 import { comparisonQuestion } from '../ComparisonCrossLinks';
 import { CONDITION_PLATES } from '../RegionAnatomy';
-import AtlasPlate from './AtlasPlate';
-import AtlasRail from './AtlasRail';
-import AtlasActionBar from './AtlasActionBar';
-import AtlasPhases from './AtlasPhases';
-import AtlasDisclosure from './AtlasDisclosure';
-import AtlasQuiz from './AtlasQuiz';
-import AtlasResearch from './AtlasResearch';
-import styles from './Atlas.module.css';
+import { geist, geistMono } from './fonts';
+import CasePlate from './CasePlate';
+import CaseInstrument from './CaseInstrument';
+import CaseActionBar from './CaseActionBar';
+import CasePhases from './CasePhases';
+import CaseDisclosure from './CaseDisclosure';
+import CaseQuiz from './CaseQuiz';
+import CaseResearch from './CaseResearch';
+import styles from './Case.module.css';
 
 /**
- * Condition page, atlas template (October 2026). The same content and order
- * as ConditionFlowPage (symptoms, the clinic, warning signs, treatment,
- * recovery, similar conditions, questions, the science, the research), set
- * as a plate from an atlas: a night opening panel with the engraved plate
- * large, a hairline "at a glance" row, one reading column with a rail, paper
- * panels and hairlines instead of cards, the plate again in the science
- * section, and a night closing band. Server component; the rail, the phone
- * bars, the phases, the disclosures and the quiz are small client islands.
+ * Condition page, "case" template (October 2026). The same content and
+ * order as ConditionFlowPage (symptoms, the clinic, warning signs,
+ * treatment, recovery, similar conditions, questions, the science, the
+ * research), set as a case file: a dark instrument panel pinned beside a
+ * white reading sheet, with the plate in a viewer that zooms as the science
+ * is read, a numbered section index, indexed rows, urgency chips, the rehab
+ * phases as a stepper, a recovery track and the studies as cards. Server
+ * component; the instrument, the phases, the disclosures and the quiz are
+ * small client islands.
  */
 
 type PatternClusterConditions = Record<
@@ -74,21 +75,32 @@ function reviewedLabel(iso?: string): string | null {
   return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
 }
 
-// Adds a full stop only when the data string does not already end with one.
-const sentence = (s: string) => (/[.!?]$/.test(s.trim()) ? s.trim() : `${s.trim()}.`);
-
-const BAND_CLASS: Record<RedFlagUrgency, string> = {
-  emergency: styles.bandEmergency,
-  today: styles.bandToday,
-  doctor: styles.bandDoctor,
+const REGION_LABEL: Record<string, string> = {
+  knee: 'Knee',
+  'hip-pelvis': 'Hip & pelvis',
+  shoulder: 'Shoulder',
+  'foot-ankle': 'Foot & ankle',
+  'elbow-wrist-hand': 'Elbow, wrist & hand',
+  'spinal-health': 'Spine & back',
 };
 
-// A study's source line: `citation` when present, otherwise authors, year,
-// journal and title. PubMed IDs and DOIs become links.
+const sentence = (s: string) => (/[.!?]$/.test(s.trim()) ? s.trim() : `${s.trim()}.`);
+const pad = (n: number) => String(n).padStart(2, '0');
+
+const URG_CLASS: Record<RedFlagUrgency, string> = {
+  emergency: styles.urgEmergency,
+  today: styles.urgToday,
+  doctor: styles.urgDoctor,
+};
+
+const URG_LABEL: Record<RedFlagUrgency, string> = {
+  emergency: 'Emergency',
+  today: 'Same day',
+  doctor: 'Your doctor',
+};
+
 function Citation({ research }: { research: NonNullable<Condition['keyResearch']>[number] }) {
-  const built = [research.authors, research.year ? `(${research.year})` : undefined, research.journal]
-    .filter(Boolean)
-    .join(' ');
+  const built = [research.authors, research.year ? `(${research.year})` : undefined, research.journal].filter(Boolean).join(' ');
   const showTitle = research.title && research.finding && research.title !== research.finding;
   const text = research.citation || [built, showTitle ? research.title : undefined].filter(Boolean).join('. ');
   if (!text) return null;
@@ -107,15 +119,14 @@ function Citation({ research }: { research: NonNullable<Condition['keyResearch']
     last = m.index + m[0].length;
   }
   if (last < text.length) parts.push(text.slice(last));
-  return <p className={styles.refCite}>{parts}</p>;
+  return <p className={styles.studyCite}>{parts}</p>;
 }
 
-function SectionHead({ title, stand }: { title: React.ReactNode; stand?: string }) {
+function Head({ n, title }: { n: number; title: React.ReactNode }) {
   return (
-    <Reveal as="div" className={styles.sectionHead}>
-      <Reveal as="span" variant="rule" className={styles.rule} />
+    <Reveal as="div" className={styles.secHead}>
+      <span className={styles.mono}>{pad(n)}</span>
       <h2 className={styles.h2}>{title}</h2>
-      {stand && <p className={styles.stand}>{stand}</p>}
     </Reveal>
   );
 }
@@ -133,18 +144,10 @@ function Paragraphs({ text, used }: { text: string; used?: Set<string> }) {
   );
 }
 
-export default function ConditionAtlasPage({
-  condition,
-  relatedConditions,
-  conditionSlug,
-  patternCluster,
-  patternConditions,
-}: Props) {
+export default function ConditionCasePage({ condition, relatedConditions, conditionSlug, patternCluster, patternConditions }: Props) {
   const conditionHub = getConditionHub(conditionSlug, condition.category);
   const relatedTreatments = getTreatmentsByCondition(conditionSlug);
-  const hasPatternMatcher = Boolean(
-    patternCluster && patternConditions && condition.patternMatcher?.clusterKey === patternCluster.key,
-  );
+  const hasPatternMatcher = Boolean(patternCluster && patternConditions && condition.patternMatcher?.clusterKey === patternCluster.key);
   const showRehab = Boolean(condition.exerciseProgression && REHAB_PROGRESSION_SLUGS.has(conditionSlug));
   const phases = showRehab && condition.exerciseProgression
     ? [condition.exerciseProgression.phase1, condition.exerciseProgression.phase2, condition.exerciseProgression.phase3].filter(Boolean)
@@ -174,6 +177,7 @@ export default function ConditionAtlasPage({
   const keyResearch = condition.keyResearch ?? [];
   const nameLower = inlineName(condition.name);
   const plateName = CONDITION_PLATES[conditionSlug];
+  const region = REGION_LABEL[condition.category] ?? 'Condition';
   const similarHeading =
     conditionSlug === 'diabetes-related-conditions'
       ? { label: 'Related problems', heading: 'Problems this page covers' }
@@ -184,10 +188,9 @@ export default function ConditionAtlasPage({
   const comparisons = getComparisonsForCondition(conditionSlug) ?? [];
   const explanationBySlug = new Map(getDetailedRelationships(conditionSlug).map((rel) => [rel.slug, rel.explanation]));
   const excludeSlugs = linkedDifferentialSlugs((condition.differentialDiagnosis ?? []).map((d) => d.condition), conditionSlug);
-  const related = relatedConditions
-    .filter((r) => !excludeSlugs.has(r.slug) && explanationBySlug.get(r.slug))
-    .slice(0, 6);
+  const related = relatedConditions.filter((r) => !excludeSlugs.has(r.slug) && explanationBySlug.get(r.slug)).slice(0, 6);
   const reviewed = reviewedLabel(condition.lastReviewed);
+  const trackSpans = phases.map((p) => splitPhaseTitle(p.title)).filter((p) => p.when);
 
   const sections = [
     { id: 'symptoms', label: 'Symptoms', show: Boolean(condition.clinicalPresentation || hasPatternMatcher) },
@@ -200,27 +203,27 @@ export default function ConditionAtlasPage({
     { id: 'science', label: 'The science', show: Boolean(scienceText || condition.biomechanics) },
     { id: 'research', label: 'Research', show: keyResearch.length > 0 || researchInsights.length > 0 },
   ].filter((s) => s.show);
+  const num = (id: string) => sections.findIndex((s) => s.id === id) + 1;
 
   const bookLine = (source: string) => (
-    <a href={JANE_ASSESSMENT_URL} data-booking-source={source} target="_blank" rel="noopener noreferrer" className={styles.textLink} style={{ marginTop: 28 }}>
+    <a href={JANE_ASSESSMENT_URL} data-booking-source={source} target="_blank" rel="noopener noreferrer" className={styles.bookLine}>
       Book an assessment for {nameLower}
       <ArrowRightIcon aria-hidden="true" />
     </a>
   );
 
-  const clinicParagraphs = (condition.clinicalObservations?.body ?? '')
-    .split(/\n{2,}/)
-    .map((p) => p.trim())
-    .filter(Boolean);
+  const clinicParagraphs = (condition.clinicalObservations?.body ?? '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
 
   return (
-    <main className={`${styles.atlas} ${playfairItalic.variable}`} data-atlas-page="">
-      {/* Opening */}
-      <section className={styles.opening} data-atlas-opening="">
-        <div className={styles.frame}>
-          <div className={styles.openingGrid}>
-            <div className={styles.lead}>
-              <nav aria-label="Breadcrumb" className={styles.crumbs}>
+    <main className={`${styles.case} ${geist.variable} ${geistMono.variable}`} data-case-page="">
+      <div className={styles.shell}>
+        <CaseInstrument sections={sections} slug={conditionSlug} name={condition.name} region={region} plateName={plateName} />
+
+        <div className={styles.sheet}>
+          <div className={styles.column} data-case-column="">
+            {/* Opening */}
+            <header className={styles.opening} data-case-opening="">
+              <nav aria-label="Breadcrumb" className={`${styles.crumbs} ${styles.mono}`}>
                 <Link href="/">Home</Link>
                 <ChevronRightIcon aria-hidden="true" />
                 <Link href="/conditions">Conditions</Link>
@@ -233,34 +236,18 @@ export default function ConditionAtlasPage({
                 <ChevronRightIcon aria-hidden="true" />
                 <span>{condition.name}</span>
               </nav>
-              <p className={styles.kicker}>
-                {conditionHub ? <Link href={conditionHub.path}>{conditionHub.name}</Link> : 'Condition'}
-              </p>
-              <h1 className={styles.title}>{condition.name}</h1>
-            </div>
-
-            <div className={styles.plateCol}>
-              <AtlasPlate key={conditionSlug} slug={conditionSlug} priority sizes="(min-width: 1024px) 520px, 360px" />
-              {plateName && (
-                <p className={styles.plateCaption}>
-                  <em>Plate</em>
-                  {plateName}
-                </p>
-              )}
-            </div>
-
-            <div className={styles.rest}>
+              <h1 className={styles.h1}>{condition.name}</h1>
               <p className={styles.summary}>{condition.summary || condition.description}</p>
               <p className={styles.byline}>
                 <Link href="/about">Kareem Hassanein</Link>
                 <span>Registered Physiotherapist</span>
-                <span className={styles.dot} aria-hidden="true">·</span>
+                <i aria-hidden="true" />
                 <span>
                   <abbr title="College of Physiotherapists of Ontario registration" style={{ textDecoration: 'none' }}>CPO</abbr> #20079
                 </span>
                 {reviewed && (
                   <>
-                    <span className={styles.dot} aria-hidden="true">·</span>
+                    <i aria-hidden="true" />
                     <span>
                       Reviewed <time dateTime={condition.lastReviewed}>{reviewed}</time>
                     </span>
@@ -268,65 +255,61 @@ export default function ConditionAtlasPage({
                 )}
               </p>
               <div className={styles.actions}>
-                <a href={JANE_ASSESSMENT_URL} data-booking-source="condition_intro" target="_blank" rel="noopener noreferrer" className={styles.btn}>
+                <a href={JANE_ASSESSMENT_URL} data-booking-source="condition_intro" target="_blank" rel="noopener noreferrer" className={styles.btnInk}>
                   Book an assessment
                   <ArrowRightIcon aria-hidden="true" />
                 </a>
-                <a href="tel:+19056346000" className={styles.btnGhost}>
+                <a href="tel:+19056346000" className={styles.btnLine}>
                   <PhoneIcon aria-hidden="true" />
                   Call the clinic
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* At a glance */}
-      {glance.length > 0 && (
-        <section aria-label="At a glance">
-          <div className={styles.frame}>
-            <div className={styles.glance}>
-              {glance.map((row) => (
-                <div key={row.label}>
-                  <a href={row.href}>
-                    <span className={styles.glanceLabel}>
-                      {row.label}
+              <figure className={styles.plateBlock}>
+                <CasePlate key={`${conditionSlug}-block`} slug={conditionSlug} priority className={styles.plateImg} sizes="(min-width: 640px) 600px, 100vw" />
+                {plateName && (
+                  <figcaption className={styles.mono}>
+                    Plate <b>{plateName}</b>
+                  </figcaption>
+                )}
+              </figure>
+
+              {glance.length > 0 && (
+                <div className={styles.glance} aria-label="At a glance">
+                  {glance.map((row) => (
+                    <a key={row.label} href={row.href}>
+                      <span className={styles.mono}>{row.label}</span>
+                      <span className={styles.glanceText}>{row.text}</span>
                       <ArrowDownIcon aria-hidden="true" />
-                    </span>
-                    <span className={styles.glanceText}>{row.text}</span>
-                  </a>
+                    </a>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+              )}
+            </header>
 
-      <div className={styles.frame}>
-        <div className={styles.body}>
-          <div className={styles.railCol}>
-            <AtlasRail sections={sections} slug={conditionSlug} />
-          </div>
-
-          <div className={styles.article} data-atlas-article="">
             {/* Symptoms */}
             {(condition.clinicalPresentation || hasPatternMatcher) && (
               <section id="symptoms">
-                <SectionHead title="Does this sound like you?" />
+                <Head n={num('symptoms')} title="Does this sound like you?" />
                 {condition.clinicalPresentation?.primarySymptoms && (
-                  <ul className={`${styles.list} ${styles.listTwo}`}>
-                    {condition.clinicalPresentation.primarySymptoms.map((symptom) => (
-                      <li key={symptom}>{symptom}</li>
+                  <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                    {condition.clinicalPresentation.primarySymptoms.map((symptom, i) => (
+                      <li key={symptom}>
+                        <span className={styles.mono}>{pad(i + 1)}</span>
+                        <span>{symptom}</span>
+                      </li>
                     ))}
                   </ul>
                 )}
                 {condition.clinicalPresentation?.associatedSymptoms && (
                   <>
-                    <span className={styles.label} style={{ marginTop: 32, marginBottom: 10 }}>Often alongside it</span>
-                    <ul className={`${styles.list} ${styles.listSoft}`}>
-                      {condition.clinicalPresentation.associatedSymptoms.map((symptom) => (
-                        <li key={symptom}>{symptom}</li>
+                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>Often alongside it</span>
+                    <ul className={styles.rows}>
+                      {condition.clinicalPresentation.associatedSymptoms.map((symptom, i) => (
+                        <li key={symptom}>
+                          <span className={styles.mono}>{pad(i + 1)}</span>
+                          <span>{symptom}</span>
+                        </li>
                       ))}
                     </ul>
                   </>
@@ -337,15 +320,15 @@ export default function ConditionAtlasPage({
                   </Reveal>
                 )}
                 {hasPatternMatcher && patternCluster && patternConditions && (
-                  <div style={{ marginTop: 40 }}>
+                  <div style={{ marginTop: 36 }}>
                     {redFlags.length > 0 && (
-                      <p className={styles.small} style={{ marginBottom: 16 }}>
+                      <p className={styles.small} style={{ marginBottom: 14 }}>
                         Before using this comparison, check{' '}
-                        <a href="#red-flags" className={styles.inlineLink}>when these symptoms need a doctor first</a>.
+                        <a href="#red-flags" className={styles.link}>when these symptoms need a doctor first</a>.
                       </p>
                     )}
                     <div className={styles.quiz}>
-                      <AtlasQuiz currentSlug={conditionSlug} cluster={patternCluster} conditionsBySlug={patternConditions} />
+                      <CaseQuiz currentSlug={conditionSlug} cluster={patternCluster} conditionsBySlug={patternConditions} />
                     </div>
                   </div>
                 )}
@@ -356,20 +339,17 @@ export default function ConditionAtlasPage({
             {/* In clinic */}
             {condition.clinicalObservations && clinicParagraphs.length > 0 && (
               <section id="in-clinic">
-                <Reveal as="div" className={`${styles.panel} ${styles.note}`}>
-                  <div className={styles.noteWho}>
+                <Reveal as="div" className={styles.panel}>
+                  <div className={styles.who}>
                     <span className={styles.portrait}>
-                      <Image src={PORTRAIT} alt="" fill sizes="52px" />
+                      <Image src={PORTRAIT} alt="" fill sizes="44px" />
                     </span>
                     <span>
-                      <span className={styles.noteName}>Kareem Hassanein</span>
-                      <br />
-                      <span className={styles.noteRole}>Registered Physiotherapist, Burlington</span>
+                      <span className={styles.whoName}>Kareem Hassanein</span>
+                      <span className={styles.whoRole}>Registered Physiotherapist, Burlington</span>
                     </span>
                   </div>
-                  <h2 className={`${styles.h3} ${styles.noteTitle}`}>
-                    {condition.clinicalObservations.title?.trim() || 'Patterns I see in clinic'}
-                  </h2>
+                  <h2 className={`${styles.h3} ${styles.noteTitle}`}>{condition.clinicalObservations.title?.trim() || 'Patterns I see in clinic'}</h2>
                   <div className={styles.noteBody}>
                     {clinicParagraphs.map((p, i) => (
                       <p key={i}>{p}</p>
@@ -382,135 +362,135 @@ export default function ConditionAtlasPage({
             {/* When to see a doctor first */}
             {redFlags.length > 0 && (
               <section id="red-flags">
-                <Reveal as="div" className={styles.panel}>
-                  <div className={styles.warnHead}>
-                    <ExclamationTriangleIcon aria-hidden="true" />
-                    <h2 className={styles.h3}>When to see a doctor first</h2>
-                  </div>
-                  {bands.map((band) => (
-                    <div key={band.urgency} className={styles.band}>
-                      <h3 className={`${styles.bandLabel} ${BAND_CLASS[band.urgency]}`}>
-                        <i aria-hidden="true" />
-                        {band.heading}
-                      </h3>
-                      <ul className={styles.flags}>
-                        {band.flags.map((flag) => (
-                          <li key={flag.sign}>
+                <Head n={num('red-flags')} title="When to see a doctor first" />
+                <div className={styles.flags}>
+                  {bands.flatMap((band) =>
+                    band.flags.map((flag) => {
+                      const u = redFlagUrgency(flag);
+                      return (
+                        <div key={flag.sign} className={styles.flag}>
+                          <span className={`${styles.urg} ${styles.mono} ${URG_CLASS[u]}`}>
+                            <i aria-hidden="true" />
+                            {URG_LABEL[u]}
+                          </span>
+                          <div>
                             <p className={styles.flagSign}>{flag.sign}</p>
                             {flag.action && <p className={styles.flagAction}>{flag.action}</p>}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </Reveal>
+                          </div>
+                        </div>
+                      );
+                    }),
+                  )}
+                </div>
               </section>
             )}
 
             {/* Treatment */}
             {(primary || showRehab || condition.selfManagement || condition.treatmentApproach) && (
               <section id="treatment">
-                <SectionHead title="How it is treated" />
+                <Head n={num('treatment')} title="How it is treated" />
                 <div className={styles.prose}>
                   {primary && (
                     <div className={styles.opener}>
-                      <span className={styles.leadIn}>Main approach</span>
+                      <span className={`${styles.lead} ${styles.mono}`}>Main approach</span>
                       <p>{sentence(primary)}</p>
                     </div>
                   )}
                   {secondary && (
                     <div className={styles.opener}>
-                      <span className={styles.leadIn}>Alongside it</span>
+                      <span className={`${styles.lead} ${styles.mono}`}>Alongside it</span>
                       <p>{sentence(secondary)}</p>
                     </div>
                   )}
                   {prevention && (
                     <div className={styles.opener}>
-                      <span className={styles.leadIn}>Managing it over time</span>
+                      <span className={`${styles.lead} ${styles.mono}`}>Managing it over time</span>
                       <p>{sentence(prevention)}</p>
                     </div>
                   )}
                 </div>
 
                 {phases.length > 0 && (
-                  <div id="rehab-progression" data-section="rehab-progression" style={{ marginTop: 48 }}>
-                    <h3 className={styles.h3}>A typical rehabilitation progression</h3>
-                    <div className={`${styles.prose} ${styles.phasesIntro}`}>
+                  <div id="rehab-progression" data-section="rehab-progression">
+                    <h3 className={`${styles.h3} ${styles.sub}`}>A typical rehabilitation progression</h3>
+                    <div className={styles.prose}>
                       <p>
-                        Recovery from {nameLower} is usually staged: calm the symptoms first, then rebuild the strength
-                        and capacity of the area, then return to your full activities. The phases below show how that can progress.
+                        Recovery from {nameLower} is usually staged: calm the symptoms first, then rebuild the strength and capacity of the
+                        area, then return to your full activities. The phases below show how that can progress.
                       </p>
                     </div>
                     {REHAB_SCOPE_NOTES[conditionSlug] && (
                       <aside role="note" aria-label="Important scope and clearance note" className={styles.scope}>
-                        <span className={styles.label}>Before you use this progression</span>
-                        <p>{REHAB_SCOPE_NOTES[conditionSlug]}</p>
+                        <span className={styles.mono}>Before you use this progression</span>
+                        {REHAB_SCOPE_NOTES[conditionSlug]}
                       </aside>
                     )}
                     <aside aria-label="Using these exercises safely" className={styles.safety}>
-                      <span className={styles.label}>Using these safely</span>
-                      <p>
-                        These are general examples, not individual advice. The right exercises, load and pace depend on
-                        your diagnosis, your symptoms and any medical or surgical restrictions, and an assessment can tell
-                        you which of these suit you. Build up gradually, and back off if symptoms get worse instead of settling.
-                        {redFlags.length > 0 && ' If any of the warning signs listed on this page apply to you, hold off and get assessed first.'}
-                      </p>
+                      <span className={styles.mono}>Using these safely</span>
+                      These are general examples, not individual advice. The right exercises, load and pace depend on your diagnosis, your
+                      symptoms and any medical or surgical restrictions, and an assessment can tell you which of these suit you. Build up
+                      gradually, and back off if symptoms get worse instead of settling.
+                      {redFlags.length > 0 && ' If any of the warning signs listed on this page apply to you, hold off and get assessed first.'}
                     </aside>
-                    <AtlasPhases phases={phases} />
+                    <CasePhases phases={phases} />
                   </div>
                 )}
 
                 {condition.selfManagement && condition.selfManagement.length > 0 && (
                   <>
-                    <h3 id="self-care" className={`${styles.h3} ${styles.subHead}`}>What you can do now</h3>
-                    <dl className={styles.defs}>
-                      {condition.selfManagement.map((item) => (
-                        <div key={item.strategy}>
-                          <dt>{item.strategy}</dt>
-                          <dd>{sentence(item.rationale)}</dd>
-                          {item.precautions && item.precautions.length > 0 && (
-                            <dd className={styles.caution}>{item.precautions.map(sentence).join(' ')}</dd>
-                          )}
-                        </div>
+                    <h3 id="self-care" className={`${styles.h3} ${styles.sub}`}>What you can do now</h3>
+                    <ol className={styles.rows}>
+                      {condition.selfManagement.map((item, i) => (
+                        <li key={item.strategy}>
+                          <span className={styles.mono} data-tone="ink">{pad(i + 1)}</span>
+                          <span>
+                            <span className={styles.rowTitle}>{item.strategy}</span>
+                            <span className={styles.rowBody}>{sentence(item.rationale)}</span>
+                            {item.precautions && item.precautions.length > 0 && (
+                              <span className={styles.rowNote}>{item.precautions.map(sentence).join(' ')}</span>
+                            )}
+                          </span>
+                        </li>
                       ))}
-                    </dl>
+                    </ol>
                   </>
                 )}
 
                 {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                   <>
-                    <h3 className={`${styles.h3} ${styles.subHead}`}>What I use in clinic</h3>
+                    <h3 className={`${styles.h3} ${styles.sub}`}>What I use in clinic</h3>
                     {condition.treatmentApproach?.description && (
-                      <div className={styles.prose} style={{ marginBottom: 18 }}>
+                      <div className={styles.prose} style={{ marginBottom: 16 }}>
                         <p>{condition.treatmentApproach.description}</p>
                       </div>
                     )}
                     {condition.treatmentApproach?.techniques && (
-                      <dl className={styles.defs}>
-                        {condition.treatmentApproach.techniques.map((technique) => {
+                      <ul className={styles.rows}>
+                        {condition.treatmentApproach.techniques.map((technique, i) => {
                           const [title, ...rest] = technique.split(': ');
                           return (
-                            <div key={technique}>
-                              <dt>{title}</dt>
-                              {rest.length > 0 && <dd>{sentence(rest.join(': '))}</dd>}
-                            </div>
+                            <li key={technique}>
+                              <span className={styles.mono} data-tone="ink">{pad(i + 1)}</span>
+                              <span>
+                                <span className={styles.rowTitle}>{title}</span>
+                                {rest.length > 0 && <span className={styles.rowBody}>{sentence(rest.join(': '))}</span>}
+                              </span>
+                            </li>
                           );
                         })}
-                      </dl>
+                      </ul>
                     )}
                     {relatedTreatments.length > 0 && (
                       <>
-                        <span className={styles.label} style={{ marginTop: 32, marginBottom: 10 }}>Treatments on this site</span>
-                        <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                        <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 26 }}>Treatments on this site</span>
+                        <div className={styles.chips}>
                           {relatedTreatments.map((t) => (
-                            <li key={t.id}>
-                              <Link href={`/treatments/${t.id}`}>
-                                <span className={styles.rowText}>{t.shortName ?? t.name}</span>
-                                <ArrowRightIcon aria-hidden="true" />
-                              </Link>
-                            </li>
+                            <Link key={t.id} href={`/treatments/${t.id}`}>
+                              {t.shortName ?? t.name}
+                              <ArrowRightIcon aria-hidden="true" />
+                            </Link>
                           ))}
-                        </ul>
+                        </div>
                       </>
                     )}
                   </>
@@ -522,36 +502,52 @@ export default function ConditionAtlasPage({
             {/* Recovery */}
             {(condition.prognosis || condition.timeline?.length || keyPointText?.time) && (
               <section id="recovery">
-                <SectionHead title="How long it takes" />
+                <Head n={num('recovery')} title="How long it takes" />
+                {trackSpans.length === 3 && (
+                  <ol className={styles.track} aria-label="Rehabilitation time spans">
+                    {trackSpans.map((p, i) => (
+                      <li key={i}>
+                        <span className={`${styles.trackWhen} ${styles.mono}`}>{p.when}</span>
+                        <span className={styles.trackName}>{p.name}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
                 <div className={styles.prose}>
                   {!condition.prognosis && !condition.timeline?.length && keyPointText?.time && <p>{sentence(keyPointText.time)}</p>}
                   {condition.prognosis?.timeline && <p>{sentence(condition.prognosis.timeline)}</p>}
                   {condition.prognosis?.naturalHistory && <p>{sentence(condition.prognosis.naturalHistory)}</p>}
                 </div>
                 {condition.timeline && condition.timeline.length > 0 && (
-                  <dl className={styles.defs} style={{ marginTop: 28 }}>
-                    {condition.timeline.map((phase) => (
-                      <div key={phase.phase}>
-                        <dt>
-                          {phase.phase} <span style={{ color: 'var(--gold-ink)', fontWeight: 500 }}>({phase.duration})</span>
-                        </dt>
-                        <dd>{sentence(phase.description)}</dd>
-                      </div>
+                  <ol className={styles.rows} style={{ marginTop: 24 }}>
+                    {condition.timeline.map((phase, i) => (
+                      <li key={phase.phase}>
+                        <span className={styles.mono} data-tone="ink">{pad(i + 1)}</span>
+                        <span>
+                          <span className={styles.rowTitle}>
+                            {phase.phase} <span style={{ color: 'var(--accent-ink)', fontWeight: 500 }}>({phase.duration})</span>
+                          </span>
+                          <span className={styles.rowBody}>{sentence(phase.description)}</span>
+                        </span>
+                      </li>
                     ))}
-                  </dl>
+                  </ol>
                 )}
                 {condition.prognosis?.factors && condition.prognosis.factors.length > 0 && (
                   <>
-                    <span className={styles.label} style={{ marginTop: 32, marginBottom: 10 }}>What changes the timeline</span>
-                    <ul className={`${styles.list} ${styles.listTwo} ${styles.listSoft}`}>
-                      {condition.prognosis.factors.map((factor) => (
-                        <li key={factor}>{factor}</li>
+                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>What changes the timeline</span>
+                    <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                      {condition.prognosis.factors.map((factor, i) => (
+                        <li key={factor}>
+                          <span className={styles.mono}>{pad(i + 1)}</span>
+                          <span>{factor}</span>
+                        </li>
                       ))}
                     </ul>
                   </>
                 )}
                 {condition.measuringProgress?.dayToDay && (
-                  <div className={styles.prose} style={{ marginTop: 28 }}>
+                  <div className={styles.prose} style={{ marginTop: 24 }}>
                     <p>
                       <strong>How I track it.</strong> {condition.measuringProgress.dayToDay}
                     </p>
@@ -563,7 +559,7 @@ export default function ConditionAtlasPage({
             {/* Similar conditions */}
             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
               <section id="similar">
-                <SectionHead title={similarHeading.heading} />
+                <Head n={num('similar')} title={similarHeading.heading} />
                 <dl className={styles.compare}>
                   {condition.differentialDiagnosis.map((d) => {
                     const href = differentialHref(d.condition, conditionSlug);
@@ -586,20 +582,16 @@ export default function ConditionAtlasPage({
                 </dl>
                 {comparisons.length > 0 && (
                   <>
-                    <span className={styles.label} style={{ marginTop: 36, marginBottom: 10 }}>Side by side</span>
-                    <ul className={styles.rows}>
+                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 30 }}>Side by side</span>
+                    <div className={styles.cards}>
                       {comparisons.map((comparison) => (
-                        <li key={comparison.pair}>
-                          <Link href={`/conditions/compare/${comparison.pair}`}>
-                            <span>
-                              <span className={styles.rowText}>{comparisonQuestion(comparison, conditionSlug)}</span>
-                              <span className={styles.rowBlurb}>How I separate the two by pattern, tests and exam findings.</span>
-                            </span>
-                            <ArrowRightIcon aria-hidden="true" />
-                          </Link>
-                        </li>
+                        <Link key={comparison.pair} href={`/conditions/compare/${comparison.pair}`}>
+                          <span className={styles.cardTitle}>{comparisonQuestion(comparison, conditionSlug)}</span>
+                          <span className={styles.cardBlurb}>How I separate the two by pattern, tests and exam findings.</span>
+                          <ArrowRightIcon aria-hidden="true" />
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   </>
                 )}
               </section>
@@ -608,12 +600,12 @@ export default function ConditionAtlasPage({
             {/* Questions */}
             {condition.faqs && condition.faqs.length > 0 && (
               <section id="faqs">
-                <SectionHead title="What patients ask me most" />
+                <Head n={num('faqs')} title="What patients ask me most" />
                 <div className={styles.disc}>
                   {condition.faqs.map((faq) => (
-                    <AtlasDisclosure key={faq.question} title={faq.question}>
+                    <CaseDisclosure key={faq.question} title={faq.question}>
                       <p>{faq.answer}</p>
-                    </AtlasDisclosure>
+                    </CaseDisclosure>
                   ))}
                 </div>
                 {bookLine('condition_faq')}
@@ -622,13 +614,12 @@ export default function ConditionAtlasPage({
 
             {/* The science */}
             {(scienceText || condition.biomechanics) && (
-              <section id="science" className={styles.bleed}>
-                <div className={styles.ground} aria-hidden="true" />
-                <SectionHead title={<>The Science of {condition.name}</>} />
+              <section id="science">
+                <Head n={num('science')} title={<>The science of {nameLower}</>} />
                 <div className={styles.clearfix}>
-                  <figure className={styles.figure}>
-                    <AtlasPlate key={`${conditionSlug}-figure`} slug={conditionSlug} sizes="340px" />
-                    {plateName && <figcaption>{plateName}</figcaption>}
+                  <figure className={styles.figureFrame}>
+                    <CasePlate key={`${conditionSlug}-figure`} slug={conditionSlug} className={styles.plateImg} sizes="300px" />
+                    {plateName && <figcaption className={styles.mono}>{plateName}</figcaption>}
                   </figure>
                   {scienceText && (
                     <div className={styles.prose}>
@@ -637,10 +628,10 @@ export default function ConditionAtlasPage({
                   )}
                 </div>
                 {condition.biomechanics && (
-                  <div className={styles.disc} style={{ marginTop: 36 }}>
-                    <AtlasDisclosure title="Contributing factors">
+                  <div className={styles.disc} style={{ marginTop: 30 }}>
+                    <CaseDisclosure title="Contributing factors">
                       <Paragraphs text={condition.biomechanics} />
-                    </AtlasDisclosure>
+                    </CaseDisclosure>
                   </div>
                 )}
               </section>
@@ -649,25 +640,25 @@ export default function ConditionAtlasPage({
             {/* Research */}
             {(keyResearch.length > 0 || researchInsights.length > 0) && (
               <section id="research">
-                <SectionHead title="What the studies show" />
+                <Head n={num('research')} title="What the studies show" />
                 {keyResearch.length > 0 && (
-                  <AtlasResearch count={keyResearch.length}>
+                  <CaseResearch count={keyResearch.length}>
                     {keyResearch.map((r, i) => {
                       const title = r.finding || r.title;
                       const body = r.detail || r.findings;
                       const relevance = r.clinicalRelevance || r.relevance;
+                      const meta = [r.year, r.journal].filter(Boolean).join(' · ');
                       return (
-                        <li key={i}>
-                          <div>
-                            {title && <h3 className={styles.refFinding}>{title}</h3>}
-                            {body && <p className={styles.refBody}>{sentence(body)}</p>}
-                            {relevance && <p className={styles.refWhy}>{sentence(relevance)}</p>}
-                            <Citation research={r} />
-                          </div>
+                        <li key={i} className={styles.study}>
+                          {meta && <span className={`${styles.studyMeta} ${styles.mono}`}>{meta}</span>}
+                          {title && <h3 className={styles.studyFinding}>{title}</h3>}
+                          {body && <p className={styles.studyBody}>{sentence(body)}</p>}
+                          {relevance && <p className={styles.studyWhy}>{sentence(relevance)}</p>}
+                          <Citation research={r} />
                         </li>
                       );
                     })}
-                  </AtlasResearch>
+                  </CaseResearch>
                 )}
                 {researchInsights.length > 0 && (
                   <ul className={styles.insights}>
@@ -693,44 +684,35 @@ export default function ConditionAtlasPage({
             {/* Keep reading */}
             {(regionGuides.length > 0 || related.length > 0) && (
               <section aria-labelledby="keep-reading">
-                <Reveal as="div" className={styles.sectionHead}>
-                  <Reveal as="span" variant="rule" className={styles.rule} />
+                <Reveal as="div" className={styles.secHead}>
                   <h2 id="keep-reading" className={styles.h2}>Keep reading</h2>
                 </Reveal>
                 {regionGuides.length > 0 && (
                   <>
-                    <span className={styles.label} style={{ marginBottom: 10 }}>Guides on {guideRegion.toLowerCase()} pain</span>
-                    <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                    <span className={`${styles.label} ${styles.mono}`}>Guides on {guideRegion.toLowerCase()} pain</span>
+                    <div className={styles.cards}>
                       {regionGuides.map((g) => (
-                        <li key={g.href}>
-                          <Link href={g.href}>
-                            <span>
-                              <span className={styles.rowText}>{g.title}</span>
-                              <span className={styles.rowBlurb}>{g.blurb}</span>
-                            </span>
-                            <ArrowRightIcon aria-hidden="true" />
-                          </Link>
-                        </li>
+                        <Link key={g.href} href={g.href}>
+                          <span className={styles.cardTitle}>{g.title}</span>
+                          <span className={styles.cardBlurb}>{g.blurb}</span>
+                          <ArrowRightIcon aria-hidden="true" />
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   </>
                 )}
                 {related.length > 0 && (
                   <>
-                    <span className={styles.label} style={{ marginTop: regionGuides.length > 0 ? 36 : 0, marginBottom: 10 }}>Related conditions</span>
-                    <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: regionGuides.length > 0 ? 28 : 0 }}>Related conditions</span>
+                    <div className={styles.cards}>
                       {related.map((r) => (
-                        <li key={r.slug}>
-                          <Link href={`/conditions/${r.slug}`}>
-                            <span>
-                              <span className={styles.rowText}>{r.name}</span>
-                              <span className={styles.rowBlurb}>{explanationBySlug.get(r.slug)}</span>
-                            </span>
-                            <ArrowRightIcon aria-hidden="true" />
-                          </Link>
-                        </li>
+                        <Link key={r.slug} href={`/conditions/${r.slug}`}>
+                          <span className={styles.cardTitle}>{r.name}</span>
+                          <span className={styles.cardBlurb}>{explanationBySlug.get(r.slug)}</span>
+                          <ArrowRightIcon aria-hidden="true" />
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   </>
                 )}
               </section>
@@ -739,8 +721,8 @@ export default function ConditionAtlasPage({
             <aside className={styles.consent} aria-label="About hands-on assessment">
               <ShieldCheckIcon aria-hidden="true" />
               <p>
-                Every part of an assessment runs on informed consent. I explain what I am checking for and why before I
-                do it, and I can offer an alternative approach if a test or technique does not suit your comfort level or needs.
+                Every part of an assessment runs on informed consent. I explain what I am checking for and why before I do it, and I can
+                offer an alternative approach if a test or technique does not suit your comfort level or needs.
               </p>
             </aside>
           </div>
@@ -748,30 +730,28 @@ export default function ConditionAtlasPage({
       </div>
 
       {/* Closing */}
-      <section className={`${styles.closing} ${styles.onNight}`} data-atlas-closing="">
-        <div className={styles.frame}>
-          <div className={styles.closingGrid}>
-            <div>
-              <h2 className={styles.closingTitle}>Getting back to it</h2>
-              <p className={styles.closingText}>Physiotherapy for {nameLower}, built around the activity you want back.</p>
-              <div className={styles.actions}>
-                <a href={JANE_ASSESSMENT_URL} data-booking-source="condition_footer" target="_blank" rel="noopener noreferrer" className={styles.btn}>
-                  Book an assessment
-                  <ArrowRightIcon aria-hidden="true" />
-                </a>
-                <Link href="/contact" className={styles.btnGhost}>
-                  Contact
-                </Link>
-              </div>
+      <section className={styles.closing} data-case-closing="">
+        <div className={styles.closingGrid}>
+          <div>
+            <h2 className={styles.closingTitle}>Getting back to it</h2>
+            <p className={styles.closingText}>Physiotherapy for {nameLower}, built around the activity you want back.</p>
+            <div className={styles.actions}>
+              <a href={JANE_ASSESSMENT_URL} data-booking-source="condition_footer" target="_blank" rel="noopener noreferrer" className={styles.btnLight}>
+                Book an assessment
+                <ArrowRightIcon aria-hidden="true" />
+              </a>
+              <Link href="/contact" className={styles.btnDark}>
+                Contact
+              </Link>
             </div>
-            <Reveal as="div" className={styles.closingPrint}>
-              <Print {...ILLUSTRATIONS[CATEGORY_PRINT[condition.category] ?? 'walking']} sizes="(min-width: 1024px) 340px, 300px" />
-            </Reveal>
           </div>
+          <Reveal as="div" className={styles.closingPrint}>
+            <Print {...ILLUSTRATIONS[CATEGORY_PRINT[condition.category] ?? 'walking']} sizes="300px" />
+          </Reveal>
         </div>
       </section>
 
-      <AtlasActionBar />
+      <CaseActionBar />
     </main>
   );
 }

@@ -2,18 +2,16 @@ import { JANE_BOOKING_URL } from '@/lib/booking';
 import { CPO_REGISTER_URL } from '@/lib/registration';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
-import ClientImage from '@/components/ClientImage';
-import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
-import { DocumentTextIcon, UserIcon, BeakerIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 import React from 'react';
 import { Metadata } from 'next';
+import { ArrowRightIcon, ArrowUpRightIcon, CheckBadgeIcon } from '@heroicons/react/24/outline';
 import AboutHero from '@/components/about/AboutHero';
 import Reveal from '@/components/home/Reveal';
-import { CardFan, Drift, GrowIn, StackDeck } from '@/components/about/Deck';
-import Image from 'next/image';
+import { geist } from '@/components/conditions/case/fonts';
+import styles from '@/components/about/About.module.css';
 
 const PORTRAIT = '/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png';
-import styles from '@/components/about/About.module.css';
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -37,6 +35,103 @@ export const metadata: Metadata = {
     canonical: 'https://www.kinetikarephysio.com/about'
   },
 };
+
+/** A section title: the short cobalt bar, an optional label, the heading. */
+function Head({ title, label, stand }: { title: string; label?: string; stand?: string }) {
+  return (
+    <Reveal as="div" className={styles.secHead}>
+      <Reveal as="span" variant="rule" className={styles.accentBar} />
+      {label && <span className={`${styles.secLabel} ${styles.mono}`}>{label}</span>}
+      <h2 className={styles.h2}>{title}</h2>
+      {stand && <p className={styles.stand}>{stand}</p>}
+    </Reveal>
+  );
+}
+
+const philosophy = [
+  {
+    title: 'Root Cause Resolution',
+    body: "I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.",
+  },
+  {
+    title: 'Collaborative Partnership',
+    body: 'Your input is key. I listen, explain clearly, and involve you in every treatment decision.',
+  },
+  {
+    title: 'Personalized Progression',
+    body: "Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.",
+  },
+];
+
+const drives = [
+  {
+    title: 'Lived Experience',
+    body: 'My practice is grounded in firsthand experience, both as a clinician and as someone who has personally worked through recovery. That perspective gives me a deep understanding of what meaningful care requires: attentiveness, respect, and a commitment to walking beside you every step of the way.',
+  },
+  {
+    title: 'Thoughtful, Individualized Care',
+    body: 'Every treatment plan is shaped by close observation, clinical insight, and a deep appreciation for your unique needs. I combine manual therapy and movement science with precision and care, ensuring your progress is always intentional, responsive, and clearly guided.',
+  },
+  {
+    title: 'Your Healthcare Advocate',
+    body: "I approach care with the same rigour I would expect for myself or my loved ones. Whether it's explaining options, coordinating next steps, or thinking beyond the treatment table, I work to ensure you feel supported, informed, and genuinely cared for at every stage of the process.",
+  },
+];
+
+const affiliations = [
+  { key: 'cpo', href: 'https://collegept.org/', src: '/images/college-of-physiotherapists-of-ontario-logo.webp', alt: 'College of Physiotherapists of Ontario', w: 140, h: 70 },
+  { key: 'endorphins', href: 'https://endorphinshealth.com/', src: '/images/endorphins-health-and-wellness-centre-logo.png', alt: 'Endorphins Health & Wellness Centre', w: 140, h: 70 },
+  { key: 'headon', href: 'https://headonphysio.ca/', src: '/images/headon-physio-logo-affiliations.png', alt: 'Headon Physio', w: 140, h: 70 },
+  { key: 'physiomax', href: 'https://physiomaxwellness.ca/', src: '/images/physiomax-wellness-logo.png', alt: 'PhysioMax Wellness', w: 140, h: 40 },
+];
+
+const schools = [
+  {
+    href: 'https://www.rgu.ac.uk/study/courses/pgcert-pgdip-msc-physiotherapy-pre-registration',
+    logo: '/images/robert-gordon-university-logo-png_seeklogo-341455.png',
+    logoAlt: 'Robert Gordon University',
+    name: 'Master of Science in Physiotherapy',
+    place: 'Robert Gordon University, Aberdeen, Scotland',
+    year: '2020',
+    honours: false,
+  },
+  {
+    href: 'https://kinesiology.mcmaster.ca/',
+    logo: '/images/mcmaster-university-logo-png_seeklogo-90018.png',
+    logoAlt: 'McMaster University',
+    name: 'Bachelor of Science in Kinesiology',
+    place: 'McMaster University, Hamilton, Ontario',
+    year: '2016',
+    honours: true,
+  },
+];
+
+const foundation = [
+  {
+    title: 'Certifications',
+    entries: [
+      { title: 'Manual Therapy', sub: 'Certified', body: 'Certification in orthopaedic manual therapy techniques' },
+      { title: 'Certified Dry Needling', sub: 'Practitioner', body: 'Certification in dry needling for trigger point release and pain management' },
+      { title: 'Continuing Education', sub: 'Ongoing Professional Development', body: 'Regular courses to keep treatment in line with current evidence' },
+    ],
+  },
+  {
+    title: 'Clinical Experience',
+    entries: [
+      { title: '5+ Years Clinical Practice', sub: 'Physiotherapy', body: 'One-on-one care for sports injuries, joint and tendon pain, and recovery after surgery' },
+      { title: 'Personal Training', sub: 'Fitness & Conditioning', body: 'Coaching movement and exercise as a personal trainer' },
+      { title: 'Assistant Fitness Manager (GoodLife Fitness)', sub: 'Leadership & Operations', body: 'Team management and facility operations in fitness environment' },
+    ],
+  },
+  {
+    title: 'Athletic Background',
+    entries: [
+      { title: 'Semi-Professional Soccer', sub: 'Cove Rangers, Scotland', body: 'Competitive experience at high-level football in Scottish leagues' },
+      { title: 'Canadian Soccer League', sub: 'Brantford Galaxy', body: 'Semi-professional league experience in Canadian competitive soccer' },
+      { title: 'Injury & Recovery Experience', sub: 'Personal Journey', body: 'Firsthand understanding of athletic injury, rehabilitation, and return to sport' },
+    ],
+  },
+];
 
 export default function About() {
   // Person schema for Kareem Hassanein
@@ -106,19 +201,16 @@ export default function About() {
       id: 'assessment',
       title: 'Thorough Assessment',
       description: 'A comprehensive evaluation in a comfortable, judgment-free environment',
-      Icon: DocumentTextIcon
     },
     {
       id: 'attention',
       title: 'Dedicated Attention',
       description: 'One-on-one, unhurried focus during every treatment session',
-      Icon: UserIcon
     },
     {
       id: 'evidence',
       title: 'Evidence-Based Care',
       description: 'Proven interventions combining manual therapy, movement retraining, and self-management',
-      Icon: BeakerIcon
     }
   ];
 
@@ -130,730 +222,180 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personSchema) }}
       />
 
-      <main className={`min-h-screen flex flex-col text-primary-700 bg-white ${styles.page}`}>
-      {/* Hero Section */}
-      <AboutHero />
+      <main className={`${styles.page} ${geist.variable}`}>
+        <div className={styles.shell}>
+          {/* The opening and the portrait panel */}
+          <AboutHero />
 
-      {/* Main Content with Sidebar */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          
-          {/* Desktop + Mobile Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
-            {/* Desktop Sidebar - Hidden on mobile */}
-            <div className="hidden lg:block lg:col-span-1 lg:self-stretch">
-              <div className="sticky top-24 space-y-6">
-                {/* Professional Affiliations: the College, then the three clinics in
-                    a small grid, compact so the sidebar stays on screen */}
-                <div className="bg-gradient-to-br from-slate-50 to-white p-5 rounded-2xl border border-neutral-200 shadow-lg">
-                  <h3 className="text-base font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Affiliations</h3>
-                  <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
-                    <Link href="https://collegept.org/" target="_blank" rel="noopener noreferrer" className="block">
-                      <ClientImage
-                        src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                        alt="College of Physiotherapists of Ontario"
-                        width={140}
-                        height={70}
-                        className="object-contain h-auto max-h-11 mx-auto"
-                      />
+          <div className={styles.sheet}>
+            <div className={styles.column}>
+              {/* The story */}
+              <section>
+                <Head title="The Path That Shaped My Practice" />
+                <div className={styles.prose}>
+                  <p>
+                    My path to physiotherapy began through personal experience. While playing competitive soccer and studying Kinesiology at{' '}
+                    <strong>McMaster University</strong>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients go through: the frustration, the setbacks, and the progress. Now serving <strong>Burlington, Waterdown, and surrounding areas</strong>, I combine professional expertise with genuine empathy born from my own recovery experience.
+                  </p>
+                  <p>
+                    This experience shaped my approach when I pursued my{' '}
+                    <strong>Master&apos;s in Physiotherapy at Robert Gordon University</strong>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and steady support through every stage of recovery.
+                  </p>
+                </div>
+
+                <Reveal as="figure" className={styles.insight}>
+                  <span className={`${styles.insightLabel} ${styles.mono}`}>Personal Insight</span>
+                  <p className={styles.insightTitle}>From Patient to Practitioner</p>
+                  <blockquote>
+                    &quot;Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood.&quot;
+                  </blockquote>
+                  <figcaption>
+                    <i aria-hidden="true" />
+                    <cite>K.H.</cite>
+                  </figcaption>
+                </Reveal>
+              </section>
+
+              {/* Philosophy of Practice */}
+              <section>
+                <Head title="Philosophy of Practice" />
+                <ul className={styles.points} role="list">
+                  {philosophy.map((item, i) => (
+                    <Reveal as="li" key={item.title} delay={i * 70}>
+                      <h3 className={styles.pointTitle}>
+                        <i aria-hidden="true" />
+                        {item.title}
+                      </h3>
+                      <p className={styles.pointBody}>{item.body}</p>
+                    </Reveal>
+                  ))}
+                </ul>
+              </section>
+
+              {/* What Drives My Practice */}
+              <section>
+                <Head title="What Drives My Practice" />
+                <div className={styles.prose}>
+                  {drives.map((item) => (
+                    <Reveal as="div" key={item.title} className={styles.opener}>
+                      <h3 className={`${styles.lead} ${styles.mono}`}>{item.title}</h3>
+                      <p>{item.body}</p>
+                    </Reveal>
+                  ))}
+                </div>
+              </section>
+
+              {/* Professional Affiliations */}
+              <section>
+                <Head title="Professional Affiliations" />
+                <div className={styles.logos}>
+                  {affiliations.map((c) => (
+                    <Link key={c.alt} href={c.href} target="_blank" rel="noopener noreferrer" className={styles.logo} data-logo={c.key}>
+                      <Image src={c.src} alt={c.alt} width={c.w} height={c.h} />
                     </Link>
-                    <div className="mt-3 pt-3 border-t border-neutral-100">
-                      <div className="flex items-center justify-center gap-1.5 mb-2">
-                        <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span className="text-xs font-normal text-green-700">Registration Verified</span>
-                      </div>
-                      <Link
-                        href={CPO_REGISTER_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
-                      >
-                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        Verify Professional Registration
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 mt-3">
-                    {[
-                      { href: 'https://endorphinshealth.com/', src: '/images/endorphins-health-and-wellness-centre-logo.png', alt: 'Endorphins Health & Wellness Centre', w: 140, h: 70 },
-                      { href: 'https://headonphysio.ca/', src: '/images/headon-physio-logo-affiliations.png', alt: 'Headon Physio', w: 140, h: 70 },
-                      { href: 'https://physiomaxwellness.ca/', src: '/images/physiomax-wellness-logo.png', alt: 'PhysioMax Wellness', w: 140, h: 40 },
-                    ].map((c) => (
-                      <Link
-                        key={c.alt}
-                        href={c.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center bg-white p-3 h-16 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 last:col-span-2"
-                      >
-                        <ClientImage src={c.src} alt={c.alt} width={c.w} height={c.h} className="object-contain h-auto max-h-9 w-auto mx-auto" />
-                      </Link>
+                  ))}
+                </div>
+                <div className={styles.verify}>
+                  <span className={styles.verified}>
+                    <CheckBadgeIcon aria-hidden="true" />
+                    Registration Verified
+                  </span>
+                  <Link href={CPO_REGISTER_URL} target="_blank" rel="noopener noreferrer" className={styles.goLine}>
+                    Verify <span className={styles.wideOnly}>Professional </span>Registration
+                    <ArrowUpRightIcon aria-hidden="true" />
+                  </Link>
+                </div>
+              </section>
+
+              {/* Professional Foundation */}
+              <section>
+                <Head title="Professional Foundation" stand="Education, certifications, and the work that came before physiotherapy" />
+
+                <div className={styles.group}>
+                  <h3 className={`${styles.groupLabel} ${styles.mono}`}>Education</h3>
+                  <div className={styles.schools}>
+                    {schools.map((school, i) => (
+                      <Reveal as="div" key={school.name} delay={i * 70}>
+                        <Link href={school.href} target="_blank" rel="noopener noreferrer" className={styles.school}>
+                          <span className={styles.schoolLogo}>
+                            <Image src={school.logo} alt={school.logoAlt} width={96} height={96} />
+                          </span>
+                          <div>
+                            <h4 className={styles.schoolName}>{school.name}</h4>
+                            <span className={styles.schoolPlace}>{school.place}</span>
+                            <span className={styles.schoolMeta}>
+                              <span className={styles.mono}>{school.year}</span>
+                              {school.honours && <span className={`${styles.honours} ${styles.mono}`}>Honours</span>}
+                            </span>
+                          </div>
+                          <ArrowUpRightIcon aria-hidden="true" />
+                        </Link>
+                      </Reveal>
                     ))}
                   </div>
                 </div>
 
-                {/* CTA */}
-                <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-5 rounded-2xl text-white shadow-lg">
-                  <h3 className="text-base font-normal mb-3 text-white">Take the Next Step</h3>
-                  <Link
-                    href={JANE_BOOKING_URL} data-booking-source="about_page"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
-                  >
-                    <span className="relative z-10">Book Appointment</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            
-            {/* Main Content */}
-            <div className="lg:col-span-3">
-              
-              {/* Hero Section with Story */}
-              <Reveal className="relative mb-20">
-                <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/10 rounded-full blur-2xl"></div>
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tl from-[#B08D57]/15 to-transparent rounded-full blur-3xl"></div>
-                
-                <div className="relative bg-gradient-to-br from-white via-slate-50/30 to-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl">
-                  <div className="absolute top-0 left-4 sm:left-8 w-16 sm:w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-full"></div>
-                  
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 sm:mb-8 text-slate-800 leading-tight tracking-[-0.03em]">
-                    The Path That Shaped My{" "}
-                    <span className="text-[#B08D57]">
-                      Practice
-                    </span>
-                  </h2>
-                  
-                  {/* Journey Story - Clean Design with better mobile spacing */}
-                  <div className="space-y-8 sm:space-y-12">
-                    {/* First Story Block */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
-                      <div className="relative z-10">
-                        <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          My path to physiotherapy began through personal experience. While playing competitive soccer and studying Kinesiology at{" "}
-                          <span className="font-semibold text-[#8A6F0A]">McMaster University</span>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients go through: the frustration, the setbacks, and the progress. Now serving <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I combine professional expertise with genuine empathy born from my own recovery experience.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Second Story Block */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-100 shadow-md relative overflow-hidden">
-                      <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 -translate-x-12 sm:-translate-x-16"></div>
-                      <div className="relative z-10">
-                        <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          This experience shaped my approach when I pursued my{" "}
-                          <span className="font-semibold text-[#8A6F0A]">Master's in Physiotherapy at Robert Gordon University</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and steady support through every stage of recovery.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Powerful Quote Section: grows into place as it arrives */}
-                    <GrowIn>
-                    <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
-                      <div className="absolute bottom-0 left-0 w-20 sm:w-24 h-20 sm:h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-10 sm:translate-y-12 -translate-x-10 sm:-translate-x-12"></div>
-                      
-                      <div className="relative z-10">
-                        <div className="flex items-center mb-4 sm:mb-6">
-                          <div className="w-1 h-12 sm:h-16 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full mr-4 sm:mr-6"></div>
-                          <div>
-                            <div className="text-[#D4AF37] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1">Personal Insight</div>
-                            <div className="text-white text-base sm:text-lg font-medium">From Patient to Practitioner</div>
-                          </div>
+                {foundation.map((group) => (
+                  <div key={group.title} className={styles.group}>
+                    <h3 className={`${styles.groupLabel} ${styles.mono}`}>{group.title}</h3>
+                    <dl className={styles.entries}>
+                      {group.entries.map((entry) => (
+                        <div key={entry.title}>
+                          <dt>
+                            {entry.title}
+                            <span className={styles.entrySub}>{entry.sub}</span>
+                          </dt>
+                          <dd>{entry.body}</dd>
                         </div>
-                        <blockquote className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white font-light leading-relaxed italic mb-4 sm:mb-6">
-                          "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
-                        </blockquote>
-                        <div className="text-right">
-                          <cite className="text-[#D4AF37] font-semibold not-italic text-base sm:text-lg">- K.H.</cite>
-                        </div>
-                      </div>
-                    </div>
-                    </GrowIn>
+                      ))}
+                    </dl>
                   </div>
+                ))}
+              </section>
 
-                </div>
-              </Reveal>
-
-                {/* Philosophy of Practice Section */}
-                <div className="py-16">
-                  <h3 className="text-3xl lg:text-4xl font-light text-primary-800 mb-12 text-center relative pb-4 tracking-[-0.02em]">
-                    Philosophy of Practice
-                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
-                  </h3>
-                  <CardFan className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    {/* Card 1: Root Cause Resolution */}
-                    <Reveal delay={0} className="h-full">
-                    <div className="relative overflow-hidden h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                      <span className={styles.edge} aria-hidden="true" />
-                      <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
-                      <p className="text-primary-600 leading-relaxed">
-                        I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
-                      </p>
-                    </div>
+              {/* My Commitment to You */}
+              <section>
+                <Head title="My Commitment to You" label="How I Work" stand="What you can expect at every appointment" />
+                <ul className={styles.promises} role="list">
+                  {commitmentItems.map(({ id, title, description }, i) => (
+                    <Reveal as="li" key={id} delay={i * 80}>
+                      <h3 className={styles.promiseTitle}>{title}</h3>
+                      <p className={styles.promiseBody}>{description}</p>
                     </Reveal>
-                    {/* Card 2: Collaborative Partnership */}
-                    <Reveal delay={110} className="h-full">
-                    <div className="relative overflow-hidden h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                      <span className={styles.edge} aria-hidden="true" />
-                      <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
-                      <p className="text-primary-600 leading-relaxed">
-                        Your input is key. I listen, explain clearly, and involve you in every treatment decision.
-                      </p>
-                    </div>
-                    </Reveal>
-                    {/* Card 3: Personalized Progression */}
-                    <Reveal delay={220} className="h-full">
-                    <div className="relative overflow-hidden h-full bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                      <span className={styles.edge} aria-hidden="true" />
-                      <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
-                      <p className="text-primary-600 leading-relaxed">
-                        Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
-                      </p>
-                    </div>
-                    </Reveal>
-                  </CardFan>
-                </div>
-
-              {/* What Drives My Practice - Enhanced Design */}
-              <div className="py-16">
-                <div className="text-center mb-12 sm:mb-16">
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-800 mb-4 sm:mb-6 leading-tight tracking-[-0.02em]">
-                    What Drives My{" "}
-                    <span className="text-[#B08D57]">
-                      Practice
-                    </span>
-                  </h3>
-                  <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
-                </div>
-
-                {/* Three Core Principles, stacking as a deck as you scroll */}
-                <StackDeck>
-                  {/* Principle 1: Lived Experience */}
-                  <div className="relative group">
-                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
-                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
-                        <div className="flex-shrink-0 mx-auto sm:mx-0">
-                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 mb-3 sm:mb-4">Lived Experience</h4>
-                          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            My practice is grounded in firsthand experience, both as a clinician and as someone who has personally worked through recovery. That perspective gives me a deep understanding of what meaningful care requires: attentiveness, respect, and a commitment to walking beside you every step of the way.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Principle 2: Thoughtful, Individualized Care */}
-                  <div className="relative group">
-                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
-                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
-                        <div className="flex-shrink-0 mx-auto sm:mx-0">
-                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 mb-3 sm:mb-4">Thoughtful, Individualized Care</h4>
-                          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            Every treatment plan is shaped by close observation, clinical insight, and a deep appreciation for your unique needs. I combine manual therapy and movement science with precision and care, ensuring your progress is always intentional, responsive, and clearly guided.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Principle 3: Your Healthcare Advocate */}
-                  <div className="relative group">
-                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
-                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
-                        <div className="flex-shrink-0 mx-auto sm:mx-0">
-                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 mb-3 sm:mb-4">Your Healthcare Advocate</h4>
-                          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            I approach care with the same rigour I would expect for myself or my loved ones. Whether it's explaining options, coordinating next steps, or thinking beyond the treatment table, I work to ensure you feel supported, informed, and genuinely cared for at every stage of the process.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </StackDeck>
-              </div>
-            </div>
-          </div>
-          {/* Phones: the booking and the affiliations after the story (the
-              sidebar holds them on laptops). */}
-          <div className="lg:hidden space-y-6 mt-4 text-center">
-            {/* Professional Affiliations - Mobile */}
-            <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg">
-              <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                
-                {/* Enhanced CPO section - simplified for mobile */}
-                <div className="flex flex-col bg-white rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto overflow-hidden">
-                  <Link 
-                    href="https://collegept.org/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center flex-1 p-4"
-                  >
-                    <ClientImage
-                      src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                      alt="College of Physiotherapists of Ontario"
-                      width={140}
-                      height={70}
-                      className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
-                    />
-                  </Link>
-                  
-                  {/* Hide verification on mobile, show on desktop */}
-                  <div className="hidden sm:block mt-3 pt-3 px-4 pb-4 border-t border-neutral-100">
-                    <div className="flex items-center justify-center gap-1.5 mb-2">
-                      <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span className="text-xs font-normal text-green-700">Registration Verified</span>
-                    </div>
-                    <Link
-                      href={CPO_REGISTER_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
-                    >
-                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      Verify Registration
-                    </Link>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="https://endorphinshealth.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                >
-                  <ClientImage
-                    src="/images/endorphins-health-and-wellness-centre-logo.png"
-                    alt="Endorphins Health & Wellness Centre"
-                    width={140}
-                    height={70}
-                    className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
-                  />
-                </Link>
-                
-                <Link 
-                  href="https://headonphysio.ca/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                >
-                  <ClientImage
-                    src="/images/headon-physio-logo-affiliations.png"
-                    alt="Headon Physio"
-                    width={140}
-                    height={70}
-                    className="object-contain h-auto max-h-12 mx-auto"
-                  />
-                </Link>
-                
-                <Link 
-                  href="https://physiomaxwellness.ca/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                >
-                  <ClientImage
-                    src="/images/physiomax-wellness-logo.png"
-                    alt="PhysioMax Wellness"
-                    width={140}
-                    height={40}
-                    className="object-contain h-auto max-h-12 mx-auto"
-                  />
-                </Link>
-              </div>
+                  ))}
+                </ul>
+              </section>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Professional Foundation Section - Full Width */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-light text-primary-800 mb-6 tracking-[-0.02em]">Professional Foundation</h3>
-            <div className="w-32 h-1 bg-gradient-to-r from-[#B08D57] to-[#A17D47] mx-auto mb-8"></div>
-            <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
-              Education, certifications, and the work that came before physiotherapy
-            </p>
-          </div>
-
-          {/* Education & Certifications Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 max-w-6xl mx-auto">
-            {/* Education */}
-            <Drift distance={16} className="h-full">
-            <Reveal className="group h-full">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
-                <span className={styles.edge} aria-hidden="true" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="flex items-center mb-10">
-                    <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Education</h4>
-                  </div>
-
-                  <div className="space-y-6">
-                    {/* Master's Degree */}
-                    <div className="group">
-                      <Link 
-                        href="https://www.rgu.ac.uk/study/courses/pgcert-pgdip-msc-physiotherapy-pre-registration"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
-                      >
-                        <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
-                          <div className="flex-shrink-0">
-                        <ClientImage
-                          src="/images/robert-gordon-university-logo-png_seeklogo-341455.png"
-                              alt="Robert Gordon University"
-                              width={96}
-                              height={96}
-                              className="w-16 h-16 sm:w-24 sm:h-24 object-contain group-hover:scale-105 transition-transform duration-300"
-                        />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex flex-wrap items-center gap-3 mb-2">
-                              <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
-                                Master of Science in Physiotherapy
-                              </h5>
-                            </div>
-                            <p className="text-slate-600 font-medium text-base mb-2">Robert Gordon University, Aberdeen, Scotland</p>
-                            <div className="mt-3 flex items-center text-xs text-slate-500">
-                              <span className="inline-flex items-center">
-                                <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                                </svg>
-                                2020
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-
-                    {/* Bachelor's Degree */}
-                    <div className="group">
-                      <Link 
-                        href="https://kinesiology.mcmaster.ca/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block p-4 sm:p-6 bg-white/95 rounded-xl border border-white/90 hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
-                      >
-                        <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
-                          <div className="flex-shrink-0">
-                        <ClientImage
-                          src="/images/mcmaster-university-logo-png_seeklogo-90018.png"
-                              alt="McMaster University"
-                              width={96}
-                              height={96}
-                              className="w-16 h-16 sm:w-24 sm:h-24 object-contain group-hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex flex-wrap items-center gap-3 mb-2">
-                              <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
-                                Bachelor of Science in Kinesiology
-                              </h5>
-                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#80650A] border border-[#B08D57]/20 whitespace-nowrap">
-                                Honours
-                              </span>
-                            </div>
-                            <p className="text-slate-600 font-medium text-base mb-2">McMaster University, Hamilton, Ontario</p>
-                            <div className="mt-3 flex items-center text-xs text-slate-500">
-                              <span className="inline-flex items-center">
-                                <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                                </svg>
-                                2016
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+        {/* Closing */}
+        <section className={styles.closing}>
+          <div className={styles.closingInner}>
+            <div>
+              <div className={styles.avatar} aria-hidden="true">
+                <Image src={PORTRAIT} alt="" fill sizes="64px" />
               </div>
-            </Reveal>
-            </Drift>
-
-            {/* Certifications */}
-            <Drift distance={44} className="h-full">
-            <Reveal className="group h-full">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
-                <span className={styles.edge} aria-hidden="true" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="flex items-center mb-10">
-                    <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Certifications</h4>
-                  </div>
-                  
-                  <div className="space-y-6 flex-1">
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Certified</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Certification in orthopaedic manual therapy techniques</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Certification in dry needling for trigger point release and pain management</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Continuing Education</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Ongoing Professional Development</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Regular courses to keep treatment in line with current evidence</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-            </Drift>
-          </div>
-
-          {/* Experience & Athletic Background Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
-            {/* Experience */}
-            <Drift distance={16} className="h-full">
-            <Reveal className="group h-full">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
-                <span className={styles.edge} aria-hidden="true" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="flex items-center mb-10">
-                    <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Clinical Experience</h4>
-                  </div>
-                  
-                  <div className="space-y-6 flex-1">
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">5+ Years Clinical Practice</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Physiotherapy</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">One-on-one care for sports injuries, joint and tendon pain, and recovery after surgery</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Personal Training</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Fitness & Conditioning</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Coaching movement and exercise as a personal trainer</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Assistant Fitness Manager (GoodLife Fitness)</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Leadership & Operations</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Team management and facility operations in fitness environment</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-            </Drift>
-
-            {/* Athletic Background */}
-            <Drift distance={44} className="h-full">
-            <Reveal className="group h-full">
-              <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-5 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full flex flex-col">
-                <span className={styles.edge} aria-hidden="true" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="flex items-center mb-10">
-                    <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Athletic Background</h4>
-                  </div>
-                  
-                  <div className="space-y-5 flex-1">
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Semi-Professional Soccer</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Cove Rangers, Scotland</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Competitive experience at high-level football in Scottish leagues</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Canadian Soccer League</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Brantford Galaxy</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Semi-professional league experience in Canadian competitive soccer</div>
-                  </div>
-                </div>
-              </div>
-
-                    <div className="p-4 sm:p-6 bg-white/90 rounded-xl border border-white/80 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
-                        <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Injury & Recovery Experience</div>
-                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Personal Journey</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Firsthand understanding of athletic injury, rehabilitation, and return to sport</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-            </Drift>
-          </div>
-        </div>
-      </section>
-      
-      {/* My Commitment to You Section - Full Width */}
-      <section className="py-8 sm:py-12 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-6 sm:mb-10 md:mb-16">
-            <span className="inline-block px-3 sm:px-5 py-1 sm:py-1.5 bg-[#D4AF37]/10 text-[#8A6F0A] text-[10px] sm:text-xs md:text-sm font-medium rounded-full mb-2 sm:mb-4">
-              How I Work
-            </span>
-          
-            <h3 className="text-xl sm:text-2xl md:text-4xl font-light text-primary-800 mb-2 sm:mb-4 md:mb-8 tracking-[-0.02em]">
-              My Commitment to You
-            </h3>
-            <div className="w-24 sm:w-32 md:w-48 h-0.5 bg-[#B08D57] mx-auto mb-2 sm:mb-4 md:mb-10"></div>
-            
-            <p className="text-sm sm:text-base md:text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-2">
-              What you can expect at every appointment
-            </p>
-          </div>
-
-          <CardFan className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {commitmentItems.map(({ id, title, description, Icon }, i) => (
-              <Reveal key={id} delay={i * 110} className="h-full">
-                <div className="relative overflow-hidden h-full bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                  <span className={styles.edge} aria-hidden="true" />
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-md mb-6 text-white">
-                    <Icon className="w-7 h-7" aria-hidden="true" />
-                  </div>
-                  <h4 className="font-semibold text-xl text-primary-800 mb-3">{title}</h4>
-                  <p className="text-primary-600 leading-relaxed">{description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </CardFan>
-        </div>
-      </section>
-      
-      {/* CTA Section: a dark card with a gold edge to end on */}
-      <section className="py-16 sm:py-20 bg-primary-50 text-primary-800 border-t border-neutral-200">
-        <div className="container mx-auto px-4">
-          <Reveal className="max-w-4xl mx-auto">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 py-12 sm:px-12 sm:py-16 shadow-2xl text-center">
-              <span className={styles.edge} aria-hidden="true" />
-              <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#D4AF37]/15 rounded-full blur-3xl" aria-hidden="true"></div>
-              <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#B08D57]/15 rounded-full blur-3xl" aria-hidden="true"></div>
-              <div className="relative">
-                <div className="relative mx-auto mb-7 w-20 h-20 rounded-full overflow-hidden ring-2 ring-[#B08D57] ring-offset-4 ring-offset-slate-900 bg-gradient-to-b from-slate-100 to-slate-300">
-                  <Image src={PORTRAIT} alt="" fill sizes="80px" className="object-cover object-top scale-[1.8] origin-top" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-light mb-5 !text-white tracking-[-0.02em]">
-                  Take the Next Step
-                </h2>
-                <p className="text-lg !text-white/80 mb-10 leading-relaxed">
-                  Book your appointment today or contact me with any questions.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
-                  <Link
-                    href={JANE_BOOKING_URL} data-booking-source="about_page"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-gold py-3.5 px-8 font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
-                  >
-                    Book an Appointment
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="py-3.5 px-8 bg-white/5 !text-white border border-white/30 hover:border-white/70 hover:bg-white/10 font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-0.5"
-                  >
-                    Explore Services
-                  </Link>
-                </div>
-              </div>
+              <h2 className={styles.closingTitle}>Take the Next Step</h2>
+              <p className={styles.closingText}>Book your appointment today or contact me with any questions.</p>
             </div>
-          </Reveal>
-        </div>
-      </section>
-    </main>
+            <div className={styles.closingActions}>
+              <Link
+                href={JANE_BOOKING_URL} data-booking-source="about_page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.goLight}
+              >
+                Book an Appointment
+                <ArrowRightIcon aria-hidden="true" />
+              </Link>
+              <Link href="/services" className={styles.goDark}>
+                Explore Services
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
-} 
+}

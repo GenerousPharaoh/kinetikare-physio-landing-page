@@ -1,134 +1,67 @@
-'use client';
-
-import React, { type CSSProperties } from 'react';
 import Image from 'next/image';
-import { m as motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { UserCircleIcon } from '@heroicons/react/24/outline';
-import { HALO } from '@/components/home/halo';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import styles from './About.module.css';
 
 const PORTRAIT = '/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png';
 
 /**
- * The About page's opening: who he is beside his portrait card on laptops
- * (until 2026-10-30 the portrait only appeared further down, in the
- * sidebar), the portrait under the text on phones. Behind the portrait, the
- * gold faceted halo from the home hero; as the page starts to scroll the
- * portrait eases a little slower than the page, for depth.
+ * The About page's opening, set like a condition page: the name, title and
+ * the three facts on the white sheet, and beside them (laptops) a dark panel
+ * pinned to the left with his portrait and the booking at its foot. On
+ * phones the panel follows the opening as a dark block holding the portrait
+ * only. Returns two grid children of the page shell, opening first, so the
+ * reading order is the same at every width.
  */
 export default function AboutHero() {
-  const reduce = useReducedMotion();
-  const { scrollY } = useScroll();
-  const lag = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 70]);
-  const haloLag = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 120]);
   return (
-    <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-24 bg-gradient-to-br from-white via-[#faf7f1] to-[#f4efe4] overflow-hidden">
-      {/* Premium background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-[32rem] h-[32rem] bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
-          backgroundSize: '48px 48px'
-        }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0.01, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center lg:text-left lg:col-span-7"
-          >
-            {/* Premium badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
-            >
-              <UserCircleIcon className="w-5 h-5 text-[#B08D57]" />
-              <span className="text-sm font-medium text-gray-700">Meet Kareem Hassanein</span>
-            </motion.div>
-
-            {/* Main heading with premium typography */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-              Registered <span className="font-semibold">Physiotherapist</span>
-            </h1>
-
-            {/* Decorative line */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40 lg:hidden"></div>
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40 lg:w-32"></div>
-            </div>
-
-            {/* Tagline */}
-            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto lg:mx-0 mb-10">
-              One-on-one physiotherapy in Burlington for sports injuries, joint and tendon pain, and recovery after surgery
-            </p>
-
-            {/* Key highlights */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-sm text-slate-600">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>MSc Physiotherapy</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>Manual Therapy Training</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>5+ Years Experience</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* His portrait, in the same card as the rest of the page: the
-              faceted halo and a gold glow behind it, a hairline frame. */}
-          <motion.div
-            initial={{ opacity: 0.01, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative lg:col-span-5 w-64 sm:w-72 lg:w-full max-w-sm mx-auto"
-          >
-            <motion.div className={styles.heroHalo} style={{ y: haloLag }} aria-hidden="true">
-              {HALO.map((band, k) => (
-                <svg key={k} className={styles.heroHaloBand} viewBox={band.viewBox} style={{ width: band.size, '--k': k } as CSSProperties}>
-                  {band.polys.map((f, i) => (
-                    <polygon key={i} points={f.points} fill={f.fill} fillOpacity={f.a} />
-                  ))}
-                </svg>
-              ))}
-            </motion.div>
-            <motion.div className="relative will-change-transform" style={{ y: lag }}>
-              <div className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/25 via-[#B08D57]/10 to-transparent rounded-[2rem] blur-2xl" aria-hidden="true"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/70 bg-gradient-to-b from-slate-100 to-slate-200 aspect-[826/1000]">
-                <Image
-                  src={PORTRAIT}
-                  alt="Kareem Hassanein, Registered Physiotherapist"
-                  width={826}
-                  height={1169}
-                  priority
-                  quality={82}
-                  sizes="(min-width: 1024px) 384px, 288px"
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-3 rounded-xl border border-white/50 pointer-events-none" aria-hidden="true"></div>
-              </div>
-            </motion.div>
-          </motion.div>
+    <>
+      <header className={styles.opening}>
+        <div className={styles.openInner}>
+          <p className={`${styles.kicker} ${styles.mono}`}>
+            <i aria-hidden="true" />
+            Meet Kareem Hassanein
+          </p>
+          <h1 className={styles.h1}>Registered Physiotherapist</h1>
+          <p className={styles.summary}>
+            One-on-one physiotherapy in Burlington for sports injuries, joint and tendon pain, and recovery after surgery
+          </p>
+          <ul className={styles.facts} role="list">
+            <li>
+              <i aria-hidden="true" />
+              MSc Physiotherapy
+            </li>
+            <li>
+              <i aria-hidden="true" />
+              Manual Therapy Training
+            </li>
+            <li>
+              <i aria-hidden="true" />
+              5+ Years Experience
+            </li>
+          </ul>
         </div>
-      </div>
+      </header>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-    </section>
+      <aside className={styles.panel} aria-label="Kareem Hassanein">
+        <div className={styles.viewer}>
+          <Image
+            src={PORTRAIT}
+            alt="Kareem Hassanein, Registered Physiotherapist"
+            fill
+            priority
+            quality={82}
+            sizes="(min-width: 1360px) 376px, (min-width: 1024px) 316px, (min-width: 640px) 436px, calc(100vw - 64px)"
+          />
+        </div>
+        <div className={styles.panelFoot}>
+          <h2 className={styles.panelTitle}>Take the Next Step</h2>
+          <a href={JANE_BOOKING_URL} data-booking-source="about_page" target="_blank" rel="noopener noreferrer" className={styles.goLight}>
+            Book Appointment
+            <ArrowRightIcon aria-hidden="true" />
+          </a>
+        </div>
+      </aside>
+    </>
   );
 }

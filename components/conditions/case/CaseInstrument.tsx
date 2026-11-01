@@ -26,6 +26,7 @@ export default function CaseInstrument({
   region,
   plateName,
   reviewed,
+  readMinutes,
 }: {
   sections: CaseSection[];
   slug: string;
@@ -33,6 +34,7 @@ export default function CaseInstrument({
   region: string;
   plateName?: string;
   reviewed?: string | null;
+  readMinutes?: number;
 }) {
   const pagePath = `/conditions/${slug}`;
   const [active, setActive] = useState('top');
@@ -133,7 +135,12 @@ export default function CaseInstrument({
           <span className={styles.mono}>{region} · Condition</span>
         </span>
         <p className={styles.instName}>{name}</p>
-        {reviewed && <p className={styles.instMeta}>Kareem Hassanein, Registered Physiotherapist · Reviewed {reviewed}</p>}
+        {reviewed && (
+          <p className={styles.instMeta}>
+            Reviewed {reviewed}
+            {readMinutes ? ` · ${readMinutes} min read` : ''}
+          </p>
+        )}
         <CasePlate key={slug} slug={slug} priority zoom={zoom} className={styles.viewer} sizes="300px" />
         {plateName && (
           <p className={`${styles.viewerCap} ${styles.mono}`}>

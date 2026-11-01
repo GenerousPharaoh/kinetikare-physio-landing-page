@@ -185,7 +185,7 @@
 
 @media (min-width: 1360px) {
   .case .shell { grid-template-columns: 440px minmax(0, 1fr); }
-  .case .column { max-width: 740px; }
+  .case .column { max-width: 740px; margin-inline: auto; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -603,6 +603,12 @@
 .case .byline a:not(#_):hover { color: var(--accent-ink); }
 .case .byline i { width: 3px; height: 3px; border-radius: 50%; background: var(--line2); }
 
+@media (max-width: 639px) {
+  .case .byline { gap: 4px 14px; }
+  .case .byline i { display: none; }
+}
+.case .byline .time { color: var(--soft); }
+
 .case .actions {
   display: flex;
   flex-wrap: wrap;
@@ -895,8 +901,12 @@
 .case .flags {
   padding: 6px 22px;
   border: 1px solid var(--line);
+  border-left: 3px solid var(--line2);
   border-radius: 16px;
 }
+
+.case .flags[data-top='emergency'] { border-left-color: var(--red); }
+.case .flags[data-top='today'] { border-left-color: #c98a1e; }
 
 .case .flag {
   display: grid;
@@ -1236,6 +1246,22 @@
 /* Glossary terms keep their definitions, without the inline icon. */
 .case :global(.cursor-help) { text-decoration-color: rgba(47, 107, 255, 0.45); }
 .case :global(.cursor-help) svg { display: none; }
+.case :global(.cursor-help):hover { text-decoration-color: var(--accent); }
+
+:global(body):has(.case) :global(.term-popover-desktop),
+:global(body):has(.case) :global(.term-sheet) {
+  border-radius: 14px;
+  border-color: #e5e8ed;
+  box-shadow: 0 16px 40px rgba(11, 16, 23, 0.14);
+  font-family: var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif;
+}
+
+:global(body):has(.case) :global(.term-popover-desktop) p:first-child,
+:global(body):has(.case) :global(.term-sheet) p:first-child {
+  color: #1d4fd8;
+  letter-spacing: 0.07em;
+  font-size: 12px;
+}
 
 /* The pattern quiz keeps its component; these set it in the sheet's
    language (Tailwind utilities are 0,1,0). */
@@ -1323,6 +1349,26 @@
 }
 
 .case .tileTitle { display: block; font-size: 15.5px; font-weight: 500; line-height: 1.35; }
+
+.case .tiles a:not(#_):has(.tileThumb) {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+}
+
+.case .tileThumb {
+  position: relative;
+  grid-row: 1 / span 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.case .tileThumb img { object-fit: cover; }
+.case .tileThumb + .tileTitle { padding-top: 2px; }
 .case .tileBlurb { display: block; margin-top: 5px; font-size: 13.5px; line-height: 1.5; color: var(--soft); }
 .case .tiles svg { position: absolute; right: 16px; top: 18px; width: 14px; height: 14px; color: var(--soft); transition: translate 0.3s var(--ease), color 0.25s var(--ease); }
 

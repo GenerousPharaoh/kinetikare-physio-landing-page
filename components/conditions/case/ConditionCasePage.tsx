@@ -190,6 +190,20 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
   const excludeSlugs = linkedDifferentialSlugs((condition.differentialDiagnosis ?? []).map((d) => d.condition), conditionSlug);
   const related = relatedConditions.filter((r) => !excludeSlugs.has(r.slug) && explanationBySlug.get(r.slug)).slice(0, 6);
   const reviewed = reviewedLabel(condition.lastReviewed);
+  // Reading time from the page's own text, at 220 words a minute.
+  const wordCount = [
+    condition.summary, condition.description, scienceText, condition.biomechanics,
+    condition.clinicalObservations?.body, primary, secondary, prevention,
+    condition.prognosis?.timeline, condition.prognosis?.naturalHistory, condition.treatmentApproach?.description,
+    ...(condition.clinicalPresentation?.primarySymptoms ?? []),
+    ...(condition.clinicalPresentation?.associatedSymptoms ?? []),
+    ...(condition.selfManagement ?? []).flatMap((i) => [i.strategy, i.rationale]),
+    ...(condition.faqs ?? []).flatMap((f) => [f.question, f.answer]),
+    ...(condition.differentialDiagnosis ?? []).map((d) => d.distinguishingFeatures),
+    ...phases.flatMap((p) => [p.focus, p.progressionCriteria, ...(p.examples ?? [])]),
+    ...keyResearch.flatMap((r) => [r.finding, r.detail, r.findings, r.clinicalRelevance]),
+  ].filter(Boolean).join(' ').split(/\s+/).length;
+  const readMinutes = Math.max(3, Math.round(wordCount / 220));
   // Sibling conditions in the same hub (or category when there is no hub).
   const siblings = getAllConditions()
     .filter((c) => c.slug !== conditionSlug && (conditionHub ? getConditionHub(c.slug, c.category)?.path === conditionHub.path : c.category === condition.category))
@@ -221,7 +235,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
   return (
     <main className={`${styles.case} ${geist.variable}`} data-case-page="">
       <div className={styles.shell}>
-        <CaseInstrument sections={sections} slug={conditionSlug} name={condition.name} region={region} plateName={plateName} reviewed={reviewed} />
+        <CaseInstrument sections={sections} slug={conditionSlug} name={condition.name} region={region} plateName={plateName} reviewed={reviewed} readMinutes={readMinutes} />
 
         <div className={styles.sheet}>
           <div className={styles.column} data-case-column="">
@@ -257,6 +271,8 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     </span>
                   </>
                 )}
+                <i aria-hidden="true" />
+                <span className={styles.time}>{readMinutes} min read</span>
               </p>
               <div className={styles.actions}>
                 <a href={JANE_ASSESSMENT_URL} data-booking-source="condition_intro" target="_blank" rel="noopener noreferrer" className={styles.btnInk}>
@@ -367,7 +383,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {redFlags.length > 0 && (
               <section id="red-flags">
                 <Head title="When to see a doctor first" />
-                <div className={styles.flags}>
+                <div className={styles.flags} data-top={bands[0]?.urgency}>
                   {bands.flatMap((band) =>
                     band.flags.map((flag) => {
                       const u = redFlagUrgency(flag);
@@ -707,6 +723,11 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     <div className={styles.tiles}>
                       {related.map((r) => (
                         <Link key={r.slug} href={`/conditions/${r.slug}`}>
+                          {CONDITION_PLATES[r.slug] && (
+                            <span className={styles.tileThumb}>
+                              <Image src={`/images/conditions/${r.slug}.webp`} alt="" fill sizes="44px" />
+                            </span>
+                          )}
                           <span className={styles.tileTitle}>{r.name}</span>
                           <span className={styles.tileBlurb}>{explanationBySlug.get(r.slug)}</span>
                           <ArrowRightIcon aria-hidden="true" />

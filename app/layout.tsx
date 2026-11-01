@@ -1,7 +1,7 @@
 import { serializeJsonLd } from '@/lib/structured-data';
 import { CPO_REGISTER_URL } from '@/lib/registration';
 import './globals.css';
-import { Inter, Playfair_Display } from 'next/font/google';
+import localFont from 'next/font/local';
 import { geist } from '@/components/conditions/case/fonts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -16,16 +16,19 @@ import FloatingButtons from '@/components/FloatingButtons';
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
 import { ENDORPHINS_OPENING_HOURS_SCHEMA } from '@/lib/hours';
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+// Self-hosted since 2026-11-01 (see app/fonts/README.md).
+const inter = localFont({
+  src: './fonts/inter-latin-wght-normal.woff2',
+  weight: '100 900',
+  style: 'normal',
   display: 'swap',
   variable: '--font-inter',
 });
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const playfair = localFont({
+  src: './fonts/playfair-display-latin-wght-normal.woff2',
+  weight: '400 900',
+  style: 'normal',
   display: 'swap',
   variable: '--font-playfair',
 });

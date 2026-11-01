@@ -1,9 +1,9 @@
 /**
- * Which condition pages render with the "case" template
- * (components/conditions/case/ConditionCasePage.tsx) while it is piloted.
- * Everything else keeps ConditionFlowPage. Remove the switch once the new
- * template has rolled out to every page.
+ * Every condition page renders with the "case" template
+ * (components/conditions/case/ConditionCasePage.tsx) since 2026-10-31.
+ * ConditionFlowPage is kept as the fallback behind this switch; set a slug
+ * in LEGACY_SLUGS to send one page back to it while a problem is fixed.
  */
-export const CASE_SLUGS = new Set<string>(['patellar-tendinopathy']);
+export const LEGACY_SLUGS: ReadonlySet<string> = new Set<string>();
 
-export const usesCaseLayout = (slug: string) => CASE_SLUGS.has(slug);
+export const usesCaseLayout = (slug: string) => !LEGACY_SLUGS.has(slug);

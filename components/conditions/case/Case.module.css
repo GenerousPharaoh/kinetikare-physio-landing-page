@@ -170,7 +170,8 @@
   color: var(--txt-d);
   padding: 28px 36px 24px;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
   border-right: 1px solid var(--line-d);
 }
 
@@ -251,22 +252,21 @@
 /* The section index. */
 .case .index {
   position: relative;
-  margin-top: 26px;
+  margin-top: 24px;
   padding-left: 14px;
   border-left: 1px solid var(--line-d);
-  min-height: 0;
-  overflow: auto;
-  scrollbar-width: none;
 }
 
 /* Short laptop windows (1280x680): tighter instrument so nothing clips. */
 @media (min-width: 1024px) and (max-height: 760px) {
   .case .instrument { padding: 18px 32px 16px; }
-  .case .instName { margin-top: 10px; font-size: 17px; }
-  .case .viewer { margin-top: 14px; width: min(100%, clamp(130px, 23vh, 300px)); }
+  .case .chip { display: none; }
+  .case .instName { margin-top: 0; font-size: 17px; }
+  .case .viewer { margin-top: 12px; width: min(100%, clamp(120px, 22vh, 300px)); }
   .case .viewerCap { display: none; }
-  .case .index { margin-top: 16px; }
-  .case .index a:not(#_) { min-height: 25px; padding: 3px 0; font-size: 13px; }
+  .case .index { margin-top: 14px; }
+  .case .index a:not(#_) { min-height: 24px; padding: 2px 0; font-size: 13px; }
+  .case .indicator { height: 24px; }
   .case .instCta { padding-top: 12px; }
   .case a.btnLight:not(#_),
   .case a.btnDark:not(#_) { min-height: 42px; }
@@ -285,20 +285,18 @@
 }
 
 .case .index a:not(#_) {
-  display: grid;
-  grid-template-columns: 26px minmax(0, 1fr);
-  align-items: baseline;
-  gap: 6px;
+  display: flex;
+  align-items: center;
   min-height: 28px;
   padding: 4px 0;
   color: var(--mut-d);
   font-size: 13.5px;
   line-height: 1.4;
   font-weight: 500;
+  transition: color 0.25s var(--ease), translate 0.35s var(--ease);
 }
 
-.case .index a:not(#_) .mono { color: inherit; opacity: 0.7; }
-.case .index a:not(#_)[aria-current] { color: var(--txt-d); }
+.case .index a:not(#_)[aria-current] { color: var(--txt-d); translate: 4px 0; }
 
 @media (hover: hover) {
   .case .index a:not(#_):hover { color: var(--txt-d); }
@@ -461,9 +459,10 @@
 .case .sheetClose svg { width: 18px; height: 18px; }
 
 .case .sheetNav a:not(#_) {
-  display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) 16px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   min-height: 50px;
   border-top: 1px solid var(--line);
   font-size: 16px;
@@ -492,7 +491,7 @@
 }
 
 .case .column {
-  max-width: 720px;
+  max-width: 700px;
 }
 
 @media (min-width: 1024px) {
@@ -659,18 +658,31 @@
 }
 
 .case .secHead {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
-.case .secHead .mono { color: var(--accent-ink); flex: none; }
+.case .secHead::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  margin-bottom: 18px;
+}
+
+.case .secHead .stand {
+  margin-top: 10px;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--soft);
+  max-width: 56ch;
+}
 
 .case .h2 {
-  font-size: clamp(26px, 6.5vw, 30px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: clamp(28px, 7vw, 32px);
+  line-height: 1.12;
+  letter-spacing: -0.024em;
   font-weight: 500;
   text-wrap: balance;
 }
@@ -683,7 +695,7 @@
 }
 
 @media (min-width: 1024px) {
-  .case .h2 { font-size: 32px; }
+  .case .h2 { font-size: 36px; }
   .case .h3 { font-size: 22px; }
 }
 
@@ -730,18 +742,28 @@
 .case .rows { border-top: 1px solid var(--line2); }
 
 .case .rows > li {
-  display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 8px;
-  padding: 12px 0;
+  position: relative;
+  padding: 13px 0 13px 22px;
   border-bottom: 1px solid var(--line);
   font-size: 16px;
   line-height: 1.55;
   color: var(--read);
 }
 
-.case .rows > li .mono { color: var(--soft); padding-top: 4px; }
-.case .rows > li .mono[data-tone='ink'] { color: var(--ink); }
+.case .rows > li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 23px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
+.case .rowsPlain > li { padding-left: 0; }
+.case .rowsPlain > li::before { content: none; }
 
 .case .rowTitle { display: block; font-weight: 600; color: var(--ink); }
 .case .rowBody { display: block; margin-top: 4px; }
@@ -803,15 +825,21 @@
 .case .noteBody p + p { margin-top: 14px; }
 
 /* When to see a doctor first. */
-.case .flags { border-top: 1px solid var(--line2); }
+.case .flags {
+  padding: 6px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
 
 .case .flag {
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
 }
+
+.case .flag:first-child { border-top: 0; }
 
 .case .urg {
   display: inline-flex;
@@ -832,7 +860,8 @@
 .case .flagAction { margin-top: 4px; font-size: 15px; line-height: 1.55; color: var(--read); }
 
 @media (min-width: 640px) {
-  .case .flag { grid-template-columns: 150px minmax(0, 1fr); }
+  .case .flags { padding: 8px 26px; }
+  .case .flag { grid-template-columns: 140px minmax(0, 1fr); }
 }
 
 /* Rehab phases: a stepper. */
@@ -996,31 +1025,38 @@
   .case .chips a:hover svg { translate: 2px 0; color: var(--ink); }
 }
 
-/* Recovery track. */
+/* Recovery track: three spans on a line (stacked on phones). */
 .case .track {
   margin: 26px 0 30px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .case .track li {
   position: relative;
-  padding: 16px 10px 0 0;
-  border-top: 2px solid var(--line2);
+  padding: 2px 0 18px 22px;
+  border-left: 2px solid var(--line2);
 }
+
+.case .track li:first-child { border-left-color: var(--ink); }
 
 .case .track li::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: -6px;
+  left: -6px;
+  top: 4px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--ink);
 }
 
-.case .track li:first-child { border-top-color: var(--ink); }
+@media (min-width: 640px) {
+  .case .track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .case .track li { padding: 16px 10px 0 0; border-left: 0; border-top: 2px solid var(--line2); }
+  .case .track li:first-child { border-top-color: var(--ink); }
+  .case .track li::before { left: 0; top: -6px; }
+}
 .case .trackWhen { display: block; color: var(--accent-ink); }
 .case .trackName { display: block; margin-top: 5px; font-size: 13.5px; line-height: 1.35; font-weight: 500; color: var(--ink); }
 

@@ -64,8 +64,7 @@ export default function CasePhases({ phases }: { phases: ExerciseProgressionPhas
                 <ol className={styles.rows}>
                   {phase.examples.map((ex, n) => (
                     <li key={n}>
-                      <span className={styles.mono}>{String(n + 1).padStart(2, '0')}</span>
-                      <span><GlossaryText text={ex} usedTerms={usedTerms} /></span>
+                      <GlossaryText text={ex} usedTerms={usedTerms} />
                     </li>
                   ))}
                 </ol>

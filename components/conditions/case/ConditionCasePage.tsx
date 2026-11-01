@@ -85,7 +85,6 @@ const REGION_LABEL: Record<string, string> = {
 };
 
 const sentence = (s: string) => (/[.!?]$/.test(s.trim()) ? s.trim() : `${s.trim()}.`);
-const pad = (n: number) => String(n).padStart(2, '0');
 
 const URG_CLASS: Record<RedFlagUrgency, string> = {
   emergency: styles.urgEmergency,
@@ -122,11 +121,11 @@ function Citation({ research }: { research: NonNullable<Condition['keyResearch']
   return <p className={styles.studyCite}>{parts}</p>;
 }
 
-function Head({ n, title }: { n: number; title: React.ReactNode }) {
+function Head({ title, stand }: { title: React.ReactNode; stand?: string }) {
   return (
     <Reveal as="div" className={styles.secHead}>
-      <span className={styles.mono}>{pad(n)}</span>
       <h2 className={styles.h2}>{title}</h2>
+      {stand && <p className={styles.stand}>{stand}</p>}
     </Reveal>
   );
 }
@@ -203,7 +202,6 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
     { id: 'science', label: 'The science', show: Boolean(scienceText || condition.biomechanics) },
     { id: 'research', label: 'Research', show: keyResearch.length > 0 || researchInsights.length > 0 },
   ].filter((s) => s.show);
-  const num = (id: string) => sections.findIndex((s) => s.id === id) + 1;
 
   const bookLine = (source: string) => (
     <a href={JANE_ASSESSMENT_URL} data-booking-source={source} target="_blank" rel="noopener noreferrer" className={styles.bookLine}>
@@ -290,12 +288,11 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* Symptoms */}
             {(condition.clinicalPresentation || hasPatternMatcher) && (
               <section id="symptoms">
-                <Head n={num('symptoms')} title="Does this sound like you?" />
+                <Head title="Does this sound like you?" />
                 {condition.clinicalPresentation?.primarySymptoms && (
                   <ul className={`${styles.rows} ${styles.rowsTwo}`}>
-                    {condition.clinicalPresentation.primarySymptoms.map((symptom, i) => (
+                    {condition.clinicalPresentation.primarySymptoms.map((symptom) => (
                       <li key={symptom}>
-                        <span className={styles.mono}>{pad(i + 1)}</span>
                         <span>{symptom}</span>
                       </li>
                     ))}
@@ -305,9 +302,8 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   <>
                     <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>Often alongside it</span>
                     <ul className={styles.rows}>
-                      {condition.clinicalPresentation.associatedSymptoms.map((symptom, i) => (
+                      {condition.clinicalPresentation.associatedSymptoms.map((symptom) => (
                         <li key={symptom}>
-                          <span className={styles.mono}>{pad(i + 1)}</span>
                           <span>{symptom}</span>
                         </li>
                       ))}
@@ -362,7 +358,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* When to see a doctor first */}
             {redFlags.length > 0 && (
               <section id="red-flags">
-                <Head n={num('red-flags')} title="When to see a doctor first" />
+                <Head title="When to see a doctor first" />
                 <div className={styles.flags}>
                   {bands.flatMap((band) =>
                     band.flags.map((flag) => {
@@ -388,7 +384,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* Treatment */}
             {(primary || showRehab || condition.selfManagement || condition.treatmentApproach) && (
               <section id="treatment">
-                <Head n={num('treatment')} title="How it is treated" />
+                <Head title="How it is treated" stand={keyPointText?.helps} />
                 <div className={styles.prose}>
                   {primary && (
                     <div className={styles.opener}>
@@ -439,10 +435,9 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 {condition.selfManagement && condition.selfManagement.length > 0 && (
                   <>
                     <h3 id="self-care" className={`${styles.h3} ${styles.sub}`}>What you can do now</h3>
-                    <ol className={styles.rows}>
-                      {condition.selfManagement.map((item, i) => (
+                    <ol className={`${styles.rows} ${styles.rowsPlain}`}>
+                      {condition.selfManagement.map((item) => (
                         <li key={item.strategy}>
-                          <span className={styles.mono} data-tone="ink">{pad(i + 1)}</span>
                           <span>
                             <span className={styles.rowTitle}>{item.strategy}</span>
                             <span className={styles.rowBody}>{sentence(item.rationale)}</span>
@@ -465,12 +460,11 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                       </div>
                     )}
                     {condition.treatmentApproach?.techniques && (
-                      <ul className={styles.rows}>
-                        {condition.treatmentApproach.techniques.map((technique, i) => {
+                      <ul className={`${styles.rows} ${styles.rowsPlain}`}>
+                        {condition.treatmentApproach.techniques.map((technique) => {
                           const [title, ...rest] = technique.split(': ');
                           return (
                             <li key={technique}>
-                              <span className={styles.mono} data-tone="ink">{pad(i + 1)}</span>
                               <span>
                                 <span className={styles.rowTitle}>{title}</span>
                                 {rest.length > 0 && <span className={styles.rowBody}>{sentence(rest.join(': '))}</span>}
@@ -502,7 +496,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* Recovery */}
             {(condition.prognosis || condition.timeline?.length || keyPointText?.time) && (
               <section id="recovery">
-                <Head n={num('recovery')} title="How long it takes" />
+                <Head title="How long it takes" stand={keyPointText?.time} />
                 {trackSpans.length === 3 && (
                   <ol className={styles.track} aria-label="Rehabilitation time spans">
                     {trackSpans.map((p, i) => (
@@ -519,10 +513,9 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   {condition.prognosis?.naturalHistory && <p>{sentence(condition.prognosis.naturalHistory)}</p>}
                 </div>
                 {condition.timeline && condition.timeline.length > 0 && (
-                  <ol className={styles.rows} style={{ marginTop: 24 }}>
-                    {condition.timeline.map((phase, i) => (
+                  <ol className={`${styles.rows} ${styles.rowsPlain}`} style={{ marginTop: 24 }}>
+                    {condition.timeline.map((phase) => (
                       <li key={phase.phase}>
-                        <span className={styles.mono} data-tone="ink">{pad(i + 1)}</span>
                         <span>
                           <span className={styles.rowTitle}>
                             {phase.phase} <span style={{ color: 'var(--accent-ink)', fontWeight: 500 }}>({phase.duration})</span>
@@ -537,9 +530,8 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   <>
                     <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>What changes the timeline</span>
                     <ul className={`${styles.rows} ${styles.rowsTwo}`}>
-                      {condition.prognosis.factors.map((factor, i) => (
+                      {condition.prognosis.factors.map((factor) => (
                         <li key={factor}>
-                          <span className={styles.mono}>{pad(i + 1)}</span>
                           <span>{factor}</span>
                         </li>
                       ))}
@@ -559,7 +551,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* Similar conditions */}
             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
               <section id="similar">
-                <Head n={num('similar')} title={similarHeading.heading} />
+                <Head title={similarHeading.heading} />
                 <dl className={styles.compare}>
                   {condition.differentialDiagnosis.map((d) => {
                     const href = differentialHref(d.condition, conditionSlug);
@@ -600,7 +592,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* Questions */}
             {condition.faqs && condition.faqs.length > 0 && (
               <section id="faqs">
-                <Head n={num('faqs')} title="What patients ask me most" />
+                <Head title="What patients ask me most" />
                 <div className={styles.disc}>
                   {condition.faqs.map((faq) => (
                     <CaseDisclosure key={faq.question} title={faq.question}>
@@ -615,7 +607,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* The science */}
             {(scienceText || condition.biomechanics) && (
               <section id="science">
-                <Head n={num('science')} title={<>The science of {nameLower}</>} />
+                <Head title={<>The science of {nameLower}</>} />
                 <div className={styles.clearfix}>
                   <figure className={styles.figureFrame}>
                     <CasePlate key={`${conditionSlug}-figure`} slug={conditionSlug} className={styles.plateImg} sizes="300px" />
@@ -640,7 +632,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             {/* Research */}
             {(keyResearch.length > 0 || researchInsights.length > 0) && (
               <section id="research">
-                <Head n={num('research')} title="What the studies show" />
+                <Head title="What the studies show" />
                 {keyResearch.length > 0 && (
                   <CaseResearch count={keyResearch.length}>
                     {keyResearch.map((r, i) => {

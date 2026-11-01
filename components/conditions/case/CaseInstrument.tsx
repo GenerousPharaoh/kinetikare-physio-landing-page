@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowRightIcon, ChevronDownIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import CasePlate from './CasePlate';
@@ -31,7 +31,8 @@ export default function CaseInstrument({
   region: string;
   plateName?: string;
 }) {
-  const [active, setActive] = useState(sections[0]?.id ?? '');
+  const pagePath = `/conditions/${slug}`;
+  const [active, setActive] = useState('top');
   const [marker, setMarker] = useState({ top: 0, height: 28 });
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
@@ -49,7 +50,7 @@ export default function CaseInstrument({
     const update = () => {
       frame = 0;
       const line = (els[0] ? parseFloat(getComputedStyle(els[0]).scrollMarginTop) || 0 : 0) + 24;
-      let current = els[0]?.id ?? '';
+      let current = 'top';
       for (const el of els) {
         if (el.getBoundingClientRect().top <= line) current = el.id;
         else break;
@@ -61,7 +62,7 @@ export default function CaseInstrument({
         const done = Math.min(Math.max(-rect.top + window.innerHeight * 0.5, 0), Math.max(total, 1));
         setProgress(total > 0 ? done / total : 0);
       }
-      const link = listRef.current?.querySelector<HTMLElement>(`a[href="#${current}"]`);
+      const link = listRef.current?.querySelector<HTMLElement>(current === 'top' ? 'a:first-child' : `a[href="#${current}"]`);
       if (link) setMarker({ top: link.offsetTop, height: link.offsetHeight });
     };
     const schedule = () => {
@@ -92,14 +93,32 @@ export default function CaseInstrument({
     };
   }, [open]);
 
-  const current = sections.find((s) => s.id === active)?.label ?? sections[0]?.label ?? '';
+  const current = active === 'top' ? 'Overview' : sections.find((s) => s.id === active)?.label ?? '';
   const zoom = active === 'science';
 
+  // Smooth scroll to the section (the site sets scroll-behavior: auto) and
+  // keep the hash in the address bar.
+  const go = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    setOpen(false);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      history.replaceState(null, '', window.location.pathname);
+      return;
+    }
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    history.replaceState(null, '', `#${id}`);
+  };
+
+  const entries = [{ id: 'top', label: 'Overview' }, ...sections];
   const index = (
     <>
-      {sections.map((s, i) => (
-        <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? 'location' : undefined} onClick={() => setOpen(false)}>
-          <span className={styles.mono}>{String(i + 1).padStart(2, '0')}</span>
+      {entries.map((s) => (
+        <a key={s.id} href={s.id === 'top' ? pagePath : `#${s.id}`} aria-current={active === s.id ? 'location' : undefined} onClick={(e) => go(e, s.id)}>
           <span>{s.label}</span>
           {open && <ArrowRightIcon aria-hidden="true" />}
         </a>

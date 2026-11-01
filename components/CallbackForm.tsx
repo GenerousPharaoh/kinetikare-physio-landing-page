@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import sheetStyles from './CallbackForm.module.css';
 
 /**
  * Call-back request: the second path beside "Book online".
@@ -26,9 +27,15 @@ interface CallbackFormProps {
   source: string;
   id?: string;
   className?: string;
+  /**
+   * Look only. "sheet" sets the form in the condition pages' language
+   * (/contact); the default keeps the original look (/intake). Fields,
+   * validation and what is sent are the same in both.
+   */
+  variant?: 'default' | 'sheet';
 }
 
-export default function CallbackForm({ source, id = 'call-back', className = '' }: CallbackFormProps) {
+export default function CallbackForm({ source, id = 'call-back', className = '', variant = 'default' }: CallbackFormProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const [error, setError] = useState<string | null>(null);
 
@@ -77,43 +84,86 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
     }
   }
 
-  const inputClass =
-    'w-full rounded-md border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-[#B08D57] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40';
-  const labelClass = 'block text-[12px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-1.5';
+  const sheet = variant === 'sheet';
+  const c = sheet
+    ? {
+        section: sheetStyles.sheet,
+        layout: sheetStyles.layout,
+        intro: '',
+        title: sheetStyles.title,
+        lede: sheetStyles.intro,
+        fine: sheetStyles.fine,
+        fineLink: '',
+        form: '',
+        done: sheetStyles.done,
+        doneTitle: sheetStyles.doneTitle,
+        doneText: sheetStyles.doneText,
+        fields: sheetStyles.form,
+        input: sheetStyles.field,
+        label: sheetStyles.lab,
+        optional: sheetStyles.opt,
+        row: sheetStyles.row,
+        submit: sheetStyles.submit,
+        error: sheetStyles.err,
+      }
+    : {
+        section: 'rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10',
+        layout: 'grid gap-8 lg:grid-cols-12 lg:gap-12',
+        intro: 'lg:col-span-5',
+        title: 'font-playfair text-2xl sm:text-3xl text-slate-900 tracking-tight',
+        lede: 'mt-3 text-[15px] leading-relaxed text-slate-600',
+        fine: 'mt-3 text-[13px] text-slate-500',
+        fineLink: 'font-medium text-slate-700 underline underline-offset-4 hover:text-slate-900',
+        form: 'lg:col-span-7',
+        done: 'rounded-xl border border-[#D4AF37]/40 bg-[#FBF7EC] p-6',
+        doneTitle: 'font-playfair text-xl text-slate-900',
+        doneText: 'mt-2 text-[15px] text-slate-600',
+        fields: 'grid gap-4 sm:grid-cols-2',
+        input:
+          'w-full rounded-md border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-[#B08D57] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40',
+        label: 'block text-[12px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-1.5',
+        optional: 'normal-case tracking-normal font-normal text-slate-400',
+        row: 'sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between',
+        submit:
+          'inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#D4AF37] px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] text-slate-900 transition-colors hover:bg-[#E6C66A] hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70',
+        error: 'text-[14px] text-red-700',
+      };
+  const inputClass = c.input;
+  const labelClass = c.label;
 
   return (
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10 ${className}`}
+      className={`${c.section} ${className}`.trim()}
     >
-      <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <div className="lg:col-span-5">
-          <h2 id={`${id}-heading`} className="font-playfair text-2xl sm:text-3xl text-slate-900 tracking-tight">
+      <div className={c.layout}>
+        <div className={c.intro || undefined}>
+          <h2 id={`${id}-heading`} className={c.title}>
             Prefer a call back?
           </h2>
-          <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
+          <p className={c.lede}>
             Leave your name and number and I will call you back to sort out a time. No account needed.
           </p>
-          <p className="mt-3 text-[13px] text-slate-500">
+          <p className={c.fine}>
             Your details are used only to return your call. If it is urgent, call the clinic on{' '}
-            <a href={`tel:${CLINIC_PHONE_TEL}`} className="font-medium text-slate-700 underline underline-offset-4 hover:text-slate-900">
+            <a href={`tel:${CLINIC_PHONE_TEL}`} className={c.fineLink || undefined}>
               {CLINIC_PHONE_DISPLAY}
             </a>
             .
           </p>
         </div>
 
-        <div className="lg:col-span-7">
+        <div className={c.form || undefined}>
           {status === 'done' ? (
-            <div role="status" className="rounded-xl border border-[#D4AF37]/40 bg-[#FBF7EC] p-6">
-              <p className="font-playfair text-xl text-slate-900">Thanks. I will call you back.</p>
-              <p className="mt-2 text-[15px] text-slate-600">
+            <div role="status" className={c.done}>
+              <p className={c.doneTitle}>Thanks. I will call you back.</p>
+              <p className={c.doneText}>
                 If you would rather book a time yourself, the Book button on this page goes to the online calendar.
               </p>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2">
+            <form onSubmit={onSubmit} className={c.fields}>
               {/* Honeypot: hidden from people, filled by bots. */}
               <div className="hidden" aria-hidden="true">
                 <label htmlFor={`${id}-company`}>Company</label>
@@ -137,7 +187,7 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
                 </select>
               </div>
               <div>
-                <label htmlFor={`${id}-area`} className={labelClass}>What is bothering you? <span className="normal-case tracking-normal font-normal text-slate-400">(optional)</span></label>
+                <label htmlFor={`${id}-area`} className={labelClass}>What is bothering you? <span className={c.optional}>(optional)</span></label>
                 <select id={`${id}-area`} name="area" defaultValue="" className={inputClass}>
                   <option value="">Choose one</option>
                   {AREAS.map((a) => (
@@ -146,16 +196,16 @@ export default function CallbackForm({ source, id = 'call-back', className = '' 
                 </select>
               </div>
 
-              <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className={c.row}>
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#D4AF37] px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] text-slate-900 transition-colors hover:bg-[#E6C66A] hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70"
+                  className={c.submit}
                 >
                   {status === 'sending' ? 'Sending' : 'Request a call back'}
                 </button>
                 {status === 'error' && (
-                  <p role="alert" className="text-[14px] text-red-700">
+                  <p role="alert" className={c.error}>
                     {error}
                   </p>
                 )}

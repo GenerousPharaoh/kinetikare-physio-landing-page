@@ -12,6 +12,7 @@ import {
 import { useModalDialog } from '@/hooks/useModalDialog';
 import { searchSite } from '@/lib/site-search';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
+import styles from './SearchModal.module.css';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -69,7 +70,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         data-dialog-backdrop
         aria-hidden="true"
         onClick={onClose}
-        className="fixed inset-0 z-[75] bg-slate-950/65 backdrop-blur-sm"
+        className={styles.backdrop}
       />
       <div
         ref={panelRef}
@@ -77,27 +78,24 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         aria-modal="true"
         aria-labelledby="site-search-title"
         tabIndex={-1}
-        className="fixed inset-x-3 top-4 z-[80] mx-auto flex max-h-[calc(100dvh-2rem)] max-w-3xl flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl sm:inset-x-6 sm:top-[8vh] sm:max-h-[84dvh]"
+        className={styles.dialog}
       >
-        <div className="shrink-0 bg-slate-900 p-4 sm:p-6">
-          <div className="mb-3 flex items-center justify-between gap-3">
-            <h2 id="site-search-title" className="text-base font-medium text-white sm:text-lg">
+        <div className={styles.head}>
+          <div className={styles.headRow}>
+            <h2 id="site-search-title" className={styles.title}>
               Search conditions and treatments
             </h2>
             <button
               type="button"
               onClick={onClose}
               aria-label="Close search"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white hover:bg-white/10"
+              className={styles.close}
             >
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon aria-hidden="true" />
             </button>
           </div>
-          <div className="relative">
-            <MagnifyingGlassIcon
-              className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500"
-              aria-hidden="true"
-            />
+          <div className={styles.field}>
+            <MagnifyingGlassIcon aria-hidden="true" />
             <input
               ref={inputRef}
               type="search"
@@ -119,19 +117,19 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   resultRefs.current[0]?.click();
                 }
               }}
-              className="w-full rounded-lg border border-slate-300 bg-white py-3 pl-10 pr-4 text-base text-slate-900 placeholder:text-slate-500"
+              className={styles.input}
             />
           </div>
         </div>
-        <div className="min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-6">
+        <div className={styles.body}>
           {showEmergencyNote && (
-            <p className="mb-5 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900">
+            <p className={styles.emergency}>
               In a medical emergency,{' '}
-              <a href="tel:911" className="font-semibold underline">
+              <a href="tel:911">
                 call 911
               </a>
               . For non-emergency health advice,{' '}
-              <a href="tel:811" className="font-semibold underline">
+              <a href="tel:811">
                 call Health811
               </a>
               . This search cannot assess symptoms or urgency.
@@ -141,7 +139,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             id="site-search-status"
             role="status"
             aria-live="polite"
-            className={query.trim().length >= 2 ? 'mb-3 text-sm text-slate-600' : 'sr-only'}
+            className={query.trim().length >= 2 ? styles.status : 'sr-only'}
           >
             {query.trim().length >= 2
               ? `${results.length} ${results.length === 1 ? 'result' : 'results'} for “${query.trim()}”`
@@ -151,7 +149,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </p>
           {query.trim().length >= 2 ? (
             results.length ? (
-              <ul className="divide-y divide-slate-200">
+              <ul className={styles.results}>
                 {results.map((result, index) => (
                   <li key={result.url}>
                     <Link
@@ -171,46 +169,43 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           inputRef.current
                         )?.focus();
                       }}
-                      className="group flex items-start gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-slate-50 focus-visible:bg-slate-50"
+                      className={styles.result}
                     >
-                      <div className="min-w-0 flex-1">
-                        <span className="mb-1 block text-xs font-medium tracking-wide text-[#80650A]">
+                      <div className={styles.resultText}>
+                        <span className={styles.kind}>
                           {result.kind}
                         </span>
-                        <span className="block text-base font-semibold leading-snug text-slate-900">
+                        <span className={styles.resultTitle}>
                           {result.title}
                         </span>
-                        <span className="mt-1 block text-sm leading-relaxed text-slate-600">
+                        <span className={styles.resultDesc}>
                           {result.description}
                         </span>
                       </div>
-                      <ArrowRightIcon
-                        className="mt-6 h-4 w-4 shrink-0 text-slate-500 transition-transform group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
+                      <ArrowRightIcon aria-hidden="true" />
                     </Link>
                   </li>
                 ))}
               </ul>
             ) : (
-              <div className="py-6">
-                <p className="text-slate-600">
+              <div className={styles.empty}>
+                <p className={styles.emptyText}>
                   Try a body area or treatment name, or browse the full list.
                 </p>
                 <Link
                   href="/conditions"
                   onClick={onClose}
-                  className="inline-flex min-h-11 items-center font-medium text-slate-900 underline underline-offset-4"
+                  className={styles.browse}
                 >
                   Browse conditions
                 </Link>
               </div>
             )
           ) : (
-            <div className="space-y-6">
+            <div className={styles.groups}>
               <div>
-                <h3 className="mb-3 text-sm font-semibold text-slate-900">Common searches</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className={styles.label}>Common searches</h3>
+                <div className={styles.chips}>
                   {[
                     'knee pain',
                     'hip pain',
@@ -223,7 +218,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       key={term}
                       type="button"
                       onClick={() => chooseSuggestion(term)}
-                      className="min-h-11 rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:border-[#B08D57] hover:bg-slate-50"
+                      className={styles.chip}
                     >
                       {term}
                     </button>
@@ -232,8 +227,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
               {recentSearches.length > 0 && (
                 <div>
-                  <div className="mb-2 flex items-center justify-between gap-3">
-                    <h3 className="text-sm font-semibold text-slate-900">Recent searches</h3>
+                  <div className={styles.groupHead}>
+                    <h3 className={styles.label}>Recent searches</h3>
                     <button
                       type="button"
                       onClick={() => {
@@ -244,18 +239,18 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           /* Optional history. */
                         }
                       }}
-                      className="min-h-11 px-3 text-sm text-slate-600 underline"
+                      className={styles.clear}
                     >
                       Clear
                     </button>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className={styles.chips}>
                     {recentSearches.map((term) => (
                       <button
                         key={term}
                         type="button"
                         onClick={() => chooseSuggestion(term)}
-                        className="min-h-11 rounded-lg bg-slate-100 px-3 py-2 text-sm text-slate-700 hover:bg-slate-200"
+                        className={`${styles.chip} ${styles.chipRecent}`}
                       >
                         {term}
                       </button>
@@ -266,23 +261,23 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             </div>
           )}
         </div>
-        <div className="grid shrink-0 grid-cols-2 gap-3 border-t border-slate-200 bg-slate-50 p-4">
+        <div className={styles.foot}>
           <a
             href={JANE_ASSESSMENT_URL} data-booking-source="search"
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="button-gold inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 py-3 text-center text-sm font-semibold"
+            className={styles.book}
           >
-            <CalendarDaysIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <CalendarDaysIcon aria-hidden="true" />
             Book assessment
           </a>
           <a
             href="tel:+19056346000"
             onClick={onClose}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm font-medium text-slate-900 hover:bg-slate-100"
+            className={styles.call}
           >
-            <PhoneIcon className="h-5 w-5" aria-hidden="true" />
+            <PhoneIcon aria-hidden="true" />
             Call clinic
           </a>
         </div>

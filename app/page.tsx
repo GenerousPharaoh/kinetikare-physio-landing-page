@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { HomeAtlasSection, HomeApproach, HomeJourney, HomeServices, HomeVisit } from '@/components/home/HomeSections';
 import HomeHero from '@/components/home/HomeHero';
 import { archivo, playfairItalic } from '@/components/home/fonts';
+import { geist } from '@/components/conditions/case/fonts';
 import HomeReviews from '@/components/home/HomeReviews';
 import styles from '@/components/home/Home.module.css';
 import { reviews } from '@/lib/reviews';
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
 // Person schema is provided site-wide via app/layout.tsx.
 export default function Home() {
   return (
-    <main className={`${styles.home} ${playfairItalic.variable} ${archivo.variable}`}>
+    <main className={`${styles.home} ${playfairItalic.variable} ${archivo.variable} ${geist.variable}`}>
       <div className={styles.opening}>
         <HomeHero reviewers={recentReviewers} />
         <HomeAtlasSection />

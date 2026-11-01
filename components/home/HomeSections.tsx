@@ -153,9 +153,6 @@ export function HomeJourney() {
       <ol className={styles.journeySteps}>
         {STEPS.map((step, i) => (
           <Reveal as="li" key={step.title} className={styles.journeyStep} delay={i * 110}>
-            <span className={styles.journeyNum} aria-hidden="true">
-              0{i + 1}
-            </span>
             <h3 className={styles.journeyTitle}>
               <span className="sr-only">Step {i + 1}: </span>
               {step.title}
@@ -361,6 +358,22 @@ export function HomeVisit() {
             ))}
           </ul>
         </div>
+
+        <ol className={styles.weekList} aria-label="Hours by day">
+          {DAYS.map((day) => (
+            <li key={day}>
+              <span className={styles.weekDay}>{day.slice(0, 3)}</span>
+              <span className={styles.weekSlots}>
+                {WEEKLY_HOURS.filter((d) => d.day === day).map((d) => (
+                  <span key={dayKey(d)} className={styles.weekSlot} data-tone={CLINIC[d.site].tone}>
+                    <strong>{d.label}</strong>
+                    <span>{CLINIC[d.site].short}</span>
+                  </span>
+                ))}
+              </span>
+            </li>
+          ))}
+        </ol>
 
         <div className={styles.timetable}>
           <ol className={styles.axis} aria-hidden="true">

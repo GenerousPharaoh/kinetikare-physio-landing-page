@@ -128,6 +128,9 @@ export default function HomeAtlas({ regions }: { regions: AtlasRegion[] }) {
             data-chapter={i}
             aria-labelledby={`region-${region.key}`}
           >
+            <div className={styles.chapterPlate} aria-hidden="true">
+              <Image src={region.plate} alt="" fill sizes="(min-width: 640px) 60vw, 100vw" quality={82} />
+            </div>
             <h3 id={`region-${region.key}`} className={styles.regionName}>
               {region.title}
             </h3>

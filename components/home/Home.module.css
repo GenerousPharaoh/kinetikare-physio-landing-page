@@ -1251,8 +1251,38 @@
 .home .chapter {
   display: flex;
   flex-direction: column;
-  min-height: calc(100svh - var(--hh) - var(--stage-h) + 24px);
-  padding: 30px 0 48px;
+  padding: 36px 0 44px;
+}
+
+/* Phones and upright tablets: the plate sits in the flow at the head of
+   each chapter, mounted like a print; the sticky stage is desktop only. */
+.home .chapterPlate {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 1;
+  margin: 0 0 22px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.home .chapterPlate::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(176, 141, 87, 0.8);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.home .chapterPlate img { object-fit: cover; }
+
+@media (max-width: 1023px) {
+  .home .stage { display: none; }
+  .home .intro { padding: 56px 0 8px; scroll-margin-top: calc(var(--hh) + 16px); }
+  .home .regionName { font-size: clamp(44px, 12vw, 64px); }
+  .home .atlasEnd { padding-bottom: 56px; }
 }
 
 .home .regionName {
@@ -1366,6 +1396,8 @@
     justify-content: center;
     padding: 6svh 0;
   }
+
+  .home .chapterPlate { display: none; }
 
   .home .regionName {
     font-size: clamp(64px, 6.3vw, 116px);
@@ -1499,17 +1531,8 @@
   box-shadow: inset 0 0 0 1px var(--gold-light);
 }
 
-.home .journeyNum {
-  display: block;
-  font-family: var(--display-italic);
-  font-style: italic;
-  font-size: 44px;
-  line-height: 1;
-  color: var(--gold-light);
-}
-
 .home .journeyTitle {
-  margin-top: 12px;
+  margin-top: 0;
   font-size: 30px;
   line-height: 1.05;
 }
@@ -1546,8 +1569,7 @@
     background: linear-gradient(to right, var(--gold), rgba(176, 141, 87, 0.18));
   }
   .home .journeyStep::before { left: 0; top: -48px; }
-  .home .journeyNum { font-size: 60px; }
-  .home .journeyTitle { margin-top: 20px; font-size: clamp(28px, 2.3vw, 38px); }
+  .home .journeyTitle { margin-top: 0; font-size: clamp(28px, 2.3vw, 38px); }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1583,11 +1605,9 @@
 }
 
 .home .features {
-  margin-top: 14px;
-  font: 500 13px/1.6 var(--sans);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
+  margin-top: 12px;
+  font: 400 15px/1.6 var(--sans);
+  color: var(--ink-soft);
 }
 
 .home .service .textLink { margin-top: 8px; }
@@ -2060,6 +2080,49 @@
 }
 
 .home .timetable { margin-top: 36px; }
+
+/* Phones: a plain day list; the timetable takes over from 640px. */
+.home .weekList {
+  margin-top: 28px;
+  border-top: 1px solid rgba(243, 238, 228, 0.14);
+}
+
+.home .weekList li {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(243, 238, 228, 0.14);
+}
+
+.home .weekDay {
+  font-family: var(--display);
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.home .weekSlots { display: grid; gap: 8px; }
+
+.home .weekSlot {
+  display: grid;
+  gap: 2px;
+  padding-left: 12px;
+  border-left: 3px solid var(--tone);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.home .weekSlot strong { font-weight: 500; color: var(--cream); }
+.home .weekSlot span { font-size: 13.5px; color: rgba(243, 238, 228, 0.6); }
+
+@media (max-width: 639px) {
+  .home .timetable { display: none; }
+}
+
+@media (min-width: 640px) {
+  .home .weekList { display: none; }
+}
 
 /* Phones: one row per day, the track runs 10 AM to 8 PM left to right. */
 .home .axis {

@@ -207,7 +207,7 @@ export default function FloatingButtons() {
             ref={pillRef}
             data-floating-pills=""
             className="fixed right-4 z-40 flex items-center gap-2 lg:hidden"
-            style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
+            style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))', fontFamily: "var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif" }}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 12 }}
@@ -216,7 +216,7 @@ export default function FloatingButtons() {
             <a
               href="tel:+19056346000"
               aria-label="Call the clinic at 905-634-6000"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-900 shadow-lg backdrop-blur-md"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#cfd4dc] bg-white/95 text-[#0b1017] shadow-[0_10px_30px_rgba(11,16,23,0.14)] backdrop-blur-md"
             >
               <PhoneIcon className="h-5 w-5" aria-hidden="true" />
             </a>
@@ -226,7 +226,7 @@ export default function FloatingButtons() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Book an appointment with Kareem Hassanein"
-              className="flex h-12 items-center gap-2 rounded-full bg-[#B08D57] pl-4 pr-5 text-sm font-bold tracking-wide text-slate-950 shadow-lg shadow-[#B08D57]/30"
+              className="flex h-12 items-center gap-2 rounded-full bg-[#0b1017] pl-4 pr-5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(11,16,23,0.25)]"
             >
               <CalendarDaysIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
               Book
@@ -238,6 +238,7 @@ export default function FloatingButtons() {
     <motion.div
       data-floating-pills=""
       className={`hidden lg:flex fixed bottom-5 right-5 z-40 flex-col items-end space-y-2.5 md:space-y-3`}
+      style={{ fontFamily: "var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif" }}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -248,27 +249,27 @@ export default function FloatingButtons() {
         data-booking-source="floating_desktop"
         target="_blank"
         rel="noopener noreferrer"
-        className="button-gold flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 rounded-full shadow-lg shadow-[#B08D57]/30 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:ring-offset-white"
+        className="flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 rounded-full bg-[#0b1017] text-white shadow-[0_10px_30px_rgba(11,16,23,0.25)] transition-colors duration-300 hover:bg-[#1c2430] focus:outline-none focus:ring-2 focus:ring-[#2f6bff] focus:ring-offset-2 focus:ring-offset-white"
         aria-label="Book an appointment with Kareem Hassanein"
         variants={buttonVariants}
         whileHover="hover"
         whileTap="tap"
       >
         <CalendarDaysIcon className="h-5 w-5 md:h-6 md:w-6" />
-        <span className="text-sm font-bold tracking-wide">Book</span>
+        <span className="text-sm font-semibold">Book</span>
       </motion.a>
 
       {/* Call - secondary, slate, labelled */}
       <motion.a
         href="tel:+19056346000"
-        className="flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 bg-slate-900 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-white"
+        className="flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 bg-white text-[#0b1017] border border-[#cfd4dc] rounded-full shadow-[0_10px_30px_rgba(11,16,23,0.14)] transition-colors duration-300 hover:border-[#0b1017] focus:outline-none focus:ring-2 focus:ring-[#2f6bff] focus:ring-offset-2 focus:ring-offset-white"
         aria-label="Call Kareem Hassanein Physiotherapy at 905-634-6000"
         variants={buttonVariants}
         whileHover="hover"
         whileTap="tap"
       >
-        <PhoneIcon className="h-5 w-5 md:h-6 md:w-6 text-[#D4AF37]" />
-        <span className="text-sm font-semibold tracking-wide">Call</span>
+        <PhoneIcon className="h-5 w-5 md:h-6 md:w-6 text-[#2f6bff]" />
+        <span className="text-sm font-semibold">Call</span>
       </motion.a>
     </motion.div>
     )}

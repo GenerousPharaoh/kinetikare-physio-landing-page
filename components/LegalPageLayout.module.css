@@ -113,7 +113,11 @@
 
 .legal .metaValue { font-size: 17px; font-weight: 600; color: var(--ink); }
 .legal .whoName { font-size: 16px; line-height: 1.5; font-weight: 600; color: var(--ink); }
-.legal .whoLine { font-size: 15.5px; line-height: 1.55; color: var(--soft); }
+.legal .whoLine { font-size: 16px; line-height: 1.55; color: var(--soft); }
+
+@media (min-width: 640px) {
+  .legal .whoLine { font-size: 15.5px; }
+}
 
 @media (min-width: 640px) {
   .legal .meta { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); }

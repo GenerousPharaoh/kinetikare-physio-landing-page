@@ -433,13 +433,43 @@
   align-items: stretch;
 }
 
+/* Two across from tablets; an odd last tile takes the whole row, so no
+   row is ever left half empty. Three across (set on six sub-columns) on
+   wide pages without the plate beside them, with the same rule for a
+   short last row. */
 @media (min-width: 700px) {
   .guide .tileGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guide .tileGrid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 @media (min-width: 1180px) {
-  .guide .layout:not([data-rail='true']) .tileGrid[data-cols='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .guide .tileGrid[data-cols='3'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .guide .tileGrid[data-cols='3'] > * { grid-column: span 2; }
+  .guide .tileGrid[data-cols='3'] > :last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
+  .guide .tileGrid[data-cols='3'] > :nth-last-child(2):nth-child(3n + 1),
+  .guide .tileGrid[data-cols='3'] > :last-child:nth-child(3n + 2) { grid-column: span 3; }
+
+  .guide .layout[data-rail='true'] .tileGrid[data-cols='3'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guide .layout[data-rail='true'] .tileGrid[data-cols='3'] > * { grid-column: auto; }
+  .guide .layout[data-rail='true'] .tileGrid[data-cols='3'] > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
+
+/* A tile that runs the full row keeps its text to a reading measure. */
+.guide .tileGrid > * > .tileText,
+.guide .tileGrid > * > .claim { max-width: 68ch; }
+
+/* Likely causes (pain below the kneecap): one tile per cause, its pattern
+   and why it fits side by side from tablets up. */
+.guide .scenarios { display: grid; gap: 12px; }
+
+.guide .split { display: grid; gap: 14px; }
+
+@media (min-width: 700px) {
+  .guide .split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+}
+
+.guide .split .label { margin-bottom: 4px; }
+.guide .split .tileText { display: block; margin-top: 0; }
 
 .guide .tile {
   position: relative;
@@ -580,6 +610,8 @@
   .guide .rows[data-cols='2'] > li:nth-child(-n + 2) { border-top-color: var(--line2); }
   .guide .rows[data-cols='2'] > li:last-child,
   .guide .rows[data-cols='2'] > li:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--line); }
+  .guide .rows[data-cols='2'] > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .guide .rows[data-cols='2'] > li:last-child:nth-child(odd) > * { max-width: 72ch; }
 }
 
 /* Onset groups (fluid on the knee): a panel per group, causes as rows. */
@@ -620,7 +652,7 @@
 .guide .causeFlag {
   grid-column: 1;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   justify-self: start;
   margin-top: 8px;
@@ -631,7 +663,7 @@
   font-weight: 500;
 }
 
-.guide .causeFlag i { flex: none; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.guide .causeFlag i { flex: none; width: 6px; height: 6px; margin-top: 7px; border-radius: 50%; background: currentColor; }
 .guide .causeFlag[data-u='emergency'] { background: var(--red-soft); color: var(--red); }
 .guide .causeFlag[data-u='medical'] { background: var(--amber-soft); color: var(--amber); }
 
@@ -792,8 +824,8 @@
 
 .guide a.pairRow:not(#_) {
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  column-gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 14px;
   padding: 22px 0;
   color: inherit;
 }
@@ -970,3 +1002,10 @@
 .guide .tileTop .sideLabel { margin-bottom: 0; }
 .guide .fitGrid .more { margin-top: auto; padding-top: 12px; }
 .guide .fitHead + .noteText { margin-top: 14px; }
+
+/* Phones: notes and link lines that carry sentences stay at 16px. */
+@media (max-width: 639px) {
+  .guide .causeFlag,
+  .guide .tileMore,
+  .guide .contact span { font-size: 16px; }
+}

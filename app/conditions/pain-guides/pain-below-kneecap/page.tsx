@@ -529,17 +529,23 @@ export default function PainBelowKneecapGuidePage() {
                 }
               />
 
-              <div className={g.tileGrid}>
+              <div className={g.scenarios}>
                 {linkedScenarios.map((scenario) => (
                   <Link key={scenario.slug} href={`/conditions/${scenario.slug}`} className={g.tile}>
                     <div className={g.tileTop}>
                       <Thumb slug={scenario.slug} />
                       <h3 className={g.tileName}>{scenario.label}</h3>
                     </div>
-                    <span className={`${g.label} ${cs.mono}`}>Pattern</span>
-                    <span className={g.tileText}>{scenario.pattern}</span>
-                    <span className={`${g.label} ${cs.mono}`}>Why it fits</span>
-                    <span className={g.tileText}>{scenario.note}</span>
+                    <div className={g.split}>
+                      <div>
+                        <span className={`${g.label} ${cs.mono}`}>Pattern</span>
+                        <span className={g.tileText}>{scenario.pattern}</span>
+                      </div>
+                      <div>
+                        <span className={`${g.label} ${cs.mono}`}>Why it fits</span>
+                        <span className={g.tileText}>{scenario.note}</span>
+                      </div>
+                    </div>
                     <span className={g.tileMore}>
                       Read the {inlineName(scenario.conditionName)} guide
                       <ArrowRightIcon aria-hidden="true" />

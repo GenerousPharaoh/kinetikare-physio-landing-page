@@ -32,11 +32,10 @@
   --accent-soft: #eaf0ff;
   --red: #c8322b;
   --red-soft: #fdecea;
-  --amber: #a8690a;
+  --amber: #8f5906;
   --amber-soft: #fdf3e2;
   --paper: #f3ead8;
   --sans: var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif;
-  --mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
   --bar-h: 56px;
@@ -76,7 +75,16 @@
 .case h3,
 .case h4 {
   margin: 0;
+  font-family: inherit;
 }
+
+.case button,
+.case input,
+.case summary { font-family: inherit; }
+
+/* The global scroll-padding (about 104px) would stack with the template's
+   own scroll margins and land every anchor a section too low. */
+:global(html):has(.case) { scroll-padding-top: 0; }
 
 .case ul,
 .case ol {
@@ -87,11 +95,19 @@
 .case h1,
 .case h2,
 .case h3,
-.case h4 {
+.case h4,
+.case h5 {
+  margin: 0;
   font-weight: 500;
   color: inherit;
   letter-spacing: 0;
 }
+
+.case abbr[title] { text-decoration: none; }
+.case h1:focus,
+.case h2:focus,
+.case h4:focus,
+.case section:focus { outline: none; }
 
 .case a:not(#_) {
   color: inherit;
@@ -122,10 +138,10 @@
 }
 
 .case .mono {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   line-height: 1.4;
   font-variant-numeric: tabular-nums;
@@ -149,6 +165,7 @@
 .case .shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  padding-top: var(--hh);
 }
 
 @media (min-width: 1024px) {
@@ -157,6 +174,7 @@
 
 @media (min-width: 1360px) {
   .case .shell { grid-template-columns: 440px minmax(0, 1fr); }
+  .case .column { max-width: 740px; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -448,8 +466,8 @@
 }
 
 .case .sheetClose {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -498,10 +516,10 @@
   .case .sheet { padding: 0 clamp(32px, 5vw, 80px) 112px; }
 }
 
-.case .opening { padding-top: 36px; }
+.case .opening { padding-top: 28px; }
 
 @media (min-width: 1024px) {
-  .case .opening { padding-top: 64px; }
+  .case .opening { padding-top: 48px; }
 }
 
 .case .crumbs {
@@ -651,7 +669,7 @@
 
 /* Sections. */
 .case .column > section { margin-top: 64px; }
-.case .column > section[id] { scroll-margin-top: calc(var(--hh) + var(--bar-h) + 24px); }
+.case .column [id] { scroll-margin-top: calc(var(--hh) + var(--bar-h) + 24px); }
 
 @media (min-width: 1024px) {
   .case .column > section { margin-top: 88px; }
@@ -846,6 +864,7 @@
   align-items: center;
   gap: 7px;
   align-self: start;
+  justify-self: start;
   padding: 5px 9px;
   border-radius: 999px;
   white-space: nowrap;
@@ -857,7 +876,7 @@
 .case .urgDoctor { background: var(--tint); color: var(--soft); }
 
 .case .flagSign { font-size: 16px; font-weight: 600; line-height: 1.45; }
-.case .flagAction { margin-top: 4px; font-size: 15px; line-height: 1.55; color: var(--read); }
+.case .flagAction { margin-top: 4px; font-size: 16px; line-height: 1.55; color: var(--read); }
 
 @media (min-width: 640px) {
   .case .flags { padding: 8px 26px; }
@@ -901,7 +920,7 @@
   content: '';
   position: absolute;
   left: 14px;
-  right: 14px;
+  right: calc((100% - 16px) / 3 - 14px);
   top: 14px;
   height: 1px;
   background: var(--line2);
@@ -913,7 +932,7 @@
   left: 14px;
   top: 14px;
   height: 1px;
-  width: calc((100% - 28px) * var(--fill, 0));
+  width: calc((100% - (100% - 16px) / 3) * var(--fill, 0));
   background: var(--ink);
   transition: width 0.5s var(--ease);
 }
@@ -921,9 +940,16 @@
 .case .step {
   position: relative;
   z-index: 1;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 0 8px 0 0;
   color: var(--soft);
 }
+
+
 
 .case .node {
   width: 28px;
@@ -944,6 +970,11 @@
 .case .stepName { display: block; margin-top: 4px; font-size: 14px; line-height: 1.3; font-weight: 500; color: var(--soft); transition: color 0.3s var(--ease); }
 .case .step[data-state='active'] .stepName { color: var(--ink); }
 
+@media (max-width: 639px) {
+  .case .step .stepName { display: none; }
+  .case .step .stepWhen { font-size: 11px; }
+}
+
 @media (hover: hover) {
   .case .step:hover .stepName { color: var(--ink); }
 }
@@ -952,13 +983,14 @@
   margin-top: 26px;
   padding-top: 24px;
   border-top: 1px solid var(--line2);
-  animation: panelIn 0.4s var(--ease);
 }
+
+.case .phaseIn { animation: panelIn 0.4s var(--ease); }
+.case .phaseWhen { color: var(--accent-ink); margin-bottom: 8px; }
 
 @keyframes panelIn { from { opacity: 0; translate: 0 10px; } to { opacity: 1; translate: 0 0; } }
 
 .case .phaseTitle { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
-.case .phaseTitle .mono { display: block; margin-bottom: 8px; color: var(--accent-ink); }
 .case .phasePanel .prose { margin-top: 12px; }
 .case .phasePanel .prose p { font-size: 16px; }
 .case .phasePanel .label { margin-top: 22px; }
@@ -986,7 +1018,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 14px;
   border: 1px solid var(--line2);
   border-radius: 10px;
@@ -1009,7 +1041,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 14px;
   border: 1px solid var(--line2);
   border-radius: 999px;
@@ -1075,7 +1107,7 @@
 .case .compare dt a:not(#_) { color: var(--accent-ink); }
 .case .compare dt a:not(#_):hover { text-decoration: underline; text-underline-offset: 3px; }
 .case .compare dt svg { display: inline-block; width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
-.case .compare dd { font-size: 15px; line-height: 1.55; color: var(--read); }
+.case .compare dd { font-size: 16px; line-height: 1.55; color: var(--read); }
 
 @media (min-width: 700px) {
   .case .compare > div { grid-template-columns: 220px minmax(0, 1fr); padding: 16px 0; }
@@ -1113,11 +1145,12 @@
 .case .discBody {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.45s var(--ease);
+  visibility: hidden;
+  transition: grid-template-rows 0.45s var(--ease), visibility 0s linear 0.45s;
 }
 
 .case .discBody > div { overflow: hidden; }
-.case .discItem[data-open='true'] .discBody { grid-template-rows: 1fr; }
+.case .discItem[data-open='true'] .discBody { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows 0.45s var(--ease), visibility 0s; }
 .case .discInner { padding: 0 0 20px; }
 .case .discInner p { font-size: 16px; line-height: 1.65; color: var(--read); max-width: 64ch; }
 .case .discInner p + p { margin-top: 14px; }
@@ -1174,7 +1207,9 @@
 .case .quiz :global(.rounded-lg) { border-radius: 10px; }
 
 /* Studies. */
-.case .studies { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.case .studies { display: grid; grid-template-columns: 1fr; gap: 12px; align-items: start; }
+.case .studies > :only-child,
+.case .tiles > :only-child { grid-column: 1 / -1; }
 
 .case .study {
   padding: 18px 20px;
@@ -1188,7 +1223,7 @@
 .case .studyFinding { margin-top: 10px; font-size: 15.5px; font-weight: 600; line-height: 1.4; }
 .case .studyBody { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--read); }
 .case .studyWhy { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--soft); }
-.case .studyCite { margin-top: auto; padding-top: 12px; font-size: 13px; line-height: 1.5; color: var(--soft); }
+.case .studyCite { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--soft); }
 .case .studyCite a:not(#_) { color: var(--accent-ink); }
 
 @media (min-width: 700px) {
@@ -1221,9 +1256,9 @@
 .case .insights li + li { margin-top: 10px; }
 
 /* Keep reading. */
-.case .cards { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.case .tiles { display: grid; grid-template-columns: 1fr; gap: 10px; }
 
-.case .cards a:not(#_) {
+.case .tiles a:not(#_) {
   position: relative;
   display: block;
   padding: 16px 44px 16px 18px;
@@ -1232,17 +1267,17 @@
   transition: border-color 0.25s var(--ease), translate 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-.case .cardTitle { display: block; font-size: 15.5px; font-weight: 500; line-height: 1.35; }
-.case .cardBlurb { display: block; margin-top: 5px; font-size: 13.5px; line-height: 1.5; color: var(--soft); }
-.case .cards svg { position: absolute; right: 16px; top: 18px; width: 14px; height: 14px; color: var(--soft); transition: translate 0.3s var(--ease), color 0.25s var(--ease); }
+.case .tileTitle { display: block; font-size: 15.5px; font-weight: 500; line-height: 1.35; }
+.case .tileBlurb { display: block; margin-top: 5px; font-size: 13.5px; line-height: 1.5; color: var(--soft); }
+.case .tiles svg { position: absolute; right: 16px; top: 18px; width: 14px; height: 14px; color: var(--soft); transition: translate 0.3s var(--ease), color 0.25s var(--ease); }
 
 @media (hover: hover) {
-  .case .cards a:not(#_):hover { border-color: var(--line2); translate: 0 -2px; box-shadow: 0 10px 30px rgba(11, 16, 23, 0.06); }
-  .case .cards a:not(#_):hover svg { translate: 2px 0; color: var(--ink); }
+  .case .tiles a:not(#_):hover { border-color: var(--line2); translate: 0 -2px; box-shadow: 0 10px 30px rgba(11, 16, 23, 0.06); }
+  .case .tiles a:not(#_):hover svg { translate: 2px 0; color: var(--ink); }
 }
 
 @media (min-width: 640px) {
-  .case .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .case .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 }
 
 .case .consent {
@@ -1259,23 +1294,26 @@
 
 /* Inline booking line. */
 .case a.bookLine:not(#_) {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  margin-top: 26px;
+  display: inline-block;
+  padding: 10px 0;
+  margin-top: 16px;
   font-size: 15.5px;
+  line-height: 1.5;
   font-weight: 500;
   color: var(--accent-ink);
 }
 
-.case .bookLine svg { width: 15px; height: 15px; transition: translate 0.3s var(--ease); }
+.case .bookLine svg { display: inline-block; width: 15px; height: 15px; margin-left: 8px; vertical-align: -2px; transition: translate 0.3s var(--ease); }
 
 @media (hover: hover) {
   .case a.bookLine:not(#_):hover svg { translate: 3px 0; }
 }
 
 /* ------------------------------------------------------------------ */
+/* The site's floating Book/Call pills are not needed here (the template
+   has its own); hide them before hydration too. */
+:global(body):has(.case) :global([data-floating-pills]) { display: none !important; }
+
 /* Phone action bar                                                     */
 .case .actionBar {
   position: fixed;
@@ -1354,6 +1392,8 @@
 }
 
 @media print {
+  .case [data-reveal] { opacity: 1 !important; translate: 0 0 !important; }
+  .case .discBody { visibility: visible !important; grid-template-rows: 1fr !important; }
   .case .instrument,
   .case .strip,
   .case .sheetNav,

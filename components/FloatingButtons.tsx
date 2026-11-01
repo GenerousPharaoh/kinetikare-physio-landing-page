@@ -205,6 +205,7 @@ export default function FloatingButtons() {
         {showMobileCta && !overControl && (
           <motion.div
             ref={pillRef}
+            data-floating-pills=""
             className="fixed right-4 z-40 flex items-center gap-2 lg:hidden"
             style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
             initial={{ opacity: 0, y: 12 }}
@@ -235,6 +236,7 @@ export default function FloatingButtons() {
       </AnimatePresence>
     {pastHero && (
     <motion.div
+      data-floating-pills=""
       className={`hidden lg:flex fixed bottom-5 right-5 z-40 flex-col items-end space-y-2.5 md:space-y-3`}
       initial="hidden"
       animate="visible"

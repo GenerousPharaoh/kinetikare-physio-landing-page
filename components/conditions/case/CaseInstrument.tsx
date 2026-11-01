@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowRightIcon, ChevronDownIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
+import { useModalDialog } from '@/hooks/useModalDialog';
 import CasePlate from './CasePlate';
 import styles from './Case.module.css';
 
@@ -78,20 +79,9 @@ export default function CaseInstrument({
     };
   }, [ids, slug]);
 
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    document.addEventListener('keydown', onKey);
-    sheetRef.current?.focus();
-    return () => {
-      document.body.style.overflow = prev;
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [open]);
+  // The site's dialog model: inert outside, Tab trapped, Escape closes,
+  // focus returns to the strip button.
+  useModalDialog(open, sheetRef, () => setOpen(false));
 
   const current = active === 'top' ? 'Overview' : sections.find((s) => s.id === active)?.label ?? '';
   const zoom = active === 'science';
@@ -103,15 +93,22 @@ export default function CaseInstrument({
     e.preventDefault();
     setOpen(false);
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const land = (el: HTMLElement | null) => {
+      if (!el) return;
+      if (!el.hasAttribute('tabindex')) el.tabIndex = -1;
+      el.focus({ preventScroll: true });
+    };
     if (id === 'top') {
       window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
       history.replaceState(null, '', window.location.pathname);
+      land(document.querySelector('h1'));
       return;
     }
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     history.replaceState(null, '', `#${id}`);
+    land(el);
   };
 
   const entries = [{ id: 'top', label: 'Overview' }, ...sections];
@@ -159,7 +156,7 @@ export default function CaseInstrument({
 
       <div className={styles.strip} style={{ '--p': `${Math.round(progress * 100)}%` } as CSSProperties}>
         <CasePlate key={`${slug}-thumb`} slug={slug} className={styles.thumb} sizes="34px" />
-        <button type="button" className={`${styles.plain} ${styles.stripBtn}`} aria-haspopup="dialog" aria-expanded={open} onClick={() => setOpen(true)}>
+        <button type="button" className={`${styles.plain} ${styles.stripBtn}`} aria-haspopup="dialog" aria-expanded={open} aria-label={`On this page: ${current}. Open the section list`} onClick={() => setOpen(true)}>
           <span className={styles.stripText}>
             <span className={styles.stripName}>{name}</span>
             <span className={`${styles.stripCurrent} ${styles.mono}`}>{current}</span>
@@ -171,7 +168,7 @@ export default function CaseInstrument({
 
       {open && (
         <>
-          <div className={styles.backdrop} onClick={() => setOpen(false)} aria-hidden="true" />
+          <div className={styles.backdrop} data-dialog-backdrop onClick={() => setOpen(false)} aria-hidden="true" />
           <div ref={sheetRef} className={styles.sheetNav} role="dialog" aria-modal="true" aria-label="On this page" tabIndex={-1}>
             <div className={styles.sheetHead}>
               <span className={styles.mono}>On this page</span>

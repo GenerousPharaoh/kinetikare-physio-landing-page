@@ -1,20 +1,13 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist } from 'next/font/google';
 
 /*
- * The condition "case" template's own faces, loaded only by the pages that
- * use it: Geist for everything readable and Geist Mono for labels, indices
- * and numbers.
+ * The condition "case" template's own face, loaded only by the pages that
+ * use it. Labels are Geist too (small, semibold, tracked); Kareem found a
+ * monospace label face ugly (2026-11-01).
  */
 export const geist = Geist({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   display: 'swap',
   variable: '--font-geist',
-});
-
-export const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  display: 'swap',
-  variable: '--font-geist-mono',
 });

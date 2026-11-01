@@ -25,7 +25,7 @@ export default function CaseDisclosure({
           <PlusIcon aria-hidden="true" />
         </button>
       </Tag>
-      <div className={styles.discBody} id={id}>
+      <div className={styles.discBody} id={id} inert={!open}>
         <div>
           <div className={styles.discInner}>{children}</div>
         </div>

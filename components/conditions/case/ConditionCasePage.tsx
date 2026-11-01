@@ -28,7 +28,7 @@ import Reveal from '@/components/home/Reveal';
 import GlossaryText from '../GlossaryText';
 import { comparisonQuestion } from '../ComparisonCrossLinks';
 import { CONDITION_PLATES } from '../RegionAnatomy';
-import { geist, geistMono } from './fonts';
+import { geist } from './fonts';
 import CasePlate from './CasePlate';
 import CaseInstrument from './CaseInstrument';
 import CaseActionBar from './CaseActionBar';
@@ -176,7 +176,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
   const keyResearch = condition.keyResearch ?? [];
   const nameLower = inlineName(condition.name);
   const plateName = CONDITION_PLATES[conditionSlug];
-  const region = REGION_LABEL[condition.category] ?? 'Condition';
+  const region = conditionHub?.name.replace(/ pain$/i, '') ?? REGION_LABEL[condition.category] ?? 'Condition';
   const similarHeading =
     conditionSlug === 'diabetes-related-conditions'
       ? { label: 'Related problems', heading: 'Problems this page covers' }
@@ -213,7 +213,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
   const clinicParagraphs = (condition.clinicalObservations?.body ?? '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
 
   return (
-    <main className={`${styles.case} ${geist.variable} ${geistMono.variable}`} data-case-page="">
+    <main className={`${styles.case} ${geist.variable}`} data-case-page="">
       <div className={styles.shell}>
         <CaseInstrument sections={sections} slug={conditionSlug} name={condition.name} region={region} plateName={plateName} />
 
@@ -232,7 +232,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   </>
                 )}
                 <ChevronRightIcon aria-hidden="true" />
-                <span>{condition.name}</span>
+                <span aria-current="page">{condition.name}</span>
               </nav>
               <h1 className={styles.h1}>{condition.name}</h1>
               <p className={styles.summary}>{condition.summary || condition.description}</p>
@@ -241,7 +241,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 <span>Registered Physiotherapist</span>
                 <i aria-hidden="true" />
                 <span>
-                  <abbr title="College of Physiotherapists of Ontario registration" style={{ textDecoration: 'none' }}>CPO</abbr> #20079
+                  <abbr title="College of Physiotherapists of Ontario registration">CPO</abbr> #20079
                 </span>
                 {reviewed && (
                   <>
@@ -264,7 +264,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
               </div>
 
               <figure className={styles.plateBlock}>
-                <CasePlate key={`${conditionSlug}-block`} slug={conditionSlug} priority className={styles.plateImg} sizes="(min-width: 640px) 600px, 100vw" />
+                <CasePlate key={`${conditionSlug}-block`} slug={conditionSlug} className={styles.plateImg} sizes="(min-width: 640px) 600px, 100vw" />
                 {plateName && (
                   <figcaption className={styles.mono}>
                     Plate <b>{plateName}</b>
@@ -273,7 +273,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
               </figure>
 
               {glance.length > 0 && (
-                <div className={styles.glance} aria-label="At a glance">
+                <nav className={styles.glance} aria-label="At a glance">
                   {glance.map((row) => (
                     <a key={row.label} href={row.href}>
                       <span className={styles.mono}>{row.label}</span>
@@ -281,7 +281,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                       <ArrowDownIcon aria-hidden="true" />
                     </a>
                   ))}
-                </div>
+                </nav>
               )}
             </header>
 
@@ -290,7 +290,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
               <section id="symptoms">
                 <Head title="Does this sound like you?" />
                 {condition.clinicalPresentation?.primarySymptoms && (
-                  <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                  <ul className={`${styles.rows} ${styles.rowsTwo}`} role="list">
                     {condition.clinicalPresentation.primarySymptoms.map((symptom) => (
                       <li key={symptom}>
                         <span>{symptom}</span>
@@ -300,8 +300,8 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 )}
                 {condition.clinicalPresentation?.associatedSymptoms && (
                   <>
-                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>Often alongside it</span>
-                    <ul className={styles.rows}>
+                    <h3 className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>Often alongside it</h3>
+                    <ul className={styles.rows} role="list">
                       {condition.clinicalPresentation.associatedSymptoms.map((symptom) => (
                         <li key={symptom}>
                           <span>{symptom}</span>
@@ -323,7 +323,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                         <a href="#red-flags" className={styles.link}>when these symptoms need a doctor first</a>.
                       </p>
                     )}
-                    <div className={styles.quiz}>
+                    <div className={styles.quiz} data-hide-floating="">
                       <CaseQuiz currentSlug={conditionSlug} cluster={patternCluster} conditionsBySlug={patternConditions} />
                     </div>
                   </div>
@@ -435,7 +435,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 {condition.selfManagement && condition.selfManagement.length > 0 && (
                   <>
                     <h3 id="self-care" className={`${styles.h3} ${styles.sub}`}>What you can do now</h3>
-                    <ol className={`${styles.rows} ${styles.rowsPlain}`}>
+                    <ol className={`${styles.rows} ${styles.rowsPlain}`} role="list">
                       {condition.selfManagement.map((item) => (
                         <li key={item.strategy}>
                           <span>
@@ -460,7 +460,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                       </div>
                     )}
                     {condition.treatmentApproach?.techniques && (
-                      <ul className={`${styles.rows} ${styles.rowsPlain}`}>
+                      <ul className={`${styles.rows} ${styles.rowsPlain}`} role="list">
                         {condition.treatmentApproach.techniques.map((technique) => {
                           const [title, ...rest] = technique.split(': ');
                           return (
@@ -476,7 +476,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                     )}
                     {relatedTreatments.length > 0 && (
                       <>
-                        <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 26 }}>Treatments on this site</span>
+                        <h4 className={`${styles.label} ${styles.mono}`} style={{ marginTop: 26 }}>Treatments on this site</h4>
                         <div className={styles.chips}>
                           {relatedTreatments.map((t) => (
                             <Link key={t.id} href={`/treatments/${t.id}`}>
@@ -498,7 +498,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
               <section id="recovery">
                 <Head title="How long it takes" stand={keyPointText?.time} />
                 {trackSpans.length === 3 && (
-                  <ol className={styles.track} aria-label="Rehabilitation time spans">
+                  <ol className={styles.track} aria-label="Rehabilitation time spans" role="list">
                     {trackSpans.map((p, i) => (
                       <li key={i}>
                         <span className={`${styles.trackWhen} ${styles.mono}`}>{p.when}</span>
@@ -509,11 +509,11 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 )}
                 <div className={styles.prose}>
                   {!condition.prognosis && !condition.timeline?.length && keyPointText?.time && <p>{sentence(keyPointText.time)}</p>}
-                  {condition.prognosis?.timeline && <p>{sentence(condition.prognosis.timeline)}</p>}
+                  {condition.prognosis?.timeline && sentence(condition.prognosis.timeline) !== (keyPointText?.time ? sentence(keyPointText.time) : '') && <p>{sentence(condition.prognosis.timeline)}</p>}
                   {condition.prognosis?.naturalHistory && <p>{sentence(condition.prognosis.naturalHistory)}</p>}
                 </div>
                 {condition.timeline && condition.timeline.length > 0 && (
-                  <ol className={`${styles.rows} ${styles.rowsPlain}`} style={{ marginTop: 24 }}>
+                  <ol className={`${styles.rows} ${styles.rowsPlain}`} style={{ marginTop: 24 }} role="list">
                     {condition.timeline.map((phase) => (
                       <li key={phase.phase}>
                         <span>
@@ -528,8 +528,8 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 )}
                 {condition.prognosis?.factors && condition.prognosis.factors.length > 0 && (
                   <>
-                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>What changes the timeline</span>
-                    <ul className={`${styles.rows} ${styles.rowsTwo}`}>
+                    <h3 className={`${styles.label} ${styles.mono}`} style={{ marginTop: 28 }}>What changes the timeline</h3>
+                    <ul className={`${styles.rows} ${styles.rowsTwo}`} role="list">
                       {condition.prognosis.factors.map((factor) => (
                         <li key={factor}>
                           <span>{factor}</span>
@@ -574,12 +574,12 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 </dl>
                 {comparisons.length > 0 && (
                   <>
-                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: 30 }}>Side by side</span>
-                    <div className={styles.cards}>
+                    <h3 className={`${styles.label} ${styles.mono}`} style={{ marginTop: 30 }}>Side by side</h3>
+                    <div className={styles.tiles}>
                       {comparisons.map((comparison) => (
                         <Link key={comparison.pair} href={`/conditions/compare/${comparison.pair}`}>
-                          <span className={styles.cardTitle}>{comparisonQuestion(comparison, conditionSlug)}</span>
-                          <span className={styles.cardBlurb}>How I separate the two by pattern, tests and exam findings.</span>
+                          <span className={styles.tileTitle}>{comparisonQuestion(comparison, conditionSlug)}</span>
+                          <span className={styles.tileBlurb}>How I separate the two by pattern, tests and exam findings.</span>
                           <ArrowRightIcon aria-hidden="true" />
                         </Link>
                       ))}
@@ -653,7 +653,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   </CaseResearch>
                 )}
                 {researchInsights.length > 0 && (
-                  <ul className={styles.insights}>
+                  <ul className={styles.insights} role="list">
                     {researchInsights.map((insight) => {
                       const colon = insight.indexOf(':');
                       return (
@@ -681,12 +681,12 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 </Reveal>
                 {regionGuides.length > 0 && (
                   <>
-                    <span className={`${styles.label} ${styles.mono}`}>Guides on {guideRegion.toLowerCase()} pain</span>
-                    <div className={styles.cards}>
+                    <h3 className={`${styles.label} ${styles.mono}`}>Guides on {guideRegion.toLowerCase()} pain</h3>
+                    <div className={styles.tiles}>
                       {regionGuides.map((g) => (
                         <Link key={g.href} href={g.href}>
-                          <span className={styles.cardTitle}>{g.title}</span>
-                          <span className={styles.cardBlurb}>{g.blurb}</span>
+                          <span className={styles.tileTitle}>{g.title}</span>
+                          <span className={styles.tileBlurb}>{g.blurb}</span>
                           <ArrowRightIcon aria-hidden="true" />
                         </Link>
                       ))}
@@ -695,12 +695,12 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 )}
                 {related.length > 0 && (
                   <>
-                    <span className={`${styles.label} ${styles.mono}`} style={{ marginTop: regionGuides.length > 0 ? 28 : 0 }}>Related conditions</span>
-                    <div className={styles.cards}>
+                    <h3 className={`${styles.label} ${styles.mono}`} style={{ marginTop: regionGuides.length > 0 ? 28 : 0 }}>Related conditions</h3>
+                    <div className={styles.tiles}>
                       {related.map((r) => (
                         <Link key={r.slug} href={`/conditions/${r.slug}`}>
-                          <span className={styles.cardTitle}>{r.name}</span>
-                          <span className={styles.cardBlurb}>{explanationBySlug.get(r.slug)}</span>
+                          <span className={styles.tileTitle}>{r.name}</span>
+                          <span className={styles.tileBlurb}>{explanationBySlug.get(r.slug)}</span>
                           <ArrowRightIcon aria-hidden="true" />
                         </Link>
                       ))}

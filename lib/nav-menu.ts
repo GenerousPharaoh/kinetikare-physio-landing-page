@@ -89,18 +89,6 @@ export const NAV_MENU: NavMenuColumn[] = [
     ],
     viewAll: { name: 'View all (9)', href: '/conditions?tab=0' },
   },
-  {
-    key: 'treatments',
-    title: 'Treatments',
-    href: '/treatments',
-    links: [
-      { name: 'Dry Needling', href: '/treatments/dry-needling' },
-      { name: 'Sports Rehab & Return to Sport', href: '/treatments/sports-rehab-return-to-sport' },
-      { name: 'Cupping Therapy', href: '/treatments/cupping-therapy' },
-      { name: 'Post-Surgical Rehabilitation', href: '/treatments/post-surgical-rehabilitation' },
-    ],
-    viewAll: { name: 'View all (11)', href: '/treatments' },
-  },
 ];
 
 /** Wayfinding row under the columns, so nothing on the site becomes unreachable from the menu. */
@@ -109,4 +97,48 @@ export const NAV_MENU_FOOTER_LINKS: NavMenuLink[] = [
   { name: 'Elbow, Wrist & Hand', href: '/conditions?tab=2' },
   { name: 'Pain guides', href: '/conditions/pain-guides' },
   { name: 'Compare conditions', href: '/conditions/compare' },
+];
+
+/** The Treatments panel: the eleven treatment pages in three groups (2026-11-01). */
+export interface NavTreatmentGroup {
+  key: string;
+  title: string;
+  links: NavMenuLink[];
+}
+
+export const TREATMENTS_MENU: NavTreatmentGroup[] = [
+  {
+    key: 'hands-on',
+    title: 'Hands-on',
+    links: [
+      { name: 'Joint Mobilization', href: '/treatments/joint-mobilization' },
+      { name: 'Soft Tissue & Myofascial Therapy', href: '/treatments/soft-tissue-myofascial-release' },
+      { name: 'Trigger Point Therapy', href: '/treatments/trigger-point-therapy' },
+      { name: 'Dry Needling', href: '/treatments/dry-needling' },
+      { name: 'Cupping Therapy', href: '/treatments/cupping-therapy' },
+      { name: 'IASTM', href: '/treatments/iastm' },
+    ],
+  },
+  {
+    key: 'movement',
+    title: 'Movement',
+    links: [
+      { name: 'Exercise Therapy', href: '/treatments/exercise-therapy' },
+      { name: 'Sports Rehab & Return to Sport', href: '/treatments/sports-rehab-return-to-sport' },
+      { name: 'Post-Surgical Rehabilitation', href: '/treatments/post-surgical-rehabilitation' },
+    ],
+  },
+  {
+    key: 'assessment',
+    title: 'Assessment & education',
+    links: [
+      { name: 'Postural Assessment & Movement Strategies', href: '/treatments/postural-assessment' },
+      { name: 'Pain Education & Self-Management', href: '/treatments/pain-education' },
+    ],
+  },
+];
+
+export const TREATMENTS_FOOTER_LINKS: NavMenuLink[] = [
+  { name: 'All treatments', href: '/treatments' },
+  { name: 'Fees & first visit', href: '/fees-and-first-visit' },
 ];

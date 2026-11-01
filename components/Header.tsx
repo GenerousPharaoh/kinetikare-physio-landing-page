@@ -12,7 +12,7 @@ import {
   ChevronRightIcon,
   ChevronDownIcon,
 } from '@heroicons/react/24/outline';
-import { NAV_MENU, NAV_MENU_FOOTER_LINKS } from '@/lib/nav-menu';
+import { NAV_MENU, NAV_MENU_FOOTER_LINKS, TREATMENTS_MENU, TREATMENTS_FOOTER_LINKS } from '@/lib/nav-menu';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL, JANE_INTAKE_BOOKING_URL } from '@/lib/booking';
 import Image from 'next/image';
 import { m as motion, AnimatePresence } from 'framer-motion';
@@ -27,8 +27,10 @@ const MENU_MEDALS: Record<string, string> = {
   'foot-ankle': '/images/regions/foot-ankle.webp',
   shoulder: '/images/regions/shoulder.webp',
   back: '/images/regions/spinal-health.webp',
-  treatments: '/images/illustrations/step-ups.webp',
 };
+
+/** The two desktop panels. Conditions and Treatments each open under the bar. */
+type PanelName = 'conditions' | 'treatments';
 
 const loadSearchModal = () => import('./SearchModal');
 const SearchModal = dynamic(loadSearchModal, {
@@ -45,15 +47,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
-  const [conditionsMenuOpen, setConditionsMenuOpen] = useState(false);
-  const conditionsToggleRef = useRef<HTMLButtonElement>(null);
+  const [treatmentsExpanded, setTreatmentsExpanded] = useState(false);
+  // Which desktop panel is open, if any. One at a time.
+  const [openPanel, setOpenPanel] = useState<PanelName | null>(null);
+  const conditionsMenuOpen = openPanel === 'conditions';
+  const treatmentsMenuOpen = openPanel === 'treatments';
+  const toggleRefs = useRef<Record<PanelName, HTMLButtonElement | null>>({ conditions: null, treatments: null });
   const hoverOpenedAt = useRef(0);
   const closeTimer = useRef<number | undefined>(undefined);
   const [menuEverOpened, setMenuEverOpened] = useState(false);
-  const openConditions = useCallback(() => {
+  const closePanels = useCallback(() => setOpenPanel(null), []);
+  const showPanel = useCallback((which: PanelName) => {
     window.clearTimeout(closeTimer.current);
     setMenuEverOpened(true);
-    setConditionsMenuOpen(true);
+    setOpenPanel(which);
   }, []);
   const pathname = usePathname();
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
@@ -92,7 +99,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setConditionsMenuOpen(false);
+    setOpenPanel(null);
   }, [pathname]);
 
   const mainNavItems = useMemo(
@@ -149,17 +156,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         onPointerLeave={(event) => {
           if (event.pointerType !== 'mouse') return;
           window.clearTimeout(closeTimer.current);
-          closeTimer.current = window.setTimeout(() => setConditionsMenuOpen(false), 140);
+          closeTimer.current = window.setTimeout(closePanels, 140);
         }}
         onPointerEnter={() => window.clearTimeout(closeTimer.current)}
         onBlur={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node)) setConditionsMenuOpen(false);
+          if (!event.currentTarget.contains(event.relatedTarget as Node)) closePanels();
         }}
         onKeyDown={(event) => {
-          if (event.key === 'Escape' && conditionsMenuOpen) {
+          if (event.key === 'Escape' && openPanel) {
             event.preventDefault();
-            setConditionsMenuOpen(false);
-            conditionsToggleRef.current?.focus();
+            const which = openPanel;
+            closePanels();
+            toggleRefs.current[which]?.focus();
           }
         }}
       >
@@ -204,49 +212,55 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </motion.div>
 
             {/* Desktop navigation, from 1180px (hidden on the ads landing page to
-                reduce exits). Conditions opens a full-width panel under the bar. */}
+                reduce exits). Conditions and Treatments each open a full-width
+                panel under the bar. */}
             {!isIntakePage && (
             <nav aria-label="Main navigation" className={styles.nav}>
-              {mainNavItems.map((item) =>
-                item.name === 'Conditions' ? (
-                  <button
-                    key={item.name}
-                    ref={conditionsToggleRef}
-                    type="button"
-                    className={styles.trigger}
-                    aria-expanded={conditionsMenuOpen}
-                    aria-controls="desktop-conditions-menu"
-                    data-current={isCurrentPath(item.href)}
-                    onPointerEnter={(event) => {
-                      if (event.pointerType !== 'mouse') return;
-                      hoverOpenedAt.current = Date.now();
-                      openConditions();
-                    }}
-                    onClick={() => {
-                      // A mouse that has just opened the panel by hovering
-                      // should not close it again with the same gesture.
-                      if (conditionsMenuOpen && Date.now() - hoverOpenedAt.current < 700) return;
-                      if (conditionsMenuOpen) setConditionsMenuOpen(false);
-                      else openConditions();
-                    }}
-                  >
-                    {item.name}
-                    <ChevronDownIcon aria-hidden="true" className={styles.chevron} />
-                  </button>
-                ) : (
+              {mainNavItems.map((item) => {
+                const panel: PanelName | null = item.name === 'Conditions' ? 'conditions' : item.name === 'Treatments' ? 'treatments' : null;
+                if (panel) {
+                  const isOpen = openPanel === panel;
+                  return (
+                    <button
+                      key={item.name}
+                      ref={(el) => { toggleRefs.current[panel] = el; }}
+                      type="button"
+                      className={styles.trigger}
+                      aria-expanded={isOpen}
+                      aria-controls={`desktop-${panel}-menu`}
+                      data-current={isCurrentPath(item.href)}
+                      onPointerEnter={(event) => {
+                        if (event.pointerType !== 'mouse') return;
+                        hoverOpenedAt.current = Date.now();
+                        showPanel(panel);
+                      }}
+                      onClick={() => {
+                        // A mouse that has just opened the panel by hovering
+                        // should not close it again with the same gesture.
+                        if (isOpen && Date.now() - hoverOpenedAt.current < 700) return;
+                        if (isOpen) closePanels();
+                        else showPanel(panel);
+                      }}
+                    >
+                      {item.name}
+                      <ChevronDownIcon aria-hidden="true" className={styles.chevron} />
+                    </button>
+                  );
+                }
+                return (
                   <Link
                     key={item.name}
                     href={item.href}
                     prefetch={false}
                     aria-current={isCurrentPath(item.href) ? 'page' : undefined}
                     onPointerEnter={(event) => {
-                      if (event.pointerType === 'mouse') setConditionsMenuOpen(false);
+                      if (event.pointerType === 'mouse') closePanels();
                     }}
                   >
                     {item.name}
                   </Link>
-                )
-              )}
+                );
+              })}
             </nav>
             )}
 
@@ -340,7 +354,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             data-open={conditionsMenuOpen}
             inert={!conditionsMenuOpen}
             onClick={(event) => {
-              if ((event.target as HTMLElement).closest('a')) setConditionsMenuOpen(false);
+              if ((event.target as HTMLElement).closest('a')) closePanels();
             }}
           >
             <div className={styles.panelInner}>
@@ -397,11 +411,64 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </div>
           </div>
         )}
+
+        {/* The Treatments panel (desktop): the eleven treatment pages in three groups. */}
+        {!isIntakePage && (
+          <div
+            id="desktop-treatments-menu"
+            className={styles.panel}
+            data-open={treatmentsMenuOpen}
+            inert={!treatmentsMenuOpen}
+            onClick={(event) => {
+              if ((event.target as HTMLElement).closest('a')) closePanels();
+            }}
+          >
+            <div className={styles.panelInner}>
+              <div className={styles.feature}>
+                <p className={styles.eyebrow} data-rise="" style={{ '--r': 0 } as React.CSSProperties}>
+                  Treatments
+                </p>
+                <p className={styles.featureTitle} data-rise="" style={{ '--r': 1 } as React.CSSProperties}>
+                  What happens in the room
+                </p>
+                <p className={styles.featureText} data-rise="" style={{ '--r': 2 } as React.CSSProperties}>
+                  Hands-on work, exercise and education, chosen from your assessment rather than from a fixed menu.
+                </p>
+                <ul className={styles.featureLinks} data-rise="" style={{ '--r': 3 } as React.CSSProperties}>
+                  {TREATMENTS_FOOTER_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} prefetch={false}>
+                        {link.name}
+                        <ChevronRightIcon aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <ul className={styles.regions}>
+                {TREATMENTS_MENU.map((group, i) => (
+                  <li key={group.key} data-rise="" style={{ '--r': i + 1 } as React.CSSProperties}>
+                    <p className={styles.groupHead}>{group.title}</p>
+                    <ul className={styles.regionLinks}>
+                      {group.links.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} prefetch={false}>
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </header>
 
-      {/* Dims the page while the Conditions panel is open (desktop). */}
+      {/* Dims the page while a panel is open (desktop). */}
       {!isIntakePage && (
-        <div className={styles.scrim} data-open={conditionsMenuOpen} aria-hidden="true" onClick={() => setConditionsMenuOpen(false)} />
+        <div className={styles.scrim} data-open={openPanel !== null} aria-hidden="true" onClick={closePanels} />
       )}
 
       {/* Phone and tablet menu: a dark drawer in the condition pages' language. */}
@@ -492,7 +559,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                   <li>
                                     <Link href="/conditions" onClick={handleNavClick} className={styles.subRow}>All conditions</Link>
                                   </li>
-                                  {NAV_MENU.filter((column) => column.key !== 'treatments').map((column) => (
+                                  {NAV_MENU.map((column) => (
                                     <li key={column.key}>
                                       <Link
                                         href={column.href}
@@ -520,6 +587,53 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                         {link.name}
                                       </Link>
                                     </li>
+                                  ))}
+                                </ul>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
+                      ) : item.name === 'Treatments' ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => setTreatmentsExpanded(!treatmentsExpanded)}
+                            aria-expanded={treatmentsExpanded}
+                            aria-controls="mobile-treatments-submenu"
+                            data-current={isCurrentPath(item.href)}
+                            className={styles.row}
+                          >
+                            <span>{item.name}</span>
+                            <ChevronRightIcon aria-hidden="true" />
+                          </button>
+
+                          <AnimatePresence initial={false}>
+                            {treatmentsExpanded && (
+                              <motion.div
+                                id="mobile-treatments-submenu"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                className={styles.sub}
+                              >
+                                <ul className={styles.subList}>
+                                  <li>
+                                    <Link href="/treatments" onClick={handleNavClick} className={styles.subRow}>All treatments</Link>
+                                  </li>
+                                  {TREATMENTS_MENU.map((group) => (
+                                    <React.Fragment key={group.key}>
+                                      <li className={styles.subLabelItem}>
+                                        <p className={styles.subLabel}>{group.title}</p>
+                                      </li>
+                                      {group.links.map((link) => (
+                                        <li key={link.href}>
+                                          <Link href={link.href} prefetch={false} onClick={handleNavClick} className={styles.subRow}>
+                                            {link.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </React.Fragment>
                                   ))}
                                 </ul>
                               </motion.div>

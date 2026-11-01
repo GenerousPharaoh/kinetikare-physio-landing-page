@@ -664,3 +664,28 @@
   .nav a::after,
   .trigger::after { transition: none !important; }
 }
+
+/* Treatments panel (2026-11-01): the same sheet as Conditions, three
+   groups without plates. */
+.panel .groupHead:not(#_) {
+  display: block;
+  min-height: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--p-line2);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--p-ink);
+}
+
+/* Group labels inside the phone drawer's Treatments list. */
+.subLabel {
+  margin: 0;
+  padding: 14px 0 6px;
+  font: 600 11.5px/1.4 var(--font-geist), 'Geist', system-ui, sans-serif;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--d-mut);
+}
+.subList li.subLabelItem + li { border-top: 0; }

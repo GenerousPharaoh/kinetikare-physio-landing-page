@@ -1,0 +1,375 @@
+/*
+ * The five regional hubs and the conditions index, restyled in the language
+ * of the condition pages (Geist, white sheet, bordered tiles, one cobalt
+ * accent) without rewriting their markup. The pages are built from repeated
+ * Tailwind utility patterns (identical across the five hubs), so the rules
+ * below target those patterns through attribute selectors. Every rule is
+ * `.skin ...` so it beats the utilities (0,1,0) and the global element
+ * styles (0,0,1 / 0,1,1).
+ */
+
+.skin {
+  --ink: #0b1017;
+  --read: #262e3b;
+  --soft: #5b6574;
+  --line: #e5e8ed;
+  --line2: #cfd4dc;
+  --tint: #f4f5f8;
+  --accent: #2f6bff;
+  --accent-ink: #1d4fd8;
+  --accent-soft: #eaf0ff;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.skin h1,
+.skin h2,
+.skin h3,
+.skin h4,
+.skin p,
+.skin a,
+.skin button,
+.skin input,
+.skin summary,
+.skin li,
+.skin dt,
+.skin dd {
+  font-family: inherit;
+}
+
+/* Headings: Geist 600, tight. */
+.skin h1 {
+  font-weight: 600 !important;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.skin h2 {
+  font-weight: 600 !important;
+  letter-spacing: -0.024em;
+  line-height: 1.12;
+}
+
+.skin h3,
+.skin h4 { font-weight: 600; letter-spacing: -0.012em; }
+
+.skin [class*="text-4xl"][class*="md:text-5xl"] { font-size: clamp(34px, 7.5vw, 44px); }
+.skin h2[class*="md:text-4xl"] { font-size: clamp(28px, 6.5vw, 32px); }
+.skin h1[class*="font-light"],
+.skin h2[class*="font-normal"] { font-weight: 600; }
+
+@media (min-width: 1024px) {
+  .skin [class*="text-4xl"][class*="md:text-5xl"] { font-size: 52px; }
+  .skin h2[class*="md:text-4xl"] { font-size: 36px; }
+}
+
+/* The gold eyebrow with its rule becomes a short accent bar over the title. */
+.skin p[class*="tracking-\[0\.18em\]"],
+.skin p[class*="tracking-\[0\.2em\]"] {
+  position: relative;
+  display: block !important;
+  margin: 0 0 20px !important;
+  padding-top: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--soft);
+}
+
+.skin p[class*="tracking-\[0\.18em\]"]::before,
+.skin p[class*="tracking-\[0\.2em\]"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.skin p[class*="tracking-\[0\.18em\]"] > span[aria-hidden],
+.skin p[class*="tracking-\[0\.2em\]"] > span[aria-hidden] { display: none; }
+
+/* Gold text and gold borders in the body become the accent or neutral ink. */
+.skin [class~="text-[#8A6F0A]"],
+.skin [class~="text-[#80650A]"],
+.skin [class~="text-[#B08D57]"] { color: var(--accent-ink); }
+.skin [class~="hover:text-[#B08D57]"]:hover,
+.skin :global(.group):hover [class~="group-hover:text-[#B08D57]"] { color: var(--accent-ink); }
+.skin [class~="hover:border-[#B08D57]"]:hover { border-color: var(--line2); }
+.skin svg[class~="text-[#B08D57]"] { color: var(--accent); }
+
+/* Surfaces: no gradients, one radius, hairline borders, no drop shadows. */
+.skin [class*="bg-gradient-to"] { background-image: none !important; }
+.skin [class*="rounded-2xl"],
+.skin [class*="rounded-xl"] { border-radius: 16px; }
+.skin [class*="rounded-lg"] { border-radius: 12px; }
+.skin [class*="shadow-sm"],
+.skin [class*="shadow-md"],
+.skin [class*="shadow-lg"],
+.skin [class*="shadow-xl"],
+.skin [class*="hover:shadow"]:hover { box-shadow: none !important; }
+.skin [class*="border-slate-100"] { border-color: var(--line); }
+.skin [class*="border-amber-100"] { border-color: var(--line); }
+.skin [class*="bg-slate-50\/60"] { background-color: var(--tint); }
+.skin [class*="bg-slate-50"]:not([class*="bg-slate-50\/60"]) { background-color: var(--tint); }
+.skin [class*="hover:bg-\[\#B08D57\]\/5"]:hover { background-color: var(--accent-soft); }
+
+/* The dark gradient card headers on the hubs' location cards: a plain head. */
+.skin [class*="from-slate-900"] {
+  background-color: var(--ink) !important;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+/* Gold dots, gold icon tiles and gold year pills. */
+.skin div[class*="h-2"][class*="w-2"][class*="bg-\[\#B08D57\]"] { background-color: var(--accent); opacity: 0.6; }
+.skin div[class*="p-2.5"][class*="bg-\[\#B08D57\]"] { background-color: var(--accent); }
+.skin span[class*="bg-\[\#B08D57\]\/10"],
+.skin span[class*="bg-\[\#B08D57\]\/10"] { background-color: var(--accent-soft); color: var(--accent-ink); letter-spacing: 0.04em; }
+
+/* Buttons: ink primary, hairline secondary. */
+.skin a[class*="button-gold"],
+.skin a[class*="bg-\[\#D4AF37\]"] {
+  background-color: var(--ink) !important;
+  color: #fff !important;
+  border-radius: 10px;
+  min-height: 48px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.25s var(--ease);
+}
+
+.skin a[class*="button-gold"]:hover,
+.skin a[class*="bg-\[\#D4AF37\]"]:hover { background-color: #1c2430 !important; }
+
+.skin a[class*="border-slate-300"] {
+  border-color: var(--line2);
+  border-radius: 10px;
+  min-height: 48px;
+  padding-left: 18px;
+  padding-right: 18px;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.skin a[class*="border-slate-300"]:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Running text and secondary notes. */
+.skin p[class*="text-slate-700"],
+.skin p[class*="text-slate-600"],
+.skin [class*="prose"] p { color: var(--read); }
+.skin p[class*="text-lg"][class*="md:text-xl"] { font-size: 18px; line-height: 1.6; color: var(--read); }
+.skin p[class*="text-xs"]:not([class*="uppercase"]) { font-size: 14px; }
+.skin [class*="text-\[15px\]"] { font-size: 15.5px; }
+
+/* FAQ rows. */
+.skin details[class*="rounded-xl"] { border-color: var(--line); }
+.skin details[class*="rounded-xl"] summary h3 { font-size: 16.5px; font-weight: 500; }
+.skin details[class*="rounded-xl"][open] { border-color: var(--line2); }
+
+/* Breadcrumb. */
+.skin nav[aria-label="Breadcrumb"] { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--soft); }
+.skin nav[aria-label="Breadcrumb"] a:hover { color: var(--ink); }
+.skin nav[aria-label="Breadcrumb"] span[class*="text-slate-900"] { color: var(--ink); }
+
+/* Links in the body carry the accent underline. */
+.skin [class*="prose"] a { color: var(--accent-ink); text-decoration-color: rgba(47, 107, 255, 0.35); }
+
+/* Section rhythm: a little more air. */
+.skin section[class*="py-12"] { padding-top: 64px; padding-bottom: 64px; }
+.skin section[class*="py-10"] { padding-top: 56px; padding-bottom: 56px; }
+
+@media (min-width: 1024px) {
+  .skin section[class*="py-12"] { padding-top: 88px; padding-bottom: 88px; }
+  .skin section[class*="py-10"] { padding-top: 72px; padding-bottom: 72px; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Conditions index                                                     */
+.indexHead {
+  padding: calc(84px + 48px) 0 28px;
+}
+
+@media (max-width: 1023px) {
+  .indexHead { padding-top: calc(69px + 32px); }
+}
+
+.indexGrid {
+  max-width: 1152px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: end;
+}
+
+@media (min-width: 1024px) {
+  .indexGrid { grid-template-columns: minmax(0, 1fr) 440px; gap: 48px; }
+}
+
+.indexEyebrow {
+  position: relative;
+  display: block;
+  margin: 0 0 20px;
+  padding-top: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--soft);
+}
+
+.indexEyebrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.indexTitle {
+  margin: 0;
+  font-size: clamp(38px, 9vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.032em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  .indexTitle { font-size: 60px; }
+}
+
+.indexLede {
+  margin: 18px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--read);
+  max-width: 54ch;
+}
+
+.indexSide {
+  display: grid;
+  gap: 14px;
+}
+
+.indexSearch {
+  position: relative;
+}
+
+.indexSearch svg {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 18px;
+  height: 18px;
+  color: var(--soft);
+}
+
+.skin .indexSearch input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px 0 48px;
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 16px;
+  color: var(--ink);
+  box-shadow: none;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.skin .indexSearch input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.15);
+}
+
+.indexHelp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: 14px;
+  color: var(--soft);
+}
+
+.skin .indexHelp a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-weight: 500;
+  color: var(--accent-ink);
+}
+
+.skin .indexHelp a svg { width: 14px; height: 14px; }
+
+/* Region filter chips: a plain segmented row, no gradient pill. */
+.skin button[role="tab"] {
+  min-height: 42px;
+  padding: 0 16px;
+  border-width: 1px;
+  border-color: var(--line2);
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  background: #fff;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.skin button[role="tab"][aria-selected="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.skin button[role="tab"] > div[class*="bg-gradient"] { display: none; }
+
+/* The region card and its condition tiles. */
+.skin [class*="ring-\[\#B08D57\]"] { --tw-ring-color: var(--line2); border-radius: 14px; box-shadow: none; }
+.skin h2[class*="text-2xl"][class*="font-bold"] { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+.skin h3[class*="text-2xl"][class*="font-bold"] { font-size: 22px; font-weight: 600; }
+
+.skin div[class*="w-8"][class*="h-8"][class*="bg-\[\#B08D57\]"] {
+  width: 10px;
+  height: 10px;
+  margin: 8px 6px 0 2px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  opacity: 0.6;
+  align-self: flex-start;
+}
+
+.skin div[class*="w-8"][class*="h-8"][class*="bg-\[\#B08D57\]"] svg { display: none; }
+
+.skin div[class*="hover:bg-\[\#B08D57\]\/5"] {
+  background-color: #fff;
+  border-color: var(--line);
+  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.skin div[class*="hover:bg-\[\#B08D57\]\/5"]:hover { border-color: var(--line2); background-color: var(--tint); }
+
+/* "Other ways to explore" labels and headings. */
+.skin h2[class*="tracking-\[0\.18em\]"] { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; color: var(--soft); }
+.skin p[class*="text-\[11px\]"] { font-size: 12px; letter-spacing: 0.07em; color: var(--soft); }
+
+.skin span[class*="bg-\[\#B08D57\]\/10"][class*="text-\[\#B08D57\]"] { background-color: var(--accent-soft); color: var(--accent-ink); border-radius: 10px; }
+
+/* Additional treatment areas. */
+.skin h2[class*="lg:text-4xl"][class*="font-semibold"] { font-size: clamp(28px, 6.5vw, 36px); }
+.skin [class*="text-center"][class*="mb-16"] { text-align: left; margin-bottom: 40px; }
+.skin [class*="text-center"][class*="mb-16"] p { margin-left: 0; }

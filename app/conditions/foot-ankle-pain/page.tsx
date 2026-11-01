@@ -1,5 +1,7 @@
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
+import skin from '@/components/conditions/SectionSkin.module.css';
+import { geist } from '@/components/conditions/case/fonts';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import {
@@ -509,7 +511,7 @@ export default function FootAnklePainHubPage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
 
-      <main className="min-h-screen">
+      <main className={`min-h-screen ${skin.skin} ${geist.variable}`}>
         {/* Hero */}
         <section className="relative !bg-none pt-24 pb-6 lg:pb-0" style={{ backgroundColor: HUB_ART.paper }}>
           {/* The drawing on the page: the section takes the illustration's own paper colour so there is no edge. */}

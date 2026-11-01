@@ -21,6 +21,8 @@ import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import ConditionBookingCTA from '@/components/conditions/ConditionBookingCTA';
 import ComparisonLinks, { type ComparisonLink } from '@/components/conditions/ComparisonLinks';
 import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
+import skin from '@/components/conditions/SectionSkin.module.css';
+import { geist } from '@/components/conditions/case/fonts';
 
 // Search matching is shared with the header search: lib/site-search.ts
 // (rankConditions), loaded on first focus of the box below.
@@ -203,107 +205,57 @@ function ConditionsPageWithParams({
   }, [searchQuery, conditionCategories, rankConditions]);
 
   return (
-    <main className="bg-white min-h-screen overflow-x-hidden">
+    <main className={`bg-white min-h-screen overflow-x-hidden ${skin.skin} ${geist.variable}`}>
       <Suspense fallback={null}>
         <TabFromQuery onTab={setQueryTab} />
       </Suspense>
-      {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-8 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
-        {/* Premium background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
-        </div>
-
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
-            backgroundSize: '48px 48px'
-          }}></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            {/* Starts at 0.01, not 0: Chrome does not count an opacity-0
-                element as painted, which held LCP back to ~9 s on phones. */}
-            <motion.div
-              initial={{ opacity: 0.01, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center"
-            >
-
-              {/* The menu and breadcrumbs call this page "Conditions"; the
-                  eyebrow repeats that word over the "Treatment Areas" title
-                  (Kareem's term) so the two read as one page (2026-10-11). */}
-              <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#8A6F0A]">Conditions</p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-                Treatment Areas
-              </h1>
-
-              {/* Decorative line */}
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
-                <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
-              </div>
-
-              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
+      {/* The opening: title and lede on the left, the search and the booking
+          line beside them (one block on phones). The menu and breadcrumbs
+          call this page "Conditions"; the label repeats that word over the
+          "Treatment Areas" title, Kareem's term (2026-10-11). */}
+      <section className={`${skin.indexHead} !bg-none`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={skin.indexGrid}>
+            <div>
+              <p className={skin.indexEyebrow}>Conditions</p>
+              <h1 className={skin.indexTitle}>Treatment Areas</h1>
+              <p className={skin.indexLede}>
                 Browse conditions by body region, compare symptoms that can overlap, or start with a pain guide.
               </p>
-
-              {/* Early CTA for visitors unsure which condition applies */}
-              <div className="text-center mb-4">
-                <p className="text-sm text-slate-500 mb-3">Not sure which condition applies to you?</p>
-                <Link
-                  href={JANE_ASSESSMENT_URL} data-booking-source="conditions_index"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-slate-950 text-sm font-semibold rounded hover:bg-[#E6C66A] transition-colors"
-                >
-                  Book an assessment
-                </Link>
+            </div>
+            <div className={skin.indexSide}>
+              <div className={skin.indexSearch}>
+                <MagnifyingGlassIcon aria-hidden="true" />
+                <input
+                  type="text"
+                  placeholder="Search conditions"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={loadRanker}
+                  aria-label="Search conditions"
+                />
               </div>
-            </motion.div>
+              <p className={skin.indexHelp}>
+                <span>Not sure which condition applies to you?</span>
+                <Link href={JANE_ASSESSMENT_URL} data-booking-source="conditions_index" target="_blank" rel="noopener noreferrer">
+                  Book an assessment
+                  <ArrowRightIcon aria-hidden="true" />
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Main Content */}
       <section className="pt-0 pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Search Bar - matching treatments page style */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto mb-6"
-          >
-            <div className="relative group">
-              <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
-              <input
-                type="text"
-                placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={loadRanker}
-                aria-label="Search conditions"
-                className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
-              />
-            </div>
-          </motion.div>
 
           {/* PREMIUM Navigation Tabs */}
           <div className="max-w-6xl mx-auto mb-2">
             {/* Filter Label */}
-            <p className="text-center text-sm text-slate-500 mb-2 font-medium">Filter by Body Region</p>
-            {/* Add padding to prevent pill button cutoff */}
-            <div role="tablist" aria-label="Filter conditions by body region" className="flex flex-wrap justify-center gap-2">
+            <p className="text-sm text-slate-500 mb-3 font-medium">Filter by body region</p>
+            <div role="tablist" aria-label="Filter conditions by body region" className="flex flex-wrap gap-2">
               {quickNavItems.map((item, index) => {
                 // No chip claims to be selected while a search is showing results.
                 const isActive = !searchQuery && activeTab === item.tab;

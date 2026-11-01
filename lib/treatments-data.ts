@@ -832,7 +832,7 @@ export const treatments: Treatment[] = [
       },
       {
         question: 'Is physiotherapy after surgery covered by insurance?',
-        answer: 'It is billed like any other physiotherapy appointment. Direct billing is available at Endorphins for most extended health plans. No referral is needed to book, although some insurance plans ask for one before they reimburse, so check your plan.'
+        answer: 'It is billed like any other physiotherapy appointment. Direct billing is available at Endorphins and PhysioMax for most extended health plans. No referral is needed to book, although some insurance plans ask for one before they reimburse, so check your plan.'
       }
     ],
     relatedConditions: ['knee-osteoarthritis', 'hip-osteoarthritis', 'acl-injuries', 'meniscus-tears', 'pcl-injuries', 'patella-fractures', 'hip-labral-tears', 'rotator-cuff-injuries', 'shoulder-instability', 'disc-herniation', 'spinal-stenosis'],

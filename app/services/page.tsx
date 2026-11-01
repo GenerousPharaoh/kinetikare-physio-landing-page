@@ -451,7 +451,7 @@ export default function ServicesPage() {
               <h3 id="coverage-help-heading" className={styles.h3}>Need Coverage Help?</h3>
               <p>If you&apos;re unsure whether direct billing is available for your plan, reception at Endorphins can check what your plan covers.</p>
               <ul className={styles.rows}>
-                <li>Coverage questions answered by reception</li><li>Direct billing at Endorphins when your plan allows it</li>
+                <li>Coverage questions answered by reception</li><li>Direct billing at Endorphins and PhysioMax when your plan allows it</li>
               </ul>
               <a href="tel:+19056346000" className={styles.goLine}>
                 <PhoneIcon aria-hidden="true" />
@@ -468,7 +468,7 @@ export default function ServicesPage() {
             <div>
               <p className={`${styles.closingLabel} ${styles.mono}`}>Next Steps</p>
               <h2 id="services-booking-heading" className={styles.closingTitle}>Book an Assessment</h2>
-              <p className={styles.closingText}>Book an initial assessment online. No referral is needed, and direct billing is available at Endorphins.</p>
+              <p className={styles.closingText}>Book an initial assessment online. No referral is needed, and direct billing is available at Endorphins and PhysioMax.</p>
             </div>
             <div>
               <a href={JANE_ASSESSMENT_URL} data-booking-source="services_page" target="_blank" rel="noopener noreferrer" className={styles.goLight}>

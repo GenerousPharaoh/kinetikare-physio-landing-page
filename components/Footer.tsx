@@ -152,7 +152,7 @@ export default function Footer() {
                 ))}
               </li>
             ))}
-            <li className={styles.weekNote}>Direct billing only at Endorphins</li>
+            <li className={styles.weekNote}>Direct billing at Endorphins and PhysioMax</li>
           </ol>
         )}
 

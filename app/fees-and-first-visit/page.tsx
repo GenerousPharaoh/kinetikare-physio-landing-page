@@ -14,7 +14,7 @@ import s from '@/components/sheet/Sheet.module.css';
 const PAGE_URL = 'https://www.kinetikarephysio.com/fees-and-first-visit';
 const PAGE_TITLE = 'Physiotherapy Fees and First Visit in Burlington';
 const PAGE_DESCRIPTION =
-  'Initial assessment $110 (45 min). Follow-ups $90 (30 min), $100 (40 min) or $135 (60 min). Direct billing at Endorphins in Burlington, no referral needed.';
+  'Initial assessment $110 (45 min). Follow-ups $90 (30 min), $100 (40 min) or $135 (60 min). Direct billing at Endorphins and PhysioMax in Burlington, no referral needed.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
  * one place. Until 2026-09-15 these lived on Services (prices), the FAQ (what
  * the visit involves, clothing, insurance, cancellation) and Contact (where to
  * come). The wording below is lifted from those published answers; the prices
- * are the ones on Services. Direct billing is Endorphins only.
+ * are the ones on Services. Direct billing is offered at Endorphins and PhysioMax, not Headon.
  */
 const FEES = [
   { name: 'Initial assessment, 45 minutes', detail: 'Conversation, assessment and, in most cases, the start of treatment', price: '$110' },
@@ -147,7 +147,7 @@ export default function FeesAndFirstVisitPage() {
           <SectionHead id="billing-heading" title="Direct billing" />
           <div className={s.prose}>
             <p>
-              Direct billing is offered at Endorphins for most major extended health insurance providers. Bring your insurance card or your policy and group numbers to your first appointment, and the claim can usually be processed for you at the clinic.
+              Direct billing is offered at Endorphins and PhysioMax for most major extended health insurance providers. Bring your insurance card or your policy and group numbers to your first appointment, and the claim can usually be processed for you at the clinic.
             </p>
             <p>
               Coverage depends on your plan. Some plans require a doctor&rsquo;s referral for reimbursement even though no referral is needed to book, so check your plan details before your first visit. If you are unsure, ask when you book.

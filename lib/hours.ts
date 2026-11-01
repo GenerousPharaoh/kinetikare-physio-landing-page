@@ -11,14 +11,16 @@
  * Three locations, and they must not be conflated:
  *
  * - Endorphins Health & Wellness Centre, 4631 Palladium Way. Kareem's last
- *   appointment ends at 8:00 PM. The facility itself advertises 7:00 PM
+ *   appointment ends at 8:00 PM on Tuesday and Thursday (Monday to 7:00 PM
+ *   for now, Kareem 2026-11-01). The facility itself advertises 7:00 PM
  *   because reception is not always staffed later; that is the facility's
- *   number to publish on its own site, not ours. Ours matches his own
- *   Business Profile, which also says 8:00 PM.
+ *   number to publish on its own site, not ours.
+ *   Direct billing is offered at Endorphins and at PhysioMax (Kareem,
+ *   2026-11-01), not at Headon.
  * - Headon Physio, 1387 Walkers Line. Shown under its own clinic name and
  *   street. Never included in the Palladium Way schema entity and never
  *   surfaced on the Business Profile (Kareem's decision).
- * - PhysioMax Wellness, 1035 Brant Street. Tuesday mornings and Saturdays.
+ * - PhysioMax Wellness, 1035 Brant Street. Tuesday late mornings and Saturdays.
  *   Shown under its own clinic name and street, same treatment as Headon.
  *
  * General booking links go to Endorphins. The Contact page is the exception:
@@ -40,13 +42,13 @@ export interface DayHours {
 }
 
 export const WEEKLY_HOURS: readonly DayHours[] = [
-  { day: 'Monday', short: 'Mon', opens: '13:30', closes: '20:00', label: '1:30 to 8:00 PM', site: 'endorphins' },
-  { day: 'Tuesday', short: 'Tue', opens: '10:00', closes: '14:30', label: '10:00 AM to 2:30 PM', site: 'physiomax' },
+  { day: 'Monday', short: 'Mon', opens: '13:30', closes: '19:00', label: '1:30 to 7:00 PM', site: 'endorphins' },
+  { day: 'Tuesday', short: 'Tue', opens: '11:00', closes: '14:30', label: '11:00 AM to 2:30 PM', site: 'physiomax' },
   { day: 'Tuesday', short: 'Tue', opens: '15:30', closes: '20:00', label: '3:30 to 8:00 PM', site: 'endorphins' },
-  { day: 'Wednesday', short: 'Wed', opens: '14:00', closes: '19:30', label: '2:00 to 7:30 PM', site: 'headon' },
+  { day: 'Wednesday', short: 'Wed', opens: '14:00', closes: '19:00', label: '2:00 to 7:00 PM', site: 'headon' },
   { day: 'Thursday', short: 'Thu', opens: '13:30', closes: '20:00', label: '1:30 to 8:00 PM', site: 'endorphins' },
-  { day: 'Friday', short: 'Fri', opens: '14:00', closes: '19:30', label: '2:00 to 7:30 PM', site: 'headon' },
-  { day: 'Saturday', short: 'Sat', opens: '11:00', closes: '15:00', label: '11:00 AM to 3:00 PM', site: 'physiomax' },
+  { day: 'Friday', short: 'Fri', opens: '13:00', closes: '19:00', label: '1:00 to 7:00 PM', site: 'headon' },
+  { day: 'Saturday', short: 'Sat', opens: '12:00', closes: '15:00', label: '12:00 to 3:00 PM', site: 'physiomax' },
 ];
 
 export const ENDORPHINS_HOURS = WEEKLY_HOURS.filter((d) => d.site === 'endorphins');
@@ -109,9 +111,9 @@ export const ENDORPHINS_OPENING_HOURS_SCHEMA = groupByHours(ENDORPHINS_HOURS).ma
 
 /**
  * Compact multi-line summary for the ads landing page:
- *   Mon / Thu: 1:30 to 8:00 PM
- *   Tue: 3:30 to 8:00 PM
- *   Wed / Fri: 2:00 to 7:30 PM (Headon Physio, Walkers Line)
+ *   Mon: 1:30 to 7:00 PM
+ *   Tue / Thu: 3:30 to 8:00 PM and 1:30 to 8:00 PM
+ *   Wed: 2:00 to 7:00 PM (Headon Physio, Walkers Line)
  * Times are joined with "to", never a dash: the site has no en or em dashes.
  * The Headon days carry their clinic because the block sits under the
  * Endorphins address; unlabelled they read as Endorphins hours.

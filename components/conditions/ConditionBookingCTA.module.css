@@ -47,7 +47,9 @@
   border-left: 1px solid #e5e8ed;
 }
 
-.actions .booking {
+/* :not(#_) on the colours: the global link rule (0,5,1) excludes only
+   .button-gold and would otherwise paint the label ink on ink. */
+.actions .booking:not(#_) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,10 +71,10 @@
 }
 
 .booking svg { width: 18px; height: 18px; flex-shrink: 0; }
-.actions .booking:hover { background: #1c2430; border-color: #1c2430; color: #fff; }
+.actions .booking:not(#_):hover { background: #1c2430; border-color: #1c2430; color: #fff; }
 .booking:active { transform: translateY(1px); }
 
-.contact {
+.actions .contact:not(#_) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,8 +88,9 @@
   text-decoration: none;
 }
 
-.contact span { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #cfd4dc; }
-.contact:hover span { text-decoration-color: currentColor; }
+.actions .contact span { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #cfd4dc; }
+.actions .contact:not(#_):hover { color: #0b1017; }
+.actions .contact:hover span { text-decoration-color: currentColor; }
 .booking:focus-visible, .contact:focus-visible { outline: 2px solid #2f6bff; outline-offset: 4px; box-shadow: none; }
 
 @media (max-width: 1023px) {

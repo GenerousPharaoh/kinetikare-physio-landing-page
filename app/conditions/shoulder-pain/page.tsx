@@ -177,7 +177,7 @@ const locationGuides: LocationGuide[] = [
 const redFlags: Array<{ sign: string; action: string }> = [
   {
     sign: 'Sudden inability to lift the arm after trauma, especially with bruising or obvious deformity',
-    action: 'Go to emergency or urgent care to rule out fracture, dislocation, or a significant rotator cuff rupture.',
+    action: 'Go to emergency or urgent care today to rule out a fracture or dislocation. If the shoulder looks out of place or you think it is dislocated, go to emergency now. If a fracture or dislocation is excluded but you still cannot lift the arm, ask the assessing clinician or your family doctor to arrange urgent assessment for a rotator cuff tear, ideally at the next available orthopaedic clinic. Avoid lifting or exercising the injured arm until it has been assessed.',
   },
   {
     sign: 'Numbness, tingling, or weakness travelling into the hand',

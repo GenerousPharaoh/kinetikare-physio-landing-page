@@ -520,7 +520,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   'finkelsteins-test': {
     term: 'Finkelstein\'s test',
     definition:
-      'A simple wrist test where you tuck the thumb in a fist and bend the wrist toward the little finger. Sharp pain on the thumb side suggests De Quervain\'s tenosynovitis.',
+      'A clinician-performed test that moves the thumb and wrist to assess pain on the thumb side of the wrist. The thumb-in-fist movement often given this name is Eichhoff\'s test; pain with either manoeuvre needs interpretation alongside the rest of the examination.',
     aliases: ['Finkelstein test', 'Finkelstein'],
   },
   forefoot: {

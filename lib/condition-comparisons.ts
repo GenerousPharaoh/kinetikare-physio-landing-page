@@ -486,7 +486,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       {
         test: 'Hip strength screen (abduction and external rotation)',
         whatItShows:
-          'Weakness in the glutes, particularly gluteus medius and the deep rotators, is often found in people with patellofemoral pain, though not in everyone, and pain itself can reduce strength. It can play a part in patellar tendinopathy too.',
+          'Weakness in the glutes, particularly gluteus medius and the deep rotators, is often found in people with patellofemoral pain, though not in everyone, and pain itself can reduce strength. In patellar tendon pain, I assess hip strength when relevant without assuming weakness caused the problem.',
       },
     ],
     whenItIsA:
@@ -496,7 +496,7 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
     whenUncertain:
       "These genuinely overlap and they can coexist, so a brief assessment matters. I localise the tenderness first, because pain you can cover with one finger at the bottom tip of the kneecap is a useful first clue. Then I run the single-leg decline squat and the step-down, check hip strength, and look at your running or squat mechanics if relevant. That helps narrow it down; when the picture stays mixed, I reassess as the knee responds to the first few weeks of loading. Where they coexist, I dose the tendon work and the patellofemoral rehab in parallel rather than arguing about which is primary.",
     overlap:
-      "It is common to see both in the same knee, particularly in jumping athletes who also sit at a desk all day. Hip and trunk strength can play a part in both. Chronic patellofemoral pain can also alter loading at the patellar tendon over time, and a grumbling tendon can change how you squat, which feeds the patellofemoral side. The rehab for both has a lot of shared elements, so the plan is rarely either-or.",
+      "Both can occur in the same knee, so I assess each symptom pattern. Hip and trunk strength can play a part in both. Changes in movement can be relevant, but do not prove that one condition caused or maintains the other. The rehab for both has a lot of shared elements, so the plan is rarely either-or.",
     redFlags: [
       {
         sign: 'A pop below the kneecap, then sudden inability to straighten the knee or lift the straight leg',

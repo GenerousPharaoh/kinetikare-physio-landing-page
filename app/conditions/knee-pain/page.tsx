@@ -95,7 +95,7 @@ const locationGuides: LocationGuide[] = [
     region: 'Front of the knee (anterior)',
     subtitle: 'Pain around or under the kneecap',
     description:
-      'Aches at the front of the knee that flare with stairs, prolonged sitting, squatting, or running downhill. Pain under the kneecap often points to patellofemoral pain, while pain right at the tendon just below the kneecap points more toward patellar tendinopathy. Both are common in active adults and often share underlying strength and load patterns.',
+      'Aches at the front of the knee that flare with stairs, prolonged sitting, squatting, or running downhill. Pain under the kneecap often points to patellofemoral pain, while pain right at the tendon just below the kneecap points more toward patellar tendinopathy. Both occur in active adults, but the symptom pattern and examination guide which factors matter for each person.',
     commonSources: [
       {
         slug: 'knee-pain-patellofemoral',
@@ -252,7 +252,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Why does my knee hurt going down stairs?',
     answer:
-      'Both going up and going down stairs load the kneecap joint more than level walking. Going down also asks the quadriceps to control the lowering, which can be particularly uncomfortable with patellofemoral pain, patellar tendinopathy, and early knee osteoarthritis. It often suggests quadriceps and hip strength are not yet matched to the demand, and gradual loading, rather than avoiding stairs altogether, is how that capacity is rebuilt.',
+      'Both going up and going down stairs load the kneecap joint more than level walking. Going down also asks the quadriceps to control the lowering, which can be particularly uncomfortable with patellofemoral pain, patellar tendinopathy, and early knee osteoarthritis. I assess strength and activity tolerance when planning rehabilitation, because pain on stairs alone does not identify the cause.',
   },
   {
     question: 'Is it safe to keep running with knee pain?',

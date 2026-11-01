@@ -14,7 +14,7 @@ export const CONDITION_KEY_POINTS: Record<string, ConditionKeyPoints> = {
   // Spine
   'low-back-pain': { helps: 'Staying active and exercise that suits you. No single type has been shown to be best.', time: 'A recent episode often improves within 2 to 6 weeks; long-standing pain usually needs 3 to 6 months.' },
   'neck-pain': { helps: 'Exercise for the neck and upper back, including the small muscles at the front of the neck.', time: 'A recent episode often improves over the first few weeks; recurring pain can take longer.' },
-  whiplash: { helps: 'Gentle, frequent neck movement from early on, rather than rest and a soft collar.', time: 'Many people improve over the first weeks to months, and some take longer.' },
+  whiplash: { helps: 'After serious injury is excluded, comfortable movement and a gradual return to activity can help more than prolonged rest or a soft collar.', time: 'Many people improve over the first weeks to months, and some take longer.' },
   sciatica: { helps: 'Staying active, and the movements that ease the leg pain or draw it back toward the spine.', time: 'Many people improve within 4 to 6 weeks, and most recover within about 3 months.' },
   'disc-herniation': { helps: 'Staying active and exercises that ease the leg or arm symptoms.', time: 'Many people improve within 4 to 6 weeks, and most recover within about 3 months.' },
   'degenerative-disc-disease': { helps: 'Exercise, with clear information about what disc changes on a scan mean.', time: 'Flare-ups usually settle within 2 to 6 weeks; learning to manage it usually takes 3 to 6 months.' },
@@ -47,7 +47,7 @@ export const CONDITION_KEY_POINTS: Record<string, ConditionKeyPoints> = {
   'greater-trochanteric-pain-syndrome': { helps: 'Education and exercise built up gradually. In the LEAP trial they did better overall than a cortisone injection.', time: 'Pain often starts to ease within 4 to 6 weeks; rebuilding the tendon takes 3 to 6 months or longer.' },
   'hip-labral-tears': { helps: 'Hip strengthening and retraining how you move. Many people manage without surgery.', time: 'A fair trial of non-surgical care is usually 3 to 4 months.' },
   'hip-bursitis': { helps: 'Taking the squeeze off the outer hip and gradually strengthening the buttock muscles.', time: 'Meaningful change usually takes 6 to 12 weeks; lasting strength takes 3 to 6 months.' },
-  'proximal-hamstring-tendinopathy': { helps: 'A loading program that moves from holds to heavier, slow strength work.', time: 'Pain can ease in a few weeks; getting back to your activities can take 3 to 9 months.' },
+  'proximal-hamstring-tendinopathy': { helps: 'A loading program that moves from holds to heavier, slow strength work.', time: 'Recovery is usually measured in months; sitting comfort and sport may improve at different rates.' },
   'piriformis-syndrome': { helps: 'Hip strengthening, gentle nerve gliding and changes to how you sit.', time: 'Many people improve over several weeks; some take longer.' },
   'si-joint-dysfunction': { helps: 'Strengthening the trunk and buttock muscles, with hands-on treatment where it helps.', time: 'Many people improve over 6 to 8 weeks; some take longer.' },
   'groin-strains': { helps: 'Active loading started early and strength work built up step by step, rather than long rest.', time: 'Small to moderate strains: about 3 weeks to full training. Long-standing groin pain often takes several months.' },
@@ -60,7 +60,7 @@ export const CONDITION_KEY_POINTS: Record<string, ConditionKeyPoints> = {
   'pcl-injuries': { helps: 'Rehab built around the front thigh muscle. Most PCL injuries on their own avoid surgery.', time: 'Return to sport is typically possible after 3 months; full function often within 4 to 6 months.' },
   'meniscus-tears': { helps: 'Structured exercise first for tears from gradual wear. A knee that truly locks needs prompt medical assessment.', time: 'Many people improve within 6 to 12 weeks of rehab.' },
   'it-band-syndrome': { helps: 'Strengthening the side of the hip, with changes to training and to how you run.', time: 'Some runners improve over several weeks; others need longer.' },
-  'patellar-tendinopathy': { helps: 'Loading the tendon step by step: holds, then slow, heavy strength work.', time: 'Many athletes improve within 12 weeks; the tendon keeps rebuilding for 6 to 12 months.' },
+  'patellar-tendinopathy': { helps: 'Loading the tendon step by step: holds, then slow, heavy strength work.', time: 'Improvement often takes months, with a gradual return to jumping and sport.' },
   'knee-osteoarthritis': { helps: 'Strengthening the front thigh muscle with low-impact exercise such as cycling, walking or water exercise.', time: 'Improvement is often seen within 6 to 12 weeks, and it needs long-term management.' },
   'patella-fractures': { helps: 'Following the protection plan from your doctor or surgeon, then rehab once healing allows.' },
 
@@ -69,7 +69,7 @@ export const CONDITION_KEY_POINTS: Record<string, ConditionKeyPoints> = {
   'plantar-fasciitis': { helps: 'Stretching the sole and the calf, done consistently, with calf strengthening and supportive shoes.', time: 'Usually months rather than weeks; many see clear improvement within 6 to 12 months.' },
   'achilles-tendinopathy': { helps: 'Exercise that loads the tendon, such as heel drops and slow, heavy calf work.', time: 'Gains often build over the first 12 weeks; full recovery can take a year or longer.' },
   'shin-splints': { helps: 'Calf and hip strengthening, and a running plan cut back and then rebuilt.', time: 'Many runners return over several weeks with a structured plan.' },
-  'peroneal-tendinopathy': { helps: 'Loading the tendons step by step, with balance training to steady the ankle.', time: 'Improvement often takes weeks to months.' },
+  'peroneal-tendinopathy': { helps: 'Loading the tendons step by step, with balance work when ankle instability is also present.', time: 'Improvement often takes weeks to months.' },
   'posterior-tibial-tendon-dysfunction': { helps: 'In the early stages, a shoe insert or brace with strengthening of the tibialis posterior muscle.', time: 'Early stages often improve over a few months; later stages can take longer.' },
   'mortons-neuroma': { helps: 'Wider shoes, a metatarsal pad and cutting back on what aggravates it.', time: 'Some change within several weeks for many, continuing over a few months.' },
   metatarsalgia: { helps: 'A well-placed metatarsal pad and suitable shoes to take load off the sore spot.', time: 'Some improvement within several weeks for many; recovery can take a few months.' },
@@ -80,5 +80,5 @@ export const CONDITION_KEY_POINTS: Record<string, ConditionKeyPoints> = {
   'tarsal-tunnel-syndrome': { helps: 'Activity changes, gentle nerve gliding and arch support if the foot rolls in.', time: 'Often 8 to 12 weeks when treated early; longer-standing cases may need 3 to 6 months.' },
   'hammer-toe-deformities': { helps: 'Roomy shoes, cushioning the bent joint, and gentle daily stretching of a toe that can still straighten.' },
   'stress-fractures': { helps: 'Time away from impact, with a protection plan matched to the bone involved, and a look at the causes.' },
-  'growth-plate-injuries': { helps: 'Cutting back the most aggravating activities while keeping up the ones that do not hurt.' },
+  'growth-plate-injuries': { helps: 'For overuse apophysitis: cutting back aggravating activities while keeping up the ones that do not hurt.' },
 };

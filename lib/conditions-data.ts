@@ -900,7 +900,7 @@ const intelligentRelationships: Record<string, Array<{
 }>> = {
   'low-back-pain': [
     { slug: 'sciatica', relationshipType: 'anatomical', explanation: 'Both involve the lumbar spine; disc dysfunction can progress to nerve root compression', relevanceScore: 9 },
-    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc problems often underlying cause of mechanical low back pain', relevanceScore: 8 },
+    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc changes are common with and without pain; symptoms and examination help decide whether a disc or nerve root may be involved', relevanceScore: 8 },
     { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'SI joint dysfunction commonly coexists with lumbar spine issues due to shared load transfer', relevanceScore: 7 },
     { slug: 'facet-joint-syndrome', relationshipType: 'anatomical', explanation: 'Both affect spinal segments; facet joints can become overloaded when discs degenerate', relevanceScore: 7 },
     { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters lumbar mechanics and can contribute to back pain', relevanceScore: 6 }
@@ -927,8 +927,8 @@ const intelligentRelationships: Record<string, Array<{
   'shoulder-impingement': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'anatomical', explanation: 'Both describe irritation of the rotator cuff tendons and often overlap', relevanceScore: 9 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both can limit overhead movement, and early frozen shoulder can look similar', relevanceScore: 7 },
-    { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
-    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Forward head posture contributes to scapular dysfunction and impingement', relevanceScore: 6 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Shoulder pain and thoracic outlet symptoms can overlap, so I assess the shoulder, neck and arm symptoms together', relevanceScore: 6 },
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Neck and shoulder symptoms can overlap, so I assess both regions when the symptoms suggest it', relevanceScore: 6 },
     { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 }
   ],
   'frozen-shoulder': [
@@ -940,21 +940,21 @@ const intelligentRelationships: Record<string, Array<{
   'tennis-elbow': [
     { slug: 'golfers-elbow', relationshipType: 'anatomical', explanation: 'Both are elbow tendinopathies affecting opposite sides of the joint', relevanceScore: 8 },
     { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Tennis elbow is a type of repetitive strain injury from overuse', relevanceScore: 8 },
-    { slug: 'carpal-tunnel-syndrome', relationshipType: 'biomechanical', explanation: 'Both can result from poor wrist/forearm ergonomics and repetitive motions', relevanceScore: 6 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'biomechanical', explanation: 'Hand and forearm symptoms can overlap; I distinguish local tendon pain from median nerve symptoms', relevanceScore: 6 },
     { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Cervical radiculopathy can mimic lateral elbow pain symptoms', relevanceScore: 5 },
-    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Shoulder dysfunction can alter elbow mechanics and contribute to lateral epicondylitis', relevanceScore: 5 }
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Shoulder and elbow symptoms can overlap; I assess shoulder function when it affects the tasks that hurt', relevanceScore: 5 }
   ],
   'golfers-elbow': [
     { slug: 'tennis-elbow', relationshipType: 'anatomical', explanation: 'Both are elbow tendinopathies affecting opposite epicondyles', relevanceScore: 8 },
     { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Medial epicondylitis is a repetitive strain injury from overuse', relevanceScore: 8 },
-    { slug: 'carpal-tunnel-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve median nerve pathway; wrist flexor tension can contribute to carpal tunnel', relevanceScore: 6 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'biomechanical', explanation: 'Golfer\'s elbow affects the wrist-flexor tendon at the inner elbow, while carpal tunnel syndrome affects the median nerve at the wrist; symptoms need assessment to distinguish them', relevanceScore: 6 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause medial arm/forearm symptoms and nerve-related pain', relevanceScore: 5 },
     { slug: 'de-quervains-tenosynovitis', relationshipType: 'causal', explanation: 'Both involve overuse of wrist and forearm muscles from similar activities', relevanceScore: 5 }
   ],
   'carpal-tunnel-syndrome': [
     { slug: 'de-quervains-tenosynovitis', relationshipType: 'anatomical', explanation: 'Both affect the wrist; can coexist due to similar risk factors', relevanceScore: 7 },
     { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Carpal tunnel syndrome is a type of repetitive strain injury', relevanceScore: 8 },
-    { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Both can result from poor ergonomics and repetitive wrist/forearm motions', relevanceScore: 6 },
+    { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Hand and forearm symptoms can overlap; I distinguish local tendon pain from median nerve symptoms', relevanceScore: 6 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause hand/arm numbness and tingling; TOS affects more proximal nerve compression', relevanceScore: 6 },
     { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'Cervical radiculopathy can mimic carpal tunnel symptoms', relevanceScore: 5 },
     { slug: 'diabetes-related-conditions', relationshipType: 'causal', explanation: 'Diabetes is a recognised risk factor for carpal tunnel syndrome', relevanceScore: 6 }
@@ -968,7 +968,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'scaphoid-fractures', relationshipType: 'anatomical', explanation: 'Both cause pain on the thumb side of the wrist, and a missed scaphoid fracture is the key differential after a fall', relevanceScore: 6 }
   ],
   'hip-osteoarthritis': [
-    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters gait and can increase knee joint stress leading to arthritis', relevanceScore: 8 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness and knee pain can coexist; I assess walking and both joints to guide the exercise plan', relevanceScore: 8 },
     { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Hip stiffness from arthritis alters lumbar spine mechanics', relevanceScore: 6 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both affect hip region; GTPS often coexists with hip OA', relevanceScore: 7 },
     { slug: 'femoroacetabular-impingement', relationshipType: 'causal', explanation: 'FAI can lead to cartilage damage and secondary osteoarthritis', relevanceScore: 8 },
@@ -985,7 +985,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'hip-osteoarthritis', relationshipType: 'anatomical', explanation: 'Both affect hip region; GTPS often develops secondary to hip OA', relevanceScore: 7 },
     { slug: 'hip-bursitis', relationshipType: 'symptomatic', explanation: 'GTPS was formerly called trochanteric bursitis; both cause lateral hip pain', relevanceScore: 8 },
     { slug: 'it-band-syndrome', relationshipType: 'anatomical', explanation: 'Both involve lateral hip/thigh structures; IT band tightness can contribute to GTPS', relevanceScore: 7 },
-    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Gluteal weakness from GTPS can contribute to back pain and instability', relevanceScore: 6 },
+    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Lateral hip and back pain can overlap, so I assess both regions when the symptoms suggest it', relevanceScore: 6 },
     { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Hip muscle weakness is common in both and can change how the knee is loaded', relevanceScore: 6 }
   ],
   'hip-labral-tears': [
@@ -993,31 +993,31 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'hip-osteoarthritis', relationshipType: 'causal', explanation: 'Labral tears can lead to joint instability and secondary arthritis', relevanceScore: 7 },
     { slug: 'groin-strains', relationshipType: 'symptomatic', explanation: 'Both cause groin pain; labral tears can be mistaken for muscle strains', relevanceScore: 7 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Hip instability from labral tears can stress gluteal tendons', relevanceScore: 5 },
-    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Hip instability affects pelvic mechanics and SI joint function', relevanceScore: 5 }
+    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Hip and SI-region symptoms can overlap, so I assess both regions before choosing a plan', relevanceScore: 5 }
   ],
   'piriformis-syndrome': [
     { slug: 'sciatica', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; piriformis syndrome can mimic lumbar radiculopathy', relevanceScore: 7 },
     { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'symptomatic', explanation: 'Both cause deep buttock pain that is worse with sitting; the hamstring origin sits beside the sciatic nerve', relevanceScore: 7 },
-    { slug: 'si-joint-dysfunction', relationshipType: 'anatomical', explanation: 'Both affect sacral/pelvic region; piriformis dysfunction can affect SI joint mechanics', relevanceScore: 6 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'anatomical', explanation: 'Both can cause pain around the back of the pelvis and may need assessment when symptoms overlap', relevanceScore: 6 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve deep hip/gluteal muscles and can cause overlapping symptoms', relevanceScore: 6 },
-    { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Piriformis tightness can affect hamstring mechanics and predispose to strains', relevanceScore: 5 }
+    { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Deep buttock pain and hamstring pain can overlap, so the history and examination help identify the likely source', relevanceScore: 5 }
   ],
   'groin-strains': [
     { slug: 'hip-labral-tears', relationshipType: 'symptomatic', explanation: 'Both cause groin pain; important to differentiate muscle strain from labral pathology', relevanceScore: 7 },
     { slug: 'femoroacetabular-impingement', relationshipType: 'symptomatic', explanation: 'Both cause groin/hip flexor pain; FAI can predispose to muscle strains', relevanceScore: 7 },
     { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Both are common sports injuries affecting hip/thigh muscles with similar mechanisms', relevanceScore: 7 },
     { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect proximal thigh muscles; can have overlapping symptoms in posterior hip', relevanceScore: 6 },
-    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Adductor muscle imbalances can affect pelvic stability and SI joint function', relevanceScore: 5 }
+    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Groin and SI-region symptoms can overlap, so I assess the hip and pelvis together', relevanceScore: 5 }
   ],
   'hamstring-strains': [
     { slug: 'groin-strains', relationshipType: 'biomechanical', explanation: 'Both are common sports injuries with similar mechanisms and recovery approaches', relevanceScore: 7 },
-    { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect hamstring muscles; acute strains can lead to chronic tendinopathy', relevanceScore: 8 },
+    { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'anatomical', explanation: 'Both involve the hamstrings, but a sudden strain and gradual pain at the upper tendon need different assessment and loading plans', relevanceScore: 8 },
     { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Hamstring tightness can contribute to lumbar spine stress and back pain', relevanceScore: 6 },
     { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Hamstring dysfunction affects knee mechanics and patellofemoral joint stress', relevanceScore: 5 },
-    { slug: 'piriformis-syndrome', relationshipType: 'biomechanical', explanation: 'Both affect posterior hip/thigh; muscle imbalances can be interconnected', relevanceScore: 5 }
+    { slug: 'piriformis-syndrome', relationshipType: 'biomechanical', explanation: 'Both can cause posterior hip or thigh symptoms, but sudden muscle injury and deep gluteal nerve pain are different possibilities', relevanceScore: 5 }
   ],
   'knee-pain-patellofemoral': [
-    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect the patellofemoral region; biomechanical factors often overlap', relevanceScore: 8 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Both can cause front-of-knee pain, but the painful structure and rehabilitation priorities can differ', relevanceScore: 8 },
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both are common in runners and often flare after a sudden rise in mileage', relevanceScore: 7 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Hip muscle weakness is common in both, so rehab for either works on the hip', relevanceScore: 6 },
     { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Both cause pain at the front of the knee; after middle age, pain behind the kneecap is more often arthritis', relevanceScore: 6 },
@@ -1028,7 +1028,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'meniscus-tears', relationshipType: 'anatomical', explanation: 'ACL and meniscus injuries often occur together; shared injury mechanisms', relevanceScore: 8 },
     { slug: 'mcl-lcl-sprains', relationshipType: 'anatomical', explanation: 'Multi-ligament knee injuries common; ACL tears often involve collateral ligaments', relevanceScore: 7 },
     { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'ACL injuries increase risk of early knee arthritis due to altered mechanics', relevanceScore: 7 },
-    { slug: 'patellar-tendinopathy', relationshipType: 'biomechanical', explanation: 'Both common in jumping sports; altered knee mechanics can affect patellar tendon', relevanceScore: 6 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'biomechanical', explanation: 'Both occur in jumping sports; a new tendon complaint during rehabilitation needs its own assessment', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Both involve knee/ankle stability; ankle instability can predispose to ACL injury', relevanceScore: 5 }
   ],
   'meniscus-tears': [
@@ -1036,43 +1036,43 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Meniscus tears can lead to joint degeneration and arthritis', relevanceScore: 8 },
     { slug: 'mcl-lcl-sprains', relationshipType: 'anatomical', explanation: 'Meniscus tears can occur with ligament injuries in complex knee trauma', relevanceScore: 6 },
     { slug: 'it-band-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause lateral knee pain and may be confused diagnostically', relevanceScore: 5 },
-    { slug: 'patellar-tendinopathy', relationshipType: 'biomechanical', explanation: 'Altered knee mechanics from meniscus injury can stress patellar tendon', relevanceScore: 5 }
+    { slug: 'patellar-tendinopathy', relationshipType: 'biomechanical', explanation: 'Meniscus and patellar tendon problems can both cause knee pain, but location, symptoms and examination help distinguish them', relevanceScore: 5 }
   ],
   'it-band-syndrome': [
     { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Both common in runners; IT band tightness affects patellofemoral mechanics', relevanceScore: 7 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve lateral hip/thigh structures; IT band connects to trochanteric region', relevanceScore: 7 },
-    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common running injuries with overlapping biomechanical causes', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both can affect runners, so I assess each painful area and review training changes without assuming a shared mechanical cause', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower limb mechanics contributing to IT band stress', relevanceScore: 5 },
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve lower limb overuse; foot dysfunction can affect IT band mechanics', relevanceScore: 5 }
   ],
   'patellar-tendinopathy': [
-    { slug: 'knee-pain-patellofemoral', relationshipType: 'anatomical', explanation: 'Both affect patellofemoral region; share many biomechanical risk factors', relevanceScore: 8 },
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'anatomical', explanation: 'Both can cause front-of-knee pain, but the painful structure and rehabilitation priorities can differ', relevanceScore: 8 },
     { slug: 'achilles-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and treatment approaches', relevanceScore: 7 },
-    { slug: 'acl-injuries', relationshipType: 'biomechanical', explanation: 'Both common in jumping sports; altered landing mechanics affect both structures', relevanceScore: 6 },
-    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness can alter knee mechanics and increase patellar tendon stress', relevanceScore: 5 },
+    { slug: 'acl-injuries', relationshipType: 'biomechanical', explanation: 'Both occur in jumping sports; landing and strength are assessed for the individual rather than assumed to explain either condition', relevanceScore: 6 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness may affect a task and can be assessed when relevant, but does not establish the cause of patellar tendon pain', relevanceScore: 5 },
     { slug: 'patella-fractures', relationshipType: 'anatomical', explanation: 'Both affect the front of the knee and are assessed together after a fall onto the kneecap', relevanceScore: 5 },
-    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'In adolescents the same load presents as Osgood-Schlatter, a growth plate condition, rather than tendinopathy', relevanceScore: 6 }
+    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'Front-of-knee pain in a growing athlete can involve an apophysis or a tendon, so age, pain location and examination guide the diagnosis', relevanceScore: 6 }
   ],
   'knee-osteoarthritis': [
-    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters gait and can accelerate knee joint degeneration', relevanceScore: 8 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness and knee pain can coexist; I assess walking and both joints to guide the exercise plan', relevanceScore: 8 },
     { slug: 'meniscus-tears', relationshipType: 'causal', explanation: 'Meniscus damage can lead to accelerated cartilage loss and arthritis', relevanceScore: 8 },
     { slug: 'acl-injuries', relationshipType: 'causal', explanation: 'ACL injuries significantly increase risk of early knee osteoarthritis', relevanceScore: 7 },
-    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee mechanics and can contribute to OA', relevanceScore: 5 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability can affect balance and movement, so I assess it when planning exercise for knee pain', relevanceScore: 5 },
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Foot/ankle dysfunction affects knee loading patterns', relevanceScore: 5 },
     { slug: 'patella-fractures', relationshipType: 'causal', explanation: 'A fracture into the joint surface is one cause of osteoarthritis developing later', relevanceScore: 5 }
   ],
   'ankle-sprains': [
-    { slug: 'peroneal-tendinopathy', relationshipType: 'causal', explanation: 'Chronic ankle instability from sprains can lead to peroneal tendon overuse', relevanceScore: 8 },
+    { slug: 'peroneal-tendinopathy', relationshipType: 'causal', explanation: 'Peroneal tendon pain and ankle instability can coexist after a sprain, so I assess tendon loading and ankle control separately', relevanceScore: 8 },
     { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon mechanics and loading patterns', relevanceScore: 6 },
-    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower leg mechanics contributing to shin splints', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Ankle and shin symptoms can occur together, so I assess the ankle and shin separately rather than assuming instability caused the shin pain', relevanceScore: 6 },
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Ankle dysfunction affects entire lower limb chain including IT band stress', relevanceScore: 5 },
-    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee loading patterns over time', relevanceScore: 5 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Some people with chronic ankle instability have changes in knee movement, but this does not show that the instability causes knee osteoarthritis', relevanceScore: 5 },
     { slug: 'turf-toe', relationshipType: 'biomechanical', explanation: 'Both are ligament sprains from sport with the same graded return to running and cutting', relevanceScore: 6 },
-    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'In children the same twisting injury often affects the growth plate rather than the ligament', relevanceScore: 6 }
+    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'An ankle twist in a child can injure ligaments or the growth plate; ligament injuries were more common in a study of radiograph-negative lateral ankle injuries', relevanceScore: 6 }
   ],
   'plantar-fasciitis': [
     { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain tightness; Achilles stiffness contributes to plantar fasciitis', relevanceScore: 8 },
-    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both are overuse injuries with shared biomechanical factors in runners', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Heel and shin pain can both affect runners, and each painful area needs its own assessment', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle dysfunction can alter foot mechanics and contribute to plantar fasciitis', relevanceScore: 5 },
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both are running-related overuse injuries with interconnected lower limb mechanics', relevanceScore: 5 },
     { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Foot dysfunction affects entire lower limb kinetic chain including knee mechanics', relevanceScore: 5 },
@@ -1084,25 +1084,25 @@ const intelligentRelationships: Record<string, Array<{
   'achilles-tendinopathy': [
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain; Achilles stiffness is major risk factor for plantar fasciitis', relevanceScore: 8 },
     { slug: 'patellar-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and evidence-based treatments', relevanceScore: 7 },
-    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Achilles and shin symptoms can occur in runners, but one does not establish the cause of the other', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon loading and mechanics', relevanceScore: 6 },
     { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Both involve Achilles tendon attachment issues, though in different age groups', relevanceScore: 8 },
     { slug: 'posterior-tibial-tendon-dysfunction', relationshipType: 'biomechanical', explanation: 'Achilles tightness can increase stress on posterior tibial tendon', relevanceScore: 6 }
   ],
   'shin-splints': [
-    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both are overuse injuries in runners with shared biomechanical risk factors', relevanceScore: 6 },
-    { slug: 'achilles-tendinopathy', relationshipType: 'causal', explanation: 'Both common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
-    { slug: 'it-band-syndrome', relationshipType: 'causal', explanation: 'Both are running-related overuse injuries with similar training error causes', relevanceScore: 6 },
-    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower leg mechanics contributing to shin splints', relevanceScore: 6 },
-    { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'Untreated shin splints can progress to tibial stress fractures', relevanceScore: 7 },
-    { slug: 'severs-disease', relationshipType: 'causal', explanation: 'Both are common overuse injuries in young athletes with similar causes', relevanceScore: 6 }
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Shin and heel pain can both affect runners, and each painful area needs its own assessment', relevanceScore: 6 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'causal', explanation: 'Shin and Achilles symptoms can occur in runners, but one does not establish the cause of the other', relevanceScore: 6 },
+    { slug: 'it-band-syndrome', relationshipType: 'causal', explanation: 'Both can affect runners, so I assess each painful area and review training changes without assuming a shared cause', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Shin and ankle symptoms can occur together, so I assess both rather than assuming ankle instability caused the shin pain', relevanceScore: 6 },
+    { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'A tibial stress fracture is an important alternative when shin pain becomes focal or persists with everyday walking', relevanceScore: 7 },
+    { slug: 'severs-disease', relationshipType: 'causal', explanation: 'Shin and heel pain can occur in young athletes, but the location and pattern need assessment because the conditions differ', relevanceScore: 6 }
   ],
   'peroneal-tendinopathy': [
-    { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Chronic ankle instability can overload the peroneal tendons', relevanceScore: 8 },
+    { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Peroneal tendon pain and ankle instability can coexist, so I assess tendon loading and ankle control separately', relevanceScore: 8 },
     { slug: 'achilles-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and treatment approaches', relevanceScore: 6 },
-    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve lateral structures; ankle dysfunction can affect entire lateral chain', relevanceScore: 5 },
-    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both involve lower leg overuse; shared biomechanical factors in athletes', relevanceScore: 5 },
-    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Peroneal dysfunction affects foot mechanics and can contribute to plantar fasciitis', relevanceScore: 5 }
+    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Pain on the outside of the ankle and knee may need assessment together, without assuming one is causing the other', relevanceScore: 5 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Outer-ankle tendon pain and shin pain can occur in active people, and each painful area needs its own assessment', relevanceScore: 5 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Outer-ankle tendon pain and pain under the heel can coexist, so I assess each painful area rather than assuming a single cause', relevanceScore: 5 }
   ],
   'whiplash': [
     { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'Whiplash is neck pain that starts after a sudden jolt, so the two share most of their care', relevanceScore: 8 },
@@ -1127,7 +1127,7 @@ const intelligentRelationships: Record<string, Array<{
   'thoracic-outlet-syndrome': [
     { slug: 'neck-pain', relationshipType: 'anatomical', explanation: 'Both involve cervical spine region; neck posture affects thoracic outlet space', relevanceScore: 7 },
     { slug: 'carpal-tunnel-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause arm numbness and tingling; TOS affects more proximal nerve compression', relevanceScore: 6 },
-    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Shoulder pain and thoracic outlet symptoms can overlap, so I assess the shoulder, neck and arm symptoms together', relevanceScore: 6 },
     { slug: 'postural-dysfunction', relationshipType: 'biomechanical', explanation: 'Shoulder blade position and breathing pattern can add to thoracic outlet symptoms', relevanceScore: 7 },
     { slug: 'whiplash', relationshipType: 'symptomatic', explanation: 'Thoracic outlet symptoms sometimes start after a neck injury', relevanceScore: 6 }
   ],
@@ -1202,9 +1202,9 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'si-joint-dysfunction': [
     { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'SI joint dysfunction commonly coexists with lumbar spine issues', relevanceScore: 7 },
-    { slug: 'hip-labral-tears', relationshipType: 'biomechanical', explanation: 'Hip instability affects pelvic mechanics and SI joint function', relevanceScore: 5 },
+    { slug: 'hip-labral-tears', relationshipType: 'biomechanical', explanation: 'Hip and SI-region symptoms can overlap, so I assess both regions before choosing a plan', relevanceScore: 5 },
     { slug: 'piriformis-syndrome', relationshipType: 'anatomical', explanation: 'Both affect sacral/pelvic region with overlapping symptoms', relevanceScore: 6 },
-    { slug: 'groin-strains', relationshipType: 'biomechanical', explanation: 'Muscle imbalances affecting SI joint can also predispose to groin strains', relevanceScore: 5 },
+    { slug: 'groin-strains', relationshipType: 'biomechanical', explanation: 'Groin, hip and SI-region symptoms can overlap, so I assess the hip and pelvis together', relevanceScore: 5 },
     { slug: 'facet-joint-syndrome', relationshipType: 'biomechanical', explanation: 'Both affect spinal movement patterns with potential symptom overlap', relevanceScore: 5 }
   ],
   'hip-bursitis': [
@@ -1215,7 +1215,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause deep hip pain and can be confused diagnostically', relevanceScore: 5 }
   ],
   'proximal-hamstring-tendinopathy': [
-    { slug: 'hamstring-strains', relationshipType: 'anatomical', explanation: 'Both affect hamstring muscles; acute strains can lead to chronic tendinopathy', relevanceScore: 8 },
+    { slug: 'hamstring-strains', relationshipType: 'anatomical', explanation: 'Both involve the hamstrings, but a sudden strain and gradual pain at the upper tendon need different assessment and loading plans', relevanceScore: 8 },
     { slug: 'groin-strains', relationshipType: 'anatomical', explanation: 'Both affect proximal thigh muscles with overlapping symptoms', relevanceScore: 6 },
     { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause posterior hip/buttock pain and sitting difficulties', relevanceScore: 6 },
     { slug: 'ischial-bursitis', relationshipType: 'anatomical', explanation: 'Both affect sitting bone region and can be confused diagnostically', relevanceScore: 7 }
@@ -1268,7 +1268,7 @@ const intelligentRelationships: Record<string, Array<{
   'severs-disease': [
     { slug: 'achilles-tendinopathy', relationshipType: 'anatomical', explanation: 'Both involve Achilles tendon attachment issues, though in different age groups', relevanceScore: 8 },
     { slug: 'plantar-fasciitis', relationshipType: 'anatomical', explanation: 'Both involve heel pain; plantar fascia attaches near calcaneal apophysis', relevanceScore: 7 },
-    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common overuse injuries in young athletes with similar causes', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Heel and shin pain can occur in young athletes, but the location and pattern need assessment because the conditions differ', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Heel pain can alter gait increasing ankle injury risk', relevanceScore: 5 },
     { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'Part of pediatric growth plate injury spectrum', relevanceScore: 8 }
   ],
@@ -1277,7 +1277,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'plantar-fasciitis', relationshipType: 'symptomatic', explanation: 'Both can cause medial arch and heel pain symptoms', relevanceScore: 6 },
     { slug: 'mortons-neuroma', relationshipType: 'symptomatic', explanation: 'Both cause foot numbness but in different nerve distributions', relevanceScore: 5 },
     { slug: 'carpal-tunnel-syndrome', relationshipType: 'treatment', explanation: 'Both are peripheral nerve compressions with similar pathophysiology', relevanceScore: 7 },
-    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both can be caused by excessive pronation and altered foot mechanics', relevanceScore: 4 }
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Shin pain and nerve symptoms near the inner ankle need assessment to distinguish them; foot shape alone does not establish the cause', relevanceScore: 4 }
   ],
   'patella-fractures': [
     { slug: 'knee-pain-patellofemoral', relationshipType: 'anatomical', explanation: 'Pain around the kneecap can continue after the fracture has healed', relevanceScore: 8 },
@@ -1295,8 +1295,8 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'growth-plate-injuries': [
     { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Heel growth plate irritation (Sever\'s disease) is a common growth plate problem in young athletes', relevanceScore: 9 },
-    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Osgood-Schlatter is the growth plate version of the load that causes patellar tendinopathy in adults', relevanceScore: 6 },
-    { slug: 'ankle-sprains', relationshipType: 'anatomical', explanation: 'In children a twisted ankle often injures the growth plate rather than the ligament', relevanceScore: 6 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Front-of-knee pain in a growing athlete can involve an apophysis or a tendon, so age, pain location and examination guide the diagnosis', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'anatomical', explanation: 'An ankle twist in a child can injure ligaments or the growth plate; ligament injuries were more common in a study of radiograph-negative lateral ankle injuries', relevanceScore: 6 },
     { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'Both are bone overload injuries that need load management rather than stretching', relevanceScore: 6 },
     { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common overuse problems in growing athletes during training spikes', relevanceScore: 5 }
   ],
@@ -1307,7 +1307,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'repetitive-strain-injuries', relationshipType: 'biomechanical', explanation: 'Both need a graded return of wrist loading and grip strength', relevanceScore: 4 }
   ],
   'stress-fractures': [
-    { slug: 'shin-splints', relationshipType: 'anatomical', explanation: 'Shin splints and a tibial stress fracture both come from overloading the shin bone', relevanceScore: 9 },
+    { slug: 'shin-splints', relationshipType: 'anatomical', explanation: 'A tibial stress fracture and shin splints can both cause shin pain, but focal pain or pain with everyday walking needs assessment for a bone stress injury', relevanceScore: 9 },
     { slug: 'metatarsalgia', relationshipType: 'symptomatic', explanation: 'Forefoot pain from a metatarsal stress fracture is often first labelled metatarsalgia', relevanceScore: 7 },
     { slug: 'plantar-fasciitis', relationshipType: 'symptomatic', explanation: 'A calcaneal stress fracture can mimic plantar heel pain', relevanceScore: 6 },
     { slug: 'growth-plate-injuries', relationshipType: 'causal', explanation: 'Both are bone overload injuries in athletes and need training load managed', relevanceScore: 5 },

@@ -3,7 +3,7 @@
  * patient can find the emergencies without reading every row (2026-10-11).
  *
  * The band comes from the most urgent instruction in the action text. If an
- * action says "go to emergency now" or "call 911" anywhere, even as an
+ * action says "go to emergency" or "call 911" anywhere, even as an
  * escalation ("same-day assessment; chest pain means go to emergency now"),
  * the row sits under the emergency heading, so grouping can never make an
  * emergency look calmer than its own text. The action text itself is shown
@@ -23,9 +23,9 @@ const EMERGENCY = [
   /emergency now/i,
   /emergency or urgent care now/i,
   /seek emergency assessment today/i,
-  // "Go to emergency" as the main instruction (optionally after a "Possible
-  // ..." sentence), but not "go to emergency or urgent care", which is same day.
-  /^(possible[^.]*\.\s*)?go to emergency(?! or (an )?urgent care)/i,
+  // Include conditional escalation later in the action. The choice of
+  // emergency or urgent care remains same day unless it explicitly says now.
+  /\bgo to emergency\b(?!\s+or\s+(?:an?\s+)?urgent care)/i,
 ];
 
 const TODAY = [/same[- ]day/i, /\btoday\b/i, /within 24 hours/i, /urgent care/i, /right away/i];

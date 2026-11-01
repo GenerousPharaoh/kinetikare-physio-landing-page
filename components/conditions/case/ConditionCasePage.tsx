@@ -25,7 +25,7 @@ import { CONDITION_KEY_POINTS } from '@/lib/condition-key-points';
 import { splitPhaseTitle } from '@/lib/phase-title';
 import Print from '@/components/Print';
 import Reveal from '@/components/home/Reveal';
-import GlossaryText from '../GlossaryText';
+import CiteText from '../CiteText';
 import { comparisonQuestion } from '../ComparisonCrossLinks';
 import { CONDITION_PLATES } from '@/lib/condition-plates';
 import { geist } from './fonts';
@@ -130,13 +130,13 @@ function Head({ title, stand }: { title: React.ReactNode; stand?: string }) {
   );
 }
 
-function Paragraphs({ text, used }: { text: string; used?: Set<string> }) {
+function Paragraphs({ slug, text, used }: { slug: string; text: string; used?: Set<string> }) {
   const set = used ?? new Set<string>();
   return (
     <>
       {text.split('\n\n').map((p, i) => (
         <p key={i}>
-          <GlossaryText text={p} usedTerms={set} />
+          <CiteText slug={slug} text={p} glossary usedTerms={set} />
         </p>
       ))}
     </>
@@ -431,19 +431,19 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   {primary && (
                     <div className={styles.opener}>
                       <span className={`${styles.lead} ${styles.mono}`}>Main approach</span>
-                      <p>{sentence(primary)}</p>
+                      <p><CiteText slug={conditionSlug} text={sentence(primary)} /></p>
                     </div>
                   )}
                   {secondary && (
                     <div className={styles.opener}>
                       <span className={`${styles.lead} ${styles.mono}`}>Alongside it</span>
-                      <p>{sentence(secondary)}</p>
+                      <p><CiteText slug={conditionSlug} text={sentence(secondary)} /></p>
                     </div>
                   )}
                   {prevention && (
                     <div className={styles.opener}>
                       <span className={`${styles.lead} ${styles.mono}`}>Managing it over time</span>
-                      <p>{sentence(prevention)}</p>
+                      <p><CiteText slug={conditionSlug} text={sentence(prevention)} /></p>
                     </div>
                   )}
                 </div>
@@ -470,7 +470,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                       gradually, and back off if symptoms get worse instead of settling.
                       {redFlags.length > 0 && ' If any of the warning signs listed on this page apply to you, hold off and get assessed first.'}
                     </aside>
-                    <CasePhases phases={phases} />
+                    <CasePhases slug={conditionSlug} phases={phases} />
                   </div>
                 )}
 
@@ -482,7 +482,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                         <li key={item.strategy}>
                           <span>
                             <span className={styles.rowTitle}>{item.strategy}</span>
-                            <span className={styles.rowBody}>{sentence(item.rationale)}</span>
+                            <span className={styles.rowBody}><CiteText slug={conditionSlug} text={sentence(item.rationale)} /></span>
                             {item.precautions && item.precautions.length > 0 && (
                               <span className={styles.rowNote}>{item.precautions.map(sentence).join(' ')}</span>
                             )}
@@ -553,7 +553,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 <div className={styles.prose}>
                   {!condition.prognosis && !condition.timeline?.length && keyPointText?.time && <p>{sentence(keyPointText.time)}</p>}
                   {condition.prognosis?.timeline && sentence(condition.prognosis.timeline) !== (keyPointText?.time ? sentence(keyPointText.time) : '') && <p>{sentence(condition.prognosis.timeline)}</p>}
-                  {condition.prognosis?.naturalHistory && <p>{sentence(condition.prognosis.naturalHistory)}</p>}
+                  {condition.prognosis?.naturalHistory && <p><CiteText slug={conditionSlug} text={sentence(condition.prognosis.naturalHistory)} /></p>}
                 </div>
                 {condition.timeline && condition.timeline.length > 0 && (
                   <ol className={`${styles.rows} ${styles.rowsPlain}`} style={{ marginTop: 24 }} role="list">
@@ -641,7 +641,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 <div className={styles.disc}>
                   {condition.faqs.map((faq) => (
                     <CaseDisclosure key={faq.question} title={faq.question}>
-                      <p>{faq.answer}</p>
+                      <p><CiteText slug={conditionSlug} text={faq.answer} /></p>
                     </CaseDisclosure>
                   ))}
                 </div>
@@ -661,14 +661,14 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                   </figure>
                   {scienceText && (
                     <div className={styles.prose}>
-                      <Paragraphs text={scienceText} />
+                      <Paragraphs slug={conditionSlug} text={scienceText} />
                     </div>
                   )}
                 </div>
                 {condition.biomechanics && (
                   <div className={styles.disc} style={{ marginTop: 30 }}>
                     <CaseDisclosure title="Contributing factors">
-                      <Paragraphs text={condition.biomechanics} />
+                      <Paragraphs slug={conditionSlug} text={condition.biomechanics} />
                     </CaseDisclosure>
                   </div>
                 )}
@@ -770,6 +770,10 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 offer an alternative approach if a test or technique does not suit your comfort level or needs.
               </p>
             </aside>
+            <p className={styles.colophon}>
+              I write and review every page on this site myself, and the review date at the top is the last time I checked this one.
+              If something here is out of date, <Link href="/contact">tell me</Link>.
+            </p>
           </div>
         </div>
       </div>

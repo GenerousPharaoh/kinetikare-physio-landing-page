@@ -1635,3 +1635,40 @@
   .case .shell { grid-template-columns: 1fr; }
   .case .discBody { grid-template-rows: 1fr !important; }
 }
+
+/* Narrative citations (CiteText, 2026-11-01): a quiet link under the
+   author and year inside the prose, cobalt only on hover or focus. */
+.case a:global(.cite):not(#_) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line2);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
+}
+@media (hover: hover) {
+  .case a:global(.cite):not(#_):hover {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+  }
+}
+.case a:global(.cite):not(#_):focus-visible {
+  color: var(--accent-ink);
+  text-decoration-color: currentColor;
+}
+
+/* The closing note on who writes the page: the quietest line on the page,
+   after the consent note, never in the opening (Kareem, 2026-11-01). */
+.case .colophon {
+  margin-top: 18px;
+  max-width: 64ch;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--soft);
+}
+.case .colophon a:not(#_) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line2);
+  text-underline-offset: 3px;
+}

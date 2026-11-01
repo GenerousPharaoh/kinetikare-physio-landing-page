@@ -4,7 +4,7 @@ import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Kinetikare Physiotherapy',
-  description: 'Comprehensive privacy policy outlining how personal and health information is collected, used, and protected in compliance with PIPEDA and PHIPA.',
+  description: 'What this website collects, what it is used for, who else handles it, and the choices you have.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/privacy',
   },
@@ -18,199 +18,120 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Website privacy policy. Rewritten 2026-11-01 to cover what the site
+ * actually does (analytics, the call-back form, hosting, the booking link)
+ * and to send questions about clinical records to the clinic that holds
+ * them, instead of describing a clinic's record-keeping as if this site
+ * ran it. Facts here must track the code: GoogleAnalytics.tsx (consent
+ * defaults, ad personalisation off, the Jane cross-domain linker),
+ * CookieBanner.tsx (the stored choice) and the call-back route (Resend).
+ */
 export default function PrivacyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy" effectiveDate="October 9, 2026">
-      {/* Introduction */}
+    <LegalPageLayout title="Privacy Policy" effectiveDate="November 1, 2026">
       <section>
-        <h2>Introduction</h2>
+        <h2>What this policy covers</h2>
         <p>
-          I, Kareem Hassanein, Registered Physiotherapist, am committed to protecting your personal information and your right to privacy. This Privacy Policy explains how I collect, use, disclose, and safeguard your information when you visit my website or use my physiotherapy services.
+          This policy is about this website, kinetikarephysio.com, which I write and run myself. It explains what the site
+          collects when you read it, use the call-back form or follow a booking link, and what happens to that information.
         </p>
         <p>
-          This policy complies with the Personal Information Protection and Electronic Documents Act (PIPEDA) and the Personal Health Information Protection Act (PHIPA) of Ontario.
+          It does not cover your clinical record. Your assessment notes, treatment plan, receipts and insurance details are
+          kept in the record system of the clinic where you see me, under that clinic&rsquo;s privacy practices and
+          Ontario&rsquo;s health privacy law. Nothing from your clinical record is stored on or sent through this website.
+          If you want to see or correct your clinical record, ask me at a visit or contact the clinic&rsquo;s front desk and
+          I will point you to the right person.
         </p>
       </section>
 
-      {/* Information I Collect */}
       <section>
-        <h2>Information I Collect</h2>
-        
-        <h3>Personal Information</h3>
-        <p>I may collect the following personal information:</p>
-        <ul>
-          <li>Full name and contact information (address, phone number, email)</li>
-          <li>Date of birth and age</li>
-          <li>Ontario Health Insurance Plan (OHIP) information</li>
-          <li>Private insurance information</li>
-          <li>Emergency contact information</li>
-          <li>Referring physician information</li>
-        </ul>
-
-        <h3>Health Information</h3>
-        <p>As a healthcare provider, I collect:</p>
-        <ul>
-          <li>Medical history and current health conditions</li>
-          <li>Physiotherapy assessment findings</li>
-          <li>Treatment plans and progress notes</li>
-          <li>Diagnostic test results</li>
-          <li>Communications with other healthcare providers regarding your care</li>
-          <li>Appointment records and billing information</li>
-        </ul>
-
-        <h3>Website Information</h3>
-        <p>When you visit my website, I may automatically collect:</p>
-        <ul>
-          <li>IP address and browser type</li>
-          <li>Pages visited and time spent on pages</li>
-          <li>Referring website addresses</li>
-          <li>Device and operating system information</li>
-        </ul>
-
-        <h3>Website Analytics and Advertising</h3>
-        <p>I use Google Analytics to understand how visitors use my website, and Google Ads conversion tracking to see whether my ads lead to bookings or calls. These services collect:</p>
-        <ul>
-          <li>Usage data (pages viewed, time on site, which booking or phone links are clicked)</li>
-          <li>General location information (city/region, not specific address)</li>
-          <li>Device and browser information</li>
-          <li>How you found my website (search engines, ads, referral sites)</li>
-        </ul>
+        <h2>What the website collects</h2>
+        <h3>Reading the site</h3>
         <p>
-          This data does not include your name, contact details or health information, and I use it only to improve the website and my advertising. Google processes it under its own privacy policy.
+          I use Google Analytics and Google Ads conversion tracking to understand how people use the site and whether my
+          advertising leads to bookings or calls. These tools record the pages you view, how long you stay, which booking or
+          phone links you press, your general location (city or region, not an address), your device and browser, and how
+          you arrived (a search engine, an ad or another site). They do not record your name, your contact details or
+          anything about your health. Google&rsquo;s advertising personalisation is switched off for every visitor, so
+          nothing you read here is used to build an advertising audience.
         </p>
-
-        <h3>Call-Back Requests</h3>
         <p>
-          If you use the call-back form, I receive your name, phone number, the best time to call and, if you choose to give it, the body area that is bothering you. The form is sent to my email through Resend, an email delivery service based in the United States, so this information may be processed outside Canada. I use it only to return your call, and I do not add it to your health record unless you become a patient.
+          When you follow a booking link, the same anonymous analytics identifier is passed to the clinic&rsquo;s booking
+          site so that a booking can be counted against the visit that led to it. The booking site itself (Jane, run by
+          Jane Software Inc. in Canada) has its own privacy policy, which applies to anything you enter there.
+        </p>
+        <p>
+          The site is hosted by Vercel, in the United States. Like any web host, Vercel keeps short-lived server logs,
+          including your IP address and the pages requested, for security and performance.
+        </p>
+        <h3>The call-back form</h3>
+        <p>
+          If you ask for a call back, I receive your name, your phone number, the best time to call and, if you choose to
+          give it, the body area that is bothering you. The form is delivered to my email through Resend, an email delivery
+          service in the United States, so it may be processed outside Canada. I use it only to return your call and I keep
+          it only as long as I need it to do that. It does not become part of a clinical record unless you become a patient
+          and we agree that it should.
+        </p>
+        <h3>Email</h3>
+        <p>If you email me, your message and my reply sit in my email account like any other correspondence.</p>
+      </section>
+
+      <section>
+        <h2>Cookies and your choices</h2>
+        <p>
+          Google Analytics sets cookies on this site that last up to two years. The cookie notice lets you decline them.
+          If you decline, that choice is stored in your browser, Google is told not to set or read its cookies here, and
+          measurement continues without any identifier attached to you. You can change your mind by clearing the
+          site&rsquo;s data in your browser, which brings the notice back. Your browser&rsquo;s own settings and
+          Google&rsquo;s opt-out tools also work on this site. I set no other cookies.
         </p>
       </section>
 
-      {/* How I Use Your Information */}
       <section>
-        <h2>How I Use Your Information</h2>
-        <p>I use your personal and health information to:</p>
-        <ul>
-          <li>Provide physiotherapy assessment and treatment services</li>
-          <li>Develop and monitor your treatment plan</li>
-          <li>Communicate with you about appointments and care</li>
-          <li>Process billing and insurance claims</li>
-          <li>Comply with legal and regulatory requirements</li>
-          <li>Communicate with other healthcare providers involved in your care (with consent)</li>
-          <li>Maintain accurate clinical records</li>
-          <li>Respond to your inquiries and requests</li>
-          <li>Improve my services and website functionality</li>
-        </ul>
-      </section>
-
-      {/* Disclosure of Information */}
-      <section>
-        <h2>Disclosure of Your Information</h2>
-        <p>I may share your information in the following circumstances:</p>
-        
-        <h3>With Your Consent</h3>
-        <ul>
-          <li>To other healthcare providers involved in your care</li>
-          <li>To insurance companies for billing purposes</li>
-          <li>To family members or caregivers you have authorized</li>
-        </ul>
-
-        <h3>Without Your Consent (as permitted by law)</h3>
-        <ul>
-          <li>To comply with legal obligations or court orders</li>
-          <li>To protect against imminent harm to you or others</li>
-          <li>For public health or safety reasons</li>
-          <li>To professional regulatory bodies as required</li>
-          <li>To defend against legal claims</li>
-        </ul>
-      </section>
-
-      {/* Data Security */}
-      <section>
-        <h2>Data Security</h2>
-        <p>I implement appropriate technical and organizational measures to protect your personal information, including:</p>
-        <ul>
-          <li>Physical security measures at my practice location</li>
-          <li>Secure storage of paper records in locked filing systems</li>
-          <li>Password-protected electronic systems</li>
-          <li>Encryption of electronic communications where appropriate</li>
-          <li>Limited access to personal information on a need-to-know basis</li>
-          <li>Regular security assessments and updates</li>
-        </ul>
-      </section>
-
-      {/* Your Rights */}
-      <section>
-        <h2>Your Rights</h2>
-        <p>Under applicable privacy laws, you have the right to:</p>
-        <ul>
-          <li>Access your personal and health information</li>
-          <li>Request corrections to inaccurate information</li>
-          <li>Withdraw consent for certain uses of your information</li>
-          <li>Request restrictions on how I use your information</li>
-          <li>Lodge a complaint with privacy authorities</li>
-          <li>Request information about my privacy practices</li>
-        </ul>
-      </section>
-
-      {/* Additional Information */}
-      <section>
-        <h2 className="text-xl font-semibold text-slate-800 mt-8 mb-4">Additional Information</h2>
-
-        <h3>Retention of Information</h3>
+        <h2>Who else handles this information</h2>
         <p>
-          I retain your personal health information for a minimum of 10 years following your last visit, or 10 years after you reach the age of majority (18 years), whichever is longer, as required by the College of Physiotherapists of Ontario. After this period, records are securely destroyed.
-        </p>
-
-        <h3>Children's Privacy</h3>
-        <p>
-          I provide services to minors with parental or guardian consent. Parents/guardians have the right to access their minor child's health information, subject to the minor's consent rights under Ontario law.
-        </p>
-
-        <h3>Accessible Formats and Communication Supports</h3>
-        <p>
-          Upon request, I will provide or arrange for accessible formats and communication supports for persons with disabilities in a timely manner and at no additional cost.
-        </p>
-
-        <h3>Changes to This Policy</h3>
-        <p>
-          I may update this Privacy Policy from time to time. The updated version will be indicated by a revised "Effective Date" and will be posted on my website. I encourage you to review this Policy periodically.
+          Google (analytics and advertising measurement), Vercel (hosting), Resend (delivery of the call-back form) and
+          Jane (online booking, once you leave this site). Each processes what it receives under its own policy. I do not
+          sell information about you to anyone, and I do not share it with anyone else unless the law requires me to.
         </p>
       </section>
 
-      {/* Contact Information */}
       <section>
-        <h2>Contact Information</h2>
+        <h2>Your rights</h2>
         <p>
-          If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact:
+          You can ask me what I hold about you from the call-back form or from email, and ask me to correct or delete it.
+          For your clinical record, the same rights of access and correction exist under Ontario law; ask me or the clinic
+          where you were seen. If you are not satisfied with how I have handled your information, you can complain to the
+          Information and Privacy Commissioner of Ontario (1-800-387-0073, ipc.on.ca) or the Office of the Privacy
+          Commissioner of Canada (1-800-282-1376, priv.gc.ca).
         </p>
+      </section>
+
+      <section>
+        <h2>Children</h2>
+        <p>
+          This site is written for adults and the parents or guardians of younger patients. It has no accounts and asks
+          for no information from children.
+        </p>
+      </section>
+
+      <section>
+        <h2>Changes</h2>
+        <p>
+          When this policy changes, the date at the top changes with it. Anything that affects what is collected or who
+          receives it will be described here, not buried.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Questions about this policy or about the information this website holds come to me directly:</p>
         <div className="contact-box">
           <p className="contact-name">Kareem Hassanein, Registered Physiotherapist</p>
           <p>Email: kareem.hassanein@gmail.com</p>
           <p>Phone: (905) 634-6000</p>
           <p>Address: 4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
-        </div>
-      </section>
-
-      {/* Complaints */}
-      <section>
-        <h2>Complaints</h2>
-        <p>
-          If you have concerns about my privacy practices, you may file a complaint with:
-        </p>
-        
-        <div className="contact-box">
-          <p className="contact-name">Information and Privacy Commissioner of Ontario</p>
-          <p>2 Bloor Street East, Suite 1400</p>
-          <p>Toronto, ON M4W 1A8</p>
-          <p>Phone: 1-800-387-0073</p>
-          <p>Email: info@ipc.on.ca</p>
-        </div>
-
-        <div className="contact-box">
-          <p className="contact-name">Privacy Commissioner of Canada</p>
-          <p>30 Victoria Street</p>
-          <p>Gatineau, Quebec K1A 1H3</p>
-          <p>Phone: 1-800-282-1376</p>
         </div>
       </section>
     </LegalPageLayout>

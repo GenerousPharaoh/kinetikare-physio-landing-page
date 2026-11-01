@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-import GlossaryText from '../GlossaryText';
+import CiteText from '../CiteText';
 import { splitPhaseTitle } from '@/lib/phase-title';
 import type { ExerciseProgressionPhase } from '@/lib/conditions-data';
 import styles from './Case.module.css';
@@ -12,7 +12,7 @@ import styles from './Case.module.css';
  * one phase in view at a time, previous and next. Every phase is in the
  * HTML (inactive ones hidden) for the HowTo schema and search engines.
  */
-export default function CasePhases({ phases }: { phases: ExerciseProgressionPhase[] }) {
+export default function CasePhases({ slug, phases }: { slug: string; phases: ExerciseProgressionPhase[] }) {
   const [i, setI] = useState(0);
   const [tick, setTick] = useState(0);
   const touched = useRef(false);
@@ -87,7 +87,7 @@ export default function CasePhases({ phases }: { phases: ExerciseProgressionPhas
             <p className={`${styles.mono} ${styles.phaseWhen}`}>Phase {k + 1}{when ? ` · ${when}` : ''}</p>
             <h4 ref={(el) => { headings.current[k] = el; }} tabIndex={-1} className={styles.phaseTitle}>{name}</h4>
             <div className={styles.prose}>
-              <p><GlossaryText text={phase.focus} usedTerms={usedTerms} /></p>
+              <p><CiteText slug={slug} text={phase.focus} glossary usedTerms={usedTerms} /></p>
             </div>
             {phase.examples && phase.examples.length > 0 && (
               <>
@@ -95,7 +95,7 @@ export default function CasePhases({ phases }: { phases: ExerciseProgressionPhas
                 <ol className={styles.rows} role="list">
                   {phase.examples.map((ex, n) => (
                     <li key={n}>
-                      <GlossaryText text={ex} usedTerms={usedTerms} />
+                      <CiteText slug={slug} text={ex} glossary usedTerms={usedTerms} />
                     </li>
                   ))}
                 </ol>
@@ -104,7 +104,7 @@ export default function CasePhases({ phases }: { phases: ExerciseProgressionPhas
             {phase.progressionCriteria && (
               <div className={styles.milestone}>
                 <span className={styles.mono}>Possible milestones before moving on</span>
-                <GlossaryText text={phase.progressionCriteria} usedTerms={usedTerms} />
+                <CiteText slug={slug} text={phase.progressionCriteria} glossary usedTerms={usedTerms} />
               </div>
             )}
             </div>

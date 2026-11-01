@@ -3,179 +3,77 @@ import { Metadata } from 'next';
 import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
-  title: 'Accessibility Statement | Kinetikare Physiotherapy',
-  description: 'How Kareem Hassanein, Registered Physiotherapist, makes his services accessible to people with disabilities, under the AODA and Ontario Human Rights Code.',
+  title: 'Accessibility | Kinetikare Physiotherapy',
+  description: 'How this website is built to be usable by everyone, how care is made accessible in person, and how to tell me when something is in the way.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/accessibility',
   },
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
 };
 
+/**
+ * Accessibility statement. Rewritten 2026-11-01 from a template that
+ * described employment standards, signage and training programmes for an
+ * organisation this site is not. It now says what the website does, what
+ * happens in person, and how to report a barrier.
+ */
 export default function AccessibilityPage() {
   return (
-    <LegalPageLayout title="Accessibility Statement" effectiveDate="June 2, 2025">
-      {/* Commitment to Accessibility */}
+    <LegalPageLayout title="Accessibility" effectiveDate="November 1, 2026">
       <section>
-        <h2>Commitment to Accessibility</h2>
+        <h2>The short version</h2>
         <p>
-          I am committed to providing physiotherapy services that are accessible to all individuals, including persons with disabilities. I strive to ensure that every patient can access my services with dignity and independence, in compliance with the Accessibility for Ontarians with Disabilities Act (AODA) and the Ontario Human Rights Code.
+          I want anyone to be able to read this site and to get care from me without a barrier in the way. Where something
+          falls short, I would rather hear about it and fix it than not know. This statement reflects my obligations under
+          the Accessibility for Ontarians with Disabilities Act and the Ontario Human Rights Code.
         </p>
       </section>
 
-      {/* Accessibility Standards */}
       <section>
-        <h2>Accessibility Standards</h2>
-        
-        {/* Customer Service Standard */}
-        <h3>Customer Service Standard</h3>
+        <h2>This website</h2>
         <p>
-          I am committed to providing accessible customer service to people with disabilities. This means:
+          The site is built to the Web Content Accessibility Guidelines 2.1 at level AA as its working standard. In
+          practice that means:
         </p>
         <ul>
-          <li>Welcoming people with disabilities and their support persons, service animals, or assistive devices</li>
-          <li>Communicating in ways that take into account a person's disability</li>
-          <li>Providing notice when facilities or services that people with disabilities rely on are temporarily disrupted</li>
-          <li>Training myself and any future staff on accessibility requirements</li>
+          <li>Every page works with a keyboard alone, with a visible focus marker on the control you are on.</li>
+          <li>Text and controls meet contrast requirements, and the text can be enlarged in your browser without breaking the layout.</li>
+          <li>Images that carry meaning have text descriptions; decorative ones are hidden from screen readers.</li>
+          <li>Animation is reduced or removed when your device asks for reduced motion, and nothing on the page moves with the pointer.</li>
+          <li>Headings, landmarks and lists are marked up so that screen readers can move through a page in order.</li>
+          <li>The condition pages are written in plain language, with technical terms explained where they first appear.</li>
         </ul>
-
-        {/* Information and Communications Standard */}
-        <h3>Information and Communications Standard</h3>
         <p>
-          I will provide information in accessible formats upon request, including:
-        </p>
-        <ul>
-          <li>Providing documents in alternative formats (large print, electronic formats)</li>
-          <li>Working to meet WCAG 2.1 Level AA standards on my website</li>
-          <li>Responding to accessibility requests in a timely manner</li>
-          <li>Providing communication supports as needed</li>
-        </ul>
-
-        {/* Employment Standard */}
-        <h3>Employment Standard</h3>
-        <p>
-          Should I hire employees in the future, I commit to:
-        </p>
-        <ul>
-          <li>Providing accessible recruitment and hiring processes</li>
-          <li>Developing individual accommodation plans for employees with disabilities</li>
-          <li>Providing accessible workplace information</li>
-        </ul>
-
-        {/* Design of Public Spaces Standard */}
-        <h3>Design of Public Spaces Standard</h3>
-        <p>
-          I see patients at three clinics: Endorphins Health and Wellness Centre (4631 Palladium Way), Headon Physio (1387 Walkers Line) and PhysioMax Wellness (1035 Brant Street). Each clinic manages its own building. If you need details on parking, entrances, washrooms or treatment rooms before your visit, contact the clinic or me and I will make sure you have them.
-        </p>
-        <div className="contact-box">
-          <p>
-            For questions about the physical accessibility of the Endorphins Health and Wellness Centre facility, you may also contact:
-          </p>
-          <p className="contact-name">Endorphins Health and Wellness Centre</p>
-          <p>Email: info@endorphinshealth.com</p>
-          <p>Address: 4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
-        </div>
-      </section>
-
-      {/* Key Services */}
-      <section>
-        <h2>Accessibility Services</h2>
-        
-        <h3>Assistive Devices</h3>
-        <p>
-          I welcome patients who use assistive devices. I will ensure that patients can use their assistive devices to access my services. I am familiar with various assistive devices and am willing to assist if requested.
-        </p>
-
-        <h3>Support Persons</h3>
-        <p>
-          Patients with disabilities who are accompanied by a support person are welcome to have that person accompany them during their appointment at no additional charge. I may require consent from the patient to discuss confidential health information in the presence of a support person.
-        </p>
-
-        <h3>Service Animals</h3>
-        <p>
-          I welcome patients with disabilities who are accompanied by service animals. Service animals are permitted in all areas of my practice that are open to patients, except where prohibited by law.
-        </p>
-
-        <h3>Communication</h3>
-        <p>
-          I will communicate with patients with disabilities in ways that take into account their disability. I am prepared to use various communication methods including:
-        </p>
-        <ul>
-          <li>Written notes</li>
-          <li>Email communication</li>
-          <li>Clear verbal communication</li>
-          <li>Allowing extra time for communication</li>
-          <li>Using plain language</li>
-        </ul>
-      </section>
-
-      {/* Additional Sections */}
-      <section>
-        <h2 className="text-xl font-semibold text-slate-800 mt-8 mb-4">Additional Information</h2>
-
-        <h3>Accessible Formats and Communication Supports</h3>
-        <p>
-          Upon request, I will provide or arrange for accessible formats and communication supports for persons with disabilities in a timely manner and at no additional cost. I will consult with the person making the request to determine the most appropriate accessible format or communication support.
-        </p>
-
-        <h3>Notice of Temporary Disruption</h3>
-        <p>
-          In the event of a planned or unexpected disruption to services or facilities, I will notify patients promptly. This notice will include:
-        </p>
-        <ul>
-          <li>The reason for the disruption</li>
-          <li>The anticipated duration</li>
-          <li>A description of alternative facilities or services, if available</li>
-        </ul>
-        <p>Notice will be provided through:</p>
-        <ul>
-          <li>Signage at the practice location</li>
-          <li>Website updates</li>
-          <li>Direct contact with affected patients when possible</li>
-        </ul>
-
-        <h3>Training</h3>
-        <p>
-          I maintain current knowledge of accessibility requirements and best practices through ongoing professional development. Any future staff or volunteers will receive training on:
-        </p>
-        <ul>
-          <li>The purposes of the AODA and Human Rights Code</li>
-          <li>How to interact and communicate with people with various types of disabilities</li>
-          <li>How to interact with people who use assistive devices or require the assistance of a service animal or support person</li>
-          <li>What to do if a person with a disability is having difficulty accessing services</li>
-        </ul>
-
-        <h3>Modifications to Policies</h3>
-        <p>
-          I am committed to developing policies that respect and promote the dignity and independence of people with disabilities. When developing or modifying policies, I will consider the impact on persons with disabilities and their ability to access my services.
-        </p>
-
-        <h3>Continuous Improvement</h3>
-        <p>
-          I am committed to continuously improving accessibility in my practice. I welcome suggestions for improvement and will incorporate feedback into how I deliver physiotherapy services.
+          I check the site on a laptop and a phone, with a keyboard and with a screen reader, after each change. Some
+          longer pages are still dense, and I keep working on them. If a page is hard to use with your technology, tell
+          me which page and what happened and I will look at it.
         </p>
       </section>
 
-      {/* Feedback Process */}
       <section>
-        <h2>Feedback Process</h2>
-        <p>
-          I welcome feedback on how I provide accessible services to patients with disabilities. Feedback can be provided:
-        </p>
+        <h2>In person</h2>
+        <p>Care is arranged around what you need rather than the other way round. In particular:</p>
         <ul>
-          <li><strong>In Person:</strong> At my practice location during business hours</li>
-          <li><strong>By Phone:</strong> (905) 634-6000</li>
-          <li><strong>By Email:</strong> kareem.hassanein@gmail.com</li>
-          <li><strong>By Mail:</strong> 4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</li>
+          <li>Support persons and service animals are welcome at every appointment.</li>
+          <li>Bring any assistive device you use; treatment and exercises are adapted to it.</li>
+          <li>We can communicate in whatever way works for you: spoken, written, by email, with extra time, or in plain language.</li>
+          <li>Exercise programmes, forms and other documents are available in large print or electronic formats on request, at no extra cost.</li>
+          <li>Before your first visit, ask me about the entrance, parking and washrooms at the clinic you are attending and I will tell you what to expect.</li>
         </ul>
-        <p>
-          I will acknowledge feedback within 5 business days and will work to address concerns promptly. Accessible formats for providing feedback are available upon request.
-        </p>
       </section>
 
-      {/* Contact Information */}
       <section>
-        <h2>Questions About This Statement</h2>
+        <h2>Tell me</h2>
         <p>
-          For more information about this accessibility statement or to request documents in an accessible format, please contact:
+          Feedback about accessibility, online or in person, comes straight to me. You can email, call, or raise it at
+          an appointment, and I will reply in the format you prefer.
         </p>
         <div className="contact-box">
           <p className="contact-name">Kareem Hassanein, Registered Physiotherapist</p>

@@ -1,52 +1,13 @@
-'use client';
+import s from '@/components/sheet/Sheet.module.css';
 
-import React from 'react';
-import { m as motion } from 'framer-motion';
-
+/** The index's title and line; TreatmentsList sets the search beside it. */
 export default function TreatmentsHero() {
   return (
-    <section className="relative pt-32 pb-8 lg:pt-32 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
-      {/* Premium background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
-          backgroundSize: '48px 48px'
-        }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-              Treatment <span className="font-semibold">Approaches</span>
-            </h1>
-
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
-            </div>
-
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-10">
-              The treatments I use, and what each one is for
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-    </section>
+    <div>
+      <h1 className={s.h1}>
+        Treatment <span>Approaches</span>
+      </h1>
+      <p className={s.summary}>The treatments I use, and what each one is for</p>
+    </div>
   );
 }

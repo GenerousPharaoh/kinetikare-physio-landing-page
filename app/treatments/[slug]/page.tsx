@@ -8,6 +8,8 @@ import TreatmentInDepth from '@/components/treatments/TreatmentInDepth';
 import TreatmentProcess from '@/components/treatments/TreatmentProcess';
 import TreatmentFAQ from '@/components/treatments/TreatmentFAQ';
 import TreatmentCTA from '@/components/treatments/TreatmentCTA';
+import { geist } from '@/components/conditions/case/fonts';
+import sheet from '@/components/sheet/Sheet.module.css';
 import {
   contentDateFor,
   SEO_AUTHOR,
@@ -124,7 +126,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
   };
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className={`${sheet.root} ${geist.variable}`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(medicalProcedureSchema) }}
@@ -134,10 +136,12 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageSchema) }}
       />
       <TreatmentHero treatment={treatment} />
-      <TreatmentContent treatment={treatment} />
-      <TreatmentInDepth treatment={treatment} />
-      <TreatmentProcess treatment={treatment} />
-      <TreatmentFAQ treatment={treatment} />
+      <div className={`${sheet.column} ${sheet.body}`}>
+        <TreatmentContent treatment={treatment} />
+        <TreatmentInDepth treatment={treatment} />
+        <TreatmentProcess treatment={treatment} />
+        <TreatmentFAQ treatment={treatment} />
+      </div>
       <TreatmentCTA treatmentName={treatment.shortName ?? treatment.name} />
     </main>
   );

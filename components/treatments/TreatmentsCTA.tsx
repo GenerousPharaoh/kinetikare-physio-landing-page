@@ -1,53 +1,35 @@
-'use client';
-
+import Link from 'next/link';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
-import React from 'react';
-import { m as motion } from 'framer-motion';
-import { CalendarIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
+import Reveal from '@/components/home/Reveal';
+import s from '@/components/sheet/Sheet.module.css';
 
+/** The index's closing band. */
 export default function TreatmentsCTA() {
   return (
-    <section className="py-12 lg:py-16" style={{ background: 'linear-gradient(to bottom right, rgb(15, 23, 42), rgb(30, 41, 59))' }}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            How Treatments Are Combined
-          </h2>
-          <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-            Most plans are built around exercise, with one or two hands-on treatments where they help.
-            At your assessment I explain which ones suit your problem and why.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href={JANE_ASSESSMENT_URL} data-booking-source="treatment_page"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="button-gold inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-full transition-all duration-300 shadow-xl"
-            >
-              <CalendarIcon className="w-5 h-5" />
-              Book Your Assessment
-            </motion.a>
-
-            <motion.a
-              href="/#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-xl"
-            >
-              <ChatBubbleBottomCenterTextIcon className="w-5 h-5" />
-              Get in Touch
-            </motion.a>
-          </div>
-        </motion.div>
-      </div>
+    <section className={s.closing}>
+      <Reveal as="div" className={`${s.closingInner} ${s.closingWide}`}>
+        <h2 className={s.closingTitle}>How Treatments Are Combined</h2>
+        <p className={s.closingText}>
+          Most plans are built around exercise, with one or two hands-on treatments where they help.
+          At your assessment I explain which ones suit your problem and why.
+        </p>
+        <div className={s.actions}>
+          <a
+            href={JANE_ASSESSMENT_URL}
+            data-booking-source="treatment_page"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={s.light}
+          >
+            Book Your Assessment
+            <ArrowRightIcon aria-hidden="true" data-arrow="" />
+          </a>
+          <Link href="/#contact" className={s.ghost}>
+            Get in Touch
+          </Link>
+        </div>
+      </Reveal>
     </section>
   );
 }

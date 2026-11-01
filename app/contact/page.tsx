@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { type CSSProperties } from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { ArrowTopRightOnSquareIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import WeekSchedule from '@/components/contact/WeekSchedule';
 import CallbackForm from '@/components/CallbackForm';
 import { HEADON_BOOKING_URL, JANE_BOOKING_URL, PHYSIOMAX_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import { SEO_ORGANIZATION_ID, SEO_PERSON_ID } from '@/lib/seo-metadata';
 import { WEEKLY_HOURS, type ClinicSite } from '@/lib/hours';
+import { geist } from '@/components/conditions/case/fonts';
+import Reveal from '@/components/home/Reveal';
+import SectionHead from '@/components/sheet/SectionHead';
+import s from '@/components/sheet/Sheet.module.css';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/contact';
 const PAGE_TITLE = 'Contact Kareem Hassanein | Physiotherapy in Burlington';
@@ -44,7 +48,7 @@ interface Clinic {
   site: ClinicSite;
   name: string;
   short: string;
-  logo: { src: string; width: number; height: number; className: string };
+  logo: { src: string; width: number; height: number; maxHeight: number };
   lines: string[];
   phone: string;
   tel: string;
@@ -57,9 +61,9 @@ interface Clinic {
    * Each clinic's own colour, sampled from its logo, so the three booking
    * buttons read as three different destinations rather than one action
    * repeated. Text colour is fixed per button for contrast; hover only
-   * shifts the background.
+   * shifts the background, to a lighter tint.
    */
-  brand: { button: string; dot: string };
+  brand: { color: string; hover: string; ink: string; dot: string };
 }
 
 const CLINICS: Clinic[] = [
@@ -67,7 +71,7 @@ const CLINICS: Clinic[] = [
     site: 'endorphins',
     name: 'Endorphins Health & Wellness Centre',
     short: 'Endorphins',
-    logo: { src: '/images/endorphins-health-and-wellness-centre-logo.png', width: 300, height: 62, className: 'h-10 w-auto' },
+    logo: { src: '/images/endorphins-health-and-wellness-centre-logo.png', width: 300, height: 62, maxHeight: 40 },
     lines: ['4631 Palladium Way, Unit 6', 'Burlington, ON L7M 0W9'],
     phone: '(905) 634-6000',
     tel: '+19056346000',
@@ -75,33 +79,33 @@ const CLINICS: Clinic[] = [
     bookingUrl: JANE_BOOKING_URL,
     bookingSource: 'contact_endorphins',
     note: 'Direct billing available.',
-    brand: { button: 'bg-[#7FB83F] text-slate-950 hover:bg-[#93C95A] focus-visible:ring-[#7FB83F]/60', dot: 'bg-[#98C55C]' },
+    brand: { color: '#7FB83F', hover: '#93C95A', ink: '#020617', dot: '#98C55C' },
   },
   {
     site: 'physiomax',
     name: 'PhysioMax Wellness',
     short: 'PhysioMax',
-    logo: { src: '/images/physiomax-wellness-logo.png', width: 512, height: 147, className: 'h-12 w-auto' },
+    logo: { src: '/images/physiomax-wellness-logo.png', width: 512, height: 147, maxHeight: 48 },
     lines: ['1035 Brant Street, Unit 10A', 'Burlington, ON L7R 4X6'],
     phone: '(905) 315-9955',
     tel: '+19053159955',
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1035+Brant+Street+Unit+10A,+Burlington,+ON+L7R+4X6',
     bookingUrl: PHYSIOMAX_BOOKING_URL,
     bookingSource: 'contact_physiomax',
-    brand: { button: 'bg-[#F26522] text-slate-950 hover:bg-[#FF7A3D] focus-visible:ring-[#F26522]/60', dot: 'bg-[#FF6622]' },
+    brand: { color: '#F26522', hover: '#FF7A3D', ink: '#020617', dot: '#FF6622' },
   },
   {
     site: 'headon',
     name: 'Headon Physio',
     short: 'Headon Physio',
-    logo: { src: '/images/headon-physio-logo-affiliations.png', width: 298, height: 101, className: 'h-12 w-auto' },
+    logo: { src: '/images/headon-physio-logo-affiliations.png', width: 298, height: 101, maxHeight: 48 },
     lines: ['1387 Walkers Line, Unit B', 'Burlington, ON L7M 0Z1'],
     phone: '(905) 332-7758',
     tel: '+19053327758',
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1387+Walkers+Line+Unit+B,+Burlington,+ON+L7M+0Z1',
     bookingUrl: HEADON_BOOKING_URL,
     bookingSource: 'contact_headon',
-    brand: { button: 'bg-[#003377] text-white hover:bg-[#0A4A96] focus-visible:ring-[#003377]/60', dot: 'bg-[#4F8BE0]' },
+    brand: { color: '#003377', hover: '#0A4A96', ink: '#ffffff', dot: '#4F8BE0' },
   },
 ];
 
@@ -129,199 +133,167 @@ const contactSchema = {
   ],
 };
 
-const primaryButton =
-  'inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-lg text-[15px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
-
 export default function ContactPage() {
   return (
     // data-contact-page lets globals.css drop the floating-pill offset; the
     // pills are not rendered here (see FloatingButtons).
-    <main data-booking-source="contact_page" data-contact-page="">
+    <main data-booking-source="contact_page" data-contact-page="" className={`${s.root} ${geist.variable}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(contactSchema) }} />
 
-      {/* Opening: intro and the week on the left, one contact-and-booking
+      {/* Opening: intro and the week on the left, one dark contact-and-booking
           panel on the right. On phones the panel comes straight after the
           intro so the actions sit above the schedule. */}
-      <section className="!bg-[#020617] !bg-none text-white pt-28 md:pt-36 pb-14 md:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate-400 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-white" aria-current="page">Contact</span>
-          </nav>
-
-          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-16">
-            <div className="lg:col-span-7 lg:row-start-1">
-              <h1 className="font-playfair !text-white text-4xl md:text-5xl tracking-tight leading-[1.05]">Contact</h1>
-              <p className="mt-5 max-w-md text-lg text-slate-300 leading-relaxed">
-                Email me directly with any enquiry. For bookings, rescheduling or billing, each clinic&rsquo;s reception
-                desk can help.
-              </p>
-            </div>
-
-            <aside
-              aria-label="Contact and booking"
-              className="lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8"
-            >
-              <div>
-                <h2 className="text-sm font-medium text-slate-400 mb-2">Email me directly</h2>
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="font-playfair text-xl sm:text-2xl lg:text-[1.65rem] leading-tight text-white break-words underline decoration-white/25 underline-offset-[6px] hover:decoration-white transition-[text-decoration-color] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
-                >
-                  {EMAIL}
-                </a>
-              </div>
-
-              <div className="mt-7 pt-7 border-t border-white/10">
-                <h2 className="text-sm font-medium text-slate-400 mb-1">Book online</h2>
-                <p className="text-slate-300 text-[15px] mb-2">
-                  Each clinic has its own Jane booking page. Choose the one you want to be seen at.
-                </p>
-                <ul className="divide-y divide-white/10">
-                  {CLINICS.map((c) => (
-                    <li key={c.site}>
-                      <Link
-                        href={c.bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-booking-source={c.bookingSource}
-                        className="group flex items-baseline justify-between gap-4 py-3 -mx-3 px-3 text-[15px] rounded-md hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-                      >
-                        <span className="inline-flex items-center gap-2.5 text-white font-medium">
-                          <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${c.brand.dot}`} />
-                          {c.short}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 text-white/85 whitespace-nowrap group-hover:text-white transition-colors">
-                          Book online
-                          <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-7 pt-7 border-t border-white/10">
-                <h2 className="text-sm font-medium text-slate-400 mb-1">Call a reception desk</h2>
-                <ul className="divide-y divide-white/10">
-                  {CLINICS.map((c) => (
-                    <li key={c.site}>
-                      <a
-                        href={`tel:${c.tel}`}
-                        className="group flex items-baseline justify-between gap-4 py-3 -mx-3 px-3 text-[15px] rounded-md hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-                      >
-                        <span className="text-slate-300 group-hover:text-white transition-colors">{c.short}</span>
-                        <span className="text-white font-medium tabular-nums whitespace-nowrap">
-                          {c.phone}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-
-            <div className="lg:col-span-7 lg:row-start-2 lg:self-end">
-              <h2 className="font-playfair text-2xl text-white">Where I am each day</h2>
-              <p className="mt-1 mb-4 text-sm text-slate-400">Regular clinic days. Tuesday is split between two clinics.</p>
-              <WeekSchedule />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call back: for people who would rather not open a Jane account or ring a desk. */}
-      <section className="!bg-[#FAF8F5] !bg-none pt-14 md:pt-20" aria-label="Request a call back">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <CallbackForm source="contact_callback" />
-        </div>
-      </section>
-
-      {/* Clinics: three full-width rows, each with its own action. */}
-      <section className="!bg-[#FAF8F5] !bg-none py-16 md:py-20" aria-labelledby="clinics-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between mb-8 md:mb-10">
-            <h2 id="clinics-heading" className="font-playfair text-3xl md:text-4xl text-slate-900 tracking-tight">
-              The three clinics
-            </h2>
-            <p className="text-slate-600 md:max-w-md md:text-right">
-              Each clinic has its own online booking page and reception desk. Book with the one you want to be seen at.
+      <div className={`${s.wrap} ${s.opening}`}>
+        <div className={s.contactGrid}>
+          <div className={s.contactIntro}>
+            <nav aria-label="Breadcrumb" className={`${s.crumbs} ${s.label}`}>
+              <Link href="/">Home</Link>
+              <ChevronRightIcon aria-hidden="true" />
+              <span aria-current="page">Contact</span>
+            </nav>
+            <h1 className={s.h1}>Contact</h1>
+            <p className={s.summary}>
+              Email me directly with any enquiry. For bookings, rescheduling or billing, each clinic&rsquo;s reception
+              desk can help.
             </p>
           </div>
 
-          <div className="border-t border-slate-300">
-            {CLINICS.map((clinic) => {
-              const days = WEEKLY_HOURS.filter((d) => d.site === clinic.site);
-              return (
-                <article
-                  key={clinic.site}
-                  aria-labelledby={`clinic-${clinic.site}`}
-                  className="grid grid-cols-1 gap-x-8 gap-y-6 py-8 md:py-10 border-b border-slate-300 lg:grid-cols-12"
-                >
-                  <div className="lg:col-span-5">
-                    <Image
-                      src={clinic.logo.src}
-                      alt={clinic.name}
-                      width={clinic.logo.width}
-                      height={clinic.logo.height}
-                      className={`${clinic.logo.className} object-contain object-left mb-5 mix-blend-multiply`}
-                    />
-                    {/* The logo carries the identity; the name stays for assistive tech and as the row label. */}
-                    <h3 id={`clinic-${clinic.site}`} className="sr-only">
-                      {clinic.name}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {clinic.lines[0]}
-                      <br />
-                      {clinic.lines[1]}
-                    </p>
-                    <a
-                      href={clinic.directions}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1.5 text-[15px] font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-[text-decoration-color] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30 focus-visible:ring-offset-2 rounded"
-                    >
-                      Directions
-                      <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
-                    </a>
-                  </div>
+          <aside aria-label="Contact and booking" className={`${s.contactPanel} ${s.dark}`}>
+            <div className={s.block}>
+              <h2 className={s.label}>Email me directly</h2>
+              <a href={`mailto:${EMAIL}`} className={s.mail}>
+                {EMAIL}
+              </a>
+            </div>
 
-                  <div className="lg:col-span-3">
-                    <h4 className="text-sm font-medium text-slate-600 mb-2">My hours here</h4>
-                    <ul className="divide-y divide-slate-200 border-y border-slate-200">
-                      {days.map((d) => (
-                        <li key={`${d.day}-${d.site}`} className="flex justify-between gap-4 py-2 text-[15px]">
-                          <span className="text-slate-700">{d.day}</span>
-                          <span className="text-slate-900 tabular-nums whitespace-nowrap">{d.label}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="lg:col-span-4 lg:flex lg:flex-col lg:items-end lg:text-right">
+            <div className={s.block}>
+              <h2 className={s.label}>Book online</h2>
+              <p className={s.lede}>Each clinic has its own Jane booking page. Choose the one you want to be seen at.</p>
+              <ul className={s.panelRows}>
+                {CLINICS.map((c) => (
+                  <li key={c.site}>
                     <Link
-                      href={clinic.bookingUrl}
+                      href={c.bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      data-booking-source={clinic.bookingSource}
-                      className={`${primaryButton} ${clinic.brand.button}`}
+                      data-booking-source={c.bookingSource}
                     >
-                      Book online
-                      <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
+                      <span className={s.who}>
+                        <span aria-hidden="true" className={s.dot} style={{ background: c.brand.dot }} />
+                        {c.short}
+                      </span>
+                      <span className={s.go}>
+                        Book online
+                        <ArrowTopRightOnSquareIcon aria-hidden="true" />
+                      </span>
                     </Link>
-                    <p className="mt-3 text-[15px] text-slate-600">
-                      Or call reception,{' '}
-                      <a href={`tel:${clinic.tel}`} className="text-slate-900 font-medium tabular-nums underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-[text-decoration-color]">
-                        {clinic.phone}
-                      </a>
-                      .{clinic.note ? ` ${clinic.note}` : ''}
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={s.block}>
+              <h2 className={s.label}>Call a reception desk</h2>
+              <ul className={s.panelRows}>
+                {CLINICS.map((c) => (
+                  <li key={c.site}>
+                    <a href={`tel:${c.tel}`}>
+                      <span className={s.muted}>{c.short}</span>
+                      <span className={s.num}>{c.phone}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
+          <div className={`${s.contactWeek} ${s.weekBox}`}>
+            <h2 className={s.h3}>Where I am each day</h2>
+            <p className={s.stand}>Regular clinic days. Tuesday is split between two clinics.</p>
+            <WeekSchedule className={s.week} />
           </div>
+        </div>
+      </div>
+
+      {/* Call back: for people who would rather not open a Jane account or ring a desk. */}
+      <section className={`${s.wrap} ${s.callWrap}`} aria-label="Request a call back">
+        <Reveal as="div">
+          <CallbackForm source="contact_callback" variant="sheet" />
+        </Reveal>
+      </section>
+
+      {/* Clinics: three tiles, each with its own booking page, reception and hours. */}
+      <section className={`${s.wrap} ${s.sec} ${s.body}`} aria-labelledby="clinics-heading">
+        <div className={s.clinicsHead}>
+          <SectionHead id="clinics-heading" title="The three clinics" />
+          <p className={s.stand}>
+            Each clinic has its own online booking page and reception desk. Book with the one you want to be seen at.
+          </p>
+        </div>
+
+        <div className={s.clinics}>
+          {CLINICS.map((clinic, index) => {
+            const days = WEEKLY_HOURS.filter((d) => d.site === clinic.site);
+            return (
+              <Reveal as="div" key={clinic.site} delay={index * 70}>
+                <article aria-labelledby={`clinic-${clinic.site}`} className={s.clinic}>
+                <span className={s.logo}>
+                  <Image
+                    src={clinic.logo.src}
+                    alt={clinic.name}
+                    width={clinic.logo.width}
+                    height={clinic.logo.height}
+                    style={{ maxHeight: clinic.logo.maxHeight }}
+                  />
+                </span>
+                {/* The logo carries the identity; the name stays for assistive tech and as the tile label. */}
+                <h3 id={`clinic-${clinic.site}`} className="sr-only">
+                  {clinic.name}
+                </h3>
+                <p className={s.addr}>
+                  {clinic.lines[0]}
+                  <br />
+                  {clinic.lines[1]}
+                </p>
+                <p className={s.links}>
+                  <a href={clinic.directions} target="_blank" rel="noopener noreferrer">
+                    Directions
+                    <ArrowTopRightOnSquareIcon aria-hidden="true" />
+                  </a>
+                </p>
+
+                <h4 className={s.label}>My hours here</h4>
+                <ul className={s.hours}>
+                  {days.map((d) => (
+                    <li key={`${d.day}-${d.site}`}>
+                      <span>{d.day}</span>
+                      <span>{d.label}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className={s.foot}>
+                  <Link
+                    href={clinic.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-booking-source={clinic.bookingSource}
+                    className={s.brand}
+                    style={{ '--brand': clinic.brand.color, '--brand-hover': clinic.brand.hover, '--brand-ink': clinic.brand.ink } as CSSProperties}
+                  >
+                    Book online
+                    <ArrowTopRightOnSquareIcon aria-hidden="true" />
+                  </Link>
+                  <p className={s.reception}>
+                    Or call reception,{' '}
+                    <a href={`tel:${clinic.tel}`}>{clinic.phone}</a>
+                    .{clinic.note ? ` ${clinic.note}` : ''}
+                  </p>
+                </div>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </main>

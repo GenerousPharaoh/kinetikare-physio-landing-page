@@ -1,0 +1,258 @@
+/*
+ * The call-back form's "sheet" look, used on /contact: the condition pages'
+ * language (Geist, hairline borders, one cobalt accent) and the same input
+ * as the conditions index search box (12px radius, hairline border, cobalt
+ * focus ring). The default look (used on /intake) is unchanged and lives in
+ * the component's Tailwind classes.
+ *
+ * Every rule is `.sheet .x` (0,2,0) so it beats the global element styles
+ * for inputs, labels, paragraphs, headings and phone buttons.
+ */
+
+.sheet {
+  --ink: #0b1017;
+  --read: #262e3b;
+  --soft: #5b6574;
+  --faint: #7d8696;
+  --line: #e5e8ed;
+  --line2: #cfd4dc;
+  --tint: #f4f5f8;
+  --accent: #2f6bff;
+  --sans: var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--sans);
+  color: var(--ink);
+}
+
+/* Doubled class (0,2,0): the form is a <section>, and the global section
+   rules and the host page's section reset (0,1,1) would take its padding. */
+.sheet.sheet {
+  margin: 0;
+  padding: 24px 20px;
+  max-width: none;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.sheet.sheet::before,
+.sheet.sheet::after { content: none; }
+
+@media (min-width: 640px) {
+  .sheet.sheet { padding: 32px; }
+}
+
+@media (min-width: 1024px) {
+  .sheet.sheet { padding: 40px; }
+}
+
+.sheet .layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+
+@media (min-width: 1024px) {
+  .sheet .layout { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; }
+}
+
+.sheet .title {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(26px, 6.5vw, 30px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.024em;
+  color: var(--ink);
+}
+
+@media (min-width: 1024px) {
+  .sheet .title { font-size: 32px; }
+}
+
+.sheet .intro {
+  margin: 12px 0 0;
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: var(--read);
+}
+
+.sheet .fine {
+  margin: 12px 0 0;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--soft);
+}
+
+@media (min-width: 640px) {
+  .sheet .fine { font-size: 15px; }
+}
+
+.sheet .fine a:not(#_) {
+  color: var(--ink);
+  font-weight: 500;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-decoration: underline;
+  text-decoration-color: var(--line2);
+  text-underline-offset: 4px;
+}
+
+.sheet .fine a:not(#_):hover { text-decoration-color: var(--ink); }
+
+.sheet .form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+@media (min-width: 640px) {
+  .sheet .form { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+}
+
+.sheet .lab {
+  display: block;
+  margin: 0 0 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--soft);
+}
+
+.sheet .opt {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.sheet .field {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  background-color: #fff;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink);
+  box-shadow: none;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.sheet .field::placeholder { color: var(--faint); }
+
+.sheet .field:focus,
+.sheet .field:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.15);
+}
+
+.sheet select.field {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b6574' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+
+.sheet .row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+@media (min-width: 640px) {
+  .sheet .row { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+.sheet .submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background-color 0.25s var(--ease), scale 0.15s var(--ease);
+}
+
+.sheet .submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.sheet .submit:active { scale: 0.98; }
+.sheet .submit:disabled { cursor: wait; opacity: 0.7; }
+
+@media (hover: hover) {
+  .sheet .submit:not(:disabled):hover { background: #1c2430; color: #fff; }
+}
+
+.sheet .err {
+  margin: 0;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #c8322b;
+}
+
+.sheet .done {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.sheet .doneTitle {
+  margin: 0;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.sheet .doneText {
+  margin: 8px 0 0;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--read);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet *,
+  .sheet *::before,
+  .sheet *::after { transition: none !important; }
+}

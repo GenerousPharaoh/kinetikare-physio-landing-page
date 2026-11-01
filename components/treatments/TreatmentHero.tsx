@@ -1,90 +1,64 @@
-'use client';
-
-import { JANE_ASSESSMENT_URL } from '@/lib/booking';
-import React from 'react';
 import Link from 'next/link';
-import { m as motion } from 'framer-motion';
-import { Treatment } from '@/lib/treatments-data';
-import { CheckCircleIcon, ArrowDownIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { ArrowDownIcon, ArrowRightIcon, CheckIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { JANE_ASSESSMENT_URL } from '@/lib/booking';
+import type { Treatment } from '@/lib/treatments-data';
+import s from '@/components/sheet/Sheet.module.css';
+import { KeepHyphens } from '@/components/sheet/text';
 
 interface TreatmentHeroProps {
   treatment: Treatment;
 }
 
+/**
+ * The opening of a treatment page, set like a condition page's: the trail,
+ * the name, what it is, the booking action, then the first three benefits
+ * in one hairline panel.
+ */
 export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
+  const name = treatment.shortName ?? treatment.name;
   return (
-    <section className="relative flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
-      {/* Gradient orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+    <header className={`${s.column} ${s.opening}`}>
+      <nav aria-label="Breadcrumb" className={`${s.crumbs} ${s.label}`}>
+        <Link href="/" aria-label="Home">
+          <HomeIcon aria-hidden="true" />
+        </Link>
+        <ChevronRightIcon aria-hidden="true" />
+        <Link href="/treatments">Treatments</Link>
+        <ChevronRightIcon aria-hidden="true" />
+        <span aria-current="page">{name}</span>
+      </nav>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-4 lg:py-12 lg:pb-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-4xl"
+      <h1 className={s.h1}>
+        <KeepHyphens text={name} />
+      </h1>
+
+      <p className={s.summary}>{treatment.shortDescription}</p>
+
+      <div className={s.actions}>
+        <a
+          href={JANE_ASSESSMENT_URL}
+          data-booking-source="treatment_page"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={s.ink}
         >
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-600 mb-6">
-            <Link href="/" aria-label="Home" className="hover:text-[#B08D57] transition-colors duration-200 flex items-center">
-              <HomeIcon className="h-4 w-4" />
-            </Link>
-            <ChevronRightIcon className="h-3 w-3" />
-            <Link href="/treatments" className="hover:text-[#B08D57] transition-colors duration-200">
-              Treatments
-            </Link>
-            <ChevronRightIcon className="h-3 w-3" />
-            <span className="text-gray-900 font-medium">{treatment.shortName ?? treatment.name}</span>
-          </nav>
-
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 tracking-tight leading-tight">
-            {treatment.shortName ?? treatment.name}
-          </h1>
-
-          <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-3xl">
-            {treatment.shortDescription}
-          </p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-            {treatment.benefits.slice(0, 3).map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-start gap-3 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-gray-100"
-              >
-                <CheckCircleIcon className="w-5 h-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-700 leading-relaxed">{benefit}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap gap-4"
-          >
-            <a
-              href={JANE_ASSESSMENT_URL} data-booking-source="treatment_page"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-gold inline-flex items-center gap-2 px-8 py-4 font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Book Your Assessment
-            </a>
-            <a
-              href="#process"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-medium rounded-full hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md border-2 border-gray-200"
-            >
-              <span>Learn More</span>
-              <ArrowDownIcon className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </motion.div>
+          Book Your Assessment
+          <ArrowRightIcon aria-hidden="true" data-arrow="" />
+        </a>
+        <a href="#process" className={s.line}>
+          <span>Learn More</span>
+          <ArrowDownIcon aria-hidden="true" data-down="" />
+        </a>
       </div>
-    </section>
+
+      <ul className={s.glance} role="list">
+        {treatment.benefits.slice(0, 3).map((benefit) => (
+          <li key={benefit}>
+            <CheckIcon aria-hidden="true" />
+            <span>{benefit}</span>
+          </li>
+        ))}
+      </ul>
+    </header>
   );
 }

@@ -1,61 +1,25 @@
-'use client';
-
-import React from 'react';
-import { m as motion } from 'framer-motion';
-import { Treatment } from '@/lib/treatments-data';
+import type { Treatment } from '@/lib/treatments-data';
+import Reveal from '@/components/home/Reveal';
+import SectionHead from '@/components/sheet/SectionHead';
+import s from '@/components/sheet/Sheet.module.css';
 
 interface TreatmentProcessProps {
   treatment: Treatment;
 }
 
+/** How treatment progresses: the stages on one vertical line, no numerals. */
 export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
   return (
-    <section id="process" className="py-8 lg:py-12 bg-gradient-to-b from-slate-50 via-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
-            How Treatment <span className="font-semibold">Progresses</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {treatment.process.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.12 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative group"
-            >
-              <div className="relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 h-full">
-                {/* Number badge */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#9A7A4A] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white font-bold text-lg">
-                    {index + 1}
-                  </span>
-                </div>
-
-                <div className="mt-4">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+    <section id="process" className={s.sec}>
+      <SectionHead title="How Treatment Progresses" />
+      <ol className={s.steps}>
+        {treatment.process.map((step, index) => (
+          <Reveal as="li" key={step.title} delay={index * 70}>
+            <h3 className={s.stepTitle}>{step.title}</h3>
+            <p className={s.stepBody}>{step.description}</p>
+          </Reveal>
+        ))}
+      </ol>
     </section>
   );
 }

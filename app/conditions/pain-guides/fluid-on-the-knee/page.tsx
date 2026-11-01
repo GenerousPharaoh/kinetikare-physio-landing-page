@@ -2,23 +2,7 @@ import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import {
-  ChevronRightIcon,
-  ExclamationTriangleIcon,
-  ChevronDownIcon,
-  InformationCircleIcon,
-  MapPinIcon,
-  AcademicCapIcon,
-  BeakerIcon,
-  QuestionMarkCircleIcon,
-  HeartIcon,
-  CalendarIcon,
-  PhoneIcon,
-  ArrowRightIcon,
-  ClockIcon,
-  ShieldCheckIcon,
-  ClipboardDocumentListIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChevronRightIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import {
   contentDateFor,
   SEO_AUTHOR,
@@ -28,12 +12,22 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
-import ConsentNote from '@/components/conditions/ConsentNote';
-
-import HoursList from '@/components/HoursList';
-import { inlineName } from '@/lib/text';
-import RedFlagsBox, { RedFlagsLink } from '@/components/conditions/RedFlagsBox';
-import SourceLinks from '@/components/conditions/SourceLinks';
+import {
+  AccessClosing,
+  Consent,
+  Crumbs,
+  cs,
+  Evidence,
+  Faqs,
+  FlagsLink,
+  g,
+  GuideMain,
+  Head,
+  PlateFigure,
+  RelatedConditions,
+  RelatedTreatments,
+  WarningPanel,
+} from '@/components/guides/GuideKit';
 import type { SourceRef } from '@/lib/source-refs';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
 const PAGE_TITLE = 'Suprapatellar Effusion (Fluid on the Knee) in Burlington';
@@ -484,33 +478,22 @@ export default function FluidOnTheKneeGuidePage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
 
-      <main className="min-h-screen">
-        {/* Hero */}
-        <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-5xl">
-              {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 mb-4">
-                <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
-                  Home
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <Link href="/conditions" className="hover:text-[#B08D57] transition-colors duration-200">
-                  Conditions
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <Link href="/conditions/knee-pain" className="hover:text-[#B08D57] transition-colors duration-200">
-                  Knee Pain
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Fluid on the Knee</span>
-              </nav>
+      <GuideMain>
+        <div className={g.frame}>
+          <div className={g.layout} data-rail="true">
+            <header className={g.opening}>
+              <Crumbs
+                items={[
+                  { href: '/', label: 'Home' },
+                  { href: '/conditions', label: 'Conditions' },
+                  { href: '/conditions/knee-pain', label: 'Knee Pain' },
+                  { label: 'Fluid on the Knee' },
+                ]}
+              />
 
-              <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Suprapatellar Effusion (Fluid on the Knee)
-              </h1>
+              <h1 className={cs.h1}>Suprapatellar Effusion (Fluid on the Knee)</h1>
 
-              <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
+              <p className={cs.summary}>
                 A suprapatellar effusion is extra fluid inside the knee joint, seen in the
                 pouch just above the kneecap. &ldquo;Fluid on the knee&rdquo;, &ldquo;knee
                 effusion&rdquo; and &ldquo;joint effusion&rdquo; all describe the same thing.
@@ -519,57 +502,41 @@ export default function FluidOnTheKneeGuidePage() {
                 swelling came on, and when to see a doctor before physiotherapy.
               </p>
 
-              <p className="text-xs text-slate-600 mt-3">
+              <p className={g.local}>
                 Assessing and treating knee pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
-              <RedFlagsLink className="mt-3" />
+              <FlagsLink />
 
-              {/* Primary actions */}
-              <div className="mt-5 flex flex-wrap items-center gap-2">
+              <div className={`${cs.actions} ${g.acts}`}>
                 <Link
                   href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+                  className={cs.btnInk}
                 >
-                  <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
+                  <ArrowRightIcon aria-hidden="true" />
                 </Link>
-                <Link
-                  href="tel:+19056346000"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                >
-                  <PhoneIcon className="h-4 w-4" />
+                <Link href="tel:+19056346000" className={cs.btnLine}>
+                  <PhoneIcon aria-hidden="true" />
                   Call Clinic
                 </Link>
-                <Link
-                  href="/conditions/knee-pain"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                >
-                  Broader Knee Pain Guide
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
               </div>
-            </div>
-          </div>
-        </section>
+              <Link href="/conditions/knee-pain" className={g.more}>
+                Broader Knee Pain Guide
+                <ArrowRightIcon aria-hidden="true" />
+              </Link>
+            </header>
 
-        {/* Scan report wording */}
-        <section className="py-10 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <ClipboardDocumentListIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  What &ldquo;suprapatellar effusion&rdquo; means on a scan report
-                </h2>
-              </div>
+            {/* The knee joint plate (no caption on this guide). */}
+            <PlateFigure src="/images/conditions/knee-osteoarthritis.webp" priority />
 
-              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+            {/* Scan report wording */}
+            <section className={g.sec}>
+              <Head title={<>What &ldquo;suprapatellar effusion&rdquo; means on a scan report</>} />
+              <div className={`${cs.prose} ${g.prose}`}>
                 <p>
                   <strong>Where the fluid is.</strong>{' '}The suprapatellar pouch (also called the
                   suprapatellar recess or bursa) is a pocket of the knee joint above the
@@ -583,7 +550,7 @@ export default function FluidOnTheKneeGuidePage() {
                 <p>
                   <strong>The size words.</strong>{' '}Reports grade the amount by eye:
                 </p>
-                <ul className="list-disc pl-5 space-y-1.5 mb-5 text-slate-700">
+                <ul>
                   <li>
                     Trace or minimal: a very small amount. Every knee holds a little fluid, so
                     this can be within what a healthy knee contains.
@@ -628,7 +595,7 @@ export default function FluidOnTheKneeGuidePage() {
                 <p>
                   <strong>When the report deserves a closer look:</strong>
                 </p>
-                <ul className="list-disc pl-5 space-y-1.5 mb-5 text-slate-700">
+                <ul>
                   <li>
                     It also lists a tear, a bone bruise, a fracture or osteoarthritis. The
                     cause of the fluid is usually among those findings.
@@ -644,24 +611,12 @@ export default function FluidOnTheKneeGuidePage() {
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* Opening primer */}
-        <section className="py-10 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Inside the joint or outside the joint
-                </h2>
-              </div>
-
-              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+            {/* Opening primer */}
+            <section className={g.sec}>
+              <Head title="Inside the joint or outside the joint" />
+              <div className={`${cs.prose} ${g.prose}`}>
                 <p>
                   The first thing I sort out is where the swelling actually sits. A true knee
                   effusion is inside the joint capsule and collects in the suprapatellar pouch
@@ -689,157 +644,99 @@ export default function FluidOnTheKneeGuidePage() {
                   usually points toward.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <RedFlagsBox flags={redFlags} />
+            <WarningPanel flags={redFlags} />
 
-        {/* Onset groups */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <ClipboardDocumentListIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  When did the swelling come on?
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                Onset pattern is a strong first clue. Use this guide to find the group that
-                most closely matches your story, then use the linked condition pages to go deeper.
-              </p>
+            {/* Onset groups */}
+            <section className={g.sec}>
+              <Head
+                title="When did the swelling come on?"
+                stand={
+                  <>
+                    Onset pattern is a strong first clue. Use this guide to find the group that
+                    most closely matches your story, then use the linked condition pages to go deeper.
+                  </>
+                }
+              />
 
-              <div className="space-y-6">
+              <div className={g.groups}>
                 {onsetGroups.map((group) => (
                   <div
                     key={group.heading}
-                    className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden"
+                    className={g.group}
+                    data-tone={group.causes.every((cause) => cause.urgency === 'emergency') ? 'emergency' : undefined}
                   >
-                    <div className="bg-gradient-to-r from-slate-900 to-slate-800 px-6 py-4">
-                      <h3 className="text-lg font-semibold text-white tracking-tight">{group.heading}</h3>
-                      <p className="text-xs text-slate-300 mt-0.5">{group.subtitle}</p>
-                    </div>
-                    <div className="p-6">
-                      <p className="text-slate-700 text-sm leading-relaxed mb-5">
-                        {group.description}
-                      </p>
-                      <ul className="space-y-3">
-                        {group.causes.map((cause) => {
-                          const content = (
-                            <>
-                              <div className="mt-1 h-2 w-2 bg-[#B08D57] rounded-full flex-shrink-0" />
-                              <div className="flex-1">
-                                <div className="flex items-center justify-between gap-3">
-                                  <span className="font-medium text-slate-900 text-sm">
-                                    {cause.label}
-                                  </span>
-                                  {cause.slug && (
-                                    <ChevronRightIcon className="h-4 w-4 text-slate-400 flex-shrink-0" />
-                                  )}
-                                </div>
-                                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                  {cause.note}
-                                </p>
-                                {cause.urgency === 'emergency' && (
-                                  <p className="text-[11px] text-red-700 mt-1 font-medium">
-                                    Same-day emergency care. Do not wait for a physiotherapy appointment.
-                                  </p>
-                                )}
-                                {cause.urgency === 'medical' && (
-                                  <p className="text-[11px] text-red-700 mt-1 font-medium">
-                                    Warrants medical review before or alongside physiotherapy.
-                                  </p>
-                                )}
-                              </div>
-                            </>
-                          );
+                    <h3 className={g.groupName}>{group.heading}</h3>
+                    <p className={g.groupSub}>{group.subtitle}</p>
+                    <p className={g.groupText}>{group.description}</p>
+                    <ul className={g.causes}>
+                      {group.causes.map((cause) => {
+                        const content = (
+                          <>
+                            <span className={g.causeName}>{cause.label}</span>
+                            <span className={g.causeNote}>{cause.note}</span>
+                            {cause.urgency === 'emergency' && (
+                              <span className={g.causeFlag} data-u="emergency">
+                                <i aria-hidden="true" />
+                                Same-day emergency care. Do not wait for a physiotherapy appointment.
+                              </span>
+                            )}
+                            {cause.urgency === 'medical' && (
+                              <span className={g.causeFlag} data-u="medical">
+                                <i aria-hidden="true" />
+                                Warrants medical review before or alongside physiotherapy.
+                              </span>
+                            )}
+                            {cause.slug && <ChevronRightIcon aria-hidden="true" />}
+                          </>
+                        );
 
-                          if (cause.slug) {
-                            return (
-                              <li key={`${group.heading}-${cause.label}`} className="group">
-                                <Link
-                                  href={`/conditions/${cause.slug}`}
-                                  className="flex items-start gap-3 rounded-xl border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all p-3"
-                                >
-                                  {content}
-                                </Link>
-                              </li>
-                            );
-                          }
-
-                          return (
-                            <li
-                              key={`${group.heading}-${cause.label}`}
-                              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3"
-                            >
-                              {content}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
+                        return (
+                          <li key={`${group.heading}-${cause.label}`}>
+                            {cause.slug ? (
+                              <Link href={`/conditions/${cause.slug}`} className={g.cause}>
+                                {content}
+                              </Link>
+                            ) : (
+                              <div className={g.cause}>{content}</div>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* Extra-articular mimics */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Swelling outside the joint (common mimics)
-                </h2>
-              </div>
-              <p className="text-slate-600 mb-6">
-                These are not true knee effusions, but patients often describe them as fluid
-                on the knee because of how they look and feel. Many are manageable, but a
-                bursa can become infected: redness, warmth, broken skin over the swelling,
-                rapidly increasing pain or feeling unwell need same-day medical assessment.
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-4">
+            {/* Extra-articular mimics */}
+            <section className={g.sec}>
+              <Head
+                title="Swelling outside the joint (common mimics)"
+                stand={
+                  <>
+                    These are not true knee effusions, but patients often describe them as fluid
+                    on the knee because of how they look and feel. Many are manageable, but a
+                    bursa can become infected: redness, warmth, broken skin over the swelling,
+                    rapidly increasing pain or feeling unwell need same-day medical assessment.
+                  </>
+                }
+              />
+              <ul className={g.rows}>
                 {extraArticular.map((item) => (
-                  <div
-                    key={item.label}
-                    className="bg-slate-50 rounded-xl p-5 border border-slate-200"
-                  >
-                    <h3 className="text-base font-semibold text-slate-900 mb-2">
-                      {item.label}
-                    </h3>
-                    <p className="text-base text-slate-700 leading-relaxed">
-                      {item.note}
-                    </p>
-                  </div>
+                  <li key={item.label}>
+                    <h3 className={g.rowName}>{item.label}</h3>
+                    <p className={g.rowText}>{item.note}</p>
+                  </li>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
+              </ul>
+            </section>
 
-        {/* How I approach it */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  How I approach a swollen knee in clinic
-                </h2>
-              </div>
-
-              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+            {/* How I approach it */}
+            <section className={g.sec}>
+              <Head title="How I approach a swollen knee in clinic" />
+              <div className={`${cs.prose} ${g.prose}`}>
                 <p>
                   The first appointment starts with questions. How
                   quickly did it swell. Was there a twist, a pop, or a direct blow. Does it go down overnight or stay full. Is the knee hot. Are any other joints
@@ -862,240 +759,83 @@ export default function FluidOnTheKneeGuidePage() {
                   and cupping can sit alongside that work where they help.
                 </p>
               </div>
-              <ConsentNote />
-            </div>
+              <Consent />
+            </section>
+
+            {/* FAQ */}
+            <section className={g.sec}>
+              <Head title="Fluid-on-the-knee questions I hear most" />
+              <Faqs faqs={faqs} />
+            </section>
+
+            {/* Evidence */}
+            <section className={g.sec}>
+              <Head
+                title="Evidence this page is built on"
+                stand={
+                  <>
+                    Published sources that underpin the triage logic and care recommendations
+                    above. Research evolves, but these are the anchor references I rely on for
+                    patients presenting with fluid on the knee.
+                  </>
+                }
+              />
+              <Evidence items={research} />
+            </section>
+
+            {/* Related conditions */}
+            <section className={g.sec}>
+              <Head
+                title="Related knee conditions"
+                stand={
+                  <>
+                    Deeper pages for the conditions that most often produce fluid on the knee.
+                  </>
+                }
+              />
+              <RelatedConditions conditions={relatedConditions} />
+            </section>
+
+            {/* Related treatments */}
+            <section className={g.sec}>
+              <Head
+                title="Treatments that commonly sit inside a plan for a swollen knee"
+                stand={
+                  <>
+                    None of these are stand-alone fixes. They are pieces that fit inside a plan
+                    built around the underlying cause of your knee swelling.
+                  </>
+                }
+              />
+              <RelatedTreatments treatments={relatedTreatments} />
+            </section>
           </div>
-        </section>
+        </div>
 
-        {/* FAQ */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Fluid-on-the-knee questions I hear most
-                </h2>
-              </div>
-
-              <div className="space-y-3">
-                {faqs.map((faq, index) => (
-                  <details
-                    key={index}
-                    className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-colors overflow-hidden"
-                  >
-                    <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4">
-                      <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                        {faq.question}
-                      </h3>
-                      <ChevronDownIcon className="h-4 w-4 text-slate-500 group-open:rotate-180 transition-transform flex-shrink-0" />
-                    </summary>
-                    <div className="px-5 pb-5 pt-0">
-                      <p className="text-base text-slate-700 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Evidence */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <BeakerIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Evidence this page is built on
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                Published sources that underpin the triage logic and care recommendations
-                above. Research evolves, but these are the anchor references I rely on for
-                patients presenting with fluid on the knee.
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-5">
-                {research.map((item) => (
-                  <div
-                    key={item.title}
-                    className="bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 border border-slate-200"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#80650A] text-xs font-semibold uppercase tracking-wider">
-                        {item.year}
-                      </span>
-                      <span className="text-xs text-slate-500">{item.source}</span>
-                    </div>
-                    <h3 className="text-base font-semibold text-slate-900 leading-snug mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-slate-700 leading-relaxed">
-                      {item.summary}
-                    </p>
-                    <SourceLinks refs={item.refs} title={item.title} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Related conditions */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <HeartIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Related knee conditions
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                Deeper pages for the conditions that most often produce fluid on the knee.
-              </p>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {relatedConditions.map((condition) => (
-                  <Link
-                    key={condition.slug}
-                    href={`/conditions/${condition.slug}`}
-                    className="group bg-white rounded-xl p-5 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-all flex flex-col"
-                  >
-                    <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-1">
-                      {condition.name}
-                    </h3>
-                    {condition.description && (
-                      <p className="text-xs text-slate-600 leading-relaxed flex-grow">
-                        {condition.description}
-                      </p>
-                    )}
-                    <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#8A6F0A]">
-                      Read the {inlineName(condition.name)} guide
-                      <ArrowRightIcon className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Related treatments */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Treatments that commonly sit inside a plan for a swollen knee
-                </h2>
-              </div>
-              <p className="text-slate-600 max-w-3xl mb-8">
-                None of these are stand-alone fixes. They are pieces that fit inside a plan
-                built around the underlying cause of your knee swelling.
-              </p>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {relatedTreatments.map((treatment) => (
-                  <Link
-                    key={treatment.id}
-                    href={`/treatments/${treatment.id}`}
-                    className="group bg-gradient-to-br from-white to-amber-50/30 rounded-xl p-6 border border-amber-100 hover:border-[#B08D57] hover:shadow-lg transition-all flex flex-col"
-                  >
-                    <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
-                      {treatment.name}
-                    </h3>
-                    <p className="text-base text-slate-600 leading-relaxed flex-grow">
-                      {treatment.shortDescription}
-                    </p>
-                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
-                      Explore {treatment.name}
-                      <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Access and hours */}
-        <section className="py-12 bg-slate-50/60">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-[#B08D57] rounded-xl">
-                  <MapPinIcon className="h-5 w-5 text-white" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Access, hours, and how to book
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p className="text-slate-600 leading-relaxed">
-                    I see patients for knee pain and swelling at Endorphins Health & Wellness
-                    Centre in Burlington. The clinic serves people coming in from Burlington,
-                    Waterdown, Oakville, Hamilton, Flamborough, and Carlisle, with free
-                    parking on site and a ground-floor entrance.
-                  </p>
-                  <div className="mt-6 space-y-3 text-sm">
-                    <div className="flex items-start gap-3">
-                      <MapPinIcon className="h-5 w-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-medium text-slate-900">4631 Palladium Way, Unit 6</p>
-                        <p className="text-slate-600">Burlington, ON L7M 0W9</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <PhoneIcon className="h-5 w-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <a href="tel:+19056346000" className="font-medium text-slate-900 hover:text-[#B08D57] transition-colors">
-                          (905) 634-6000
-                        </a>
-                        <p className="text-slate-500 text-xs">Direct insurance billing available. No physician referral needed.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2 mb-3 text-sm text-[#8A6F0A] font-semibold uppercase tracking-wider">
-                    <ClockIcon className="h-4 w-4" />
-                    Burlington hours
-                  </div>
-                  <HoursList />
-
-                  <div className="mt-6">
-                    <Link
-                      href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="button-gold inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-colors"
-                    >
-                      <CalendarIcon className="h-4 w-4" />
-                      Book an Initial Knee Assessment
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+        <AccessClosing
+          title="Access, hours, and how to book"
+          text={
+            <>
+              I see patients for knee pain and swelling at Endorphins Health & Wellness
+              Centre in Burlington. The clinic serves people coming in from Burlington,
+              Waterdown, Oakville, Hamilton, Flamborough, and Carlisle, with free
+              parking on site and a ground-floor entrance.
+            </>
+          }
+          phoneNote="Direct insurance billing available. No physician referral needed."
+          book={
+            <Link
+              href={JANE_ASSESSMENT_URL} data-booking-source="guide_page"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cs.btnLight}
+            >
+              Book an Initial Knee Assessment
+              <ArrowRightIcon aria-hidden="true" />
+            </Link>
+          }
+        />
+      </GuideMain>
     </>
   );
 }

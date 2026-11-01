@@ -1,14 +1,17 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH } from '@/lib/booking';
+import styles from './CookieBanner.module.css';
 
 const COOKIE_CONSENT_KEY = 'cookieConsentStatus';
 const LEGACY_COOKIE_KEY = 'cookiesAccepted';
 
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [height, setHeight] = useState(0);
+  const cardRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
 
@@ -22,6 +25,69 @@ const CookieBanner = () => {
       setIsVisible(!isIntakePage);
     }
   }, [isIntakePage]);
+
+  // The card's height, so the phone Book and Call pills can sit above it.
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!isVisible || !card || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(() => setHeight(Math.ceil(card.getBoundingClientRect().height)));
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  // The card never rests on a booking button: when the page comes to rest
+  // (and on load and resize) it checks the Book links under its corner and,
+  // if one is there, rises to sit just above it. The condition pages' panel
+  // keeps its Book button in the same bottom-left corner on laptops, and on
+  // most pages the opening's Book button can sit there on first load.
+  const [lift, setLift] = useState(0);
+  const pathKey = pathname;
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!isVisible || !card) return;
+    let timer: number | undefined;
+    const check = () => {
+      const vh = window.innerHeight;
+      const header = document.querySelector('header[data-site-chrome]')?.getBoundingClientRect().bottom ?? 0;
+      const rest = card.getBoundingClientRect();
+      const offset = parseFloat(getComputedStyle(card).bottom) || 0;
+      const h = rest.height;
+      const restBottom = vh - offset;
+      const controls = Array.from(
+        document.querySelectorAll<HTMLElement>('a[data-booking-source], a[href*="janeapp.com"]'),
+      )
+        .filter((el) => !card.contains(el) && !el.closest('[data-floating-pills], header[data-site-chrome]'))
+        .map((el) => el.getBoundingClientRect())
+        .filter((r) => r.width > 0 && r.height > 0 && r.bottom > header && r.top < vh);
+      let next = 0;
+      // Rise above whatever booking control sits under the card, then check
+      // again at the new height (a few rounds at most).
+      for (let round = 0; round < 4; round += 1) {
+        const top = restBottom - next - h;
+        const bottom = restBottom - next;
+        const hit = controls.filter(
+          (r) => r.left < rest.right + 8 && r.right > rest.left - 8 && r.top < bottom + 8 && r.bottom > top - 8,
+        );
+        if (!hit.length) break;
+        next = restBottom - (Math.min(...hit.map((r) => r.top)) - 12);
+      }
+      // No room above it (the card would reach the header): stay put.
+      if (restBottom - next - h < header + 12) next = 0;
+      setLift(Math.max(0, Math.round(next)));
+    };
+    const schedule = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(check, 160);
+    };
+    check();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    };
+  }, [isVisible, height, pathKey]);
 
   const handleConsent = (status: 'accepted' | 'declined') => {
     try {
@@ -42,37 +108,43 @@ const CookieBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div
-      role="region"
-      aria-label="Cookie consent"
-      className="cookie-banner fixed z-[70] bottom-3 left-3 right-3 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-[min(34rem,calc(100%-2rem))] bg-slate-900/95 backdrop-blur-md rounded-2xl border border-[#B08D57]/30 shadow-2xl"
-    >
-      <div className="flex flex-col items-stretch gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-3 sm:px-4 sm:py-2.5">
-        <p className="flex-1 text-[13px] leading-relaxed text-slate-200 mb-0 sm:text-[13px]">
+    <>
+      {/* On phones the card spans the width; the Book and Call pills
+          (FloatingButtons, bottom right) move up above it while it is open. */}
+      {height > 0 && (
+        <style>{`@media (max-width: 639px) { [data-floating-pills] { translate: 0 -${lift + height + 8}px; } }`}</style>
+      )}
+      <div
+        ref={cardRef}
+        role="region"
+        aria-label="Cookie consent"
+        className={styles.banner}
+        style={lift ? ({ translate: `0 -${lift}px` } as React.CSSProperties) : undefined}
+      >
+        <p className={styles.text}>
           This site uses essential and analytics cookies to improve website performance.
-          <a
-            href="/privacy"
-            className="ml-1 text-[#D4AF37] underline underline-offset-2 hover:text-[#E0C158]"
-          >
+          <a href="/privacy">
             Privacy Policy
           </a>
         </p>
-        <div className="flex shrink-0 justify-end gap-2">
+        <div className={styles.choices}>
           <button
+            type="button"
             onClick={() => handleConsent('declined')}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-slate-500/60 px-3 py-1 text-[11px] font-medium text-slate-200 transition hover:border-slate-300 hover:text-white sm:px-4 sm:py-1.5 sm:text-[12px]"
+            className={styles.choice}
           >
             Decline
           </button>
           <button
+            type="button"
             onClick={() => handleConsent('accepted')}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-[#B08D57] px-3 py-1 text-[11px] font-medium text-slate-950 transition hover:bg-[#C4A26A] sm:px-4 sm:py-1.5 sm:text-[12px]"
+            className={`${styles.choice} ${styles.accept}`}
           >
             Accept
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

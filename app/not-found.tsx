@@ -1,6 +1,8 @@
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import styles from './not-found.module.css';
 
 export const metadata: Metadata = {
   title: 'Page Not Found | Kareem Hassanein Physiotherapy',
@@ -10,55 +12,44 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-[70vh] flex items-center justify-center px-5">
-      <div className="max-w-lg w-full text-center">
+    <main className={styles.nf}>
+      <div className={styles.box}>
+        <span className={styles.bar} aria-hidden="true" />
+
         {/* 404 indicator */}
-        <p className="text-sm font-medium tracking-widest uppercase text-[#8A6F0A] mb-4">
+        <p className={styles.code}>
           404
         </p>
 
-        <h1 className="text-3xl md:text-4xl font-light tracking-tight text-slate-900 mb-3">
+        <h1 className={styles.h1}>
           Page not found
         </h1>
 
-        <p className="text-slate-500 mb-10 leading-relaxed">
+        <p className={styles.text}>
           This page may have been moved or no longer exists.
         </p>
 
         {/* Navigation options */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/"
-            className="button-gold inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-lg transition-colors"
-          >
+        <div className={styles.actions}>
+          <Link href="/" className={styles.primary}>
             Back to Home
+            <ArrowRightIcon aria-hidden="true" />
           </Link>
-          <Link
-            href="/conditions"
-            className="inline-flex items-center justify-center px-6 py-2.5 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:border-[#B08D57]/40 hover:text-[#B08D57] transition-colors"
-          >
+          <Link href="/conditions">
             View Conditions
           </Link>
           <a
             href={JANE_BOOKING_URL} data-booking-source="not_found"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-2.5 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:border-[#B08D57]/40 hover:text-[#B08D57] transition-colors"
           >
             Book Appointment
           </a>
         </div>
 
-        {/* Subtle divider */}
-        <div className="mt-10 flex items-center justify-center gap-3">
-          <div className="h-px w-12 bg-slate-200" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
-          <div className="h-px w-12 bg-slate-200" />
-        </div>
-
-        <p className="mt-6 text-xs text-slate-500">
+        <p className={styles.call}>
           Call{' '}
-          <a href="tel:+19056346000" className="text-[#8A6F0A] hover:underline">
+          <a href="tel:+19056346000">
             (905) 634-6000
           </a>
           {' '}if you need help finding what you&apos;re looking for.

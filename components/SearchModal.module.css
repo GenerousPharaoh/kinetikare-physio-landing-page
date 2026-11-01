@@ -1,0 +1,382 @@
+/*
+ * Site search in the condition pages' language: a white sheet, Geist, the
+ * /conditions index's input (12px radius, hairline border, cobalt focus
+ * ring), results as hairline rows, booking at the foot. No class name
+ * contains "card" or "btn" (globals.css restyles those substrings); every
+ * button resets the global button shadow, lift and phone padding.
+ */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  background: rgba(11, 16, 23, 0.55);
+}
+
+.dialog {
+  --ink: #0b1017;
+  --read: #262e3b;
+  --soft: #5b6574;
+  --line: #e5e8ed;
+  --line2: #cfd4dc;
+  --tint: #f4f5f8;
+  --accent: #2f6bff;
+  --accent-ink: #1d4fd8;
+  --red: #c8322b;
+  --red-soft: #fdecea;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  max-height: calc(100dvh - 24px);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-geist), 'Geist', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  animation: dialogIn 0.32s var(--ease);
+}
+
+@media (min-width: 640px) {
+  .dialog { left: 24px; right: 24px; top: 9vh; max-height: 82dvh; }
+}
+
+@keyframes dialogIn {
+  from { opacity: 0; translate: 0 -8px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+.dialog h2,
+.dialog h3,
+.dialog p { margin: 0; font-family: inherit; }
+
+.dialog button {
+  font-family: inherit;
+  box-shadow: none;
+  transform: none;
+  cursor: pointer;
+}
+
+.dialog button:hover,
+.dialog button:active { box-shadow: none; transform: none; }
+
+.head {
+  flex: none;
+  padding: 18px 20px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 640px) {
+  .head { padding: 22px 26px 22px; }
+}
+
+.headRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dialog .title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+
+.dialog .close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.25s var(--ease);
+}
+
+.dialog .close svg { width: 20px; height: 20px; }
+
+.field { position: relative; }
+
+.field svg {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 18px;
+  height: 18px;
+  color: var(--soft);
+  pointer-events: none;
+}
+
+.dialog .input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px 0 48px;
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  box-shadow: none;
+  outline: none;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.dialog .input::placeholder { color: var(--soft); }
+
+.dialog .input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.15);
+}
+
+.body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px 20px 20px;
+}
+
+@media (min-width: 640px) {
+  .body { padding: 18px 26px 24px; }
+}
+
+.dialog .emergency {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--red-soft);
+  color: var(--red);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.dialog .emergency a:not(#_) { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+.dialog .status {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--soft);
+}
+
+.results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line2);
+}
+
+.results li { margin: 0; border-bottom: 1px solid var(--line); }
+
+.dialog a.result:not(#_) {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 15px 8px 16px;
+  margin: 0 -8px;
+  border-radius: 10px;
+  color: var(--ink);
+  transition: background-color 0.2s var(--ease);
+}
+
+.resultText { min-width: 0; flex: 1; }
+
+.kind {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.resultTitle {
+  display: block;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.008em;
+  color: var(--ink);
+}
+
+.resultDesc {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--soft);
+}
+
+@media (min-width: 640px) {
+  .resultDesc { font-size: 15px; }
+}
+
+.dialog .result > svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 24px;
+  color: var(--soft);
+  transition: translate 0.3s var(--ease), color 0.25s var(--ease);
+}
+
+.dialog a.result:not(#_):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  background: var(--tint);
+}
+
+@media (hover: hover) {
+  .dialog .close:hover { border-color: var(--ink); }
+  .dialog a.result:not(#_):hover { background: var(--tint); }
+  .dialog a.result:not(#_):hover > svg { translate: 3px 0; color: var(--accent-ink); }
+}
+
+.empty { padding: 8px 0 4px; }
+.dialog .emptyText { font-size: 16px; line-height: 1.6; color: var(--read); }
+
+.dialog a.browse:not(#_) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 107, 255, 0.35);
+  text-underline-offset: 4px;
+}
+
+.groups { display: grid; gap: 22px; }
+
+.groupHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.dialog .label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.groupHead .label { margin: 0; }
+.groups > div > .label { margin-bottom: 10px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.dialog .chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line2);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.dialog .chipRecent { background: var(--tint); border-color: var(--tint); }
+
+.dialog .clear {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--soft);
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .dialog .chip:hover { border-color: var(--ink); }
+  .dialog .chipRecent:hover { border-color: var(--line2); background: #fff; }
+  .dialog .clear:hover { color: var(--ink); }
+}
+
+.foot {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+@media (min-width: 640px) {
+  .foot { padding: 16px 26px; }
+}
+
+.dialog a.book:not(#_),
+.dialog a.call:not(#_) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.dialog a.book:not(#_) { background: var(--ink); color: #fff; }
+.dialog a.call:not(#_) { border: 1px solid var(--line2); color: var(--ink); }
+.dialog .book svg,
+.dialog .call svg { width: 16px; height: 16px; flex: none; }
+
+/* Narrow phones: the labels keep one line; the icons step out. */
+@media (max-width: 439px) {
+  .dialog .book svg,
+  .dialog .call svg { display: none; }
+  .dialog a.book:not(#_),
+  .dialog a.call:not(#_) { padding: 0 10px; white-space: nowrap; }
+}
+
+@media (hover: hover) {
+  .dialog a.book:not(#_):hover { background: #1c2430; }
+  .dialog a.call:not(#_):hover { border-color: var(--ink); }
+}
+
+.dialog a:focus-visible,
+.dialog button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog { animation: none; }
+  .dialog * { transition: none !important; }
+}

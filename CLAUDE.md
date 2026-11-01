@@ -171,6 +171,8 @@ Design: dark instrument panel (#0b1017) pinned left on desktop with the plate in
 
 Polish rounds of 2026-11-01 (commits ef3b2a3, 7232a56, d19b622, and round three): labels are Geist (no mono face), no numbering, class names must not contain "card" or "btn" (globals.css styles those substrings), `CONDITION_PLATES` lives in `lib/condition-plates.ts` (an export from the client `RegionAnatomy.tsx` reached the server component as an opaque reference and emptied the captions and the sibling strip), the glance is one panel with hairline dividers, the closing band carries a "More in <hub>" strip of sibling conditions with plate thumbnails, reading time in the byline and instrument, every in-page link scrolls smoothly through a delegated handler in `CaseInstrument`, the global scroll-padding is zeroed under `.case`.
 
+Phones (2026-11-01): the strip under the header is a scrolling row of section tabs (`secTabs`, active tab kept in view) with a list button that opens the sheet; every section ends in a "Next: <section>" link (`nextLink`, hidden from 1024px). The site footer's scroll lift was removed the same day because `overflow: hidden` on the footer clipped it; do not bring it back.
+
 Checks after any template change: `npx tsc --noEmit`, `npm run lint`, `npm run build`, start on 4040, then `node_modules/.bin/jiti scripts/case-template-check.ts` (every page against its data: sections, self-care items, FAQs, studies, differentials, symptoms, red flags, booking sources) and `node scripts/check-ui-links.mjs`.
 
 ## Condition page layout (2026-10-08)

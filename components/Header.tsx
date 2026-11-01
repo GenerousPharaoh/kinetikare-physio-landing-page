@@ -20,7 +20,7 @@ import { usePathname } from 'next/navigation';
 import { useModalDialog } from '@/hooks/useModalDialog';
 import styles from './Header.module.css';
 
-/** Small round pictures beside each column of the Conditions panel. */
+/** The region plates beside each column of the Conditions panel and in the phone menu. */
 const MENU_MEDALS: Record<string, string> = {
   knee: '/images/regions/knee.webp',
   hip: '/images/regions/hip-pelvis.webp',
@@ -58,7 +58,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const pathname = usePathname();
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
   // Always route the header Book button straight to Jane. The /intake page
-  // is reserved for paid traffic landing on it via Google Ads — organic
+  // is reserved for paid traffic landing on it via Google Ads; organic
   // visitors should not be funneled through it.
   // On the ads landing page every booking control carries the same deep link
   // (initial assessment preselected), so the header does not send a paid
@@ -404,7 +404,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         <div className={styles.scrim} data-open={conditionsMenuOpen} aria-hidden="true" onClick={() => setConditionsMenuOpen(false)} />
       )}
 
-      {/* Mobile Menu Overlay */}
+      {/* Phone and tablet menu: a dark drawer in the condition pages' language. */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -412,7 +412,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[75] min-[1180px]:hidden"
+              className={styles.backdrop}
               data-dialog-backdrop
               aria-hidden="true"
               onClick={() => setMobileMenuOpen(false)}
@@ -427,109 +427,112 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[min(22rem,calc(100%-3.5rem))] bg-[#020617] border-l border-white/10 z-[80] min-[1180px]:hidden overflow-y-auto"
+              transition={{ type: 'spring', damping: 30, stiffness: 260 }}
+              className={styles.drawer}
             >
               {/* The close button stays pinned while the drawer scrolls (an
                   expanded Conditions list scrolled it out of reach), and the
                   drawer leaves at least 3.5rem of backdrop to tap on any phone. */}
-              <div className="sticky top-0 z-10 flex h-[68px] items-center justify-end bg-[#020617] px-4">
+              <div className={styles.drawerTop}>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close navigation menu"
-                  className="flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10"
+                  className={styles.iconButton}
                 >
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  <XMarkIcon aria-hidden="true" />
                 </button>
               </div>
-              <div className="p-6 pt-3 space-y-6">
+              <div className={styles.drawerBody}>
                 {/* Mobile Search */}
                 {!isIntakePage ? (
                   <button
+                    type="button"
                     onClick={() => {
                       primeSearchModal();
                       setSearchModalOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 !text-white/70 hover:!text-white hover:bg-white/10 transition-all border border-white/5"
+                    className={styles.searchRow}
                   >
-                    <MagnifyingGlassIcon className="w-5 h-5" />
-                    <span className="text-sm font-medium">Search...</span>
+                    <MagnifyingGlassIcon aria-hidden="true" />
+                    <span>Search...</span>
                   </button>
                 ) : null}
 
                 {/* Mobile Nav Links */}
-                <nav aria-label="Main navigation" className="space-y-2">
+                <nav aria-label="Main navigation" className={styles.drawerNav}>
                   {mainNavItems.map((item) => (
                     <div key={item.name}>
                       {item.name === 'Conditions' ? (
-                        <div className="space-y-2">
+                        <>
                           <button
+                            type="button"
                             onClick={() => setConditionsExpanded(!conditionsExpanded)}
                             aria-expanded={conditionsExpanded}
                             aria-controls="mobile-conditions-submenu"
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
-                              isCurrentPath(item.href)
-                                ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
-                                : '!text-white/80 hover:bg-white/5 hover:!text-white'
-                            }`}
+                            data-current={isCurrentPath(item.href)}
+                            className={styles.row}
                           >
-                            <span className="font-medium tracking-wide">{item.name}</span>
-                            <ChevronRightIcon
-                              className={`w-4 h-4 transition-transform duration-300 ${conditionsExpanded ? 'rotate-90' : ''}`}
-                            />
+                            <span>{item.name}</span>
+                            <ChevronRightIcon aria-hidden="true" />
                           </button>
 
-                          <AnimatePresence>
+                          <AnimatePresence initial={false}>
                             {conditionsExpanded && (
                               <motion.div
                                 id="mobile-conditions-submenu"
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                className="overflow-hidden"
+                                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                className={styles.sub}
                               >
-                                <div className="pl-4 space-y-1 border-l border-white/10 ml-4 my-2">
-                                  <Link href="/conditions" onClick={handleNavClick} className="block px-4 py-3 text-sm text-white">All conditions</Link>
+                                <ul className={styles.subList}>
+                                  <li>
+                                    <Link href="/conditions" onClick={handleNavClick} className={styles.subRow}>All conditions</Link>
+                                  </li>
                                   {NAV_MENU.filter((column) => column.key !== 'treatments').map((column) => (
-                                    <Link
-                                      key={column.key}
-                                      href={column.href}
-                                      prefetch={false}
-                                      onClick={handleNavClick}
-                                      className="block px-4 py-3 text-sm !text-white/80 hover:!text-[#D4AF37] transition-colors"
-                                    >
-                                      {column.title}
-                                    </Link>
+                                    <li key={column.key}>
+                                      <Link
+                                        href={column.href}
+                                        prefetch={false}
+                                        onClick={handleNavClick}
+                                        className={styles.subRow}
+                                      >
+                                        {MENU_MEDALS[column.key] && (
+                                          <span className={styles.subThumb} aria-hidden="true">
+                                            <Image src={MENU_MEDALS[column.key]} alt="" fill sizes="34px" quality={70} />
+                                          </span>
+                                        )}
+                                        {column.title}
+                                      </Link>
+                                    </li>
                                   ))}
                                   {NAV_MENU_FOOTER_LINKS.filter((link) => link.href !== '/conditions').map((link) => (
-                                    <Link
-                                      key={link.href}
-                                      href={link.href}
-                                      prefetch={false}
-                                      onClick={handleNavClick}
-                                      className="block px-4 py-3 text-sm !text-white/60 hover:!text-[#D4AF37] transition-colors"
-                                    >
-                                      {link.name}
-                                    </Link>
+                                    <li key={link.href}>
+                                      <Link
+                                        href={link.href}
+                                        prefetch={false}
+                                        onClick={handleNavClick}
+                                        className={`${styles.subRow} ${styles.subQuiet}`}
+                                      >
+                                        {link.name}
+                                      </Link>
+                                    </li>
                                   ))}
-                                </div>
+                                </ul>
                               </motion.div>
                             )}
                           </AnimatePresence>
-                        </div>
+                        </>
                       ) : (
                         <Link
                           href={item.href}
                           prefetch={false}
                           onClick={handleNavClick}
                           aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-                          className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${
-                            isCurrentPath(item.href)
-                              ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
-                              : '!text-white/80 hover:bg-white/5 hover:!text-white'
-                          }`}
+                          className={styles.row}
                         >
                           {item.name}
                         </Link>
@@ -539,13 +542,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </nav>
 
                 {/* Mobile Actions */}
-                <div className="pt-6 border-t border-white/10 space-y-4">
+                <div className={styles.drawerActions}>
                   <Link
                     href="tel:+19056346000"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-white/10 !text-white hover:bg-white/5 transition-all"
+                    className={styles.callRow}
                   >
-                    <PhoneIcon className="w-5 h-5 text-[#D4AF37]" />
-                    <span className="font-medium">905-634-6000</span>
+                    <PhoneIcon aria-hidden="true" />
+                    <span>905-634-6000</span>
                   </Link>
                   <Link
                     href={bookingHref}
@@ -554,9 +557,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     rel="noopener noreferrer"
                     prefetch={false}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#E6C66A] transition-all shadow-lg"
+                    className={styles.bookRow}
                   >
-                    <CalendarDaysIcon className="w-5 h-5" />
+                    <CalendarDaysIcon aria-hidden="true" />
                     {isIntakePage ? 'Book Assessment' : 'Book Now'}
                   </Link>
                 </div>

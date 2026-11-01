@@ -38,6 +38,13 @@ const QUESTION_NAME: Record<string, string> = {
 const questionName = (side: { slug: string; shortName: string }) =>
   QUESTION_NAME[side.slug] ?? inlineName(side.shortName);
 
+/** "Is this X or Y?" for a comparison, read from the given condition's side. */
+export function comparisonQuestion(comparison: ConditionComparison, conditionSlug: string): string {
+  const self = comparison.conditionA.slug === conditionSlug ? comparison.conditionA : comparison.conditionB;
+  const other = self === comparison.conditionA ? comparison.conditionB : comparison.conditionA;
+  return `Is this ${questionName(self)} or ${questionName(other)}?`;
+}
+
 export default function ComparisonCrossLinks({
   conditionSlug,
   currentConditionName,

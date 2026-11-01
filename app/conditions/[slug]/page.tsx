@@ -2,6 +2,8 @@ import { serializeJsonLd } from '@/lib/structured-data';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ConditionFlowPage from '@/components/conditions/ConditionFlowPage';
+import ConditionAtlasPage from '@/components/conditions/atlas/ConditionAtlasPage';
+import { usesAtlasLayout } from '@/lib/condition-layout';
 import {
   getAllConditions,
   getConditionBySlug,
@@ -389,13 +391,23 @@ export default async function ConditionPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
         />
       )}
-      <ConditionFlowPage
-        condition={condition}
-        relatedConditions={relatedConditions}
-        conditionSlug={slug}
-        patternCluster={patternCluster}
-        patternConditions={patternConditions}
-      />
+      {usesAtlasLayout(slug) ? (
+        <ConditionAtlasPage
+          condition={condition}
+          relatedConditions={relatedConditions}
+          conditionSlug={slug}
+          patternCluster={patternCluster}
+          patternConditions={patternConditions}
+        />
+      ) : (
+        <ConditionFlowPage
+          condition={condition}
+          relatedConditions={relatedConditions}
+          conditionSlug={slug}
+          patternCluster={patternCluster}
+          patternConditions={patternConditions}
+        />
+      )}
       <div className="print-only print-byline" aria-hidden="true">
         Kareem Hassanein, Registered Physiotherapist · CPO #20079 · kinetikarephysio.com
       </div>

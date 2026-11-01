@@ -21,6 +21,12 @@ export default function FloatingButtons() {
   // its "Where does it hurt?" link (Kareem, 2026-10-29). Elsewhere they show
   // from the start, as before.
   const [pastHero, setPastHero] = useState(true);
+
+  // Atlas condition pages carry their own booking bar and rail link.
+  const [atlasPage, setAtlasPage] = useState(false);
+  useEffect(() => {
+    setAtlasPage(document.querySelector('[data-atlas-page]') !== null);
+  }, [pathname]);
   useEffect(() => {
     if (pathname !== '/') {
       setPastHero(true);
@@ -159,7 +165,7 @@ export default function FloatingButtons() {
 
   // The /intake ads landing page has its own sticky Book/Call bar, and
   // /contact is the contact surface itself, so neither gets the pills.
-  if (pathname === BOOKING_PAGE_PATH || pathname === '/contact') {
+  if (pathname === BOOKING_PAGE_PATH || pathname === '/contact' || atlasPage) {
     return null;
   }
 

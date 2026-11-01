@@ -85,7 +85,7 @@ interface Plate {
  * overlapping positions with dashed motion arcs and load shown as hatching
  * density, so the page can explain mechanism rather than only anatomy.
  */
-const CONDITION_PLATES: Record<string, string> = {
+export const CONDITION_PLATES: Record<string, string> = {
   // Spine
   'low-back-pain': 'Lumbar spine',
   sciatica: 'Sciatic nerve',

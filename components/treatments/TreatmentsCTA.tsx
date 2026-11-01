@@ -8,7 +8,7 @@ import s from '@/components/sheet/Sheet.module.css';
 export default function TreatmentsCTA() {
   return (
     <section className={s.closing}>
-      <Reveal as="div" className={s.closingInner}>
+      <Reveal as="div" className={`${s.closingInner} ${s.closingWide}`}>
         <h2 className={s.closingTitle}>How Treatments Are Combined</h2>
         <p className={s.closingText}>
           Most plans are built around exercise, with one or two hands-on treatments where they help.

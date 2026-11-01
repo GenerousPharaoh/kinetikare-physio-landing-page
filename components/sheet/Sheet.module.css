@@ -116,6 +116,12 @@
 .root select,
 .root summary { font-family: inherit; }
 
+/* Anchors land a little below the fixed header. The global scroll-padding
+   (72 to 104px) would stack with these margins, so it is zeroed on these
+   pages, as on the condition pages. */
+:global(html):has(.root) { scroll-padding-top: 0; }
+.root [id] { scroll-margin-top: calc(var(--hh) + 24px); }
+
 .root a:not(#_) {
   color: inherit;
   text-decoration: none;
@@ -211,6 +217,13 @@
 }
 
 .root .crumbs a:not(#_):hover { color: var(--ink); }
+
+/* Touch: the trail's links get a 44px target without moving the type. */
+@media (max-width: 1023px) {
+  .root .crumbs { margin-top: -10px; margin-bottom: 12px; }
+  .root .crumbs a:not(#_) { min-height: 44px; }
+  .root .crumbs a[aria-label]:not(#_) { justify-content: center; min-width: 44px; margin-left: -15px; margin-right: -15px; }
+}
 .root .crumbs svg { width: 10px; height: 10px; opacity: 0.6; }
 .root .crumbs a svg { width: 14px; height: 14px; opacity: 1; }
 .root .crumbs [aria-current] { color: var(--ink); }
@@ -348,7 +361,6 @@
 /* ------------------------------------------------------------------ */
 /* Sections                                                             */
 .root .sec { margin-top: 72px; }
-.root .sec[id] { scroll-margin-top: calc(var(--hh) + 24px); }
 
 @media (min-width: 1024px) {
   .root .sec { margin-top: 96px; }
@@ -527,7 +539,11 @@
 .root .tileTitle { display: block; font-size: 16.5px; font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); }
 .root .thumb + .tileTitle { padding-top: 2px; }
 .root .tileBlurb { display: block; margin-top: 6px; font-size: 15px; line-height: 1.5; color: var(--soft); }
-.root .tileAction { display: block; margin-top: auto; padding-top: 12px; font-size: 14.5px; font-weight: 500; line-height: 1.4; color: var(--accent-ink); }
+.root .tileAction { display: block; margin-top: auto; padding-top: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: var(--accent-ink); }
+
+@media (min-width: 640px) {
+  .root .tileAction { font-size: 15px; }
+}
 .root .tiles a > svg { position: absolute; right: 16px; top: 19px; width: 15px; height: 15px; color: var(--soft); transition: translate 0.3s var(--ease), color 0.25s var(--ease); }
 
 @media (hover: hover) {
@@ -693,10 +709,12 @@
 }
 
 .root .closingInner { max-width: 740px; margin: 0 auto; }
+/* On the index the band lines up with the tiles above it. */
+.root .closingWide { max-width: 1088px; }
 .root .closingTitle { font-size: clamp(30px, 7vw, 36px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 600; color: #fff; }
 .root .closingText { margin-top: 16px; font-size: 17px; line-height: 1.62; color: var(--mut-d); max-width: 52ch; }
 .root .closing .actions { margin-top: 28px; }
-.root .closingNote { margin-top: 22px; font-size: 15px; line-height: 1.5; color: var(--mut-d); }
+.root .closingNote { margin-top: 22px; font-size: 16px; line-height: 1.5; color: var(--mut-d); }
 
 @media (min-width: 1024px) {
   .root .closing { padding: 88px clamp(32px, 5vw, 80px); }
@@ -841,7 +859,11 @@
 .root .note > div { max-width: none; margin: 0; padding: 0; }
 .root .note > div > div { border-color: var(--line); border-radius: 14px; background: var(--tint); padding: 18px 20px; }
 .root .note svg { color: var(--soft); }
-.root .note p { font-size: 15px; line-height: 1.6; color: var(--soft); }
+.root .note p { font-size: 16px; line-height: 1.6; color: var(--soft); }
+
+@media (min-width: 640px) {
+  .root .note p { font-size: 15px; }
+}
 
 /* ------------------------------------------------------------------ */
 /* Fees                                                                 */
@@ -947,7 +969,7 @@
   align-items: center;
   gap: 6px;
   min-height: 44px;
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--accent-ink);
   font-variant-numeric: tabular-nums;
@@ -1010,8 +1032,10 @@
 .root .dark .block + .block { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line-d); }
 
 .root .dark .mail:not(#_) {
-  display: inline-block;
-  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 2px;
   font-size: clamp(19px, 5vw, 23px);
   font-weight: 500;
   line-height: 1.3;

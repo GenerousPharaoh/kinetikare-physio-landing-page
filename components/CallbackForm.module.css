@@ -22,7 +22,6 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-family: var(--sans);
   color: var(--ink);
-  scroll-margin-top: 96px;
 }
 
 /* Doubled class (0,2,0): the form is a <section>, and the global section

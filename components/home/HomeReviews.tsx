@@ -136,7 +136,7 @@ export default function HomeReviews() {
       </div>
 
       <div
-        className={styles.stage}
+        className={styles.revStage}
         aria-roledescription="carousel"
         aria-label="Reviews from Google"
         onMouseEnter={() => setResting(true)}
@@ -148,7 +148,7 @@ export default function HomeReviews() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <ul className={styles.track} style={{ '--i': active } as CSSProperties}>
+        <ul className={styles.revTrack} style={{ '--i': active } as CSSProperties}>
           {reviews.map((review, i) => {
             const short = excerpt(review.text);
             const isActive = i === active;
@@ -156,14 +156,14 @@ export default function HomeReviews() {
             return (
               <li
                 key={review.name}
-                className={styles.slide}
+                className={styles.revSlide}
                 data-pos={isActive ? 0 : i < active ? -1 : 1}
                 aria-hidden={!isActive}
                 inert={!isActive}
                 aria-roledescription="slide"
                 aria-label={`Review by ${review.name}`}
               >
-                <figure className={styles.review}>
+                <figure className={styles.revItem}>
                   <Stars />
                   <blockquote>
                     <p>{isOpen || !short.cut ? review.text : short.text}</p>
@@ -189,7 +189,7 @@ export default function HomeReviews() {
         </ul>
       </div>
 
-      <span key={active} className={styles.timer} data-play={playing} aria-hidden="true" style={{ '--dur': `${HOLD_MS}ms` } as CSSProperties}>
+      <span key={active} className={styles.revTimer} data-play={playing} aria-hidden="true" style={{ '--dur': `${HOLD_MS}ms` } as CSSProperties}>
         <i />
       </span>
     </section>

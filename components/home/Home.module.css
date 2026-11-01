@@ -2318,7 +2318,7 @@
 
 /* The stage shows the current review whole, with the ones either side
    showing at its edges, faded. Percentages are of the stage. */
-.home .stage {
+.home .revStage {
   --w: 84%;
   --gap: 14px;
   position: relative;
@@ -2330,7 +2330,7 @@
   touch-action: pan-y;
 }
 
-.home .track {
+.home .revTrack {
   display: flex;
   align-items: stretch;
   gap: var(--gap);
@@ -2343,7 +2343,7 @@
   will-change: transform;
 }
 
-.home .slide {
+.home .revSlide {
   flex: none;
   width: var(--w);
   display: flex;
@@ -2353,9 +2353,9 @@
   transition: opacity 0.7s var(--ease), scale 0.85s var(--ease);
 }
 
-.home .slide[data-pos='0'] { opacity: 1; scale: 1; }
+.home .revSlide[data-pos='0'] { opacity: 1; scale: 1; }
 
-.home .review {
+.home .revItem {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -2367,14 +2367,14 @@
   transition: border-color 0.7s var(--ease);
 }
 
-.home .slide[data-pos='0'] .review { border-color: rgba(214, 191, 142, 0.42); }
+.home .revSlide[data-pos='0'] .revItem { border-color: rgba(214, 191, 142, 0.42); }
 
-.home .review > .stars { margin-bottom: 18px; }
-.home .review > .stars svg { width: 15px; height: 15px; }
+.home .revItem > .stars { margin-bottom: 18px; }
+.home .revItem > .stars svg { width: 15px; height: 15px; }
 
-.home .review blockquote { margin: 0; }
+.home .revItem blockquote { margin: 0; }
 
-.home .review blockquote p {
+.home .revItem blockquote p {
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.6;
@@ -2398,16 +2398,16 @@
 }
 
 /* Who said it, at the foot. */
-.home .review .reviewBy {
+.home .revItem .reviewBy {
   margin: auto 0 0;
   padding-top: 20px;
   border-top: 1px solid rgba(243, 238, 228, 0.1);
 }
 
-.home .review .reviewBy .monogram { width: 40px; height: 40px; }
+.home .revItem .reviewBy .monogram { width: 40px; height: 40px; }
 
 /* The gold line fills while the next review waits. */
-.home .timer {
+.home .revTimer {
   display: block;
   height: 2px;
   margin: 26px auto 0;
@@ -2417,14 +2417,14 @@
   border-radius: 2px;
 }
 
-.home .timer i {
+.home .revTimer i {
   display: block;
   height: 100%;
   width: 0;
   background: var(--gold);
 }
 
-.home .timer[data-play='true'] i { animation: reviewTimer var(--dur, 4800ms) linear forwards; }
+.home .revTimer[data-play='true'] i { animation: reviewTimer var(--dur, 4800ms) linear forwards; }
 
 @keyframes reviewTimer {
   from { width: 0; }
@@ -2432,23 +2432,23 @@
 }
 
 @media (min-width: 640px) {
-  .home .stage { --w: 70%; --gap: 20px; }
+  .home .revStage { --w: 70%; --gap: 20px; }
 }
 
 @media (min-width: 1024px) {
-  .home .stage { --w: 46%; --gap: 28px; margin-top: 40px; }
-  .home .review { padding: 32px 34px 28px; }
-  .home .review blockquote p { font-size: 19px; line-height: 1.58; }
-  .home .timer { margin-top: 32px; }
+  .home .revStage { --w: 46%; --gap: 28px; margin-top: 40px; }
+  .home .revItem { padding: 32px 34px 28px; }
+  .home .revItem blockquote p { font-size: 19px; line-height: 1.58; }
+  .home .revTimer { margin-top: 32px; }
 }
 
 @media (min-width: 1440px) {
-  .home .stage { --w: 40%; --gap: 32px; }
+  .home .revStage { --w: 40%; --gap: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home .track,
-  .home .slide,
-  .home .review { transition: none; }
-  .home .timer[data-play='true'] i { animation: none; width: 0; }
+  .home .revTrack,
+  .home .revSlide,
+  .home .revItem { transition: none; }
+  .home .revTimer[data-play='true'] i { animation: none; width: 0; }
 }

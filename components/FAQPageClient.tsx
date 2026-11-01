@@ -1,19 +1,11 @@
 "use client";
 
 import { getScrollBehavior } from '@/lib/scroll';
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRightIcon, MagnifyingGlassIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
+import React, { useState, useEffect, useRef, type ReactNode } from 'react';
+import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import FAQAccordion, { FaqItem } from '@/components/FAQAccordion';
-import { m as motion, AnimatePresence } from 'framer-motion';
-import {
-  QuestionMarkCircleIcon,
-  CalendarIcon,
-  CurrencyDollarIcon,
-  UserGroupIcon,
-  ClockIcon,
-  DocumentTextIcon
-} from '@heroicons/react/24/outline';
+import Reveal from '@/components/home/Reveal';
+import styles from '@/components/faq/Faq.module.css';
 
 interface FAQCategory {
   id: string;
@@ -24,80 +16,75 @@ interface FAQCategory {
 
 interface FAQPageClientProps {
   faqCategories: FAQCategory[];
+  /** The opening's title block, rendered on the server. */
+  hero?: ReactNode;
 }
 
-// Helper function to get icon component based on type
-const getIcon = (iconType: string) => {
-  const iconProps = { className: "w-5 h-5 lg:w-6 lg:h-6" };
-
-  switch (iconType) {
-    case 'question':
-      return <QuestionMarkCircleIcon {...iconProps} />;
-    case 'document':
-      return <DocumentTextIcon {...iconProps} />;
-    case 'clock':
-      return <ClockIcon {...iconProps} />;
-    case 'calendar':
-      return <CalendarIcon {...iconProps} />;
-    case 'currency':
-      return <CurrencyDollarIcon {...iconProps} />;
-    default:
-      return <QuestionMarkCircleIcon {...iconProps} />;
-  }
-};
-
-export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
-  const [activeCategory, setActiveCategory] = useState('getting-started');
+/**
+ * The FAQ page body: the opening with the search beside it, the topics as
+ * plain chips (a sticky column on laptops, a row on phones), then each
+ * topic's questions as hairline disclosures, or the search results while a
+ * search is typed. Every chip is a plain #anchor, so the topics work
+ * without JavaScript.
+ */
+export default function FAQPageClient({ faqCategories, hero }: FAQPageClientProps) {
+  const [activeCategory, setActiveCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredQuestions, setFilteredQuestions] = useState<FaqItem[]>([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [showStickyNav, setShowStickyNav] = useState(false);
-  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
+  const pendingScroll = useRef<string | null>(null);
 
-  // Refs for each section
-  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const searchResultsRef = useRef<HTMLDivElement>(null);
-
-  // Handle scroll to show/hide sticky navigation and update active section
+  // Which topic is being read: the last one whose top has passed a line
+  // just under the header.
   useEffect(() => {
-    const handleScroll = () => {
-      const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
-      setShowStickyNav(window.scrollY > 400 && distanceFromBottom > 300);
-      // Update active category based on scroll position (scroll spy)
-      if (!isSearching) {
-        const sections = Object.entries(sectionRefs.current);
-        const currentSection = sections.find(([id, element]) => {
-          if (!element) return false;
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 200 && rect.bottom >= 200;
-        });
-
-        if (currentSection) {
-          setActiveCategory(currentSection[0]);
-        }
+    if (isSearching) return;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = (document.querySelector('header')?.getBoundingClientRect().height ?? 80) + 120;
+      let current = faqCategories[0]?.id ?? '';
+      for (const category of faqCategories) {
+        const el = document.getElementById(category.id);
+        if (el && el.getBoundingClientRect().top <= line) current = category.id;
       }
+      setActiveCategory(current);
     };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [isSearching, faqCategories]);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const scrollToCategory = (categoryId: string) => {
+    const element = document.getElementById(categoryId);
+    if (!element) return;
+    element.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
+    window.history.replaceState(null, '', `#${categoryId}`);
+  };
+
+  // A topic chosen while a search is showing: clear the search first, then
+  // scroll once the topics are back on the page.
+  useEffect(() => {
+    if (isSearching || !pendingScroll.current) return;
+    const id = pendingScroll.current;
+    pendingScroll.current = null;
+    window.requestAnimationFrame(() => scrollToCategory(id));
   }, [isSearching]);
 
-  // Smooth scroll to section
-  const scrollToSection = (categoryId: string) => {
+  const onChipClick = (e: React.MouseEvent<HTMLAnchorElement>, categoryId: string) => {
+    e.preventDefault();
     setActiveCategory(categoryId);
-    setSearchQuery(''); // Clear search when navigating
-    setIsSearching(false);
-
-    const element = sectionRefs.current[categoryId];
-    if (element) {
-      const yOffset = -120; // Account for sticky header
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({
-        top: y,
-        behavior: getScrollBehavior()
-      });
+    if (isSearching) {
+      pendingScroll.current = categoryId;
+      setSearchQuery('');
+      return;
     }
+    scrollToCategory(categoryId);
   };
 
   // Search functionality
@@ -163,153 +150,111 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   }, [searchQuery, faqCategories]);
 
   return (
-    <>
-      {/* Search Section - Floats above content */}
-      <div className="relative z-30 -mt-8 mb-16 px-4">
-        <div className="max-w-2xl mx-auto">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-white/80 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-            <div className="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-2 flex items-center transition-shadow duration-300 focus-within:shadow-[0_8px_30px_rgb(176,141,87,0.1)] focus-within:border-[#B08D57]/30">
-              <MagnifyingGlassIcon className="w-6 h-6 text-[#B08D57] ml-4 mr-3" />
-              <input
-                type="text"
-                placeholder="Search for answers..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent py-3 text-lg text-slate-800 placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2 focus-visible:rounded-sm font-light"
-                aria-label="Search frequently asked questions"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="p-2 hover:bg-slate-50 rounded-full transition-colors mr-2"
-                  aria-label="Clear search"
-                >
-                  <svg className="h-5 w-5 text-slate-400 hover:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              )}
-            </div>
-          </div>
+    <div className={styles.wrap}>
+      <header className={styles.opening}>
+        {hero}
+        <div className={styles.search}>
+          <MagnifyingGlassIcon aria-hidden="true" />
+          <input
+            type="text"
+            placeholder="Search for answers..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search frequently asked questions"
+          />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              className={`${styles.plain} ${styles.clearSearch}`}
+              aria-label="Clear search"
+            >
+              <XMarkIcon aria-hidden="true" />
+            </button>
+          )}
         </div>
-      </div>
+      </header>
 
-      {/* Sticky Navigation - Desktop Sidebar */}
-      <AnimatePresence>
-        {showStickyNav && !isSearching && (
-          <motion.nav
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-40"
-          >
-            <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl border border-white/50 p-2 space-y-1">
-              {faqCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => scrollToSection(category.id)}
-                  className={`group relative flex items-center w-12 h-12 justify-center rounded-xl transition-all duration-300 ${activeCategory === category.id
-                    ? 'bg-[#B08D57] text-slate-950 shadow-lg shadow-[#B08D57]/20 scale-105'
-                    : 'text-slate-400 hover:bg-slate-50 hover:text-[#B08D57]'
-                    }`}
-                  aria-label={`Go to ${category.name}`}
+      <div className={styles.layout}>
+        <nav className={styles.topics} aria-label="Question topics">
+          <ul className={styles.chips}>
+            {faqCategories.map((category) => (
+              <li key={category.id}>
+                <a
+                  href={`#${category.id}`}
+                  aria-current={!isSearching && activeCategory === category.id ? 'true' : undefined}
+                  onClick={(e) => onChipClick(e, category.id)}
                 >
-                  {getIcon(category.iconType)}
+                  {category.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-                  {/* Tooltip */}
-                  <span className="absolute left-full ml-3 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-slate-700">
-                    {category.name}
-                    <span className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 border-y-4 border-y-transparent border-r-4 border-r-slate-800"></span>
-                  </span>
-                </button>
-              ))}
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-        {/* Search Results */}
-        {isSearching && (
-          <div ref={searchResultsRef} className="animate-fadeIn">
-            <div className="mb-12 text-center">
-              <h2 className="text-2xl font-light text-slate-900 mb-2">
+        <div className={styles.content}>
+          {/* Search Results */}
+          {isSearching && (
+            <div className={styles.results} aria-live="polite">
+              <h2 className={styles.h2}>
                 Search Results
               </h2>
-              <p className="text-slate-500 font-light">
+              <p className={styles.resultCount}>
                 {filteredQuestions.length === 0
                   ? 'No questions found matching your search.'
                   : `Found ${filteredQuestions.length} result${filteredQuestions.length !== 1 ? 's' : ''}`}
               </p>
               {filteredQuestions.length === 0 && (
                 <button
+                  type="button"
                   onClick={() => setSearchQuery('')}
-                  className="mt-6 px-6 py-2.5 bg-[#B08D57] hover:bg-[#C4A26A] text-slate-950 font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm tracking-wide"
+                  className={`${styles.plain} ${styles.clearAll}`}
                 >
                   Clear Search
                 </button>
               )}
-            </div>
 
-            <AnimatePresence mode="wait">
               {filteredQuestions.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="space-y-6"
-                >
+                <div className={styles.resultList}>
                   {filteredQuestions.map((item, index) => (
-                    <div key={index}>
+                    <div key={`${index}-${item.question}`} className={styles.result}>
                       {item.category && (
-                        <div className="mb-2 ml-1">
-                          <span className="text-[10px] font-bold text-[#8A6F0A] uppercase tracking-widest">
-                            {item.category}
-                          </span>
-                        </div>
+                        <span className={`${styles.resultCat} ${styles.mono}`}>
+                          {item.category}
+                        </span>
                       )}
                       <FAQAccordion items={[item]} />
                     </div>
                   ))}
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
-          </div>
-        )}
+            </div>
+          )}
 
-        {/* Regular Category View */}
-        {!isSearching && (
-          <div className="space-y-24 md:space-y-32">
-            {faqCategories.map((category) => (
-              <div
-                key={category.id}
-                id={category.id}
-                ref={(el) => { sectionRefs.current[category.id] = el; }}
-                className="scroll-mt-32"
-              >
-                {/* Section Header */}
-                <div className="flex items-end gap-4 mb-10 pb-4 border-b border-slate-100">
-                  <div className="p-3 rounded-2xl bg-white border border-slate-100 shadow-sm text-[#B08D57]">
-                    {getIcon(category.iconType)}
-                  </div>
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-light text-slate-900 tracking-tight">
+          {/* Regular Category View */}
+          {!isSearching && (
+            <div>
+              {faqCategories.map((category) => (
+                <section
+                  key={category.id}
+                  id={category.id}
+                  className={styles.cat}
+                  aria-labelledby={`${category.id}-title`}
+                >
+                  <Reveal as="div" className={styles.secHead}>
+                    <Reveal as="span" variant="rule" className={styles.accentBar} />
+                    <h2 id={`${category.id}-title`} className={styles.h2}>
                       {category.name}
                     </h2>
-                  </div>
-                </div>
+                  </Reveal>
 
-                <FAQAccordion items={category.questions} />
-              </div>
-            ))}
-          </div>
-        )}
+                  <FAQAccordion items={category.questions} />
+                </section>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-
-    </>
+    </div>
   );
-} 
+}

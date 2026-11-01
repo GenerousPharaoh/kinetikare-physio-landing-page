@@ -1,10 +1,10 @@
 "use client";
 
 import { getScrollBehavior } from '@/lib/scroll';
-import React, { useState, useRef, useEffect, useId } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { m as motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import styles from '@/components/faq/Faq.module.css';
 
 export interface FaqItem {
   question: string;
@@ -29,350 +29,209 @@ const decodeHtmlEntities = (text: string): string => {
   return textarea.value;
 };
 
-// Function to parse markdown in text and convert to React elements
-const parseMarkdown = (text: string): React.ReactNode => {
-  // Handle bold text
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+const LINK_RE = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
 
-  return parts.map((part, index) => {
+// Bold (**text**) and inline <a> tags inside a plain-text answer.
+const parseInline = (text: string, keyBase: string): React.ReactNode => {
+  const out: React.ReactNode[] = [];
+  text.split(/(\*\*[^*]+\*\*)/g).forEach((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
-      // Remove the ** markers and render as bold
-      const boldText = part.slice(2, -2);
-      return <strong key={index} className="font-semibold text-slate-800">{boldText}</strong>;
+      out.push(<strong key={`${keyBase}-b${i}`}>{part.slice(2, -2)}</strong>);
+      return;
     }
-    return part;
-  });
-};
-
-// Function to parse HTML links and convert them to JSX Link components
-const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): React.ReactNode => {
-  // If it's already a React node array, return it
-  if (Array.isArray(text) || React.isValidElement(text)) {
-    return text;
-  }
-
-  // If it's not a string, return as is
-  if (typeof text !== 'string') {
-    return text;
-  }
-
-  // First parse markdown
-  const withMarkdown = parseMarkdown(text);
-
-  // If parseMarkdown returned a string, parse links
-  if (typeof withMarkdown === 'string') {
-    // Regular expression to match anchor tags
-    const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
-
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-
-    while ((match = linkRegex.exec(withMarkdown)) !== null) {
-      // Add text before the link
-      if (match.index > lastIndex) {
-        parts.push(withMarkdown.substring(lastIndex, match.index));
-      }
-
-      // Add the Link component
-      const [fullMatch, href, className, linkText] = match;
-      parts.push(
-        <Link
-          key={`link-${match.index}`}
-          href={href}
-          className={className}
-        >
-          {linkText}
+    let last = 0;
+    let match: RegExpExecArray | null;
+    LINK_RE.lastIndex = 0;
+    while ((match = LINK_RE.exec(part)) !== null) {
+      if (match.index > last) out.push(part.substring(last, match.index));
+      out.push(
+        <Link key={`${keyBase}-l${i}-${match.index}`} href={match[1]} className={styles.link}>
+          {match[3]}
         </Link>
       );
-
-      lastIndex = match.index + fullMatch.length;
+      last = match.index + match[0].length;
     }
-
-    // Add remaining text after the last link
-    if (lastIndex < withMarkdown.length) {
-      parts.push(withMarkdown.substring(lastIndex));
-    }
-
-    // If no links were found, return the markdown parsed text
-    return parts.length > 1 ? parts : withMarkdown;
-  }
-
-  // If parseMarkdown returned an array, process each element for links
-  if (Array.isArray(withMarkdown)) {
-    return withMarkdown.map((element, idx) => {
-      if (typeof element === 'string') {
-        // Regular expression to match anchor tags
-        const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
-
-        const parts = [];
-        let lastIndex = 0;
-        let match;
-
-        while ((match = linkRegex.exec(element)) !== null) {
-          // Add text before the link
-          if (match.index > lastIndex) {
-            parts.push(element.substring(lastIndex, match.index));
-          }
-
-          // Add the Link component
-          const [fullMatch, href, className, linkText] = match;
-          parts.push(
-            <Link
-              key={`link-${idx}-${match.index}`}
-              href={href}
-              className={className}
-            >
-              {linkText}
-            </Link>
-          );
-
-          lastIndex = match.index + fullMatch.length;
-        }
-
-        // Add remaining text after the last link
-        if (lastIndex < element.length) {
-          parts.push(element.substring(lastIndex));
-        }
-
-        // If no links were found, return the original element
-        return parts.length > 1 ? <React.Fragment key={idx}>{parts}</React.Fragment> : element;
-      }
-      return element;
-    });
-  }
-
-  return withMarkdown;
+    if (last < part.length) out.push(part.substring(last));
+  });
+  return out;
 };
 
-// Function to format answers with special formatting
+const KEY_TERMS = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "I Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:", "Dedicated Time & Attention:", "Looking Holistically:", "Emphasis on Education and Active Participation:", "Partnership in Goal Setting:"];
+
+// Answers written as JSX render as they are; plain-text answers are split
+// into paragraphs and lists.
 const formatAnswer = (answer: string | React.ReactNode) => {
-  // If answer is already a React node (JSX), return it directly
   if (typeof answer !== 'string') {
     return answer;
   }
 
-  // Continue with existing string processing for string answers
-  // Split answer by paragraphs
-  const paragraphs = answer.split('\n\n');
+  return answer.split('\n\n').map((raw, i) => {
+    const paragraph = decodeHtmlEntities(raw);
+    const key = `p${i}`;
 
-  return (
-    <div className="space-y-4 text-slate-600 leading-relaxed font-light">
-      {paragraphs.map((paragraph, i) => {
-        // Check if paragraph contains list-like content (starting with -)
-        if (paragraph.includes('- ')) {
-          // This is a list paragraph
-          const listItems = paragraph.split('- ').filter(item => item.trim().length > 0);
-          const beforeList = paragraph.split('- ')[0].trim();
+    if (paragraph.includes('- ')) {
+      const listItems = paragraph.split('- ').filter((item) => item.trim().length > 0);
+      const beforeList = paragraph.split('- ')[0].trim();
+      return (
+        <div key={key}>
+          {beforeList && <p>{parseInline(beforeList, `${key}-intro`)}</p>}
+          <ul className={styles.bullets}>
+            {listItems.map((item, j) => (
+              <li key={j}>{parseInline(item, `${key}-${j}`)}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
 
-          return (
-            <div key={i} className="space-y-3">
-              {beforeList && <p className="text-slate-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(beforeList))}</p>}
-              <ul className="list-none pl-4 space-y-2">
-                {listItems.map((item, j) => (
-                  <li key={j} className="text-slate-600 pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#B08D57]/60">
-                    {parseLinksInText(decodeHtmlEntities(item))}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        }
+    if (paragraph.trim().startsWith('Yes')) {
+      return (
+        <p key={key} className={styles.yes}>
+          <span className={styles.lead}>Yes. </span>
+          {parseInline(paragraph.substring(4), key)}
+        </p>
+      );
+    }
 
-        // Check for emphasized phrases like "... understand the 'why' ..."
-        const hasEmphasis = paragraph.includes("'") && paragraph.split("'").length > 2;
+    const term = KEY_TERMS.find((t) => paragraph.includes(t));
+    if (term) {
+      const parts = paragraph.split(term);
+      return (
+        <p key={key}>
+          {parts.map((part, j) => (
+            <React.Fragment key={j}>
+              {j > 0 && <span className={styles.lead}>{term} </span>}
+              {part && parseInline(part, `${key}-${j}`)}
+            </React.Fragment>
+          ))}
+        </p>
+      );
+    }
 
-        if (hasEmphasis) {
-          const parts = paragraph.split("'");
-          const formattedParts = parts.map((part, j) =>
-            j % 2 === 0 ?
-              parseLinksInText(part) :
-              <span key={j} className="font-medium text-slate-700 italic">{part}</span>
-          );
+    const sentences = paragraph.split('. ');
+    if (sentences.length > 1 && sentences[0].length < 60) {
+      return (
+        <p key={key}>
+          <span className={styles.lead}>{sentences[0]}. </span>
+          {parseInline(sentences.slice(1).join('. '), key)}
+        </p>
+      );
+    }
 
-          return (
-            <p key={i} className="text-slate-600 leading-relaxed">
-              {formattedParts}
-            </p>
-          );
-        }
-
-        // Handle "Yes" answers with more subtle formatting (no color change)
-        if (paragraph.trim().startsWith("Yes")) {
-          return (
-            <p key={i} className="text-slate-600 leading-relaxed pl-4 border-l-2 border-[#B08D57]/30">
-              <span className="font-semibold text-slate-800">Yes. </span>
-              {parseLinksInText(decodeHtmlEntities(paragraph.substring(4)))}
-            </p>
-          );
-        }
-
-        // Bold first sentence of paragraphs that look like headers (shorter than 60 chars)
-        const sentences = paragraph.split('. ');
-        if (sentences.length > 1 && sentences[0].length < 60) {
-          return (
-            <p key={i} className="text-slate-600 leading-relaxed">
-              <span className="font-medium text-slate-800">{decodeHtmlEntities(sentences[0])}. </span>
-              {parseLinksInText(decodeHtmlEntities(sentences.slice(1).join('. ')))}
-            </p>
-          );
-        }
-
-        // Highlight key terms with consistent styling
-        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "I Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:", "Dedicated Time & Attention:", "Looking Holistically:", "Emphasis on Education and Active Participation:", "Partnership in Goal Setting:"];
-        for (const term of keyTerms) {
-          if (paragraph.includes(term)) {
-            const parts = paragraph.split(term);
-            const formattedParts = [];
-
-            for (let j = 0; j < parts.length; j++) {
-              if (j > 0) {
-                formattedParts.push(
-                  <span key={`term-${j}`} className="font-semibold text-slate-800 block mb-1">{term} </span>
-                );
-              }
-              if (parts[j]) {
-                formattedParts.push(<span key={`content-${j}`}>{parseLinksInText(decodeHtmlEntities(parts[j]))}</span>);
-              }
-            }
-
-            return (
-              <p key={i} className="text-slate-600 leading-relaxed">
-                {formattedParts}
-              </p>
-            );
-          }
-        }
-
-        return <p key={i} className="text-slate-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(paragraph))}</p>;
-      })}
-    </div>
-  );
+    return <p key={key}>{parseInline(paragraph, key)}</p>;
+  });
 };
 
-const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(defaultOpen);
-  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const hashTarget = useRef<number | null>(null);
-  const baseId = useId();
+/**
+ * One question: a native <details> so it opens without JavaScript and in
+ * the browser's find-in-page. With JavaScript the click is taken over so
+ * the answer's height can ease open and closed (the `open` attribute is
+ * removed only after the closing ease).
+ */
+function Question({ item, initiallyOpen }: { item: FaqItem; initiallyOpen: boolean }) {
+  const ref = useRef<HTMLDetailsElement>(null);
+  const [open, setOpen] = useState(initiallyOpen);
+  const openRef = useRef(open);
+  const timer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    // Handle direct link to a specific FAQ via URL hash
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash;
-      if (hash) {
-        const faqId = hash.replace('#', '');
-        // Only try to find by ID if the items have an id property
-        const index = items.findIndex(item => item.id && item.id === faqId);
-        if (index !== -1) {
-          hashTarget.current = index;
-          setActiveIndex(index);
-        }
-      }
-    }
-  }, [items]);
+    openRef.current = open;
+  }, [open]);
 
-  const toggleQuestion = (index: number) => {
-    hashTarget.current = null;
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  useEffect(() => () => window.clearTimeout(timer.current), []);
 
-  const keepQuestionVisible = (index: number) => {
-    const trigger = triggerRefs.current[index];
-    if (!trigger || trigger.getAttribute('aria-expanded') !== 'true') return;
-    const top = trigger.getBoundingClientRect().top;
+  // A direct link to this question (#id) opens it and brings it into view.
+  useEffect(() => {
+    if (!item.id || window.location.hash !== `#${item.id}`) return;
+    const d = ref.current;
+    if (!d) return;
+    d.open = true;
+    setOpen(true);
+    timer.current = window.setTimeout(() => {
+      const top = d.getBoundingClientRect().top;
+      const clearance = (document.querySelector('header')?.getBoundingClientRect().height ?? 80) + 16;
+      window.scrollTo({ top: Math.max(0, window.scrollY + top - clearance), behavior: getScrollBehavior() });
+    }, 480);
+  }, [item.id]);
+
+  // Opening an answer already on screen does not move the page; only a
+  // question that has slipped under the fixed header is brought back.
+  const keepVisible = () => {
+    const d = ref.current;
+    if (!d || !openRef.current) return;
+    const top = d.getBoundingClientRect().top;
     const clearance = (document.querySelector('header')?.getBoundingClientRect().height ?? 80) + 16;
-    // Opening an answer already on screen should not move the page. Only
-    // recover a question covered by the header, or honour a direct FAQ link.
-    if (hashTarget.current === index || top < clearance) {
-      hashTarget.current = null;
+    if (top < clearance) {
       window.scrollTo({ top: Math.max(0, window.scrollY + top - clearance), behavior: getScrollBehavior() });
     }
   };
 
-  // Track if all answer spans have been generated to assign unique IDs for accessibility
-  const generateId = (index: number) => `${baseId}-faq-${index}`;
+  const onSummaryClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    const d = ref.current;
+    if (!d) return;
+    window.clearTimeout(timer.current);
+    if (!openRef.current) {
+      d.open = true;
+      // Commit the closed height before the row eases open.
+      void d.offsetHeight;
+      openRef.current = true;
+      setOpen(true);
+      timer.current = window.setTimeout(keepVisible, 470);
+    } else {
+      openRef.current = false;
+      setOpen(false);
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      timer.current = window.setTimeout(() => {
+        if (!openRef.current && ref.current) ref.current.open = false;
+      }, reduce ? 0 : 450);
+    }
+  };
+
+  // The browser can open a closed row itself (find in page).
+  const onToggle = () => {
+    const d = ref.current;
+    if (d?.open && !openRef.current) {
+      openRef.current = true;
+      setOpen(true);
+    }
+  };
 
   return (
-    <div className="space-y-4">
-      {items.map((item, index) => {
-        const isActive = activeIndex === index;
-        const questionId = `${baseId}-question-${index}`;
-        const answerId = `${baseId}-answer-${index}`;
+    <details
+      ref={ref}
+      id={item.id}
+      className={styles.discItem}
+      data-open={open ? 'true' : 'false'}
+      open={initiallyOpen || undefined}
+      onToggle={onToggle}
+    >
+      <summary onClick={onSummaryClick}>
+        <h3 className={styles.question}>{decodeHtmlEntities(item.question)}</h3>
+        <PlusIcon aria-hidden="true" />
+      </summary>
+      <div className={styles.discBody}>
+        <div>
+          <div className={styles.answer}>{formatAnswer(item.answer)}</div>
+        </div>
+      </div>
+    </details>
+  );
+}
 
-        return (
-          <div
-            key={index}
-            className={`border-b border-slate-100 last:border-0 transition-all duration-300 ${isActive ? 'pb-6' : 'pb-0'
-              }`}
-          >
-            <button
-              ref={(el) => {
-                if (triggerRefs.current) {
-                  triggerRefs.current[index] = el;
-                }
-              }}
-              id={questionId}
-              aria-expanded={isActive}
-              aria-controls={answerId}
-              onClick={() => toggleQuestion(index)}
-              className="flex items-start justify-between w-full py-6 text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2 focus-visible:rounded-sm"
-            >
-              <span className="flex-1 pr-6 flex items-start gap-4">
-                <span className={`text-2xl font-light tabular-nums opacity-20 transition-colors duration-300 ${isActive ? 'text-[#B08D57] opacity-100' : 'group-hover:text-[#B08D57] group-hover:opacity-40'
-                  }`}>
-                  {(index + 1).toString().padStart(2, '0')}
-                </span>
-                <span className="flex flex-col">
-                  <span className={`text-lg transition-colors duration-300 font-medium leading-relaxed ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
-                    }`}>
-                    {decodeHtmlEntities(item.question)}
-                  </span>
-                  {item.category && (
-                    <span className="mt-1 text-xs font-medium text-[#8A6F0A] uppercase tracking-wider opacity-80">
-                      {item.category}
-                    </span>
-                  )}
-                </span>
-              </span>
-              <motion.div
-                animate={{ rotate: isActive ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${isActive
-                    ? 'border-[#B08D57] text-[#8A6F0A] bg-[#B08D57]/5'
-                    : 'text-slate-400 group-hover:border-[#B08D57]/50 group-hover:text-[#B08D57]'
-                  }`}
-              >
-                <ChevronDownIcon className="w-4 h-4" strokeWidth={2} />
-              </motion.div>
-            </button>
+const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }) => {
+  // Set once hydrated: the eased height applies only when the script that
+  // drives it is running.
+  const [enhanced, setEnhanced] = useState(false);
+  useEffect(() => setEnhanced(true), []);
 
-            <AnimatePresence initial={false}>
-              {isActive && (
-                <motion.div
-                  id={answerId}
-                  role="region"
-                  aria-labelledby={questionId}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
-                  onAnimationComplete={() => keepQuestionVisible(index)}
-                  className="overflow-hidden"
-                >
-                  <div className="pl-12 md:pl-14 pr-4 pb-2">
-                    <div className="prose prose-sm prose-slate max-w-none text-slate-600 font-light">
-                      {formatAnswer(item.answer)}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        );
-      })}
+  return (
+    <div className={styles.disc} data-enhanced={enhanced ? '' : undefined}>
+      {items.map((item, index) => (
+        <Question key={`${index}-${item.question}`} item={item} initiallyOpen={defaultOpen === index} />
+      ))}
     </div>
   );
 };
 
-export default FAQAccordion; 
+export default FAQAccordion;

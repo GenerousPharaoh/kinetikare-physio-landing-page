@@ -2,6 +2,7 @@ import { serializeJsonLd } from '@/lib/structured-data';
 import { CPO_REGISTER_URL } from '@/lib/registration';
 import './globals.css';
 import { Inter, Playfair_Display } from 'next/font/google';
+import { geist } from '@/components/conditions/case/fonts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -350,7 +351,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${geist.variable}`}>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#D4AF37] focus:text-slate-950 focus:rounded focus:text-sm focus:font-medium">
           Skip to main content
         </a>

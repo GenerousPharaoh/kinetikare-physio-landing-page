@@ -349,3 +349,24 @@
 @media (prefers-reduced-motion: reduce) {
   .footer a, .badgeCore, .badgeCore svg { transition: none; }
 }
+
+/* The statement follows the home page into Geist (2026-11-01). */
+.footer .statement {
+  font-family: var(--font-geist), 'Geist', var(--sans);
+  font-weight: 600;
+  font-size: clamp(38px, 10.5vw, 56px);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+.footer .statement em {
+  font-family: inherit;
+  font-style: normal;
+  margin-top: 0.1em;
+}
+
+/* Day names and any other display type in the footer follow the statement into Geist. */
+.weekDay {
+  font-family: var(--font-geist), 'Geist', var(--sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}

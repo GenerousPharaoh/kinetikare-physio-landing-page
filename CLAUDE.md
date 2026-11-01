@@ -173,6 +173,10 @@ Polish rounds of 2026-11-01 (commits ef3b2a3, 7232a56, d19b622, and round three)
 
 Phones (2026-11-01): the strip under the header is a scrolling row of section tabs (`secTabs`, active tab kept in view) with a list button that opens the sheet; every section ends in a "Next: <section>" link (`nextLink`, hidden from 1024px). The site footer's scroll lift was removed the same day because `overflow: hidden` on the footer clipped it; do not bring it back.
 
+Phones since 2026-11-01 (later the same day): no bottom booking bar (Kareem: "annoying and takes up too much space"); the section list drops down from the strip as a dark two-column panel (`panelNav`), not a bottom sheet (he found that "very ugly"); the strip button toggles it.
+
+**Home page (2026-11-01):** the sections after the hero are set in Geist through one override block appended at the end of `components/home/Home.module.css` (hero keeps Archivo + Playfair italic); on phones each atlas region opens with its plate in the flow (`chapterPlate`, the sticky stage is desktop only), the journey has no numerals, and hours are a day list under 640px (`weekList`). A deeper home rebuild is still open.
+
 Checks after any template change: `npx tsc --noEmit`, `npm run lint`, `npm run build`, start on 4040, then `node_modules/.bin/jiti scripts/case-template-check.ts` (every page against its data: sections, self-care items, FAQs, studies, differentials, symptoms, red flags, booking sources) and `node scripts/check-ui-links.mjs`.
 
 ## Condition page layout (2026-10-08)

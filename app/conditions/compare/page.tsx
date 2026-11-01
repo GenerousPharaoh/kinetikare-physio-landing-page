@@ -1,13 +1,9 @@
 import { JANE_ASSESSMENT_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import {
-  ChevronRightIcon,
-  ArrowsRightLeftIcon,
-  ArrowRightIcon,
-  CalendarIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import {
   contentDateFor,
   SEO_AUTHOR,
@@ -16,6 +12,7 @@ import {
   SEO_PUBLISHER,
 } from '@/lib/seo-metadata';
 import { CONDITION_COMPARISONS } from '@/lib/condition-comparisons';
+import { Crumbs, cs, g, GuideMain, Head } from '@/components/guides/GuideKit';
 
 // Hip, knee and buttock comparisons first; the elbow pair last (not promoted).
 const DISPLAY_ORDER = [
@@ -127,106 +124,81 @@ export default function ComparisonIndexPage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(webPageSchema) }}
       />
 
-      <main className="min-h-screen">
-        {/* Hero */}
-        <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-5xl">
-              <nav
-                aria-label="Breadcrumb"
-                className="flex items-center space-x-2 text-sm text-slate-600 mb-4"
+      <GuideMain>
+        <div className={`${g.frame} ${g.narrow}`}>
+          <header className={g.opening}>
+            <Crumbs
+              items={[
+                { href: '/', label: 'Home' },
+                { href: '/conditions', label: 'Conditions' },
+                { label: 'Compare' },
+              ]}
+            />
+
+            <h1 className={cs.h1}>
+              Conditions that get confused, compared
+            </h1>
+
+            <p className={cs.summary}>
+              Some conditions sit close enough together that people (and sometimes
+              clinicians) get them mixed up. These pages lay the patterns side by
+              side: where the pain sits, what triggers it, which tests help tell them
+              apart, and what I check in clinic. Symptoms alone do not settle a diagnosis,
+              and the two can also occur together.
+            </p>
+
+            <div className={`${cs.actions} ${g.acts}`}>
+              <Link
+                href={JANE_ASSESSMENT_URL} data-booking-source="compare_page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cs.btnInk}
               >
-                <Link
-                  href="/"
-                  className="hover:text-[#B08D57] transition-colors duration-200"
-                >
-                  Home
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <Link
-                  href="/conditions"
-                  className="hover:text-[#B08D57] transition-colors duration-200"
-                >
-                  Conditions
-                </Link>
-                <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Compare</span>
-              </nav>
-
-              <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Conditions that get confused, compared
-              </h1>
-
-              <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Some conditions sit close enough together that people (and sometimes
-                clinicians) get them mixed up. These pages lay the patterns side by
-                side: where the pain sits, what triggers it, which tests help tell them
-                apart, and what I check in clinic. Symptoms alone do not settle a diagnosis,
-                and the two can also occur together.
-              </p>
-
-              <div className="mt-5 flex flex-wrap items-center gap-2">
-                <Link
-                  href={JANE_ASSESSMENT_URL} data-booking-source="compare_page"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
-                >
-                  <CalendarIcon className="h-4 w-4" />
-                  Book an Assessment
-                </Link>
-                <Link
-                  href="/conditions"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                >
-                  All Conditions
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
-              </div>
+                Book an Assessment
+                <ArrowRightIcon aria-hidden="true" />
+              </Link>
+              <Link href="/conditions" className={cs.btnLine}>
+                All Conditions
+                <ArrowRightIcon aria-hidden="true" />
+              </Link>
             </div>
-          </div>
-        </section>
+          </header>
 
-        {/* Comparison list */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <ArrowsRightLeftIcon className="h-5 w-5 text-[#B08D57]" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Comparisons available
-                </h2>
-              </div>
+          {/* Comparison list */}
+          <section className={g.sec}>
+            <Head title="Comparisons available" />
 
-              <div className="grid gap-5">
-                {ORDERED_COMPARISONS.map((comparison) => (
-                  <Link
-                    key={comparison.pair}
-                    href={`/conditions/compare/${comparison.pair}`}
-                    className="group bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-all block"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
+            <ul className={g.pairs}>
+              {ORDERED_COMPARISONS.map((comparison) => (
+                <li key={comparison.pair}>
+                  <Link href={`/conditions/compare/${comparison.pair}`} className={g.pairRow}>
+                    <span className={g.duo} aria-hidden="true">
+                      {[comparison.conditionA.slug, comparison.conditionB.slug].map((slug) => (
+                        <span key={slug} className={g.thumb}>
+                          <Image src={`/images/conditions/${slug}.webp`} alt="" fill sizes="60px" />
+                        </span>
+                      ))}
+                    </span>
+                    <div>
+                      <h3 className={g.pairTitle}>
+                        <span>
                           {comparison.conditionA.shortName}{' '}
-                          <span className="text-slate-400 font-normal">vs.</span>{' '}
+                          <span className={g.vs}>vs.</span>{' '}
                           {comparison.conditionB.shortName}
-                        </h3>
-                        <p className="text-sm text-slate-700 leading-relaxed">
-                          {comparison.atAGlance}
-                        </p>
-                      </div>
-                      <ArrowRightIcon className="h-5 w-5 text-slate-400 group-hover:text-[#B08D57] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
+                        </span>
+                        <ArrowRightIcon aria-hidden="true" />
+                      </h3>
+                      <p className={g.pairText}>
+                        {comparison.atAGlance}
+                      </p>
                     </div>
                   </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </GuideMain>
     </>
   );
 }

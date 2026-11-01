@@ -25,12 +25,14 @@ export default function CaseInstrument({
   name,
   region,
   plateName,
+  reviewed,
 }: {
   sections: CaseSection[];
   slug: string;
   name: string;
   region: string;
   plateName?: string;
+  reviewed?: string | null;
 }) {
   const pagePath = `/conditions/${slug}`;
   const [active, setActive] = useState('top');
@@ -131,12 +133,16 @@ export default function CaseInstrument({
           <span className={styles.mono}>{region} · Condition</span>
         </span>
         <p className={styles.instName}>{name}</p>
+        {reviewed && <p className={styles.instMeta}>Kareem Hassanein, Registered Physiotherapist · Reviewed {reviewed}</p>}
         <CasePlate key={slug} slug={slug} priority zoom={zoom} className={styles.viewer} sizes="300px" />
         {plateName && (
           <p className={`${styles.viewerCap} ${styles.mono}`}>
             Plate <b>{plateName}</b>
           </p>
         )}
+        <div className={styles.instProgress} aria-hidden="true" style={{ '--p': `${Math.round(progress * 100)}%` } as CSSProperties}>
+          <i />
+        </div>
         <nav aria-label="On this page">
           <div ref={listRef} className={styles.index}>
             <span aria-hidden="true" className={styles.indicator} style={{ '--it': `${marker.top}px`, height: marker.height } as CSSProperties} />

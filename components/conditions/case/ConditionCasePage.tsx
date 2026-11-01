@@ -9,7 +9,7 @@ import {
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
 import type { Condition } from '@/lib/conditions-data';
-import { getDetailedRelationships } from '@/lib/conditions-data';
+import { getAllConditions, getDetailedRelationships } from '@/lib/conditions-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
 import { getConditionHub } from '@/lib/condition-hubs';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
@@ -27,7 +27,7 @@ import Print from '@/components/Print';
 import Reveal from '@/components/home/Reveal';
 import GlossaryText from '../GlossaryText';
 import { comparisonQuestion } from '../ComparisonCrossLinks';
-import { CONDITION_PLATES } from '../RegionAnatomy';
+import { CONDITION_PLATES } from '@/lib/condition-plates';
 import { geist } from './fonts';
 import CasePlate from './CasePlate';
 import CaseInstrument from './CaseInstrument';
@@ -124,6 +124,7 @@ function Citation({ research }: { research: NonNullable<Condition['keyResearch']
 function Head({ title, stand }: { title: React.ReactNode; stand?: string }) {
   return (
     <Reveal as="div" className={styles.secHead}>
+      <Reveal as="span" variant="rule" className={styles.accentBar} />
       <h2 className={styles.h2}>{title}</h2>
       {stand && <p className={styles.stand}>{stand}</p>}
     </Reveal>
@@ -189,6 +190,11 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
   const excludeSlugs = linkedDifferentialSlugs((condition.differentialDiagnosis ?? []).map((d) => d.condition), conditionSlug);
   const related = relatedConditions.filter((r) => !excludeSlugs.has(r.slug) && explanationBySlug.get(r.slug)).slice(0, 6);
   const reviewed = reviewedLabel(condition.lastReviewed);
+  // Sibling conditions in the same hub (or category when there is no hub).
+  const siblings = getAllConditions()
+    .filter((c) => c.slug !== conditionSlug && (conditionHub ? getConditionHub(c.slug, c.category)?.path === conditionHub.path : c.category === condition.category))
+    .filter((c) => CONDITION_PLATES[c.slug])
+    .slice(0, 8);
   const trackSpans = phases.map((p) => splitPhaseTitle(p.title)).filter((p) => p.when);
 
   const sections = [
@@ -215,7 +221,7 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
   return (
     <main className={`${styles.case} ${geist.variable}`} data-case-page="">
       <div className={styles.shell}>
-        <CaseInstrument sections={sections} slug={conditionSlug} name={condition.name} region={region} plateName={plateName} />
+        <CaseInstrument sections={sections} slug={conditionSlug} name={condition.name} region={region} plateName={plateName} reviewed={reviewed} />
 
         <div className={styles.sheet}>
           <div className={styles.column} data-case-column="">
@@ -276,9 +282,11 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 <nav className={styles.glance} aria-label="At a glance">
                   {glance.map((row) => (
                     <a key={row.label} href={row.href}>
-                      <span className={styles.mono}>{row.label}</span>
+                      <span className={styles.mono}>
+                        {row.label}
+                        <ArrowDownIcon aria-hidden="true" />
+                      </span>
                       <span className={styles.glanceText}>{row.text}</span>
-                      <ArrowDownIcon aria-hidden="true" />
                     </a>
                   ))}
                 </nav>
@@ -291,10 +299,10 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                 <Head title="Does this sound like you?" />
                 {condition.clinicalPresentation?.primarySymptoms && (
                   <ul className={`${styles.rows} ${styles.rowsTwo}`} role="list">
-                    {condition.clinicalPresentation.primarySymptoms.map((symptom) => (
-                      <li key={symptom}>
+                    {condition.clinicalPresentation.primarySymptoms.map((symptom, i) => (
+                      <Reveal as="li" key={symptom} delay={Math.min(i, 5) * 50}>
                         <span>{symptom}</span>
-                      </li>
+                      </Reveal>
                     ))}
                   </ul>
                 )}
@@ -641,13 +649,13 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
                       const relevance = r.clinicalRelevance || r.relevance;
                       const meta = [r.year, r.journal].filter(Boolean).join(' · ');
                       return (
-                        <li key={i} className={styles.study}>
+                        <Reveal as="li" key={i} className={styles.study} delay={Math.min(i, 3) * 70}>
                           {meta && <span className={`${styles.studyMeta} ${styles.mono}`}>{meta}</span>}
                           {title && <h3 className={styles.studyFinding}>{title}</h3>}
                           {body && <p className={styles.studyBody}>{sentence(body)}</p>}
                           {relevance && <p className={styles.studyWhy}>{sentence(relevance)}</p>}
                           <Citation research={r} />
-                        </li>
+                        </Reveal>
                       );
                     })}
                   </CaseResearch>
@@ -741,6 +749,24 @@ export default function ConditionCasePage({ condition, relatedConditions, condit
             <Print {...ILLUSTRATIONS[CATEGORY_PRINT[condition.category] ?? 'walking']} sizes="300px" />
           </Reveal>
         </div>
+        {siblings.length > 0 && (
+          <div className={styles.siblings}>
+            <div className={styles.siblingsHead}>
+              <h2>More {conditionHub ? `in ${conditionHub.name.toLowerCase()}` : `in ${region.toLowerCase()}`}</h2>
+              {conditionHub && <Link href={conditionHub.path}>The {conditionHub.name.toLowerCase()} guide</Link>}
+            </div>
+            <div className={styles.siblingsRow}>
+              {siblings.map((c) => (
+                <Link key={c.slug} href={`/conditions/${c.slug}`}>
+                  <span className={styles.siblingThumb}>
+                    <Image src={`/images/conditions/${c.slug}.webp`} alt="" fill sizes="48px" />
+                  </span>
+                  {c.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <CaseActionBar />
